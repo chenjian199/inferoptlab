@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/benchmark-scenario.json",
+  "title": "BenchmarkScenario 0.2.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.2.0"
+    },
+    "kind": {
+      "const": "BenchmarkScenario"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/provenance"
+      },
+      "minItems": 0
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/issue"
+      },
+      "minItems": 0
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_.-]*$"
+      }
+    },
+    "case_ref": {
+      "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+    },
+    "dataset_dir": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "version",
+    "title",
+    "provenance",
+    "issues",
+    "extensions",
+    "case_ref",
+    "dataset_dir"
+  ],
+  "additionalProperties": false
+}

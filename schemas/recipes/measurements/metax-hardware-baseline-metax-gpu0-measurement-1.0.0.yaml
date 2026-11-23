@@ -1,0 +1,132 @@
+schema_version: 0.2.0
+kind: HardwareMeasurement
+id: metax-hardware-baseline-metax-gpu0-measurement
+version: 1.0.0
+title: metax-hardware-baseline-metax-gpu0 single-device kernel measurements
+provenance:
+- source_ref:
+    id: source-metax-hardware-baseline-metax
+    version: 1.0.0
+  locator: /attempts/0/result
+issues: []
+extensions:
+  hardware.protocol:
+    gemm_shapes:
+    - - 4096
+      - 4096
+      - 4096
+    dtypes:
+    - float16
+    - bfloat16
+    - float32
+    copy_sizes_mib:
+    - 256
+    warmup_iterations: 10
+    iterations_per_sample: 20
+    repeats: 5
+    max_allocation_mib: 1024
+    timeout_seconds: 150
+hardware_ref:
+  id: metax-hardware-baseline-metax-host
+  version: 1.0.0
+runtime_ref:
+  id: metax-hardware-baseline-metax-gpu0-runtime
+  version: 1.0.0
+captured_at: '2026-11-23T08:02:15.211025+00:00'
+device_ids:
+- metax-gpu0-AENA2402001182
+evidence_kind: measured
+isolation: exclusive_preflight_only
+timer: torch.cuda.Event.elapsed_time
+measurements:
+- name: gemm_float16_4096x4096x4096
+  metric: gemm
+  dtype: torch.float16
+  shape_mnk:
+  - 4096
+  - 4096
+  - 4096
+  payload_bytes: null
+  warmup_iterations: 10
+  iterations_per_sample: 20
+  samples_ms:
+  - 0.6100224018096924
+  - 0.6100224018096924
+  - 0.6102911949157714
+  - 0.6104576110839843
+  - 0.6102528095245361
+  statistic: median
+  value: 225.21642068158977
+  unit: TFLOPS
+  correctness: passed
+  formula: 2*M*N*K/(median_ms/1000)/1e12
+- name: gemm_bfloat16_4096x4096x4096
+  metric: gemm
+  dtype: torch.bfloat16
+  shape_mnk:
+  - 4096
+  - 4096
+  - 4096
+  payload_bytes: null
+  warmup_iterations: 10
+  iterations_per_sample: 20
+  samples_ms:
+  - 0.6105472087860108
+  - 0.6108160018920898
+  - 0.6110720157623291
+  - 0.6105599880218506
+  - 0.6106368064880371
+  statistic: median
+  value: 225.07479407023357
+  unit: TFLOPS
+  correctness: passed
+  formula: 2*M*N*K/(median_ms/1000)/1e12
+- name: gemm_float32_4096x4096x4096
+  metric: gemm
+  dtype: torch.float32
+  shape_mnk:
+  - 4096
+  - 4096
+  - 4096
+  payload_bytes: null
+  warmup_iterations: 10
+  iterations_per_sample: 20
+  samples_ms:
+  - 4.690457534790039
+  - 4.691097640991211
+  - 4.691353607177734
+  - 4.691212844848633
+  - 4.69114875793457
+  statistic: median
+  value: 29.297504846661894
+  unit: TFLOPS
+  correctness: passed
+  formula: 2*M*N*K/(median_ms/1000)/1e12
+- name: device_copy_256mib
+  metric: device_copy
+  dtype: torch.float32
+  shape_mnk: null
+  payload_bytes: 268435456
+  warmup_iterations: 10
+  iterations_per_sample: 20
+  samples_ms:
+  - 0.3927040100097656
+  - 0.39059200286865237
+  - 0.390720009803772
+  - 0.39083518981933596
+  - 0.3908224105834961
+  statistic: median
+  value: 1373.6953088193027
+  unit: GB/s
+  correctness: passed
+  formula: 2*payload_bytes/(median_ms/1000)/1e9
+limitations:
+- Selected shapes, dtypes and copy sizes only; not a theoretical peak or model throughput.
+- Device copy counts read plus write bytes; cache effects are possible, especially
+  for small buffers.
+- No PCIe host transfer, P2P, collective, inter-node bandwidth or sustained thermal/power
+  test.
+- Host idle snapshots and a cooperative lock do not guarantee exclusive access throughout
+  the test.
+- Constant tensors provide a smoke correctness check, not comprehensive numerical
+  validation.

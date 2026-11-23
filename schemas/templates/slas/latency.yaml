@@ -1,0 +1,105 @@
+schema_version: 0.2.0
+kind: RecipeTemplate
+id: template-slas-latency
+version: 1.0.0
+title: 单项时延 SLA 模板
+provenance: []
+issues: []
+extensions: {}
+target_kind: SLAProfile
+parameters:
+  id:
+    type: string
+    description: 新 SLA 配方唯一 ID
+  title:
+    type: string
+    description: 配方名称
+  metric:
+    type: string
+    description: 时延指标
+    enum:
+    - ttft
+    - tpot
+    - itl
+    - chunk_interval
+    - e2e_latency
+  statistic:
+    type: string
+    description: 统计量，不自动将 mean 转成 p95
+    enum:
+    - mean
+    - p50
+    - p90
+    - p95
+    - p99
+    - max
+  operator:
+    type: string
+    description: 严格/非严格比较符
+    enum:
+    - lt
+    - le
+    - gt
+    - ge
+    - eq
+  threshold_ms:
+    type: number
+    minimum: 0
+    description: 毫秒阈值
+  raw_text:
+    type: string
+    description: 来源原文或正式约定
+  population:
+    type: string
+    description: 统计分母
+    enum:
+    - all_planned_requests
+    - sent_requests
+    - successful_requests
+    - completed_requests
+  provenance:
+    type: array
+    description: 来源及定位
+    default: []
+  joint_request_slo:
+    type:
+    - string
+    - 'null'
+    default: null
+    description: joint_request_slo；草案允许null，冻结检查决定是否必填。
+body:
+  schema_version: 0.2.0
+  kind: SLAProfile
+  id:
+    $param: id
+  version: 1.0.0
+  title:
+    $param: title
+  provenance:
+    $param: provenance
+  issues: []
+  extensions: {}
+  constraints:
+  - id: latency
+    metric:
+      $param: metric
+    scope: case
+    statistic:
+      $param: statistic
+    operator:
+      $param: operator
+    threshold:
+      value:
+        $param: threshold_ms
+    unit: ms
+    normalization:
+      basis: system
+    severity: hard
+    population:
+      $param: population
+    raw_text:
+      $param: raw_text
+  joint_request_slo:
+    $param: joint_request_slo
+  quality_requirements: []
+  conditional_requirements: []

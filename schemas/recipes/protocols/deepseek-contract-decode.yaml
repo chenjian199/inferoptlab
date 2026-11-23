@@ -1,0 +1,43 @@
+schema_version: 0.2.0
+kind: MeasurementProtocol
+id: deepseek-contract-decode
+version: 1.0.0
+title: deepseek-contract-decode
+provenance:
+- source_ref:
+    id: source-deepseek-project
+    version: 1.0.0
+  locator: 1.4 测试方法
+issues:
+- code: incomplete-measurement-protocol
+  path: /timing
+  reason: 来源未完整规定计时边界、统计窗口、失败分母、预热、超时和重复安排。
+  status: missing
+  blocking: true
+extensions: {}
+scope: decode
+method: prefix_reuse_decode
+allowed_deployment_modes:
+- aggregated
+timing:
+  ttft_boundary: unspecified
+  tpot_boundary: unspecified
+  token_timestamps: unverified
+  window: unspecified
+  start: unspecified
+  finish: unspecified
+execution:
+  warmup: null
+  timeout_s: null
+  repetitions: null
+  profiler_during_scoring: null
+accounting:
+  primary_population: unspecified
+  failure_policy: unspecified
+  logical_request_deduplication: null
+steps:
+- 禁用 PD 分离
+- 启用 prefix cache
+- 输入输出按 case
+- 随机生成一条请求，复制为若干条并同时发送
+- 记录平均 TPOT 和 Decode QPS

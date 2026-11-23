@@ -1,0 +1,83 @@
+schema_version: 0.2.0
+kind: RecipeTemplate
+id: template-benchmarks-plan
+version: 1.0.0
+title: template-benchmarks-plan
+provenance: []
+issues: []
+extensions: {}
+target_kind: BenchmarkPlan
+parameters:
+  id:
+    type: string
+    description: id; validated by the target schema.
+  version:
+    type: string
+    description: version; validated by the target schema.
+  title:
+    type: string
+    description: title; validated by the target schema.
+  provenance:
+    type: array
+    description: provenance; validated by the target schema.
+  issues:
+    type: array
+    description: issues; validated by the target schema.
+  extensions:
+    type: object
+    description: extensions; validated by the target schema.
+  study_ref:
+    type: object
+    description: study_ref; validated by the target schema.
+  scenario_refs:
+    type: array
+    description: scenario_refs; validated by the target schema.
+  deployment_refs:
+    type: array
+    description: deployment_refs; validated by the target schema.
+  mode:
+    type: string
+    description: mode; validated by the target schema.
+  aiperf:
+    type: object
+    description: aiperf; validated by the target schema.
+  budget:
+    type: object
+    description: budget; validated by the target schema.
+  order_seed:
+    type: integer
+    description: order_seed; validated by the target schema.
+  failure_policy:
+    type: string
+    description: failure_policy; validated by the target schema.
+body:
+  schema_version: 0.2.0
+  kind: BenchmarkPlan
+  id:
+    $param: id
+  version:
+    $param: version
+  title:
+    $param: title
+  provenance:
+    $param: provenance
+  issues:
+    $param: issues
+  extensions:
+    $param: extensions
+  study_ref:
+    $param: study_ref
+  scenario_refs:
+    $param: scenario_refs
+  deployment_refs:
+    $param: deployment_refs
+  mode:
+    $param: mode
+  aiperf:
+    $param: aiperf
+  budget:
+    $param: budget
+  order_seed:
+    $param: order_seed
+  failure_policy:
+    $param: failure_policy

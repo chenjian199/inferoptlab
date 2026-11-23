@@ -1,0 +1,111 @@
+schema_version: 0.2.0
+kind: AnalysisMethod
+id: memory-state
+version: 1.0.0
+title: 权重、KV 与辅助状态的容量和带宽
+provenance:
+- source_ref:
+    id: source-design-v2
+    version: 1.0.0
+  locator: 项目资料中的方法线索；本卡为本项目设计，不是来源中的已验证性能结论
+issues: []
+extensions: {}
+tags:
+- memory
+- capacity
+- bandwidth
+applicability:
+  architectures:
+  - any
+  conditions:
+  - 并发受显存限制、状态随上下文增长，或设备访存量可能解释执行时间。
+  - 必须绑定目标模型、实现版本、实际设备和测试协议，历史结果仅提供线索。
+implementation: planning_only
+signals:
+- 并发受显存限制、状态随上下文增长，或设备访存量可能解释执行时间。
+alternative_explanations:
+- allocator reserved 不等于 live allocated
+- 权重重排、量化尺度、图池或临时工作区
+- 带宽不足与容量不足是不同问题
+required_evidence:
+- allocation_lifetime
+- resident_memory_breakdown
+- state_layout
+- memory_traffic_counters
+- matched_copy_calibration
+capture:
+  provider: PyTorch/framework trace or vendor profiler adapter (not qualified)
+  capability_state: unverified
+  boundary: 在无 profiler 基线之外，使用同请求集与同部署单独采集；隔离 warmup/compile，记录 node/rank/stream、单调时钟域及请求关联。
+  fields:
+  - name: weights/kv/aux/workspace/graph_pool
+    unit: bytes
+    meaning: 分项且避免别名重复计数
+  - name: allocated/reserved/peak
+    unit: bytes
+    meaning: 说明 allocator 与驱动计数器范围
+  - name: read/write_bytes
+    unit: bytes
+    meaning: 来自计数器或明确解析模型
+  - name: context/batch/state_pages
+    unit: count
+    meaning: 请求状态规模
+  overhead_control: 同负载交错运行无 profiler/有 profiler，报告延迟、吞吐变化及事件丢失；采集结果不计入正式 SLA。
+steps:
+- id: step-1
+  action: 分别记录加载后、预热后、稳态、释放后的显存
+  deliverable: 状态生命周期与残留
+- id: step-2
+  action: 按实际 KV/MLA/线性状态布局建立容量模型
+  deliverable: 模型配置与实现布局对照
+- id: step-3
+  action: 对关键事件建立流量下界并匹配带宽校准
+  deliverable: 容量、流量与时间三表
+experiments:
+- id: experiment-1
+  change: 固定输出只增长上下文或并发
+  controls:
+  - 同权重和 KV dtype
+  - 同缓存策略、块大小、图模式
+  supports: 增长斜率与特定状态布局一致
+  refutes: 增长由临时峰值或 allocator 预留引起
+- id: experiment-2
+  change: 仅改变 KV page 或释放时机
+  controls:
+  - 语义、batch、token 总数一致
+  - 独立检查状态重用正确性
+  supports: 碎片/峰值下降并扩大合格容量
+  refutes: 显存下降但吞吐/延迟无改善或发生状态污染
+calculations:
+- name: 容量余量
+  formula: physical - resident_weights - persistent_state - workspace - runtime_reserve
+  unit: bytes
+  limitations: 缺失项为 unknown；checkpoint 文件大小不能等同驻留显存
+- name: 流量时间下界
+  formula: read_plus_write_bytes / matched_bandwidth_bytes_per_s
+  unit: s
+  limitations: 仅表示理想下界；设备内复制 2*payload 口径不自动代表实际 kernel 的 HBM 流量
+correctness_checks:
+- KV 索引与跨请求隔离
+- 长序列、多轮和状态释放
+- cache 命中语义不变
+confounders:
+- 标准 MHA KV 公式套用 MLA/线性注意力
+- GB 与 GiB 混用
+- 驱动未报告的预留显存填零
+exit_criteria:
+- 主要分项可重建显存峰值或保留差额
+- 容量和带宽限制分别给证据
+- state correctness 与长输入回归通过
+handoff:
+  target: 状态布局、生命周期、缓存分块或 offload 的独立候选
+  required_artifacts:
+  - 冻结源码 commit、补丁与镜像摘要
+  - 真实调用点、shape/dtype/stride 和开发输入
+  - 独立正确性参考与容差
+  - 固定工作点 A/B 和 E2E 复测计划
+  rollback: 恢复父部署与父候选代码；保留不支持形状的原实现回退，不覆盖已有证据。
+budget:
+  max_capture_seconds: 120
+  minimum_repetitions: 3
+  max_variants: 3

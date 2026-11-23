@@ -1,0 +1,21 @@
+schema_version: 0.2.0
+kind: HardwareTestPlan
+id: metax-hardware-baseline
+version: 1.0.0
+title: MetaX 单卡算力与显存复制基线
+hosts:
+  - id: metax
+    ssh: metax
+    backend: metax
+    image: sha256:9bbf20dbcaaf52b794b887f0311a6dcbff6d23bb0a78b72fb0f442f8aab0f285
+    devices: [0]
+    max_devices: 8
+protocol:
+  gemm_shapes: [[4096, 4096, 4096]]  # M, N, K
+  dtypes: [float16, bfloat16, float32]
+  copy_sizes_mib: [256]
+  warmup_iterations: 10
+  iterations_per_sample: 20
+  repeats: 5
+  max_allocation_mib: 1024
+  timeout_seconds: 150

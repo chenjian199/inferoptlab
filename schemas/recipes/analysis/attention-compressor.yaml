@@ -1,0 +1,114 @@
+schema_version: 0.2.0
+kind: AnalysisMethod
+id: attention-compressor
+version: 1.0.0
+title: 注意力、稀疏索引、线性状态与 Compressor
+provenance:
+- source_ref:
+    id: source-deepseek-project
+    version: 1.0.0
+  locator: 项目资料中的方法线索；本卡为本项目设计，不是来源中的已验证性能结论
+issues: []
+extensions: {}
+tags:
+- attention
+- sparse
+- linear
+- compressor
+applicability:
+  architectures:
+  - any
+  conditions:
+  - 长输入 TTFT 增长，或注意力/索引/Compressor 在 trace 中突出。
+  - 必须绑定目标模型、实现版本、实际设备和测试协议，历史结果仅提供线索。
+implementation: planning_only
+signals:
+- 长输入 TTFT 增长，或注意力/索引/Compressor 在 trace 中突出。
+alternative_explanations:
+- 长度增长对应正常有效工作增加
+- 索引/重排/分配而非 attention kernel 本身
+- Flash 与完整 GLM 结构不同
+- cache 状态与假 prefill 口径差异
+required_evidence:
+- layer_type_mapping
+- attention_shape_manifest
+- index_selection_statistics
+- operator_dataflow
+- critical_path_scope
+capture:
+  provider: PyTorch/framework trace or vendor profiler adapter (not qualified)
+  capability_state: unverified
+  boundary: 在无 profiler 基线之外，使用同请求集与同部署单独采集；隔离 warmup/compile，记录 node/rank/stream、单调时钟域及请求关联。
+  fields:
+  - name: layer_id/type/compress_ratio
+    unit: id/ratio
+    meaning: 逐层 linear/sparse/MLA 与 Compressor 分组
+  - name: q_len/kv_len/head_dim/topk
+    unit: tokens/elements
+    meaning: 真实有效长度与稀疏选择数
+  - name: index/build/compress/attention
+    unit: ns
+    meaning: 各阶段分开计时
+  - name: linear_state/KV_layout
+    unit: layout
+    meaning: 不同状态模型分开
+  overhead_control: 同负载交错运行无 profiler/有 profiler，报告延迟、吞吐变化及事件丢失；采集结果不计入正式 SLA。
+steps:
+- id: step-1
+  action: 使用当前 ModelSpec 映射每层注意力类型
+  deliverable: GLM Flash 的 34 linear/11 sparse 与完整版分开
+- id: step-2
+  action: 提取短/长输入、压缩比、top-k 和边界形状
+  deliverable: 覆盖清单
+- id: step-3
+  action: 把索引、压缩、通信和核心 attention 拆开并跟踪依赖
+  deliverable: 真实热点与冗余工作候选
+experiments:
+- id: experiment-1
+  change: 同有效输入仅改变合法 chunk 或 attention 后端
+  controls:
+  - 保持精度、mask、position、cache
+  - 同层类型及形状
+  supports: attention 暴露时间降低并改善 TTFT
+  refutes: 主要耗时来自索引/主机或输出不一致
+- id: experiment-2
+  change: 复验分片压缩和紧凑 organizer 思路
+  controls:
+  - 仅适用于具备对应 Compressor 的实现
+  - 固定 compress_ratio 与分片顺序
+  supports: 减少全量中间 all-gather 且结果一致
+  refutes: 当前模型不存在相同数据流或通信依赖不允许
+calculations:
+- name: 有效工作比
+  formula: selected_or_compressed_elements / original_elements
+  unit: ratio
+  limitations: 工作量比不是实际加速比
+- name: 逐层设备覆盖
+  formula: union(layer_events)
+  unit: ns
+  limitations: 不同 layer/stream 可能重叠；需要依赖图判断关键路径
+correctness_checks:
+- causal mask、位置编码与长上下文边界
+- 索引稳定性、padding、空块
+- 线性状态更新与重置
+- chunk 切分结果一致
+confounders:
+- 把 GLM/DeepSeek 所有 attention 当标准 MHA
+- 将 T7FT 解释成已定义 TTFT
+- 来源 C4 3.34→1.6 ms 直接套用
+exit_criteria:
+- 模型层类型与运行调用映射一致
+- 至少一个形状组有参考实现对照
+- 长上下文正确性先于性能结论
+handoff:
+  target: Attention/Indexer/Compressor/线性状态局部任务
+  required_artifacts:
+  - 冻结源码 commit、补丁与镜像摘要
+  - 真实调用点、shape/dtype/stride 和开发输入
+  - 独立正确性参考与容差
+  - 固定工作点 A/B 和 E2E 复测计划
+  rollback: 恢复父部署与父候选代码；保留不支持形状的原实现回退，不覆盖已有证据。
+budget:
+  max_capture_seconds: 120
+  minimum_repetitions: 3
+  max_variants: 3

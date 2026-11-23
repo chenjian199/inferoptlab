@@ -1,0 +1,39 @@
+schema_version: 0.2.0
+kind: WorkloadSpec
+id: workload-benchmark-long
+version: 1.0.0
+title: Exploratory long; explicit tokens, not a contract interpretation
+provenance: []
+issues: []
+extensions: {}
+input:
+  label: '65536'
+  tokens: 65536
+  k_multiplier: null
+  origin: test_override
+output:
+  label: '1024'
+  tokens: 1024
+  k_multiplier: null
+  origin: test_override
+requests:
+  content: random_independent
+  request_set_sha256: null
+  seed: 20261123
+  count: 32
+generation:
+  ignore_eos: true
+  sampling: greedy
+  stop_policy: fixed_output_tokens
+arrival:
+  mode: closed_loop
+  load_unit: concurrency
+  load_points:
+  - 1
+  - 4
+  - 16
+cache:
+  prefix_reuse: disabled
+  target_hit_ratio: 0
+  preparation: disable_prefix_cache
+  reset_between_runs: true

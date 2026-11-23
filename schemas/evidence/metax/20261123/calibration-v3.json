@@ -1,0 +1,112 @@
+{
+  "captured_at": "2026-11-23T07:32:43.389216+00:00",
+  "gpu_before": "mx-smi  version: 2.3.4\n\n=================== MetaX System Management Interface Log ===================\nTimestamp                                         : Mon Nov 23 07:32:43 2026\n\nAttached GPUs                                     : 8\n\n+---------------------------------------------------------------------------------+\n| Process:                                                                        |\n|  GPU                    PID         Process Name                 GPU Memory     |\n|                                                                  Usage(MiB)     |\n|=================================================================================|\n|  no process found                                                               |\n+---------------------------------------------------------------------------------+\n\nEnd of Log\n",
+  "container": null,
+  "image_id": "sha256:9bbf20dbcaaf52b794b887f0311a6dcbff6d23bb0a78b72fb0f442f8aab0f285",
+  "returncode": 0,
+  "stdout": "{\n  \"captured_at\": \"2026-11-23T07:32:43.788603+00:00\",\n  \"hostname\": \"6d8c7d61c78e\",\n  \"status\": \"measured\",\n  \"gpu_before\": \"mx-smi  version: 2.3.4\\n\\n=================== MetaX System Management Interface Log ===================\\nTimestamp                                         : Mon Nov 23 07:32:43 2026\\n\\nAttached GPUs                                     : 8\\n\\n+---------------------------------------------------------------------------------+\\n| Process:                                                                        |\\n|  GPU                    PID         Process Name                 GPU Memory     |\\n|                                                                  Usage(MiB)     |\\n|=================================================================================|\\n|  no process found                                                               |\\n+---------------------------------------------------------------------------------+\\n\\nEnd of Log\\n\",\n  \"isolation\": \"exclusive_preflight_only\",\n  \"measurements\": [\n    {\n      \"name\": \"gemm_float16\",\n      \"samples_ms\": [\n        0.6100480079650878,\n        0.6098048210144043,\n        0.6100480079650878,\n        0.6102015972137451,\n        0.6102015972137451\n      ],\n      \"statistic\": \"median\",\n      \"value\": 225.29202895104842,\n      \"unit\": \"TFLOPS\",\n      \"correctness\": \"passed\",\n      \"shape_mnk\": [\n        4096,\n        4096,\n        4096\n      ],\n      \"dtype\": \"torch.float16\",\n      \"formula\": \"2*M*N*K/(median_ms/1000)/1e12\",\n      \"allow_tf32\": false\n    },\n    {\n      \"name\": \"gemm_bfloat16\",\n      \"samples_ms\": [\n        0.6104191780090332,\n        0.6108672142028808,\n        0.6110208034515381,\n        0.6109312057495118,\n        0.6108928203582764\n      ],\n      \"statistic\": \"median\",\n      \"value\": 224.9804693913325,\n      \"unit\": \"TFLOPS\",\n      \"correctness\": \"passed\",\n      \"shape_mnk\": [\n        4096,\n        4096,\n        4096\n      ],\n      \"dtype\": \"torch.bfloat16\",\n      \"formula\": \"2*M*N*K/(median_ms/1000)/1e12\",\n      \"allow_tf32\": false\n    },\n    {\n      \"name\": \"gemm_float32\",\n      \"samples_ms\": [\n        4.689984130859375,\n        4.690470504760742,\n        4.6907390594482425,\n        4.691660690307617,\n        4.690879821777344\n      ],\n      \"statistic\": \"median\",\n      \"value\": 29.30006374905163,\n      \"unit\": \"TFLOPS\",\n      \"correctness\": \"passed\",\n      \"shape_mnk\": [\n        4096,\n        4096,\n        4096\n      ],\n      \"dtype\": \"torch.float32\",\n      \"formula\": \"2*M*N*K/(median_ms/1000)/1e12\",\n      \"allow_tf32\": false\n    },\n    {\n      \"name\": \"device_copy\",\n      \"samples_ms\": [\n        0.3931391954421997,\n        0.39296000003814696,\n        0.39358720779418943,\n        0.39461119174957277,\n        0.39334399700164796\n      ],\n      \"statistic\": \"median\",\n      \"value\": 1364.8890439219053,\n      \"unit\": \"GB/s\",\n      \"correctness\": \"passed\",\n      \"payload_bytes\": 268435456,\n      \"dtype\": \"torch.float32\",\n      \"formula\": \"2*payload_bytes/(median_ms/1000)/1e9\"\n    }\n  ],\n  \"device_index\": 0,\n  \"device_name\": \"MetaX C500\",\n  \"memory_bytes\": 68283269120,\n  \"torch_version\": \"2.10.0+metax3.9.0.8\",\n  \"timer\": \"torch.cuda.Event.elapsed_time\",\n  \"warmup_iterations\": 10,\n  \"iterations_per_sample\": 20,\n  \"repeats\": 5\n}\n",
+  "stderr": "",
+  "gpu_after": "mx-smi  version: 2.3.4\n\n=================== MetaX System Management Interface Log ===================\nTimestamp                                         : Mon Nov 23 07:33:05 2026\n\nAttached GPUs                                     : 8\n\n+---------------------------------------------------------------------------------+\n| Process:                                                                        |\n|  GPU                    PID         Process Name                 GPU Memory     |\n|                                                                  Usage(MiB)     |\n|=================================================================================|\n|  no process found                                                               |\n+---------------------------------------------------------------------------------+\n\nEnd of Log\n",
+  "result": {
+    "captured_at": "2026-11-23T07:32:43.788603+00:00",
+    "hostname": "6d8c7d61c78e",
+    "status": "measured",
+    "gpu_before": "mx-smi  version: 2.3.4\n\n=================== MetaX System Management Interface Log ===================\nTimestamp                                         : Mon Nov 23 07:32:43 2026\n\nAttached GPUs                                     : 8\n\n+---------------------------------------------------------------------------------+\n| Process:                                                                        |\n|  GPU                    PID         Process Name                 GPU Memory     |\n|                                                                  Usage(MiB)     |\n|=================================================================================|\n|  no process found                                                               |\n+---------------------------------------------------------------------------------+\n\nEnd of Log\n",
+    "isolation": "exclusive_preflight_only",
+    "measurements": [
+      {
+        "name": "gemm_float16",
+        "samples_ms": [
+          0.6100480079650878,
+          0.6098048210144043,
+          0.6100480079650878,
+          0.6102015972137451,
+          0.6102015972137451
+        ],
+        "statistic": "median",
+        "value": 225.29202895104842,
+        "unit": "TFLOPS",
+        "correctness": "passed",
+        "shape_mnk": [
+          4096,
+          4096,
+          4096
+        ],
+        "dtype": "torch.float16",
+        "formula": "2*M*N*K/(median_ms/1000)/1e12",
+        "allow_tf32": false
+      },
+      {
+        "name": "gemm_bfloat16",
+        "samples_ms": [
+          0.6104191780090332,
+          0.6108672142028808,
+          0.6110208034515381,
+          0.6109312057495118,
+          0.6108928203582764
+        ],
+        "statistic": "median",
+        "value": 224.9804693913325,
+        "unit": "TFLOPS",
+        "correctness": "passed",
+        "shape_mnk": [
+          4096,
+          4096,
+          4096
+        ],
+        "dtype": "torch.bfloat16",
+        "formula": "2*M*N*K/(median_ms/1000)/1e12",
+        "allow_tf32": false
+      },
+      {
+        "name": "gemm_float32",
+        "samples_ms": [
+          4.689984130859375,
+          4.690470504760742,
+          4.6907390594482425,
+          4.691660690307617,
+          4.690879821777344
+        ],
+        "statistic": "median",
+        "value": 29.30006374905163,
+        "unit": "TFLOPS",
+        "correctness": "passed",
+        "shape_mnk": [
+          4096,
+          4096,
+          4096
+        ],
+        "dtype": "torch.float32",
+        "formula": "2*M*N*K/(median_ms/1000)/1e12",
+        "allow_tf32": false
+      },
+      {
+        "name": "device_copy",
+        "samples_ms": [
+          0.3931391954421997,
+          0.39296000003814696,
+          0.39358720779418943,
+          0.39461119174957277,
+          0.39334399700164796
+        ],
+        "statistic": "median",
+        "value": 1364.8890439219053,
+        "unit": "GB/s",
+        "correctness": "passed",
+        "payload_bytes": 268435456,
+        "dtype": "torch.float32",
+        "formula": "2*payload_bytes/(median_ms/1000)/1e9"
+      }
+    ],
+    "device_index": 0,
+    "device_name": "MetaX C500",
+    "memory_bytes": 68283269120,
+    "torch_version": "2.10.0+metax3.9.0.8",
+    "timer": "torch.cuda.Event.elapsed_time",
+    "warmup_iterations": 10,
+    "iterations_per_sample": 20,
+    "repeats": 5
+  },
+  "status": "measured",
+  "probe_sha256": "f83f78ab8b011b2f4e9951d3c774e8a61702a76361f659e099c5baf653750eda"
+}

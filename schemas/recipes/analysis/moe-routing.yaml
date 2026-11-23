@@ -1,0 +1,114 @@
+schema_version: 0.2.0
+kind: AnalysisMethod
+id: moe-routing
+version: 1.0.0
+title: MoE 路由、专家负载与 EP 分配
+provenance:
+- source_ref:
+    id: source-design-v2
+    version: 1.0.0
+  locator: 项目资料中的方法线索；本卡为本项目设计，不是来源中的已验证性能结论
+issues: []
+extensions: {}
+tags:
+- moe
+- routing
+- expert
+- communication
+applicability:
+  architectures:
+  - moe
+  conditions:
+  - 专家 GEMM 分布偏斜、dispatch/combine 或 EP 等待突出。
+  - 必须绑定目标模型、实现版本、实际设备和测试协议，历史结果仅提供线索。
+implementation: planning_only
+signals:
+- 专家 GEMM 分布偏斜、dispatch/combine 或 EP 等待突出。
+alternative_explanations:
+- 真实 token 路由分布本就不均匀
+- 量化专家后端不匹配
+- padding 与跨节点传输
+- 测试样本过少未覆盖路由
+required_evidence:
+- expert_token_histogram
+- routing_config
+- dispatch_combine_timeline
+- expert_kernel_shapes
+- rank_collective_timeline
+capture:
+  provider: PyTorch/framework trace or vendor profiler adapter (not qualified)
+  capability_state: unverified
+  boundary: 在无 profiler 基线之外，使用同请求集与同部署单独采集；隔离 warmup/compile，记录 node/rank/stream、单调时钟域及请求关联。
+  fields:
+  - name: expert_id/tokens/rank
+    unit: count/id
+    meaning: 每层每 step 分布
+  - name: topk/shared_experts/capacity
+    unit: count
+    meaning: 路由策略及丢弃约束
+  - name: dispatch/gemm/combine
+    unit: ns
+    meaning: 按依赖区分
+  - name: padded_tokens/remote_tokens
+    unit: count
+    meaning: 额外计算与跨卡搬运
+  overhead_control: 同负载交错运行无 profiler/有 profiler，报告延迟、吞吐变化及事件丢失；采集结果不计入正式 SLA。
+steps:
+- id: step-1
+  action: 读取模型专家数、top-k、共享专家与并行组
+  deliverable: 模型和实际部署映射
+- id: step-2
+  action: 按真实请求记录专家直方图与最大/均值
+  deliverable: 热点专家及空专家比例
+- id: step-3
+  action: 关联专家 GEMM 小 M、padding 和通信
+  deliverable: 瓶颈解释及可迁移范围
+experiments:
+- id: experiment-1
+  change: 在同一组合法资源上改变 EP/TP 或专家放置
+  controls:
+  - 总分配卡数相同
+  - 同路由、输入、精度与负载
+  supports: 慢 rank 和 dispatch/combine 暴露时间降低
+  refutes: 只是迁移等待或新增通信抵消
+- id: experiment-2
+  change: 同 token 分配切换 grouped GEMM/专家后端
+  controls:
+  - 固定专家权重和量化分组
+  - 覆盖空专家与少 token 专家
+  supports: 小 M 专家开销降低
+  refutes: 输出/路由语义改变或仅大 M 有益
+calculations:
+- name: 路由偏斜
+  formula: max(expert_tokens) / mean(expert_tokens)
+  unit: ratio
+  limitations: 均值为零不计算，分层/分 step 汇报
+- name: padding 放大
+  formula: executed_expert_tokens / routed_expert_tokens
+  unit: ratio
+  limitations: top-k 导致的多专家计算不能误当冗余
+correctness_checks:
+- 路由与 top-k 语义
+- token 排序/还原
+- 空专家与容量边界
+- 量化专家精度
+confounders:
+- Qwen dense 没有 MoE 却生成专家结论
+- 按权重总量估计每 token 激活计算
+- EP 与 TP 简单乘卡数
+exit_criteria:
+- 路由分布有代表性且可复现
+- 通信和专家计算拆解有效
+- 资源相同的 E2E 对照成立
+handoff:
+  target: 专家 kernel、dispatch/combine 或放置策略任务
+  required_artifacts:
+  - 冻结源码 commit、补丁与镜像摘要
+  - 真实调用点、shape/dtype/stride 和开发输入
+  - 独立正确性参考与容差
+  - 固定工作点 A/B 和 E2E 复测计划
+  rollback: 恢复父部署与父候选代码；保留不支持形状的原实现回退，不覆盖已有证据。
+budget:
+  max_capture_seconds: 120
+  minimum_repetitions: 3
+  max_variants: 3

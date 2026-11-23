@@ -1,0 +1,49 @@
+id: example-deepseek-bw1000-contract
+version: 1.0.0
+title: DeepSeek × BW1000 合同测试资料组合
+provenance:
+- source_ref:
+    id: source-deepseek-project
+    version: 1.0.0
+  locator: 1.1—1.4
+issues:
+- code: unresolved-execution-budget
+  path: /budget
+  reason: 原材料未给本平台实验预算。
+  status: missing
+  blocking: true
+extensions: {}
+model_ref:
+  id: deepseek-v4-flash-w8a8
+  version: 1.0.0
+hardware_ref:
+  id: bw1000-eight-card-budget
+  version: 1.0.0
+runtime_ref:
+  id: sglang-dsv4-v0.5.15-post1-dev
+  version: 1.0.0
+case_refs:
+- id: case-deepseek-contract-5-prefill
+  version: 1.0.0
+- id: case-deepseek-contract-5-decode
+  version: 1.0.0
+- id: case-deepseek-contract-6-prefill
+  version: 1.0.0
+- id: case-deepseek-contract-6-decode
+  version: 1.0.0
+- id: case-deepseek-contract-7-prefill
+  version: 1.0.0
+- id: case-deepseek-contract-7-decode
+  version: 1.0.0
+- id: case-deepseek-contract-8-prefill
+  version: 1.0.0
+- id: case-deepseek-contract-8-decode
+  version: 1.0.0
+allowed_deployment_modes:
+- aggregated
+budget:
+  max_candidates: null
+  max_device_hours: null
+  max_wall_hours: null
+capability_policy: probe_before_execution
+objective: null

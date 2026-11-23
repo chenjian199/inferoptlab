@@ -1,0 +1,16 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-design-v1
+version: 1.0.0
+title: 跨模型跨GPU端到端优化自动分析实施方案_V1.docx
+provenance: []
+issues: []
+extensions: {}
+path: 跨模型跨GPU端到端优化自动分析实施方案_V1.docx
+sha256: a1002eda4abd46bcbc06cb2e37dd3641136bf66f2147b0d72296a0e756b989e0
+media_type: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+role: design
+authority: user_supplied
+coverage:
+  status: reference_only
+  description: 架构设计依据；不从设计示例生成实测性能或合同门槛。

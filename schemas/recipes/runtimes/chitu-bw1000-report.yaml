@@ -1,0 +1,27 @@
+schema_version: 0.2.0
+kind: RuntimeSpec
+id: chitu-bw1000-report
+version: 1.0.0
+title: chitu 来源未给版本
+provenance:
+- source_ref:
+    id: source-bw1000-report
+    version: 1.0.0
+  locator: 第2、9—15页
+issues:
+- code: unfrozen-runtime
+  path: /source_commit
+  reason: 分支/版本标签不能替代完整源码commit、镜像digest和实际运行库。
+  status: missing
+  blocking: true
+extensions: {}
+engine: chitu
+version_label: 来源未给版本
+source_commit: null
+container_digest: null
+driver: null
+device_runtime: null
+compiler: null
+libraries: {}
+launch_parameters: {}
+status: source_reported

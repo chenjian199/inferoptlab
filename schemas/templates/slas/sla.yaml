@@ -1,0 +1,70 @@
+schema_version: 0.2.0
+kind: RecipeTemplate
+id: template-slas-sla
+version: 1.0.0
+title: SLAProfile 创建模板
+provenance: []
+issues: []
+extensions: {}
+target_kind: SLAProfile
+parameters:
+  id:
+    type: string
+    description: id；字段约束以对应 JSON Schema 为准。
+  version:
+    type: string
+    description: version；字段约束以对应 JSON Schema 为准。
+    default: 1.0.0
+  title:
+    type: string
+    description: title；字段约束以对应 JSON Schema 为准。
+  provenance:
+    type: array
+    description: provenance；字段约束以对应 JSON Schema 为准。
+    default: []
+  issues:
+    type: array
+    description: issues；字段约束以对应 JSON Schema 为准。
+    default: []
+  extensions:
+    type: object
+    description: extensions；字段约束以对应 JSON Schema 为准。
+    default: {}
+  constraints:
+    type: array
+    description: constraints；字段约束以对应 JSON Schema 为准。
+  quality_requirements:
+    type: array
+    description: quality_requirements；字段约束以对应 JSON Schema 为准。
+  conditional_requirements:
+    type: array
+    description: conditional_requirements；字段约束以对应 JSON Schema 为准。
+  joint_request_slo:
+    type:
+    - string
+    - 'null'
+    default: null
+    description: joint_request_slo；草案允许null，冻结检查决定是否必填。
+body:
+  schema_version: 0.2.0
+  kind: SLAProfile
+  id:
+    $param: id
+  version:
+    $param: version
+  title:
+    $param: title
+  provenance:
+    $param: provenance
+  issues:
+    $param: issues
+  extensions:
+    $param: extensions
+  constraints:
+    $param: constraints
+  joint_request_slo:
+    $param: joint_request_slo
+  quality_requirements:
+    $param: quality_requirements
+  conditional_requirements:
+    $param: conditional_requirements

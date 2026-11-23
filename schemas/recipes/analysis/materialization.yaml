@@ -1,0 +1,107 @@
+schema_version: 0.2.0
+kind: AnalysisMethod
+id: materialization
+version: 1.0.0
+title: 冗余物化、拷贝与布局转换
+provenance:
+- source_ref:
+    id: source-deepseek-project
+    version: 1.0.0
+  locator: 项目资料中的方法线索；本卡为本项目设计，不是来源中的已验证性能结论
+issues: []
+extensions: {}
+tags:
+- memory
+- dataflow
+- fusion
+applicability:
+  architectures:
+  - any
+  conditions:
+  - Cat/Contiguous/Copy、padding、索引生成或临时分配频繁。
+  - 必须绑定目标模型、实现版本、实际设备和测试协议，历史结果仅提供线索。
+implementation: planning_only
+signals:
+- Cat/Contiguous/Copy、padding、索引生成或临时分配频繁。
+alternative_explanations:
+- 转换是下游后端合法布局的要求
+- 物化保护别名与原地语义
+- 消费者本身才是关键路径热点
+required_evidence:
+- operator_dataflow
+- operator_shape_dtype_stride
+- allocation_or_copy_trace
+- critical_path_scope
+capture:
+  provider: PyTorch/framework trace or vendor profiler adapter (not qualified)
+  capability_state: unverified
+  boundary: 在无 profiler 基线之外，使用同请求集与同部署单独采集；隔离 warmup/compile，记录 node/rank/stream、单调时钟域及请求关联。
+  fields:
+  - name: producer/consumer/callsite
+    unit: id
+    meaning: 前后依赖与代码位置
+  - name: shape/stride/alias
+    unit: layout
+    meaning: 含 offset、连续性和 storage 共享
+  - name: materialized_bytes/calls
+    unit: bytes/count
+    meaning: 每请求和每 step 工作量
+  overhead_control: 同负载交错运行无 profiler/有 profiler，报告延迟、吞吐变化及事件丢失；采集结果不计入正式 SLA。
+steps:
+- id: step-1
+  action: 从 trace 映射生产者—转换—消费者
+  deliverable: 数据流图
+- id: step-2
+  action: 核对是否可视图化、直接生产目标布局或消费原布局
+  deliverable: 可消除字节量与语义约束
+- id: step-3
+  action: 分别测试仅布局变化和融合，保留回退
+  deliverable: 局部与 E2E A/B
+experiments:
+- id: experiment-1
+  change: 生产者直接生成目标布局
+  controls:
+  - 同输入、数值语义和消费者
+  - 别名及 stride 检查
+  supports: 可见拷贝次数/字节量减少且链路变短
+  refutes: 下游退化抵消收益或别名语义不成立
+- id: experiment-2
+  change: 合并索引/padding 小算子
+  controls:
+  - 相同有效 token 和分片布局
+  - 记录额外 padding 工作量
+  supports: launch 和物化同时下降
+  refutes: 只改变 profiler 展示名称而总工作不变
+calculations:
+- name: 物化流量
+  formula: sum(read_bytes + write_bytes for non_aliased_materializations)
+  unit: bytes
+  limitations: 视图不计物化，必须区分真实复制与别名
+- name: 链路时间
+  formula: union(producer_transform_consumer_intervals)
+  unit: ns
+  limitations: 存在其他流时仍不等于请求关键路径
+correctness_checks:
+- 别名/原地修改
+- 空张量与动态边界
+- 非连续 stride
+- 数值误差与 fallback
+confounders:
+- 多流重复计时
+- 隐藏同步
+- 优化 kernel 却新增一次格式转换
+exit_criteria:
+- 工作量减少可由 trace 或计数器验证
+- 上下游与 E2E 正确性通过
+handoff:
+  target: 与旧 catalog/mechanisms/reduce-redundant-materialization.yaml 对应的布局/融合任务
+  required_artifacts:
+  - 冻结源码 commit、补丁与镜像摘要
+  - 真实调用点、shape/dtype/stride 和开发输入
+  - 独立正确性参考与容差
+  - 固定工作点 A/B 和 E2E 复测计划
+  rollback: 恢复父部署与父候选代码；保留不支持形状的原实现回退，不覆盖已有证据。
+budget:
+  max_capture_seconds: 120
+  minimum_repetitions: 3
+  max_variants: 3

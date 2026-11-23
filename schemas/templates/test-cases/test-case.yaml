@@ -1,0 +1,95 @@
+schema_version: 0.2.0
+kind: RecipeTemplate
+id: template-test-cases-test-case
+version: 1.0.0
+title: TestCaseSpec 创建模板
+provenance: []
+issues: []
+extensions: {}
+target_kind: TestCaseSpec
+parameters:
+  id:
+    type: string
+    description: id；字段约束以对应 JSON Schema 为准。
+  version:
+    type: string
+    description: version；字段约束以对应 JSON Schema 为准。
+    default: 1.0.0
+  title:
+    type: string
+    description: title；字段约束以对应 JSON Schema 为准。
+  provenance:
+    type: array
+    description: provenance；字段约束以对应 JSON Schema 为准。
+    default: []
+  issues:
+    type: array
+    description: issues；字段约束以对应 JSON Schema 为准。
+    default: []
+  extensions:
+    type: object
+    description: extensions；字段约束以对应 JSON Schema 为准。
+    default: {}
+  purpose:
+    type: string
+    description: purpose；字段约束以对应 JSON Schema 为准。
+  model_ref:
+    type: object
+    description: model_ref；字段约束以对应 JSON Schema 为准。
+  workload_ref:
+    type: object
+    description: workload_ref；字段约束以对应 JSON Schema 为准。
+  protocol_ref:
+    type: object
+    description: protocol_ref；字段约束以对应 JSON Schema 为准。
+  sla_ref:
+    type: object
+    description: sla_ref；字段约束以对应 JSON Schema 为准。
+  required:
+    type: boolean
+    description: required；字段约束以对应 JSON Schema 为准。
+  source_case_label:
+    type: string
+    description: source_case_label；字段约束以对应 JSON Schema 为准。
+  declared_context:
+    type: object
+    description: declared_context；字段约束以对应 JSON Schema 为准。
+  priority:
+    type:
+    - string
+    - 'null'
+    default: null
+    description: priority；草案允许null，冻结检查决定是否必填。
+body:
+  schema_version: 0.2.0
+  kind: TestCaseSpec
+  id:
+    $param: id
+  version:
+    $param: version
+  title:
+    $param: title
+  provenance:
+    $param: provenance
+  issues:
+    $param: issues
+  extensions:
+    $param: extensions
+  purpose:
+    $param: purpose
+  model_ref:
+    $param: model_ref
+  workload_ref:
+    $param: workload_ref
+  protocol_ref:
+    $param: protocol_ref
+  sla_ref:
+    $param: sla_ref
+  required:
+    $param: required
+  source_case_label:
+    $param: source_case_label
+  declared_context:
+    $param: declared_context
+  priority:
+    $param: priority

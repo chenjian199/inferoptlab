@@ -1,0 +1,16 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-metax-reboot-runtime-scope
+version: 1.0.0
+title: 63metax ???imported/reboot-runtime_scope.json
+provenance: []
+issues: []
+extensions: {}
+path: schemas/evidence/metax/20261123/imported/reboot-runtime_scope.json
+sha256: 0dba00b32a6c88b20814574c1ffb8339637d5e6f800a286ade4d107cfebe36d9
+media_type: application/json
+role: machine_inventory
+authority: machine_collected
+coverage:
+  status: complete_visible
+  description: ????? SSH ? 63metax ????????????????????????

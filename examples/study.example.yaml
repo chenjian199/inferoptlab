@@ -1,0 +1,136 @@
+# 设计模板；REPLACE_* 必须在执行前解析。数值仅为结构示例，不是性能推荐。
+schema_version: '0.1'
+kind: StudySpec
+study_id: demo-e2e-001
+is_template: true
+model:
+  repository: REPLACE_MODEL_REPOSITORY
+  revision: REPLACE_IMMUTABLE_REVISION
+  tokenizer_revision: REPLACE_TOKENIZER_REVISION
+  quantization: REPLACE_ACTUAL_FORMAT
+  quality_policy_ref: REPLACE_FROZEN_QUALITY_POLICY
+engine:
+  adapter: sglang
+  version: REPLACE_EXACT_VERSION
+  source_commit: REPLACE_EXACT_COMMIT
+  container_digest: REPLACE_CONTAINER_DIGEST
+hardware:
+  inventory_ref: REPLACE_ENVIRONMENT_SNAPSHOT
+  allocated_accelerators: 8
+  resource_accounting: allocated_unique_physical_devices
+  topology_scope: REPLACE_VERIFIED_TOPOLOGY
+  auxiliary_devices_in_budget: true
+workloads:
+- case_id: short
+  request_set_ref: REPLACE_SHORT_REQUEST_SET_WITH_DIGEST
+  input_tokens_hint: 512
+  max_output_tokens: 512
+  arrival_mode: closed_loop
+  load_points:
+  - 16
+  - 32
+  - 64
+  cache_regime: cold_between_trials
+  session_policy: independent
+  request_slo:
+    client_ttft_ms: 2000
+    request_tpot_ms: 100
+  p95_limits:
+    client_ttft_ms: 2000
+    request_tpot_ms: 100
+- case_id: long
+  request_set_ref: REPLACE_LONG_REQUEST_SET_WITH_DIGEST
+  input_tokens_hint: 16384
+  max_output_tokens: 256
+  arrival_mode: closed_loop
+  load_points:
+  - 4
+  - 8
+  - 16
+  cache_regime: cold_between_trials
+  session_policy: independent
+  request_slo:
+    client_ttft_ms: 8000
+    request_tpot_ms: 100
+  p95_limits:
+    client_ttft_ms: 8000
+    request_tpot_ms: 100
+measurement:
+  protocol_ref: REPLACE_FROZEN_MEASUREMENT_PROTOCOL
+  window_policy: fixed_request_set_with_drain_and_timeout
+  sampling_policy_ref: REPLACE_FROZEN_SAMPLING_POLICY
+  warmup_policy_ref: REPLACE_FROZEN_WARMUP_POLICY
+  request_count_per_run: 1000
+  search_repeats: 3
+  request_timeout_s: 120
+  seed: 20261120
+  profiling_separate_from_scoring: true
+  retain_raw_requests: true
+search:
+  deployment_modes:
+  - aggregated
+  - pd
+  parallelism_domains:
+    tp:
+    - 1
+    - 2
+    - 4
+    - 8
+    dp:
+    - 1
+    - 2
+    - 4
+    - 8
+    ep:
+    - 1
+    - 2
+    - 4
+    - 8
+    pp:
+    - 1
+    cp:
+    - 1
+  tuning_domains:
+    scheduler_token_budget:
+    - 2048
+    - 4096
+    - 8192
+    attention_backend:
+    - REPLACE_SUPPORTED_BACKEND_1
+    - REPLACE_SUPPORTED_BACKEND_2
+  capability_policy: probe_before_scoring
+  code_optimization_backends:
+  - manual_bundle
+  - kda_workflow
+  allowed_change_tags:
+  - deployment
+  - scheduling
+  - memory
+  - communication
+  - kernel
+  - reuse
+  model_semantics_change_allowed: false
+objective:
+  metric: output_token_goodput_per_allocated_accelerator
+  direction: maximize
+  aggregate: weighted_geomean_relative_to_B1
+  case_weights:
+    short: 0.5
+    long: 0.5
+budget:
+  max_candidates: 30
+  max_gpu_hours: 48
+  max_wall_hours: 24
+  max_agent_tokens: 300000
+  max_build_attempts: 40
+acceptance:
+  min_request_slo_attainment: 0.95
+  max_mandatory_case_regression_fraction: 0.02
+  min_relative_improvement: 0.03
+  final_repeats: 5
+  holdout_ref: REPLACE_EXTERNAL_HOLDOUT_POLICY_ID
+  fixed_point_and_retuned_comparisons: true
+stop:
+  on_budget_exhausted: true
+  on_no_improvement_rounds: 5
+  preserve_unexplained_issues: true

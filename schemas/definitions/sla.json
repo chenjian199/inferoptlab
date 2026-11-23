@@ -1,0 +1,180 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/sla.json",
+  "title": "SLAProfile 0.2.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.2.0"
+    },
+    "kind": {
+      "const": "SLAProfile"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/provenance"
+      },
+      "minItems": 0
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/issue"
+      },
+      "minItems": 0
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_.-]*$"
+      }
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/constraint"
+      },
+      "minItems": 1
+    },
+    "joint_request_slo": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "constraint_ids": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            },
+            "min_attainment": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "population": {
+              "enum": [
+                "all_planned_requests",
+                "sent_requests"
+              ]
+            }
+          },
+          "required": [
+            "constraint_ids",
+            "min_attainment",
+            "population"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "quality_requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "metric": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reference": {
+            "type": "string",
+            "minLength": 1
+          },
+          "max_degradation": {
+            "type": "number"
+          },
+          "unit": {
+            "enum": [
+              "relative_fraction",
+              "percentage_points",
+              "unspecified"
+            ]
+          },
+          "evaluation_policy_ref": {
+            "anyOf": [
+              {
+                "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "metric",
+          "reference",
+          "max_degradation",
+          "unit",
+          "evaluation_policy_ref"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "conditional_requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "condition": {
+            "type": "string",
+            "minLength": 1
+          },
+          "requirement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "unresolved",
+              "specified"
+            ]
+          }
+        },
+        "required": [
+          "condition",
+          "requirement",
+          "status"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "version",
+    "title",
+    "provenance",
+    "issues",
+    "extensions",
+    "constraints",
+    "joint_request_slo",
+    "quality_requirements",
+    "conditional_requirements"
+  ],
+  "additionalProperties": false
+}

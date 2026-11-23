@@ -1,0 +1,31 @@
+schema_version: 0.2.0
+kind: TestCaseSpec
+id: case-deepseek-contract-8-decode
+version: 1.0.0
+title: deepseek-contract-8-decode
+provenance:
+- source_ref:
+    id: source-deepseek-project
+    version: 1.0.0
+  locator: 合同表二序号8 / decode
+issues: []
+extensions: {}
+purpose: contract
+model_ref:
+  id: deepseek-v4-flash-w8a8
+  version: 1.0.0
+workload_ref:
+  id: workload-deepseek-contract-8-decode
+  version: 1.0.0
+protocol_ref:
+  id: deepseek-contract-decode
+  version: 1.0.0
+sla_ref:
+  id: sla-deepseek-contract-8-decode
+  version: 1.0.0
+required: true
+source_case_label: 合同表二序号8 / decode
+declared_context:
+  input: 16K
+  output: 1K
+priority: null

@@ -1,0 +1,16 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-glm53-decode-b
+version: 1.0.0
+title: 微信图片_20261120125126_67_435.png
+provenance: []
+issues: []
+extensions: {}
+path: 微信图片_20261120125126_67_435.png
+sha256: 884fcb9ca38e5f6abda6da55ab920be44902df18bd133fc9b225c78b81d87f64
+media_type: image/png
+role: benchmark_report
+authority: user_supplied
+coverage:
+  status: partial
+  description: 六组可识别平台59个负载点的三项主指标，共354行，含40行原表空白；辅助百分比列及无表头裁切列未转录。详见observations/glm53-decode-visible-series。

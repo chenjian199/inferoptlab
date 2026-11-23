@@ -1,0 +1,29 @@
+schema_version: 0.2.0
+kind: TestCaseSpec
+id: case-glm53-prefill-4k
+version: 1.0.0
+title: glm53-prefill-4k
+provenance:
+- source_ref:
+    id: source-glm53-prefill
+    version: 1.0.0
+  locator: 4k-1
+issues: []
+extensions: {}
+purpose: diagnostic
+model_ref:
+  id: glm-5.3-flash-int8
+  version: 1.0.0
+workload_ref:
+  id: workload-glm53-prefill-4k
+  version: 1.0.0
+protocol_ref:
+  id: glm53-prefill-profile
+  version: 1.0.0
+sla_ref: null
+required: false
+source_case_label: 4k-1
+declared_context:
+  input: 4k
+  output: '1'
+priority: null

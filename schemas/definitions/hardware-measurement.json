@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/hardware-measurement.json",
+  "title": "HardwareMeasurement 0.2.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.2.0"
+    },
+    "kind": {
+      "const": "HardwareMeasurement"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/provenance"
+      },
+      "minItems": 0
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/issue"
+      },
+      "minItems": 0
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_.-]*$"
+      }
+    },
+    "hardware_ref": {
+      "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+    },
+    "runtime_ref": {
+      "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+    },
+    "captured_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "device_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "evidence_kind": {
+      "const": "measured"
+    },
+    "isolation": {
+      "enum": [
+        "exclusive_preflight_only",
+        "shared"
+      ]
+    },
+    "timer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "measurements": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/inspected.json#/$defs/measurement"
+      },
+      "minItems": 1
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "version",
+    "title",
+    "provenance",
+    "issues",
+    "extensions",
+    "hardware_ref",
+    "runtime_ref",
+    "captured_at",
+    "device_ids",
+    "evidence_kind",
+    "isolation",
+    "timer",
+    "measurements",
+    "limitations"
+  ],
+  "additionalProperties": false
+}

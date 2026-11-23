@@ -1,0 +1,84 @@
+schema_version: 0.2.0
+kind: ReportedMeasurements
+id: chitu-quality-results
+version: 1.0.0
+title: 报告质量分数（三次取最高）
+provenance:
+- source_ref:
+    id: source-bw1000-report
+    version: 1.0.0
+  locator: 第22—23页5.3
+issues:
+- code: quality-protocol-incomplete
+  path: /rows
+  reason: 三次取最高；评测集/评分器版本与逐次结果未提供，5%下降单位未明确。
+  status: ambiguous
+  blocking: false
+extensions: {}
+evidence_kind: source_reported
+measurement_scope: quality
+model_refs: []
+hardware_refs: []
+columns:
+- name: model
+  type: string
+  unit: null
+  meaning: 来源模型与精度标签
+- name: platform
+  type: string
+  unit: null
+  meaning: 基线/交付平台
+- name: gsm8k
+  type: number
+  unit: null
+  meaning: 原始分数
+- name: math500
+  type: number
+  unit: null
+  meaning: 原始分数
+- name: humaneval
+  type: number
+  unit: null
+  meaning: 原始分数
+rows:
+- row_id: quality-1
+  values:
+    model: GLM-5.2-FP8
+    platform: H20
+    gsm8k: 97.7
+    math500: 99.2
+    humaneval: 98.2
+  missing: {}
+  locator: 第23页质量表
+- row_id: quality-2
+  values:
+    model: GLM-5.2-W8A8
+    platform: BW1000
+    gsm8k: 97.57
+    math500: 99.0
+    humaneval: 98.78
+  missing: {}
+  locator: 第23页质量表
+- row_id: quality-3
+  values:
+    model: Kimi-K2.7-Code
+    platform: 阿里云
+    gsm8k: 96.29
+    math500: 98.85
+    humaneval: 99.39
+  missing: {}
+  locator: 第23页质量表
+- row_id: quality-4
+  values:
+    model: Kimi-K2.7-Code
+    platform: BW1000
+    gsm8k: 96.44
+    math500: 98.6
+    humaneval: 99.39
+  missing: {}
+  locator: 第23页质量表
+extraction:
+  method: manual_transcription
+  coverage: complete_visible
+  omissions: []
+  independently_reproduced: false

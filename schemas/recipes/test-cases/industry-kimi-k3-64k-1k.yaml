@@ -1,0 +1,31 @@
+schema_version: 0.2.0
+kind: TestCaseSpec
+id: case-industry-kimi-k3-64k-1k
+version: 1.0.0
+title: industry-kimi-k3-64k-1k
+provenance:
+- source_ref:
+    id: source-industry-sla
+    version: 1.0.0
+  locator: Kimi-K3 64K/1K
+issues: []
+extensions: {}
+purpose: service_acceptance
+model_ref:
+  id: kimi-k3
+  version: 1.0.0
+workload_ref:
+  id: workload-industry-64k-1k
+  version: 1.0.0
+protocol_ref:
+  id: industry-e2e-unresolved
+  version: 1.0.0
+sla_ref:
+  id: sla-industry-64k-1k
+  version: 1.0.0
+required: true
+source_case_label: Kimi-K3 64K/1K
+declared_context:
+  input: 64K
+  output: 1K
+priority: P0

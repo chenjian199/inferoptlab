@@ -1,0 +1,63 @@
+{
+  "schema_version": "0.2.0",
+  "kind": "HardwareTestPlan",
+  "id": "metax-four-node-inventory",
+  "version": "1.0.0",
+  "title": "MetaX 060/061/064/065 inspected inventory",
+  "hosts": [
+    {
+      "id": "metax-60",
+      "ssh": "metax-60",
+      "backend": "metax",
+      "image": "sha256:91b2504601a1d2bdc2f4b057127258311df95d1d9c7f7aa2b270c60e5d4848e3",
+      "devices": "all",
+      "max_devices": 8
+    },
+    {
+      "id": "metax-61",
+      "ssh": "metax-61",
+      "backend": "metax",
+      "image": "sha256:91b2504601a1d2bdc2f4b057127258311df95d1d9c7f7aa2b270c60e5d4848e3",
+      "devices": "all",
+      "max_devices": 8
+    },
+    {
+      "id": "metax-64",
+      "ssh": "metax-64",
+      "backend": "metax",
+      "image": "sha256:91b2504601a1d2bdc2f4b057127258311df95d1d9c7f7aa2b270c60e5d4848e3",
+      "devices": "all",
+      "max_devices": 8
+    },
+    {
+      "id": "metax-65",
+      "ssh": "metax-65",
+      "backend": "metax",
+      "image": "sha256:91b2504601a1d2bdc2f4b057127258311df95d1d9c7f7aa2b270c60e5d4848e3",
+      "devices": "all",
+      "max_devices": 8
+    }
+  ],
+  "protocol": {
+    "gemm_shapes": [
+      [
+        4096,
+        4096,
+        4096
+      ]
+    ],
+    "dtypes": [
+      "float16",
+      "bfloat16",
+      "float32"
+    ],
+    "copy_sizes_mib": [
+      256
+    ],
+    "warmup_iterations": 10,
+    "iterations_per_sample": 20,
+    "repeats": 5,
+    "max_allocation_mib": 1024,
+    "timeout_seconds": 150
+  }
+}

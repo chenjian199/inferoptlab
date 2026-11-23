@@ -1,0 +1,112 @@
+schema_version: 0.2.0
+kind: AnalysisMethod
+id: host-serving
+version: 1.0.0
+title: 客户端、CPU、分词与服务链路
+provenance:
+- source_ref:
+    id: source-design-v2
+    version: 1.0.0
+  locator: 项目资料中的方法线索；本卡为本项目设计，不是来源中的已验证性能结论
+issues: []
+extensions: {}
+tags:
+- host
+- client
+- io
+- tokenizer
+applicability:
+  architectures:
+  - any
+  conditions:
+  - 设备间隙较多、请求发送速率不足或 TTFT 无法由设备工作解释。
+  - 必须绑定目标模型、实现版本、实际设备和测试协议，历史结果仅提供线索。
+implementation: planning_only
+signals:
+- 设备间隙较多、请求发送速率不足或 TTFT 无法由设备工作解释。
+alternative_explanations:
+- 网络连接和 SSE 刷新
+- CPU/NUMA/线程池竞争
+- tokenizer 版本行为差异
+- 服务侧排队才是主要原因
+required_evidence:
+- client_send_timeline
+- cpu_profile
+- tokenizer_timing
+- network_connection_timing
+- host_launch_timeline
+capture:
+  provider: PyTorch/framework trace or vendor profiler adapter (not qualified)
+  capability_state: unverified
+  boundary: 在无 profiler 基线之外，使用同请求集与同部署单独采集；隔离 warmup/compile，记录 node/rank/stream、单调时钟域及请求关联。
+  fields:
+  - name: planned/actual_send/client_queue
+    unit: ns
+    meaning: 区分负载器限流与服务排队
+  - name: tokenize/template/serialization
+    unit: ns
+    meaning: 准确 token 计数与版本
+  - name: CPU/core/NUMA/runqueue
+    unit: id/count
+    meaning: CPU 亲和性与竞争
+  - name: connect/first_byte/SSE_flush
+    unit: ns
+    meaning: 连接、字节与 token 边界
+  overhead_control: 同负载交错运行无 profiler/有 profiler，报告延迟、吞吐变化及事件丢失；采集结果不计入正式 SLA。
+steps:
+- id: step-1
+  action: 先检查 AIPerf、tokenizer 及模板实际导入路径和版本
+  deliverable: 工具身份与计数检查
+- id: step-2
+  action: 对齐客户端发送、服务接收、CPU launch
+  deliverable: 主机阶段时间线
+- id: step-3
+  action: 隔离连接复用、线程数、CPU 放置等因素
+  deliverable: 单因素实验与瓶颈位置
+experiments:
+- id: experiment-1
+  change: 只增加客户端供给能力或调整 CPU 亲和性
+  controls:
+  - 服务配置和请求集合不变
+  - 记录实际发送与队列
+  supports: 服务器获得更多有效工作且设备空隙减少
+  refutes: 服务端本已持续饱和或改善只来自连接冷启动
+- id: experiment-2
+  change: 重复已有精确长度数据集，隔离在线分词开销
+  controls:
+  - tokenizer/template 文件哈希相同
+  - 不省略服务真实处理逻辑
+  supports: CPU 瓶颈可重现并可定位
+  refutes: tokenizer 时间不足以解释 E2E
+calculations:
+- name: 客户端等待
+  formula: actual_send - planned_send
+  unit: ns
+  limitations: closed loop 无独立 planned arrival 时保持 unknown
+- name: 主机阶段比例
+  formula: aligned_host_interval_union / aligned_request_interval
+  unit: fraction
+  limitations: 不同进程/设备时钟未对齐时不计算
+correctness_checks:
+- Transformers 4 list 与 5 BatchEncoding 正确计数
+- 无漏发/重试重复计数
+- SSE 和服务返回 token 总数一致
+confounders:
+- 盲目增加线程反而争用
+- 客户端软件版本冒充服务 Runtime
+- 网络与端点位置不同
+exit_criteria:
+- 实际供给与服务处理分开
+- 低负载控制能区分主机与设备等待
+handoff:
+  target: 客户端/主机调度参数或输入输出链路代码任务
+  required_artifacts:
+  - 冻结源码 commit、补丁与镜像摘要
+  - 真实调用点、shape/dtype/stride 和开发输入
+  - 独立正确性参考与容差
+  - 固定工作点 A/B 和 E2E 复测计划
+  rollback: 恢复父部署与父候选代码；保留不支持形状的原实现回退，不覆盖已有证据。
+budget:
+  max_capture_seconds: 120
+  minimum_repetitions: 3
+  max_variants: 3

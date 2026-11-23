@@ -1,0 +1,16 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-metax-c500
+version: 1.0.0
+title: 微信图片_20261120125442_68_435.png
+provenance: []
+issues: []
+extensions: {}
+path: 微信图片_20261120125442_68_435.png
+sha256: c145658e0257886d91a5034411e3fb850c565a6e26c51c9a917c7f31a570eaf8
+media_type: image/png
+role: hardware_specification
+authority: user_supplied
+coverage:
+  status: complete_visible
+  description: 产品规格逐项转录；MetaXLink 原图写 GB（双向），不擅自补成 GB/s。

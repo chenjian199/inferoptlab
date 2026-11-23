@@ -1,0 +1,45 @@
+schema_version: 0.2.0
+kind: TraceCapture
+id: overlapping-events-example
+version: 1.0.0
+title: 合成事件：只测试重叠计数，不代表任何硬件性能
+provenance: []
+issues: []
+extensions: {}
+evidence_kind: synthetic
+run_id: synthetic-run
+tool:
+  name: fixture
+  version: '1'
+time_unit: ns
+profiled_run: true
+overhead_ratio: null
+windows:
+- clock_domain: node-a-device
+  start_ns: 0
+  end_ns: 100
+events:
+- id: compute-a
+  clock_domain: node-a-device
+  rank: 0
+  stream: '0'
+  category: kernel
+  name: GEMM fixture
+  start_ns: 0
+  duration_ns: 60
+- id: copy-a
+  clock_domain: node-a-device
+  rank: 0
+  stream: '1'
+  category: copy
+  name: copy fixture
+  start_ns: 40
+  duration_ns: 40
+- id: rank-one
+  clock_domain: node-a-device
+  rank: 1
+  stream: '0'
+  category: kernel
+  name: other-rank fixture
+  start_ns: 0
+  duration_ns: 90

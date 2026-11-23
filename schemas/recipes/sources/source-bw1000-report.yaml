@@ -1,0 +1,16 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-bw1000-report
+version: 1.0.0
+title: 海光×清程极智BW1000优化项目技术报告.pdf
+provenance: []
+issues: []
+extensions: {}
+path: 海光×清程极智BW1000优化项目技术报告.pdf
+sha256: 9985b2b2d580912f4f3532d0f795a9b83916b65f687c579c8450c671817dc679
+media_type: application/pdf
+role: benchmark_report
+authority: user_supplied
+coverage:
+  status: partial
+  description: 基础值五个Case、测量方法、最终P/D结果、质量表和总结中的冲突值；报告中的逐算子微基准与逐页调优过程尚未全部结构化。

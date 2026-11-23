@@ -1,0 +1,30 @@
+schema_version: 0.2.0
+kind: RuntimeSpec
+id: metax-hardware-baseline-metax-gpu0-runtime
+version: 1.0.0
+title: metax-hardware-baseline-metax-gpu0 calibration runtime
+provenance:
+- source_ref:
+    id: source-metax-hardware-baseline-metax
+    version: 1.0.0
+  locator: /attempts/0
+issues: []
+extensions: {}
+engine: pytorch
+version_label: 2.10.0+metax3.9.0.8
+source_commit: null
+container_digest: sha256:9bbf20dbcaaf52b794b887f0311a6dcbff6d23bb0a78b72fb0f442f8aab0f285
+container_identity_kind: docker_image_id
+driver: 3.10.14
+device_runtime: MACA 3.9.0.29 (host)
+compiler: null
+libraries:
+  torch: 2.10.0+metax3.9.0.8
+  triton: 3.6.0+metax3.9.0.8
+  mcoplib: 0.4.14+gf3794c4.maca3.9.0.31.torch2.10
+  mctlassEx: 0.1.1+metax3.9.0.8torch2.10
+launch_parameters:
+  MACA_VISIBLE_DEVICES: '0'
+  torch_num_threads: 1
+  allow_tf32: false
+status: environment_verified

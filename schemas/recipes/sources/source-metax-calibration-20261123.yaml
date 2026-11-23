@@ -1,0 +1,16 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-metax-calibration-20261123
+version: 1.0.0
+title: 63metax GPU0 ?????????
+provenance: []
+issues: []
+extensions: {}
+path: schemas/evidence/metax/20261123/calibration-v3.json
+sha256: c5134c8845030bd8a1880e2ee35095eeb9c7bcd29dd347190183bd968e3c8203
+media_type: application/json
+role: calibration
+authority: machine_collected
+coverage:
+  status: complete_visible
+  description: ???????????????????????PyTorch ??????????????

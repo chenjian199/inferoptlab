@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/template.json",
+  "title": "RecipeTemplate 0.2.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.2.0"
+    },
+    "kind": {
+      "const": "RecipeTemplate"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/provenance"
+      },
+      "minItems": 0
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/issue"
+      },
+      "minItems": 0
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_.-]*$"
+      }
+    },
+    "target_kind": {
+      "enum": [
+        "ModelSpec",
+        "HardwareSpec",
+        "SLAProfile",
+        "WorkloadSpec",
+        "MeasurementProtocol",
+        "RuntimeSpec",
+        "TestCaseSpec",
+        "StudySpec",
+        "ValidationPolicy",
+        "DeploymentSpec",
+        "BenchmarkScenario",
+        "BenchmarkPlan",
+        "HardwareMeasurement",
+        "DiagnosisPlan",
+        "AnalysisPlan",
+        "AnalysisMethod"
+      ]
+    },
+    "parameters": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "oneOf": [
+              {
+                "enum": [
+                  "string",
+                  "integer",
+                  "number",
+                  "boolean",
+                  "object",
+                  "array",
+                  "null"
+                ]
+              },
+              {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "string",
+                    "integer",
+                    "number",
+                    "boolean",
+                    "object",
+                    "array",
+                    "null"
+                  ]
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              }
+            ]
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "default": {},
+          "enum": {
+            "type": "array",
+            "items": {},
+            "minItems": 1
+          },
+          "minimum": {
+            "type": "number"
+          },
+          "maximum": {
+            "type": "number"
+          },
+          "pattern": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "type",
+          "description"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "body": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "version",
+    "title",
+    "provenance",
+    "issues",
+    "extensions",
+    "target_kind",
+    "parameters",
+    "body"
+  ],
+  "additionalProperties": false
+}

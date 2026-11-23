@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MechanismCard 0.1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "kind": {
+      "const": "MechanismCard"
+    },
+    "mechanism_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope_tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "status": {
+      "type": "string",
+      "minLength": 1
+    },
+    "signals": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "alternative_explanations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "required_evidence": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "required_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "possible_changes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "discriminating_experiment": {
+      "type": "string",
+      "minLength": 1
+    },
+    "correctness_checks": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "success_criteria": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "conflicts": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    },
+    "rollback": {
+      "type": "string",
+      "minLength": 1
+    },
+    "extensions": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "mechanism_id",
+    "title",
+    "scope_tags",
+    "status",
+    "signals",
+    "alternative_explanations",
+    "required_evidence",
+    "required_capabilities",
+    "possible_changes",
+    "discriminating_experiment",
+    "correctness_checks",
+    "success_criteria",
+    "conflicts",
+    "rollback",
+    "extensions"
+  ],
+  "additionalProperties": false
+}

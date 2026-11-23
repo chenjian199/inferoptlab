@@ -1,0 +1,31 @@
+schema_version: 0.2.0
+kind: TestCaseSpec
+id: case-industry-qwen3.8-27b-45k-600
+version: 1.0.0
+title: industry-qwen3.8-27b-45k-600
+provenance:
+- source_ref:
+    id: source-industry-sla
+    version: 1.0.0
+  locator: Qwen3.8-27B 45K/600
+issues: []
+extensions: {}
+purpose: service_acceptance
+model_ref:
+  id: qwen3.8-27b
+  version: 1.0.0
+workload_ref:
+  id: workload-industry-45k-600
+  version: 1.0.0
+protocol_ref:
+  id: industry-e2e-unresolved
+  version: 1.0.0
+sla_ref:
+  id: sla-industry-45k-600
+  version: 1.0.0
+required: true
+source_case_label: Qwen3.8-27B 45K/600
+declared_context:
+  input: 45K
+  output: '600'
+priority: P0

@@ -1,0 +1,19 @@
+id: example-correctness-policy
+version: 1.0.0
+title: 合成模板示例，不是来源报告验收策略
+provenance: []
+issues: []
+extensions: {}
+purpose: correctness
+evaluator_sha256: null
+dataset_sha256: null
+reference_sha256: null
+checks:
+- metric: max_absolute_error
+  operator: le
+  threshold: 0.001
+  unit: absolute
+  aggregation: max
+execution:
+  command: null
+  parameters: {}

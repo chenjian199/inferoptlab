@@ -1,0 +1,79 @@
+schema_version: 0.2.0
+kind: RecipeTemplate
+id: template-validation-policy
+version: 1.0.0
+title: 正确性/质量验收策略模板
+provenance: []
+issues: []
+extensions: {}
+target_kind: ValidationPolicy
+parameters:
+  id:
+    type: string
+    description: id，具体约束由ValidationPolicy Schema验证
+  version:
+    type: string
+    description: version，具体约束由ValidationPolicy Schema验证
+  title:
+    type: string
+    description: title，具体约束由ValidationPolicy Schema验证
+  provenance:
+    type: array
+    description: provenance，具体约束由ValidationPolicy Schema验证
+  issues:
+    type: array
+    description: issues，具体约束由ValidationPolicy Schema验证
+  extensions:
+    type: object
+    description: extensions，具体约束由ValidationPolicy Schema验证
+  purpose:
+    type: string
+    description: purpose，具体约束由ValidationPolicy Schema验证
+  evaluator_sha256:
+    type:
+    - string
+    - 'null'
+    description: evaluator_sha256，具体约束由ValidationPolicy Schema验证
+  dataset_sha256:
+    type:
+    - string
+    - 'null'
+    description: dataset_sha256，具体约束由ValidationPolicy Schema验证
+  reference_sha256:
+    type:
+    - string
+    - 'null'
+    description: reference_sha256，具体约束由ValidationPolicy Schema验证
+  checks:
+    type: array
+    description: checks，具体约束由ValidationPolicy Schema验证
+  execution:
+    type: object
+    description: execution，具体约束由ValidationPolicy Schema验证
+body:
+  schema_version: 0.2.0
+  kind: ValidationPolicy
+  id:
+    $param: id
+  version:
+    $param: version
+  title:
+    $param: title
+  provenance:
+    $param: provenance
+  issues:
+    $param: issues
+  extensions:
+    $param: extensions
+  purpose:
+    $param: purpose
+  evaluator_sha256:
+    $param: evaluator_sha256
+  dataset_sha256:
+    $param: dataset_sha256
+  reference_sha256:
+    $param: reference_sha256
+  checks:
+    $param: checks
+  execution:
+    $param: execution

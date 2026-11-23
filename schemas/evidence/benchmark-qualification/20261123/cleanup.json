@@ -1,0 +1,26 @@
+[
+  {
+    "name": "inferoptlab-qwen3-smoke-20261123",
+    "returncode": 0,
+    "stdout": "inferoptlab-qwen3-smoke-20261123\n",
+    "stderr": ""
+  },
+  {
+    "name": "inferoptlab-qwen3-smoke-20261123-v2",
+    "returncode": 0,
+    "stdout": "inferoptlab-qwen3-smoke-20261123-v2\n",
+    "stderr": ""
+  },
+  {
+    "name": "inferoptlab-qwen3-smoke-20261123-v3",
+    "returncode": 0,
+    "stdout": "inferoptlab-qwen3-smoke-20261123-v3\n",
+    "stderr": ""
+  },
+  {
+    "name": "inferoptlab-qwen3-smoke-20261123-v4",
+    "returncode": 0,
+    "stdout": "inferoptlab-qwen3-smoke-20261123-v4\n",
+    "stderr": ""
+  }
+]

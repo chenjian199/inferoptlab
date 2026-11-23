@@ -1,0 +1,344 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/workload.json",
+  "title": "WorkloadSpec 0.2.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.2.0"
+    },
+    "kind": {
+      "const": "WorkloadSpec"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/provenance"
+      },
+      "minItems": 0
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/issue"
+      },
+      "minItems": 0
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_.-]*$"
+      }
+    },
+    "input": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tokens": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "k_multiplier": {
+          "anyOf": [
+            {
+              "enum": [
+                1000,
+                1024
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "origin": {
+          "enum": [
+            "explicit_tokens",
+            "source_defined_k",
+            "unresolved_k",
+            "test_override"
+          ]
+        }
+      },
+      "required": [
+        "label",
+        "tokens",
+        "k_multiplier",
+        "origin"
+      ],
+      "additionalProperties": false
+    },
+    "output": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tokens": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "k_multiplier": {
+          "anyOf": [
+            {
+              "enum": [
+                1000,
+                1024
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "origin": {
+          "enum": [
+            "explicit_tokens",
+            "source_defined_k",
+            "unresolved_k",
+            "test_override"
+          ]
+        }
+      },
+      "required": [
+        "label",
+        "tokens",
+        "k_multiplier",
+        "origin"
+      ],
+      "additionalProperties": false
+    },
+    "requests": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "enum": [
+            "random_independent",
+            "random_replicated",
+            "real_text",
+            "trace",
+            "unspecified"
+          ]
+        },
+        "request_set_sha256": {
+          "anyOf": [
+            {
+              "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/sha256"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "seed": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "count": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "content",
+        "request_set_sha256",
+        "seed",
+        "count"
+      ],
+      "additionalProperties": false
+    },
+    "generation": {
+      "type": "object",
+      "properties": {
+        "ignore_eos": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sampling": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "stop_policy": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "ignore_eos",
+        "sampling",
+        "stop_policy"
+      ],
+      "additionalProperties": false
+    },
+    "arrival": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "enum": [
+            "burst",
+            "closed_loop",
+            "open_loop",
+            "trace_replay",
+            "unspecified"
+          ]
+        },
+        "load_unit": {
+          "enum": [
+            "concurrency",
+            "requests/s",
+            "per_dp_batch",
+            "unspecified"
+          ]
+        },
+        "load_points": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "mode",
+        "load_unit",
+        "load_points"
+      ],
+      "additionalProperties": false
+    },
+    "cache": {
+      "type": "object",
+      "properties": {
+        "prefix_reuse": {
+          "enum": [
+            "disabled",
+            "enabled",
+            "unspecified",
+            "conflicting"
+          ]
+        },
+        "target_hit_ratio": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "preparation": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reset_between_runs": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "prefix_reuse",
+        "target_hit_ratio",
+        "preparation",
+        "reset_between_runs"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "version",
+    "title",
+    "provenance",
+    "issues",
+    "extensions",
+    "input",
+    "output",
+    "requests",
+    "generation",
+    "arrival",
+    "cache"
+  ],
+  "additionalProperties": false
+}

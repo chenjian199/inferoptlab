@@ -1,0 +1,313 @@
+schema_version: 0.2.0
+kind: HardwareSpec
+id: metax-hardware-baseline-metax-host
+version: 1.0.0
+title: 63metax observed hardware
+provenance:
+- source_ref:
+    id: source-metax-hardware-baseline-metax
+    version: 1.0.0
+  locator: /inventory
+issues:
+- code: health-not-certified
+  path: /discovery/health
+  status: unverified
+  blocking: true
+  reason: Review raw device errors and perform link/ECC diagnostics before using this
+    node as an accepted hardware baseline.
+extensions: {}
+profile_type: cluster
+vendor: MetaX
+product: 63metax
+specifications: []
+interfaces: []
+evidence_level: inspected
+discovery:
+  captured_at: '2026-11-23T08:02:11.980613+00:00'
+  hostname: 63metax
+  os: Ubuntu 22.04.5 LTS
+  kernel: 5.15.0-138-generic
+  driver_version: 3.10.14
+  device_runtime_version: 3.9.0.29
+  management_tool_version: 2.3.4
+  cpu_sockets: 2
+  cores_per_socket: 48
+  threads_per_core: 2
+  logical_cpus: 192
+  numa_nodes: 8
+  dram_bytes: 1081901404160
+  availability: idle
+  health: unverified
+  health_notes:
+  - Health requires separate diagnostics; inventory and GEMM do not certify link/ECC
+    health.
+  inventory_source_ref:
+    id: source-metax-hardware-baseline-metax
+    version: 1.0.0
+capabilities: []
+resources:
+  allocated_devices: 8
+  nodes:
+  - node_id: metax
+    devices:
+    - device_id: metax-gpu0-AENA2402001182
+      device_profile_ref:
+        id: metax-hardware-baseline-metax-gpu0-device
+        version: 1.0.0
+      observed:
+        ordinal: 0
+        pci_bus_id: '0000:05:00.0'
+        board_serial: AENA2402001182
+        chip_serial: T6S040_22_8_3
+        memory_bytes: 68719476736
+        numa_node: 0
+        local_cpus: 0-11,96-107
+        pcie_speed_gt_s: 32.0
+        pcie_lanes: 16
+        driver_reserved_bytes: 902230016
+        observed_used_memory_bytes: 902230016
+        observed_utilization_percent: 0.0
+    - device_id: metax-gpu1-AENA2402000737
+      device_profile_ref:
+        id: metax-hardware-baseline-metax-gpu1-device
+        version: 1.0.0
+      observed:
+        ordinal: 1
+        pci_bus_id: 0000:0b:00.0
+        board_serial: AENA2402000737
+        chip_serial: T6S040_20_3_2
+        memory_bytes: 68719476736
+        numa_node: 0
+        local_cpus: 0-11,96-107
+        pcie_speed_gt_s: 32.0
+        pcie_lanes: 16
+        driver_reserved_bytes: 902230016
+        observed_used_memory_bytes: 902230016
+        observed_utilization_percent: 0.0
+    - device_id: metax-gpu2-AENA2438000767
+      device_profile_ref:
+        id: metax-hardware-baseline-metax-gpu2-device
+        version: 1.0.0
+      observed:
+        ordinal: 2
+        pci_bus_id: 0000:0e:00.0
+        board_serial: AENA2438000767
+        chip_serial: TPWY54_10_7_3
+        memory_bytes: 68719476736
+        numa_node: 0
+        local_cpus: 0-11,96-107
+        pcie_speed_gt_s: 32.0
+        pcie_lanes: 16
+        driver_reserved_bytes: 902230016
+        observed_used_memory_bytes: 902230016
+        observed_utilization_percent: 0.0
+    - device_id: metax-gpu3-AENA2351000561
+      device_profile_ref:
+        id: metax-hardware-baseline-metax-gpu3-device
+        version: 1.0.0
+      observed:
+        ordinal: 3
+        pci_bus_id: 0000:0f:00.0
+        board_serial: AENA2351000561
+        chip_serial: T6S040_4_4_1
+        memory_bytes: 68719476736
+        numa_node: 0
+        local_cpus: 0-11,96-107
+        pcie_speed_gt_s: 32.0
+        pcie_lanes: 16
+        driver_reserved_bytes: 902230016
+        observed_used_memory_bytes: 902230016
+        observed_utilization_percent: 0.0
+    - device_id: metax-gpu4-AENA2514001382
+      device_profile_ref:
+        id: metax-hardware-baseline-metax-gpu4-device
+        version: 1.0.0
+      observed:
+        ordinal: 4
+        pci_bus_id: '0000:55:00.0'
+        board_serial: AENA2514001382
+        chip_serial: TRSW68_25_6_4
+        memory_bytes: 68719476736
+        numa_node: 1
+        local_cpus: 12-23,108-119
+        pcie_speed_gt_s: 32.0
+        pcie_lanes: 16
+        driver_reserved_bytes: 902230016
+        observed_used_memory_bytes: 902230016
+        observed_utilization_percent: 0.0
+    - device_id: metax-gpu5-AENA2514000682
+      device_profile_ref:
+        id: metax-hardware-baseline-metax-gpu5-device
+        version: 1.0.0
+      observed:
+        ordinal: 5
+        pci_bus_id: '0000:56:00.0'
+        board_serial: AENA2514000682
+        chip_serial: TRHR64_19_3_5
+        memory_bytes: 68719476736
+        numa_node: 1
+        local_cpus: 12-23,108-119
+        pcie_speed_gt_s: 32.0
+        pcie_lanes: 16
+        driver_reserved_bytes: 902230016
+        observed_used_memory_bytes: 902230016
+        observed_utilization_percent: 0.0
+    - device_id: metax-gpu6-AENA2402001379
+      device_profile_ref:
+        id: metax-hardware-baseline-metax-gpu6-device
+        version: 1.0.0
+      observed:
+        ordinal: 6
+        pci_bus_id: 0000:5b:00.0
+        board_serial: AENA2402001379
+        chip_serial: T6S224_10_2_7
+        memory_bytes: 68719476736
+        numa_node: 1
+        local_cpus: 12-23,108-119
+        pcie_speed_gt_s: 32.0
+        pcie_lanes: 16
+        driver_reserved_bytes: 902230016
+        observed_used_memory_bytes: 902230016
+        observed_utilization_percent: 0.0
+    - device_id: metax-gpu7-AENA2514001337
+      device_profile_ref:
+        id: metax-hardware-baseline-metax-gpu7-device
+        version: 1.0.0
+      observed:
+        ordinal: 7
+        pci_bus_id: 0000:5e:00.0
+        board_serial: AENA2514001337
+        chip_serial: TRSU89_25_8_5
+        memory_bytes: 68719476736
+        numa_node: 1
+        local_cpus: 12-23,108-119
+        pcie_speed_gt_s: 32.0
+        pcie_lanes: 16
+        driver_reserved_bytes: 902230016
+        observed_used_memory_bytes: 902230016
+        observed_utilization_percent: 0.0
+    cpu: Hygon C86-4G (OPN:7470)
+    dram_gb: 1081.90140416
+    nics:
+    - ens5f0
+    - ens5f1
+    - ens2f0
+    - ens5f2
+    - ens2f1
+    - ens5f3
+    - ens4np0
+    - tailscale0
+    - docker0
+  topology:
+  - from: metax-gpu0-AENA2402001182
+    to: metax-gpu1-AENA2402000737
+    link: MX1
+    plane: null
+  - from: metax-gpu0-AENA2402001182
+    to: metax-gpu2-AENA2438000767
+    link: MX1
+    plane: null
+  - from: metax-gpu0-AENA2402001182
+    to: metax-gpu3-AENA2351000561
+    link: MX1
+    plane: null
+  - from: metax-gpu0-AENA2402001182
+    to: metax-gpu4-AENA2514001382
+    link: SYS
+    plane: null
+  - from: metax-gpu0-AENA2402001182
+    to: metax-gpu5-AENA2514000682
+    link: SYS
+    plane: null
+  - from: metax-gpu0-AENA2402001182
+    to: metax-gpu6-AENA2402001379
+    link: SYS
+    plane: null
+  - from: metax-gpu0-AENA2402001182
+    to: metax-gpu7-AENA2514001337
+    link: SYS
+    plane: null
+  - from: metax-gpu1-AENA2402000737
+    to: metax-gpu2-AENA2438000767
+    link: MX1
+    plane: null
+  - from: metax-gpu1-AENA2402000737
+    to: metax-gpu3-AENA2351000561
+    link: MX1
+    plane: null
+  - from: metax-gpu1-AENA2402000737
+    to: metax-gpu4-AENA2514001382
+    link: SYS
+    plane: null
+  - from: metax-gpu1-AENA2402000737
+    to: metax-gpu5-AENA2514000682
+    link: SYS
+    plane: null
+  - from: metax-gpu1-AENA2402000737
+    to: metax-gpu6-AENA2402001379
+    link: SYS
+    plane: null
+  - from: metax-gpu1-AENA2402000737
+    to: metax-gpu7-AENA2514001337
+    link: SYS
+    plane: null
+  - from: metax-gpu2-AENA2438000767
+    to: metax-gpu3-AENA2351000561
+    link: MX1
+    plane: null
+  - from: metax-gpu2-AENA2438000767
+    to: metax-gpu4-AENA2514001382
+    link: SYS
+    plane: null
+  - from: metax-gpu2-AENA2438000767
+    to: metax-gpu5-AENA2514000682
+    link: SYS
+    plane: null
+  - from: metax-gpu2-AENA2438000767
+    to: metax-gpu6-AENA2402001379
+    link: SYS
+    plane: null
+  - from: metax-gpu2-AENA2438000767
+    to: metax-gpu7-AENA2514001337
+    link: SYS
+    plane: null
+  - from: metax-gpu3-AENA2351000561
+    to: metax-gpu4-AENA2514001382
+    link: SYS
+    plane: null
+  - from: metax-gpu3-AENA2351000561
+    to: metax-gpu5-AENA2514000682
+    link: SYS
+    plane: null
+  - from: metax-gpu3-AENA2351000561
+    to: metax-gpu6-AENA2402001379
+    link: SYS
+    plane: null
+  - from: metax-gpu3-AENA2351000561
+    to: metax-gpu7-AENA2514001337
+    link: SYS
+    plane: null
+  - from: metax-gpu4-AENA2514001382
+    to: metax-gpu5-AENA2514000682
+    link: MX1
+    plane: null
+  - from: metax-gpu4-AENA2514001382
+    to: metax-gpu6-AENA2402001379
+    link: MX1
+    plane: null
+  - from: metax-gpu4-AENA2514001382
+    to: metax-gpu7-AENA2514001337
+    link: MX1
+    plane: null
+  - from: metax-gpu5-AENA2514000682
+    to: metax-gpu6-AENA2402001379
+    link: MX1
+    plane: null
+  - from: metax-gpu5-AENA2514000682
+    to: metax-gpu7-AENA2514001337
+    link: MX1
+    plane: null
+  - from: metax-gpu6-AENA2402001379
+    to: metax-gpu7-AENA2514001337
+    link: MX1
+    plane: null

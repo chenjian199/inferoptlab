@@ -1,0 +1,17 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-metax-qwen-runtime-audit
+version: 1.0.0
+title: MetaX runtime package audit
+provenance: []
+issues: []
+extensions: {}
+path: schemas/evidence/model-intake/runtime-metax-20261123.json
+sha256: 7fd911b9f971e0b2bea6034794686747e7c0738bac4bd0cb4c38aa7f0ca1fb5f
+media_type: application/json
+role: machine_inventory
+authority: machine_collected
+coverage:
+  status: partial
+  description: Package metadata only; editable vLLM source requires the recorded /work
+    bind mount.

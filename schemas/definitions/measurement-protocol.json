@@ -1,0 +1,249 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/measurement-protocol.json",
+  "title": "MeasurementProtocol 0.2.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.2.0"
+    },
+    "kind": {
+      "const": "MeasurementProtocol"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/provenance"
+      },
+      "minItems": 0
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/issue"
+      },
+      "minItems": 0
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_.-]*$"
+      }
+    },
+    "scope": {
+      "enum": [
+        "prefill",
+        "decode",
+        "e2e",
+        "local"
+      ]
+    },
+    "method": {
+      "enum": [
+        "prefill_one_token",
+        "prefix_reuse_decode",
+        "fake_prefill",
+        "full_request",
+        "microbenchmark"
+      ]
+    },
+    "allowed_deployment_modes": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "aggregated",
+          "pd"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "timing": {
+      "type": "object",
+      "properties": {
+        "ttft_boundary": {
+          "enum": [
+            "client_submit_to_first_content_token",
+            "unspecified",
+            "not_applicable"
+          ]
+        },
+        "tpot_boundary": {
+          "enum": [
+            "first_to_last_token_over_n_minus_one",
+            "unspecified",
+            "not_applicable"
+          ]
+        },
+        "token_timestamps": {
+          "enum": [
+            "available",
+            "unavailable",
+            "unverified"
+          ]
+        },
+        "window": {
+          "enum": [
+            "fixed_request_set",
+            "steady_state",
+            "unspecified"
+          ]
+        },
+        "start": {
+          "enum": [
+            "first_planned_send",
+            "first_actual_send",
+            "unspecified"
+          ]
+        },
+        "finish": {
+          "enum": [
+            "last_completion_or_timeout",
+            "fixed_window_with_drain",
+            "unspecified"
+          ]
+        }
+      },
+      "required": [
+        "ttft_boundary",
+        "tpot_boundary",
+        "token_timestamps",
+        "window",
+        "start",
+        "finish"
+      ],
+      "additionalProperties": false
+    },
+    "execution": {
+      "type": "object",
+      "properties": {
+        "warmup": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "timeout_s": {
+          "anyOf": [
+            {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "repetitions": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "profiler_during_scoring": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "warmup_request_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "warmup",
+        "timeout_s",
+        "repetitions",
+        "profiler_during_scoring"
+      ],
+      "additionalProperties": false
+    },
+    "accounting": {
+      "type": "object",
+      "properties": {
+        "primary_population": {
+          "enum": [
+            "all_planned_requests",
+            "sent_requests",
+            "unspecified"
+          ]
+        },
+        "failure_policy": {
+          "enum": [
+            "retain_in_denominator",
+            "unspecified"
+          ]
+        },
+        "logical_request_deduplication": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "primary_population",
+        "failure_policy",
+        "logical_request_deduplication"
+      ],
+      "additionalProperties": false
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "version",
+    "title",
+    "provenance",
+    "issues",
+    "extensions",
+    "scope",
+    "method",
+    "allowed_deployment_modes",
+    "timing",
+    "execution",
+    "accounting",
+    "steps"
+  ],
+  "additionalProperties": false
+}

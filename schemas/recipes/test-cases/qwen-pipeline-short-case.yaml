@@ -1,0 +1,25 @@
+schema_version: 0.2.0
+kind: TestCaseSpec
+id: qwen-pipeline-short-case
+version: 1.0.0
+title: Qwen short pipeline case
+provenance: []
+issues: []
+extensions: {}
+purpose: diagnostic
+model_ref:
+  id: metax-qwen3-06b
+  version: 1.0.0
+workload_ref:
+  id: qwen-pipeline-short-workload
+  version: 1.0.0
+protocol_ref:
+  id: qwen-pipeline-protocol
+  version: 1.0.0
+sla_ref: null
+required: true
+source_case_label: Small-model pipeline qualification
+declared_context:
+  input: '1024'
+  output: '32'
+priority: null

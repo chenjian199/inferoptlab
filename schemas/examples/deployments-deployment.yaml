@@ -1,0 +1,41 @@
+id: example-deployments-deployment
+version: 1.0.0
+title: dsv4-bw1000-chunk8192
+provenance: []
+issues:
+- code: unverified-deployment
+  path: /devices
+  reason: 'Candidate only: bind actual device IDs and verify backend support before
+    managed deployment.'
+  status: missing
+  blocking: true
+extensions: {}
+model_ref:
+  id: deepseek-v4-flash-w8a8
+  version: 1.0.0
+hardware_ref:
+  id: bw1000-eight-card-budget
+  version: 1.0.0
+runtime_ref:
+  id: sglang-dsv4-v0.5.15-post1-dev
+  version: 1.0.0
+mode: aggregated
+parallelism:
+  tp: 8
+  pp: 1
+  ep: 8
+  dp: 1
+scheduling:
+  chunked_prefill_tokens: 8192
+  kv_page_tokens: null
+  max_running_requests: null
+serving:
+  management: sglang
+  url: http://127.0.0.1:8000
+  served_model: REPLACE_SERVED_MODEL
+  model_path: null
+  tokenizer_path: null
+  startup_timeout_s: 1800
+  device_visibility_env: HIP_VISIBLE_DEVICES
+devices: []
+backend_options: {}

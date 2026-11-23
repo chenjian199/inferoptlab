@@ -1,0 +1,50 @@
+schema_version: 0.2.0
+kind: WorkloadSpec
+id: workload-chitu-glm-50k-decode
+version: 1.0.0
+title: chitu-glm-50k-decode
+provenance:
+- source_ref:
+    id: source-bw1000-report
+    version: 1.0.0
+  locator: 第1、16—21页
+issues:
+- code: missing-request-fixture
+  path: /requests
+  reason: 来源未提供冻结请求集、种子与每轮请求数。
+  status: missing
+  blocking: true
+- code: missing-generation-policy
+  path: /generation
+  reason: 缺少EOS、采样与停止规则。
+  status: missing
+  blocking: true
+extensions: {}
+input:
+  label: '51200'
+  tokens: 51200
+  k_multiplier: 1024
+  origin: source_defined_k
+output:
+  label: '512'
+  tokens: 512
+  k_multiplier: 1024
+  origin: source_defined_k
+requests:
+  content: random_replicated
+  request_set_sha256: null
+  seed: null
+  count: null
+generation:
+  ignore_eos: null
+  sampling: null
+  stop_policy: null
+arrival:
+  mode: burst
+  load_unit: concurrency
+  load_points: []
+cache:
+  prefix_reuse: enabled
+  target_hit_ratio: null
+  preparation: null
+  reset_between_runs: null

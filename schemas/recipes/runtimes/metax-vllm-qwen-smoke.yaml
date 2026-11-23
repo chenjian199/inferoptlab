@@ -1,0 +1,31 @@
+schema_version: 0.2.0
+kind: RuntimeSpec
+id: metax-vllm-qwen-smoke
+version: 1.0.0
+title: vLLM MetaX external Qwen smoke runtime
+provenance:
+- source_ref:
+    id: source-metax-qwen-runtime-audit
+    version: 1.0.0
+  locator: /
+issues:
+- code: editable-source
+  path: /source_commit
+  status: unverified
+  blocking: true
+  reason: Requires read-only /home/metax/glm53-vllm032 -> /work source mount; image
+    metadata alone is insufficient.
+extensions: {}
+engine: vllm-metax
+version_label: 0.32.0+empty
+source_commit: null
+container_digest: sha256:9bbf20dbcaaf52b794b887f0311a6dcbff6d23bb0a78b72fb0f442f8aab0f285
+container_identity_kind: docker_image_id
+driver: 3.10.14
+device_runtime: MACA 3.9.0.29 (host)
+compiler: null
+libraries:
+  torch: 2.10.0+metax3.9.0.8
+  transformers: 5.17.0
+launch_parameters: {}
+status: environment_verified

@@ -1,0 +1,16 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-metax-gemm-stack-inventory
+version: 1.0.0
+title: 63metax ???imported/gemm-stack_inventory.json
+provenance: []
+issues: []
+extensions: {}
+path: schemas/evidence/metax/20261123/imported/gemm-stack_inventory.json
+sha256: c05f4ab73ed1f69c15f62d4e862f783872255b2b229f60f7cb4a2f1e0b8772a7
+media_type: application/json
+role: machine_inventory
+authority: machine_collected
+coverage:
+  status: complete_visible
+  description: ????? SSH ? 63metax ????????????????????????

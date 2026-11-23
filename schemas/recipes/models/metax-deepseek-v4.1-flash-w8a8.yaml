@@ -1,0 +1,281 @@
+schema_version: 0.2.0
+kind: ModelSpec
+id: metax-deepseek-v4.1-flash-w8a8
+version: 1.0.0
+title: DeepSeek-V4.1-Flash-1017-w8a8?????
+provenance:
+- source_ref:
+    id: source-metax-deepseek-v4.1-flash-w8a8
+    version: 1.0.0
+  locator: /
+issues:
+- code: payload-not-hashed
+  path: /identity/weights_sha256
+  reason: ?????????? header?????? GB ?? payload?manifest hash ??????? hash?
+  blocking: true
+  status: unverified
+- code: upstream-revision-unavailable
+  path: /identity/revision
+  reason: ?????????????? revision??? config/tokenizer/index/header ?????
+  blocking: true
+  status: unverified
+- code: validation-policy-missing
+  path: /semantics
+  reason: ??????????/???????????????????
+  blocking: true
+  status: unverified
+- code: ascend-layout-on-metax
+  path: /checkpoint/compatibility
+  reason: ????/?? Ascend ????????? W8A8 ???? GLM compressed-tensors ?????
+  blocking: true
+  status: unverified
+- code: chat-template-missing
+  path: /tokenizer/chat_template_sha256
+  reason: ???? chat_template.jinja?tokenizer_config ???? chat_template?
+  blocking: true
+  status: unverified
+- code: duplicate-checkpoint-tensors
+  path: /checkpoint/duplicate_tensor_names
+  reason: 6 ? Engram tensor ?????????????????????? payload ????????????
+  blocking: true
+  status: unverified
+- code: weights-exceed-vram
+  path: /checkpoint/total_file_bytes
+  reason: ??????? 727.68 GiB??? 8 ?? 512 GiB???? Engram/offload/??????????? GPU ???????
+  blocking: true
+  status: unverified
+extensions: {}
+evidence_level: inspected
+identity:
+  name: DeepSeek-V4.1-Flash-1017-w8a8
+  family: DeepSeek
+  variant: W8A8
+  repository: null
+  revision: null
+  weights_sha256: null
+tokenizer:
+  revision: null
+  sha256: c90dfa01249db1be4245780a052ede752e1361c612ac6d08e2bdada7d599476b
+  chat_template_sha256: null
+semantics:
+  contract: unspecified
+  correctness_policy_ref: null
+  quality_policy_ref: null
+architecture:
+  type: moe
+  attention: sparse_mla
+  context_limit_tokens: 1048576
+  parameters: {}
+  state_types:
+  - compressed_kv
+  - indexer_state
+  text:
+    num_hidden_layers: 40
+    hidden_size: 5120
+    vocab_size: 129280
+    num_attention_heads: 64
+    num_key_value_heads: 1
+    max_position_embeddings: 1048576
+    model_type: deepseek_v41_text
+    layer_types: []
+  moe:
+    routed_experts: 384
+    shared_experts: 1
+    experts_per_token: 6
+    intermediate_size: 2304
+    first_dense_layers: 0
+    router_dtype: null
+    scoring_function: sqrtsoftplus
+  attention_config:
+    head_dim: 512
+    q_lora_rank: 1280
+    qk_rope_head_dim: 64
+    o_lora_rank: 1024
+    o_groups: 8
+    sliding_window: 128
+    index_head_dim: 128
+    index_n_heads: 32
+    index_topk: 512
+    compress_ratios:
+    - 0
+    - 0
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    - 2
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 0
+    - 0
+    - 0
+    rope_theta: 10000
+    rope_scaling:
+      rope_type: yarn
+      factor: 16
+      beta_fast: 32
+      beta_slow: 1
+      original_max_position_embeddings: 65536
+    kv_source_layer_ids:
+    - 2
+    - 8
+    - 14
+    - 20
+    index_source_layer_ids:
+    - 2
+    - 8
+    - 14
+    - 20
+    - 24
+    - 28
+    - 32
+    - 36
+  mtp_layers: 3
+  modalities:
+  - text
+  - image
+  implementation:
+  - DeepseekV41ForCausalLM
+  vision:
+    model_type: deepseek_v41_vision
+    hidden_size: 1024
+    num_hidden_layers: 32
+    num_attention_heads: 16
+    patch_size: 14
+  hyper_connections:
+    multiplier: 4
+    sinkhorn_iterations: 20
+    epsilon: 1.0e-06
+  engram:
+    layer_ids:
+    - 1
+    - 14
+    num_embeddings:
+    - 384006168
+    - 384016682
+    max_ngram_size: 4
+    vocab_size: 16000000
+    num_heads: 8
+    head_dim: 256
+    compressed_vocab_size: 99092
+    storage:
+      weight_dtype: I8
+      scale_dtype: F8_E8M0
+      group_size: 32
+      axis: 1
+      layout: row_major
+precision:
+  label: W8A8 mixed
+  weights: INT8 + BF16 + FP32 + F8_E8M0 scales
+  activations: dynamic INT8 for quantized linear operations
+  kv_cache: null
+  quantization:
+    format: ascend W8A8_DYNAMIC
+    method: msmodelslim/ascend
+    weight_bits: 8
+    activation_bits: 8
+    activation_dynamic: true
+    weight_strategy: null
+    activation_strategy: null
+    symmetric: null
+    scale_dtypes:
+    - F32
+    - F8_E8M0
+    excluded_modules: []
+    description_file: quant_model_description.json
+checkpoint:
+  host: 63metax
+  path: /NFS_62/Models/DeepSeek_Series/DeepSeek-V4.1-Flash-1017-w8a8
+  captured_at: '2026-11-23T07:33:52.535097+00:00'
+  format: ascend_safetensors
+  config_sha256: 43d3b2bc55626893d59275b32e04068c0fc916f5c382eb91de73bdbade9c88f7
+  index:
+    name: quant_model_weights.safetensors.index.json
+    size_bytes: 13843894
+    sha256: c32977056a3e8bb17d2330d566020f49ff65facb022c25035b8d3fcf5d2af3a2
+  shard_count: 142
+  total_file_bytes: 781343665008
+  tensor_count: 143330
+  storage_dtypes:
+  - dtype: F32
+    tensor_count: 95126
+    elements: 1014237842
+    storage_bytes: 4056951368
+  - dtype: BF16
+    tensor_count: 788
+    elements: 6987162688
+    storage_bytes: 13974325376
+  - dtype: I8
+    tensor_count: 47414
+    elements: 757152432640
+    storage_bytes: 757152432640
+  - dtype: F8_E8M0
+    tensor_count: 2
+    elements: 6144182800
+    storage_bytes: 6144182800
+  manifest_sha256: 5cd991ce681bdd46fc6573382a9920b7d70fa697e6b3f5476290161dc44ec6c3
+  manifest_algorithm: sha256_canonical_json_shard_name_size_header_sha256
+  verification_scope: index_and_headers
+  index_matches_headers: true
+  duplicate_tensor_names:
+  - layers.1.engram.wkv.weight
+  - layers.1.engram.k_weight
+  - layers.1.engram.q_weight
+  - layers.14.engram.wkv.weight
+  - layers.14.engram.k_weight
+  - layers.14.engram.q_weight
+  payload_verified: false
+  auxiliary_files:
+  - name: tokenizer_config.json
+    size_bytes: 801
+    sha256: 6ac8c8dc065ed118161d02dd532749ae3f52c243deac27872134fae2f50d8547
+  - name: tokenizer.json
+    size_bytes: 6367257
+    sha256: c90dfa01249db1be4245780a052ede752e1361c612ac6d08e2bdada7d599476b
+  - name: quant_model_description.json
+    size_bytes: 8677636
+    sha256: 2f4020a0a12daa621cfd2ff9d09a2c73e5674af7c624ef47df5c66796c3774bf
+  - name: README.md
+    size_bytes: 960
+    sha256: 2667c0496ac565acc1406022e6042e89aa29d4f5d3f4a6e36cfca0440b93d7e9
+  - name: DeepSeek-V4.1-Flash_best_practice.yaml
+    size_bytes: 2690
+    sha256: 6a14e5460279d8ca9f67ef7bff877c7b02ae61ce5f5150cf6e5da18bbdfa619b
+  - name: optional/quarot.safetensors
+    size_bytes: 104857696
+    sha256: 8cd564089bd88fb0e695cd2d4b3dd2ff7e019d8b006fee7ca2e4f900af4ccab1
+  compatibility:
+    target_vendor: MetaX
+    status: requires_conversion
+    reason: ????/????? Ascend W8A8_DYNAMIC ?????? MetaX loader/????????

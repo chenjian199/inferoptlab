@@ -1,0 +1,40 @@
+schema_version: 0.2.0
+kind: MeasurementProtocol
+id: industry-e2e-unresolved
+version: 1.0.0
+title: industry-e2e-unresolved
+provenance:
+- source_ref:
+    id: source-industry-sla
+    version: 1.0.0
+  locator: 代表性 SLA 列
+issues:
+- code: incomplete-measurement-protocol
+  path: /timing
+  reason: 来源未完整规定计时边界、统计窗口、失败分母、预热、超时和重复安排。
+  status: missing
+  blocking: true
+extensions: {}
+scope: e2e
+method: full_request
+allowed_deployment_modes:
+- aggregated
+- pd
+timing:
+  ttft_boundary: unspecified
+  tpot_boundary: unspecified
+  token_timestamps: unverified
+  window: unspecified
+  start: unspecified
+  finish: unspecified
+execution:
+  warmup: null
+  timeout_s: null
+  repetitions: null
+  profiler_during_scoring: null
+accounting:
+  primary_population: unspecified
+  failure_policy: unspecified
+  logical_request_deduplication: null
+steps:
+- 按图片输入输出长度执行完整请求；发送方式、缓存和部署模式未规定，须在正式实验前补齐

@@ -1,0 +1,113 @@
+schema_version: 0.2.0
+kind: AnalysisMethod
+id: scheduling-graphs
+version: 1.0.0
+title: 调度、分块、批处理与图执行
+provenance:
+- source_ref:
+    id: source-design-v2
+    version: 1.0.0
+  locator: 项目资料中的方法线索；本卡为本项目设计，不是来源中的已验证性能结论
+issues: []
+extensions: {}
+tags:
+- scheduling
+- graphs
+- batching
+applicability:
+  architectures:
+  - any
+  conditions:
+  - 吞吐随并发增长不足、GPU 间隙明显，或 eager/chunk 设置可能影响开销。
+  - 必须绑定目标模型、实现版本、实际设备和测试协议，历史结果仅提供线索。
+implementation: planning_only
+signals:
+- 吞吐随并发增长不足、GPU 间隙明显，或 eager/chunk 设置可能影响开销。
+alternative_explanations:
+- 客户端供给不足
+- 设备容量已饱和
+- prefill/decode 干扰
+- 图编译/捕获仍在预热
+required_evidence:
+- scheduler_step_timeline
+- batch_token_histogram
+- graph_capture_dispatch
+- host_launch_timeline
+- unprofiled_control
+capture:
+  provider: PyTorch/framework trace or vendor profiler adapter (not qualified)
+  capability_state: unverified
+  boundary: 在无 profiler 基线之外，使用同请求集与同部署单独采集；隔离 warmup/compile，记录 node/rank/stream、单调时钟域及请求关联。
+  fields:
+  - name: scheduled/running/waiting_requests
+    unit: count
+    meaning: 实际而非启动参数
+  - name: prefill_chunk/decode_tokens
+    unit: tokens
+    meaning: 每 step token 预算
+  - name: graph_hit/miss/compile
+    unit: count/ns
+    meaning: 图区间与冷启动分开
+  - name: host_launch_gap
+    unit: ns
+    meaning: 仅在可关联 CPU/device 时解释
+  overhead_control: 同负载交错运行无 profiler/有 profiler，报告延迟、吞吐变化及事件丢失；采集结果不计入正式 SLA。
+steps:
+- id: step-1
+  action: 回读实际 max_num_seqs、token budget、chunk、page 和图配置
+  deliverable: 声明与实际差异表
+- id: step-2
+  action: 按 step 对齐队列、batch 组成与设备时间线
+  deliverable: 供给/调度/容量的候选解释
+- id: step-3
+  action: 一次改变一个参数，固定点后再做同预算搜索
+  deliverable: A/B 与后续搜索空间
+experiments:
+- id: experiment-1
+  change: 对当前 Qwen eager 基线验证图执行资格后比较
+  controls:
+  - 同输入、设备、输出、并发、KV 配置
+  - 排除编译预热
+  supports: host gap/launch 开销下降且 E2E 改善
+  refutes: 图未命中或设备本身主导；不支持形状走回退
+- id: experiment-2
+  change: 扫描 chunk 或 max_num_seqs
+  controls:
+  - 不同时改变两者
+  - 冻结总卡数、dtype、cache 与请求集
+  supports: 降低 prefill/decode 干扰或改善设备工作密度
+  refutes: 收益来自长度或请求量变化
+calculations:
+- name: 并发扩展效率
+  formula: (throughput_high/throughput_low)/(concurrency_high/concurrency_low)
+  unit: ratio
+  limitations: 是描述量，低于阈值不证明调度瓶颈
+- name: 图命中比例
+  formula: graph_replays / eligible_steps
+  unit: fraction
+  limitations: 需明确哪些 step 可进入图
+correctness_checks:
+- 动态形状与图输入地址生命周期
+- 图/eager 输出一致
+- prefix-cache 状态不变
+- 调度无饥饿/丢请求
+confounders:
+- vLLM max_num_batched_tokens 当 SGLang chunk_size
+- max_num_seqs 当实际 batch
+- 小样本吞吐当饱和能力
+exit_criteria:
+- 实际配置已回读
+- 独立重复且控制 compile/warmup
+- 参数影响与机制证据一致
+handoff:
+  target: 部署参数候选或有证据的调度/图代码任务
+  required_artifacts:
+  - 冻结源码 commit、补丁与镜像摘要
+  - 真实调用点、shape/dtype/stride 和开发输入
+  - 独立正确性参考与容差
+  - 固定工作点 A/B 和 E2E 复测计划
+  rollback: 恢复父部署与父候选代码；保留不支持形状的原实现回退，不覆盖已有证据。
+budget:
+  max_capture_seconds: 120
+  minimum_repetitions: 3
+  max_variants: 3

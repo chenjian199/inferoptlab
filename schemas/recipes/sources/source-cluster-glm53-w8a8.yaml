@@ -1,0 +1,17 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-cluster-glm53-w8a8
+version: 1.0.0
+title: cluster-glm53-w8a8 machine-collected model metadata
+provenance: []
+issues: []
+extensions: {}
+path: schemas/evidence/model-intake/cluster-glm53-w8a8/1.0.0/metadata.json
+sha256: 6a3632a37e1603b8bda1cf86b2718c5e69e1bb49f6b20b45a71c8bc272de9397
+media_type: application/json
+role: model_metadata
+authority: machine_collected
+coverage:
+  status: partial
+  description: Config, tokenizer and all shard headers; no full payload hashing or
+    model execution.

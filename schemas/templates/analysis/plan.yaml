@@ -1,0 +1,126 @@
+schema_version: 0.2.0
+kind: RecipeTemplate
+id: analysis-plan-recipe
+version: 1.0.0
+title: 新建 AnalysisPlan 的模板
+provenance: []
+issues: []
+extensions: {}
+target_kind: AnalysisPlan
+parameters:
+  id:
+    type: string
+    pattern: ^[a-z][a-z0-9-]*$
+    default: example-analysis
+    description: Recipe id
+  title:
+    type: string
+    default: 待细化的 AnalysisPlan
+    description: Recipe title
+  diagnosis_plan_ref:
+    type: [object, 'null']
+    description: Override diagnosis_plan_ref for the new recipe
+    default:
+      id: qwen-metax-attribution
+      version: 1.0.0
+  model_ref:
+    type: object
+    description: Override model_ref for the new recipe
+    default:
+      id: metax-qwen3-06b
+      version: 1.0.0
+  hardware_ref:
+    type: object
+    description: Override hardware_ref for the new recipe
+    default:
+      id: metax-qwen-smoke-gpu0
+      version: 1.0.0
+  runtime_ref:
+    type: [object, 'null']
+    description: Override runtime_ref for the new recipe
+    default:
+      id: metax-vllm-qwen-smoke
+      version: 1.0.0
+  method_refs:
+    type: array
+    description: Override method_refs for the new recipe
+    default:
+    - id: request-timing
+      version: 1.0.0
+    - id: compute-gemm
+      version: 1.0.0
+    - id: memory-state
+      version: 1.0.0
+    - id: materialization
+      version: 1.0.0
+    - id: communication
+      version: 1.0.0
+    - id: attention-compressor
+      version: 1.0.0
+    - id: moe-routing
+      version: 1.0.0
+    - id: scheduling-graphs
+      version: 1.0.0
+    - id: precision-kernels
+      version: 1.0.0
+    - id: speculation
+      version: 1.0.0
+    - id: host-serving
+      version: 1.0.0
+  historical_refs:
+    type: array
+    description: Override historical_refs for the new recipe
+    default:
+    - id: deepseek-optimization-claims
+      version: 1.0.0
+    - id: glm53-prefill-matrix
+      version: 1.0.0
+    - id: glm53-decode-visible-series
+      version: 1.0.0
+    - id: chitu-final-phase-results
+      version: 1.0.0
+  calibration_refs:
+    type: array
+    description: Override calibration_refs for the new recipe
+    default:
+    - id: metax-hardware-baseline-metax-gpu0-measurement
+      version: 1.0.0
+  budget:
+    type: object
+    description: Override budget for the new recipe
+    default:
+      max_tasks: 8
+      max_proposed_gpu_seconds: 8640
+  execution:
+    type: string
+    description: Override execution for the new recipe
+    default: plan_only
+body:
+  schema_version: 0.2.0
+  kind: AnalysisPlan
+  id:
+    $param: id
+  version: 1.0.0
+  title:
+    $param: title
+  provenance: []
+  issues: []
+  extensions: {}
+  diagnosis_plan_ref:
+    $param: diagnosis_plan_ref
+  model_ref:
+    $param: model_ref
+  hardware_ref:
+    $param: hardware_ref
+  runtime_ref:
+    $param: runtime_ref
+  method_refs:
+    $param: method_refs
+  historical_refs:
+    $param: historical_refs
+  calibration_refs:
+    $param: calibration_refs
+  budget:
+    $param: budget
+  execution:
+    $param: execution

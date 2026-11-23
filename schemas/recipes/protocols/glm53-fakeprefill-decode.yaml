@@ -1,0 +1,43 @@
+schema_version: 0.2.0
+kind: MeasurementProtocol
+id: glm53-fakeprefill-decode
+version: 1.0.0
+title: glm53-fakeprefill-decode
+provenance:
+- source_ref:
+    id: source-glm53-decode-a
+    version: 1.0.0
+  locator: 表头 D端-fakePrefill
+issues:
+- code: incomplete-measurement-protocol
+  path: /timing
+  reason: 来源未完整规定计时边界、统计窗口、失败分母、预热、超时和重复安排。
+  status: missing
+  blocking: true
+extensions: {}
+scope: decode
+method: fake_prefill
+allowed_deployment_modes:
+- aggregated
+- pd
+timing:
+  ttft_boundary: unspecified
+  tpot_boundary: unspecified
+  token_timestamps: unverified
+  window: unspecified
+  start: unspecified
+  finish: unspecified
+execution:
+  warmup: null
+  timeout_s: null
+  repetitions: null
+  profiler_during_scoring: null
+accounting:
+  primary_population: unspecified
+  failure_policy: unspecified
+  logical_request_deduplication: null
+steps:
+- 来源标记fakePrefill，不能视为完整请求 E2E
+- 输入4096、65536、131072；输出1024
+- 扫描per_dp_bs，记录RPS、生成吞吐与平均TPOT
+- 假Prefill的状态构造与等价性未提供

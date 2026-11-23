@@ -1,0 +1,353 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/common.json",
+  "$defs": {
+    "reference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        }
+      },
+      "required": [
+        "id",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "source_ref": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+            },
+            "version": {
+              "type": "string",
+              "pattern": "^\\d+\\.\\d+\\.\\d+$"
+            }
+          },
+          "required": [
+            "id",
+            "version"
+          ],
+          "additionalProperties": false
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_ref",
+        "locator"
+      ],
+      "additionalProperties": false
+    },
+    "issue": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+        },
+        "path": {
+          "type": "string",
+          "pattern": "^/"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "blocking": {
+          "type": "boolean"
+        },
+        "status": {
+          "enum": [
+            "missing",
+            "ambiguous",
+            "conflicting",
+            "unverified",
+            "cropped",
+            "unreadable"
+          ]
+        }
+      },
+      "required": [
+        "code",
+        "path",
+        "reason",
+        "blocking",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "measurement": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "enum": [
+            "ms",
+            "s",
+            "requests/s",
+            "tokens/s",
+            "fraction",
+            "percent",
+            "count",
+            "bytes",
+            "GB",
+            "GiB",
+            "GB/s",
+            "TB/s",
+            "TFLOPS",
+            "TOPS",
+            "W",
+            "FPS",
+            "MHz"
+          ]
+        },
+        "basis": {
+          "enum": [
+            "source_reported",
+            "measured",
+            "derived"
+          ]
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "basis"
+      ],
+      "additionalProperties": false
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "unit": {
+      "enum": [
+        "tokens",
+        "requests",
+        "requests/DP",
+        "ms",
+        "s",
+        "requests/s",
+        "tokens/s",
+        "fraction",
+        "percent",
+        "count",
+        "bytes",
+        "GB",
+        "GiB",
+        "GB/s",
+        "TB/s",
+        "TFLOPS",
+        "TOPS",
+        "W",
+        "FPS",
+        "MHz"
+      ]
+    },
+    "constraint": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+        },
+        "metric": {
+          "enum": [
+            "ttft",
+            "tpot",
+            "itl",
+            "chunk_interval",
+            "e2e_latency",
+            "request_throughput",
+            "input_token_throughput",
+            "output_token_throughput",
+            "request_goodput",
+            "output_token_goodput",
+            "success_rate",
+            "joint_slo_attainment",
+            "quality_score",
+            "peak_memory",
+            "power",
+            "cost_per_request"
+          ]
+        },
+        "scope": {
+          "enum": [
+            "request",
+            "case",
+            "token",
+            "model"
+          ]
+        },
+        "statistic": {
+          "enum": [
+            "mean",
+            "p50",
+            "p90",
+            "p95",
+            "p99",
+            "max",
+            "min",
+            "rate",
+            "fraction",
+            "per_request",
+            "unspecified"
+          ]
+        },
+        "operator": {
+          "enum": [
+            "unspecified",
+            "lt",
+            "le",
+            "gt",
+            "ge",
+            "eq"
+          ]
+        },
+        "threshold": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "value"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "range": {
+                  "type": "object",
+                  "properties": {
+                    "min": {
+                      "type": "number"
+                    },
+                    "max": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "min",
+                    "max"
+                  ],
+                  "additionalProperties": false
+                },
+                "selection": {
+                  "const": "unresolved"
+                }
+              },
+              "required": [
+                "range",
+                "selection"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "unit": {
+          "enum": [
+            "ms",
+            "s",
+            "requests/s",
+            "tokens/s",
+            "fraction",
+            "percent",
+            "count",
+            "bytes",
+            "GB",
+            "GiB",
+            "GB/s",
+            "TB/s",
+            "TFLOPS",
+            "TOPS",
+            "W",
+            "FPS",
+            "MHz"
+          ]
+        },
+        "normalization": {
+          "type": "object",
+          "properties": {
+            "basis": {
+              "enum": [
+                "system",
+                "allocated_devices",
+                "active_devices",
+                "reference_device_count",
+                "unspecified"
+              ]
+            },
+            "device_count": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "basis"
+          ],
+          "additionalProperties": false
+        },
+        "severity": {
+          "enum": [
+            "hard",
+            "advisory"
+          ]
+        },
+        "population": {
+          "enum": [
+            "all_planned_requests",
+            "sent_requests",
+            "successful_requests",
+            "completed_requests",
+            "unspecified"
+          ]
+        },
+        "raw_text": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "metric",
+        "scope",
+        "statistic",
+        "operator",
+        "threshold",
+        "unit",
+        "normalization",
+        "severity",
+        "population",
+        "raw_text"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

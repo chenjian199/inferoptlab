@@ -1,0 +1,60 @@
+schema_version: 0.2.0
+kind: SLAProfile
+id: sla-industry-16k-2k
+version: 1.0.0
+title: 行业需求 16K/2K
+provenance:
+- source_ref:
+    id: source-industry-sla
+    version: 1.0.0
+  locator: 代表性 SLA 16K/2K
+issues:
+- code: sla-statistic-unspecified
+  path: /constraints
+  reason: 图片未说明平均值/百分位/逐请求口径。
+  status: ambiguous
+  blocking: true
+- code: sla-comparator-unspecified
+  path: /constraints
+  reason: 图片未写<或≤；operator保留unspecified，正式验收前需确认。
+  status: ambiguous
+  blocking: true
+- code: sla-range-unresolved
+  path: /constraints/0/threshold
+  reason: 区间是需求范围，不能擅自取上限或下限。
+  status: ambiguous
+  blocking: true
+extensions: {}
+constraints:
+- id: ttft
+  metric: ttft
+  scope: case
+  statistic: unspecified
+  operator: unspecified
+  threshold:
+    range:
+      min: 1000
+      max: 3000
+    selection: unresolved
+  unit: ms
+  normalization:
+    basis: system
+  severity: hard
+  population: unspecified
+  raw_text: TTFT 1–3s
+- id: tpot
+  metric: tpot
+  scope: case
+  statistic: unspecified
+  operator: unspecified
+  threshold:
+    value: 30
+  unit: ms
+  normalization:
+    basis: system
+  severity: hard
+  population: unspecified
+  raw_text: TPOT 30ms
+joint_request_slo: null
+quality_requirements: []
+conditional_requirements: []

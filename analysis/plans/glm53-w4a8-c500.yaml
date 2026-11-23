@@ -1,0 +1,58 @@
+schema_version: 0.2.0
+kind: AnalysisPlan
+id: glm53-w4a8-c500-investigation
+version: 1.0.0
+title: GLM-5.3 w4a8 新集群专项准备
+provenance: []
+issues:
+- code: no-qualified-baseline
+  path: /diagnosis_plan_ref
+  reason: 模型文件已检查，但新节点占用且推理运行时未资格验证；本计划不授权 GPU 执行。
+  blocking: true
+  status: unverified
+extensions: {}
+diagnosis_plan_ref: null
+model_ref:
+  id: cluster-glm53-w4a8
+  version: 1.0.0
+hardware_ref:
+  id: metax-four-node-inventory-metax-60-host
+  version: 1.0.0
+runtime_ref: null
+method_refs:
+- id: request-timing
+  version: 1.0.0
+- id: compute-gemm
+  version: 1.0.0
+- id: memory-state
+  version: 1.0.0
+- id: materialization
+  version: 1.0.0
+- id: communication
+  version: 1.0.0
+- id: attention-compressor
+  version: 1.0.0
+- id: moe-routing
+  version: 1.0.0
+- id: scheduling-graphs
+  version: 1.0.0
+- id: precision-kernels
+  version: 1.0.0
+- id: speculation
+  version: 1.0.0
+- id: host-serving
+  version: 1.0.0
+historical_refs:
+- id: deepseek-optimization-claims
+  version: 1.0.0
+- id: glm53-prefill-matrix
+  version: 1.0.0
+- id: glm53-decode-visible-series
+  version: 1.0.0
+- id: chitu-final-phase-results
+  version: 1.0.0
+calibration_refs: []
+budget:
+  max_tasks: 11
+  max_proposed_gpu_seconds: 95040
+execution: plan_only

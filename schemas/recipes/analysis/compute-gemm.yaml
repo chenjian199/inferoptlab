@@ -1,0 +1,111 @@
+schema_version: 0.2.0
+kind: AnalysisMethod
+id: compute-gemm
+version: 1.0.0
+title: GEMM、算力路径与形状匹配校准
+provenance:
+- source_ref:
+    id: source-metax-gemm-demo-readme
+    version: 1.0.0
+  locator: 项目资料中的方法线索；本卡为本项目设计，不是来源中的已验证性能结论
+issues: []
+extensions: {}
+tags:
+- compute
+- kernel
+- roofline
+applicability:
+  architectures:
+  - any
+  conditions:
+  - 目标线性层或专家 GEMM 在设备时间线上突出，需确定真实 dtype、shape 与后端。
+  - 必须绑定目标模型、实现版本、实际设备和测试协议，历史结果仅提供线索。
+implementation: planning_only
+signals:
+- 目标线性层或专家 GEMM 在设备时间线上突出，需确定真实 dtype、shape 与后端。
+alternative_explanations:
+- 小 M/GEMV 并行度不足
+- 量化/反量化、布局或 launch 开销
+- 校准的 4096³ 与真实动态 shape 不可比
+required_evidence:
+- operator_shape_dtype_stride
+- kernel_backend
+- device_event_timing
+- matched_shape_calibration
+- critical_path_scope
+capture:
+  provider: PyTorch/framework trace or vendor profiler adapter (not qualified)
+  capability_state: unverified
+  boundary: 在无 profiler 基线之外，使用同请求集与同部署单独采集；隔离 warmup/compile，记录 node/rank/stream、单调时钟域及请求关联。
+  fields:
+  - name: M/N/K/batch
+    unit: elements
+    meaning: 含转置与分片后的真实形状
+  - name: storage/compute/accumulator_dtype
+    unit: dtype
+    meaning: 不能只读 checkpoint 标签
+  - name: kernel_name/library_version
+    unit: id
+    meaning: 实际 dispatch
+  - name: samples_ms
+    unit: ms
+    meaning: 预热后 device-event 样本
+  overhead_control: 同负载交错运行无 profiler/有 profiler，报告延迟、吞吐变化及事件丢失；采集结果不计入正式 SLA。
+steps:
+- id: step-1
+  action: 从目标层提取 decode 小 M 和 prefill 大 M 的真实分布
+  deliverable: 按调用次数和时间加权的形状清单
+- id: step-2
+  action: 在相同 GPU、运行库、dtype、layout 上补齐微基准
+  deliverable: 匹配校准表；不匹配项保持 unknown
+- id: step-3
+  action: 对比后端/分块并区分局部时间和关键路径影响
+  deliverable: kernel 与 E2E 两级结论
+experiments:
+- id: experiment-1
+  change: 同 shape 切换一个合法 GEMM 后端
+  controls:
+  - 相同输入、dtype、stride、设备、计时方法
+  - 保持量化组和数值策略不变
+  supports: 同形状时间改善且关键路径下降
+  refutes: 局部改善不影响 E2E 或正确性失败
+- id: experiment-2
+  change: 扫描真实 M 与边界 K/N，比较 padding 与 dispatch
+  controls:
+  - 相同有效 FLOPs
+  - 额外 padding FLOPs 单列
+  supports: 退化与形状边界相关
+  refutes: 退化主要出现在主机或通信等待
+calculations:
+- name: 实际 GEMM 吞吐
+  formula: 2*M*N*K*batch / seconds / 1e12
+  unit: TFLOPS
+  limitations: 稀疏、量化和融合操作另列；INT8 不冒充 BF16 TFLOPS
+- name: 相对校准
+  formula: matched_baseline_ms / observed_ms
+  unit: ratio
+  limitations: 要求 hardware/runtime/dtype/shape/layout/timer 匹配，否则不计算
+correctness_checks:
+- 误差容限与 accumulator dtype
+- 非整齐形状、转置、非连续 stride
+- dispatch 与回退
+confounders:
+- 理论峰值当实测上限
+- 跨 MACA 或容器版本直接比较
+- 把 all-rank 累计时间当 E2E 占比
+exit_criteria:
+- 至少一个实际热点形状有匹配校准
+- 校准与推理 runtime 的差异逐项记录
+- 通过正确性后才交接代码任务
+handoff:
+  target: 按 shape/dtype/layout 冻结 GEMM 或融合优化任务
+  required_artifacts:
+  - 冻结源码 commit、补丁与镜像摘要
+  - 真实调用点、shape/dtype/stride 和开发输入
+  - 独立正确性参考与容差
+  - 固定工作点 A/B 和 E2E 复测计划
+  rollback: 恢复父部署与父候选代码；保留不支持形状的原实现回退，不覆盖已有证据。
+budget:
+  max_capture_seconds: 120
+  minimum_repetitions: 3
+  max_variants: 3

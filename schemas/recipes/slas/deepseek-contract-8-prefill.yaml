@@ -1,0 +1,51 @@
+schema_version: 0.2.0
+kind: SLAProfile
+id: sla-deepseek-contract-8-prefill
+version: 1.0.0
+title: DeepSeek 合同序号8 prefill
+provenance:
+- source_ref:
+    id: source-deepseek-project
+    version: 1.0.0
+  locator: 1.3 序号8
+issues:
+- code: baseline-target-conflict
+  path: /conditional_requirements
+  reason: 1.3写开箱达标后提升25%，后文写20%；尚未确认条件与基线。
+  status: conflicting
+  blocking: true
+extensions: {}
+constraints:
+- id: throughput
+  metric: request_throughput
+  scope: case
+  statistic: rate
+  operator: ge
+  threshold:
+    value: 1.7739
+  unit: requests/s
+  normalization:
+    basis: reference_device_count
+    device_count: 8
+  severity: hard
+  population: unspecified
+  raw_text: prefill QPS（折合8卡）1.7739
+- id: ttft
+  metric: ttft
+  scope: case
+  statistic: mean
+  operator: lt
+  threshold:
+    value: 5000
+  unit: ms
+  normalization:
+    basis: system
+  severity: hard
+  population: unspecified
+  raw_text: 平均TTFT <5s
+joint_request_slo: null
+quality_requirements: []
+conditional_requirements:
+- condition: 开箱性能已满足表二要求
+  requirement: 在原开箱基础上提升25%（第1.3节）；后文20%表述待核对
+  status: unresolved

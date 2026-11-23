@@ -1,0 +1,53 @@
+schema_version: 0.2.0
+kind: RecipeTemplate
+id: template-benchmarks-scenario
+version: 1.0.0
+title: template-benchmarks-scenario
+provenance: []
+issues: []
+extensions: {}
+target_kind: BenchmarkScenario
+parameters:
+  id:
+    type: string
+    description: id; validated by the target schema.
+  version:
+    type: string
+    description: version; validated by the target schema.
+  title:
+    type: string
+    description: title; validated by the target schema.
+  provenance:
+    type: array
+    description: provenance; validated by the target schema.
+  issues:
+    type: array
+    description: issues; validated by the target schema.
+  extensions:
+    type: object
+    description: extensions; validated by the target schema.
+  case_ref:
+    type: object
+    description: case_ref; validated by the target schema.
+  dataset_dir:
+    type: string
+    description: dataset_dir; validated by the target schema.
+body:
+  schema_version: 0.2.0
+  kind: BenchmarkScenario
+  id:
+    $param: id
+  version:
+    $param: version
+  title:
+    $param: title
+  provenance:
+    $param: provenance
+  issues:
+    $param: issues
+  extensions:
+    $param: extensions
+  case_ref:
+    $param: case_ref
+  dataset_dir:
+    $param: dataset_dir

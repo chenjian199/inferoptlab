@@ -1,0 +1,128 @@
+schema_version: 0.2.0
+kind: HardwareSpec
+id: c500
+version: 1.0.0
+title: 曦云 C500
+provenance:
+- source_ref:
+    id: source-metax-c500
+    version: 1.0.0
+  locator: 表2-1 产品规格
+issues:
+- code: metaxlink-unit
+  path: /interfaces
+  reason: 原图总带宽单位为 GB，缺少时间维度，保留原文待确认。
+  status: ambiguous
+  blocking: false
+extensions: {}
+profile_type: device
+vendor: null
+product: 曦云 C500
+specifications:
+- name: compute
+  quantity:
+    value: 15
+    unit: TFLOPS
+    basis: source_reported
+  precision: FP32
+  operation: vector
+  conditions: 来源标称规格，未在目标机器校准
+- name: compute
+  quantity:
+    value: 30
+    unit: TFLOPS
+    basis: source_reported
+  precision: FP32
+  operation: matrix
+  conditions: 来源标称规格，未在目标机器校准
+- name: compute
+  quantity:
+    value: 120
+    unit: TFLOPS
+    basis: source_reported
+  precision: TF32
+  operation: null
+  conditions: 来源标称规格，未在目标机器校准
+- name: compute
+  quantity:
+    value: 240
+    unit: TFLOPS
+    basis: source_reported
+  precision: FP16
+  operation: null
+  conditions: 来源标称规格，未在目标机器校准
+- name: compute
+  quantity:
+    value: 240
+    unit: TFLOPS
+    basis: source_reported
+  precision: BF16
+  operation: null
+  conditions: 来源标称规格，未在目标机器校准
+- name: compute
+  quantity:
+    value: 480
+    unit: TOPS
+    basis: source_reported
+  precision: INT8
+  operation: null
+  conditions: 来源标称规格，未在目标机器校准
+- name: memory_capacity
+  quantity:
+    value: 64
+    unit: GB
+    basis: source_reported
+  precision: null
+  operation: null
+  conditions: HBM2e
+- name: memory_bandwidth
+  quantity:
+    value: 1.55
+    unit: TB/s
+    basis: source_reported
+  precision: null
+  operation: null
+  conditions: 来源标称规格，未在目标机器校准
+- name: board_power
+  quantity:
+    value: 350
+    unit: W
+    basis: source_reported
+  precision: null
+  operation: null
+  conditions: 最大总板功耗
+interfaces:
+- name: video
+  properties:
+    decode: 160 路 1080p@30 FPS
+    encode: 12 路 1080p@30 FPS
+- name: physical
+  properties:
+    cooling: 被动式
+    form_factor: 全高全长，双槽
+- name: pci_ids
+  properties:
+    device: '0x4001'
+    vendor: '0x9999'
+    subsystem: '0x4001'
+    subvendor: '0x9999'
+- name: vbios
+  properties:
+    capacity: 16 Mbit
+    uefi: false
+- name: pcie
+  properties:
+    generation: Gen5
+    lanes: x16, x8
+    lane_reversal: true
+    polarity_reversal: true
+    completion_timeout: false
+- name: metaxlink
+  properties:
+    count: 3
+    total_bandwidth_raw: 384 GB（双向）
+resources:
+  allocated_devices: null
+  nodes: []
+  topology: []
+capabilities: []

@@ -1,0 +1,3 @@
+{"scenario": "qwen-pipeline-smoke", "directory": "/job/project/runs/datasets/qwen-pipeline-smoke", "request_set_sha256": "cb79c8aa735787bed2af077c331966c984fa988580d6861db42583daae28dc09"}
+{"scenario": "qwen-pipeline-short", "directory": "/job/project/runs/datasets/qwen-pipeline-short", "request_set_sha256": "7e6d678cc0b4c24a66d12fb2f95ca0a5fea843bd4103b99d2e3a99a63f8cccdd"}
+{"scenario": "qwen-pipeline-long", "directory": "/job/project/runs/datasets/qwen-pipeline-long", "request_set_sha256": "3463e83a9ac05c4e5482d6ee8e6b87c7c53f93caa4764e92843eee97a77bec28"}

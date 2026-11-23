@@ -1,0 +1,285 @@
+schema_version: 0.2.0
+kind: ReportedMeasurements
+id: glm53-h20-relative-summary
+version: 1.0.0
+title: GLM-5.3 flash 相对 H20 性能（H20=100%）
+provenance:
+- source_ref:
+    id: source-glm53-summary
+    version: 1.0.0
+  locator: 汇总表全部单元格
+issues:
+- code: summary-aggregation-unknown
+  path: /rows
+  reason: 跨case汇总方式、重复数及绝对基线未提供；不反推SLO或总体E2E性能。
+  status: unverified
+  blocking: false
+extensions: {}
+evidence_kind: source_reported
+measurement_scope: comparison
+model_refs:
+- id: glm-5.3-flash-int8
+  version: 1.0.0
+- id: glm-5.3-flash-fp8
+  version: 1.0.0
+- id: glm-5.3-flash-int4
+  version: 1.0.0
+hardware_refs:
+- id: bw1000
+  version: 1.0.0
+- id: bw1100
+  version: 1.0.0
+- id: bw1301
+  version: 1.0.0
+- id: h20
+  version: 1.0.0
+columns:
+- name: precision
+  type: string
+  unit: null
+  meaning: 原始精度标签
+- name: hardware
+  type: string
+  unit: null
+  meaning: 原始硬件列
+- name: metric
+  type: string
+  unit: null
+  meaning: P端输入吞吐或D端RPS；D端ep16
+- name: relative_percent
+  type: number
+  unit: percent
+  meaning: 相对H20结果，不是相对自身基线的优化提升
+rows:
+- row_id: int8-bw1000-prefill-input-throughput
+  values:
+    precision: int8
+    hardware: bw1000
+    metric: prefill_input_throughput
+    relative_percent: 168.6
+  missing: {}
+  locator: int8 行 / bw1000 / prefill_input_throughput
+- row_id: int8-bw1000-decode-rps
+  values:
+    precision: int8
+    hardware: bw1000
+    metric: decode_rps
+    relative_percent: 66.82
+  missing: {}
+  locator: int8 行 / bw1000 / decode_rps
+- row_id: int8-bw1000-decode-rps-mean-tpot-approx-20ms
+  values:
+    precision: int8
+    hardware: bw1000
+    metric: decode_rps_mean_tpot_approx_20ms
+    relative_percent: 56.78
+  missing: {}
+  locator: int8 行 / bw1000 / decode_rps_mean_tpot_approx_20ms
+- row_id: int8-bw1100-prefill-input-throughput
+  values:
+    precision: int8
+    hardware: bw1100
+    metric: prefill_input_throughput
+    relative_percent: 157.57
+  missing: {}
+  locator: int8 行 / bw1100 / prefill_input_throughput
+- row_id: int8-bw1100-decode-rps
+  values:
+    precision: int8
+    hardware: bw1100
+    metric: decode_rps
+    relative_percent: 68.73
+  missing: {}
+  locator: int8 行 / bw1100 / decode_rps
+- row_id: int8-bw1100-decode-rps-mean-tpot-approx-20ms
+  values:
+    precision: int8
+    hardware: bw1100
+    metric: decode_rps_mean_tpot_approx_20ms
+    relative_percent: 54.17
+  missing: {}
+  locator: int8 行 / bw1100 / decode_rps_mean_tpot_approx_20ms
+- row_id: int8-bw1301-prefill-input-throughput
+  values:
+    precision: int8
+    hardware: bw1301
+    metric: prefill_input_throughput
+    relative_percent: null
+  missing:
+    relative_percent: not_reported
+  locator: int8 行 / bw1301 / prefill_input_throughput
+- row_id: int8-bw1301-decode-rps
+  values:
+    precision: int8
+    hardware: bw1301
+    metric: decode_rps
+    relative_percent: null
+  missing:
+    relative_percent: not_reported
+  locator: int8 行 / bw1301 / decode_rps
+- row_id: int8-bw1301-decode-rps-mean-tpot-approx-20ms
+  values:
+    precision: int8
+    hardware: bw1301
+    metric: decode_rps_mean_tpot_approx_20ms
+    relative_percent: null
+  missing:
+    relative_percent: not_reported
+  locator: int8 行 / bw1301 / decode_rps_mean_tpot_approx_20ms
+- row_id: fp8-bw1000-prefill-input-throughput
+  values:
+    precision: fp8
+    hardware: bw1000
+    metric: prefill_input_throughput
+    relative_percent: null
+  missing:
+    relative_percent: unsupported
+  locator: fp8 行 / bw1000 / prefill_input_throughput
+- row_id: fp8-bw1000-decode-rps
+  values:
+    precision: fp8
+    hardware: bw1000
+    metric: decode_rps
+    relative_percent: null
+  missing:
+    relative_percent: unsupported
+  locator: fp8 行 / bw1000 / decode_rps
+- row_id: fp8-bw1000-decode-rps-mean-tpot-approx-20ms
+  values:
+    precision: fp8
+    hardware: bw1000
+    metric: decode_rps_mean_tpot_approx_20ms
+    relative_percent: null
+  missing:
+    relative_percent: unsupported
+  locator: fp8 行 / bw1000 / decode_rps_mean_tpot_approx_20ms
+- row_id: fp8-bw1100-prefill-input-throughput
+  values:
+    precision: fp8
+    hardware: bw1100
+    metric: prefill_input_throughput
+    relative_percent: 150.5
+  missing: {}
+  locator: fp8 行 / bw1100 / prefill_input_throughput
+- row_id: fp8-bw1100-decode-rps
+  values:
+    precision: fp8
+    hardware: bw1100
+    metric: decode_rps
+    relative_percent: 65.09
+  missing: {}
+  locator: fp8 行 / bw1100 / decode_rps
+- row_id: fp8-bw1100-decode-rps-mean-tpot-approx-20ms
+  values:
+    precision: fp8
+    hardware: bw1100
+    metric: decode_rps_mean_tpot_approx_20ms
+    relative_percent: 46.3
+  missing: {}
+  locator: fp8 行 / bw1100 / decode_rps_mean_tpot_approx_20ms
+- row_id: fp8-bw1301-prefill-input-throughput
+  values:
+    precision: fp8
+    hardware: bw1301
+    metric: prefill_input_throughput
+    relative_percent: 125.6
+  missing: {}
+  locator: fp8 行 / bw1301 / prefill_input_throughput
+- row_id: fp8-bw1301-decode-rps
+  values:
+    precision: fp8
+    hardware: bw1301
+    metric: decode_rps
+    relative_percent: 59
+  missing: {}
+  locator: fp8 行 / bw1301 / decode_rps
+- row_id: fp8-bw1301-decode-rps-mean-tpot-approx-20ms
+  values:
+    precision: fp8
+    hardware: bw1301
+    metric: decode_rps_mean_tpot_approx_20ms
+    relative_percent: 38.66
+  missing: {}
+  locator: fp8 行 / bw1301 / decode_rps_mean_tpot_approx_20ms
+- row_id: int4-bw1000-prefill-input-throughput
+  values:
+    precision: int4
+    hardware: bw1000
+    metric: prefill_input_throughput
+    relative_percent: null
+  missing:
+    relative_percent: unsupported
+  locator: int4 行 / bw1000 / prefill_input_throughput
+- row_id: int4-bw1000-decode-rps
+  values:
+    precision: int4
+    hardware: bw1000
+    metric: decode_rps
+    relative_percent: 69.42
+  missing: {}
+  locator: int4 行 / bw1000 / decode_rps
+- row_id: int4-bw1000-decode-rps-mean-tpot-approx-20ms
+  values:
+    precision: int4
+    hardware: bw1000
+    metric: decode_rps_mean_tpot_approx_20ms
+    relative_percent: 66.26
+  missing: {}
+  locator: int4 行 / bw1000 / decode_rps_mean_tpot_approx_20ms
+- row_id: int4-bw1100-prefill-input-throughput
+  values:
+    precision: int4
+    hardware: bw1100
+    metric: prefill_input_throughput
+    relative_percent: null
+  missing:
+    relative_percent: unsupported
+  locator: int4 行 / bw1100 / prefill_input_throughput
+- row_id: int4-bw1100-decode-rps
+  values:
+    precision: int4
+    hardware: bw1100
+    metric: decode_rps
+    relative_percent: 56.79
+  missing: {}
+  locator: int4 行 / bw1100 / decode_rps
+- row_id: int4-bw1100-decode-rps-mean-tpot-approx-20ms
+  values:
+    precision: int4
+    hardware: bw1100
+    metric: decode_rps_mean_tpot_approx_20ms
+    relative_percent: 28.94
+  missing: {}
+  locator: int4 行 / bw1100 / decode_rps_mean_tpot_approx_20ms
+- row_id: int4-bw1301-prefill-input-throughput
+  values:
+    precision: int4
+    hardware: bw1301
+    metric: prefill_input_throughput
+    relative_percent: null
+  missing:
+    relative_percent: unsupported
+  locator: int4 行 / bw1301 / prefill_input_throughput
+- row_id: int4-bw1301-decode-rps
+  values:
+    precision: int4
+    hardware: bw1301
+    metric: decode_rps
+    relative_percent: null
+  missing:
+    relative_percent: unsupported
+  locator: int4 行 / bw1301 / decode_rps
+- row_id: int4-bw1301-decode-rps-mean-tpot-approx-20ms
+  values:
+    precision: int4
+    hardware: bw1301
+    metric: decode_rps_mean_tpot_approx_20ms
+    relative_percent: null
+  missing:
+    relative_percent: unsupported
+  locator: int4 行 / bw1301 / decode_rps_mean_tpot_approx_20ms
+extraction:
+  method: manual_transcription
+  coverage: complete_visible
+  omissions: []
+  independently_reproduced: false

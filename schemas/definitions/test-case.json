@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/test-case.json",
+  "title": "TestCaseSpec 0.2.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.2.0"
+    },
+    "kind": {
+      "const": "TestCaseSpec"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/provenance"
+      },
+      "minItems": 0
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/issue"
+      },
+      "minItems": 0
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_.-]*$"
+      }
+    },
+    "purpose": {
+      "enum": [
+        "contract",
+        "diagnostic",
+        "service_acceptance",
+        "application_extension"
+      ]
+    },
+    "model_ref": {
+      "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+    },
+    "workload_ref": {
+      "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+    },
+    "protocol_ref": {
+      "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+    },
+    "sla_ref": {
+      "anyOf": [
+        {
+          "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "source_case_label": {
+      "type": "string",
+      "minLength": 1
+    },
+    "declared_context": {
+      "type": "object",
+      "properties": {
+        "input": {
+          "type": "string",
+          "minLength": 1
+        },
+        "output": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "input",
+        "output"
+      ],
+      "additionalProperties": false
+    },
+    "priority": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "version",
+    "title",
+    "provenance",
+    "issues",
+    "extensions",
+    "purpose",
+    "model_ref",
+    "workload_ref",
+    "protocol_ref",
+    "sla_ref",
+    "required",
+    "source_case_label",
+    "declared_context",
+    "priority"
+  ],
+  "additionalProperties": false
+}

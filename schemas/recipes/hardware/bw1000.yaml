@@ -1,0 +1,38 @@
+schema_version: 0.2.0
+kind: HardwareSpec
+id: bw1000
+version: 1.0.0
+title: BW1000
+provenance:
+- source_ref:
+    id: source-chip-comparison
+    version: 1.0.0
+  locator: BW1000 行
+issues: []
+extensions: {}
+profile_type: device
+vendor: 海光
+product: BW1000
+specifications:
+- name: compute
+  quantity:
+    value: 491
+    unit: TFLOPS
+    basis: source_reported
+  precision: FP16
+  operation: null
+  conditions: 未说明稀疏性、累加模式或运行条件
+- name: memory_bandwidth
+  quantity:
+    value: 1.8
+    unit: TB/s
+    basis: source_reported
+  precision: null
+  operation: null
+  conditions: 来源标称规格，未在目标机器校准
+interfaces: []
+resources:
+  allocated_devices: null
+  nodes: []
+  topology: []
+capabilities: []

@@ -1,0 +1,2 @@
+-r ../schemas/requirements.txt
+aiperf==0.12.0

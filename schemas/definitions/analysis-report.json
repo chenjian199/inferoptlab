@@ -1,0 +1,252 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/analysis-report.json",
+  "title": "AnalysisReport 0.2.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.2.0"
+    },
+    "kind": {
+      "const": "AnalysisReport"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/provenance"
+      },
+      "minItems": 0
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/issue"
+      },
+      "minItems": 0
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_.-]*$"
+      }
+    },
+    "plan_ref": {
+      "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+    },
+    "plan_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "execution": {
+      "const": "plan_only"
+    },
+    "diagnosis_artifact": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "role": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "path",
+            "sha256",
+            "role"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "context_snapshot": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ref": {
+            "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "document": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "ref",
+          "sha256",
+          "document"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "method_ref": {
+            "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "needs_capture",
+              "awaiting_baseline",
+              "not_applicable",
+              "deferred_budget"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "hypothesis_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0
+          },
+          "required_evidence": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "available_evidence": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0
+          },
+          "missing_evidence": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0
+          },
+          "scope": {
+            "type": "object"
+          },
+          "method_snapshot": {
+            "type": "object"
+          },
+          "budget": {
+            "type": "object"
+          },
+          "execution_authorized": {
+            "const": false
+          },
+          "result": {
+            "type": "null"
+          }
+        },
+        "required": [
+          "id",
+          "method_ref",
+          "title",
+          "status",
+          "reason",
+          "hypothesis_ids",
+          "required_evidence",
+          "available_evidence",
+          "missing_evidence",
+          "scope",
+          "method_snapshot",
+          "budget",
+          "execution_authorized",
+          "result"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "preflight_issues": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    },
+    "proposed_gpu_seconds": {
+      "type": "number",
+      "minimum": 0
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "version",
+    "title",
+    "provenance",
+    "issues",
+    "extensions",
+    "plan_ref",
+    "plan_sha256",
+    "execution",
+    "diagnosis_artifact",
+    "context_snapshot",
+    "tasks",
+    "preflight_issues",
+    "proposed_gpu_seconds",
+    "limitations",
+    "content_sha256"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,46 @@
+schema_version: 0.2.0
+kind: ReportedMeasurements
+id: chitu-kimi-conflicting-summary
+version: 1.0.0
+title: Kimi 4K Decode 结论段的冲突数值
+provenance:
+- source_ref:
+    id: source-bw1000-report
+    version: 1.0.0
+  locator: 第23页6.1
+issues:
+- code: conflicting-ratio
+  path: /rows/0
+  reason: 与第20—21页439.02%冲突，不能用于自动达标判断。
+  status: conflicting
+  blocking: false
+extensions: {}
+evidence_kind: source_reported
+measurement_scope: comparison
+model_refs:
+- id: kimi-k2.7-code-w4a16
+  version: 1.0.0
+hardware_refs:
+- id: bw1000
+  version: 1.0.0
+columns:
+- name: case
+  type: string
+  unit: null
+  meaning: 原case
+- name: target_attainment_percent
+  type: number
+  unit: percent
+  meaning: 结论段原始达成率
+rows:
+- row_id: kimi-4k-decode-summary
+  values:
+    case: kimi-4k-decode
+    target_attainment_percent: 108.4
+  missing: {}
+  locator: 第23页6.1 Kimi条目
+extraction:
+  method: manual_transcription
+  coverage: complete_visible
+  omissions: []
+  independently_reproduced: false

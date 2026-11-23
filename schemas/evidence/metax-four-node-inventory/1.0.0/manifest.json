@@ -1,0 +1,42 @@
+{
+  "format_version": 1,
+  "mode": "inspect",
+  "status": "complete",
+  "captured_at": "2026-11-23T08:25:17.202234+00:00",
+  "hosts": [
+    {
+      "id": "metax-60",
+      "path": "metax-60/result.json",
+      "status": "inspected"
+    },
+    {
+      "id": "metax-61",
+      "path": "metax-61/result.json",
+      "status": "inspected"
+    },
+    {
+      "id": "metax-64",
+      "path": "metax-64/result.json",
+      "status": "inspected"
+    },
+    {
+      "id": "metax-65",
+      "path": "metax-65/result.json",
+      "status": "inspected"
+    }
+  ],
+  "files": {
+    "benchmark.py": "80e9dc3e34ce3886760af76ef06e4143109fcdba25f4c398e7147e3ff0bf2b94",
+    "inventory.py": "36245f8df7246e31dc711a2c3b211d985f11b6e5dc9d4b4104641f13daaa887d",
+    "metax-60/result.json": "ed2f51c587bcca600cd05c51c5b92329fb966327faefa211366eb1532e9efbcf",
+    "metax-60/worker.py": "c5db6b41e96018f9339a737600279dddcf0c3489e540dbe73ccc1787d15d8b6d",
+    "metax-61/result.json": "f18db38641409d793696b6112292aaaf9b275248bd62a419ecc2309b63a4fba9",
+    "metax-61/worker.py": "785fccae814f7bf855063f9e0057c00ea5ca055eb67764d0d24bfc2a09b0b9e5",
+    "metax-64/result.json": "146cd5ded5765104dbd0338f8c3947ddc3293d2ce2ad2e85b9e2396d7de2c4ec",
+    "metax-64/worker.py": "2c196311d033d3bb70a0ff0309fb62b52415b8760500259c0857cc1296db2861",
+    "metax-65/result.json": "838896154bb553c0cf6944cb5bb8714ccb0108ccedfe88c8b46d666cbf1b0067",
+    "metax-65/worker.py": "d61e3c0936320362d68674d9ea91a4c01bba872563aa4a6b649edf87706407df",
+    "plan.json": "3aa5097856424ec38ae51d0d2bcc254cd2ae66151507d9084e85f51614f24c22",
+    "worker.py": "7e19337f55a0cb4a58d7d3047eb4e00ba290be99b33dbae4e8a621ea1477fb6d"
+  }
+}

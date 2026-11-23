@@ -1,0 +1,37 @@
+schema_version: 0.2.0
+kind: HardwareSpec
+id: metax-four-node-inventory-metax-65-gpu3-device
+version: 1.0.0
+title: MetaX C500
+provenance:
+- source_ref:
+    id: source-metax-four-node-inventory-metax-65
+    version: 1.0.0
+  locator: /inventory
+issues: []
+extensions: {}
+profile_type: device
+vendor: MetaX Integrated Circuites
+product: MetaX C500
+specifications:
+- name: memory_capacity
+  quantity:
+    value: 68719476736
+    unit: bytes
+    basis: measured
+  precision: null
+  operation: null
+  conditions: Management-reported physical VRAM, including driver-reserved memory.
+interfaces:
+- name: memory
+  properties:
+    type: HBM2e
+- name: pcie
+  properties:
+    negotiated_speed_gt_s: 32.0
+    lanes: 16
+resources:
+  allocated_devices: null
+  nodes: []
+  topology: []
+capabilities: []

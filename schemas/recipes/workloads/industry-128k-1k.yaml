@@ -1,0 +1,50 @@
+schema_version: 0.2.0
+kind: WorkloadSpec
+id: workload-industry-128k-1k
+version: 1.0.0
+title: industry-128k-1k
+provenance:
+- source_ref:
+    id: source-industry-sla
+    version: 1.0.0
+  locator: 代表性 SLA 128K/1K
+issues:
+- code: missing-request-fixture
+  path: /requests
+  reason: 来源未提供冻结请求集、种子与每轮请求数。
+  status: missing
+  blocking: true
+- code: missing-generation-policy
+  path: /generation
+  reason: 缺少EOS、采样与停止规则。
+  status: missing
+  blocking: true
+extensions: {}
+input:
+  label: 128K
+  tokens: null
+  k_multiplier: null
+  origin: unresolved_k
+output:
+  label: 1K
+  tokens: null
+  k_multiplier: null
+  origin: unresolved_k
+requests:
+  content: unspecified
+  request_set_sha256: null
+  seed: null
+  count: null
+generation:
+  ignore_eos: null
+  sampling: null
+  stop_policy: null
+arrival:
+  mode: unspecified
+  load_unit: unspecified
+  load_points: []
+cache:
+  prefix_reuse: unspecified
+  target_hit_ratio: null
+  preparation: null
+  reset_between_runs: null

@@ -1,0 +1,1223 @@
+schema_version: 0.2.0
+kind: ReportedMeasurements
+id: glm53-prefill-matrix
+version: 1.0.0
+title: GLM-5.3 flash Prefill 可见矩阵：15负载点×5平台
+provenance:
+- source_ref:
+    id: source-glm53-prefill
+    version: 1.0.0
+  locator: 可见性能矩阵
+- source_ref:
+    id: source-glm53-decode-a
+    version: 1.0.0
+  locator: 输入长度显式token数；用于解释同组4k/64k/128k标签
+issues:
+- code: truncated-throughput-heading
+  path: /columns
+  reason: 吞吐量表头被截断，保留源值，不改写为独立复测口径。
+  blocking: false
+  status: cropped
+- code: unidentified-supernode
+  path: /hardware_refs
+  reason: fp8-超节点未明确具体型号，不自动等同于汇总表中的BW1301。
+  blocking: false
+  status: ambiguous
+- code: cross-platform-configurations
+  path: /extensions
+  reason: H20为IFB、DCU为PD分离；KV精度与配置不同，不视为受控公平对比。
+  blocking: false
+  status: ambiguous
+extensions:
+  source.platform_settings:
+    h20-141g:
+      mode: IFB
+      tp: 8
+      ep: 8
+      mem_fraction_static: 0.85
+      kv_cache_dtype: bfloat16
+      speculative_algorithm: EAGLE
+      dsa_prefill_backend: tilelang
+      moe_runner: null
+    int8-bw1000:
+      mode: PD分离
+      tp: 8
+      ep: 8
+      cp: 8
+      mem_fraction_static: 0.85
+      kv_cache_dtype: fp8_e4m3
+      hicache_size: 25
+    int8-bw1100:
+      mode: PD分离
+      tp: 8
+      ep: 8
+      cp: 8
+      mem_fraction_static: 0.85
+      kv_cache_dtype: fp8_e4m3
+      hicache_size: 12
+    fp8-bw1100:
+      mode: PD分离
+      tp: 8
+      ep: 8
+      cp: 8
+      mamba_full_memory_ratio: 0.8
+      kv_cache_dtype: fp8_e4m3
+      hicache_size: 12
+    fp8-supernode:
+      mode: PD分离
+      tp: 8
+      ep: 8
+      cp: 8
+      mem_fraction_static: 0.85
+      kv_cache_dtype: fp8_e4m3
+      speculative_algorithm: EAGLE
+      moe_a2a_backend: deepep
+      quantization_raw: w8a8_int8
+evidence_kind: source_reported
+measurement_scope: prefill
+model_refs:
+- id: glm-5.3
+  version: 1.0.0
+- id: glm-5.3-flash-int8
+  version: 1.0.0
+- id: glm-5.3-flash-fp8
+  version: 1.0.0
+- id: glm-5.3-flash-int4
+  version: 1.0.0
+hardware_refs:
+- id: h20-141g
+  version: 1.0.0
+- id: bw1000
+  version: 1.0.0
+- id: bw1100
+  version: 1.0.0
+- id: fp8-supernode-unidentified
+  version: 1.0.0
+columns:
+- name: platform
+  type: string
+  unit: null
+  meaning: 原图平台与精度标签
+- name: input_tokens
+  type: integer
+  unit: tokens
+  meaning: 输入token数，4k/64k/128k依据配套decode表显式数值展开
+- name: output_tokens
+  type: integer
+  unit: tokens
+  meaning: P端输出固定1
+- name: concurrency
+  type: integer
+  unit: requests
+  meaning: 并发请求数
+- name: actual_cache_hit_percent
+  type: number
+  unit: percent
+  meaning: 原图 Actual cache hit
+- name: target_cache_hit_percent
+  type: number
+  unit: percent
+  meaning: 原图 Target cache hit
+- name: input_throughput
+  type: number
+  unit: tokens/s
+  meaning: 原文 Input tok/s (inclu…)/Input bang (inclu…) 被截断，是否计入缓存及统计分母待确认
+- name: mean_ttft_ms
+  type: number
+  unit: ms
+  meaning: 原图Mean TTFT
+- name: throughput_relative_percent
+  type: number
+  unit: percent
+  meaning: 原图与H20比值
+- name: ttft_relative_percent
+  type: number
+  unit: percent
+  meaning: 原图H20/目标TTFT比值，方向与时延数值相反
+rows:
+- row_id: h20-141g-4096-16
+  values:
+    platform: h20-141g
+    input_tokens: 4096
+    output_tokens: 1
+    concurrency: 16
+    actual_cache_hit_percent: 0
+    target_cache_hit_percent: 0
+    input_throughput: 2099.793615
+    mean_ttft_ms: 29615.98806
+    throughput_relative_percent: null
+    ttft_relative_percent: null
+  missing:
+    throughput_relative_percent: not_applicable
+    ttft_relative_percent: not_applicable
+  locator: 截图电子表格行9 / h20-141g
+- row_id: h20-141g-4096-32
+  values:
+    platform: h20-141g
+    input_tokens: 4096
+    output_tokens: 1
+    concurrency: 32
+    actual_cache_hit_percent: 0
+    target_cache_hit_percent: 0
+    input_throughput: 14349.15204
+    mean_ttft_ms: 5343.996512
+    throughput_relative_percent: null
+    ttft_relative_percent: null
+  missing:
+    throughput_relative_percent: not_applicable
+    ttft_relative_percent: not_applicable
+  locator: 截图电子表格行10 / h20-141g
+- row_id: h20-141g-4096-48
+  values:
+    platform: h20-141g
+    input_tokens: 4096
+    output_tokens: 1
+    concurrency: 48
+    actual_cache_hit_percent: 0
+    target_cache_hit_percent: 0
+    input_throughput: 14424.37832
+    mean_ttft_ms: 7607.328218
+    throughput_relative_percent: null
+    ttft_relative_percent: null
+  missing:
+    throughput_relative_percent: not_applicable
+    ttft_relative_percent: not_applicable
+  locator: 截图电子表格行11 / h20-141g
+- row_id: h20-141g-4096-54
+  values:
+    platform: h20-141g
+    input_tokens: 4096
+    output_tokens: 1
+    concurrency: 54
+    actual_cache_hit_percent: 0
+    target_cache_hit_percent: 0
+    input_throughput: 14333.99896
+    mean_ttft_ms: 8444.909884
+    throughput_relative_percent: null
+    ttft_relative_percent: null
+  missing:
+    throughput_relative_percent: not_applicable
+    ttft_relative_percent: not_applicable
+  locator: 截图电子表格行12 / h20-141g
+- row_id: h20-141g-4096-64
+  values:
+    platform: h20-141g
+    input_tokens: 4096
+    output_tokens: 1
+    concurrency: 64
+    actual_cache_hit_percent: 0
+    target_cache_hit_percent: 0
+    input_throughput: 14436.83939
+    mean_ttft_ms: 9865.590461
+    throughput_relative_percent: null
+    ttft_relative_percent: null
+  missing:
+    throughput_relative_percent: not_applicable
+    ttft_relative_percent: not_applicable
+  locator: 截图电子表格行13 / h20-141g
+- row_id: h20-141g-65536-16
+  values:
+    platform: h20-141g
+    input_tokens: 65536
+    output_tokens: 1
+    concurrency: 16
+    actual_cache_hit_percent: 89.94
+    target_cache_hit_percent: 90
+    input_throughput: 103415.8672
+    mean_ttft_ms: 5365.47947
+    throughput_relative_percent: null
+    ttft_relative_percent: null
+  missing:
+    throughput_relative_percent: not_applicable
+    ttft_relative_percent: not_applicable
+  locator: 截图电子表格行14 / h20-141g
+- row_id: h20-141g-65536-32
+  values:
+    platform: h20-141g
+    input_tokens: 65536
+    output_tokens: 1
+    concurrency: 32
+    actual_cache_hit_percent: 89.94
+    target_cache_hit_percent: 90
+    input_throughput: 129648.4978
+    mean_ttft_ms: 9199.207607
+    throughput_relative_percent: null
+    ttft_relative_percent: null
+  missing:
+    throughput_relative_percent: not_applicable
+    ttft_relative_percent: not_applicable
+  locator: 截图电子表格行15 / h20-141g
+- row_id: h20-141g-65536-48
+  values:
+    platform: h20-141g
+    input_tokens: 65536
+    output_tokens: 1
+    concurrency: 48
+    actual_cache_hit_percent: 89.94
+    target_cache_hit_percent: 90
+    input_throughput: 129604.7546
+    mean_ttft_ms: 13302.21974
+    throughput_relative_percent: null
+    ttft_relative_percent: null
+  missing:
+    throughput_relative_percent: not_applicable
+    ttft_relative_percent: not_applicable
+  locator: 截图电子表格行16 / h20-141g
+- row_id: h20-141g-65536-54
+  values:
+    platform: h20-141g
+    input_tokens: 65536
+    output_tokens: 1
+    concurrency: 54
+    actual_cache_hit_percent: 89.94
+    target_cache_hit_percent: 90
+    input_throughput: 130413.4236
+    mean_ttft_ms: 14253.05021
+    throughput_relative_percent: null
+    ttft_relative_percent: null
+  missing:
+    throughput_relative_percent: not_applicable
+    ttft_relative_percent: not_applicable
+  locator: 截图电子表格行17 / h20-141g
+- row_id: h20-141g-65536-64
+  values:
+    platform: h20-141g
+    input_tokens: 65536
+    output_tokens: 1
+    concurrency: 64
+    actual_cache_hit_percent: 89.94
+    target_cache_hit_percent: 90
+    input_throughput: 130675.25
+    mean_ttft_ms: 16802.76172
+    throughput_relative_percent: null
+    ttft_relative_percent: null
+  missing:
+    throughput_relative_percent: not_applicable
+    ttft_relative_percent: not_applicable
+  locator: 截图电子表格行18 / h20-141g
+- row_id: h20-141g-131072-16
+  values:
+    platform: h20-141g
+    input_tokens: 131072
+    output_tokens: 1
+    concurrency: 16
+    actual_cache_hit_percent: 89.99
+    target_cache_hit_percent: 90
+    input_throughput: 121402.8908
+    mean_ttft_ms: 9894.902586
+    throughput_relative_percent: null
+    ttft_relative_percent: null
+  missing:
+    throughput_relative_percent: not_applicable
+    ttft_relative_percent: not_applicable
+  locator: 截图电子表格行19 / h20-141g
+- row_id: h20-141g-131072-32
+  values:
+    platform: h20-141g
+    input_tokens: 131072
+    output_tokens: 1
+    concurrency: 32
+    actual_cache_hit_percent: 89.99
+    target_cache_hit_percent: 90
+    input_throughput: 90190.28883
+    mean_ttft_ms: 19139.26919
+    throughput_relative_percent: null
+    ttft_relative_percent: null
+  missing:
+    throughput_relative_percent: not_applicable
+    ttft_relative_percent: not_applicable
+  locator: 截图电子表格行20 / h20-141g
+- row_id: h20-141g-131072-48
+  values:
+    platform: h20-141g
+    input_tokens: 131072
+    output_tokens: 1
+    concurrency: 48
+    actual_cache_hit_percent: 89.99
+    target_cache_hit_percent: 90
+    input_throughput: 121707.311
+    mean_ttft_ms: 27401.98475
+    throughput_relative_percent: null
+    ttft_relative_percent: null
+  missing:
+    throughput_relative_percent: not_applicable
+    ttft_relative_percent: not_applicable
+  locator: 截图电子表格行21 / h20-141g
+- row_id: h20-141g-131072-54
+  values:
+    platform: h20-141g
+    input_tokens: 131072
+    output_tokens: 1
+    concurrency: 54
+    actual_cache_hit_percent: 89.99
+    target_cache_hit_percent: 90
+    input_throughput: 121192.8155
+    mean_ttft_ms: 30728.20791
+    throughput_relative_percent: null
+    ttft_relative_percent: null
+  missing:
+    throughput_relative_percent: not_applicable
+    ttft_relative_percent: not_applicable
+  locator: 截图电子表格行22 / h20-141g
+- row_id: h20-141g-131072-64
+  values:
+    platform: h20-141g
+    input_tokens: 131072
+    output_tokens: 1
+    concurrency: 64
+    actual_cache_hit_percent: 89.99
+    target_cache_hit_percent: 90
+    input_throughput: 121184.4034
+    mean_ttft_ms: 36180.41414
+    throughput_relative_percent: null
+    ttft_relative_percent: null
+  missing:
+    throughput_relative_percent: not_applicable
+    ttft_relative_percent: not_applicable
+  locator: 截图电子表格行23 / h20-141g
+- row_id: int8-bw1000-4096-16
+  values:
+    platform: int8-bw1000
+    input_tokens: 4096
+    output_tokens: 1
+    concurrency: 16
+    actual_cache_hit_percent: 0
+    target_cache_hit_percent: 0
+    input_throughput: 1971.063517
+    mean_ttft_ms: 33233.68911
+    throughput_relative_percent: 93.87
+    ttft_relative_percent: 89.11
+  missing: {}
+  locator: 截图电子表格行9 / int8-bw1000
+- row_id: int8-bw1000-4096-32
+  values:
+    platform: int8-bw1000
+    input_tokens: 4096
+    output_tokens: 1
+    concurrency: 32
+    actual_cache_hit_percent: 0
+    target_cache_hit_percent: 0
+    input_throughput: 22067.47243
+    mean_ttft_ms: 5899.945205
+    throughput_relative_percent: 153.79
+    ttft_relative_percent: 90.58
+  missing: {}
+  locator: 截图电子表格行10 / int8-bw1000
+- row_id: int8-bw1000-4096-48
+  values:
+    platform: int8-bw1000
+    input_tokens: 4096
+    output_tokens: 1
+    concurrency: 48
+    actual_cache_hit_percent: 0
+    target_cache_hit_percent: 0
+    input_throughput: 25195.08037
+    mean_ttft_ms: 7759.591247
+    throughput_relative_percent: 174.67
+    ttft_relative_percent: 98.04
+  missing: {}
+  locator: 截图电子表格行11 / int8-bw1000
+- row_id: int8-bw1000-4096-54
+  values:
+    platform: int8-bw1000
+    input_tokens: 4096
+    output_tokens: 1
+    concurrency: 54
+    actual_cache_hit_percent: 0
+    target_cache_hit_percent: 0
+    input_throughput: 25182.99656
+    mean_ttft_ms: 8698.125541
+    throughput_relative_percent: 175.69
+    ttft_relative_percent: 97.09
+  missing: {}
+  locator: 截图电子表格行12 / int8-bw1000
+- row_id: int8-bw1000-4096-64
+  values:
+    platform: int8-bw1000
+    input_tokens: 4096
+    output_tokens: 1
+    concurrency: 64
+    actual_cache_hit_percent: 0
+    target_cache_hit_percent: 0
+    input_throughput: 24974.97462
+    mean_ttft_ms: 10433.47222
+    throughput_relative_percent: 172.99
+    ttft_relative_percent: 94.56
+  missing: {}
+  locator: 截图电子表格行13 / int8-bw1000
+- row_id: int8-bw1000-65536-16
+  values:
+    platform: int8-bw1000
+    input_tokens: 65536
+    output_tokens: 1
+    concurrency: 16
+    actual_cache_hit_percent: 89.94
+    target_cache_hit_percent: 90
+    input_throughput: 181896.1654
+    mean_ttft_ms: 5634.207397
+    throughput_relative_percent: 175.89
+    ttft_relative_percent: 95.23
+  missing: {}
+  locator: 截图电子表格行14 / int8-bw1000
+- row_id: int8-bw1000-65536-32
+  values:
+    platform: int8-bw1000
+    input_tokens: 65536
+    output_tokens: 1
+    concurrency: 32
+    actual_cache_hit_percent: 89.94
+    target_cache_hit_percent: 90
+    input_throughput: 213920.1198
+    mean_ttft_ms: 9586.39161
+    throughput_relative_percent: 165.0
+    ttft_relative_percent: 95.96
+  missing: {}
+  locator: 截图电子表格行15 / int8-bw1000
+- row_id: int8-bw1000-65536-48
+  values:
+    platform: int8-bw1000
+    input_tokens: 65536
+    output_tokens: 1
+    concurrency: 48
+    actual_cache_hit_percent: 89.94
+    target_cache_hit_percent: 90
+    input_throughput: 216019.3337
+    mean_ttft_ms: 14078.1637
+    throughput_relative_percent: 166.68
+    ttft_relative_percent: 94.49
+  missing: {}
+  locator: 截图电子表格行16 / int8-bw1000
+- row_id: int8-bw1000-65536-54
+  values:
+    platform: int8-bw1000
+    input_tokens: 65536
+    output_tokens: 1
+    concurrency: 54
+    actual_cache_hit_percent: 89.94
+    target_cache_hit_percent: 90
+    input_throughput: 216445.4832
+    mean_ttft_ms: 15790.76064
+    throughput_relative_percent: 165.97
+    ttft_relative_percent: 90.26
+  missing: {}
+  locator: 截图电子表格行17 / int8-bw1000
+- row_id: int8-bw1000-65536-64
+  values:
+    platform: int8-bw1000
+    input_tokens: 65536
+    output_tokens: 1
+    concurrency: 64
+    actual_cache_hit_percent: 89.94
+    target_cache_hit_percent: 90
+    input_throughput: 214940.1965
+    mean_ttft_ms: 18711.9562
+    throughput_relative_percent: 164.48
+    ttft_relative_percent: 89.8
+  missing: {}
+  locator: 截图电子表格行18 / int8-bw1000
+- row_id: int8-bw1000-131072-16
+  values:
+    platform: int8-bw1000
+    input_tokens: 131072
+    output_tokens: 1
+    concurrency: 16
+    actual_cache_hit_percent: 89.99
+    target_cache_hit_percent: 90
+    input_throughput: 203117.8942
+    mean_ttft_ms: 10023.0177
+    throughput_relative_percent: 167.31
+    ttft_relative_percent: 98.72
+  missing: {}
+  locator: 截图电子表格行19 / int8-bw1000
+- row_id: int8-bw1000-131072-32
+  values:
+    platform: int8-bw1000
+    input_tokens: 131072
+    output_tokens: 1
+    concurrency: 32
+    actual_cache_hit_percent: 89.99
+    target_cache_hit_percent: 90
+    input_throughput: 204276.4996
+    mean_ttft_ms: 20201.96371
+    throughput_relative_percent: 226.5
+    ttft_relative_percent: 94.74
+  missing: {}
+  locator: 截图电子表格行20 / int8-bw1000
+- row_id: int8-bw1000-131072-48
+  values:
+    platform: int8-bw1000
+    input_tokens: 131072
+    output_tokens: 1
+    concurrency: 48
+    actual_cache_hit_percent: 89.99
+    target_cache_hit_percent: 90
+    input_throughput: 202761.1017
+    mean_ttft_ms: 30008.16482
+    throughput_relative_percent: 166.6
+    ttft_relative_percent: 91.32
+  missing: {}
+  locator: 截图电子表格行21 / int8-bw1000
+- row_id: int8-bw1000-131072-54
+  values:
+    platform: int8-bw1000
+    input_tokens: 131072
+    output_tokens: 1
+    concurrency: 54
+    actual_cache_hit_percent: 89.99
+    target_cache_hit_percent: 90
+    input_throughput: 208122.3511
+    mean_ttft_ms: 32985.17489
+    throughput_relative_percent: 171.73
+    ttft_relative_percent: 93.16
+  missing: {}
+  locator: 截图电子表格行22 / int8-bw1000
+- row_id: int8-bw1000-131072-64
+  values:
+    platform: int8-bw1000
+    input_tokens: 131072
+    output_tokens: 1
+    concurrency: 64
+    actual_cache_hit_percent: 89.99
+    target_cache_hit_percent: 90
+    input_throughput: 207219.5927
+    mean_ttft_ms: 39075.78248
+    throughput_relative_percent: 171.0
+    ttft_relative_percent: 92.59
+  missing: {}
+  locator: 截图电子表格行23 / int8-bw1000
+- row_id: int8-bw1100-4096-16
+  values:
+    platform: int8-bw1100
+    input_tokens: 4096
+    output_tokens: 1
+    concurrency: 16
+    actual_cache_hit_percent: 0
+    target_cache_hit_percent: 0
+    input_throughput: 2285.182171
+    mean_ttft_ms: 28582.20757
+    throughput_relative_percent: 108.83
+    ttft_relative_percent: 103.62
+  missing: {}
+  locator: 截图电子表格行9 / int8-bw1100
+- row_id: int8-bw1100-4096-32
+  values:
+    platform: int8-bw1100
+    input_tokens: 4096
+    output_tokens: 1
+    concurrency: 32
+    actual_cache_hit_percent: 0
+    target_cache_hit_percent: 0
+    input_throughput: 10942.09411
+    mean_ttft_ms: 10608.72564
+    throughput_relative_percent: 76.26
+    ttft_relative_percent: 50.37
+  missing: {}
+  locator: 截图电子表格行10 / int8-bw1100
+- row_id: int8-bw1100-4096-48
+  values:
+    platform: int8-bw1100
+    input_tokens: 4096
+    output_tokens: 1
+    concurrency: 48
+    actual_cache_hit_percent: 0
+    target_cache_hit_percent: 0
+    input_throughput: 23328.38164
+    mean_ttft_ms: 6030.791377
+    throughput_relative_percent: 161.73
+    ttft_relative_percent: 126.14
+  missing: {}
+  locator: 截图电子表格行11 / int8-bw1100
+- row_id: int8-bw1100-4096-54
+  values:
+    platform: int8-bw1100
+    input_tokens: 4096
+    output_tokens: 1
+    concurrency: 54
+    actual_cache_hit_percent: 0
+    target_cache_hit_percent: 0
+    input_throughput: 23582.2136
+    mean_ttft_ms: 6549.977173
+    throughput_relative_percent: 164.52
+    ttft_relative_percent: 128.93
+  missing: {}
+  locator: 截图电子表格行12 / int8-bw1100
+- row_id: int8-bw1100-4096-64
+  values:
+    platform: int8-bw1100
+    input_tokens: 4096
+    output_tokens: 1
+    concurrency: 64
+    actual_cache_hit_percent: 0
+    target_cache_hit_percent: 0
+    input_throughput: 23562.11813
+    mean_ttft_ms: 7522.616188
+    throughput_relative_percent: 163.21
+    ttft_relative_percent: 131.15
+  missing: {}
+  locator: 截图电子表格行13 / int8-bw1100
+- row_id: int8-bw1100-65536-16
+  values:
+    platform: int8-bw1100
+    input_tokens: 65536
+    output_tokens: 1
+    concurrency: 16
+    actual_cache_hit_percent: 89.94
+    target_cache_hit_percent: 90
+    input_throughput: 116047.4004
+    mean_ttft_ms: 7745.191358
+    throughput_relative_percent: 112.21
+    ttft_relative_percent: 69.27
+  missing: {}
+  locator: 截图电子表格行14 / int8-bw1100
+- row_id: int8-bw1100-65536-32
+  values:
+    platform: int8-bw1100
+    input_tokens: 65536
+    output_tokens: 1
+    concurrency: 32
+    actual_cache_hit_percent: 89.94
+    target_cache_hit_percent: 90
+    input_throughput: 204379.5034
+    mean_ttft_ms: 7910.219861
+    throughput_relative_percent: 157.64
+    ttft_relative_percent: 116.3
+  missing: {}
+  locator: 截图电子表格行15 / int8-bw1100
+- row_id: int8-bw1100-65536-48
+  values:
+    platform: int8-bw1100
+    input_tokens: 65536
+    output_tokens: 1
+    concurrency: 48
+    actual_cache_hit_percent: 89.94
+    target_cache_hit_percent: 90
+    input_throughput: 209320.0381
+    mean_ttft_ms: 10857.27927
+    throughput_relative_percent: 161.51
+    ttft_relative_percent: 122.52
+  missing: {}
+  locator: 截图电子表格行16 / int8-bw1100
+- row_id: int8-bw1100-65536-54
+  values:
+    platform: int8-bw1100
+    input_tokens: 65536
+    output_tokens: 1
+    concurrency: 54
+    actual_cache_hit_percent: 89.94
+    target_cache_hit_percent: 90
+    input_throughput: 201813.3418
+    mean_ttft_ms: 11827.21579
+    throughput_relative_percent: 154.75
+    ttft_relative_percent: 120.51
+  missing: {}
+  locator: 截图电子表格行17 / int8-bw1100
+- row_id: int8-bw1100-65536-64
+  values:
+    platform: int8-bw1100
+    input_tokens: 65536
+    output_tokens: 1
+    concurrency: 64
+    actual_cache_hit_percent: 89.94
+    target_cache_hit_percent: 90
+    input_throughput: 209229.3325
+    mean_ttft_ms: 13355.43023
+    throughput_relative_percent: 160.11
+    ttft_relative_percent: 125.81
+  missing: {}
+  locator: 截图电子表格行18 / int8-bw1100
+- row_id: int8-bw1100-131072-16
+  values:
+    platform: int8-bw1100
+    input_tokens: 131072
+    output_tokens: 1
+    concurrency: 16
+    actual_cache_hit_percent: 89.99
+    target_cache_hit_percent: 90
+    input_throughput: 191993.9709
+    mean_ttft_ms: 8186.551162
+    throughput_relative_percent: 158.15
+    ttft_relative_percent: 120.87
+  missing: {}
+  locator: 截图电子表格行19 / int8-bw1100
+- row_id: int8-bw1100-131072-32
+  values:
+    platform: int8-bw1100
+    input_tokens: 131072
+    output_tokens: 1
+    concurrency: 32
+    actual_cache_hit_percent: 89.99
+    target_cache_hit_percent: 90
+    input_throughput: 200298.4317
+    mean_ttft_ms: 14356.36045
+    throughput_relative_percent: 222.08
+    ttft_relative_percent: 133.32
+  missing: {}
+  locator: 截图电子表格行20 / int8-bw1100
+- row_id: int8-bw1100-131072-48
+  values:
+    platform: int8-bw1100
+    input_tokens: 131072
+    output_tokens: 1
+    concurrency: 48
+    actual_cache_hit_percent: 89.99
+    target_cache_hit_percent: 90
+    input_throughput: 202476.4412
+    mean_ttft_ms: 19696.26474
+    throughput_relative_percent: 166.36
+    ttft_relative_percent: 139.12
+  missing: {}
+  locator: 截图电子表格行21 / int8-bw1100
+- row_id: int8-bw1100-131072-54
+  values:
+    platform: int8-bw1100
+    input_tokens: 131072
+    output_tokens: 1
+    concurrency: 54
+    actual_cache_hit_percent: 89.99
+    target_cache_hit_percent: 90
+    input_throughput: 202861.6444
+    mean_ttft_ms: 21597.73325
+    throughput_relative_percent: 167.39
+    ttft_relative_percent: 142.28
+  missing: {}
+  locator: 截图电子表格行22 / int8-bw1100
+- row_id: int8-bw1100-131072-64
+  values:
+    platform: int8-bw1100
+    input_tokens: 131072
+    output_tokens: 1
+    concurrency: 64
+    actual_cache_hit_percent: 89.99
+    target_cache_hit_percent: 90
+    input_throughput: 201999.8178
+    mean_ttft_ms: 24957.57872
+    throughput_relative_percent: 166.69
+    ttft_relative_percent: 144.97
+  missing: {}
+  locator: 截图电子表格行23 / int8-bw1100
+- row_id: fp8-bw1100-4096-16
+  values:
+    platform: fp8-bw1100
+    input_tokens: 4096
+    output_tokens: 1
+    concurrency: 16
+    actual_cache_hit_percent: 0
+    target_cache_hit_percent: 0
+    input_throughput: 3307.29661
+    mean_ttft_ms: 19610.99498
+    throughput_relative_percent: 157.51
+    ttft_relative_percent: 151.02
+  missing: {}
+  locator: 截图电子表格行9 / fp8-bw1100
+- row_id: fp8-bw1100-4096-32
+  values:
+    platform: fp8-bw1100
+    input_tokens: 4096
+    output_tokens: 1
+    concurrency: 32
+    actual_cache_hit_percent: 0
+    target_cache_hit_percent: 0
+    input_throughput: 9563.475363
+    mean_ttft_ms: 11989.8114
+    throughput_relative_percent: 66.65
+    ttft_relative_percent: 44.57
+  missing: {}
+  locator: 截图电子表格行10 / fp8-bw1100
+- row_id: fp8-bw1100-4096-48
+  values:
+    platform: fp8-bw1100
+    input_tokens: 4096
+    output_tokens: 1
+    concurrency: 48
+    actual_cache_hit_percent: 0
+    target_cache_hit_percent: 0
+    input_throughput: 21591.62453
+    mean_ttft_ms: 6162.402727
+    throughput_relative_percent: 149.69
+    ttft_relative_percent: 123.45
+  missing: {}
+  locator: 截图电子表格行11 / fp8-bw1100
+- row_id: fp8-bw1100-4096-54
+  values:
+    platform: fp8-bw1100
+    input_tokens: 4096
+    output_tokens: 1
+    concurrency: 54
+    actual_cache_hit_percent: 0
+    target_cache_hit_percent: 0
+    input_throughput: 21564.07525
+    mean_ttft_ms: 7163.017255
+    throughput_relative_percent: 150.44
+    ttft_relative_percent: 117.9
+  missing: {}
+  locator: 截图电子表格行12 / fp8-bw1100
+- row_id: fp8-bw1100-4096-64
+  values:
+    platform: fp8-bw1100
+    input_tokens: 4096
+    output_tokens: 1
+    concurrency: 64
+    actual_cache_hit_percent: 0
+    target_cache_hit_percent: 0
+    input_throughput: 21762.02281
+    mean_ttft_ms: 7996.929413
+    throughput_relative_percent: 150.74
+    ttft_relative_percent: 123.37
+  missing: {}
+  locator: 截图电子表格行13 / fp8-bw1100
+- row_id: fp8-bw1100-65536-16
+  values:
+    platform: fp8-bw1100
+    input_tokens: 65536
+    output_tokens: 1
+    concurrency: 16
+    actual_cache_hit_percent: 89.94
+    target_cache_hit_percent: 90
+    input_throughput: 82455.65893
+    mean_ttft_ms: 10789.78681
+    throughput_relative_percent: 79.73
+    ttft_relative_percent: 49.73
+  missing: {}
+  locator: 截图电子表格行14 / fp8-bw1100
+- row_id: fp8-bw1100-65536-32
+  values:
+    platform: fp8-bw1100
+    input_tokens: 65536
+    output_tokens: 1
+    concurrency: 32
+    actual_cache_hit_percent: 89.94
+    target_cache_hit_percent: 90
+    input_throughput: 192641.4841
+    mean_ttft_ms: 8694.636525
+    throughput_relative_percent: 148.59
+    ttft_relative_percent: 105.8
+  missing: {}
+  locator: 截图电子表格行15 / fp8-bw1100
+- row_id: fp8-bw1100-65536-48
+  values:
+    platform: fp8-bw1100
+    input_tokens: 65536
+    output_tokens: 1
+    concurrency: 48
+    actual_cache_hit_percent: 89.94
+    target_cache_hit_percent: 90
+    input_throughput: 196843.652
+    mean_ttft_ms: 11500.80497
+    throughput_relative_percent: 151.88
+    ttft_relative_percent: 115.66
+  missing: {}
+  locator: 截图电子表格行16 / fp8-bw1100
+- row_id: fp8-bw1100-65536-54
+  values:
+    platform: fp8-bw1100
+    input_tokens: 65536
+    output_tokens: 1
+    concurrency: 54
+    actual_cache_hit_percent: 89.94
+    target_cache_hit_percent: 90
+    input_throughput: 162243.9435
+    mean_ttft_ms: 13435.70343
+    throughput_relative_percent: 124.41
+    ttft_relative_percent: 106.08
+  missing: {}
+  locator: 截图电子表格行17 / fp8-bw1100
+- row_id: fp8-bw1100-65536-64
+  values:
+    platform: fp8-bw1100
+    input_tokens: 65536
+    output_tokens: 1
+    concurrency: 64
+    actual_cache_hit_percent: 89.94
+    target_cache_hit_percent: 90
+    input_throughput: 196338.2583
+    mean_ttft_ms: 14301.85759
+    throughput_relative_percent: 150.25
+    ttft_relative_percent: 117.49
+  missing: {}
+  locator: 截图电子表格行18 / fp8-bw1100
+- row_id: fp8-bw1100-131072-16
+  values:
+    platform: fp8-bw1100
+    input_tokens: 131072
+    output_tokens: 1
+    concurrency: 16
+    actual_cache_hit_percent: 89.99
+    target_cache_hit_percent: 90
+    input_throughput: 185270.8801
+    mean_ttft_ms: 9123.211064
+    throughput_relative_percent: 152.61
+    ttft_relative_percent: 108.46
+  missing: {}
+  locator: 截图电子表格行19 / fp8-bw1100
+- row_id: fp8-bw1100-131072-32
+  values:
+    platform: fp8-bw1100
+    input_tokens: 131072
+    output_tokens: 1
+    concurrency: 32
+    actual_cache_hit_percent: 89.99
+    target_cache_hit_percent: 90
+    input_throughput: 188710.2432
+    mean_ttft_ms: 15195.87307
+    throughput_relative_percent: 209.24
+    ttft_relative_percent: 125.95
+  missing: {}
+  locator: 截图电子表格行20 / fp8-bw1100
+- row_id: fp8-bw1100-131072-48
+  values:
+    platform: fp8-bw1100
+    input_tokens: 131072
+    output_tokens: 1
+    concurrency: 48
+    actual_cache_hit_percent: 89.99
+    target_cache_hit_percent: 90
+    input_throughput: 190213.7504
+    mean_ttft_ms: 20907.72998
+    throughput_relative_percent: 156.29
+    ttft_relative_percent: 131.06
+  missing: {}
+  locator: 截图电子表格行21 / fp8-bw1100
+- row_id: fp8-bw1100-131072-54
+  values:
+    platform: fp8-bw1100
+    input_tokens: 131072
+    output_tokens: 1
+    concurrency: 54
+    actual_cache_hit_percent: 89.99
+    target_cache_hit_percent: 90
+    input_throughput: 189736.8912
+    mean_ttft_ms: 22292.34495
+    throughput_relative_percent: 156.56
+    ttft_relative_percent: 137.84
+  missing: {}
+  locator: 截图电子表格行22 / fp8-bw1100
+- row_id: fp8-bw1100-131072-64
+  values:
+    platform: fp8-bw1100
+    input_tokens: 131072
+    output_tokens: 1
+    concurrency: 64
+    actual_cache_hit_percent: 89.99
+    target_cache_hit_percent: 90
+    input_throughput: 190257.9218
+    mean_ttft_ms: 25838.45388
+    throughput_relative_percent: 157.0
+    ttft_relative_percent: 140.03
+  missing: {}
+  locator: 截图电子表格行23 / fp8-bw1100
+- row_id: fp8-supernode-4096-16
+  values:
+    platform: fp8-supernode
+    input_tokens: 4096
+    output_tokens: 1
+    concurrency: 16
+    actual_cache_hit_percent: 0
+    target_cache_hit_percent: 0
+    input_throughput: 10928.53213
+    mean_ttft_ms: 5363.263038
+    throughput_relative_percent: 520.46
+    ttft_relative_percent: 552.2
+  missing: {}
+  locator: 截图电子表格行9 / fp8-supernode
+- row_id: fp8-supernode-4096-32
+  values:
+    platform: fp8-supernode
+    input_tokens: 4096
+    output_tokens: 1
+    concurrency: 32
+    actual_cache_hit_percent: 0
+    target_cache_hit_percent: 0
+    input_throughput: 17184.19773
+    mean_ttft_ms: 6159.917618
+    throughput_relative_percent: 119.76
+    ttft_relative_percent: 86.75
+  missing: {}
+  locator: 截图电子表格行10 / fp8-supernode
+- row_id: fp8-supernode-4096-48
+  values:
+    platform: fp8-supernode
+    input_tokens: 4096
+    output_tokens: 1
+    concurrency: 48
+    actual_cache_hit_percent: 0
+    target_cache_hit_percent: 0
+    input_throughput: 18265.40026
+    mean_ttft_ms: 7597.653378
+    throughput_relative_percent: 126.63
+    ttft_relative_percent: 100.13
+  missing: {}
+  locator: 截图电子表格行11 / fp8-supernode
+- row_id: fp8-supernode-4096-54
+  values:
+    platform: fp8-supernode
+    input_tokens: 4096
+    output_tokens: 1
+    concurrency: 54
+    actual_cache_hit_percent: 0
+    target_cache_hit_percent: 0
+    input_throughput: 17744.963
+    mean_ttft_ms: 8471.179582
+    throughput_relative_percent: 123.8
+    ttft_relative_percent: 99.69
+  missing: {}
+  locator: 截图电子表格行12 / fp8-supernode
+- row_id: fp8-supernode-4096-64
+  values:
+    platform: fp8-supernode
+    input_tokens: 4096
+    output_tokens: 1
+    concurrency: 64
+    actual_cache_hit_percent: 0
+    target_cache_hit_percent: 0
+    input_throughput: 18106.21544
+    mean_ttft_ms: 9322.705002
+    throughput_relative_percent: 125.42
+    ttft_relative_percent: 105.82
+  missing: {}
+  locator: 截图电子表格行13 / fp8-supernode
+- row_id: fp8-supernode-65536-16
+  values:
+    platform: fp8-supernode
+    input_tokens: 65536
+    output_tokens: 1
+    concurrency: 16
+    actual_cache_hit_percent: 89.94
+    target_cache_hit_percent: 90
+    input_throughput: 140320.4497
+    mean_ttft_ms: 6896.200005
+    throughput_relative_percent: 135.69
+    ttft_relative_percent: 77.8
+  missing: {}
+  locator: 截图电子表格行14 / fp8-supernode
+- row_id: fp8-supernode-65536-32
+  values:
+    platform: fp8-supernode
+    input_tokens: 65536
+    output_tokens: 1
+    concurrency: 32
+    actual_cache_hit_percent: 89.94
+    target_cache_hit_percent: 90
+    input_throughput: 157674.701
+    mean_ttft_ms: 10722.46836
+    throughput_relative_percent: 121.62
+    ttft_relative_percent: 85.79
+  missing: {}
+  locator: 截图电子表格行15 / fp8-supernode
+- row_id: fp8-supernode-65536-48
+  values:
+    platform: fp8-supernode
+    input_tokens: 65536
+    output_tokens: 1
+    concurrency: 48
+    actual_cache_hit_percent: 89.94
+    target_cache_hit_percent: 90
+    input_throughput: 157396.3773
+    mean_ttft_ms: 14632.09461
+    throughput_relative_percent: 121.44
+    ttft_relative_percent: 90.91
+  missing: {}
+  locator: 截图电子表格行16 / fp8-supernode
+- row_id: fp8-supernode-65536-54
+  values:
+    platform: fp8-supernode
+    input_tokens: 65536
+    output_tokens: 1
+    concurrency: 54
+    actual_cache_hit_percent: 89.94
+    target_cache_hit_percent: 90
+    input_throughput: 160727.1786
+    mean_ttft_ms: 15678.45706
+    throughput_relative_percent: 123.24
+    ttft_relative_percent: 90.91
+  missing: {}
+  locator: 截图电子表格行17 / fp8-supernode
+- row_id: fp8-supernode-65536-64
+  values:
+    platform: fp8-supernode
+    input_tokens: 65536
+    output_tokens: 1
+    concurrency: 64
+    actual_cache_hit_percent: 89.94
+    target_cache_hit_percent: 90
+    input_throughput: 157561.4503
+    mean_ttft_ms: 17752.83966
+    throughput_relative_percent: 120.57
+    ttft_relative_percent: 94.65
+  missing: {}
+  locator: 截图电子表格行18 / fp8-supernode
+- row_id: fp8-supernode-131072-16
+  values:
+    platform: fp8-supernode
+    input_tokens: 131072
+    output_tokens: 1
+    concurrency: 16
+    actual_cache_hit_percent: 89.99
+    target_cache_hit_percent: 90
+    input_throughput: 147882.1925
+    mean_ttft_ms: 10647.27182
+    throughput_relative_percent: 121.81
+    ttft_relative_percent: 92.93
+  missing: {}
+  locator: 截图电子表格行19 / fp8-supernode
+- row_id: fp8-supernode-131072-32
+  values:
+    platform: fp8-supernode
+    input_tokens: 131072
+    output_tokens: 1
+    concurrency: 32
+    actual_cache_hit_percent: 89.99
+    target_cache_hit_percent: 90
+    input_throughput: 153889.2073
+    mean_ttft_ms: 19297.38728
+    throughput_relative_percent: 170.63
+    ttft_relative_percent: 99.18
+  missing: {}
+  locator: 截图电子表格行20 / fp8-supernode
+- row_id: fp8-supernode-131072-48
+  values:
+    platform: fp8-supernode
+    input_tokens: 131072
+    output_tokens: 1
+    concurrency: 48
+    actual_cache_hit_percent: 89.99
+    target_cache_hit_percent: 90
+    input_throughput: 157089.4304
+    mean_ttft_ms: 26174.28149
+    throughput_relative_percent: 129.07
+    ttft_relative_percent: 104.69
+  missing: {}
+  locator: 截图电子表格行21 / fp8-supernode
+- row_id: fp8-supernode-131072-54
+  values:
+    platform: fp8-supernode
+    input_tokens: 131072
+    output_tokens: 1
+    concurrency: 54
+    actual_cache_hit_percent: 89.99
+    target_cache_hit_percent: 90
+    input_throughput: 161567.8731
+    mean_ttft_ms: 28253.70501
+    throughput_relative_percent: 133.31
+    ttft_relative_percent: 108.76
+  missing: {}
+  locator: 截图电子表格行22 / fp8-supernode
+- row_id: fp8-supernode-131072-64
+  values:
+    platform: fp8-supernode
+    input_tokens: 131072
+    output_tokens: 1
+    concurrency: 64
+    actual_cache_hit_percent: 89.99
+    target_cache_hit_percent: 90
+    input_throughput: 158080.7509
+    mean_ttft_ms: 33446.90463
+    throughput_relative_percent: 130.45
+    ttft_relative_percent: 108.17
+  missing: {}
+  locator: 截图电子表格行23 / fp8-supernode
+extraction:
+  method: manual_transcription
+  coverage: complete_visible
+  omissions:
+  - 镜像地址和部分启动参数被列宽截断；不猜测完整地址、digest或moe-runner值。
+  independently_reproduced: false

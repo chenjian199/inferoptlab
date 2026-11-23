@@ -1,0 +1,53 @@
+schema_version: 0.2.0
+kind: ModelSpec
+id: deepseek-v4-pro
+version: 1.0.0
+title: DeepSeek-V4-Pro
+provenance:
+- source_ref:
+    id: source-industry-sla
+    version: 1.0.0
+  locator: 可读模型行 2
+issues:
+- code: unfrozen-model-identity
+  path: /identity
+  reason: 来源未提供可冻结的权重 revision、校验值及仓库身份。
+  status: missing
+  blocking: true
+- code: unfrozen-tokenizer
+  path: /tokenizer
+  reason: 未提供 tokenizer 和模板内容身份。
+  status: missing
+  blocking: true
+- code: unfrozen-correctness
+  path: /semantics
+  reason: 尚未定义正式正确性与质量策略。
+  status: missing
+  blocking: true
+extensions: {}
+identity:
+  name: DeepSeek-V4-Pro
+  family: DeepSeek
+  variant: null
+  repository: null
+  revision: null
+  weights_sha256: null
+tokenizer:
+  revision: null
+  sha256: null
+  chat_template_sha256: null
+architecture:
+  type: unspecified
+  attention: unspecified
+  context_limit_tokens: null
+  parameters: {}
+  state_types: []
+precision:
+  label: null
+  weights: null
+  activations: null
+  kv_cache: null
+semantics:
+  contract: unspecified
+  correctness_policy_ref: null
+  quality_policy_ref: null

@@ -1,0 +1,340 @@
+schema_version: 0.2.0
+kind: ModelSpec
+id: cluster-glm53-w8a8
+version: 1.0.0
+title: GLM-5.3-W8A8 inspected checkpoint
+provenance:
+- source_ref:
+    id: source-cluster-glm53-w8a8
+    version: 1.0.0
+  locator: /
+issues:
+- code: payload-not-hashed
+  path: /identity/weights_sha256
+  status: unverified
+  blocking: true
+  reason: Only metadata and every shard header were verified; weight payload bytes
+    were not hashed.
+- code: upstream-revision-unavailable
+  path: /identity/revision
+  status: unverified
+  blocking: true
+  reason: No immutable upstream revision was established from this directory.
+- code: quality-policy-missing
+  path: /semantics
+  status: unverified
+  blocking: true
+  reason: No model-quality acceptance policy has been attached.
+extensions:
+  model.quantization_groups:
+    group_0:
+      targets:
+      - Linear
+      input_activations:
+        dynamic: true
+        group_size: null
+        num_bits: 8
+        observer: minmax
+        observer_kwargs: {}
+        strategy: token
+        symmetric: true
+        type: int
+      weights:
+        dynamic: false
+        group_size: null
+        num_bits: 8
+        observer: minmax
+        observer_kwargs: {}
+        strategy: channel
+        symmetric: true
+        type: int
+evidence_level: inspected
+identity:
+  name: GLM-5.3-W8A8
+  family: GLM
+  variant: null
+  repository: null
+  revision: null
+  weights_sha256: null
+tokenizer:
+  revision: null
+  sha256: 19e773648cb4e65de8660ea6365e10acca112d42a854923df93db4a6f333a82d
+  chat_template_sha256: 69bb3ab52067898e2466b855407636de559568947f367945842aabcb7fcc1705
+semantics:
+  contract: unspecified
+  correctness_policy_ref: null
+  quality_policy_ref: null
+architecture:
+  type: moe
+  attention: sparse_mla
+  context_limit_tokens: 1048576
+  parameters: {}
+  state_types:
+  - compressed_kv
+  - indexer_state
+  text:
+    num_hidden_layers: 78
+    hidden_size: 6144
+    vocab_size: 154880
+    num_attention_heads: 64
+    num_key_value_heads: 64
+    max_position_embeddings: 1048576
+    model_type: glm_moe_dsa
+    layer_types:
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+    - deepseek_sparse_attention
+  moe:
+    routed_experts: 256
+    shared_experts: 1
+    experts_per_token: 8
+    intermediate_size: 2048
+    first_dense_layers: 3
+    router_dtype: float32
+    scoring_function: sigmoid
+  attention_config:
+    head_dim: 64
+    index_head_dim: 128
+    index_n_heads: 32
+    index_topk: 2048
+    kv_lora_rank: 512
+    q_lora_rank: 2048
+    qk_head_dim: 256
+    qk_nope_head_dim: 192
+    qk_rope_head_dim: 64
+    v_head_dim: 256
+  mtp_layers: 1
+  modalities:
+  - text
+  implementation:
+  - GlmMoeDsaForCausalLM
+precision:
+  label: W8A8
+  weights: BF16 + I8 + F32
+  activations: dynamic INT8 on configured groups
+  kv_cache: null
+  quantization:
+    format: int-quantized
+    method: compressed-tensors
+    weight_bits: 8
+    activation_bits: 8
+    activation_dynamic: true
+    weight_strategy: channel
+    activation_strategy: token
+    symmetric: true
+    scale_dtypes:
+    - BF16
+    excluded_modules:
+    - lm_head
+    - model.layers.0.self_attn.indexer.weights_proj
+    - model.layers.1.self_attn.indexer.weights_proj
+    - model.layers.10.mlp.gate
+    - model.layers.10.self_attn.indexer.weights_proj
+    - model.layers.11.mlp.gate
+    - model.layers.12.mlp.gate
+    - model.layers.13.mlp.gate
+    - model.layers.14.mlp.gate
+    - model.layers.14.self_attn.indexer.weights_proj
+    - model.layers.15.mlp.gate
+    - model.layers.16.mlp.gate
+    - model.layers.17.mlp.gate
+    - model.layers.18.mlp.gate
+    - model.layers.18.self_attn.indexer.weights_proj
+    - model.layers.19.mlp.gate
+    - model.layers.2.self_attn.indexer.weights_proj
+    - model.layers.20.mlp.gate
+    - model.layers.21.mlp.gate
+    - model.layers.22.mlp.gate
+    - model.layers.22.self_attn.indexer.weights_proj
+    - model.layers.23.mlp.gate
+    - model.layers.24.mlp.gate
+    - model.layers.25.mlp.gate
+    - model.layers.26.mlp.gate
+    - model.layers.26.self_attn.indexer.weights_proj
+    - model.layers.27.mlp.gate
+    - model.layers.28.mlp.gate
+    - model.layers.29.mlp.gate
+    - model.layers.3.mlp.gate
+    - model.layers.30.mlp.gate
+    - model.layers.30.self_attn.indexer.weights_proj
+    - model.layers.31.mlp.gate
+    - model.layers.32.mlp.gate
+    - model.layers.33.mlp.gate
+    - model.layers.34.mlp.gate
+    - model.layers.34.self_attn.indexer.weights_proj
+    - model.layers.35.mlp.gate
+    - model.layers.36.mlp.gate
+    - model.layers.37.mlp.gate
+    - model.layers.38.mlp.gate
+    - model.layers.38.self_attn.indexer.weights_proj
+    - model.layers.39.mlp.gate
+    - model.layers.4.mlp.gate
+    - model.layers.40.mlp.gate
+    - model.layers.41.mlp.gate
+    - model.layers.42.mlp.gate
+    - model.layers.42.self_attn.indexer.weights_proj
+    - model.layers.43.mlp.gate
+    - model.layers.44.mlp.gate
+    - model.layers.45.mlp.gate
+    - model.layers.46.mlp.gate
+    - model.layers.46.self_attn.indexer.weights_proj
+    - model.layers.47.mlp.gate
+    - model.layers.48.mlp.gate
+    - model.layers.49.mlp.gate
+    - model.layers.5.mlp.gate
+    - model.layers.50.mlp.gate
+    - model.layers.50.self_attn.indexer.weights_proj
+    - model.layers.51.mlp.gate
+    - model.layers.52.mlp.gate
+    - model.layers.53.mlp.gate
+    - model.layers.54.mlp.gate
+    - model.layers.54.self_attn.indexer.weights_proj
+    - model.layers.55.mlp.gate
+    - model.layers.56.mlp.gate
+    - model.layers.57.mlp.gate
+    - model.layers.58.mlp.gate
+    - model.layers.58.self_attn.indexer.weights_proj
+    - model.layers.59.mlp.gate
+    - model.layers.6.mlp.gate
+    - model.layers.6.self_attn.indexer.weights_proj
+    - model.layers.60.mlp.gate
+    - model.layers.61.mlp.gate
+    - model.layers.62.mlp.gate
+    - model.layers.62.self_attn.indexer.weights_proj
+    - model.layers.63.mlp.gate
+    - model.layers.64.mlp.gate
+    - model.layers.65.mlp.gate
+    - model.layers.66.mlp.gate
+    - model.layers.66.self_attn.indexer.weights_proj
+    - model.layers.67.mlp.gate
+    - model.layers.68.mlp.gate
+    - model.layers.69.mlp.gate
+    - model.layers.7.mlp.gate
+    - model.layers.70.mlp.gate
+    - model.layers.70.self_attn.indexer.weights_proj
+    - model.layers.71.mlp.gate
+    - model.layers.72.mlp.gate
+    - model.layers.73.mlp.gate
+    - model.layers.74.mlp.gate
+    - model.layers.74.self_attn.indexer.weights_proj
+    - model.layers.75.mlp.gate
+    - model.layers.76.mlp.gate
+    - model.layers.77.mlp.gate
+    - model.layers.78.eh_proj
+    - model.layers.78.mlp.gate
+    - model.layers.78.self_attn.indexer.weights_proj
+    - model.layers.8.mlp.gate
+    - model.layers.9.mlp.gate
+    description_file: config.json
+checkpoint:
+  host: metax-60
+  path: /mnt/ufs1/models/models/metax-tech/GLM-5.3-W8A8
+  captured_at: '2026-11-23T08:24:32.426827+00:00'
+  format: safetensors
+  config_sha256: e1a41d7bf42b69ab760fb748a732230ed32551d5c5d2a31a82d2048a63908680
+  index:
+    name: model.safetensors.index.json
+    size_bytes: 10885813
+    sha256: 6791cd9510ec758f72987c0302b7acf06650552612a555c1e1ac1abd4de254aa
+  shard_count: 80
+  total_file_bytes: 755857203672
+  tensor_count: 118629
+  storage_dtypes:
+  - dtype: BF16
+    tensor_count: 59509
+    elements: 2308174016
+    storage_bytes: 4616348032
+  - dtype: I8
+    tensor_count: 59044
+    elements: 751226191872
+    storage_bytes: 751226191872
+  - dtype: F32
+    tensor_count: 76
+    elements: 19456
+    storage_bytes: 77824
+  manifest_sha256: d1cf9196fa98617b0cf6cfc0ab1ad47acfb90d7082d3d304f42af3c02d1a6f3f
+  manifest_algorithm: sha256_canonical_json_shard_name_size_header_sha256
+  verification_scope: index_and_headers
+  index_matches_headers: true
+  duplicate_tensor_names: []
+  payload_verified: false
+  auxiliary_files: []
+  compatibility:
+    target_vendor: MetaX
+    status: unverified
+    reason: Checkpoint inspected; loading and numerical correctness are separate tests.

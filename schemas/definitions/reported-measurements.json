@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/reported-measurements.json",
+  "title": "ReportedMeasurements 0.2.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.2.0"
+    },
+    "kind": {
+      "const": "ReportedMeasurements"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/provenance"
+      },
+      "minItems": 0
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/issue"
+      },
+      "minItems": 0
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_.-]*$"
+      }
+    },
+    "evidence_kind": {
+      "const": "source_reported"
+    },
+    "measurement_scope": {
+      "enum": [
+        "prefill",
+        "decode",
+        "e2e",
+        "local",
+        "comparison",
+        "quality",
+        "hardware"
+      ]
+    },
+    "model_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+      },
+      "minItems": 0
+    },
+    "hardware_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+      },
+      "minItems": 0
+    },
+    "columns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+          },
+          "type": {
+            "enum": [
+              "number",
+              "integer",
+              "string"
+            ]
+          },
+          "unit": {
+            "anyOf": [
+              {
+                "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/unit"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "meaning": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "unit",
+          "meaning"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "row_id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+          },
+          "values": {
+            "type": "object",
+            "additionalProperties": {
+              "type": [
+                "number",
+                "string",
+                "null"
+              ]
+            }
+          },
+          "missing": {
+            "type": "object",
+            "additionalProperties": {
+              "enum": [
+                "unsupported",
+                "not_reported",
+                "cropped",
+                "unreadable",
+                "not_applicable"
+              ]
+            }
+          },
+          "locator": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "row_id",
+          "values",
+          "missing",
+          "locator"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "extraction": {
+      "type": "object",
+      "properties": {
+        "method": {
+          "enum": [
+            "manual_transcription",
+            "text_extraction",
+            "ocr_reviewed"
+          ]
+        },
+        "coverage": {
+          "enum": [
+            "complete_visible",
+            "partial"
+          ]
+        },
+        "omissions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "independently_reproduced": {
+          "const": false
+        }
+      },
+      "required": [
+        "method",
+        "coverage",
+        "omissions",
+        "independently_reproduced"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "version",
+    "title",
+    "provenance",
+    "issues",
+    "extensions",
+    "evidence_kind",
+    "measurement_scope",
+    "model_refs",
+    "hardware_refs",
+    "columns",
+    "rows",
+    "extraction"
+  ],
+  "additionalProperties": false
+}

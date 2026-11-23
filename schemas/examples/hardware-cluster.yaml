@@ -1,0 +1,29 @@
+id: example-bw1000-eight-card-budget
+version: 1.0.0
+title: BW1000 折合八卡测试资源边界
+provenance:
+- source_ref:
+    id: source-deepseek-project
+    version: 1.0.0
+  locator: 1.3 Prefill/Decode QPS 折合8卡
+issues:
+- code: no-physical-inventory
+  path: /resources/nodes
+  reason: 折合8卡是指标归一化口径，不能据此构造真实机器、设备和NIC映射。
+  status: missing
+  blocking: true
+- code: no-capability-evidence
+  path: /capabilities
+  reason: 尚无本平台能力探测结果。
+  status: unverified
+  blocking: true
+extensions: {}
+vendor: 海光
+product: BW1000
+specifications: []
+interfaces: []
+resources:
+  allocated_devices: null
+  nodes: []
+  topology: []
+capabilities: []

@@ -1,0 +1,198 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/study-v0.2.json",
+  "title": "StudySpec 0.2.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.2.0"
+    },
+    "kind": {
+      "const": "StudySpec"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/provenance"
+      },
+      "minItems": 0
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/issue"
+      },
+      "minItems": 0
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_.-]*$"
+      }
+    },
+    "model_ref": {
+      "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+    },
+    "hardware_ref": {
+      "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+    },
+    "runtime_ref": {
+      "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+    },
+    "case_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "allowed_deployment_modes": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "aggregated",
+          "pd"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "objective": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "metric": {
+              "enum": [
+                "ttft",
+                "tpot",
+                "itl",
+                "chunk_interval",
+                "e2e_latency",
+                "request_throughput",
+                "input_token_throughput",
+                "output_token_throughput",
+                "request_goodput",
+                "output_token_goodput",
+                "success_rate",
+                "joint_slo_attainment",
+                "quality_score",
+                "peak_memory",
+                "power",
+                "cost_per_request"
+              ]
+            },
+            "direction": {
+              "enum": [
+                "maximize",
+                "minimize"
+              ]
+            },
+            "aggregation": {
+              "enum": [
+                "per_case",
+                "weighted_geomean"
+              ]
+            },
+            "case_weights": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            }
+          },
+          "required": [
+            "metric",
+            "direction",
+            "aggregation",
+            "case_weights"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "budget": {
+      "type": "object",
+      "properties": {
+        "max_candidates": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "max_device_hours": {
+          "anyOf": [
+            {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "max_wall_hours": {
+          "anyOf": [
+            {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "max_candidates",
+        "max_device_hours",
+        "max_wall_hours"
+      ],
+      "additionalProperties": false
+    },
+    "capability_policy": {
+      "const": "probe_before_execution"
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "version",
+    "title",
+    "provenance",
+    "issues",
+    "extensions",
+    "model_ref",
+    "hardware_ref",
+    "runtime_ref",
+    "case_refs",
+    "allowed_deployment_modes",
+    "objective",
+    "budget",
+    "capability_policy"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,368 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OptimizationTask template 0.1",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "kind": {
+      "const": "OptimizationTask"
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "study_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "is_template": {
+      "type": "boolean"
+    },
+    "baseline": {
+      "type": "object",
+      "properties": {
+        "candidate_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "repository": {
+          "type": "string",
+          "minLength": 1
+        },
+        "commit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "patch_digest": {
+          "type": "string",
+          "minLength": 1
+        },
+        "build_environment_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "candidate_id",
+        "repository",
+        "commit",
+        "patch_digest",
+        "build_environment_ref"
+      ],
+      "additionalProperties": false
+    },
+    "problem": {
+      "type": "object",
+      "properties": {
+        "hypothesis_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "operator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "goal": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "hypothesis_id",
+        "operator",
+        "evidence_refs",
+        "goal"
+      ],
+      "additionalProperties": false
+    },
+    "platform": {
+      "type": "object",
+      "properties": {
+        "environment_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "required_capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "capability_status": {
+          "enum": [
+            "verified",
+            "unverified",
+            "unsupported"
+          ]
+        }
+      },
+      "required": [
+        "environment_ref",
+        "required_capabilities",
+        "capability_status"
+      ],
+      "additionalProperties": false
+    },
+    "semantics": {
+      "type": "object",
+      "properties": {
+        "definition_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reference_impl_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "correctness_policy_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "state_and_aliasing_contract_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "definition_ref",
+        "reference_impl_ref",
+        "correctness_policy_ref",
+        "state_and_aliasing_contract_ref"
+      ],
+      "additionalProperties": false
+    },
+    "workloads": {
+      "type": "object",
+      "properties": {
+        "development_inputs_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "real_trace_shapes_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "allowed_specialization_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "development_inputs_ref",
+        "real_trace_shapes_ref",
+        "allowed_specialization_ref"
+      ],
+      "additionalProperties": false
+    },
+    "edit_scope": {
+      "type": "object",
+      "properties": {
+        "allow": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "deny": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "dependencies_change_requires_new_candidate": {
+          "const": true
+        }
+      },
+      "required": [
+        "allow",
+        "deny",
+        "dependencies_change_requires_new_candidate"
+      ],
+      "additionalProperties": false
+    },
+    "development": {
+      "type": "object",
+      "properties": {
+        "build_argv": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "correctness_argv": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "benchmark_argv": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "profiler_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "build_argv",
+        "correctness_argv",
+        "benchmark_argv",
+        "profiler_ref"
+      ],
+      "additionalProperties": false
+    },
+    "budget": {
+      "type": "object",
+      "properties": {
+        "max_candidates": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_gpu_seconds": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "max_wall_seconds": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "max_agent_tokens": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "max_candidates",
+        "max_gpu_seconds",
+        "max_wall_seconds",
+        "max_agent_tokens"
+      ],
+      "additionalProperties": false
+    },
+    "integration": {
+      "type": "object",
+      "properties": {
+        "callsite_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dispatch_guard_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fallback_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "e2e_trial_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "callsite_ref",
+        "dispatch_guard_ref",
+        "fallback_ref",
+        "e2e_trial_refs"
+      ],
+      "additionalProperties": false
+    },
+    "acceptance": {
+      "type": "object",
+      "properties": {
+        "policy_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "validator_digest": {
+          "type": "string",
+          "minLength": 1
+        },
+        "candidate_initial_validation": {
+          "const": "unverified"
+        },
+        "controller_owns_holdout": {
+          "const": true
+        }
+      },
+      "required": [
+        "policy_ref",
+        "validator_digest",
+        "candidate_initial_validation",
+        "controller_owns_holdout"
+      ],
+      "additionalProperties": false
+    },
+    "backend": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "workflow_revision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "agent_profile_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "name",
+        "workflow_revision",
+        "agent_profile_ref"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "task_id",
+    "study_id",
+    "is_template",
+    "baseline",
+    "problem",
+    "platform",
+    "semantics",
+    "workloads",
+    "edit_scope",
+    "development",
+    "budget",
+    "integration",
+    "acceptance",
+    "backend"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,4140 @@
+schema_version: 0.2.0
+kind: ReportedMeasurements
+id: glm53-decode-visible-series
+version: 1.0.0
+title: GLM-5.3 flash fakePrefill Decode：六组平台全部可见主指标
+provenance:
+- source_ref:
+    id: source-glm53-decode-a
+    version: 1.0.0
+  locator: 可见性能矩阵
+- source_ref:
+    id: source-glm53-decode-b
+    version: 1.0.0
+  locator: 可见性能矩阵
+issues:
+- code: diagnostic-only
+  path: /measurement_scope
+  reason: fakePrefill是Decode诊断测试，不构成完整请求E2E性能证据。
+  blocking: false
+  status: ambiguous
+- code: platform-settings-differ
+  path: /extensions
+  reason: KV精度、memory fraction、CUDA Graph及请求上限不同；需统一协议后才能做正式比较。
+  blocking: false
+  status: ambiguous
+extensions:
+  source.common_settings:
+    tp: 16
+    dp: 16
+    ep: 16
+    nnodes: 2
+    sglang_simulate_acc_len: 4
+  source.platform_settings:
+    h20-141g:
+      kv_cache_dtype: bfloat16
+      mem_fraction_static: 0.85
+      cuda_graph_max_bs: 32
+      max_running_requests: 1024
+      per_dp_bs_max: 32
+    int8-bw1000:
+      kv_cache_dtype: fp8_e4m3
+      mem_fraction_static: 0.8
+      cuda_graph_max_bs: 16
+      max_running_requests: 256
+      per_dp_bs_max: 16
+    int8-bw1100:
+      kv_cache_dtype: fp8_e4m3
+      mem_fraction_static: 0.8
+      cuda_graph_max_bs: 32
+      max_running_requests: 512
+      per_dp_bs_max: 32
+    fp8-bw1100:
+      kv_cache_dtype: fp8_e4m3
+      mem_fraction_static: 0.8
+      cuda_graph_max_bs: 16
+      max_running_requests: 512
+      per_dp_bs_max: 16
+    int4-bw1000:
+      kv_cache_dtype: fp8_e4m3
+      mem_fraction_static: 0.8
+      cuda_graph_max_bs: 16
+      max_running_requests: 256
+      per_dp_bs_max: 16
+    int4-bw1100:
+      kv_cache_dtype: fp8_e4m3
+      mem_fraction_static: 0.8
+      cuda_graph_max_bs: 32
+      max_running_requests: 512
+      per_dp_bs_max: 32
+evidence_kind: source_reported
+measurement_scope: decode
+model_refs:
+- id: glm-5.3
+  version: 1.0.0
+- id: glm-5.3-flash-int8
+  version: 1.0.0
+- id: glm-5.3-flash-fp8
+  version: 1.0.0
+- id: glm-5.3-flash-int4
+  version: 1.0.0
+hardware_refs:
+- id: h20-141g
+  version: 1.0.0
+- id: bw1000
+  version: 1.0.0
+- id: bw1100
+  version: 1.0.0
+columns:
+- name: platform
+  type: string
+  unit: null
+  meaning: 原图平台精度标签
+- name: input_tokens
+  type: integer
+  unit: tokens
+  meaning: 原图input_len
+- name: output_tokens
+  type: integer
+  unit: tokens
+  meaning: 原图output_len
+- name: per_dp_batch
+  type: integer
+  unit: requests/DP
+  meaning: 原图per_dp_bs，不等同系统并发
+- name: rps
+  type: number
+  unit: requests/s
+  meaning: 原图rps；分母/平均范围未完整定义
+- name: generation_throughput
+  type: number
+  unit: tokens/s
+  meaning: 原图generate_throughput
+- name: mean_tpot_ms
+  type: number
+  unit: ms
+  meaning: 原图mean_tpot_ms
+rows:
+- row_id: h20-141g-4096-1
+  values:
+    platform: h20-141g
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 1
+    rps: 2.05
+    generation_throughput: 2098.86
+    mean_tpot_ms: 7.47
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=1, h20-141g'
+- row_id: h20-141g-4096-2
+  values:
+    platform: h20-141g
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 2
+    rps: 3.52
+    generation_throughput: 3603.52
+    mean_tpot_ms: 8.34
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=2, h20-141g'
+- row_id: h20-141g-4096-3
+  values:
+    platform: h20-141g
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 3
+    rps: 4.81
+    generation_throughput: 4924.35
+    mean_tpot_ms: 9.53
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=3, h20-141g'
+- row_id: h20-141g-4096-4
+  values:
+    platform: h20-141g
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 4
+    rps: 6.08
+    generation_throughput: 6221.05
+    mean_tpot_ms: 10.11
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=4, h20-141g'
+- row_id: h20-141g-4096-5
+  values:
+    platform: h20-141g
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 5
+    rps: 7.03
+    generation_throughput: 7193.64
+    mean_tpot_ms: 10.78
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=5, h20-141g'
+- row_id: h20-141g-4096-6
+  values:
+    platform: h20-141g
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 6
+    rps: 8.06
+    generation_throughput: 8250.15
+    mean_tpot_ms: 11.32
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=6, h20-141g'
+- row_id: h20-141g-4096-7
+  values:
+    platform: h20-141g
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 7
+    rps: 8.86
+    generation_throughput: 9073.38
+    mean_tpot_ms: 12.14
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=7, h20-141g'
+- row_id: h20-141g-4096-8
+  values:
+    platform: h20-141g
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 8
+    rps: 9.85
+    generation_throughput: 10083.19
+    mean_tpot_ms: 12.38
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=8, h20-141g'
+- row_id: h20-141g-4096-10
+  values:
+    platform: h20-141g
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 10
+    rps: 10.8
+    generation_throughput: 11061.28
+    mean_tpot_ms: 14.05
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=10, h20-141g'
+- row_id: h20-141g-4096-12
+  values:
+    platform: h20-141g
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 12
+    rps: 11.44
+    generation_throughput: 11713.85
+    mean_tpot_ms: 16.08
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=12, h20-141g'
+- row_id: h20-141g-4096-14
+  values:
+    platform: h20-141g
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 14
+    rps: 11.57
+    generation_throughput: 11849.97
+    mean_tpot_ms: 18.37
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=14, h20-141g'
+- row_id: h20-141g-4096-16
+  values:
+    platform: h20-141g
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 16
+    rps: 12.5
+    generation_throughput: 12799.42
+    mean_tpot_ms: 19.48
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=16, h20-141g'
+- row_id: h20-141g-4096-18
+  values:
+    platform: h20-141g
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 18
+    rps: 12.76
+    generation_throughput: 13063.98
+    mean_tpot_ms: 21.52
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=18, h20-141g'
+- row_id: h20-141g-4096-20
+  values:
+    platform: h20-141g
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 20
+    rps: 13.4
+    generation_throughput: 13725.68
+    mean_tpot_ms: 22.59
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=20, h20-141g'
+- row_id: h20-141g-4096-22
+  values:
+    platform: h20-141g
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 22
+    rps: 13.31
+    generation_throughput: 13629.6
+    mean_tpot_ms: 24.98
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=22, h20-141g'
+- row_id: h20-141g-4096-24
+  values:
+    platform: h20-141g
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 24
+    rps: 13.59
+    generation_throughput: 13915.97
+    mean_tpot_ms: 26.8
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=24, h20-141g'
+- row_id: h20-141g-4096-26
+  values:
+    platform: h20-141g
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 26
+    rps: 13.89
+    generation_throughput: 14227.54
+    mean_tpot_ms: 28.29
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=26, h20-141g'
+- row_id: h20-141g-4096-28
+  values:
+    platform: h20-141g
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 28
+    rps: 13.94
+    generation_throughput: 14279.02
+    mean_tpot_ms: 30.5
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=28, h20-141g'
+- row_id: h20-141g-4096-30
+  values:
+    platform: h20-141g
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 30
+    rps: 14.13
+    generation_throughput: 14466.19
+    mean_tpot_ms: 31.91
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=30, h20-141g'
+- row_id: h20-141g-4096-32
+  values:
+    platform: h20-141g
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 32
+    rps: 14.58
+    generation_throughput: 14932.8
+    mean_tpot_ms: 32.95
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=32, h20-141g'
+- row_id: h20-141g-65536-1
+  values:
+    platform: h20-141g
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 1
+    rps: 2.03
+    generation_throughput: 2078.03
+    mean_tpot_ms: 7.5
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=1, h20-141g'
+- row_id: h20-141g-65536-2
+  values:
+    platform: h20-141g
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 2
+    rps: 3.61
+    generation_throughput: 3697.62
+    mean_tpot_ms: 8.33
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=2, h20-141g'
+- row_id: h20-141g-65536-3
+  values:
+    platform: h20-141g
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 3
+    rps: 4.89
+    generation_throughput: 5009.62
+    mean_tpot_ms: 9.14
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=3, h20-141g'
+- row_id: h20-141g-65536-4
+  values:
+    platform: h20-141g
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 4
+    rps: 6.01
+    generation_throughput: 6152.44
+    mean_tpot_ms: 9.77
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=4, h20-141g'
+- row_id: h20-141g-65536-5
+  values:
+    platform: h20-141g
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 5
+    rps: 7.02
+    generation_throughput: 7187.11
+    mean_tpot_ms: 10.48
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=5, h20-141g'
+- row_id: h20-141g-65536-6
+  values:
+    platform: h20-141g
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 6
+    rps: 7.88
+    generation_throughput: 8069.31
+    mean_tpot_ms: 10.97
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=6, h20-141g'
+- row_id: h20-141g-65536-7
+  values:
+    platform: h20-141g
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 7
+    rps: 8.59
+    generation_throughput: 8796.39
+    mean_tpot_ms: 11.54
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=7, h20-141g'
+- row_id: h20-141g-65536-8
+  values:
+    platform: h20-141g
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 8
+    rps: 9.28
+    generation_throughput: 9504.25
+    mean_tpot_ms: 12.34
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=8, h20-141g'
+- row_id: h20-141g-65536-10
+  values:
+    platform: h20-141g
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 10
+    rps: 10.23
+    generation_throughput: 10478.81
+    mean_tpot_ms: 13.72
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=10, h20-141g'
+- row_id: h20-141g-65536-12
+  values:
+    platform: h20-141g
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 12
+    rps: 10.94
+    generation_throughput: 11201.87
+    mean_tpot_ms: 15.55
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=12, h20-141g'
+- row_id: h20-141g-65536-14
+  values:
+    platform: h20-141g
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 14
+    rps: 11.06
+    generation_throughput: 11324.71
+    mean_tpot_ms: 17.67
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=14, h20-141g'
+- row_id: h20-141g-65536-16
+  values:
+    platform: h20-141g
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 16
+    rps: 11.53
+    generation_throughput: 11804.85
+    mean_tpot_ms: 19.19
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=16, h20-141g'
+- row_id: h20-141g-65536-18
+  values:
+    platform: h20-141g
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 18
+    rps: 12.1
+    generation_throughput: 12387.38
+    mean_tpot_ms: 20.41
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=18, h20-141g'
+- row_id: h20-141g-65536-20
+  values:
+    platform: h20-141g
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 20
+    rps: 12.7
+    generation_throughput: 13005.38
+    mean_tpot_ms: 21.53
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=20, h20-141g'
+- row_id: h20-141g-65536-22
+  values:
+    platform: h20-141g
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 22
+    rps: 12.47
+    generation_throughput: 12768.46
+    mean_tpot_ms: 23.67
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=22, h20-141g'
+- row_id: h20-141g-65536-24
+  values:
+    platform: h20-141g
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 24
+    rps: 12.68
+    generation_throughput: 12986.84
+    mean_tpot_ms: 25.77
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=24, h20-141g'
+- row_id: h20-141g-65536-26
+  values:
+    platform: h20-141g
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 26
+    rps: 12.99
+    generation_throughput: 13302.57
+    mean_tpot_ms: 26.93
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=65536, per_dp_bs=26, h20-141g'
+- row_id: h20-141g-65536-28
+  values:
+    platform: h20-141g
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 28
+    rps: 13.1
+    generation_throughput: 13415.65
+    mean_tpot_ms: 29.38
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=65536, per_dp_bs=28, h20-141g'
+- row_id: h20-141g-65536-30
+  values:
+    platform: h20-141g
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 30
+    rps: 13.22
+    generation_throughput: 13541.51
+    mean_tpot_ms: 30.64
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=65536, per_dp_bs=30, h20-141g'
+- row_id: h20-141g-65536-32
+  values:
+    platform: h20-141g
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 32
+    rps: 13.55
+    generation_throughput: 13871.09
+    mean_tpot_ms: 32.05
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=65536, per_dp_bs=32, h20-141g'
+- row_id: h20-141g-131072-1
+  values:
+    platform: h20-141g
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 1
+    rps: 1.97
+    generation_throughput: 2013.0
+    mean_tpot_ms: 7.61
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=1, h20-141g'
+- row_id: h20-141g-131072-2
+  values:
+    platform: h20-141g
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 2
+    rps: 3.48
+    generation_throughput: 3560.57
+    mean_tpot_ms: 8.44
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=2, h20-141g'
+- row_id: h20-141g-131072-3
+  values:
+    platform: h20-141g
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 3
+    rps: 4.72
+    generation_throughput: 4830.49
+    mean_tpot_ms: 9.22
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=3, h20-141g'
+- row_id: h20-141g-131072-4
+  values:
+    platform: h20-141g
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 4
+    rps: 5.8
+    generation_throughput: 5940.7
+    mean_tpot_ms: 9.83
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=4, h20-141g'
+- row_id: h20-141g-131072-5
+  values:
+    platform: h20-141g
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 5
+    rps: 6.52
+    generation_throughput: 6678.83
+    mean_tpot_ms: 10.5
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=5, h20-141g'
+- row_id: h20-141g-131072-6
+  values:
+    platform: h20-141g
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 6
+    rps: 7.41
+    generation_throughput: 7588.15
+    mean_tpot_ms: 11.05
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=6, h20-141g'
+- row_id: h20-141g-131072-7
+  values:
+    platform: h20-141g
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 7
+    rps: 8.12
+    generation_throughput: 8310.98
+    mean_tpot_ms: 11.69
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=7, h20-141g'
+- row_id: h20-141g-131072-8
+  values:
+    platform: h20-141g
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 8
+    rps: 8.73
+    generation_throughput: 8938.51
+    mean_tpot_ms: 12.31
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=8, h20-141g'
+- row_id: h20-141g-131072-10
+  values:
+    platform: h20-141g
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 10
+    rps: 9.4
+    generation_throughput: 9628.42
+    mean_tpot_ms: 13.82
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=10, h20-141g'
+- row_id: h20-141g-131072-12
+  values:
+    platform: h20-141g
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 12
+    rps: 10.17
+    generation_throughput: 10413.49
+    mean_tpot_ms: 15.19
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=12, h20-141g'
+- row_id: h20-141g-131072-14
+  values:
+    platform: h20-141g
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 14
+    rps: 10.19
+    generation_throughput: 10435.54
+    mean_tpot_ms: 17.5
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=14, h20-141g'
+- row_id: h20-141g-131072-16
+  values:
+    platform: h20-141g
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 16
+    rps: 10.89
+    generation_throughput: 11147.86
+    mean_tpot_ms: 18.86
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=16, h20-141g'
+- row_id: h20-141g-131072-18
+  values:
+    platform: h20-141g
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 18
+    rps: 11.49
+    generation_throughput: 11769.61
+    mean_tpot_ms: 20.78
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=18, h20-141g'
+- row_id: h20-141g-131072-20
+  values:
+    platform: h20-141g
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 20
+    rps: 11.59
+    generation_throughput: 11863.15
+    mean_tpot_ms: 21.13
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=20, h20-141g'
+- row_id: h20-141g-131072-22
+  values:
+    platform: h20-141g
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 22
+    rps: 11.54
+    generation_throughput: 11812.32
+    mean_tpot_ms: 23.18
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=22, h20-141g'
+- row_id: h20-141g-131072-24
+  values:
+    platform: h20-141g
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 24
+    rps: 11.7
+    generation_throughput: 11978.25
+    mean_tpot_ms: 24.71
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=24, h20-141g'
+- row_id: h20-141g-131072-26
+  values:
+    platform: h20-141g
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 26
+    rps: 11.97
+    generation_throughput: 12259.56
+    mean_tpot_ms: 26.06
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=26, h20-141g'
+- row_id: h20-141g-131072-28
+  values:
+    platform: h20-141g
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 28
+    rps: 11.98
+    generation_throughput: 12272.08
+    mean_tpot_ms: 28.01
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=28, h20-141g'
+- row_id: h20-141g-131072-30
+  values:
+    platform: h20-141g
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 30
+    rps: 12.18
+    generation_throughput: 12471.61
+    mean_tpot_ms: 29.98
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=30, h20-141g'
+- row_id: int8-bw1000-4096-1
+  values:
+    platform: int8-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 1
+    rps: 1.31
+    generation_throughput: 1343.59
+    mean_tpot_ms: 11.72
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=1, int8-bw1000'
+- row_id: int8-bw1000-4096-2
+  values:
+    platform: int8-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 2
+    rps: 2.35
+    generation_throughput: 2405.16
+    mean_tpot_ms: 13.11
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=2, int8-bw1000'
+- row_id: int8-bw1000-4096-3
+  values:
+    platform: int8-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 3
+    rps: 3.25
+    generation_throughput: 3325.61
+    mean_tpot_ms: 14.19
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=3, int8-bw1000'
+- row_id: int8-bw1000-4096-4
+  values:
+    platform: int8-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 4
+    rps: 4.1
+    generation_throughput: 4197.99
+    mean_tpot_ms: 14.99
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=4, int8-bw1000'
+- row_id: int8-bw1000-4096-5
+  values:
+    platform: int8-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 5
+    rps: 4.94
+    generation_throughput: 5062.12
+    mean_tpot_ms: 15.16
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=5, int8-bw1000'
+- row_id: int8-bw1000-4096-6
+  values:
+    platform: int8-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 6
+    rps: 5.48
+    generation_throughput: 5610.52
+    mean_tpot_ms: 16.3
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=6, int8-bw1000'
+- row_id: int8-bw1000-4096-7
+  values:
+    platform: int8-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 7
+    rps: 6.04
+    generation_throughput: 6188.64
+    mean_tpot_ms: 17.71
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=7, int8-bw1000'
+- row_id: int8-bw1000-4096-8
+  values:
+    platform: int8-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 8
+    rps: 6.71
+    generation_throughput: 6871.79
+    mean_tpot_ms: 18.1
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=8, int8-bw1000'
+- row_id: int8-bw1000-4096-10
+  values:
+    platform: int8-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 10
+    rps: 7.49
+    generation_throughput: 7674.81
+    mean_tpot_ms: 19.42
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=10, int8-bw1000'
+- row_id: int8-bw1000-4096-12
+  values:
+    platform: int8-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 12
+    rps: 8.58
+    generation_throughput: 8781.35
+    mean_tpot_ms: 21.29
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=12, int8-bw1000'
+- row_id: int8-bw1000-4096-14
+  values:
+    platform: int8-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 14
+    rps: 9.26
+    generation_throughput: 9478.12
+    mean_tpot_ms: 23.09
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=14, int8-bw1000'
+- row_id: int8-bw1000-4096-16
+  values:
+    platform: int8-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 16
+    rps: 9.9
+    generation_throughput: 10136.25
+    mean_tpot_ms: 24.21
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=16, int8-bw1000'
+- row_id: int8-bw1000-4096-18
+  values:
+    platform: int8-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 18
+    rps: 7.5
+    generation_throughput: 7677.47
+    mean_tpot_ms: 23.17
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=18, int8-bw1000'
+- row_id: int8-bw1000-4096-20
+  values:
+    platform: int8-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 20
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=20, int8-bw1000'
+- row_id: int8-bw1000-4096-22
+  values:
+    platform: int8-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 22
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=22, int8-bw1000'
+- row_id: int8-bw1000-4096-24
+  values:
+    platform: int8-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 24
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=24, int8-bw1000'
+- row_id: int8-bw1000-4096-26
+  values:
+    platform: int8-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 26
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=26, int8-bw1000'
+- row_id: int8-bw1000-4096-28
+  values:
+    platform: int8-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 28
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=28, int8-bw1000'
+- row_id: int8-bw1000-4096-30
+  values:
+    platform: int8-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 30
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=30, int8-bw1000'
+- row_id: int8-bw1000-4096-32
+  values:
+    platform: int8-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 32
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=32, int8-bw1000'
+- row_id: int8-bw1100-4096-1
+  values:
+    platform: int8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 1
+    rps: 1.37
+    generation_throughput: 1399.19
+    mean_tpot_ms: 11.26
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=1, int8-bw1100'
+- row_id: int8-bw1100-4096-2
+  values:
+    platform: int8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 2
+    rps: 2.47
+    generation_throughput: 2529.4
+    mean_tpot_ms: 12.49
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=2, int8-bw1100'
+- row_id: int8-bw1100-4096-3
+  values:
+    platform: int8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 3
+    rps: 3.28
+    generation_throughput: 3360.56
+    mean_tpot_ms: 13.71
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=3, int8-bw1100'
+- row_id: int8-bw1100-4096-4
+  values:
+    platform: int8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 4
+    rps: 4.11
+    generation_throughput: 4212.21
+    mean_tpot_ms: 14.93
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=4, int8-bw1100'
+- row_id: int8-bw1100-4096-5
+  values:
+    platform: int8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 5
+    rps: 4.88
+    generation_throughput: 4995.95
+    mean_tpot_ms: 15.75
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=5, int8-bw1100'
+- row_id: int8-bw1100-4096-6
+  values:
+    platform: int8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 6
+    rps: 5.42
+    generation_throughput: 5548.85
+    mean_tpot_ms: 16.84
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=6, int8-bw1100'
+- row_id: int8-bw1100-4096-7
+  values:
+    platform: int8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 7
+    rps: 5.95
+    generation_throughput: 6094.87
+    mean_tpot_ms: 17.76
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=7, int8-bw1100'
+- row_id: int8-bw1100-4096-8
+  values:
+    platform: int8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 8
+    rps: 6.54
+    generation_throughput: 6698.74
+    mean_tpot_ms: 18.66
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=8, int8-bw1100'
+- row_id: int8-bw1100-4096-10
+  values:
+    platform: int8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 10
+    rps: 7.31
+    generation_throughput: 7482.31
+    mean_tpot_ms: 21.05
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=10, int8-bw1100'
+- row_id: int8-bw1100-4096-12
+  values:
+    platform: int8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 12
+    rps: 7.64
+    generation_throughput: 7821.73
+    mean_tpot_ms: 23.94
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=12, int8-bw1100'
+- row_id: int8-bw1100-4096-14
+  values:
+    platform: int8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 14
+    rps: 8.31
+    generation_throughput: 8505.61
+    mean_tpot_ms: 25.62
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=14, int8-bw1100'
+- row_id: int8-bw1100-4096-16
+  values:
+    platform: int8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 16
+    rps: 8.84
+    generation_throughput: 9055.28
+    mean_tpot_ms: 27.64
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=16, int8-bw1100'
+- row_id: int8-bw1100-4096-18
+  values:
+    platform: int8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 18
+    rps: 8.99
+    generation_throughput: 9209.59
+    mean_tpot_ms: 30.47
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=18, int8-bw1100'
+- row_id: int8-bw1100-4096-20
+  values:
+    platform: int8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 20
+    rps: 9.48
+    generation_throughput: 9709.7
+    mean_tpot_ms: 32.02
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=20, int8-bw1100'
+- row_id: int8-bw1100-4096-22
+  values:
+    platform: int8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 22
+    rps: 9.52
+    generation_throughput: 9747.22
+    mean_tpot_ms: 35.02
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=22, int8-bw1100'
+- row_id: int8-bw1100-4096-24
+  values:
+    platform: int8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 24
+    rps: 10.31
+    generation_throughput: 10554.41
+    mean_tpot_ms: 35.43
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=24, int8-bw1100'
+- row_id: int8-bw1100-4096-26
+  values:
+    platform: int8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 26
+    rps: 10.71
+    generation_throughput: 10968.96
+    mean_tpot_ms: 36.85
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=26, int8-bw1100'
+- row_id: int8-bw1100-4096-28
+  values:
+    platform: int8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 28
+    rps: 11.03
+    generation_throughput: 11292.55
+    mean_tpot_ms: 38.54
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=28, int8-bw1100'
+- row_id: int8-bw1100-4096-30
+  values:
+    platform: int8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 30
+    rps: 11.45
+    generation_throughput: 11727.18
+    mean_tpot_ms: 39.53
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=30, int8-bw1100'
+- row_id: int8-bw1100-4096-32
+  values:
+    platform: int8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 32
+    rps: 11.82
+    generation_throughput: 12105.88
+    mean_tpot_ms: 40.8
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=32, int8-bw1100'
+- row_id: fp8-bw1100-4096-1
+  values:
+    platform: fp8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 1
+    rps: 1.29
+    generation_throughput: 1325.39
+    mean_tpot_ms: 11.92
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=1, fp8-bw1100'
+- row_id: fp8-bw1100-4096-2
+  values:
+    platform: fp8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 2
+    rps: 1.85
+    generation_throughput: 1896.87
+    mean_tpot_ms: 15.67
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=2, fp8-bw1100'
+- row_id: fp8-bw1100-4096-3
+  values:
+    platform: fp8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 3
+    rps: 3.22
+    generation_throughput: 3296.63
+    mean_tpot_ms: 14.38
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=3, fp8-bw1100'
+- row_id: fp8-bw1100-4096-4
+  values:
+    platform: fp8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 4
+    rps: 4.04
+    generation_throughput: 4137.47
+    mean_tpot_ms: 15.23
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=4, fp8-bw1100'
+- row_id: fp8-bw1100-4096-5
+  values:
+    platform: fp8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 5
+    rps: 4.73
+    generation_throughput: 4842.78
+    mean_tpot_ms: 16.09
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=5, fp8-bw1100'
+- row_id: fp8-bw1100-4096-6
+  values:
+    platform: fp8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 6
+    rps: 5.18
+    generation_throughput: 5301.94
+    mean_tpot_ms: 17.85
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=6, fp8-bw1100'
+- row_id: fp8-bw1100-4096-7
+  values:
+    platform: fp8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 7
+    rps: 5.73
+    generation_throughput: 5872.1
+    mean_tpot_ms: 18.82
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=7, fp8-bw1100'
+- row_id: fp8-bw1100-4096-8
+  values:
+    platform: fp8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 8
+    rps: 6.31
+    generation_throughput: 6457.35
+    mean_tpot_ms: 19.48
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=8, fp8-bw1100'
+- row_id: fp8-bw1100-4096-10
+  values:
+    platform: fp8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 10
+    rps: 7.05
+    generation_throughput: 7214.25
+    mean_tpot_ms: 21.66
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=10, fp8-bw1100'
+- row_id: fp8-bw1100-4096-12
+  values:
+    platform: fp8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 12
+    rps: 6.92
+    generation_throughput: 7088.74
+    mean_tpot_ms: 25.83
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=12, fp8-bw1100'
+- row_id: fp8-bw1100-4096-14
+  values:
+    platform: fp8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 14
+    rps: 7.69
+    generation_throughput: 7875.9
+    mean_tpot_ms: 28.01
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=14, fp8-bw1100'
+- row_id: fp8-bw1100-4096-16
+  values:
+    platform: fp8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 16
+    rps: 8.12
+    generation_throughput: 8310.74
+    mean_tpot_ms: 30.29
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=16, fp8-bw1100'
+- row_id: fp8-bw1100-4096-18
+  values:
+    platform: fp8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 18
+    rps: 8.65
+    generation_throughput: 8862.56
+    mean_tpot_ms: 31.72
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=18, fp8-bw1100'
+- row_id: fp8-bw1100-4096-20
+  values:
+    platform: fp8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 20
+    rps: 9.13
+    generation_throughput: 9348.25
+    mean_tpot_ms: 33.3
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=20, fp8-bw1100'
+- row_id: fp8-bw1100-4096-22
+  values:
+    platform: fp8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 22
+    rps: 8.79
+    generation_throughput: 8999.09
+    mean_tpot_ms: 37.81
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=22, fp8-bw1100'
+- row_id: fp8-bw1100-4096-24
+  values:
+    platform: fp8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 24
+    rps: 9.59
+    generation_throughput: 9815.43
+    mean_tpot_ms: 38.1
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=24, fp8-bw1100'
+- row_id: fp8-bw1100-4096-26
+  values:
+    platform: fp8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 26
+    rps: 10.03
+    generation_throughput: 10274.43
+    mean_tpot_ms: 39.6
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=26, fp8-bw1100'
+- row_id: fp8-bw1100-4096-28
+  values:
+    platform: fp8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 28
+    rps: 10.28
+    generation_throughput: 10526.72
+    mean_tpot_ms: 41.06
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=28, fp8-bw1100'
+- row_id: fp8-bw1100-4096-30
+  values:
+    platform: fp8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 30
+    rps: 10.39
+    generation_throughput: 10634.48
+    mean_tpot_ms: 43.34
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=30, fp8-bw1100'
+- row_id: fp8-bw1100-4096-32
+  values:
+    platform: fp8-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 32
+    rps: 10.78
+    generation_throughput: 11038.19
+    mean_tpot_ms: 44.84
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=32, fp8-bw1100'
+- row_id: int4-bw1000-4096-1
+  values:
+    platform: int4-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 1
+    rps: 1.39
+    generation_throughput: 1421.35
+    mean_tpot_ms: 10.99
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=1, int4-bw1000'
+- row_id: int4-bw1000-4096-2
+  values:
+    platform: int4-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 2
+    rps: 2.04
+    generation_throughput: 2093.75
+    mean_tpot_ms: 14.61
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=2, int4-bw1000'
+- row_id: int4-bw1000-4096-3
+  values:
+    platform: int4-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 3
+    rps: 3.49
+    generation_throughput: 3572.46
+    mean_tpot_ms: 13.15
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=3, int4-bw1000'
+- row_id: int4-bw1000-4096-4
+  values:
+    platform: int4-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 4
+    rps: 4.37
+    generation_throughput: 4478.8
+    mean_tpot_ms: 13.93
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=4, int4-bw1000'
+- row_id: int4-bw1000-4096-5
+  values:
+    platform: int4-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 5
+    rps: 5.17
+    generation_throughput: 5291.15
+    mean_tpot_ms: 14.73
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=5, int4-bw1000'
+- row_id: int4-bw1000-4096-6
+  values:
+    platform: int4-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 6
+    rps: 5.51
+    generation_throughput: 5641.59
+    mean_tpot_ms: 15.66
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=6, int4-bw1000'
+- row_id: int4-bw1000-4096-7
+  values:
+    platform: int4-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 7
+    rps: 6.32
+    generation_throughput: 6471.81
+    mean_tpot_ms: 16.9
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=7, int4-bw1000'
+- row_id: int4-bw1000-4096-8
+  values:
+    platform: int4-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 8
+    rps: 6.94
+    generation_throughput: 7103.85
+    mean_tpot_ms: 17.44
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=8, int4-bw1000'
+- row_id: int4-bw1000-4096-10
+  values:
+    platform: int4-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 10
+    rps: 7.93
+    generation_throughput: 8120.86
+    mean_tpot_ms: 19.12
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=10, int4-bw1000'
+- row_id: int4-bw1000-4096-12
+  values:
+    platform: int4-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 12
+    rps: 8.87
+    generation_throughput: 9078.2
+    mean_tpot_ms: 20.59
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=12, int4-bw1000'
+- row_id: int4-bw1000-4096-14
+  values:
+    platform: int4-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 14
+    rps: 9.44
+    generation_throughput: 9671.47
+    mean_tpot_ms: 22.39
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=14, int4-bw1000'
+- row_id: int4-bw1000-4096-16
+  values:
+    platform: int4-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 16
+    rps: 10.09
+    generation_throughput: 10327.58
+    mean_tpot_ms: 24.09
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=16, int4-bw1000'
+- row_id: int4-bw1000-4096-18
+  values:
+    platform: int4-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 18
+    rps: 7.74
+    generation_throughput: 7929.5
+    mean_tpot_ms: 22.37
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=18, int4-bw1000'
+- row_id: int4-bw1000-4096-20
+  values:
+    platform: int4-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 20
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=20, int4-bw1000'
+- row_id: int4-bw1000-4096-22
+  values:
+    platform: int4-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 22
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=22, int4-bw1000'
+- row_id: int4-bw1000-4096-24
+  values:
+    platform: int4-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 24
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=24, int4-bw1000'
+- row_id: int4-bw1000-4096-26
+  values:
+    platform: int4-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 26
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=26, int4-bw1000'
+- row_id: int4-bw1000-4096-28
+  values:
+    platform: int4-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 28
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=28, int4-bw1000'
+- row_id: int4-bw1000-4096-30
+  values:
+    platform: int4-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 30
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=30, int4-bw1000'
+- row_id: int4-bw1000-4096-32
+  values:
+    platform: int4-bw1000
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 32
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=32, int4-bw1000'
+- row_id: int4-bw1100-4096-1
+  values:
+    platform: int4-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 1
+    rps: 1.39
+    generation_throughput: 1425.15
+    mean_tpot_ms: 11.04
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=1, int4-bw1100'
+- row_id: int4-bw1100-4096-2
+  values:
+    platform: int4-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 2
+    rps: 2.43
+    generation_throughput: 2489.4
+    mean_tpot_ms: 12.62
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=2, int4-bw1100'
+- row_id: int4-bw1100-4096-3
+  values:
+    platform: int4-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 3
+    rps: 3.08
+    generation_throughput: 3156.36
+    mean_tpot_ms: 14.96
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=3, int4-bw1100'
+- row_id: int4-bw1100-4096-4
+  values:
+    platform: int4-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 4
+    rps: 3.79
+    generation_throughput: 3883.12
+    mean_tpot_ms: 16.0
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=4, int4-bw1100'
+- row_id: int4-bw1100-4096-5
+  values:
+    platform: int4-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 5
+    rps: 3.94
+    generation_throughput: 4035.12
+    mean_tpot_ms: 19.32
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=5, int4-bw1100'
+- row_id: int4-bw1100-4096-6
+  values:
+    platform: int4-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 6
+    rps: 4.33
+    generation_throughput: 4438.52
+    mean_tpot_ms: 21.31
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=6, int4-bw1100'
+- row_id: int4-bw1100-4096-7
+  values:
+    platform: int4-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 7
+    rps: 4.68
+    generation_throughput: 4790.74
+    mean_tpot_ms: 22.84
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=7, int4-bw1100'
+- row_id: int4-bw1100-4096-8
+  values:
+    platform: int4-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 8
+    rps: 5.11
+    generation_throughput: 5235.58
+    mean_tpot_ms: 24.12
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=8, int4-bw1100'
+- row_id: int4-bw1100-4096-10
+  values:
+    platform: int4-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 10
+    rps: 5.42
+    generation_throughput: 5549.11
+    mean_tpot_ms: 28.42
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=10, int4-bw1100'
+- row_id: int4-bw1100-4096-12
+  values:
+    platform: int4-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 12
+    rps: 5.64
+    generation_throughput: 5778.6
+    mean_tpot_ms: 32.14
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=12, int4-bw1100'
+- row_id: int4-bw1100-4096-14
+  values:
+    platform: int4-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 14
+    rps: 5.85
+    generation_throughput: 5990.31
+    mean_tpot_ms: 36.39
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=14, int4-bw1100'
+- row_id: int4-bw1100-4096-16
+  values:
+    platform: int4-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 16
+    rps: 6.27
+    generation_throughput: 6424.04
+    mean_tpot_ms: 38.8
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=16, int4-bw1100'
+- row_id: int4-bw1100-4096-18
+  values:
+    platform: int4-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 18
+    rps: 6.42
+    generation_throughput: 6578.67
+    mean_tpot_ms: 42.92
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=18, int4-bw1100'
+- row_id: int4-bw1100-4096-20
+  values:
+    platform: int4-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 20
+    rps: 6.74
+    generation_throughput: 6905.53
+    mean_tpot_ms: 45.56
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=20, int4-bw1100'
+- row_id: int4-bw1100-4096-22
+  values:
+    platform: int4-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 22
+    rps: 8.17
+    generation_throughput: 8365.65
+    mean_tpot_ms: 40.34
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=22, int4-bw1100'
+- row_id: int4-bw1100-4096-24
+  values:
+    platform: int4-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 24
+    rps: 8.67
+    generation_throughput: 8882.84
+    mean_tpot_ms: 42.05
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=24, int4-bw1100'
+- row_id: int4-bw1100-4096-26
+  values:
+    platform: int4-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 26
+    rps: 8.77
+    generation_throughput: 8980.98
+    mean_tpot_ms: 45.1
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=26, int4-bw1100'
+- row_id: int4-bw1100-4096-28
+  values:
+    platform: int4-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 28
+    rps: 8.91
+    generation_throughput: 9125.29
+    mean_tpot_ms: 47.22
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=28, int4-bw1100'
+- row_id: int4-bw1100-4096-30
+  values:
+    platform: int4-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 30
+    rps: 8.92
+    generation_throughput: 9130.79
+    mean_tpot_ms: 51.17
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=30, int4-bw1100'
+- row_id: int4-bw1100-4096-32
+  values:
+    platform: int4-bw1100
+    input_tokens: 4096
+    output_tokens: 1024
+    per_dp_batch: 32
+    rps: 9.27
+    generation_throughput: 9488.01
+    mean_tpot_ms: 52.23
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=4096, per_dp_bs=32, int4-bw1100'
+- row_id: int8-bw1000-65536-1
+  values:
+    platform: int8-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 1
+    rps: 1.29
+    generation_throughput: 1318.09
+    mean_tpot_ms: 11.82
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=1, int8-bw1000'
+- row_id: int8-bw1000-65536-2
+  values:
+    platform: int8-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 2
+    rps: 2.31
+    generation_throughput: 2364.53
+    mean_tpot_ms: 12.93
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=2, int8-bw1000'
+- row_id: int8-bw1000-65536-3
+  values:
+    platform: int8-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 3
+    rps: 3.13
+    generation_throughput: 3202.58
+    mean_tpot_ms: 13.7
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=3, int8-bw1000'
+- row_id: int8-bw1000-65536-4
+  values:
+    platform: int8-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 4
+    rps: 3.82
+    generation_throughput: 3913.33
+    mean_tpot_ms: 14.52
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=4, int8-bw1000'
+- row_id: int8-bw1000-65536-5
+  values:
+    platform: int8-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 5
+    rps: 4.73
+    generation_throughput: 4843.67
+    mean_tpot_ms: 15.38
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=5, int8-bw1000'
+- row_id: int8-bw1000-65536-6
+  values:
+    platform: int8-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 6
+    rps: 5.16
+    generation_throughput: 5281.43
+    mean_tpot_ms: 16.3
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=6, int8-bw1000'
+- row_id: int8-bw1000-65536-7
+  values:
+    platform: int8-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 7
+    rps: 5.75
+    generation_throughput: 5889.43
+    mean_tpot_ms: 17.16
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=7, int8-bw1000'
+- row_id: int8-bw1000-65536-8
+  values:
+    platform: int8-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 8
+    rps: 6.07
+    generation_throughput: 6213.04
+    mean_tpot_ms: 18.24
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=8, int8-bw1000'
+- row_id: int8-bw1000-65536-10
+  values:
+    platform: int8-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 10
+    rps: 6.82
+    generation_throughput: 6982.67
+    mean_tpot_ms: 19.07
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=10, int8-bw1000'
+- row_id: int8-bw1000-65536-12
+  values:
+    platform: int8-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 12
+    rps: 7.79
+    generation_throughput: 7976.07
+    mean_tpot_ms: 21.08
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=12, int8-bw1000'
+- row_id: int8-bw1000-65536-14
+  values:
+    platform: int8-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 14
+    rps: 8.29
+    generation_throughput: 8488.69
+    mean_tpot_ms: 22.62
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=14, int8-bw1000'
+- row_id: int8-bw1000-65536-16
+  values:
+    platform: int8-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 16
+    rps: 8.76
+    generation_throughput: 8967.82
+    mean_tpot_ms: 23.86
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=16, int8-bw1000'
+- row_id: int8-bw1000-65536-18
+  values:
+    platform: int8-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 18
+    rps: 6.88
+    generation_throughput: 7042.17
+    mean_tpot_ms: 22.26
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=18, int8-bw1000'
+- row_id: int8-bw1000-65536-20
+  values:
+    platform: int8-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 20
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=20, int8-bw1000'
+- row_id: int8-bw1000-65536-22
+  values:
+    platform: int8-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 22
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=22, int8-bw1000'
+- row_id: int8-bw1000-65536-24
+  values:
+    platform: int8-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 24
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=24, int8-bw1000'
+- row_id: int8-bw1000-65536-26
+  values:
+    platform: int8-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 26
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-b: input_len=65536, per_dp_bs=26, int8-bw1000'
+- row_id: int8-bw1000-65536-28
+  values:
+    platform: int8-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 28
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-b: input_len=65536, per_dp_bs=28, int8-bw1000'
+- row_id: int8-bw1000-65536-30
+  values:
+    platform: int8-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 30
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-b: input_len=65536, per_dp_bs=30, int8-bw1000'
+- row_id: int8-bw1000-65536-32
+  values:
+    platform: int8-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 32
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-b: input_len=65536, per_dp_bs=32, int8-bw1000'
+- row_id: int8-bw1100-65536-1
+  values:
+    platform: int8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 1
+    rps: 1.34
+    generation_throughput: 1373.06
+    mean_tpot_ms: 10.6
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=1, int8-bw1100'
+- row_id: int8-bw1100-65536-2
+  values:
+    platform: int8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 2
+    rps: 2.43
+    generation_throughput: 2491.09
+    mean_tpot_ms: 12.35
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=2, int8-bw1100'
+- row_id: int8-bw1100-65536-3
+  values:
+    platform: int8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 3
+    rps: 3.16
+    generation_throughput: 3235.39
+    mean_tpot_ms: 14.12
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=3, int8-bw1100'
+- row_id: int8-bw1100-65536-4
+  values:
+    platform: int8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 4
+    rps: 3.93
+    generation_throughput: 4024.34
+    mean_tpot_ms: 14.83
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=4, int8-bw1100'
+- row_id: int8-bw1100-65536-5
+  values:
+    platform: int8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 5
+    rps: 4.63
+    generation_throughput: 4740.2
+    mean_tpot_ms: 15.83
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=5, int8-bw1100'
+- row_id: int8-bw1100-65536-6
+  values:
+    platform: int8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 6
+    rps: 5.15
+    generation_throughput: 5277.59
+    mean_tpot_ms: 16.83
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=6, int8-bw1100'
+- row_id: int8-bw1100-65536-7
+  values:
+    platform: int8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 7
+    rps: 5.64
+    generation_throughput: 5779.26
+    mean_tpot_ms: 17.92
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=7, int8-bw1100'
+- row_id: int8-bw1100-65536-8
+  values:
+    platform: int8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 8
+    rps: 6.14
+    generation_throughput: 6291.04
+    mean_tpot_ms: 18.84
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=8, int8-bw1100'
+- row_id: int8-bw1100-65536-10
+  values:
+    platform: int8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 10
+    rps: 6.82
+    generation_throughput: 6978.69
+    mean_tpot_ms: 20.98
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=10, int8-bw1100'
+- row_id: int8-bw1100-65536-12
+  values:
+    platform: int8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 12
+    rps: 7.12
+    generation_throughput: 7295.22
+    mean_tpot_ms: 24.14
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=12, int8-bw1100'
+- row_id: int8-bw1100-65536-14
+  values:
+    platform: int8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 14
+    rps: 7.68
+    generation_throughput: 7869.15
+    mean_tpot_ms: 25.92
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=14, int8-bw1100'
+- row_id: int8-bw1100-65536-16
+  values:
+    platform: int8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 16
+    rps: 8.29
+    generation_throughput: 8486.25
+    mean_tpot_ms: 28.69
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=16, int8-bw1100'
+- row_id: int8-bw1100-65536-18
+  values:
+    platform: int8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 18
+    rps: 8.23
+    generation_throughput: 8429.88
+    mean_tpot_ms: 30.59
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=18, int8-bw1100'
+- row_id: int8-bw1100-65536-20
+  values:
+    platform: int8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 20
+    rps: 8.68
+    generation_throughput: 8888.72
+    mean_tpot_ms: 31.75
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=20, int8-bw1100'
+- row_id: int8-bw1100-65536-22
+  values:
+    platform: int8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 22
+    rps: 8.65
+    generation_throughput: 8852.91
+    mean_tpot_ms: 35.24
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=22, int8-bw1100'
+- row_id: int8-bw1100-65536-24
+  values:
+    platform: int8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 24
+    rps: 9.17
+    generation_throughput: 9389.69
+    mean_tpot_ms: 35.85
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=24, int8-bw1100'
+- row_id: int8-bw1100-65536-26
+  values:
+    platform: int8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 26
+    rps: 9.71
+    generation_throughput: 9946.27
+    mean_tpot_ms: 37.27
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=65536, per_dp_bs=26, int8-bw1100'
+- row_id: int8-bw1100-65536-28
+  values:
+    platform: int8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 28
+    rps: 9.85
+    generation_throughput: 10087.19
+    mean_tpot_ms: 38.64
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=65536, per_dp_bs=28, int8-bw1100'
+- row_id: int8-bw1100-65536-30
+  values:
+    platform: int8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 30
+    rps: 10.24
+    generation_throughput: 10484.57
+    mean_tpot_ms: 39.73
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=65536, per_dp_bs=30, int8-bw1100'
+- row_id: int8-bw1100-65536-32
+  values:
+    platform: int8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 32
+    rps: 10.5
+    generation_throughput: 10749.41
+    mean_tpot_ms: 41.51
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=65536, per_dp_bs=32, int8-bw1100'
+- row_id: fp8-bw1100-65536-1
+  values:
+    platform: fp8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 1
+    rps: 1.26
+    generation_throughput: 1292.85
+    mean_tpot_ms: 12.05
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=1, fp8-bw1100'
+- row_id: fp8-bw1100-65536-2
+  values:
+    platform: fp8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 2
+    rps: 2.2
+    generation_throughput: 2255.63
+    mean_tpot_ms: 12.75
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=2, fp8-bw1100'
+- row_id: fp8-bw1100-65536-3
+  values:
+    platform: fp8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 3
+    rps: 3.08
+    generation_throughput: 3150.67
+    mean_tpot_ms: 14.53
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=3, fp8-bw1100'
+- row_id: fp8-bw1100-65536-4
+  values:
+    platform: fp8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 4
+    rps: 3.85
+    generation_throughput: 3944.69
+    mean_tpot_ms: 14.9
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=4, fp8-bw1100'
+- row_id: fp8-bw1100-65536-5
+  values:
+    platform: fp8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 5
+    rps: 4.46
+    generation_throughput: 4570.46
+    mean_tpot_ms: 16.48
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=5, fp8-bw1100'
+- row_id: fp8-bw1100-65536-6
+  values:
+    platform: fp8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 6
+    rps: 4.89
+    generation_throughput: 5006.76
+    mean_tpot_ms: 17.79
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=6, fp8-bw1100'
+- row_id: fp8-bw1100-65536-7
+  values:
+    platform: fp8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 7
+    rps: 5.39
+    generation_throughput: 5517.27
+    mean_tpot_ms: 18.95
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=7, fp8-bw1100'
+- row_id: fp8-bw1100-65536-8
+  values:
+    platform: fp8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 8
+    rps: 5.92
+    generation_throughput: 6057.06
+    mean_tpot_ms: 19.68
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=8, fp8-bw1100'
+- row_id: fp8-bw1100-65536-10
+  values:
+    platform: fp8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 10
+    rps: 6.57
+    generation_throughput: 6730.91
+    mean_tpot_ms: 21.7
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=10, fp8-bw1100'
+- row_id: fp8-bw1100-65536-12
+  values:
+    platform: fp8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 12
+    rps: 6.57
+    generation_throughput: 6727.51
+    mean_tpot_ms: 26.15
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=12, fp8-bw1100'
+- row_id: fp8-bw1100-65536-14
+  values:
+    platform: fp8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 14
+    rps: 7.1
+    generation_throughput: 7268.15
+    mean_tpot_ms: 28.04
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=14, fp8-bw1100'
+- row_id: fp8-bw1100-65536-16
+  values:
+    platform: fp8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 16
+    rps: 7.46
+    generation_throughput: 7638.4
+    mean_tpot_ms: 29.54
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=16, fp8-bw1100'
+- row_id: fp8-bw1100-65536-18
+  values:
+    platform: fp8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 18
+    rps: 8.04
+    generation_throughput: 8230.87
+    mean_tpot_ms: 31.94
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=18, fp8-bw1100'
+- row_id: fp8-bw1100-65536-20
+  values:
+    platform: fp8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 20
+    rps: 8.25
+    generation_throughput: 8450.5
+    mean_tpot_ms: 33.42
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=20, fp8-bw1100'
+- row_id: fp8-bw1100-65536-22
+  values:
+    platform: fp8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 22
+    rps: 8.14
+    generation_throughput: 8334.98
+    mean_tpot_ms: 38.24
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=22, fp8-bw1100'
+- row_id: fp8-bw1100-65536-24
+  values:
+    platform: fp8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 24
+    rps: 8.75
+    generation_throughput: 8960.48
+    mean_tpot_ms: 36.77
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=24, fp8-bw1100'
+- row_id: fp8-bw1100-65536-26
+  values:
+    platform: fp8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 26
+    rps: 9.12
+    generation_throughput: 9341.71
+    mean_tpot_ms: 39.35
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=65536, per_dp_bs=26, fp8-bw1100'
+- row_id: fp8-bw1100-65536-28
+  values:
+    platform: fp8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 28
+    rps: 9.26
+    generation_throughput: 9478.48
+    mean_tpot_ms: 41.16
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=65536, per_dp_bs=28, fp8-bw1100'
+- row_id: fp8-bw1100-65536-30
+  values:
+    platform: fp8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 30
+    rps: 9.41
+    generation_throughput: 9640.88
+    mean_tpot_ms: 42.33
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=65536, per_dp_bs=30, fp8-bw1100'
+- row_id: fp8-bw1100-65536-32
+  values:
+    platform: fp8-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 32
+    rps: 9.84
+    generation_throughput: 10078.29
+    mean_tpot_ms: 44.74
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=65536, per_dp_bs=32, fp8-bw1100'
+- row_id: int4-bw1000-65536-1
+  values:
+    platform: int4-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 1
+    rps: 1.36
+    generation_throughput: 1397.64
+    mean_tpot_ms: 11.03
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=1, int4-bw1000'
+- row_id: int4-bw1000-65536-2
+  values:
+    platform: int4-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 2
+    rps: 2.47
+    generation_throughput: 2534.16
+    mean_tpot_ms: 12.08
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=2, int4-bw1000'
+- row_id: int4-bw1000-65536-3
+  values:
+    platform: int4-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 3
+    rps: 3.35
+    generation_throughput: 3431.55
+    mean_tpot_ms: 13.23
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=3, int4-bw1000'
+- row_id: int4-bw1000-65536-4
+  values:
+    platform: int4-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 4
+    rps: 4.19
+    generation_throughput: 4290.65
+    mean_tpot_ms: 13.8
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=4, int4-bw1000'
+- row_id: int4-bw1000-65536-5
+  values:
+    platform: int4-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 5
+    rps: 4.98
+    generation_throughput: 5094.83
+    mean_tpot_ms: 14.67
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=5, int4-bw1000'
+- row_id: int4-bw1000-65536-6
+  values:
+    platform: int4-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 6
+    rps: 5.38
+    generation_throughput: 5509.63
+    mean_tpot_ms: 15.75
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=6, int4-bw1000'
+- row_id: int4-bw1000-65536-7
+  values:
+    platform: int4-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 7
+    rps: 6.02
+    generation_throughput: 6163.74
+    mean_tpot_ms: 16.77
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=7, int4-bw1000'
+- row_id: int4-bw1000-65536-8
+  values:
+    platform: int4-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 8
+    rps: 6.45
+    generation_throughput: 6607.06
+    mean_tpot_ms: 17.51
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=8, int4-bw1000'
+- row_id: int4-bw1000-65536-10
+  values:
+    platform: int4-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 10
+    rps: 7.24
+    generation_throughput: 7418.66
+    mean_tpot_ms: 18.73
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=10, int4-bw1000'
+- row_id: int4-bw1000-65536-12
+  values:
+    platform: int4-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 12
+    rps: 8.03
+    generation_throughput: 8225.87
+    mean_tpot_ms: 20.46
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=12, int4-bw1000'
+- row_id: int4-bw1000-65536-14
+  values:
+    platform: int4-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 14
+    rps: 8.39
+    generation_throughput: 8593.68
+    mean_tpot_ms: 22.22
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=14, int4-bw1000'
+- row_id: int4-bw1000-65536-16
+  values:
+    platform: int4-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 16
+    rps: 9.13
+    generation_throughput: 9353.17
+    mean_tpot_ms: 23.19
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=16, int4-bw1000'
+- row_id: int4-bw1000-65536-18
+  values:
+    platform: int4-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 18
+    rps: 7.16
+    generation_throughput: 7334.61
+    mean_tpot_ms: 21.92
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=18, int4-bw1000'
+- row_id: int4-bw1000-65536-20
+  values:
+    platform: int4-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 20
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=20, int4-bw1000'
+- row_id: int4-bw1000-65536-22
+  values:
+    platform: int4-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 22
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=22, int4-bw1000'
+- row_id: int4-bw1000-65536-24
+  values:
+    platform: int4-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 24
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=24, int4-bw1000'
+- row_id: int4-bw1000-65536-26
+  values:
+    platform: int4-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 26
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-b: input_len=65536, per_dp_bs=26, int4-bw1000'
+- row_id: int4-bw1000-65536-28
+  values:
+    platform: int4-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 28
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-b: input_len=65536, per_dp_bs=28, int4-bw1000'
+- row_id: int4-bw1000-65536-30
+  values:
+    platform: int4-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 30
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-b: input_len=65536, per_dp_bs=30, int4-bw1000'
+- row_id: int4-bw1000-65536-32
+  values:
+    platform: int4-bw1000
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 32
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-b: input_len=65536, per_dp_bs=32, int4-bw1000'
+- row_id: int4-bw1100-65536-1
+  values:
+    platform: int4-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 1
+    rps: 1.36
+    generation_throughput: 1396.88
+    mean_tpot_ms: 11.08
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=1, int4-bw1100'
+- row_id: int4-bw1100-65536-2
+  values:
+    platform: int4-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 2
+    rps: 2.43
+    generation_throughput: 2484.31
+    mean_tpot_ms: 12.39
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=2, int4-bw1100'
+- row_id: int4-bw1100-65536-3
+  values:
+    platform: int4-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 3
+    rps: 2.99
+    generation_throughput: 3061.93
+    mean_tpot_ms: 14.71
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=3, int4-bw1100'
+- row_id: int4-bw1100-65536-4
+  values:
+    platform: int4-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 4
+    rps: 3.64
+    generation_throughput: 3726.82
+    mean_tpot_ms: 16.07
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=4, int4-bw1100'
+- row_id: int4-bw1100-65536-5
+  values:
+    platform: int4-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 5
+    rps: 3.78
+    generation_throughput: 3868.62
+    mean_tpot_ms: 19.6
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=5, int4-bw1100'
+- row_id: int4-bw1100-65536-6
+  values:
+    platform: int4-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 6
+    rps: 4.18
+    generation_throughput: 4277.92
+    mean_tpot_ms: 21.26
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=6, int4-bw1100'
+- row_id: int4-bw1100-65536-7
+  values:
+    platform: int4-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 7
+    rps: 4.51
+    generation_throughput: 4615.59
+    mean_tpot_ms: 22.89
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=7, int4-bw1100'
+- row_id: int4-bw1100-65536-8
+  values:
+    platform: int4-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 8
+    rps: 4.79
+    generation_throughput: 4904.97
+    mean_tpot_ms: 23.18
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=8, int4-bw1100'
+- row_id: int4-bw1100-65536-10
+  values:
+    platform: int4-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 10
+    rps: 5.22
+    generation_throughput: 5346.52
+    mean_tpot_ms: 28.37
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=10, int4-bw1100'
+- row_id: int4-bw1100-65536-12
+  values:
+    platform: int4-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 12
+    rps: 5.45
+    generation_throughput: 5575.79
+    mean_tpot_ms: 32.18
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=12, int4-bw1100'
+- row_id: int4-bw1100-65536-14
+  values:
+    platform: int4-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 14
+    rps: 5.59
+    generation_throughput: 5719.74
+    mean_tpot_ms: 36.05
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=14, int4-bw1100'
+- row_id: int4-bw1100-65536-16
+  values:
+    platform: int4-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 16
+    rps: 5.96
+    generation_throughput: 6102.79
+    mean_tpot_ms: 38.96
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=16, int4-bw1100'
+- row_id: int4-bw1100-65536-18
+  values:
+    platform: int4-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 18
+    rps: 6.07
+    generation_throughput: 6211.58
+    mean_tpot_ms: 42.26
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=18, int4-bw1100'
+- row_id: int4-bw1100-65536-20
+  values:
+    platform: int4-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 20
+    rps: 6.4
+    generation_throughput: 6555.07
+    mean_tpot_ms: 45.45
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=20, int4-bw1100'
+- row_id: int4-bw1100-65536-22
+  values:
+    platform: int4-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 22
+    rps: 7.42
+    generation_throughput: 7595.13
+    mean_tpot_ms: 41.22
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=22, int4-bw1100'
+- row_id: int4-bw1100-65536-24
+  values:
+    platform: int4-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 24
+    rps: 8.06
+    generation_throughput: 8253.97
+    mean_tpot_ms: 42.24
+  missing: {}
+  locator: 'source-glm53-decode-a: input_len=65536, per_dp_bs=24, int4-bw1100'
+- row_id: int4-bw1100-65536-26
+  values:
+    platform: int4-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 26
+    rps: 8.02
+    generation_throughput: 8213.23
+    mean_tpot_ms: 45.63
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=65536, per_dp_bs=26, int4-bw1100'
+- row_id: int4-bw1100-65536-28
+  values:
+    platform: int4-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 28
+    rps: 8.07
+    generation_throughput: 8261.5
+    mean_tpot_ms: 47.08
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=65536, per_dp_bs=28, int4-bw1100'
+- row_id: int4-bw1100-65536-30
+  values:
+    platform: int4-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 30
+    rps: 8.2
+    generation_throughput: 8399.02
+    mean_tpot_ms: 50.38
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=65536, per_dp_bs=30, int4-bw1100'
+- row_id: int4-bw1100-65536-32
+  values:
+    platform: int4-bw1100
+    input_tokens: 65536
+    output_tokens: 1024
+    per_dp_batch: 32
+    rps: 8.34
+    generation_throughput: 8545.18
+    mean_tpot_ms: 51.41
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=65536, per_dp_bs=32, int4-bw1100'
+- row_id: int8-bw1000-131072-1
+  values:
+    platform: int8-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 1
+    rps: 1.22
+    generation_throughput: 1244.94
+    mean_tpot_ms: 12.31
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=1, int8-bw1000'
+- row_id: int8-bw1000-131072-2
+  values:
+    platform: int8-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 2
+    rps: 2.15
+    generation_throughput: 2205.84
+    mean_tpot_ms: 13.44
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=2, int8-bw1000'
+- row_id: int8-bw1000-131072-3
+  values:
+    platform: int8-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 3
+    rps: 2.95
+    generation_throughput: 3016.22
+    mean_tpot_ms: 14.5
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=3, int8-bw1000'
+- row_id: int8-bw1000-131072-4
+  values:
+    platform: int8-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 4
+    rps: 3.63
+    generation_throughput: 3716.73
+    mean_tpot_ms: 15.34
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=4, int8-bw1000'
+- row_id: int8-bw1000-131072-5
+  values:
+    platform: int8-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 5
+    rps: 4.22
+    generation_throughput: 4323.83
+    mean_tpot_ms: 15.55
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=5, int8-bw1000'
+- row_id: int8-bw1000-131072-6
+  values:
+    platform: int8-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 6
+    rps: 4.62
+    generation_throughput: 4728.32
+    mean_tpot_ms: 16.83
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=6, int8-bw1000'
+- row_id: int8-bw1000-131072-7
+  values:
+    platform: int8-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 7
+    rps: 5.18
+    generation_throughput: 5303.2
+    mean_tpot_ms: 17.82
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=7, int8-bw1000'
+- row_id: int8-bw1000-131072-8
+  values:
+    platform: int8-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 8
+    rps: 5.68
+    generation_throughput: 5820.06
+    mean_tpot_ms: 18.49
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=8, int8-bw1000'
+- row_id: int8-bw1000-131072-10
+  values:
+    platform: int8-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 10
+    rps: 6.21
+    generation_throughput: 6357.05
+    mean_tpot_ms: 19.39
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=10, int8-bw1000'
+- row_id: int8-bw1000-131072-12
+  values:
+    platform: int8-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 12
+    rps: 7.03
+    generation_throughput: 7203.44
+    mean_tpot_ms: 21.53
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=12, int8-bw1000'
+- row_id: int8-bw1000-131072-14
+  values:
+    platform: int8-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 14
+    rps: 7.39
+    generation_throughput: 7570.45
+    mean_tpot_ms: 23.21
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=14, int8-bw1000'
+- row_id: int8-bw1000-131072-16
+  values:
+    platform: int8-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 16
+    rps: 7.59
+    generation_throughput: 7774.35
+    mean_tpot_ms: 23.57
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=16, int8-bw1000'
+- row_id: int8-bw1000-131072-18
+  values:
+    platform: int8-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 18
+    rps: 6.37
+    generation_throughput: 6524.72
+    mean_tpot_ms: 22.73
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=18, int8-bw1000'
+- row_id: int8-bw1000-131072-20
+  values:
+    platform: int8-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 20
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=20, int8-bw1000'
+- row_id: int8-bw1000-131072-22
+  values:
+    platform: int8-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 22
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=22, int8-bw1000'
+- row_id: int8-bw1000-131072-24
+  values:
+    platform: int8-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 24
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=24, int8-bw1000'
+- row_id: int8-bw1000-131072-26
+  values:
+    platform: int8-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 26
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=26, int8-bw1000'
+- row_id: int8-bw1000-131072-28
+  values:
+    platform: int8-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 28
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=28, int8-bw1000'
+- row_id: int8-bw1000-131072-30
+  values:
+    platform: int8-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 30
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=30, int8-bw1000'
+- row_id: int8-bw1100-131072-1
+  values:
+    platform: int8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 1
+    rps: 1.26
+    generation_throughput: 1289.74
+    mean_tpot_ms: 11.97
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=1, int8-bw1100'
+- row_id: int8-bw1100-131072-2
+  values:
+    platform: int8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 2
+    rps: 2.26
+    generation_throughput: 2310.4
+    mean_tpot_ms: 13.07
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=2, int8-bw1100'
+- row_id: int8-bw1100-131072-3
+  values:
+    platform: int8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 3
+    rps: 2.96
+    generation_throughput: 3028.41
+    mean_tpot_ms: 14.81
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=3, int8-bw1100'
+- row_id: int8-bw1100-131072-4
+  values:
+    platform: int8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 4
+    rps: 3.59
+    generation_throughput: 3678.01
+    mean_tpot_ms: 15.62
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=4, int8-bw1100'
+- row_id: int8-bw1100-131072-5
+  values:
+    platform: int8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 5
+    rps: 4.26
+    generation_throughput: 4361.07
+    mean_tpot_ms: 16.55
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=5, int8-bw1100'
+- row_id: int8-bw1100-131072-6
+  values:
+    platform: int8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 6
+    rps: 4.66
+    generation_throughput: 4771.76
+    mean_tpot_ms: 17.9
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=6, int8-bw1100'
+- row_id: int8-bw1100-131072-7
+  values:
+    platform: int8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 7
+    rps: 5.08
+    generation_throughput: 5206.47
+    mean_tpot_ms: 18.9
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=7, int8-bw1100'
+- row_id: int8-bw1100-131072-8
+  values:
+    platform: int8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 8
+    rps: 5.48
+    generation_throughput: 5616.58
+    mean_tpot_ms: 19.73
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=8, int8-bw1100'
+- row_id: int8-bw1100-131072-10
+  values:
+    platform: int8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 10
+    rps: 6.05
+    generation_throughput: 6190.33
+    mean_tpot_ms: 22.03
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=10, int8-bw1100'
+- row_id: int8-bw1100-131072-12
+  values:
+    platform: int8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 12
+    rps: 6.44
+    generation_throughput: 6594.62
+    mean_tpot_ms: 25.83
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=12, int8-bw1100'
+- row_id: int8-bw1100-131072-14
+  values:
+    platform: int8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 14
+    rps: 6.72
+    generation_throughput: 6877.93
+    mean_tpot_ms: 27.46
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=14, int8-bw1100'
+- row_id: int8-bw1100-131072-16
+  values:
+    platform: int8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 16
+    rps: 7.13
+    generation_throughput: 7302.25
+    mean_tpot_ms: 28.75
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=16, int8-bw1100'
+- row_id: int8-bw1100-131072-18
+  values:
+    platform: int8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 18
+    rps: 7.27
+    generation_throughput: 7445.24
+    mean_tpot_ms: 31.63
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=18, int8-bw1100'
+- row_id: int8-bw1100-131072-20
+  values:
+    platform: int8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 20
+    rps: 7.61
+    generation_throughput: 7790.81
+    mean_tpot_ms: 33.79
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=20, int8-bw1100'
+- row_id: int8-bw1100-131072-22
+  values:
+    platform: int8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 22
+    rps: 7.62
+    generation_throughput: 7802.64
+    mean_tpot_ms: 36.68
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=22, int8-bw1100'
+- row_id: int8-bw1100-131072-24
+  values:
+    platform: int8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 24
+    rps: 8.21
+    generation_throughput: 8406.5
+    mean_tpot_ms: 38.33
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=24, int8-bw1100'
+- row_id: int8-bw1100-131072-26
+  values:
+    platform: int8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 26
+    rps: 8.32
+    generation_throughput: 8518.88
+    mean_tpot_ms: 38.33
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=26, int8-bw1100'
+- row_id: int8-bw1100-131072-28
+  values:
+    platform: int8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 28
+    rps: 8.61
+    generation_throughput: 8813.74
+    mean_tpot_ms: 40.84
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=28, int8-bw1100'
+- row_id: int8-bw1100-131072-30
+  values:
+    platform: int8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 30
+    rps: 8.91
+    generation_throughput: 9122.28
+    mean_tpot_ms: 42.84
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=30, int8-bw1100'
+- row_id: fp8-bw1100-131072-1
+  values:
+    platform: fp8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 1
+    rps: 1.2
+    generation_throughput: 1229.6
+    mean_tpot_ms: 12.51
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=1, fp8-bw1100'
+- row_id: fp8-bw1100-131072-2
+  values:
+    platform: fp8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 2
+    rps: 2.13
+    generation_throughput: 2178.46
+    mean_tpot_ms: 13.9
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=2, fp8-bw1100'
+- row_id: fp8-bw1100-131072-3
+  values:
+    platform: fp8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 3
+    rps: 2.84
+    generation_throughput: 2912.0
+    mean_tpot_ms: 15.28
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=3, fp8-bw1100'
+- row_id: fp8-bw1100-131072-4
+  values:
+    platform: fp8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 4
+    rps: 3.54
+    generation_throughput: 3628.52
+    mean_tpot_ms: 15.92
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=4, fp8-bw1100'
+- row_id: fp8-bw1100-131072-5
+  values:
+    platform: fp8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 5
+    rps: 4.17
+    generation_throughput: 4272.83
+    mean_tpot_ms: 17.0
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=5, fp8-bw1100'
+- row_id: fp8-bw1100-131072-6
+  values:
+    platform: fp8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 6
+    rps: 4.56
+    generation_throughput: 4667.76
+    mean_tpot_ms: 18.65
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=6, fp8-bw1100'
+- row_id: fp8-bw1100-131072-7
+  values:
+    platform: fp8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 7
+    rps: 4.98
+    generation_throughput: 5102.78
+    mean_tpot_ms: 19.95
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=7, fp8-bw1100'
+- row_id: fp8-bw1100-131072-8
+  values:
+    platform: fp8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 8
+    rps: 5.37
+    generation_throughput: 5503.1
+    mean_tpot_ms: 20.18
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=8, fp8-bw1100'
+- row_id: fp8-bw1100-131072-10
+  values:
+    platform: fp8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 10
+    rps: 5.88
+    generation_throughput: 6016.89
+    mean_tpot_ms: 22.43
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=10, fp8-bw1100'
+- row_id: fp8-bw1100-131072-12
+  values:
+    platform: fp8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 12
+    rps: 5.97
+    generation_throughput: 6116.65
+    mean_tpot_ms: 26.79
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=12, fp8-bw1100'
+- row_id: fp8-bw1100-131072-14
+  values:
+    platform: fp8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 14
+    rps: 6.46
+    generation_throughput: 6610.57
+    mean_tpot_ms: 28.52
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=14, fp8-bw1100'
+- row_id: fp8-bw1100-131072-16
+  values:
+    platform: fp8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 16
+    rps: 6.95
+    generation_throughput: 7119.76
+    mean_tpot_ms: 31.26
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=16, fp8-bw1100'
+- row_id: fp8-bw1100-131072-18
+  values:
+    platform: fp8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 18
+    rps: 7.17
+    generation_throughput: 7343.75
+    mean_tpot_ms: 32.76
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=18, fp8-bw1100'
+- row_id: fp8-bw1100-131072-20
+  values:
+    platform: fp8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 20
+    rps: 7.39
+    generation_throughput: 7572.45
+    mean_tpot_ms: 33.28
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=20, fp8-bw1100'
+- row_id: fp8-bw1100-131072-22
+  values:
+    platform: fp8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 22
+    rps: 7.37
+    generation_throughput: 7548.08
+    mean_tpot_ms: 38.93
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=22, fp8-bw1100'
+- row_id: fp8-bw1100-131072-24
+  values:
+    platform: fp8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 24
+    rps: 7.98
+    generation_throughput: 8171.24
+    mean_tpot_ms: 40.13
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=24, fp8-bw1100'
+- row_id: fp8-bw1100-131072-26
+  values:
+    platform: fp8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 26
+    rps: 8.1
+    generation_throughput: 8292.88
+    mean_tpot_ms: 39.84
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=26, fp8-bw1100'
+- row_id: fp8-bw1100-131072-28
+  values:
+    platform: fp8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 28
+    rps: 8.11
+    generation_throughput: 8309.56
+    mean_tpot_ms: 41.58
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=28, fp8-bw1100'
+- row_id: fp8-bw1100-131072-30
+  values:
+    platform: fp8-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 30
+    rps: 8.35
+    generation_throughput: 8550.5
+    mean_tpot_ms: 43.6
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=30, fp8-bw1100'
+- row_id: int4-bw1000-131072-1
+  values:
+    platform: int4-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 1
+    rps: 1.29
+    generation_throughput: 1317.79
+    mean_tpot_ms: 11.56
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=1, int4-bw1000'
+- row_id: int4-bw1000-131072-2
+  values:
+    platform: int4-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 2
+    rps: 2.28
+    generation_throughput: 2339.07
+    mean_tpot_ms: 12.57
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=2, int4-bw1000'
+- row_id: int4-bw1000-131072-3
+  values:
+    platform: int4-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 3
+    rps: 3.12
+    generation_throughput: 3192.69
+    mean_tpot_ms: 13.76
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=3, int4-bw1000'
+- row_id: int4-bw1000-131072-4
+  values:
+    platform: int4-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 4
+    rps: 3.81
+    generation_throughput: 3901.38
+    mean_tpot_ms: 14.42
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=4, int4-bw1000'
+- row_id: int4-bw1000-131072-5
+  values:
+    platform: int4-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 5
+    rps: 4.45
+    generation_throughput: 4555.46
+    mean_tpot_ms: 15.05
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=5, int4-bw1000'
+- row_id: int4-bw1000-131072-6
+  values:
+    platform: int4-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 6
+    rps: 4.84
+    generation_throughput: 4951.84
+    mean_tpot_ms: 16.28
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=6, int4-bw1000'
+- row_id: int4-bw1000-131072-7
+  values:
+    platform: int4-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 7
+    rps: 5.23
+    generation_throughput: 5353.27
+    mean_tpot_ms: 16.98
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=7, int4-bw1000'
+- row_id: int4-bw1000-131072-8
+  values:
+    platform: int4-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 8
+    rps: 5.68
+    generation_throughput: 5811.99
+    mean_tpot_ms: 17.38
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=8, int4-bw1000'
+- row_id: int4-bw1000-131072-10
+  values:
+    platform: int4-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 10
+    rps: 6.47
+    generation_throughput: 6624.85
+    mean_tpot_ms: 19.33
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=10, int4-bw1000'
+- row_id: int4-bw1000-131072-12
+  values:
+    platform: int4-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 12
+    rps: 7.06
+    generation_throughput: 7232.47
+    mean_tpot_ms: 20.6
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=12, int4-bw1000'
+- row_id: int4-bw1000-131072-14
+  values:
+    platform: int4-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 14
+    rps: 7.56
+    generation_throughput: 7743.32
+    mean_tpot_ms: 22.96
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=14, int4-bw1000'
+- row_id: int4-bw1000-131072-16
+  values:
+    platform: int4-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 16
+    rps: 8.07
+    generation_throughput: 8263.78
+    mean_tpot_ms: 24.36
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=16, int4-bw1000'
+- row_id: int4-bw1000-131072-18
+  values:
+    platform: int4-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 18
+    rps: 6.46
+    generation_throughput: 6615.92
+    mean_tpot_ms: 21.56
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=18, int4-bw1000'
+- row_id: int4-bw1000-131072-20
+  values:
+    platform: int4-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 20
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=20, int4-bw1000'
+- row_id: int4-bw1000-131072-22
+  values:
+    platform: int4-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 22
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=22, int4-bw1000'
+- row_id: int4-bw1000-131072-24
+  values:
+    platform: int4-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 24
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=24, int4-bw1000'
+- row_id: int4-bw1000-131072-26
+  values:
+    platform: int4-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 26
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=26, int4-bw1000'
+- row_id: int4-bw1000-131072-28
+  values:
+    platform: int4-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 28
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=28, int4-bw1000'
+- row_id: int4-bw1000-131072-30
+  values:
+    platform: int4-bw1000
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 30
+    rps: null
+    generation_throughput: null
+    mean_tpot_ms: null
+  missing:
+    rps: not_reported
+    generation_throughput: not_reported
+    mean_tpot_ms: not_reported
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=30, int4-bw1000'
+- row_id: int4-bw1100-131072-1
+  values:
+    platform: int4-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 1
+    rps: 1.28
+    generation_throughput: 1309.13
+    mean_tpot_ms: 11.74
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=1, int4-bw1100'
+- row_id: int4-bw1100-131072-2
+  values:
+    platform: int4-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 2
+    rps: 2.26
+    generation_throughput: 2316.43
+    mean_tpot_ms: 13.08
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=2, int4-bw1100'
+- row_id: int4-bw1100-131072-3
+  values:
+    platform: int4-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 3
+    rps: 2.78
+    generation_throughput: 2847.91
+    mean_tpot_ms: 15.44
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=3, int4-bw1100'
+- row_id: int4-bw1100-131072-4
+  values:
+    platform: int4-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 4
+    rps: 3.35
+    generation_throughput: 3431.87
+    mean_tpot_ms: 17.1
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=4, int4-bw1100'
+- row_id: int4-bw1100-131072-5
+  values:
+    platform: int4-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 5
+    rps: 3.56
+    generation_throughput: 3640.61
+    mean_tpot_ms: 20.34
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=5, int4-bw1100'
+- row_id: int4-bw1100-131072-6
+  values:
+    platform: int4-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 6
+    rps: 3.83
+    generation_throughput: 3917.23
+    mean_tpot_ms: 21.42
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=6, int4-bw1100'
+- row_id: int4-bw1100-131072-7
+  values:
+    platform: int4-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 7
+    rps: 4.19
+    generation_throughput: 4289.96
+    mean_tpot_ms: 23.73
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=7, int4-bw1100'
+- row_id: int4-bw1100-131072-8
+  values:
+    platform: int4-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 8
+    rps: 4.46
+    generation_throughput: 4571.46
+    mean_tpot_ms: 24.79
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=8, int4-bw1100'
+- row_id: int4-bw1100-131072-10
+  values:
+    platform: int4-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 10
+    rps: 4.75
+    generation_throughput: 4866.96
+    mean_tpot_ms: 28.76
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=10, int4-bw1100'
+- row_id: int4-bw1100-131072-12
+  values:
+    platform: int4-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 12
+    rps: 4.98
+    generation_throughput: 5099.66
+    mean_tpot_ms: 33.11
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=12, int4-bw1100'
+- row_id: int4-bw1100-131072-14
+  values:
+    platform: int4-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 14
+    rps: 5.15
+    generation_throughput: 5275.93
+    mean_tpot_ms: 37.72
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=14, int4-bw1100'
+- row_id: int4-bw1100-131072-16
+  values:
+    platform: int4-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 16
+    rps: 5.54
+    generation_throughput: 5672.29
+    mean_tpot_ms: 40.12
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=16, int4-bw1100'
+- row_id: int4-bw1100-131072-18
+  values:
+    platform: int4-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 18
+    rps: 5.51
+    generation_throughput: 5638.64
+    mean_tpot_ms: 44.05
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=18, int4-bw1100'
+- row_id: int4-bw1100-131072-20
+  values:
+    platform: int4-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 20
+    rps: 5.69
+    generation_throughput: 5831.27
+    mean_tpot_ms: 46.89
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=20, int4-bw1100'
+- row_id: int4-bw1100-131072-22
+  values:
+    platform: int4-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 22
+    rps: 6.78
+    generation_throughput: 6942.06
+    mean_tpot_ms: 42.78
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=22, int4-bw1100'
+- row_id: int4-bw1100-131072-24
+  values:
+    platform: int4-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 24
+    rps: 7.05
+    generation_throughput: 7219.04
+    mean_tpot_ms: 43.93
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=24, int4-bw1100'
+- row_id: int4-bw1100-131072-26
+  values:
+    platform: int4-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 26
+    rps: 7.1
+    generation_throughput: 7271.03
+    mean_tpot_ms: 46.65
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=26, int4-bw1100'
+- row_id: int4-bw1100-131072-28
+  values:
+    platform: int4-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 28
+    rps: 7.28
+    generation_throughput: 7450.61
+    mean_tpot_ms: 49.99
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=28, int4-bw1100'
+- row_id: int4-bw1100-131072-30
+  values:
+    platform: int4-bw1100
+    input_tokens: 131072
+    output_tokens: 1024
+    per_dp_batch: 30
+    rps: 7.28
+    generation_throughput: 7459.66
+    mean_tpot_ms: 52.46
+  missing: {}
+  locator: 'source-glm53-decode-b: input_len=131072, per_dp_bs=30, int4-bw1100'
+extraction:
+  method: manual_transcription
+  coverage: partial
+  omissions:
+  - 六组平台59个负载点的RPS、generation throughput、mean TPOT全部转录，354行包含40行原表空白。空白原因仅记not_reported，不推断不支持或OOM。
+  - DCU/H20百分比辅助列未重复转录，不从四舍五入后的数值重新生成来源百分比。
+  - 第二张右侧无表头裁切平台列未录入；128k per_dp_bs=32 行不在截图中。
+  - 镜像地址被列宽裁切，未恢复完整地址或digest。
+  independently_reproduced: false

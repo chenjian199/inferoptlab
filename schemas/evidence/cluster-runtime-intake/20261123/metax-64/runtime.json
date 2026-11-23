@@ -1,0 +1,1458 @@
+{
+  "captured_at": "2026-11-23T08:28:51.631199+00:00",
+  "host_packages": {
+    "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+    "executable": "/usr/bin/python3",
+    "packages": {
+      "vllm": null,
+      "sglang": null,
+      "aiperf": null,
+      "torch": null,
+      "transformers": null,
+      "triton": null
+    },
+    "executables": {
+      "vllm": null,
+      "sglang": null,
+      "aiperf": null,
+      "torch": null,
+      "transformers": null,
+      "triton": null
+    }
+  },
+  "models": [
+    {
+      "path": "/mnt/ufs1/models/models/Qwen/Qwen3-0.6B",
+      "exists": true,
+      "config_sha256": "660db3b73d788119c04535e48cf9be5f55bc3100841a718637ae695b442f27dd",
+      "weight_files": [
+        {
+          "name": "model.safetensors",
+          "size_bytes": 1503300328,
+          "readable_header": true
+        }
+      ],
+      "errors": [],
+      "tokenizer_readable": true
+    },
+    {
+      "path": "/mnt/ufs1/models/models/metax-tech/GLM-5.3-Flash-W8A8",
+      "exists": true,
+      "config_sha256": "671a1dec45411c0d126573646ec7173aa1b4fd02aaaab62be8613b9c08e3018e",
+      "weight_files": [
+        {
+          "name": "model-language_model-layers-00000.safetensors",
+          "size_bytes": 428322852,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00001.safetensors",
+          "size_bytes": 428322852,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00002.safetensors",
+          "size_bytes": 428322852,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00003.safetensors",
+          "size_bytes": 7431060212,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00004.safetensors",
+          "size_bytes": 7557526812,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00005.safetensors",
+          "size_bytes": 7557526812,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00006.safetensors",
+          "size_bytes": 7557526812,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00007.safetensors",
+          "size_bytes": 7431060212,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00008.safetensors",
+          "size_bytes": 7557526812,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00009.safetensors",
+          "size_bytes": 7557526812,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00010.safetensors",
+          "size_bytes": 7557528572,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00011.safetensors",
+          "size_bytes": 7431061972,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00012.safetensors",
+          "size_bytes": 7557528572,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00013.safetensors",
+          "size_bytes": 7557528572,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00014.safetensors",
+          "size_bytes": 7557528572,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00015.safetensors",
+          "size_bytes": 7431061972,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00016.safetensors",
+          "size_bytes": 7557528572,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00017.safetensors",
+          "size_bytes": 7557528572,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00018.safetensors",
+          "size_bytes": 7557528572,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00019.safetensors",
+          "size_bytes": 7431061972,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00020.safetensors",
+          "size_bytes": 7557528572,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00021.safetensors",
+          "size_bytes": 7557528572,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00022.safetensors",
+          "size_bytes": 7557528572,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00023.safetensors",
+          "size_bytes": 7431061972,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00024.safetensors",
+          "size_bytes": 7557528572,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00025.safetensors",
+          "size_bytes": 7557528572,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00026.safetensors",
+          "size_bytes": 7557528572,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00027.safetensors",
+          "size_bytes": 7431061972,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00028.safetensors",
+          "size_bytes": 7557528572,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00029.safetensors",
+          "size_bytes": 7557528572,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00030.safetensors",
+          "size_bytes": 7557528572,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00031.safetensors",
+          "size_bytes": 7431061972,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00032.safetensors",
+          "size_bytes": 7557528572,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00033.safetensors",
+          "size_bytes": 7557528572,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00034.safetensors",
+          "size_bytes": 7557528572,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00035.safetensors",
+          "size_bytes": 7431061972,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00036.safetensors",
+          "size_bytes": 7557528572,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00037.safetensors",
+          "size_bytes": 7557528572,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00038.safetensors",
+          "size_bytes": 7557528572,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00039.safetensors",
+          "size_bytes": 7431061972,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00040.safetensors",
+          "size_bytes": 7557528572,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00041.safetensors",
+          "size_bytes": 7557528572,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00042.safetensors",
+          "size_bytes": 7557528572,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00043.safetensors",
+          "size_bytes": 7431061972,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00044.safetensors",
+          "size_bytes": 7557528572,
+          "readable_header": true
+        },
+        {
+          "name": "model-language_model-layers-00045.safetensors",
+          "size_bytes": 7496624048,
+          "readable_header": true
+        },
+        {
+          "name": "model_exclude_layers.safetensors",
+          "size_bytes": 3664856128,
+          "readable_header": true
+        }
+      ],
+      "errors": [],
+      "tokenizer_readable": true
+    },
+    {
+      "path": "/mnt/ufs1/models/models/metax-tech/GLM-5.3-W4A8",
+      "exists": true,
+      "config_sha256": "c80661bd0627ff10a653c0b42522b17832011b7330ee84c7ac95ac9a7fe6f165",
+      "weight_files": [
+        {
+          "name": "model-layers-00000.safetensors",
+          "size_bytes": 401291120,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00001.safetensors",
+          "size_bytes": 401291120,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00002.safetensors",
+          "size_bytes": 401291120,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00003.safetensors",
+          "size_bytes": 5043353600,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00004.safetensors",
+          "size_bytes": 5043353600,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00005.safetensors",
+          "size_bytes": 5043353600,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00006.safetensors",
+          "size_bytes": 5052931672,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00007.safetensors",
+          "size_bytes": 5043353600,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00008.safetensors",
+          "size_bytes": 5043353600,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00009.safetensors",
+          "size_bytes": 5043353600,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00010.safetensors",
+          "size_bytes": 5052933240,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00011.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00012.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00013.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00014.safetensors",
+          "size_bytes": 5052933240,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00015.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00016.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00017.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00018.safetensors",
+          "size_bytes": 5052933240,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00019.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00020.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00021.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00022.safetensors",
+          "size_bytes": 5052933240,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00023.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00024.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00025.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00026.safetensors",
+          "size_bytes": 5052933240,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00027.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00028.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00029.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00030.safetensors",
+          "size_bytes": 5052933240,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00031.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00032.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00033.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00034.safetensors",
+          "size_bytes": 5052933240,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00035.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00036.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00037.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00038.safetensors",
+          "size_bytes": 5052933240,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00039.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00040.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00041.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00042.safetensors",
+          "size_bytes": 5052933240,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00043.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00044.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00045.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00046.safetensors",
+          "size_bytes": 5052933240,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00047.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00048.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00049.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00050.safetensors",
+          "size_bytes": 5052933240,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00051.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00052.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00053.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00054.safetensors",
+          "size_bytes": 5052933240,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00055.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00056.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00057.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00058.safetensors",
+          "size_bytes": 5052933240,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00059.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00060.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00061.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00062.safetensors",
+          "size_bytes": 5052933240,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00063.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00064.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00065.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00066.safetensors",
+          "size_bytes": 5052933240,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00067.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00068.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00069.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00070.safetensors",
+          "size_bytes": 5052933240,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00071.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00072.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00073.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00074.safetensors",
+          "size_bytes": 5052933240,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00075.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00076.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00077.safetensors",
+          "size_bytes": 5043355160,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00078.safetensors",
+          "size_bytes": 5203965472,
+          "readable_header": true
+        },
+        {
+          "name": "model_exclude_layers.safetensors",
+          "size_bytes": 3806357368,
+          "readable_header": true
+        }
+      ],
+      "errors": [],
+      "tokenizer_readable": true
+    },
+    {
+      "path": "/mnt/ufs1/models/models/metax-tech/GLM-5.3-W8A8",
+      "exists": true,
+      "config_sha256": "e1a41d7bf42b69ab760fb748a732230ed32551d5c5d2a31a82d2048a63908680",
+      "weight_files": [
+        {
+          "name": "model-layers-00000.safetensors",
+          "size_bytes": 401291120,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00001.safetensors",
+          "size_bytes": 401291120,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00002.safetensors",
+          "size_bytes": 401291120,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00003.safetensors",
+          "size_bytes": 9875182376,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00004.safetensors",
+          "size_bytes": 9875182376,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00005.safetensors",
+          "size_bytes": 9875182376,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00006.safetensors",
+          "size_bytes": 9884760416,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00007.safetensors",
+          "size_bytes": 9875182376,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00008.safetensors",
+          "size_bytes": 9875182376,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00009.safetensors",
+          "size_bytes": 9875182376,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00010.safetensors",
+          "size_bytes": 9884761984,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00011.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00012.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00013.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00014.safetensors",
+          "size_bytes": 9884761984,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00015.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00016.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00017.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00018.safetensors",
+          "size_bytes": 9884761984,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00019.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00020.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00021.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00022.safetensors",
+          "size_bytes": 9884761984,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00023.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00024.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00025.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00026.safetensors",
+          "size_bytes": 9884761984,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00027.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00028.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00029.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00030.safetensors",
+          "size_bytes": 9884761984,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00031.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00032.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00033.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00034.safetensors",
+          "size_bytes": 9884761984,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00035.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00036.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00037.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00038.safetensors",
+          "size_bytes": 9884761984,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00039.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00040.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00041.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00042.safetensors",
+          "size_bytes": 9884761984,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00043.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00044.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00045.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00046.safetensors",
+          "size_bytes": 9884761984,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00047.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00048.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00049.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00050.safetensors",
+          "size_bytes": 9884761984,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00051.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00052.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00053.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00054.safetensors",
+          "size_bytes": 9884761984,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00055.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00056.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00057.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00058.safetensors",
+          "size_bytes": 9884761984,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00059.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00060.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00061.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00062.safetensors",
+          "size_bytes": 9884761984,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00063.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00064.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00065.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00066.safetensors",
+          "size_bytes": 9884761984,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00067.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00068.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00069.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00070.safetensors",
+          "size_bytes": 9884761984,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00071.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00072.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00073.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00074.safetensors",
+          "size_bytes": 9884761984,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00075.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00076.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00077.safetensors",
+          "size_bytes": 9875183936,
+          "readable_header": true
+        },
+        {
+          "name": "model-layers-00078.safetensors",
+          "size_bytes": 10035797712,
+          "readable_header": true
+        },
+        {
+          "name": "model_exclude_layers.safetensors",
+          "size_bytes": 3806343464,
+          "readable_header": true
+        }
+      ],
+      "errors": [],
+      "tokenizer_readable": true
+    }
+  ],
+  "images": [
+    {
+      "image_id": "sha256:91b2504601a1d2bdc2f4b057127258311df95d1d9c7f7aa2b270c60e5d4848e3",
+      "tags": [
+        "172.17.0.57:5000/infer/deepseek-v4.1-flash-1017:<none>"
+      ],
+      "returncode": 0,
+      "stdout": "{\"python\": \"3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]\", \"executable\": \"/opt/conda/bin/python3\", \"packages\": {\"vllm\": null, \"sglang\": \"0.5.14+detached.bde79bde7.maca3.8.2.121\", \"aiperf\": null, \"torch\": \"2.10.0+metax3.8.2.2\", \"transformers\": \"5.12.0\", \"triton\": \"3.6.0+metax3.8.2.2\"}, \"executables\": {\"vllm\": null, \"sglang\": \"/opt/conda/bin/sglang\", \"aiperf\": null, \"torch\": null, \"transformers\": \"/opt/conda/bin/transformers\", \"triton\": null}}\n",
+      "stderr": "",
+      "runtime": {
+        "python": "3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]",
+        "executable": "/opt/conda/bin/python3",
+        "packages": {
+          "vllm": null,
+          "sglang": "0.5.14+detached.bde79bde7.maca3.8.2.121",
+          "aiperf": null,
+          "torch": "2.10.0+metax3.8.2.2",
+          "transformers": "5.12.0",
+          "triton": "3.6.0+metax3.8.2.2"
+        },
+        "executables": {
+          "vllm": null,
+          "sglang": "/opt/conda/bin/sglang",
+          "aiperf": null,
+          "torch": null,
+          "transformers": "/opt/conda/bin/transformers",
+          "triton": null
+        }
+      }
+    },
+    {
+      "image_id": "sha256:43af58b15b63b6095611b257590466632433d6786d66386839e1c5b8027d30ad",
+      "tags": [
+        "172.17.0.57:5000/infer/deepseek-v4-flash-0731-w8a8:sglang0.5.14-maca.ai3.8.2.121-torch2.10-py312-ubuntu22.04-amd64-mim4.0.1",
+        "crpi-oj1pjyi3b17og5sl.cn-beijing.personal.cr.aliyuncs.com/duoxintong_apps/deepseek-v4-flash-0731-w8a8:sglang0.5.14-maca.ai3.8.2.121-torch2.10-py312-ubuntu22.04-amd64-mim4.0.1"
+      ],
+      "returncode": 0,
+      "stdout": "{\"python\": \"3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]\", \"executable\": \"/opt/conda/bin/python3\", \"packages\": {\"vllm\": null, \"sglang\": \"0.5.14+detached.bde79bde7.maca3.8.2.121\", \"aiperf\": null, \"torch\": \"2.10.0+metax3.8.2.2\", \"transformers\": \"5.12.0\", \"triton\": \"3.6.0+metax3.8.2.2\"}, \"executables\": {\"vllm\": null, \"sglang\": \"/opt/conda/bin/sglang\", \"aiperf\": null, \"torch\": null, \"transformers\": \"/opt/conda/bin/transformers\", \"triton\": null}}\n",
+      "stderr": "",
+      "runtime": {
+        "python": "3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]",
+        "executable": "/opt/conda/bin/python3",
+        "packages": {
+          "vllm": null,
+          "sglang": "0.5.14+detached.bde79bde7.maca3.8.2.121",
+          "aiperf": null,
+          "torch": "2.10.0+metax3.8.2.2",
+          "transformers": "5.12.0",
+          "triton": "3.6.0+metax3.8.2.2"
+        },
+        "executables": {
+          "vllm": null,
+          "sglang": "/opt/conda/bin/sglang",
+          "aiperf": null,
+          "torch": null,
+          "transformers": "/opt/conda/bin/transformers",
+          "triton": null
+        }
+      }
+    },
+    {
+      "image_id": "sha256:5b5d81f73106554873c3dd8d7fc5d91756d266282ab7cf468207f6032e42d3b8",
+      "tags": [
+        "h3-c500ah-engine:docker-guard-20261030"
+      ],
+      "returncode": 0,
+      "stdout": "{\"python\": \"3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]\", \"executable\": \"/opt/conda/bin/python3\", \"packages\": {\"vllm\": null, \"sglang\": \"0.3.1+mx.dev.0.5.19.2ad2ac45f4.maca0\", \"aiperf\": null, \"torch\": \"2.10.0+metax3.8.2.2\", \"transformers\": \"5.12.0\", \"triton\": \"3.6.0+metax3.8.2.2\"}, \"executables\": {\"vllm\": null, \"sglang\": \"/opt/conda/bin/sglang\", \"aiperf\": null, \"torch\": null, \"transformers\": \"/opt/conda/bin/transformers\", \"triton\": null}}\n",
+      "stderr": "",
+      "runtime": {
+        "python": "3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]",
+        "executable": "/opt/conda/bin/python3",
+        "packages": {
+          "vllm": null,
+          "sglang": "0.3.1+mx.dev.0.5.19.2ad2ac45f4.maca0",
+          "aiperf": null,
+          "torch": "2.10.0+metax3.8.2.2",
+          "transformers": "5.12.0",
+          "triton": "3.6.0+metax3.8.2.2"
+        },
+        "executables": {
+          "vllm": null,
+          "sglang": "/opt/conda/bin/sglang",
+          "aiperf": null,
+          "torch": null,
+          "transformers": "/opt/conda/bin/transformers",
+          "triton": null
+        }
+      }
+    },
+    {
+      "image_id": "sha256:3fd7f75ae1478e774354d737870a34dd440d91737b9a59aaca419ce24586583d",
+      "tags": [
+        "h3-c500ah-worker:docker-guard-20261030"
+      ],
+      "returncode": 0,
+      "stdout": "{\"python\": \"3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]\", \"executable\": \"/opt/conda/bin/python3\", \"packages\": {\"vllm\": null, \"sglang\": \"0.3.1+mx.dev.0.5.19.2ad2ac45f4.maca0\", \"aiperf\": null, \"torch\": \"2.10.0+metax3.8.2.2\", \"transformers\": \"5.12.0\", \"triton\": \"3.6.0+metax3.8.2.2\"}, \"executables\": {\"vllm\": null, \"sglang\": \"/opt/conda/bin/sglang\", \"aiperf\": null, \"torch\": null, \"transformers\": \"/opt/conda/bin/transformers\", \"triton\": null}}\n",
+      "stderr": "",
+      "runtime": {
+        "python": "3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]",
+        "executable": "/opt/conda/bin/python3",
+        "packages": {
+          "vllm": null,
+          "sglang": "0.3.1+mx.dev.0.5.19.2ad2ac45f4.maca0",
+          "aiperf": null,
+          "torch": "2.10.0+metax3.8.2.2",
+          "transformers": "5.12.0",
+          "triton": "3.6.0+metax3.8.2.2"
+        },
+        "executables": {
+          "vllm": null,
+          "sglang": "/opt/conda/bin/sglang",
+          "aiperf": null,
+          "torch": null,
+          "transformers": "/opt/conda/bin/transformers",
+          "triton": null
+        }
+      }
+    },
+    {
+      "image_id": "sha256:4324216f4984ff86f6a9c1aeb0b42d0409ffc4253d1b7884a7649293dbdaed9e",
+      "tags": [
+        "native-audit-business:20261029"
+      ],
+      "returncode": 0,
+      "stdout": "{\"python\": \"3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]\", \"executable\": \"/opt/conda/bin/python3\", \"packages\": {\"vllm\": null, \"sglang\": \"0.3.1+mx.dev.0.5.19.2ad2ac45f4.maca0\", \"aiperf\": null, \"torch\": \"2.10.0+metax3.8.2.2\", \"transformers\": \"5.12.0\", \"triton\": \"3.6.0+metax3.8.2.2\"}, \"executables\": {\"vllm\": null, \"sglang\": \"/opt/conda/bin/sglang\", \"aiperf\": null, \"torch\": null, \"transformers\": \"/opt/conda/bin/transformers\", \"triton\": null}}\n",
+      "stderr": "",
+      "runtime": {
+        "python": "3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]",
+        "executable": "/opt/conda/bin/python3",
+        "packages": {
+          "vllm": null,
+          "sglang": "0.3.1+mx.dev.0.5.19.2ad2ac45f4.maca0",
+          "aiperf": null,
+          "torch": "2.10.0+metax3.8.2.2",
+          "transformers": "5.12.0",
+          "triton": "3.6.0+metax3.8.2.2"
+        },
+        "executables": {
+          "vllm": null,
+          "sglang": "/opt/conda/bin/sglang",
+          "aiperf": null,
+          "torch": null,
+          "transformers": "/opt/conda/bin/transformers",
+          "triton": null
+        }
+      }
+    },
+    {
+      "image_id": "sha256:5fab0b4cbd5917d07ddec0351e80b335e8c5de8e4c6bd1e4a939a71447fa9eab",
+      "tags": [
+        "172.17.0.57:5000/h3-c500ah-worker:<none>"
+      ],
+      "returncode": 0,
+      "stdout": "{\"python\": \"3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]\", \"executable\": \"/opt/conda/bin/python3\", \"packages\": {\"vllm\": null, \"sglang\": \"0.3.1+mx.dev.0.5.19.2ad2ac45f4.maca0\", \"aiperf\": null, \"torch\": \"2.10.0+metax3.8.2.2\", \"transformers\": \"5.12.0\", \"triton\": \"3.6.0+metax3.8.2.2\"}, \"executables\": {\"vllm\": null, \"sglang\": \"/opt/conda/bin/sglang\", \"aiperf\": null, \"torch\": null, \"transformers\": \"/opt/conda/bin/transformers\", \"triton\": null}}\n",
+      "stderr": "",
+      "runtime": {
+        "python": "3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]",
+        "executable": "/opt/conda/bin/python3",
+        "packages": {
+          "vllm": null,
+          "sglang": "0.3.1+mx.dev.0.5.19.2ad2ac45f4.maca0",
+          "aiperf": null,
+          "torch": "2.10.0+metax3.8.2.2",
+          "transformers": "5.12.0",
+          "triton": "3.6.0+metax3.8.2.2"
+        },
+        "executables": {
+          "vllm": null,
+          "sglang": "/opt/conda/bin/sglang",
+          "aiperf": null,
+          "torch": null,
+          "transformers": "/opt/conda/bin/transformers",
+          "triton": null
+        }
+      }
+    },
+    {
+      "image_id": "sha256:1d01350753c09230b7238ce56d252228dfe35ee18f008c7f4205b0f58ff1ed7e",
+      "tags": [
+        "172.17.0.57:5000/h3-c500ah-worker:<none>"
+      ],
+      "returncode": 0,
+      "stdout": "{\"python\": \"3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]\", \"executable\": \"/opt/conda/bin/python3\", \"packages\": {\"vllm\": null, \"sglang\": \"0.3.1+mx.dev.0.5.19.2ad2ac45f4.maca0\", \"aiperf\": null, \"torch\": \"2.10.0+metax3.8.2.2\", \"transformers\": \"5.12.0\", \"triton\": \"3.6.0+metax3.8.2.2\"}, \"executables\": {\"vllm\": null, \"sglang\": \"/opt/conda/bin/sglang\", \"aiperf\": null, \"torch\": null, \"transformers\": \"/opt/conda/bin/transformers\", \"triton\": null}}\n",
+      "stderr": "",
+      "runtime": {
+        "python": "3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]",
+        "executable": "/opt/conda/bin/python3",
+        "packages": {
+          "vllm": null,
+          "sglang": "0.3.1+mx.dev.0.5.19.2ad2ac45f4.maca0",
+          "aiperf": null,
+          "torch": "2.10.0+metax3.8.2.2",
+          "transformers": "5.12.0",
+          "triton": "3.6.0+metax3.8.2.2"
+        },
+        "executables": {
+          "vllm": null,
+          "sglang": "/opt/conda/bin/sglang",
+          "aiperf": null,
+          "torch": null,
+          "transformers": "/opt/conda/bin/transformers",
+          "triton": null
+        }
+      }
+    },
+    {
+      "image_id": "sha256:489cdb16316d1f482720acdd0df35230b47d0902455cbd304e90e4060d34c13d",
+      "tags": [
+        "172.17.0.57:5000/h3-c500ah-engine:<none>"
+      ],
+      "returncode": 0,
+      "stdout": "{\"python\": \"3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]\", \"executable\": \"/opt/conda/bin/python3\", \"packages\": {\"vllm\": null, \"sglang\": \"0.3.1+mx.dev.0.5.19.2ad2ac45f4.maca0\", \"aiperf\": null, \"torch\": \"2.10.0+metax3.8.2.2\", \"transformers\": \"5.12.0\", \"triton\": \"3.6.0+metax3.8.2.2\"}, \"executables\": {\"vllm\": null, \"sglang\": \"/opt/conda/bin/sglang\", \"aiperf\": null, \"torch\": null, \"transformers\": \"/opt/conda/bin/transformers\", \"triton\": null}}\n",
+      "stderr": "",
+      "runtime": {
+        "python": "3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]",
+        "executable": "/opt/conda/bin/python3",
+        "packages": {
+          "vllm": null,
+          "sglang": "0.3.1+mx.dev.0.5.19.2ad2ac45f4.maca0",
+          "aiperf": null,
+          "torch": "2.10.0+metax3.8.2.2",
+          "transformers": "5.12.0",
+          "triton": "3.6.0+metax3.8.2.2"
+        },
+        "executables": {
+          "vllm": null,
+          "sglang": "/opt/conda/bin/sglang",
+          "aiperf": null,
+          "torch": null,
+          "transformers": "/opt/conda/bin/transformers",
+          "triton": null
+        }
+      }
+    },
+    {
+      "image_id": "sha256:463ead4f3801c9ae7c1f4cbc4906fc0817d8e6c3f4ec0f958171e48e7ec6c0d7",
+      "tags": [
+        "172.17.0.57:5000/h3-ref2va-c500ah:<none>"
+      ],
+      "returncode": 0,
+      "stdout": "{\"python\": \"3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]\", \"executable\": \"/opt/conda/bin/python3\", \"packages\": {\"vllm\": null, \"sglang\": \"0.3.1+mx.dev.0.5.19.2ad2ac45f4.maca0\", \"aiperf\": null, \"torch\": \"2.10.0+metax3.8.2.2\", \"transformers\": \"5.12.0\", \"triton\": \"3.6.0+metax3.8.2.2\"}, \"executables\": {\"vllm\": null, \"sglang\": \"/opt/conda/bin/sglang\", \"aiperf\": null, \"torch\": null, \"transformers\": \"/opt/conda/bin/transformers\", \"triton\": null}}\n",
+      "stderr": "",
+      "runtime": {
+        "python": "3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]",
+        "executable": "/opt/conda/bin/python3",
+        "packages": {
+          "vllm": null,
+          "sglang": "0.3.1+mx.dev.0.5.19.2ad2ac45f4.maca0",
+          "aiperf": null,
+          "torch": "2.10.0+metax3.8.2.2",
+          "transformers": "5.12.0",
+          "triton": "3.6.0+metax3.8.2.2"
+        },
+        "executables": {
+          "vllm": null,
+          "sglang": "/opt/conda/bin/sglang",
+          "aiperf": null,
+          "torch": null,
+          "transformers": "/opt/conda/bin/transformers",
+          "triton": null
+        }
+      }
+    },
+    {
+      "image_id": "sha256:eafd727bd08e63064c0000f0a60bccde56d36f05974386afa580918b85a5acd4",
+      "tags": [
+        "172.17.0.57:5000/h3-ref2va-c500ah:<none>"
+      ],
+      "returncode": 0,
+      "stdout": "{\"python\": \"3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]\", \"executable\": \"/opt/conda/bin/python3\", \"packages\": {\"vllm\": null, \"sglang\": \"0.3.1+mx.dev.0.5.19.2ad2ac45f4.maca0\", \"aiperf\": null, \"torch\": \"2.10.0+metax3.8.2.2\", \"transformers\": \"5.12.0\", \"triton\": \"3.6.0+metax3.8.2.2\"}, \"executables\": {\"vllm\": null, \"sglang\": \"/opt/conda/bin/sglang\", \"aiperf\": null, \"torch\": null, \"transformers\": \"/opt/conda/bin/transformers\", \"triton\": null}}\n",
+      "stderr": "",
+      "runtime": {
+        "python": "3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]",
+        "executable": "/opt/conda/bin/python3",
+        "packages": {
+          "vllm": null,
+          "sglang": "0.3.1+mx.dev.0.5.19.2ad2ac45f4.maca0",
+          "aiperf": null,
+          "torch": "2.10.0+metax3.8.2.2",
+          "transformers": "5.12.0",
+          "triton": "3.6.0+metax3.8.2.2"
+        },
+        "executables": {
+          "vllm": null,
+          "sglang": "/opt/conda/bin/sglang",
+          "aiperf": null,
+          "torch": null,
+          "transformers": "/opt/conda/bin/transformers",
+          "triton": null
+        }
+      }
+    },
+    {
+      "image_id": "sha256:641be9b5d27dfbc85b582dc8b2871edb28ec39b7aac60b10b8d7ecce2c6b7b0e",
+      "tags": [
+        "172.17.0.57:5000/h3-sglang-delivery:v3",
+        "crpi-oj1pjyi3b17og5sl.cn-beijing.personal.cr.aliyuncs.com/duoxintong_apps/h3-sglang-delivery:v3",
+        "h3-sglang-delivery:v3"
+      ],
+      "returncode": 0,
+      "stdout": "{\"python\": \"3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]\", \"executable\": \"/opt/conda/bin/python3\", \"packages\": {\"vllm\": null, \"sglang\": \"0.3.1+mx.dev.0.5.19.2ad2ac45f4.maca0\", \"aiperf\": null, \"torch\": \"2.10.0+metax3.8.2.2\", \"transformers\": \"5.12.0\", \"triton\": \"3.6.0+metax3.8.2.2\"}, \"executables\": {\"vllm\": null, \"sglang\": \"/opt/conda/bin/sglang\", \"aiperf\": null, \"torch\": null, \"transformers\": \"/opt/conda/bin/transformers\", \"triton\": null}}\n",
+      "stderr": "",
+      "runtime": {
+        "python": "3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]",
+        "executable": "/opt/conda/bin/python3",
+        "packages": {
+          "vllm": null,
+          "sglang": "0.3.1+mx.dev.0.5.19.2ad2ac45f4.maca0",
+          "aiperf": null,
+          "torch": "2.10.0+metax3.8.2.2",
+          "transformers": "5.12.0",
+          "triton": "3.6.0+metax3.8.2.2"
+        },
+        "executables": {
+          "vllm": null,
+          "sglang": "/opt/conda/bin/sglang",
+          "aiperf": null,
+          "torch": null,
+          "transformers": "/opt/conda/bin/transformers",
+          "triton": null
+        }
+      }
+    },
+    {
+      "image_id": "sha256:49ef4ec9db9e8cec6b1272b2702a1ab6eeed39bfc71a9ec1dcfe72160840a7cf",
+      "tags": [
+        "megatron-lm:0.17.0-maca.ai3.7.0.9-torch2.8-py312-ubuntu22.04-amd64"
+      ],
+      "returncode": 0,
+      "stdout": "{\"python\": \"3.10.12 (main, Jun 22 2026, 18:55:27) [GCC 11.4.0]\", \"executable\": \"/usr/bin/python3\", \"packages\": {\"vllm\": null, \"sglang\": null, \"aiperf\": null, \"torch\": null, \"transformers\": null, \"triton\": null}, \"executables\": {\"vllm\": null, \"sglang\": null, \"aiperf\": null, \"torch\": null, \"transformers\": null, \"triton\": null}}\n",
+      "stderr": "",
+      "runtime": {
+        "python": "3.10.12 (main, Jun 22 2026, 18:55:27) [GCC 11.4.0]",
+        "executable": "/usr/bin/python3",
+        "packages": {
+          "vllm": null,
+          "sglang": null,
+          "aiperf": null,
+          "torch": null,
+          "transformers": null,
+          "triton": null
+        },
+        "executables": {
+          "vllm": null,
+          "sglang": null,
+          "aiperf": null,
+          "torch": null,
+          "transformers": null,
+          "triton": null
+        }
+      }
+    }
+  ],
+  "docker_images_returncode": 0,
+  "docker_images_stderr": "",
+  "ssh_host": "metax-64",
+  "probe_sha256": "fff8257e42f0b21f7762bcce941ab70b916e65401cef8b66a14f4f4c9d63e177"
+}

@@ -1,0 +1,59 @@
+schema_version: 0.2.0
+kind: AnalysisPlan
+id: qwen-metax-investigation
+version: 1.0.0
+title: Qwen C500 专项分析任务规划
+provenance: []
+issues: []
+extensions: {}
+diagnosis_plan_ref:
+  id: qwen-metax-attribution
+  version: 1.0.0
+model_ref:
+  id: metax-qwen3-06b
+  version: 1.0.0
+hardware_ref:
+  id: metax-qwen-smoke-gpu0
+  version: 1.0.0
+runtime_ref:
+  id: metax-vllm-qwen-smoke
+  version: 1.0.0
+method_refs:
+- id: request-timing
+  version: 1.0.0
+- id: compute-gemm
+  version: 1.0.0
+- id: memory-state
+  version: 1.0.0
+- id: materialization
+  version: 1.0.0
+- id: communication
+  version: 1.0.0
+- id: attention-compressor
+  version: 1.0.0
+- id: moe-routing
+  version: 1.0.0
+- id: scheduling-graphs
+  version: 1.0.0
+- id: precision-kernels
+  version: 1.0.0
+- id: speculation
+  version: 1.0.0
+- id: host-serving
+  version: 1.0.0
+historical_refs:
+- id: deepseek-optimization-claims
+  version: 1.0.0
+- id: glm53-prefill-matrix
+  version: 1.0.0
+- id: glm53-decode-visible-series
+  version: 1.0.0
+- id: chitu-final-phase-results
+  version: 1.0.0
+calibration_refs:
+- id: metax-hardware-baseline-metax-gpu0-measurement
+  version: 1.0.0
+budget:
+  max_tasks: 8
+  max_proposed_gpu_seconds: 8640
+execution: plan_only

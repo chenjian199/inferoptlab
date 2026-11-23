@@ -1,0 +1,41 @@
+id: example-deepseek-contract-prefill
+version: 1.0.0
+title: deepseek-contract-prefill
+provenance:
+- source_ref:
+    id: source-deepseek-project
+    version: 1.0.0
+  locator: 1.4 测试方法
+issues:
+- code: incomplete-measurement-protocol
+  path: /timing
+  reason: 来源未完整规定计时边界、统计窗口、失败分母、预热、超时和重复安排。
+  status: missing
+  blocking: true
+extensions: {}
+scope: prefill
+method: prefill_one_token
+allowed_deployment_modes:
+- aggregated
+timing:
+  ttft_boundary: unspecified
+  tpot_boundary: not_applicable
+  token_timestamps: unverified
+  window: unspecified
+  start: unspecified
+  finish: unspecified
+execution:
+  warmup: null
+  timeout_s: null
+  repetitions: null
+  profiler_during_scoring: null
+accounting:
+  primary_population: unspecified
+  failure_policy: unspecified
+  logical_request_deduplication: null
+steps:
+- 禁用 PD 分离
+- 禁用 prefix cache
+- 输入按 case，输出固定为 1 token
+- 并发由测试方选择，独立随机请求同时发送
+- 记录平均 TTFT 和 Prefill QPS

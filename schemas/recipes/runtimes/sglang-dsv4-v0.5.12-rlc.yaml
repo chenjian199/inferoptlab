@@ -1,0 +1,35 @@
+schema_version: 0.2.0
+kind: RuntimeSpec
+id: sglang-dsv4-v0.5.12-rlc
+version: 1.0.0
+title: sglang v0.5.12_dpsk_v4_zkjh
+provenance:
+- source_ref:
+    id: source-deepseek-project
+    version: 1.0.0
+  locator: '3.5'
+issues:
+- code: unfrozen-runtime
+  path: /source_commit
+  reason: 分支/版本标签不能替代完整源码commit、镜像digest和实际运行库。
+  status: missing
+  blocking: true
+extensions: {}
+engine: sglang
+version_label: v0.5.12_dpsk_v4_zkjh
+source_commit: null
+container_digest: null
+driver: null
+device_runtime: null
+compiler: null
+libraries: {}
+launch_parameters:
+  tp: 8
+  ep: 8
+  enable-nsa-prefill-context-parallel: true
+  nsa-prefill-cp-mode: round-robin-split
+  quantization: slimquant_marlin
+  kv-cache-dtype: bfloat16
+  chunked-prefill-size: 65536
+  SGLANG_DSV4_COMPRESS_RLC: 1
+status: source_reported

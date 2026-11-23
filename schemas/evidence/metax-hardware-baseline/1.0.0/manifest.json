@@ -1,0 +1,21 @@
+{
+  "format_version": 1,
+  "mode": "run",
+  "status": "complete",
+  "captured_at": "2026-11-23T08:01:59.250675+00:00",
+  "hosts": [
+    {
+      "id": "metax",
+      "path": "metax/result.json",
+      "status": "measured"
+    }
+  ],
+  "files": {
+    "benchmark.py": "078081284ae17efaf0a21a7a92b26e4ea3965bb0e5b862c73b3659ee7b3c0615",
+    "inventory.py": "36245f8df7246e31dc711a2c3b211d985f11b6e5dc9d4b4104641f13daaa887d",
+    "metax/result.json": "4da82d20a95a597d57980d7269921d9a63c0abe9b51513b5c672acde134056b5",
+    "metax/worker.py": "c7cae172b54f21aba4666f185b7cf6a4eb7a1c20fc2767c61eafeeac39fde71c",
+    "plan.json": "a523a65689827dd356ed485fd4700e98b7daf79fe116b98f5a48e353ff6557e9",
+    "worker.py": "2643754a614403f35e6f7d27cd5c25850469c90fd40ffa952e56d9564cce2f05"
+  }
+}

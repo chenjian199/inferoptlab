@@ -1,0 +1,261 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/measurement.json",
+  "title": "MeasurementBundle 0.2.0",
+  "type": "object",
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "comparison_sha256": {
+      "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/sha256"
+    },
+    "evidence_kind": {
+      "enum": [
+        "measured",
+        "imported"
+      ]
+    },
+    "validity": {
+      "enum": [
+        "valid",
+        "incomplete",
+        "invalid"
+      ]
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    },
+    "counts": {
+      "type": "object",
+      "properties": {
+        "planned": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "observed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "succeeded": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "failed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "missing": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "planned",
+        "observed",
+        "succeeded",
+        "failed",
+        "missing"
+      ],
+      "additionalProperties": false
+    },
+    "duration_s": {
+      "anyOf": [
+        {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "statistics": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "mean": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "min": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "max": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "p50": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "p90": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "p95": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "p99": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "count",
+          "mean",
+          "min",
+          "max",
+          "p50",
+          "p90",
+          "p95",
+          "p99"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "rates": {
+      "type": "object",
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "number",
+            "minimum": 0
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    "semantics": {
+      "type": "object",
+      "properties": {
+        "latency_population": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rate_window": {
+          "type": "string",
+          "minLength": 1
+        },
+        "percentile_method": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tpot": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "latency_population",
+        "rate_window",
+        "percentile_method",
+        "tpot"
+      ],
+      "additionalProperties": false
+    },
+    "raw_sha256": {
+      "anyOf": [
+        {
+          "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/sha256"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "kind": {
+      "const": "MeasurementBundle"
+    },
+    "schema_version": {
+      "const": "0.2.0"
+    }
+  },
+  "required": [
+    "run_id",
+    "comparison_sha256",
+    "evidence_kind",
+    "validity",
+    "issues",
+    "counts",
+    "duration_s",
+    "statistics",
+    "rates",
+    "semantics",
+    "raw_sha256",
+    "kind",
+    "schema_version"
+  ],
+  "additionalProperties": false
+}

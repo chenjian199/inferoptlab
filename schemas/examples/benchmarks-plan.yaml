@@ -1,0 +1,33 @@
+id: example-benchmarks-plan
+version: 1.0.0
+title: benchmark-compare-plan
+provenance: []
+issues: []
+extensions: {}
+study_ref:
+  id: deepseek-bw1000-exploration
+  version: 1.0.0
+scenario_refs:
+- id: benchmark-short
+  version: 1.0.0
+- id: benchmark-long
+  version: 1.0.0
+deployment_refs:
+- id: dsv4-bw1000-baseline
+  version: 1.0.0
+- id: dsv4-bw1000-chunk4096
+  version: 1.0.0
+- id: dsv4-bw1000-chunk8192
+  version: 1.0.0
+mode: exploratory
+aiperf:
+  version: 0.12.0
+  server_metrics: []
+  gpu_telemetry: []
+  required_telemetry: none
+budget:
+  max_runs: 64
+  max_wall_seconds: 21600
+  run_timeout_s: 3600
+order_seed: 20261123
+failure_policy: continue

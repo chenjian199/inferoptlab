@@ -1,0 +1,84 @@
+# 设计模板；REPLACE_* 必须在执行前解析。数值仅为结构示例，不是性能推荐。
+schema_version: '0.1'
+kind: DeploymentExamples
+is_template: true
+study_id: demo-e2e-001
+allocated_accelerators: 8
+notice: 配置仅用于展示显式设备映射；所有功能、显存与通信兼容性均待目标环境验证。
+candidates:
+- deployment_id: aggregated-example
+  mode: aggregated
+  capability_status: unverified
+  roles:
+  - role: aggregated
+    replicas:
+    - replica_id: a0
+      devices:
+      - gpu0
+      - gpu1
+      - gpu2
+      - gpu3
+      parallelism:
+        tp: 4
+        ep: 4
+        pp: 1
+        cp: 1
+      parallel_group_membership_ref: REPLACE_FRAMEWORK_RESOLVED_GROUP_MEMBERSHIP
+    - replica_id: a1
+      devices:
+      - gpu4
+      - gpu5
+      - gpu6
+      - gpu7
+      parallelism:
+        tp: 4
+        ep: 4
+        pp: 1
+        cp: 1
+      parallel_group_membership_ref: REPLACE_FRAMEWORK_RESOLVED_GROUP_MEMBERSHIP
+  required_capabilities:
+  - aggregated_serving
+  - replica_routing
+  - tp4_ep4_combination
+  unique_device_count: 8
+- deployment_id: pd-example
+  mode: pd
+  capability_status: unverified
+  roles:
+  - role: prefill
+    replicas:
+    - replica_id: p0
+      devices:
+      - gpu0
+      - gpu1
+      - gpu2
+      - gpu3
+      parallelism:
+        tp: 4
+        ep: 4
+        pp: 1
+        cp: 1
+      parallel_group_membership_ref: REPLACE_FRAMEWORK_RESOLVED_GROUP_MEMBERSHIP
+  - role: decode
+    replicas:
+    - replica_id: d0
+      devices:
+      - gpu4
+      - gpu5
+      - gpu6
+      - gpu7
+      parallelism:
+        tp: 4
+        ep: 4
+        pp: 1
+        cp: 1
+      parallel_group_membership_ref: REPLACE_FRAMEWORK_RESOLVED_GROUP_MEMBERSHIP
+  state_transfer:
+    backend: REPLACE_VERIFIED_CONNECTOR
+    wire_dtype: REPLACE_VERIFIED_DTYPE
+    layout_compatibility: unverified
+  required_capabilities:
+  - pd_serving
+  - kv_handoff
+  - tp4_ep4_combination
+  unique_device_count: 8

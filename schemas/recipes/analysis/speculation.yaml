@@ -1,0 +1,110 @@
+schema_version: 0.2.0
+kind: AnalysisMethod
+id: speculation
+version: 1.0.0
+title: MTP、投机接受与有效生成工作量
+provenance:
+- source_ref:
+    id: source-deepseek-project
+    version: 1.0.0
+  locator: 项目资料中的方法线索；本卡为本项目设计，不是来源中的已验证性能结论
+issues: []
+extensions: {}
+tags:
+- generation
+- mtp
+- speculation
+applicability:
+  architectures:
+  - any
+  conditions:
+  - 模型有 MTP/draft 路径，需判断 draft/verify 成本和接受收益。
+  - 必须绑定目标模型、实现版本、实际设备和测试协议，历史结果仅提供线索。
+implementation: planning_only
+signals:
+- 模型有 MTP/draft 路径，需判断 draft/verify 成本和接受收益。
+alternative_explanations:
+- 接受率随真实内容/采样变化
+- 验证开销超过省下的 target step
+- draft 额外显存/卡数占预算
+- 流式 chunk 合并改变客户端指标
+required_evidence:
+- draft_verify_timeline
+- accepted_proposed_token_counts
+- target_step_counts
+- generation_semantics
+- quality_policy
+capture:
+  provider: PyTorch/framework trace or vendor profiler adapter (not qualified)
+  capability_state: unverified
+  boundary: 在无 profiler 基线之外，使用同请求集与同部署单独采集；隔离 warmup/compile，记录 node/rank/stream、单调时钟域及请求关联。
+  fields:
+  - name: proposed/accepted/emitted_tokens
+    unit: tokens
+    meaning: 接受率分子分母明确
+  - name: draft/verify/target_steps
+    unit: count/ns
+    meaning: 额外工作与减少轮次分别计
+  - name: draft_device/memory
+    unit: id/bytes
+    meaning: 计入整体资源预算
+  overhead_control: 同负载交错运行无 profiler/有 profiler，报告延迟、吞吐变化及事件丢失；采集结果不计入正式 SLA。
+steps:
+- id: step-1
+  action: 确认 MTP 实际启用而非仅配置存在
+  deliverable: 有效部署与资源清单
+- id: step-2
+  action: 用代表请求统计接受长度分布和成本
+  deliverable: 每请求/step 工作量
+- id: step-3
+  action: 比较关闭与不同合法 draft 长度
+  deliverable: 固定点和质量保持下的 E2E
+experiments:
+- id: experiment-1
+  change: 关闭 MTP 与一个有限 draft 长度作 A/B
+  controls:
+  - 同输出长度与采样契约
+  - 额外资源计入总预算
+  supports: target 轮次下降且总生成时间降低
+  refutes: 接受少或 verify 开销抵消
+- id: experiment-2
+  change: 替换代表输入子集验证接受分布稳定性
+  controls:
+  - 内容分布记录且不挑选高接受样本
+  - 独立保留测试集
+  supports: 不同 case 均有合格收益
+  refutes: 收益只在选择性样本上出现
+calculations:
+- name: 接受率
+  formula: accepted_tokens / proposed_tokens
+  unit: fraction
+  limitations: 历史“2.8”未定义分母，不直接解释为概率
+- name: 每 target step 输出
+  formula: emitted_tokens / target_steps
+  unit: tokens/step
+  limitations: 与接受率不是同一指标
+correctness_checks:
+- 输出分布/采样语义
+- 拒绝后的状态回滚
+- cache 一致性
+- 真实 token 时间与 chunk 区分
+confounders:
+- 把平均接受长度当接受概率
+- 隐藏 draft 资源
+- 输出提前结束制造吞吐
+exit_criteria:
+- 接受与成本同窗口记录
+- 生成/质量契约满足
+- 总资源下 E2E 有独立对照
+handoff:
+  target: 生成策略参数或 draft/verify 调度专项任务
+  required_artifacts:
+  - 冻结源码 commit、补丁与镜像摘要
+  - 真实调用点、shape/dtype/stride 和开发输入
+  - 独立正确性参考与容差
+  - 固定工作点 A/B 和 E2E 复测计划
+  rollback: 恢复父部署与父候选代码；保留不支持形状的原实现回退，不覆盖已有证据。
+budget:
+  max_capture_seconds: 120
+  minimum_repetitions: 3
+  max_variants: 3

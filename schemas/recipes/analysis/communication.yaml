@@ -1,0 +1,116 @@
+schema_version: 0.2.0
+kind: AnalysisMethod
+id: communication
+version: 1.0.0
+title: 集合通信、rank 等待与拓扑
+provenance:
+- source_ref:
+    id: source-deepseek-project
+    version: 1.0.0
+  locator: 项目资料中的方法线索；本卡为本项目设计，不是来源中的已验证性能结论
+issues: []
+extensions: {}
+tags:
+- communication
+- placement
+- distributed
+applicability:
+  architectures:
+  - any
+  conditions:
+  - AllGather/ReduceScatter/AllReduce/AllToAll 时间较高或 rank 不平衡。
+  - 必须绑定目标模型、实现版本、实际设备和测试协议，历史结果仅提供线索。
+implementation: planning_only
+signals:
+- AllGather/ReduceScatter/AllReduce/AllToAll 时间较高或 rank 不平衡。
+alternative_explanations:
+- 计算 rank 到达不齐造成等待
+- padding 膨胀与过多小消息
+- 设备/NIC 绑定或链路异常
+- 通信已与计算重叠
+required_evidence:
+- rank_collective_timeline
+- message_size_dtype
+- topology_binding
+- matched_collective_calibration
+- clock_alignment
+capture:
+  provider: PyTorch/framework trace or vendor profiler adapter (not qualified)
+  capability_state: unverified
+  boundary: 在无 profiler 基线之外，使用同请求集与同部署单独采集；隔离 warmup/compile，记录 node/rank/stream、单调时钟域及请求关联。
+  fields:
+  - name: collective/group/rank
+    unit: id
+    meaning: TP/EP/DP/PP 实际进程组
+  - name: payload/padding/wire_bytes
+    unit: bytes
+    meaning: 有效量、填充量和线上流量分开
+  - name: arrival/start/end
+    unit: ns
+    meaning: 每 rank 边界和同步方式
+  - name: GPU_BDF/NIC/NUMA
+    unit: id
+    meaning: 设备与链路绑定
+  overhead_control: 同负载交错运行无 profiler/有 profiler，报告延迟、吞吐变化及事件丢失；采集结果不计入正式 SLA。
+steps:
+- id: step-1
+  action: 还原实际进程组与 GPU/NIC 拓扑
+  deliverable: 通信图，不机械相乘 TP*EP*DP
+- id: step-2
+  action: 测真实 message-size 和 rank 数的延迟/带宽曲线
+  deliverable: 匹配通信基线
+- id: step-3
+  action: 区分搬运、到达等待与不可重叠暴露区间
+  deliverable: 暴露时间与慢 rank 解释
+experiments:
+- id: experiment-1
+  change: 对齐 rank 输入后比较原生 AllGather+ReduceScatter 与现有组合
+  controls:
+  - 同有效字节量、dtype、rank 映射和正确性
+  - 冻结拓扑和网络干扰域
+  supports: 实际暴露区间下降且 step 改善
+  refutes: 收益仅来自负载变小或等待转移
+- id: experiment-2
+  change: 比较固定 padding 与变长传输
+  controls:
+  - 相同有效 token/专家分配
+  - 逐 rank 核对分片顺序
+  supports: padding 流量与局部索引开销共同减少
+  refutes: 变长组件不支持或总 E2E 变慢
+calculations:
+- name: 算法有效带宽
+  formula: effective_payload_bytes / collective_seconds
+  unit: bytes/s
+  limitations: bus bandwidth 的因子必须单独注明，不能复用此值
+- name: padding 比例
+  formula: padding_bytes / effective_payload_bytes
+  unit: ratio
+  limitations: 有效量为零时不定义
+- name: rank 到达偏差
+  formula: max(aligned_arrival)-min(aligned_arrival)
+  unit: ns
+  limitations: 需要跨 rank 时钟或因果同步证据
+correctness_checks:
+- 分片顺序与 reduce 数值误差
+- 非整齐 batch 和空 rank
+- 超时与 deadlock
+- 通信量化另建质量约束
+confounders:
+- 不同 rank 时长求和
+- HBM copy 带宽替代互联带宽
+- 历史约 300μs 收益迁移到 C500
+exit_criteria:
+- 暴露时间、等待和有效流量分别可解释
+- 目标拓扑实际采集，不凭链路速率推性能
+handoff:
+  target: 通信算法、分片、放置或 padding 的受控候选
+  required_artifacts:
+  - 冻结源码 commit、补丁与镜像摘要
+  - 真实调用点、shape/dtype/stride 和开发输入
+  - 独立正确性参考与容差
+  - 固定工作点 A/B 和 E2E 复测计划
+  rollback: 恢复父部署与父候选代码；保留不支持形状的原实现回退，不覆盖已有证据。
+budget:
+  max_capture_seconds: 120
+  minimum_repetitions: 3
+  max_variants: 3

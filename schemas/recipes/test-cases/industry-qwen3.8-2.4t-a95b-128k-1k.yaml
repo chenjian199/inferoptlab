@@ -1,0 +1,31 @@
+schema_version: 0.2.0
+kind: TestCaseSpec
+id: case-industry-qwen3.8-2.4t-a95b-128k-1k
+version: 1.0.0
+title: industry-qwen3.8-2.4t-a95b-128k-1k
+provenance:
+- source_ref:
+    id: source-industry-sla
+    version: 1.0.0
+  locator: Qwen3.8-2.4T-A95B 128K/1K
+issues: []
+extensions: {}
+purpose: service_acceptance
+model_ref:
+  id: qwen3.8-2.4t-a95b
+  version: 1.0.0
+workload_ref:
+  id: workload-industry-128k-1k
+  version: 1.0.0
+protocol_ref:
+  id: industry-e2e-unresolved
+  version: 1.0.0
+sla_ref:
+  id: sla-industry-128k-1k
+  version: 1.0.0
+required: true
+source_case_label: Qwen3.8-2.4T-A95B 128K/1K
+declared_context:
+  input: 128K
+  output: 1K
+priority: null

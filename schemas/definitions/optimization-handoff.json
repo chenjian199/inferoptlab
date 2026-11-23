@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/optimization-handoff.json",
+  "title": "OptimizationHandoff 0.2.0 (planning only)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "kind", "id", "version", "title", "provenance", "issues", "extensions", "execution", "analysis_artifact", "context_snapshot", "preflight_issues", "requirements", "tasks", "limitations", "content_sha256"],
+  "properties": {
+    "schema_version": {"const": "0.2.0"},
+    "kind": {"const": "OptimizationHandoff"},
+    "id": {"type": "string", "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"},
+    "version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+    "title": {"$ref": "#/$defs/text"},
+    "provenance": {"$ref": "analysis-report.json#/properties/provenance"},
+    "issues": {"$ref": "analysis-report.json#/properties/issues"},
+    "extensions": {"$ref": "analysis-report.json#/properties/extensions"},
+    "execution": {"const": "plan_only"},
+    "analysis_artifact": {
+      "type": "object", "additionalProperties": false, "required": ["path", "sha256"],
+      "properties": {"path": {"$ref": "#/$defs/text"}, "sha256": {"$ref": "#/$defs/hash"}}
+    },
+    "context_snapshot": {"$ref": "analysis-report.json#/properties/context_snapshot"},
+    "preflight_issues": {"$ref": "#/$defs/strings"},
+    "requirements": {
+      "type": "object", "additionalProperties": false,
+      "required": ["evidence", "baseline", "scope", "correctness", "acceptance", "budget", "rollback"],
+      "properties": {
+        "evidence": {"$ref": "#/$defs/text"}, "baseline": {"$ref": "#/$defs/text"},
+        "scope": {"$ref": "#/$defs/text"}, "correctness": {"$ref": "#/$defs/text"},
+        "acceptance": {"$ref": "#/$defs/text"}, "budget": {"$ref": "#/$defs/text"},
+        "rollback": {"$ref": "#/$defs/text"}
+      }
+    },
+    "tasks": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "analysis_task_id", "method_ref", "status", "scope", "hypothesis_ids", "target", "missing_evidence", "required_artifacts", "correctness_checks", "rollback", "route", "optimization_task", "candidate", "acceptance"],
+        "properties": {
+          "id": {"$ref": "#/$defs/text"}, "analysis_task_id": {"$ref": "#/$defs/text"},
+          "method_ref": {"$ref": "common.json#/$defs/reference"},
+          "status": {"enum": ["awaiting_evidence", "awaiting_baseline", "not_applicable", "deferred_budget"]},
+          "scope": {"type": "object"}, "hypothesis_ids": {"$ref": "#/$defs/strings"},
+          "target": {"$ref": "#/$defs/text"}, "missing_evidence": {"$ref": "#/$defs/strings"},
+          "required_artifacts": {"$ref": "#/$defs/strings"}, "correctness_checks": {"$ref": "#/$defs/strings"},
+          "rollback": {"$ref": "#/$defs/text"}, "route": {"const": "undecided"},
+          "optimization_task": {"type": "null"}, "candidate": {"type": "null"}, "acceptance": {"type": "null"}
+        }
+      }
+    },
+    "limitations": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/text"}},
+    "content_sha256": {"$ref": "#/$defs/hash"}
+  },
+  "$defs": {
+    "text": {"type": "string", "minLength": 1},
+    "hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "strings": {"type": "array", "items": {"$ref": "#/$defs/text"}}
+  }
+}

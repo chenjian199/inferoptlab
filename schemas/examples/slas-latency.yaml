@@ -1,0 +1,9 @@
+id: example-sla-ttft
+title: 仅用于模板命令演示
+metric: ttft
+statistic: mean
+operator: lt
+threshold_ms: 5000
+raw_text: 演示值，不是新增合同约束
+population: completed_requests
+joint_request_slo: null

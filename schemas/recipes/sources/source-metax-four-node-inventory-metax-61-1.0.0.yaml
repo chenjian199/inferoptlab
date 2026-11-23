@@ -1,0 +1,20 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-metax-four-node-inventory-metax-61
+version: 1.0.0
+title: metax-four-node-inventory-metax-61 raw hardware evidence
+provenance: []
+issues: []
+extensions:
+  hardware.manifest:
+    path: schemas/evidence/metax-four-node-inventory/1.0.0/manifest.json
+    sha256: 3e971fa98655c9aba5d6457d5b82b959daed866d6b217c06c707fec0f5c2a0ae
+path: schemas/evidence/metax-four-node-inventory/1.0.0/metax-61/result.json
+sha256: f18db38641409d793696b6112292aaaf9b275248bd62a419ecc2309b63a4fba9
+media_type: application/json
+role: machine_inventory
+authority: machine_collected
+coverage:
+  status: partial
+  description: Inventory and selected single-device kernels; no collective or model
+    performance.

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/hardware-test.json",
+  "title": "HardwareTestPlan 0.2.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "kind", "id", "version", "title", "hosts", "protocol"],
+  "properties": {
+    "schema_version": {"const": "0.2.0"},
+    "kind": {"const": "HardwareTestPlan"},
+    "id": {"type": "string", "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$", "maxLength": 80},
+    "version": {"type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$"},
+    "title": {"type": "string", "minLength": 1},
+    "hosts": {
+      "type": "array", "minItems": 1, "maxItems": 64,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "ssh", "backend", "image", "devices", "max_devices"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$", "maxLength": 48},
+          "ssh": {"type": "string", "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$", "maxLength": 253},
+          "backend": {"const": "metax"},
+          "image": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+          "devices": {"oneOf": [
+            {"const": "all"},
+            {"type": "array", "minItems": 1, "maxItems": 16, "uniqueItems": true,
+             "items": {"type": "integer", "minimum": 0, "maximum": 127}}
+          ]},
+          "max_devices": {"type": "integer", "minimum": 1, "maximum": 16}
+        }
+      }
+    },
+    "protocol": {
+      "type": "object", "additionalProperties": false,
+      "required": ["gemm_shapes", "dtypes", "copy_sizes_mib", "warmup_iterations", "iterations_per_sample", "repeats", "max_allocation_mib", "timeout_seconds"],
+      "properties": {
+        "gemm_shapes": {
+          "type": "array", "minItems": 1, "maxItems": 8, "uniqueItems": true,
+          "items": {"type": "array", "minItems": 3, "maxItems": 3,
+                    "items": {"type": "integer", "minimum": 64, "maximum": 8192, "multipleOf": 64}}
+        },
+        "dtypes": {"type": "array", "minItems": 1, "maxItems": 3, "uniqueItems": true,
+                   "items": {"enum": ["float16", "bfloat16", "float32"]}},
+        "copy_sizes_mib": {"type": "array", "minItems": 1, "maxItems": 8, "uniqueItems": true,
+                           "items": {"type": "integer", "minimum": 1, "maximum": 2048}},
+        "warmup_iterations": {"type": "integer", "minimum": 1, "maximum": 100},
+        "iterations_per_sample": {"type": "integer", "minimum": 1, "maximum": 200},
+        "repeats": {"type": "integer", "minimum": 3, "maximum": 20},
+        "max_allocation_mib": {"type": "integer", "minimum": 4, "maximum": 8192},
+        "timeout_seconds": {"type": "integer", "minimum": 30, "maximum": 1800}
+      }
+    }
+  }
+}

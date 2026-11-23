@@ -1,0 +1,113 @@
+schema_version: 0.2.0
+kind: AnalysisMethod
+id: precision-kernels
+version: 1.0.0
+title: 混合量化、后端 dispatch 与数值约束
+provenance:
+- source_ref:
+    id: source-design-v2
+    version: 1.0.0
+  locator: 项目资料中的方法线索；本卡为本项目设计，不是来源中的已验证性能结论
+issues: []
+extensions: {}
+tags:
+- precision
+- quantization
+- kernel
+applicability:
+  architectures:
+  - moe
+  - dense
+  - hybrid
+  conditions:
+  - 权重名为 W4A8/W8A8，但实际线性层、专家层或 scale 路径可能不同。
+  - 必须绑定目标模型、实现版本、实际设备和测试协议，历史结果仅提供线索。
+implementation: planning_only
+signals:
+- 权重名为 W4A8/W8A8，但实际线性层、专家层或 scale 路径可能不同。
+alternative_explanations:
+- 混合量化分组是模型设计
+- 加载时 repack/反量化导致驻留变大
+- 内核不支持而 fallback
+- 数值政策或通信 dtype 改变
+required_evidence:
+- quantization_group_mapping
+- loaded_weight_layout
+- kernel_backend
+- numerical_reference
+- quality_policy
+capture:
+  provider: PyTorch/framework trace or vendor profiler adapter (not qualified)
+  capability_state: unverified
+  boundary: 在无 profiler 基线之外，使用同请求集与同部署单独采集；隔离 warmup/compile，记录 node/rank/stream、单调时钟域及请求关联。
+  fields:
+  - name: module/weight_bits/activation_bits
+    unit: id/bits
+    meaning: 按模块分组，不使用全模型单标签
+  - name: packed_dtype/group_size/scale
+    unit: dtype/elements
+    meaning: I32 packing 不等于 32-bit 权重
+  - name: compute/accumulator/output_dtype
+    unit: dtype
+    meaning: 实际内核路径
+  - name: repack/dequant/time
+    unit: bytes/ns
+    meaning: 加载与运行分开
+  overhead_control: 同负载交错运行无 profiler/有 profiler，报告延迟、吞吐变化及事件丢失；采集结果不计入正式 SLA。
+steps:
+- id: step-1
+  action: 从 compression_config 和 tensor header 建立分组
+  deliverable: GLM W4A8 的 Linear W8A8/FusedMoE W4A8 分开
+- id: step-2
+  action: 追踪加载与实际 dispatch，核对 fallback
+  deliverable: 实现与权重契约匹配表
+- id: step-3
+  action: 同精度先做 kernel/layout 比较，再考虑需新质量政策的精度变化
+  deliverable: 分层候选范围
+experiments:
+- id: experiment-1
+  change: 保持量化语义，仅切换合格内核或 packed layout
+  controls:
+  - 固定分组、scale、参考输出
+  - 相同有效形状
+  supports: 运行转换减少且误差符合契约
+  refutes: 路径不支持或输出偏差增加
+- id: experiment-2
+  change: 若改变精度，建立新 ModelSpec 后独立评估
+  controls:
+  - 同质量集与容差策略
+  - 禁止只用速度作为验收
+  supports: 质量通过后可进入 E2E 比较
+  refutes: 质量不通过即拒绝，即便更快
+calculations:
+- name: 真实存储量
+  formula: sum(packed_weight_bytes + scales + metadata)
+  unit: bytes
+  limitations: 按 header 与驻留布局分别记录
+- name: 误差
+  formula: max_abs_error; max_relative_error; task_quality_delta
+  unit: mixed
+  limitations: 阈值由 ValidationPolicy 冻结，不在方法卡拍脑袋设置
+correctness_checks:
+- 极值/零值/不同 group_size
+- 量化 scale 与路由数值
+- task quality 与长上下文回归
+confounders:
+- 将所有 W4A8 张量当 4 bit
+- 修改 checkpoint 但复用旧模型 ID
+- 只测随机矩阵不测真实激活分布
+exit_criteria:
+- 每种量化组有加载与执行证据
+- 正确性政策及评价数据已冻结
+handoff:
+  target: 量化后端适配或受质量约束的独立精度候选
+  required_artifacts:
+  - 冻结源码 commit、补丁与镜像摘要
+  - 真实调用点、shape/dtype/stride 和开发输入
+  - 独立正确性参考与容差
+  - 固定工作点 A/B 和 E2E 复测计划
+  rollback: 恢复父部署与父候选代码；保留不支持形状的原实现回退，不覆盖已有证据。
+budget:
+  max_capture_seconds: 120
+  minimum_repetitions: 3
+  max_variants: 3

@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/benchmark-snapshot.json",
+  "title": "ResolvedBenchmark 0.2.0",
+  "type": "object",
+  "properties": {
+    "plan_ref": {
+      "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+    },
+    "state": {
+      "enum": [
+        "draft",
+        "frozen"
+      ]
+    },
+    "documents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ref": {
+            "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+          },
+          "sha256": {
+            "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/sha256"
+          },
+          "document": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "ref",
+          "sha256",
+          "document"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "readiness_issues": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    },
+    "execution_issues": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    },
+    "trials": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "deployment_ref": {
+            "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+          },
+          "scenario_ref": {
+            "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+          },
+          "concurrency": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "repetition": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "comparison_sha256": {
+            "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/sha256"
+          }
+        },
+        "required": [
+          "id",
+          "deployment_ref",
+          "scenario_ref",
+          "concurrency",
+          "repetition",
+          "comparison_sha256"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "content_sha256": {
+      "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/sha256"
+    },
+    "kind": {
+      "const": "ResolvedBenchmark"
+    },
+    "schema_version": {
+      "const": "0.2.0"
+    }
+  },
+  "required": [
+    "plan_ref",
+    "state",
+    "documents",
+    "readiness_issues",
+    "execution_issues",
+    "trials",
+    "content_sha256",
+    "kind",
+    "schema_version"
+  ],
+  "additionalProperties": false
+}

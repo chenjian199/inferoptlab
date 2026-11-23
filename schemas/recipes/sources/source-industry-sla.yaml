@@ -1,0 +1,16 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-industry-sla
+version: 1.0.0
+title: 微信图片_20261120123818_62_435.png
+provenance: []
+issues: []
+extensions: {}
+path: 微信图片_20261120123818_62_435.png
+sha256: 5a68e10fadf1167aebd6625509e13f00af005b4112bce5f90c7c5418f761369e
+media_type: image/png
+role: requirements
+authority: user_supplied
+coverage:
+  status: complete_visible
+  description: 完整转录六个可读模型行；底部被裁切的下一行不推测。

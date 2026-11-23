@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/analysis-plan.json",
+  "title": "AnalysisPlan 0.2.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.2.0"
+    },
+    "kind": {
+      "const": "AnalysisPlan"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/provenance"
+      },
+      "minItems": 0
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/issue"
+      },
+      "minItems": 0
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_.-]*$"
+      }
+    },
+    "diagnosis_plan_ref": {
+      "anyOf": [
+        {
+          "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "model_ref": {
+      "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+    },
+    "hardware_ref": {
+      "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+    },
+    "runtime_ref": {
+      "anyOf": [
+        {
+          "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "method_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+      },
+      "minItems": 1
+    },
+    "historical_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+      },
+      "minItems": 0
+    },
+    "calibration_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+      },
+      "minItems": 0
+    },
+    "budget": {
+      "type": "object",
+      "properties": {
+        "max_tasks": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_proposed_gpu_seconds": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "max_tasks",
+        "max_proposed_gpu_seconds"
+      ],
+      "additionalProperties": false
+    },
+    "execution": {
+      "const": "plan_only"
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "version",
+    "title",
+    "provenance",
+    "issues",
+    "extensions",
+    "diagnosis_plan_ref",
+    "model_ref",
+    "hardware_ref",
+    "runtime_ref",
+    "method_refs",
+    "historical_refs",
+    "calibration_refs",
+    "budget",
+    "execution"
+  ],
+  "additionalProperties": false
+}

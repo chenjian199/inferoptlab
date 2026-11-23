@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/study.json",
+  "title": "StudySpec version dispatcher",
+  "oneOf": [
+    {
+      "$ref": "https://inferoptlab.local/schemas/0.2.0/legacy/study-v0.1.json"
+    },
+    {
+      "$ref": "https://inferoptlab.local/schemas/0.2.0/study-v0.2.json"
+    }
+  ]
+}

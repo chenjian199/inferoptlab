@@ -1,0 +1,16 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-glm53-prefill
+version: 1.0.0
+title: 微信图片_20261120123821_64_435.png
+provenance: []
+issues: []
+extensions: {}
+path: 微信图片_20261120123821_64_435.png
+sha256: 9e69d747007622241c73f5ea4203789915d5ad06b40e042d93b89a2c5d66c02c
+media_type: image/png
+role: benchmark_report
+authority: user_supplied
+coverage:
+  status: complete_visible
+  description: 15 个负载点的五组平台指标；完整表头不可见的部分保留限制。

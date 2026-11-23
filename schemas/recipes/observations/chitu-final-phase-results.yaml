@@ -1,0 +1,164 @@
+schema_version: 0.2.0
+kind: ReportedMeasurements
+id: chitu-final-phase-results
+version: 1.0.0
+title: 赤兔报告最终分阶段结果
+provenance:
+- source_ref:
+    id: source-bw1000-report
+    version: 1.0.0
+  locator: 第16—21页
+issues:
+- code: model-baseline-conflict
+  path: /rows
+  reason: 第2页基线写GLM-5/Kimi-K2.5，第15页归为GLM-5.2/Kimi-K2.7；未能确认同版本重测。
+  status: conflicting
+  blocking: false
+- code: kimi-ratio-conflict
+  path: /rows/8
+  reason: 第20—21页439.02%，第23页108.40%；两处原值分别保留，未裁决。
+  status: conflicting
+  blocking: false
+extensions: {}
+evidence_kind: source_reported
+measurement_scope: comparison
+model_refs:
+- id: glm-5.2-w8a8
+  version: 1.0.0
+- id: kimi-k2.7-code-w4a16
+  version: 1.0.0
+hardware_refs:
+- id: bw1000
+  version: 1.0.0
+columns:
+- name: case
+  type: string
+  unit: null
+  meaning: 模型和长度组
+- name: phase
+  type: string
+  unit: null
+  meaning: prefill或decode
+- name: baseline_qps
+  type: number
+  unit: requests/s
+  meaning: 原报告基线，模型版本身份存在冲突
+- name: result_qps
+  type: number
+  unit: requests/s
+  meaning: 原表平均到每机
+- name: latency_ms
+  type: number
+  unit: ms
+  meaning: Prefill为平均TTFT，Decode为平均TPOT；s换算ms
+- name: target_attainment_percent
+  type: number
+  unit: percent
+  meaning: 达到目标百分比，不是优化提升百分比
+rows:
+- row_id: glm-2k-prefill
+  values:
+    case: glm-2k
+    phase: prefill
+    baseline_qps: 1.7785
+    result_qps: 4.31
+    latency_ms: 4889
+    target_attainment_percent: 101.41
+  missing: {}
+  locator: 第16—21页 glm-2k prefill
+- row_id: glm-8k-prefill
+  values:
+    case: glm-8k
+    phase: prefill
+    baseline_qps: 0.391
+    result_qps: 1.075
+    latency_ms: 4740
+    target_attainment_percent: 103.37
+  missing: {}
+  locator: 第16—21页 glm-8k prefill
+- row_id: glm-50k-prefill
+  values:
+    case: glm-50k
+    phase: prefill
+    baseline_qps: 0.0442
+    result_qps: 0.1725
+    latency_ms: 10000.43
+    target_attainment_percent: 104.55
+  missing: {}
+  locator: 第16—21页 glm-50k prefill
+- row_id: glm-2k-decode
+  values:
+    case: glm-2k
+    phase: decode
+    baseline_qps: 0.495
+    result_qps: 1.43
+    latency_ms: 46.94
+    target_attainment_percent: 117.05
+  missing: {}
+  locator: 第16—21页 glm-2k decode
+- row_id: glm-8k-decode
+  values:
+    case: glm-8k
+    phase: decode
+    baseline_qps: 0.42
+    result_qps: 1.277
+    latency_ms: 43.02
+    target_attainment_percent: 143.68
+  missing: {}
+  locator: 第16—21页 glm-8k decode
+- row_id: glm-50k-decode
+  values:
+    case: glm-50k
+    phase: decode
+    baseline_qps: 0.255
+    result_qps: 1.35
+    latency_ms: 42.62
+    target_attainment_percent: 156
+  missing: {}
+  locator: 第16—21页 glm-50k decode
+- row_id: kimi-4k-prefill
+  values:
+    case: kimi-4k
+    phase: prefill
+    baseline_qps: 1.136
+    result_qps: 1.63
+    latency_ms: 4876
+    target_attainment_percent: 105.84
+  missing: {}
+  locator: 第16—21页 kimi-4k prefill
+- row_id: kimi-64k-prefill
+  values:
+    case: kimi-64k
+    phase: prefill
+    baseline_qps: 0.05
+    result_qps: 0.063
+    latency_ms: 14430
+    target_attainment_percent: 126
+  missing: {}
+  locator: 第16—21页 kimi-64k prefill
+- row_id: kimi-4k-decode
+  values:
+    case: kimi-4k
+    phase: decode
+    baseline_qps: 0.1275
+    result_qps: 1.62
+    latency_ms: 89.46
+    target_attainment_percent: 439.02
+  missing: {}
+  locator: 第16—21页 kimi-4k decode
+- row_id: kimi-64k-decode
+  values:
+    case: kimi-64k
+    phase: decode
+    baseline_qps: null
+    result_qps: 0.277
+    latency_ms: 75.34
+    target_attainment_percent: 198.57
+  missing:
+    baseline_qps: not_reported
+  locator: 第16—21页 kimi-64k decode
+extraction:
+  method: manual_transcription
+  coverage: complete_visible
+  omissions: []
+  independently_reproduced: false

@@ -1,0 +1,14 @@
+{
+  "vllm": {
+    "path": "/home/metax/glm53-baseline-ops/src/vllm",
+    "head": "",
+    "head_rc": 128,
+    "diff_stat": ""
+  },
+  "vllm-metax": {
+    "path": "/home/metax/glm53-baseline-ops/src/vllm-metax",
+    "head": "",
+    "head_rc": 128,
+    "diff_stat": ""
+  }
+}

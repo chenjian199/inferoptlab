@@ -1,0 +1,27 @@
+schema_version: 0.2.0
+kind: HardwareSpec
+id: fp8-supernode-unidentified
+version: 1.0.0
+title: GLM P端截图中的超节点
+provenance:
+- source_ref:
+    id: source-glm53-prefill
+    version: 1.0.0
+  locator: fp8-超节点表头
+issues:
+- code: identity-unconfirmed
+  path: /product
+  reason: 来源未明确具体型号或物理设备数。
+  blocking: true
+  status: ambiguous
+extensions: {}
+profile_type: device
+vendor: null
+product: fp8-超节点（型号未确认）
+specifications: []
+interfaces: []
+resources:
+  allocated_devices: null
+  nodes: []
+  topology: []
+capabilities: []

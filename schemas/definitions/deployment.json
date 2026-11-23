@@ -1,0 +1,256 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/deployment.json",
+  "title": "DeploymentSpec 0.2.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.2.0"
+    },
+    "kind": {
+      "const": "DeploymentSpec"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/provenance"
+      },
+      "minItems": 0
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/issue"
+      },
+      "minItems": 0
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_.-]*$"
+      }
+    },
+    "model_ref": {
+      "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+    },
+    "hardware_ref": {
+      "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+    },
+    "runtime_ref": {
+      "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+    },
+    "mode": {
+      "enum": [
+        "aggregated",
+        "pd"
+      ]
+    },
+    "parallelism": {
+      "type": "object",
+      "properties": {
+        "tp": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "pp": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "ep": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "dp": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "tp",
+        "pp",
+        "ep",
+        "dp"
+      ],
+      "additionalProperties": false
+    },
+    "scheduling": {
+      "type": "object",
+      "properties": {
+        "chunked_prefill_tokens": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "kv_page_tokens": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "max_running_requests": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "chunked_prefill_tokens",
+        "kv_page_tokens",
+        "max_running_requests"
+      ],
+      "additionalProperties": false
+    },
+    "serving": {
+      "type": "object",
+      "properties": {
+        "management": {
+          "enum": [
+            "external",
+            "sglang"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "served_model": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model_path": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "tokenizer_path": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "startup_timeout_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "device_visibility_env": {
+          "enum": [
+            "CUDA_VISIBLE_DEVICES",
+            "HIP_VISIBLE_DEVICES",
+            "ROCR_VISIBLE_DEVICES",
+            "MACA_VISIBLE_DEVICES"
+          ]
+        }
+      },
+      "required": [
+        "management",
+        "url",
+        "served_model",
+        "model_path",
+        "tokenizer_path",
+        "startup_timeout_s",
+        "device_visibility_env"
+      ],
+      "additionalProperties": false
+    },
+    "devices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "rank": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "device_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "visible_index": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "rank",
+          "device_id",
+          "visible_index"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "backend_options": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^--[a-z][a-z0-9-]*$"
+      },
+      "additionalProperties": {
+        "type": [
+          "string",
+          "number",
+          "boolean"
+        ]
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "version",
+    "title",
+    "provenance",
+    "issues",
+    "extensions",
+    "model_ref",
+    "hardware_ref",
+    "runtime_ref",
+    "mode",
+    "parallelism",
+    "scheduling",
+    "serving",
+    "devices",
+    "backend_options"
+  ],
+  "additionalProperties": false
+}

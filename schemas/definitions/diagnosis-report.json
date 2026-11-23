@@ -1,0 +1,405 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/diagnosis-report.json",
+  "title": "DiagnosisReport 0.2.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.2.0"
+    },
+    "kind": {
+      "const": "DiagnosisReport"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/provenance"
+      },
+      "minItems": 0
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/issue"
+      },
+      "minItems": 0
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_.-]*$"
+      }
+    },
+    "plan_ref": {
+      "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+    },
+    "plan_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "evidence_kind": {
+      "const": "derived"
+    },
+    "status": {
+      "enum": [
+        "needs_evidence",
+        "no_valid_runs"
+      ]
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "role": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "path",
+          "sha256",
+          "role"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "catalog_snapshot": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ref": {
+            "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "document": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "ref",
+          "sha256",
+          "document"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "runs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "run_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "trial_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "scenario": {
+            "type": "string",
+            "minLength": 1
+          },
+          "repetition": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "concurrency": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "input_tokens": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "output_tokens": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "status": {
+            "type": "string",
+            "minLength": 1
+          },
+          "eligible": {
+            "type": "boolean"
+          },
+          "reasons": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0
+          },
+          "counts": {
+            "type": "object"
+          },
+          "metrics": {
+            "type": "object"
+          },
+          "grouping": {
+            "type": "object"
+          },
+          "dataset_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "artifact_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0
+          },
+          "scope": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "run_id",
+          "trial_id",
+          "scenario",
+          "repetition",
+          "concurrency",
+          "input_tokens",
+          "output_tokens",
+          "status",
+          "eligible",
+          "reasons",
+          "counts",
+          "metrics",
+          "grouping",
+          "dataset_sha256",
+          "artifact_ids",
+          "scope"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "comparisons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "axis": {
+            "enum": [
+              "input_tokens",
+              "concurrency"
+            ]
+          },
+          "baseline_runs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "candidate_runs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "values": {
+            "type": "object"
+          },
+          "sample_qualified": {
+            "type": "boolean"
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "id",
+          "axis",
+          "baseline_runs",
+          "candidate_runs",
+          "values",
+          "sample_qualified",
+          "limitations"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "proposed",
+              "needs_evidence"
+            ]
+          },
+          "observation": {
+            "type": "string",
+            "minLength": 1
+          },
+          "possible_cause": {
+            "type": "string",
+            "minLength": 1
+          },
+          "alternatives": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "method_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+            },
+            "minItems": 1
+          },
+          "missing_evidence": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "falsification": {
+            "type": "string",
+            "minLength": 1
+          },
+          "priority": {
+            "enum": [
+              "measurement_first",
+              "investigate",
+              "deferred"
+            ]
+          },
+          "expected_gain": {
+            "type": "null"
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "observation",
+          "possible_cause",
+          "alternatives",
+          "evidence_ids",
+          "method_refs",
+          "missing_evidence",
+          "falsification",
+          "priority",
+          "expected_gain"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "unexplained": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "context": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "minItems": 0
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "version",
+    "title",
+    "provenance",
+    "issues",
+    "extensions",
+    "plan_ref",
+    "plan_sha256",
+    "evidence_kind",
+    "status",
+    "artifacts",
+    "catalog_snapshot",
+    "runs",
+    "comparisons",
+    "hypotheses",
+    "unexplained",
+    "context",
+    "limitations",
+    "content_sha256"
+  ],
+  "additionalProperties": false
+}

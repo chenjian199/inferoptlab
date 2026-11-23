@@ -1,0 +1,438 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/model.json",
+  "title": "ModelSpec 0.2.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.2.0"
+    },
+    "kind": {
+      "const": "ModelSpec"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/provenance"
+      },
+      "minItems": 0
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/issue"
+      },
+      "minItems": 0
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_.-]*$"
+      }
+    },
+    "identity": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "family": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "variant": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "repository": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "revision": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "weights_sha256": {
+          "anyOf": [
+            {
+              "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/sha256"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "family",
+        "variant",
+        "repository",
+        "revision",
+        "weights_sha256"
+      ],
+      "additionalProperties": false
+    },
+    "tokenizer": {
+      "type": "object",
+      "properties": {
+        "revision": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sha256": {
+          "anyOf": [
+            {
+              "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/sha256"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "chat_template_sha256": {
+          "anyOf": [
+            {
+              "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/sha256"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "revision",
+        "sha256",
+        "chat_template_sha256"
+      ],
+      "additionalProperties": false
+    },
+    "architecture": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "enum": [
+            "dense",
+            "moe",
+            "hybrid",
+            "unspecified"
+          ]
+        },
+        "attention": {
+          "enum": [
+            "mha",
+            "gqa",
+            "mla",
+            "sparse_mla",
+            "hybrid",
+            "unspecified"
+          ]
+        },
+        "context_limit_tokens": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "parameters": {
+          "type": "object",
+          "additionalProperties": {
+            "type": [
+              "integer",
+              "number",
+              "string",
+              "boolean"
+            ]
+          }
+        },
+        "state_types": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "text": {
+          "$ref": "https://inferoptlab.local/schemas/0.2.0/inspected.json#/$defs/text"
+        },
+        "moe": {
+          "anyOf": [
+            {
+              "$ref": "https://inferoptlab.local/schemas/0.2.0/inspected.json#/$defs/moe"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "attention_config": {
+          "$ref": "https://inferoptlab.local/schemas/0.2.0/inspected.json#/$defs/attention"
+        },
+        "linear_attention": {
+          "$ref": "https://inferoptlab.local/schemas/0.2.0/inspected.json#/$defs/linear_attention"
+        },
+        "vision": {
+          "$ref": "https://inferoptlab.local/schemas/0.2.0/inspected.json#/$defs/vision"
+        },
+        "mtp_layers": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "modalities": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "text",
+              "image",
+              "video"
+            ]
+          }
+        },
+        "implementation": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "hyper_connections": {
+          "$ref": "https://inferoptlab.local/schemas/0.2.0/inspected.json#/$defs/hyper_connections"
+        },
+        "engram": {
+          "$ref": "https://inferoptlab.local/schemas/0.2.0/inspected.json#/$defs/engram"
+        }
+      },
+      "required": [
+        "type",
+        "attention",
+        "context_limit_tokens",
+        "parameters",
+        "state_types"
+      ],
+      "additionalProperties": false
+    },
+    "precision": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "weights": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "activations": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "kv_cache": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "quantization": {
+          "anyOf": [
+            {
+              "$ref": "https://inferoptlab.local/schemas/0.2.0/inspected.json#/$defs/quantization"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "label",
+        "weights",
+        "activations",
+        "kv_cache"
+      ],
+      "additionalProperties": false
+    },
+    "semantics": {
+      "type": "object",
+      "properties": {
+        "contract": {
+          "enum": [
+            "bit_exact",
+            "numerical_tolerance",
+            "target_distribution",
+            "task_quality",
+            "unspecified"
+          ]
+        },
+        "correctness_policy_ref": {
+          "anyOf": [
+            {
+              "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "quality_policy_ref": {
+          "anyOf": [
+            {
+              "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "contract",
+        "correctness_policy_ref",
+        "quality_policy_ref"
+      ],
+      "additionalProperties": false
+    },
+    "evidence_level": {
+      "enum": [
+        "reported",
+        "inspected"
+      ]
+    },
+    "checkpoint": {
+      "$ref": "https://inferoptlab.local/schemas/0.2.0/inspected.json#/$defs/checkpoint"
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "version",
+    "title",
+    "provenance",
+    "issues",
+    "extensions",
+    "identity",
+    "tokenizer",
+    "architecture",
+    "precision",
+    "semantics"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "evidence_level": {
+            "const": "inspected"
+          }
+        },
+        "required": [
+          "evidence_level"
+        ]
+      },
+      "then": {
+        "required": [
+          "checkpoint"
+        ],
+        "properties": {
+          "architecture": {
+            "required": [
+              "text",
+              "moe",
+              "attention_config",
+              "mtp_layers",
+              "modalities",
+              "implementation"
+            ]
+          },
+          "precision": {
+            "required": [
+              "quantization"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

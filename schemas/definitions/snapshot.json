@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/snapshot.json",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.2.0"
+    },
+    "kind": {
+      "const": "ResolvedStudy"
+    },
+    "state": {
+      "enum": [
+        "draft",
+        "frozen"
+      ]
+    },
+    "study_ref": {
+      "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+    },
+    "documents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ref": {
+            "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+          },
+          "sha256": {
+            "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/sha256"
+          },
+          "document": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "ref",
+          "sha256",
+          "document"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "readiness_issues": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    },
+    "content_sha256": {
+      "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/sha256"
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "state",
+    "study_ref",
+    "documents",
+    "readiness_issues",
+    "content_sha256"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,38 @@
+schema_version: 0.2.0
+kind: HardwareSpec
+id: l20
+version: 1.0.0
+title: L20
+provenance:
+- source_ref:
+    id: source-chip-comparison
+    version: 1.0.0
+  locator: L20 行
+issues: []
+extensions: {}
+profile_type: device
+vendor: null
+product: L20
+specifications:
+- name: compute
+  quantity:
+    value: 119
+    unit: TFLOPS
+    basis: source_reported
+  precision: FP16
+  operation: null
+  conditions: 未说明稀疏性、累加模式或运行条件
+- name: memory_bandwidth
+  quantity:
+    value: 864
+    unit: GB/s
+    basis: source_reported
+  precision: null
+  operation: null
+  conditions: 来源标称规格，未在目标机器校准
+interfaces: []
+resources:
+  allocated_devices: null
+  nodes: []
+  topology: []
+capabilities: []

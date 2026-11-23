@@ -1,0 +1,109 @@
+schema_version: 0.2.0
+kind: RecipeTemplate
+id: diagnosis-plan-recipe
+version: 1.0.0
+title: 新建 DiagnosisPlan 的模板
+provenance: []
+issues: []
+extensions: {}
+target_kind: DiagnosisPlan
+parameters:
+  id:
+    type: string
+    pattern: ^[a-z][a-z0-9-]*$
+    default: example-diagnosis
+    description: Recipe id
+  title:
+    type: string
+    default: 待细化的 DiagnosisPlan
+    description: Recipe title
+  study_ref:
+    type: object
+    description: Override study_ref for the new recipe
+    default:
+      id: qwen-metax-pipeline
+      version: 1.0.0
+  batches:
+    type: array
+    description: Override batches for the new recipe
+    default:
+    - directory: schemas/evidence/benchmark-qualification/20261123/project/runs/benchmark/batch-20261123T085945Z-ccf82622
+      manifest: schemas/evidence/benchmark-qualification/20261123/sha256.json
+      manifest_sha256: e77cf7dfc2aa1d585e6df86e1e81876ddceeb1d8312221a30eb5d83f2f7655be
+  method_refs:
+    type: array
+    description: Override method_refs for the new recipe
+    default:
+    - id: request-timing
+      version: 1.0.0
+    - id: compute-gemm
+      version: 1.0.0
+    - id: memory-state
+      version: 1.0.0
+    - id: materialization
+      version: 1.0.0
+    - id: communication
+      version: 1.0.0
+    - id: attention-compressor
+      version: 1.0.0
+    - id: moe-routing
+      version: 1.0.0
+    - id: scheduling-graphs
+      version: 1.0.0
+    - id: precision-kernels
+      version: 1.0.0
+    - id: speculation
+      version: 1.0.0
+    - id: host-serving
+      version: 1.0.0
+  calibration_refs:
+    type: array
+    description: Override calibration_refs for the new recipe
+    default:
+    - id: metax-hardware-baseline-metax-gpu0-measurement
+      version: 1.0.0
+  historical_refs:
+    type: array
+    description: Override historical_refs for the new recipe
+    default:
+    - id: deepseek-optimization-claims
+      version: 1.0.0
+    - id: glm53-prefill-matrix
+      version: 1.0.0
+    - id: glm53-decode-visible-series
+      version: 1.0.0
+    - id: chitu-final-phase-results
+      version: 1.0.0
+  policy:
+    type: object
+    description: Override policy for the new recipe
+    default:
+      min_requests: 32
+      min_repetitions: 3
+      ttft_growth_ratio: 1.5
+      scaling_efficiency_floor: 0.8
+      allow_source_reported_as_causal_evidence: false
+      confirm_causality_from_e2e_only: false
+body:
+  schema_version: 0.2.0
+  kind: DiagnosisPlan
+  id:
+    $param: id
+  version: 1.0.0
+  title:
+    $param: title
+  provenance: []
+  issues: []
+  extensions: {}
+  study_ref:
+    $param: study_ref
+  batches:
+    $param: batches
+  method_refs:
+    $param: method_refs
+  calibration_refs:
+    $param: calibration_refs
+  historical_refs:
+    $param: historical_refs
+  policy:
+    $param: policy

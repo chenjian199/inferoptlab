@@ -1,0 +1,31 @@
+schema_version: 0.2.0
+kind: TestCaseSpec
+id: case-chitu-kimi-64k-decode
+version: 1.0.0
+title: chitu-kimi-64k-decode
+provenance:
+- source_ref:
+    id: source-bw1000-report
+    version: 1.0.0
+  locator: 基础值 kimi-64k decode
+issues: []
+extensions: {}
+purpose: contract
+model_ref:
+  id: kimi-k2.7-code-w4a16
+  version: 1.0.0
+workload_ref:
+  id: workload-chitu-kimi-64k-decode
+  version: 1.0.0
+protocol_ref:
+  id: chitu-contract-decode
+  version: 1.0.0
+sla_ref:
+  id: sla-chitu-kimi-64k-decode
+  version: 1.0.0
+required: true
+source_case_label: 基础值 kimi-64k decode
+declared_context:
+  input: '65536'
+  output: '512'
+priority: null

@@ -1,0 +1,31 @@
+schema_version: 0.2.0
+kind: TestCaseSpec
+id: case-chitu-glm-50k-decode
+version: 1.0.0
+title: chitu-glm-50k-decode
+provenance:
+- source_ref:
+    id: source-bw1000-report
+    version: 1.0.0
+  locator: 基础值 glm-50k decode
+issues: []
+extensions: {}
+purpose: contract
+model_ref:
+  id: glm-5.2-w8a8
+  version: 1.0.0
+workload_ref:
+  id: workload-chitu-glm-50k-decode
+  version: 1.0.0
+protocol_ref:
+  id: chitu-contract-decode
+  version: 1.0.0
+sla_ref:
+  id: sla-chitu-glm-50k-decode
+  version: 1.0.0
+required: true
+source_case_label: 基础值 glm-50k decode
+declared_context:
+  input: '51200'
+  output: '512'
+priority: null

@@ -1,0 +1,389 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/hardware.json",
+  "title": "HardwareSpec 0.2.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.2.0"
+    },
+    "kind": {
+      "const": "HardwareSpec"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/provenance"
+      },
+      "minItems": 0
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/issue"
+      },
+      "minItems": 0
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_.-]*$"
+      }
+    },
+    "profile_type": {
+      "enum": [
+        "device",
+        "cluster"
+      ]
+    },
+    "vendor": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "product": {
+      "type": "string",
+      "minLength": 1
+    },
+    "specifications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "quantity": {
+            "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/measurement"
+          },
+          "precision": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "operation": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "conditions": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "name",
+          "quantity",
+          "precision",
+          "operation",
+          "conditions"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "interfaces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "type": [
+                "string",
+                "number",
+                "boolean",
+                "null"
+              ]
+            }
+          }
+        },
+        "required": [
+          "name",
+          "properties"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "resources": {
+      "type": "object",
+      "properties": {
+        "allocated_devices": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "nodes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "node_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "devices": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "device_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "device_profile_ref": {
+                      "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+                    },
+                    "observed": {
+                      "$ref": "https://inferoptlab.local/schemas/0.2.0/inspected.json#/$defs/device"
+                    }
+                  },
+                  "required": [
+                    "device_id",
+                    "device_profile_ref"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 1
+              },
+              "cpu": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "dram_gb": {
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "nics": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0
+              }
+            },
+            "required": [
+              "node_id",
+              "devices",
+              "cpu",
+              "dram_gb",
+              "nics"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "topology": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "from": {
+                "type": "string",
+                "minLength": 1
+              },
+              "to": {
+                "type": "string",
+                "minLength": 1
+              },
+              "link": {
+                "type": "string",
+                "minLength": 1
+              },
+              "plane": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "from",
+              "to",
+              "link",
+              "plane"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "allocated_devices",
+        "nodes",
+        "topology"
+      ],
+      "additionalProperties": false
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "state": {
+            "enum": [
+              "unverified",
+              "unsupported",
+              "verified"
+            ]
+          },
+          "scope": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+            },
+            "minItems": 0
+          }
+        },
+        "required": [
+          "name",
+          "state",
+          "scope",
+          "evidence_refs"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "evidence_level": {
+      "enum": [
+        "reported",
+        "inspected"
+      ]
+    },
+    "discovery": {
+      "$ref": "https://inferoptlab.local/schemas/0.2.0/inspected.json#/$defs/discovery"
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "version",
+    "title",
+    "provenance",
+    "issues",
+    "extensions",
+    "profile_type",
+    "vendor",
+    "product",
+    "specifications",
+    "interfaces",
+    "resources",
+    "capabilities"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "evidence_level": {
+            "const": "inspected"
+          }
+        },
+        "required": [
+          "evidence_level"
+        ]
+      },
+      "then": {
+        "required": [
+          "discovery"
+        ],
+        "properties": {
+          "profile_type": {
+            "const": "cluster"
+          },
+          "resources": {
+            "properties": {
+              "nodes": {
+                "minItems": 1,
+                "items": {
+                  "properties": {
+                    "devices": {
+                      "items": {
+                        "required": [
+                          "observed"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

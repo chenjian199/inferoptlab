@@ -1,0 +1,27 @@
+schema_version: 0.2.0
+kind: HardwareSpec
+id: bw1100
+version: 1.0.0
+title: BW1100
+provenance:
+- source_ref:
+    id: source-glm53-summary
+    version: 1.0.0
+  locator: BW1100 列
+issues:
+- code: specification-not-provided
+  path: /specifications
+  reason: 图片只有型号与性能对比，没有硬件规格。
+  status: missing
+  blocking: false
+extensions: {}
+profile_type: device
+vendor: null
+product: BW1100
+specifications: []
+interfaces: []
+resources:
+  allocated_devices: null
+  nodes: []
+  topology: []
+capabilities: []

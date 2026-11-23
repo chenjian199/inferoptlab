@@ -1,0 +1,1006 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/inspected.json",
+  "$defs": {
+    "file": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "size_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sha256": {
+          "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/sha256"
+        }
+      },
+      "required": [
+        "name",
+        "size_bytes",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "dtype": {
+      "type": "object",
+      "properties": {
+        "dtype": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tensor_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "elements": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "storage_bytes": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "dtype",
+        "tensor_count",
+        "elements",
+        "storage_bytes"
+      ],
+      "additionalProperties": false
+    },
+    "checkpoint": {
+      "type": "object",
+      "properties": {
+        "host": {
+          "type": "string",
+          "minLength": 1
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "captured_at": {
+          "type": "string",
+          "minLength": 1
+        },
+        "format": {
+          "enum": [
+            "safetensors",
+            "ascend_safetensors"
+          ]
+        },
+        "config_sha256": {
+          "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/sha256"
+        },
+        "index": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/file"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "shard_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "total_file_bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "tensor_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "storage_dtypes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/dtype"
+          }
+        },
+        "manifest_sha256": {
+          "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/sha256"
+        },
+        "manifest_algorithm": {
+          "const": "sha256_canonical_json_shard_name_size_header_sha256"
+        },
+        "verification_scope": {
+          "const": "index_and_headers"
+        },
+        "index_matches_headers": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "duplicate_tensor_names": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "payload_verified": {
+          "const": false
+        },
+        "auxiliary_files": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/file"
+          }
+        },
+        "compatibility": {
+          "type": "object",
+          "properties": {
+            "target_vendor": {
+              "type": "string",
+              "minLength": 1
+            },
+            "status": {
+              "enum": [
+                "observed_loaded",
+                "unverified",
+                "requires_conversion"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "target_vendor",
+            "status",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "host",
+        "path",
+        "captured_at",
+        "format",
+        "config_sha256",
+        "index",
+        "shard_count",
+        "total_file_bytes",
+        "tensor_count",
+        "storage_dtypes",
+        "manifest_sha256",
+        "manifest_algorithm",
+        "verification_scope",
+        "index_matches_headers",
+        "duplicate_tensor_names",
+        "payload_verified",
+        "auxiliary_files",
+        "compatibility"
+      ],
+      "additionalProperties": false
+    },
+    "text": {
+      "type": "object",
+      "properties": {
+        "num_hidden_layers": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "hidden_size": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "vocab_size": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "num_attention_heads": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "num_key_value_heads": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_position_embeddings": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "model_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "layer_types": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "num_hidden_layers",
+        "hidden_size",
+        "vocab_size",
+        "num_attention_heads",
+        "num_key_value_heads",
+        "max_position_embeddings",
+        "model_type",
+        "layer_types"
+      ],
+      "additionalProperties": false
+    },
+    "moe": {
+      "type": "object",
+      "properties": {
+        "routed_experts": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "shared_experts": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "experts_per_token": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "intermediate_size": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "first_dense_layers": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "router_dtype": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "scoring_function": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "routed_experts",
+        "shared_experts",
+        "experts_per_token",
+        "intermediate_size",
+        "first_dense_layers",
+        "router_dtype",
+        "scoring_function"
+      ],
+      "additionalProperties": false
+    },
+    "attention": {
+      "type": "object",
+      "properties": {
+        "head_dim": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "q_lora_rank": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "kv_lora_rank": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "qk_head_dim": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "qk_nope_head_dim": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "qk_rope_head_dim": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "v_head_dim": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "o_lora_rank": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "o_groups": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "sliding_window": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "index_head_dim": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "index_n_heads": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "index_topk": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "index_kpool": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "compress_ratios": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "rope_theta": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "rope_scaling": {
+          "type": "object"
+        },
+        "kv_source_layer_ids": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "index_source_layer_ids": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "linear_attention": {
+      "type": "object",
+      "properties": {
+        "num_heads": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "head_dim": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "conv_kernel_size": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "layers": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      },
+      "required": [
+        "num_heads",
+        "head_dim",
+        "conv_kernel_size",
+        "layers"
+      ],
+      "additionalProperties": false
+    },
+    "vision": {
+      "type": "object",
+      "properties": {
+        "model_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "hidden_size": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "num_hidden_layers": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "num_attention_heads": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "patch_size": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "model_type",
+        "hidden_size",
+        "num_hidden_layers",
+        "num_attention_heads",
+        "patch_size"
+      ],
+      "additionalProperties": false
+    },
+    "quantization": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "type": "string",
+          "minLength": 1
+        },
+        "method": {
+          "type": "string",
+          "minLength": 1
+        },
+        "weight_bits": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "activation_bits": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "activation_dynamic": {
+          "type": "boolean"
+        },
+        "weight_strategy": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "activation_strategy": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "symmetric": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "scale_dtypes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "excluded_modules": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "description_file": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "format",
+        "method",
+        "weight_bits",
+        "activation_bits",
+        "activation_dynamic",
+        "weight_strategy",
+        "activation_strategy",
+        "symmetric",
+        "scale_dtypes",
+        "excluded_modules",
+        "description_file"
+      ],
+      "additionalProperties": false
+    },
+    "device": {
+      "type": "object",
+      "properties": {
+        "ordinal": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "pci_bus_id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{4}:[0-9a-f]{2}:[0-9a-f]{2}\\.[0-7]$"
+        },
+        "board_serial": {
+          "type": "string",
+          "minLength": 1
+        },
+        "chip_serial": {
+          "type": "string",
+          "minLength": 1
+        },
+        "memory_bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "numa_node": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "local_cpus": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pcie_speed_gt_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "pcie_lanes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "driver_reserved_bytes": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "observed_used_memory_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "observed_utilization_percent": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "ordinal",
+        "pci_bus_id",
+        "board_serial",
+        "chip_serial",
+        "memory_bytes",
+        "numa_node",
+        "local_cpus",
+        "pcie_speed_gt_s",
+        "pcie_lanes",
+        "driver_reserved_bytes",
+        "observed_used_memory_bytes",
+        "observed_utilization_percent"
+      ],
+      "additionalProperties": false
+    },
+    "discovery": {
+      "type": "object",
+      "properties": {
+        "captured_at": {
+          "type": "string",
+          "minLength": 1
+        },
+        "hostname": {
+          "type": "string",
+          "minLength": 1
+        },
+        "os": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kernel": {
+          "type": "string",
+          "minLength": 1
+        },
+        "driver_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "device_runtime_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "management_tool_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "cpu_sockets": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "cores_per_socket": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "threads_per_core": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "logical_cpus": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "numa_nodes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "dram_bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "inventory_source_ref": {
+          "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+        },
+        "availability": {
+          "enum": [
+            "idle",
+            "occupied",
+            "unavailable"
+          ]
+        },
+        "health": {
+          "enum": [
+            "healthy",
+            "degraded",
+            "unverified"
+          ]
+        },
+        "health_notes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "captured_at",
+        "hostname",
+        "os",
+        "kernel",
+        "driver_version",
+        "device_runtime_version",
+        "management_tool_version",
+        "cpu_sockets",
+        "cores_per_socket",
+        "threads_per_core",
+        "logical_cpus",
+        "numa_nodes",
+        "dram_bytes",
+        "inventory_source_ref",
+        "availability",
+        "health",
+        "health_notes"
+      ],
+      "additionalProperties": false
+    },
+    "execution": {
+      "type": "object",
+      "properties": {
+        "interface": {
+          "enum": [
+            "offline_python",
+            "openai_http"
+          ]
+        },
+        "model_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "parallelism": {
+          "type": "object",
+          "properties": {
+            "tp": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "pp": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "ep": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "dp": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "expert_parallel_enabled": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "tp",
+            "pp",
+            "ep",
+            "dp",
+            "expert_parallel_enabled"
+          ],
+          "additionalProperties": false
+        },
+        "environment": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "settings": {
+          "type": "object"
+        },
+        "sampling": {
+          "type": "object"
+        },
+        "validation_scope": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "interface",
+        "model_path",
+        "parallelism",
+        "environment",
+        "settings",
+        "sampling",
+        "validation_scope"
+      ],
+      "additionalProperties": false
+    },
+    "measurement": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "metric": {
+          "enum": [
+            "gemm",
+            "device_copy"
+          ]
+        },
+        "dtype": {
+          "type": "string",
+          "minLength": 1
+        },
+        "shape_mnk": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "minItems": 3,
+              "maxItems": 3
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "payload_bytes": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "warmup_iterations": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "iterations_per_sample": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "samples_ms": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "minItems": 3
+        },
+        "statistic": {
+          "const": "median"
+        },
+        "value": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "unit": {
+          "enum": [
+            "TFLOPS",
+            "GB/s"
+          ]
+        },
+        "correctness": {
+          "const": "passed"
+        },
+        "formula": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "name",
+        "metric",
+        "dtype",
+        "shape_mnk",
+        "payload_bytes",
+        "warmup_iterations",
+        "iterations_per_sample",
+        "samples_ms",
+        "statistic",
+        "value",
+        "unit",
+        "correctness",
+        "formula"
+      ],
+      "additionalProperties": false
+    },
+    "hyper_connections": {
+      "type": "object",
+      "properties": {
+        "multiplier": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sinkhorn_iterations": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "epsilon": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      },
+      "required": [
+        "multiplier",
+        "sinkhorn_iterations",
+        "epsilon"
+      ],
+      "additionalProperties": false
+    },
+    "engram": {
+      "type": "object",
+      "properties": {
+        "layer_ids": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "num_embeddings": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "max_ngram_size": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "vocab_size": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "num_heads": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "head_dim": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "compressed_vocab_size": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "storage": {
+          "type": "object",
+          "properties": {
+            "weight_dtype": {
+              "type": "string",
+              "minLength": 1
+            },
+            "scale_dtype": {
+              "type": "string",
+              "minLength": 1
+            },
+            "group_size": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "axis": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "layout": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "weight_dtype",
+            "scale_dtype",
+            "group_size",
+            "axis",
+            "layout"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "layer_ids",
+        "num_embeddings",
+        "max_ngram_size",
+        "vocab_size",
+        "num_heads",
+        "head_dim",
+        "compressed_vocab_size",
+        "storage"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

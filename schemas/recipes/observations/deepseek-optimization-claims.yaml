@@ -1,0 +1,111 @@
+schema_version: 0.2.0
+kind: ReportedMeasurements
+id: deepseek-optimization-claims
+version: 1.0.0
+title: DeepSeek 项目中的局部结果与收益陈述
+provenance:
+- source_ref:
+    id: source-deepseek-project
+    version: 1.0.0
+  locator: 3.4、3.5、第四节
+issues:
+- code: claims-not-composable
+  path: /rows
+  reason: 来源收益范围和方向并不统一，不能相加或作为本平台独立E2E收益。
+  status: unverified
+  blocking: false
+extensions: {}
+evidence_kind: source_reported
+measurement_scope: local
+model_refs:
+- id: deepseek-v4-flash-w8a8
+  version: 1.0.0
+hardware_refs:
+- id: bw1000
+  version: 1.0.0
+columns:
+- name: change
+  type: string
+  unit: null
+  meaning: 优化对象
+- name: metric_raw
+  type: string
+  unit: null
+  meaning: 来源指标原文
+- name: before
+  type: number
+  unit: null
+  meaning: 原始数值，单位由unit_raw解释
+- name: after
+  type: number
+  unit: null
+  meaning: 原始数值
+- name: unit_raw
+  type: string
+  unit: null
+  meaning: 原始单位/方向
+rows:
+- row_id: rlc-c4
+  values:
+    change: RLC C4
+    metric_raw: DCU端总耗时
+    before: 3.34
+    after: 1.6
+    unit_raw: ms
+  missing: {}
+  locator: '3.4'
+- row_id: rlc-t7ft
+  values:
+    change: RLC C4
+    metric_raw: T7FT +4%
+    before: null
+    after: 4
+    unit_raw: percent; T7FT未定义
+  missing:
+    before: not_reported
+  locator: '3.4'
+- row_id: comm-saving
+  values:
+    change: AllGather + ReduceScatter
+    metric_raw: 通信耗时减少约300μs
+    before: null
+    after: 300
+    unit_raw: μs saved
+  missing:
+    before: not_reported
+  locator: '3.4'
+- row_id: linear-auto
+  values:
+    change: linear_bf16_fp32 auto
+    metric_raw: RPS +7%
+    before: null
+    after: 7
+    unit_raw: percent
+  missing:
+    before: not_reported
+  locator: 优化9
+- row_id: gate-gemm
+  values:
+    change: wkv_gate GEMM
+    metric_raw: TPOT +7%
+    before: null
+    after: 7
+    unit_raw: percent; 改善方向未定义
+  missing:
+    before: not_reported
+  locator: 优化10
+- row_id: indexer-int8
+  values:
+    change: Indexer INT8
+    metric_raw: TPOT +4%
+    before: null
+    after: 4
+    unit_raw: percent; 改善方向未定义
+  missing:
+    before: not_reported
+  locator: 优化11
+extraction:
+  method: manual_transcription
+  coverage: complete_visible
+  omissions: []
+  independently_reproduced: false

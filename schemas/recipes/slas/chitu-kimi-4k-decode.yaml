@@ -1,0 +1,52 @@
+schema_version: 0.2.0
+kind: SLAProfile
+id: sla-chitu-kimi-4k-decode
+version: 1.0.0
+title: chitu-kimi-4k-decode
+provenance:
+- source_ref:
+    id: source-bw1000-report
+    version: 1.0.0
+  locator: 第16—21页：目标值与QPS（平均到每机）
+issues:
+- code: per-machine-resource-denominator
+  path: /constraints/0/normalization
+  reason: 原表为平均到每机，未在该表明确每机设备数；不转换成每卡或8卡。
+  status: ambiguous
+  blocking: true
+extensions: {}
+constraints:
+- id: throughput
+  metric: request_throughput
+  scope: case
+  statistic: rate
+  operator: ge
+  threshold:
+    value: 0.369
+  unit: requests/s
+  normalization:
+    basis: unspecified
+  severity: hard
+  population: unspecified
+  raw_text: QPS（平均到每机）目标0.369
+- id: tpot
+  metric: tpot
+  scope: case
+  statistic: mean
+  operator: lt
+  threshold:
+    value: 100
+  unit: ms
+  normalization:
+    basis: system
+  severity: hard
+  population: unspecified
+  raw_text: '100'
+joint_request_slo: null
+quality_requirements:
+- metric: 任务分数下降
+  reference: 报告第23页不同平台/精度参考模型
+  max_degradation: 5
+  unit: unspecified
+  evaluation_policy_ref: null
+conditional_requirements: []

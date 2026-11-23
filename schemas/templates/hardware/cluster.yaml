@@ -1,0 +1,78 @@
+schema_version: 0.2.0
+kind: RecipeTemplate
+id: template-hardware-cluster
+version: 1.0.0
+title: HardwareSpec 创建模板
+provenance: []
+issues: []
+extensions: {}
+target_kind: HardwareSpec
+parameters:
+  id:
+    type: string
+    description: id；字段约束以对应 JSON Schema 为准。
+  version:
+    type: string
+    description: version；字段约束以对应 JSON Schema 为准。
+    default: 1.0.0
+  title:
+    type: string
+    description: title；字段约束以对应 JSON Schema 为准。
+  provenance:
+    type: array
+    description: provenance；字段约束以对应 JSON Schema 为准。
+    default: []
+  issues:
+    type: array
+    description: issues；字段约束以对应 JSON Schema 为准。
+    default: []
+  extensions:
+    type: object
+    description: extensions；字段约束以对应 JSON Schema 为准。
+    default: {}
+  vendor:
+    type: string
+    description: vendor；字段约束以对应 JSON Schema 为准。
+  product:
+    type: string
+    description: product；字段约束以对应 JSON Schema 为准。
+  specifications:
+    type: array
+    description: specifications；字段约束以对应 JSON Schema 为准。
+  interfaces:
+    type: array
+    description: interfaces；字段约束以对应 JSON Schema 为准。
+  resources:
+    type: object
+    description: resources；字段约束以对应 JSON Schema 为准。
+  capabilities:
+    type: array
+    description: capabilities；字段约束以对应 JSON Schema 为准。
+body:
+  schema_version: 0.2.0
+  kind: HardwareSpec
+  id:
+    $param: id
+  version:
+    $param: version
+  title:
+    $param: title
+  provenance:
+    $param: provenance
+  issues:
+    $param: issues
+  extensions:
+    $param: extensions
+  profile_type: cluster
+  vendor:
+    $param: vendor
+  product:
+    $param: product
+  specifications:
+    $param: specifications
+  interfaces:
+    $param: interfaces
+  resources:
+    $param: resources
+  capabilities:
+    $param: capabilities

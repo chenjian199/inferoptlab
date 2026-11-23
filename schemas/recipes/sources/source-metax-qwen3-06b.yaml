@@ -1,0 +1,17 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-metax-qwen3-06b
+version: 1.0.0
+title: metax-qwen3-06b machine-collected model metadata
+provenance: []
+issues: []
+extensions: {}
+path: schemas/evidence/model-intake/metax-qwen3-06b/1.0.0/metadata.json
+sha256: ced299f66fb3d2f1cb1ddace0a2eac0f941be1a05adaa909ee8f8e5246142002
+media_type: application/json
+role: model_metadata
+authority: machine_collected
+coverage:
+  status: partial
+  description: Config, tokenizer and all shard headers; no full payload hashing or
+    model execution.

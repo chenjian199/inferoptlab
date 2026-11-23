@@ -1,0 +1,32 @@
+schema_version: 0.2.0
+kind: StudySpec
+id: qwen-metax-pipeline
+version: 1.0.0
+title: Small-model workflow qualification before GLM performance
+provenance: []
+issues: []
+extensions: {}
+model_ref:
+  id: metax-qwen3-06b
+  version: 1.0.0
+hardware_ref:
+  id: metax-qwen-smoke-gpu0
+  version: 1.0.0
+runtime_ref:
+  id: metax-vllm-qwen-smoke
+  version: 1.0.0
+case_refs:
+- id: qwen-pipeline-smoke-case
+  version: 1.0.0
+- id: qwen-pipeline-short-case
+  version: 1.0.0
+- id: qwen-pipeline-long-case
+  version: 1.0.0
+allowed_deployment_modes:
+- aggregated
+objective: null
+budget:
+  max_candidates: 1
+  max_device_hours: 1
+  max_wall_hours: 1
+capability_policy: probe_before_execution

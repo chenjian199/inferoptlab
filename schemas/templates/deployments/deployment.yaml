@@ -1,0 +1,88 @@
+schema_version: 0.2.0
+kind: RecipeTemplate
+id: template-deployments-deployment
+version: 1.0.0
+title: template-deployments-deployment
+provenance: []
+issues: []
+extensions: {}
+target_kind: DeploymentSpec
+parameters:
+  id:
+    type: string
+    description: id; validated by the target schema.
+  version:
+    type: string
+    description: version; validated by the target schema.
+  title:
+    type: string
+    description: title; validated by the target schema.
+  provenance:
+    type: array
+    description: provenance; validated by the target schema.
+  issues:
+    type: array
+    description: issues; validated by the target schema.
+  extensions:
+    type: object
+    description: extensions; validated by the target schema.
+  model_ref:
+    type: object
+    description: model_ref; validated by the target schema.
+  hardware_ref:
+    type: object
+    description: hardware_ref; validated by the target schema.
+  runtime_ref:
+    type: object
+    description: runtime_ref; validated by the target schema.
+  mode:
+    type: string
+    description: mode; validated by the target schema.
+  parallelism:
+    type: object
+    description: parallelism; validated by the target schema.
+  scheduling:
+    type: object
+    description: scheduling; validated by the target schema.
+  serving:
+    type: object
+    description: serving; validated by the target schema.
+  devices:
+    type: array
+    description: devices; validated by the target schema.
+  backend_options:
+    type: object
+    description: backend_options; validated by the target schema.
+body:
+  schema_version: 0.2.0
+  kind: DeploymentSpec
+  id:
+    $param: id
+  version:
+    $param: version
+  title:
+    $param: title
+  provenance:
+    $param: provenance
+  issues:
+    $param: issues
+  extensions:
+    $param: extensions
+  model_ref:
+    $param: model_ref
+  hardware_ref:
+    $param: hardware_ref
+  runtime_ref:
+    $param: runtime_ref
+  mode:
+    $param: mode
+  parallelism:
+    $param: parallelism
+  scheduling:
+    $param: scheduling
+  serving:
+    $param: serving
+  devices:
+    $param: devices
+  backend_options:
+    $param: backend_options

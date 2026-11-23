@@ -1,0 +1,230 @@
+schema_version: 0.2.0
+kind: ModelSpec
+id: metax-deepseek-v4-flash-w8a8-mtp
+version: 1.0.0
+title: DeepSeek-V4-Flash-w8a8-mtp?????
+provenance:
+- source_ref:
+    id: source-metax-deepseek-v4-flash-w8a8-mtp
+    version: 1.0.0
+  locator: /
+issues:
+- code: payload-not-hashed
+  path: /identity/weights_sha256
+  reason: ?????????? header?????? GB ?? payload?manifest hash ??????? hash?
+  blocking: true
+  status: unverified
+- code: upstream-revision-unavailable
+  path: /identity/revision
+  reason: ?????????????? revision??? config/tokenizer/index/header ?????
+  blocking: true
+  status: unverified
+- code: validation-policy-missing
+  path: /semantics
+  reason: ??????????/???????????????????
+  blocking: true
+  status: unverified
+- code: ascend-layout-on-metax
+  path: /checkpoint/compatibility
+  reason: ????/?? Ascend ????????? W8A8 ???? GLM compressed-tensors ?????
+  blocking: true
+  status: unverified
+- code: chat-template-missing
+  path: /tokenizer/chat_template_sha256
+  reason: ???? chat_template.jinja?tokenizer_config ???? chat_template?
+  blocking: true
+  status: unverified
+extensions: {}
+evidence_level: inspected
+identity:
+  name: DeepSeek-V4-Flash-w8a8-mtp
+  family: DeepSeek
+  variant: W8A8
+  repository: null
+  revision: null
+  weights_sha256: null
+tokenizer:
+  revision: null
+  sha256: 8f9f37ca37fdc4f5fd36d5cf4d3b0e8392edb4e894fd10cc0d70b4957c8633cf
+  chat_template_sha256: null
+semantics:
+  contract: unspecified
+  correctness_policy_ref: null
+  quality_policy_ref: null
+architecture:
+  type: moe
+  attention: sparse_mla
+  context_limit_tokens: 1048576
+  parameters: {}
+  state_types:
+  - compressed_kv
+  - indexer_state
+  text:
+    num_hidden_layers: 43
+    hidden_size: 4096
+    vocab_size: 129280
+    num_attention_heads: 64
+    num_key_value_heads: 1
+    max_position_embeddings: 1048576
+    model_type: deepseek_v4
+    layer_types: []
+  moe:
+    routed_experts: 256
+    shared_experts: 1
+    experts_per_token: 6
+    intermediate_size: 2048
+    first_dense_layers: 0
+    router_dtype: null
+    scoring_function: sqrtsoftplus
+  attention_config:
+    head_dim: 512
+    q_lora_rank: 1024
+    qk_rope_head_dim: 64
+    o_lora_rank: 1024
+    o_groups: 8
+    sliding_window: 128
+    index_head_dim: 128
+    index_n_heads: 64
+    index_topk: 512
+    compress_ratios:
+    - 0
+    - 0
+    - 4
+    - 128
+    - 4
+    - 128
+    - 4
+    - 128
+    - 4
+    - 128
+    - 4
+    - 128
+    - 4
+    - 128
+    - 4
+    - 128
+    - 4
+    - 128
+    - 4
+    - 128
+    - 4
+    - 128
+    - 4
+    - 128
+    - 4
+    - 128
+    - 4
+    - 128
+    - 4
+    - 128
+    - 4
+    - 128
+    - 4
+    - 128
+    - 4
+    - 128
+    - 4
+    - 128
+    - 4
+    - 128
+    - 4
+    - 128
+    - 4
+    - 0
+    rope_theta: 10000
+    rope_scaling:
+      beta_fast: 32
+      beta_slow: 1
+      factor: 16
+      original_max_position_embeddings: 65536
+      type: yarn
+  mtp_layers: 1
+  modalities:
+  - text
+  implementation:
+  - DeepseekV4ForCausalLM
+  hyper_connections:
+    multiplier: 4
+    sinkhorn_iterations: 20
+    epsilon: 1.0e-06
+precision:
+  label: W8A8 mixed
+  weights: INT8 + BF16 + FP32
+  activations: dynamic INT8 for quantized linear operations
+  kv_cache: null
+  quantization:
+    format: ascend W8A8_DYNAMIC
+    method: msmodelslim/ascend
+    weight_bits: 8
+    activation_bits: 8
+    activation_dynamic: true
+    weight_strategy: null
+    activation_strategy: null
+    symmetric: null
+    scale_dtypes:
+    - BF16
+    - F32
+    excluded_modules: []
+    description_file: quant_model_description.json
+checkpoint:
+  host: 63metax
+  path: /NFS_62/Models/DeepSeek_Series/DeepSeek-V4-Flash-w8a8-mtp
+  captured_at: '2026-11-23T07:33:52.546809+00:00'
+  format: ascend_safetensors
+  config_sha256: c3137398b85ef26b9592debadc424349f0b949b7ebe2f20603dda12efab4d533
+  index:
+    name: quant_model_weights.safetensors.index.json
+    size_bytes: 9952750
+    sha256: 932abcc237e82bbb52fc044ae52dd7aa9d8af259cd40100ef978e479231164aa
+  shard_count: 70
+  total_file_bytes: 300013759966
+  tensor_count: 103176
+  storage_dtypes:
+  - dtype: F32
+    tensor_count: 68932
+    elements: 1058809293
+    storage_bytes: 4235237172
+  - dtype: I32
+    tensor_count: 3
+    elements: 2327040
+    storage_bytes: 9308160
+  - dtype: BF16
+    tensor_count: 164
+    elements: 4626657285
+    storage_bytes: 9253314570
+  - dtype: I8
+    tensor_count: 34077
+    elements: 286504517632
+    storage_bytes: 286504517632
+  manifest_sha256: d84ae88d0799004aac665dbd8f6e269d6722943358400ce69b4e8076810fe065
+  manifest_algorithm: sha256_canonical_json_shard_name_size_header_sha256
+  verification_scope: index_and_headers
+  index_matches_headers: true
+  duplicate_tensor_names: []
+  payload_verified: false
+  auxiliary_files:
+  - name: generation_config.json
+    size_bytes: 170
+    sha256: 5fccff80f55a4d455bbe516bdd552edf3e9623df95e99fbf2a3c3389fdf91af0
+  - name: tokenizer_config.json
+    size_bytes: 801
+    sha256: 6ac8c8dc065ed118161d02dd532749ae3f52c243deac27872134fae2f50d8547
+  - name: tokenizer.json
+    size_bytes: 6367146
+    sha256: 8f9f37ca37fdc4f5fd36d5cf4d3b0e8392edb4e894fd10cc0d70b4957c8633cf
+  - name: quant_model_description.json
+    size_bytes: 6438346
+    sha256: 612d87d0a9a7545fb19f8cbaff75af3cc467d16ada72d2b6d84d22149a511cf0
+  - name: README.md
+    size_bytes: 2157
+    sha256: b3421e429ae7f977666d323e6b4ae4fb411f823e81fd568bc3c31d57ba03f4c3
+  - name: DeepSeek-V4_best_practice.yaml
+    size_bytes: 1585
+    sha256: 4abd20097ba9b82156be3a04945863cc4782dd3a3385121f0c31e5183d3bc3e9
+  - name: optional/quarot.safetensors
+    size_bytes: 67108960
+    sha256: 09621023c666f2fd709e59bda0e7cc69ccd6e62eefabfb7e9e3bf0427bf9fa58
+  compatibility:
+    target_vendor: MetaX
+    status: requires_conversion
+    reason: ????/????? Ascend W8A8_DYNAMIC ?????? MetaX loader/????????

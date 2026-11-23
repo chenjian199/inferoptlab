@@ -1,0 +1,46 @@
+# 设计模板；REPLACE_* 必须在执行前解析。数值仅为结构示例，不是性能推荐。
+schema_version: '0.1'
+kind: MechanismCard
+mechanism_id: reduce-redundant-materialization
+title: 减少不必要的张量物化与重复拷贝
+scope_tags:
+- memory
+- compute
+- dataflow
+status: design_template
+signals:
+- trace 中 Cat/Contiguous/Copy 与目标模块关联
+- 物化涉及的字节量和调用次数可观测
+- 至少一个相关事件暴露在关键路径上
+alternative_explanations:
+- 拷贝可能用于满足后端合法布局或别名语义
+- 大占比可能来自多流/多 rank 重复计时
+- 真正限制可能是消费者算子而非拷贝
+required_evidence:
+- operator_dataflow
+- shape_dtype_stride_manifest
+- allocation_or_copy_trace
+- critical_path_scope
+required_capabilities:
+- trace_collection
+- layout_correctness_harness
+- candidate_build
+possible_changes:
+- 让生产者直接生成消费者需要的布局
+- 让消费者接受原布局
+- 融合中间转换并减少临时存储
+discriminating_experiment: 在冻结输入和上下游语义后，比较原始物化、仅布局变化、融合三类候选；先检查正确性，再测同一调用链与 E2E。
+correctness_checks:
+- 别名与原地修改
+- 非连续 stride
+- 空张量和动态边界
+- 数值误差
+- 回退路径
+success_criteria:
+- 独立正确性通过
+- 关键路径或实际工作量下降
+- 全部强制 case 通过 SLO 和回归验收
+conflicts:
+- 其他依赖相同缓存/布局的补丁
+rollback: 恢复父候选的调用点和布局实现
+extensions: {}

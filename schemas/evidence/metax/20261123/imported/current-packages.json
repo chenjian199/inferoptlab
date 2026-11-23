@@ -1,0 +1,1 @@
+{"torch": "2.10.0+metax3.9.0.8", "triton": "3.6.0+metax3.9.0.8", "vllm": "0.32.0+empty", "vllm-metax": "0.32.0+g0962c8.d20261122.maca3.9.0.29.torch2.10.0", "transformers": "5.17.0", "mcoplib": "0.4.14+gf3794c4.maca3.9.0.31.torch2.10", "mctlassEx": "0.1.1+metax3.9.0.8torch2.10"}

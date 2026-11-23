@@ -1,0 +1,82 @@
+schema_version: 0.2.0
+kind: RecipeTemplate
+id: template-protocols-measurement
+version: 1.0.0
+title: MeasurementProtocol 创建模板
+provenance: []
+issues: []
+extensions: {}
+target_kind: MeasurementProtocol
+parameters:
+  id:
+    type: string
+    description: id；字段约束以对应 JSON Schema 为准。
+  version:
+    type: string
+    description: version；字段约束以对应 JSON Schema 为准。
+    default: 1.0.0
+  title:
+    type: string
+    description: title；字段约束以对应 JSON Schema 为准。
+  provenance:
+    type: array
+    description: provenance；字段约束以对应 JSON Schema 为准。
+    default: []
+  issues:
+    type: array
+    description: issues；字段约束以对应 JSON Schema 为准。
+    default: []
+  extensions:
+    type: object
+    description: extensions；字段约束以对应 JSON Schema 为准。
+    default: {}
+  scope:
+    type: string
+    description: scope；字段约束以对应 JSON Schema 为准。
+  method:
+    type: string
+    description: method；字段约束以对应 JSON Schema 为准。
+  allowed_deployment_modes:
+    type: array
+    description: allowed_deployment_modes；字段约束以对应 JSON Schema 为准。
+  timing:
+    type: object
+    description: timing；字段约束以对应 JSON Schema 为准。
+  execution:
+    type: object
+    description: execution；字段约束以对应 JSON Schema 为准。
+  accounting:
+    type: object
+    description: accounting；字段约束以对应 JSON Schema 为准。
+  steps:
+    type: array
+    description: steps；字段约束以对应 JSON Schema 为准。
+body:
+  schema_version: 0.2.0
+  kind: MeasurementProtocol
+  id:
+    $param: id
+  version:
+    $param: version
+  title:
+    $param: title
+  provenance:
+    $param: provenance
+  issues:
+    $param: issues
+  extensions:
+    $param: extensions
+  scope:
+    $param: scope
+  method:
+    $param: method
+  allowed_deployment_modes:
+    $param: allowed_deployment_modes
+  timing:
+    $param: timing
+  execution:
+    $param: execution
+  accounting:
+    $param: accounting
+  steps:
+    $param: steps

@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/diagnosis-plan.json",
+  "title": "DiagnosisPlan 0.2.0",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.2.0"
+    },
+    "kind": {
+      "const": "DiagnosisPlan"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/provenance"
+      },
+      "minItems": 0
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/issue"
+      },
+      "minItems": 0
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_.-]*$"
+      }
+    },
+    "study_ref": {
+      "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+    },
+    "batches": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "directory": {
+            "type": "string",
+            "minLength": 1
+          },
+          "manifest": {
+            "type": "string",
+            "minLength": 1
+          },
+          "manifest_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "required": [
+          "directory",
+          "manifest",
+          "manifest_sha256"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "method_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+      },
+      "minItems": 1
+    },
+    "calibration_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+      },
+      "minItems": 0
+    },
+    "historical_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
+      },
+      "minItems": 0
+    },
+    "policy": {
+      "type": "object",
+      "properties": {
+        "min_requests": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "min_repetitions": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "ttft_growth_ratio": {
+          "type": "number",
+          "exclusiveMinimum": 1
+        },
+        "scaling_efficiency_floor": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1
+        },
+        "allow_source_reported_as_causal_evidence": {
+          "const": false
+        },
+        "confirm_causality_from_e2e_only": {
+          "const": false
+        }
+      },
+      "required": [
+        "min_requests",
+        "min_repetitions",
+        "ttft_growth_ratio",
+        "scaling_efficiency_floor",
+        "allow_source_reported_as_causal_evidence",
+        "confirm_causality_from_e2e_only"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "id",
+    "version",
+    "title",
+    "provenance",
+    "issues",
+    "extensions",
+    "study_ref",
+    "batches",
+    "method_refs",
+    "calibration_refs",
+    "historical_refs",
+    "policy"
+  ],
+  "additionalProperties": false
+}

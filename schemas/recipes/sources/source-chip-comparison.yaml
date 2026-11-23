@@ -1,0 +1,16 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-chip-comparison
+version: 1.0.0
+title: 微信图片_20261120125628_69_435.png
+provenance: []
+issues: []
+extensions: {}
+path: 微信图片_20261120125628_69_435.png
+sha256: 4e4fc05643e15109d0582b4a078f655c930b26cd3ee4c1b3b0d1efca06575609
+media_type: image/png
+role: hardware_specification
+authority: user_supplied
+coverage:
+  status: complete_visible
+  description: 三个型号的 FP16 算力与带宽，不补未给出的容量。

@@ -1,0 +1,16 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-deepseek-project
+version: 1.0.0
+title: DeepSeek-V4 × BW1000 优化项目管理.md
+provenance: []
+issues: []
+extensions: {}
+path: DeepSeek-V4 × BW1000 优化项目管理.md
+sha256: 2d55800a90cafff294b4858b2beda1d0e9b6514f7618a63f5efd97c4e5ae89e6
+media_type: text/markdown
+role: project_record
+authority: user_supplied
+coverage:
+  status: partial
+  description: 合同表二 5—8、测试方法、环境与主要收益记录；保留文内冲突，非合同原件。

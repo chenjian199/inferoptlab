@@ -1,0 +1,43 @@
+schema_version: 0.2.0
+kind: MeasurementProtocol
+id: glm53-prefill-profile
+version: 1.0.0
+title: glm53-prefill-profile
+provenance:
+- source_ref:
+    id: source-glm53-prefill
+    version: 1.0.0
+  locator: P端压测规则与模式行
+issues:
+- code: incomplete-measurement-protocol
+  path: /timing
+  reason: 来源未完整规定计时边界、统计窗口、失败分母、预热、超时和重复安排。
+  status: missing
+  blocking: true
+extensions: {}
+scope: prefill
+method: prefill_one_token
+allowed_deployment_modes:
+- aggregated
+- pd
+timing:
+  ttft_boundary: unspecified
+  tpot_boundary: not_applicable
+  token_timestamps: unverified
+  window: unspecified
+  start: unspecified
+  finish: unspecified
+execution:
+  warmup: null
+  timeout_s: null
+  repetitions: null
+  profiler_during_scoring: null
+accounting:
+  primary_population: unspecified
+  failure_policy: unspecified
+  logical_request_deduplication: null
+steps:
+- 输出1 token
+- 4K不使用缓存命中；64K/128K目标90%命中
+- 按16、32、48、54、64并发扫描
+- H20标为IFB，DCU标为PD分离；保留模式差异

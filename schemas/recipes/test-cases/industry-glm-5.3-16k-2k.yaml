@@ -1,0 +1,31 @@
+schema_version: 0.2.0
+kind: TestCaseSpec
+id: case-industry-glm-5.3-16k-2k
+version: 1.0.0
+title: industry-glm-5.3-16k-2k
+provenance:
+- source_ref:
+    id: source-industry-sla
+    version: 1.0.0
+  locator: GLM-5.3 16K/2K
+issues: []
+extensions: {}
+purpose: service_acceptance
+model_ref:
+  id: glm-5.3
+  version: 1.0.0
+workload_ref:
+  id: workload-industry-16k-2k
+  version: 1.0.0
+protocol_ref:
+  id: industry-e2e-unresolved
+  version: 1.0.0
+sla_ref:
+  id: sla-industry-16k-2k
+  version: 1.0.0
+required: true
+source_case_label: GLM-5.3 16K/2K
+declared_context:
+  input: 16K
+  output: 2K
+priority: null

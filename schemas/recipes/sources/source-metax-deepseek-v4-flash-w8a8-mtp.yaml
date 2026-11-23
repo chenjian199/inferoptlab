@@ -1,0 +1,16 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-metax-deepseek-v4-flash-w8a8-mtp
+version: 1.0.0
+title: 63metax ???deepseek-v4-flash-w8a8-mtp.verified.json
+provenance: []
+issues: []
+extensions: {}
+path: schemas/evidence/metax/20261123/deepseek-v4-flash-w8a8-mtp.final.json
+sha256: 072da7fce30f483e0f64ef874cd39c04aaa9e56526b65a5fe9c1bd222e0d9d6b
+media_type: application/json
+role: model_metadata
+authority: machine_collected
+coverage:
+  status: complete_visible
+  description: ????? SSH ? 63metax ????????????????????????

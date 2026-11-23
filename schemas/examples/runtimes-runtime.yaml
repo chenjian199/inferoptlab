@@ -1,0 +1,25 @@
+id: example-sglang-dsv4-v0.5.15-post1-dev
+version: 1.0.0
+title: sglang v0.5.15.post1_dev
+provenance:
+- source_ref:
+    id: source-deepseek-project
+    version: 1.0.0
+  locator: 1.1、3.2
+issues:
+- code: unfrozen-runtime
+  path: /source_commit
+  reason: 分支/版本标签不能替代完整源码commit、镜像digest和实际运行库。
+  status: missing
+  blocking: true
+extensions: {}
+engine: sglang
+version_label: v0.5.15.post1_dev
+libraries: {}
+launch_parameters: {}
+status: source_reported
+source_commit: null
+container_digest: null
+driver: null
+device_runtime: null
+compiler: null

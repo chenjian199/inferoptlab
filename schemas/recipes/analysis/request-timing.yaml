@@ -1,0 +1,111 @@
+schema_version: 0.2.0
+kind: AnalysisMethod
+id: request-timing
+version: 1.0.0
+title: 请求时序与 Prefill/Decode 归因
+provenance:
+- source_ref:
+    id: source-design-v2
+    version: 1.0.0
+  locator: 项目资料中的方法线索；本卡为本项目设计，不是来源中的已验证性能结论
+issues: []
+extensions: {}
+tags:
+- timing
+- scheduling
+- host
+applicability:
+  architectures:
+  - any
+  conditions:
+  - TTFT、TPOT 或 E2E 随输入长度/负载变化，但尚未解释其服务端组成。
+  - 必须绑定目标模型、实现版本、实际设备和测试协议，历史结果仅提供线索。
+implementation: planning_only
+signals:
+- TTFT、TPOT 或 E2E 随输入长度/负载变化，但尚未解释其服务端组成。
+alternative_explanations:
+- 客户端连接、分词或发送阻塞
+- 服务端排队、组批、prefill 计算或输出缓冲
+- profiler 开销与时钟域误差
+required_evidence:
+- client_request_metrics
+- server_request_timeline
+- request_correlation
+- clock_alignment
+- unprofiled_control
+capture:
+  provider: PyTorch/framework trace or vendor profiler adapter (not qualified)
+  capability_state: unverified
+  boundary: 在无 profiler 基线之外，使用同请求集与同部署单独采集；隔离 warmup/compile，记录 node/rank/stream、单调时钟域及请求关联。
+  fields:
+  - name: request_id
+    unit: id
+    meaning: 客户端到服务端关联
+  - name: enqueue/dequeue/first_schedule/first_token/last_token
+    unit: ns
+    meaning: 必须注明发生侧与时钟域
+  - name: prefill/decode_step
+    unit: ns
+    meaning: 设备阶段边界
+  - name: queue_depth/batch_tokens
+    unit: count
+    meaning: 调度时状态
+  overhead_control: 同负载交错运行无 profiler/有 profiler，报告延迟、吞吐变化及事件丢失；采集结果不计入正式 SLA。
+steps:
+- id: step-1
+  action: 核对第一步完整性、长度、失败、流式粒度及 SLA 口径
+  deliverable: 测量质量清单
+- id: step-2
+  action: 在各自时钟域计算 queue/host/device 区间并建立请求关联
+  deliverable: 时间线与未对齐区间
+- id: step-3
+  action: 对同一请求链建立依赖边，保留无法分解的 residual
+  deliverable: 阶段归因表，未知项为 null
+experiments:
+- id: experiment-1
+  change: 固定短输入、低并发，再只改变输入长度
+  controls:
+  - 同 tokenizer、输出长度、cache、设备与框架
+  - 至少三次独立重复
+  supports: prefill 设备区间随输入增大且解释 TTFT 增量
+  refutes: 设备区间不变而队列/主机区间增加
+- id: experiment-2
+  change: 固定长度只扫描并发
+  controls:
+  - 同请求集、输出 token、服务配置
+  - 记录实际到达及服务队列
+  supports: TTFT 增量与排队区间一致
+  refutes: 客户端发送阻塞或设备执行增长解释了增量
+calculations:
+- name: 排队时间
+  formula: dequeue_ns - enqueue_ns
+  unit: ns
+  limitations: 同一服务时钟域，不能用客户端 TTFT 代替
+- name: 阶段残差
+  formula: aligned_E2E - union(aligned_explained_intervals)
+  unit: ns
+  limitations: 仅在端点和重叠处理可靠时计算；不将 TTFT 当成纯 prefill
+correctness_checks:
+- 请求 ID 唯一且覆盖失败请求
+- 首内容 token 与空 SSE chunk 区分
+- TPOT 与真实逐 token ITL 分开
+confounders:
+- 连接冷启动
+- tokenizer/chat template 差异
+- 不同机器 wall clock 直接相减
+exit_criteria:
+- 每个归因项有可定位事件与时钟说明
+- 未解释残差明确保留
+- 最小对照能支持或推翻至少一个解释
+handoff:
+  target: 产生阶段级优化任务，优先补齐主导区间的专项证据
+  required_artifacts:
+  - 冻结源码 commit、补丁与镜像摘要
+  - 真实调用点、shape/dtype/stride 和开发输入
+  - 独立正确性参考与容差
+  - 固定工作点 A/B 和 E2E 复测计划
+  rollback: 恢复父部署与父候选代码；保留不支持形状的原实现回退，不覆盖已有证据。
+budget:
+  max_capture_seconds: 120
+  minimum_repetitions: 3
+  max_variants: 3

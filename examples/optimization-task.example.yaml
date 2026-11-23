@@ -1,0 +1,74 @@
+# 设计模板；REPLACE_* 必须在执行前解析。数值仅为结构示例，不是性能推荐。
+schema_version: '0.1'
+kind: OptimizationTask
+task_id: task-kernel-001
+study_id: demo-e2e-001
+is_template: true
+baseline:
+  candidate_id: candidate-b1
+  repository: REPLACE_BASE_REPOSITORY
+  commit: REPLACE_BASE_COMMIT
+  patch_digest: REPLACE_PATCH_SET_DIGEST
+  build_environment_ref: REPLACE_BUILD_ENVIRONMENT
+problem:
+  hypothesis_id: hypothesis-001
+  operator: REPLACE_OPERATOR_NAME
+  evidence_refs:
+  - REPLACE_CRITICAL_PATH_TRACE
+  - REPLACE_BASELINE_MEASUREMENT
+  goal: 在冻结计算语义与覆盖范围内减少该算子的设备耗时，最终回接模型检验整体收益
+platform:
+  environment_ref: REPLACE_ENVIRONMENT_SNAPSHOT
+  required_capabilities:
+  - kernel_build
+  - device_timing
+  - correctness_harness
+  capability_status: unverified
+semantics:
+  definition_ref: REPLACE_OPERATOR_DEFINITION
+  reference_impl_ref: REPLACE_REFERENCE_IMPLEMENTATION
+  correctness_policy_ref: REPLACE_ATOL_RTOL_AND_TASK_QUALITY_POLICY
+  state_and_aliasing_contract_ref: REPLACE_STATE_ALIASING_CONTRACT
+workloads:
+  development_inputs_ref: REPLACE_PUBLIC_DEV_INPUTS
+  real_trace_shapes_ref: REPLACE_REAL_SHAPE_MANIFEST
+  allowed_specialization_ref: REPLACE_SHAPE_DTYPE_LAYOUT_SCOPE
+edit_scope:
+  allow:
+  - kernels/**
+  - integration/dispatch.py
+  deny:
+  - evaluator/**
+  - acceptance/**
+  - ranking/**
+  dependencies_change_requires_new_candidate: true
+development:
+  build_argv:
+  - REPLACE_BUILD_PROGRAM
+  - REPLACE_BUILD_ARGUMENT
+  correctness_argv:
+  - REPLACE_DEV_CORRECTNESS_PROGRAM
+  benchmark_argv:
+  - REPLACE_DEV_BENCHMARK_PROGRAM
+  profiler_ref: REPLACE_AVAILABLE_PROFILER
+budget:
+  max_candidates: 12
+  max_gpu_seconds: 3600
+  max_wall_seconds: 7200
+  max_agent_tokens: 100000
+integration:
+  callsite_ref: REPLACE_FRAMEWORK_CALLSITE
+  dispatch_guard_ref: REPLACE_VALIDATED_SPECIALIZATION_GUARD
+  fallback_ref: REPLACE_BASELINE_FALLBACK
+  e2e_trial_refs:
+  - REPLACE_SHORT_FINAL_TRIAL
+  - REPLACE_LONG_FINAL_TRIAL
+acceptance:
+  policy_ref: REPLACE_CONTROLLER_OWNED_ACCEPTANCE_POLICY
+  validator_digest: REPLACE_IMMUTABLE_VALIDATOR_DIGEST
+  candidate_initial_validation: unverified
+  controller_owns_holdout: true
+backend:
+  name: kda_workflow
+  workflow_revision: REPLACE_PINNED_KDA_REVISION
+  agent_profile_ref: REPLACE_AGENT_CONFIGURATION

@@ -1,0 +1,16 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-glm53-summary
+version: 1.0.0
+title: 微信图片_20261120123820_63_435.png
+provenance: []
+issues: []
+extensions: {}
+path: 微信图片_20261120123820_63_435.png
+sha256: a24e393e972956a342a8ca4ee186e2fd48850df95c7fbc21d99f81470c44bcf3
+media_type: image/png
+role: benchmark_report
+authority: user_supplied
+coverage:
+  status: complete_visible
+  description: 27 个比较单元格，含不支持及待补充状态。
