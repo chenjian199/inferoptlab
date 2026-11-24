@@ -1,0 +1,5 @@
+{
+  "status": "failed_before_weights",
+  "cause": "Missing current VllmConfig context during model parallel metadata initialization",
+  "candidate_executed": false
+}

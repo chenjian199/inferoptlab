@@ -1,0 +1,43 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 199
+PDF 页码标签: 191
+页脚页码候选: 191
+章节提示（书签推断）: 整数型度数学函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+__device__ unsigned long long int min (const unsigned long long int a, const
+long long int b)
+参数
+a
+• unsignedlonglongint
+b
+• longlongint
+返回值
+• unsignedlonglongint
+函数描述
+• 执行整数类型提升后，返回a和b中的最小值。
+__device__ unsigned long long int min (const long long int a, const unsigned
+long long int b)
+参数
+a
+• longlongint
+b
+• unsignedlonglongint
+返回值
+• unsignedlonglongint
+函数描述
+• 执行整数类型提升后，返回a和b中的最小值。
+__device__ unsigned long long int min (const unsigned long long int a, const
+unsigned long long int b)
+参数
+a
+• unsignedlonglongint
+b
+• unsignedlonglongint
+返回值
+• unsignedlonglongint
+函数描述
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 191

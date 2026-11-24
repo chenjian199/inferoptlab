@@ -1,0 +1,1134 @@
+{
+  "status": "passed",
+  "checkpoint": "/models/GLM-5.3-Flash-W8A8/model-language_model-layers-00000.safetensors",
+  "unsharded_projection_shape": [
+    12288,
+    4096
+  ],
+  "tp8_slices": 8,
+  "device_used": 0,
+  "cases": 24,
+  "scope": "Actual frozen checkpoint weights/scales and installed vLLM CompressedTensorsW8A8Int8/Mctlass kernel; synthetic activations. TP8 partitions replayed sequentially on GPU0, not distributed model inference.",
+  "results": [
+    {
+      "checkpoint_slice": 0,
+      "device": 0,
+      "gate_up_rows_per_projection": [
+        0,
+        1536
+      ],
+      "weight_sha256": "41570ecea865cf29083c1bf37d705ad5e7a6b1020e482cfdeb569dac44cd4b28",
+      "scale_sha256": "3f2b977dfc98682030d3520b0215606250157c1832c93ecf96784f9233010c8a",
+      "scheme": "CompressedTensorsW8A8Int8",
+      "original_kernel": "vllm_metax.registry.linear_kernels.int8.MctlassScaledMMLinearKernel",
+      "processed_weight_shape": [
+        4096,
+        3072
+      ],
+      "processed_weight_stride": [
+        1,
+        4096
+      ],
+      "cases": [
+        {
+          "shape": [
+            1,
+            3072,
+            4096
+          ],
+          "input_stride": [
+            4096,
+            1
+          ],
+          "comparison": {
+            "finite": true,
+            "exact": true,
+            "max_abs": 0.0,
+            "max_bf16_ulp": 0.0,
+            "changed": 0,
+            "elements": 3072
+          },
+          "rollback_exact": true
+        },
+        {
+          "shape": [
+            17,
+            3072,
+            4096
+          ],
+          "input_stride": [
+            8192,
+            2
+          ],
+          "comparison": {
+            "finite": true,
+            "exact": true,
+            "max_abs": 0.0,
+            "max_bf16_ulp": 0.0,
+            "changed": 0,
+            "elements": 52224
+          },
+          "rollback_exact": true
+        },
+        {
+          "shape": [
+            173,
+            3072,
+            4096
+          ],
+          "input_stride": [
+            4096,
+            1
+          ],
+          "comparison": {
+            "finite": true,
+            "exact": false,
+            "max_abs": 0.00390625,
+            "max_bf16_ulp": 1.0,
+            "changed": 5,
+            "elements": 531456
+          },
+          "rollback_exact": true
+        }
+      ],
+      "stats": {
+        "calls": 3,
+        "replaced": 3,
+        "fallback": 0,
+        "shape_counts": {
+          "1,3072,4096": 1,
+          "17,3072,4096": 1,
+          "173,3072,4096": 1
+        },
+        "max_abs": 0.00390625,
+        "max_bf16_ulp": 1.0,
+        "changed_elements": 5,
+        "elements": 586752,
+        "reference_checks": [
+          {
+            "mode": "decode",
+            "path": "/experiment/evidence/real_inputs/rankisolated_slice0_decode.pt",
+            "int32_exact": true,
+            "fp32": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 8
+            },
+            "fp64": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 8
+            }
+          },
+          {
+            "mode": "prefill",
+            "path": "/experiment/evidence/real_inputs/rankisolated_slice0_prefill.pt",
+            "int32_exact": true,
+            "fp32": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 32
+            },
+            "fp64": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 32
+            }
+          }
+        ]
+      }
+    },
+    {
+      "checkpoint_slice": 1,
+      "device": 0,
+      "gate_up_rows_per_projection": [
+        1536,
+        3072
+      ],
+      "weight_sha256": "ced522fdf06b8d48e8dd930f40bc9a28a93f7fa6ad088734376eb877b26b876d",
+      "scale_sha256": "5bcdb8e9965d31be6281ce7a50575ec6b9e7951a7b027f769c6db20fc7b87d54",
+      "scheme": "CompressedTensorsW8A8Int8",
+      "original_kernel": "vllm_metax.registry.linear_kernels.int8.MctlassScaledMMLinearKernel",
+      "processed_weight_shape": [
+        4096,
+        3072
+      ],
+      "processed_weight_stride": [
+        1,
+        4096
+      ],
+      "cases": [
+        {
+          "shape": [
+            1,
+            3072,
+            4096
+          ],
+          "input_stride": [
+            4096,
+            1
+          ],
+          "comparison": {
+            "finite": true,
+            "exact": true,
+            "max_abs": 0.0,
+            "max_bf16_ulp": 0.0,
+            "changed": 0,
+            "elements": 3072
+          },
+          "rollback_exact": true
+        },
+        {
+          "shape": [
+            17,
+            3072,
+            4096
+          ],
+          "input_stride": [
+            8192,
+            2
+          ],
+          "comparison": {
+            "finite": true,
+            "exact": true,
+            "max_abs": 0.0,
+            "max_bf16_ulp": 0.0,
+            "changed": 0,
+            "elements": 52224
+          },
+          "rollback_exact": true
+        },
+        {
+          "shape": [
+            173,
+            3072,
+            4096
+          ],
+          "input_stride": [
+            4096,
+            1
+          ],
+          "comparison": {
+            "finite": true,
+            "exact": false,
+            "max_abs": 0.0078125,
+            "max_bf16_ulp": 1.0,
+            "changed": 5,
+            "elements": 531456
+          },
+          "rollback_exact": true
+        }
+      ],
+      "stats": {
+        "calls": 3,
+        "replaced": 3,
+        "fallback": 0,
+        "shape_counts": {
+          "1,3072,4096": 1,
+          "17,3072,4096": 1,
+          "173,3072,4096": 1
+        },
+        "max_abs": 0.0078125,
+        "max_bf16_ulp": 1.0,
+        "changed_elements": 5,
+        "elements": 586752,
+        "reference_checks": [
+          {
+            "mode": "decode",
+            "path": "/experiment/evidence/real_inputs/rankisolated_slice1_decode.pt",
+            "int32_exact": true,
+            "fp32": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 8
+            },
+            "fp64": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 8
+            }
+          },
+          {
+            "mode": "prefill",
+            "path": "/experiment/evidence/real_inputs/rankisolated_slice1_prefill.pt",
+            "int32_exact": true,
+            "fp32": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 32
+            },
+            "fp64": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 32
+            }
+          }
+        ]
+      }
+    },
+    {
+      "checkpoint_slice": 2,
+      "device": 0,
+      "gate_up_rows_per_projection": [
+        3072,
+        4608
+      ],
+      "weight_sha256": "be646915e0fb502d9cb80d1e86cc047922ba67218c53be75d167513f024d10cd",
+      "scale_sha256": "b65e4a73601633c6aba44cddf378f736b972e80096f656bbab3f8f41fad30eef",
+      "scheme": "CompressedTensorsW8A8Int8",
+      "original_kernel": "vllm_metax.registry.linear_kernels.int8.MctlassScaledMMLinearKernel",
+      "processed_weight_shape": [
+        4096,
+        3072
+      ],
+      "processed_weight_stride": [
+        1,
+        4096
+      ],
+      "cases": [
+        {
+          "shape": [
+            1,
+            3072,
+            4096
+          ],
+          "input_stride": [
+            4096,
+            1
+          ],
+          "comparison": {
+            "finite": true,
+            "exact": true,
+            "max_abs": 0.0,
+            "max_bf16_ulp": 0.0,
+            "changed": 0,
+            "elements": 3072
+          },
+          "rollback_exact": true
+        },
+        {
+          "shape": [
+            17,
+            3072,
+            4096
+          ],
+          "input_stride": [
+            8192,
+            2
+          ],
+          "comparison": {
+            "finite": true,
+            "exact": true,
+            "max_abs": 0.0,
+            "max_bf16_ulp": 0.0,
+            "changed": 0,
+            "elements": 52224
+          },
+          "rollback_exact": true
+        },
+        {
+          "shape": [
+            173,
+            3072,
+            4096
+          ],
+          "input_stride": [
+            4096,
+            1
+          ],
+          "comparison": {
+            "finite": true,
+            "exact": false,
+            "max_abs": 0.00390625,
+            "max_bf16_ulp": 1.0,
+            "changed": 5,
+            "elements": 531456
+          },
+          "rollback_exact": true
+        }
+      ],
+      "stats": {
+        "calls": 3,
+        "replaced": 3,
+        "fallback": 0,
+        "shape_counts": {
+          "1,3072,4096": 1,
+          "17,3072,4096": 1,
+          "173,3072,4096": 1
+        },
+        "max_abs": 0.00390625,
+        "max_bf16_ulp": 1.0,
+        "changed_elements": 5,
+        "elements": 586752,
+        "reference_checks": [
+          {
+            "mode": "decode",
+            "path": "/experiment/evidence/real_inputs/rankisolated_slice2_decode.pt",
+            "int32_exact": true,
+            "fp32": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 8
+            },
+            "fp64": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 8
+            }
+          },
+          {
+            "mode": "prefill",
+            "path": "/experiment/evidence/real_inputs/rankisolated_slice2_prefill.pt",
+            "int32_exact": true,
+            "fp32": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 32
+            },
+            "fp64": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 32
+            }
+          }
+        ]
+      }
+    },
+    {
+      "checkpoint_slice": 3,
+      "device": 0,
+      "gate_up_rows_per_projection": [
+        4608,
+        6144
+      ],
+      "weight_sha256": "a123986c1791f7685be38e1c5b0fc35472044879e3cf684db873907f35e0b882",
+      "scale_sha256": "499e2615f3eadfc1ad72bac9c568a50b79657b41a4c9b1747d905a18bf1e956b",
+      "scheme": "CompressedTensorsW8A8Int8",
+      "original_kernel": "vllm_metax.registry.linear_kernels.int8.MctlassScaledMMLinearKernel",
+      "processed_weight_shape": [
+        4096,
+        3072
+      ],
+      "processed_weight_stride": [
+        1,
+        4096
+      ],
+      "cases": [
+        {
+          "shape": [
+            1,
+            3072,
+            4096
+          ],
+          "input_stride": [
+            4096,
+            1
+          ],
+          "comparison": {
+            "finite": true,
+            "exact": true,
+            "max_abs": 0.0,
+            "max_bf16_ulp": 0.0,
+            "changed": 0,
+            "elements": 3072
+          },
+          "rollback_exact": true
+        },
+        {
+          "shape": [
+            17,
+            3072,
+            4096
+          ],
+          "input_stride": [
+            8192,
+            2
+          ],
+          "comparison": {
+            "finite": true,
+            "exact": true,
+            "max_abs": 0.0,
+            "max_bf16_ulp": 0.0,
+            "changed": 0,
+            "elements": 52224
+          },
+          "rollback_exact": true
+        },
+        {
+          "shape": [
+            173,
+            3072,
+            4096
+          ],
+          "input_stride": [
+            4096,
+            1
+          ],
+          "comparison": {
+            "finite": true,
+            "exact": false,
+            "max_abs": 0.00048828125,
+            "max_bf16_ulp": 1.0,
+            "changed": 3,
+            "elements": 531456
+          },
+          "rollback_exact": true
+        }
+      ],
+      "stats": {
+        "calls": 3,
+        "replaced": 3,
+        "fallback": 0,
+        "shape_counts": {
+          "1,3072,4096": 1,
+          "17,3072,4096": 1,
+          "173,3072,4096": 1
+        },
+        "max_abs": 0.00048828125,
+        "max_bf16_ulp": 1.0,
+        "changed_elements": 3,
+        "elements": 586752,
+        "reference_checks": [
+          {
+            "mode": "decode",
+            "path": "/experiment/evidence/real_inputs/rankisolated_slice3_decode.pt",
+            "int32_exact": true,
+            "fp32": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 8
+            },
+            "fp64": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 8
+            }
+          },
+          {
+            "mode": "prefill",
+            "path": "/experiment/evidence/real_inputs/rankisolated_slice3_prefill.pt",
+            "int32_exact": true,
+            "fp32": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 32
+            },
+            "fp64": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 32
+            }
+          }
+        ]
+      }
+    },
+    {
+      "checkpoint_slice": 4,
+      "device": 0,
+      "gate_up_rows_per_projection": [
+        6144,
+        7680
+      ],
+      "weight_sha256": "facc1382d2b2a299d01f71a142ae34a795b06ccee78ad929e3b67258786ab653",
+      "scale_sha256": "b2d9d3c1c18e0805cb58a2b1abf4f41431261e1c5c000198b3b68d40b4077c57",
+      "scheme": "CompressedTensorsW8A8Int8",
+      "original_kernel": "vllm_metax.registry.linear_kernels.int8.MctlassScaledMMLinearKernel",
+      "processed_weight_shape": [
+        4096,
+        3072
+      ],
+      "processed_weight_stride": [
+        1,
+        4096
+      ],
+      "cases": [
+        {
+          "shape": [
+            1,
+            3072,
+            4096
+          ],
+          "input_stride": [
+            4096,
+            1
+          ],
+          "comparison": {
+            "finite": true,
+            "exact": true,
+            "max_abs": 0.0,
+            "max_bf16_ulp": 0.0,
+            "changed": 0,
+            "elements": 3072
+          },
+          "rollback_exact": true
+        },
+        {
+          "shape": [
+            17,
+            3072,
+            4096
+          ],
+          "input_stride": [
+            8192,
+            2
+          ],
+          "comparison": {
+            "finite": true,
+            "exact": true,
+            "max_abs": 0.0,
+            "max_bf16_ulp": 0.0,
+            "changed": 0,
+            "elements": 52224
+          },
+          "rollback_exact": true
+        },
+        {
+          "shape": [
+            173,
+            3072,
+            4096
+          ],
+          "input_stride": [
+            4096,
+            1
+          ],
+          "comparison": {
+            "finite": true,
+            "exact": false,
+            "max_abs": 0.001953125,
+            "max_bf16_ulp": 1.0,
+            "changed": 1,
+            "elements": 531456
+          },
+          "rollback_exact": true
+        }
+      ],
+      "stats": {
+        "calls": 3,
+        "replaced": 3,
+        "fallback": 0,
+        "shape_counts": {
+          "1,3072,4096": 1,
+          "17,3072,4096": 1,
+          "173,3072,4096": 1
+        },
+        "max_abs": 0.001953125,
+        "max_bf16_ulp": 1.0,
+        "changed_elements": 1,
+        "elements": 586752,
+        "reference_checks": [
+          {
+            "mode": "decode",
+            "path": "/experiment/evidence/real_inputs/rankisolated_slice4_decode.pt",
+            "int32_exact": true,
+            "fp32": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 8
+            },
+            "fp64": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 8
+            }
+          },
+          {
+            "mode": "prefill",
+            "path": "/experiment/evidence/real_inputs/rankisolated_slice4_prefill.pt",
+            "int32_exact": true,
+            "fp32": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 32
+            },
+            "fp64": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 32
+            }
+          }
+        ]
+      }
+    },
+    {
+      "checkpoint_slice": 5,
+      "device": 0,
+      "gate_up_rows_per_projection": [
+        7680,
+        9216
+      ],
+      "weight_sha256": "40d17153d2e1f46eb59dd68c26640c5106a88de6b5bb678bf08c0a8efdfafcd7",
+      "scale_sha256": "858f11affe62815a584e8aa541091174260d056a0817a60f6c52dcad9b5df5a1",
+      "scheme": "CompressedTensorsW8A8Int8",
+      "original_kernel": "vllm_metax.registry.linear_kernels.int8.MctlassScaledMMLinearKernel",
+      "processed_weight_shape": [
+        4096,
+        3072
+      ],
+      "processed_weight_stride": [
+        1,
+        4096
+      ],
+      "cases": [
+        {
+          "shape": [
+            1,
+            3072,
+            4096
+          ],
+          "input_stride": [
+            4096,
+            1
+          ],
+          "comparison": {
+            "finite": true,
+            "exact": true,
+            "max_abs": 0.0,
+            "max_bf16_ulp": 0.0,
+            "changed": 0,
+            "elements": 3072
+          },
+          "rollback_exact": true
+        },
+        {
+          "shape": [
+            17,
+            3072,
+            4096
+          ],
+          "input_stride": [
+            8192,
+            2
+          ],
+          "comparison": {
+            "finite": true,
+            "exact": true,
+            "max_abs": 0.0,
+            "max_bf16_ulp": 0.0,
+            "changed": 0,
+            "elements": 52224
+          },
+          "rollback_exact": true
+        },
+        {
+          "shape": [
+            173,
+            3072,
+            4096
+          ],
+          "input_stride": [
+            4096,
+            1
+          ],
+          "comparison": {
+            "finite": true,
+            "exact": true,
+            "max_abs": 0.0,
+            "max_bf16_ulp": 0.0,
+            "changed": 0,
+            "elements": 531456
+          },
+          "rollback_exact": true
+        }
+      ],
+      "stats": {
+        "calls": 3,
+        "replaced": 3,
+        "fallback": 0,
+        "shape_counts": {
+          "1,3072,4096": 1,
+          "17,3072,4096": 1,
+          "173,3072,4096": 1
+        },
+        "max_abs": 0.0,
+        "max_bf16_ulp": 0.0,
+        "changed_elements": 0,
+        "elements": 586752,
+        "reference_checks": [
+          {
+            "mode": "decode",
+            "path": "/experiment/evidence/real_inputs/rankisolated_slice5_decode.pt",
+            "int32_exact": true,
+            "fp32": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 8
+            },
+            "fp64": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 8
+            }
+          },
+          {
+            "mode": "prefill",
+            "path": "/experiment/evidence/real_inputs/rankisolated_slice5_prefill.pt",
+            "int32_exact": true,
+            "fp32": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 32
+            },
+            "fp64": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 32
+            }
+          }
+        ]
+      }
+    },
+    {
+      "checkpoint_slice": 6,
+      "device": 0,
+      "gate_up_rows_per_projection": [
+        9216,
+        10752
+      ],
+      "weight_sha256": "10d29fcdd3b85396060e2622130a10461d433b912343505e2f90bada3454a23d",
+      "scale_sha256": "ee08c54fe0917bc8e49beb85aa8935dbeec2c59e0bd0decdbe24347ed39099ae",
+      "scheme": "CompressedTensorsW8A8Int8",
+      "original_kernel": "vllm_metax.registry.linear_kernels.int8.MctlassScaledMMLinearKernel",
+      "processed_weight_shape": [
+        4096,
+        3072
+      ],
+      "processed_weight_stride": [
+        1,
+        4096
+      ],
+      "cases": [
+        {
+          "shape": [
+            1,
+            3072,
+            4096
+          ],
+          "input_stride": [
+            4096,
+            1
+          ],
+          "comparison": {
+            "finite": true,
+            "exact": true,
+            "max_abs": 0.0,
+            "max_bf16_ulp": 0.0,
+            "changed": 0,
+            "elements": 3072
+          },
+          "rollback_exact": true
+        },
+        {
+          "shape": [
+            17,
+            3072,
+            4096
+          ],
+          "input_stride": [
+            8192,
+            2
+          ],
+          "comparison": {
+            "finite": true,
+            "exact": true,
+            "max_abs": 0.0,
+            "max_bf16_ulp": 0.0,
+            "changed": 0,
+            "elements": 52224
+          },
+          "rollback_exact": true
+        },
+        {
+          "shape": [
+            173,
+            3072,
+            4096
+          ],
+          "input_stride": [
+            4096,
+            1
+          ],
+          "comparison": {
+            "finite": true,
+            "exact": false,
+            "max_abs": 0.001953125,
+            "max_bf16_ulp": 1.0,
+            "changed": 2,
+            "elements": 531456
+          },
+          "rollback_exact": true
+        }
+      ],
+      "stats": {
+        "calls": 3,
+        "replaced": 3,
+        "fallback": 0,
+        "shape_counts": {
+          "1,3072,4096": 1,
+          "17,3072,4096": 1,
+          "173,3072,4096": 1
+        },
+        "max_abs": 0.001953125,
+        "max_bf16_ulp": 1.0,
+        "changed_elements": 2,
+        "elements": 586752,
+        "reference_checks": [
+          {
+            "mode": "decode",
+            "path": "/experiment/evidence/real_inputs/rankisolated_slice6_decode.pt",
+            "int32_exact": true,
+            "fp32": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 8
+            },
+            "fp64": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 8
+            }
+          },
+          {
+            "mode": "prefill",
+            "path": "/experiment/evidence/real_inputs/rankisolated_slice6_prefill.pt",
+            "int32_exact": true,
+            "fp32": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 32
+            },
+            "fp64": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 32
+            }
+          }
+        ]
+      }
+    },
+    {
+      "checkpoint_slice": 7,
+      "device": 0,
+      "gate_up_rows_per_projection": [
+        10752,
+        12288
+      ],
+      "weight_sha256": "22a81738a8c7bfbfa97c19af8e9510d6a2800cd4b6ac90bce6bd6a41c850ec15",
+      "scale_sha256": "4ffc15fe14acc79827152c774723bad2b03e810a44e0d70de5f3ba789c1b405e",
+      "scheme": "CompressedTensorsW8A8Int8",
+      "original_kernel": "vllm_metax.registry.linear_kernels.int8.MctlassScaledMMLinearKernel",
+      "processed_weight_shape": [
+        4096,
+        3072
+      ],
+      "processed_weight_stride": [
+        1,
+        4096
+      ],
+      "cases": [
+        {
+          "shape": [
+            1,
+            3072,
+            4096
+          ],
+          "input_stride": [
+            4096,
+            1
+          ],
+          "comparison": {
+            "finite": true,
+            "exact": true,
+            "max_abs": 0.0,
+            "max_bf16_ulp": 0.0,
+            "changed": 0,
+            "elements": 3072
+          },
+          "rollback_exact": true
+        },
+        {
+          "shape": [
+            17,
+            3072,
+            4096
+          ],
+          "input_stride": [
+            8192,
+            2
+          ],
+          "comparison": {
+            "finite": true,
+            "exact": true,
+            "max_abs": 0.0,
+            "max_bf16_ulp": 0.0,
+            "changed": 0,
+            "elements": 52224
+          },
+          "rollback_exact": true
+        },
+        {
+          "shape": [
+            173,
+            3072,
+            4096
+          ],
+          "input_stride": [
+            4096,
+            1
+          ],
+          "comparison": {
+            "finite": true,
+            "exact": false,
+            "max_abs": 0.00390625,
+            "max_bf16_ulp": 1.0,
+            "changed": 3,
+            "elements": 531456
+          },
+          "rollback_exact": true
+        }
+      ],
+      "stats": {
+        "calls": 3,
+        "replaced": 3,
+        "fallback": 0,
+        "shape_counts": {
+          "1,3072,4096": 1,
+          "17,3072,4096": 1,
+          "173,3072,4096": 1
+        },
+        "max_abs": 0.00390625,
+        "max_bf16_ulp": 1.0,
+        "changed_elements": 3,
+        "elements": 586752,
+        "reference_checks": [
+          {
+            "mode": "decode",
+            "path": "/experiment/evidence/real_inputs/rankisolated_slice7_decode.pt",
+            "int32_exact": true,
+            "fp32": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 8
+            },
+            "fp64": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 8
+            }
+          },
+          {
+            "mode": "prefill",
+            "path": "/experiment/evidence/real_inputs/rankisolated_slice7_prefill.pt",
+            "int32_exact": true,
+            "fp32": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 32
+            },
+            "fp64": {
+              "finite": true,
+              "exact": true,
+              "max_abs": 0.0,
+              "max_bf16_ulp": 0.0,
+              "changed": 0,
+              "elements": 32
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_MXMACA编译器内建函数编程指南_CN_V01.pdf
+文档 ID: builtins-v01
+SHA256: 80dfb3a83381e48e19968b432d4eb24d37c505bd711af14f74889277cffc3835
+PDF 页序号: 38
+PDF 页码标签: 32
+页脚页码候选: 32
+章节提示（书签推断）: __builtin_mxc_pk_add_f32
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® 编译器内建函数编程指南
+表 3.25 __builtin_mxc_mad_wide 参数说明
+名称 描述
+return_value 64bit 返回值
+a 32bit 乘法操作数
+b 32bit 乘法操作数
+c 64bit 累加操作数
+代码示例
+__global__ void test_mxc_madi32(int a,int b,int64_t c,int64_t* d) {
+d[0]=__builtin_mxc_mad_wide_i32(a,b,c);
+}
+__global__ void test_mxc_madu32(unsigned int a,unsigned int b,uint64_t c,uint64_t* 
+,→d) {
+d[0]=__builtin_mxc_mad_wide_u32(a,b,c);
+}
+3.7.2 __builtin_mxc_pk_mul_f32
+功能描述
+单精度浮点向量乘法。d[0] = a[0] * b[0] d[1] = a[1] * b[1]
+接口声明
+v2f32 __builtin_mxc_pk_mul_f32(v2f32 a, v2f32 b);
+代码示例
+typedef __NATIVE_VECTOR__(2, float) v2f32;
+__global__ void pkFmulKernel(v2f32* input, v2f32* output, size_t size) {
+int idx = threadIdx.x;
+output[idx] = __builtin_mxc_pk_mul_f32(input[idx], output[idx]);
+}
+3.7.3 __builtin_mxc_pk_add_f32
+功能描述
+单精度浮点向量加法。d[0] = a[0] + b[0] d[1] = a[1] + b[1]
+接口声明
+v2f32 __builtin_mxc_pk_add_f32(v2f32 a, v2f32 b);
+3 接口介绍 沐曦股份专有信息 OG‑26013‑000‑F5_V01 | 32

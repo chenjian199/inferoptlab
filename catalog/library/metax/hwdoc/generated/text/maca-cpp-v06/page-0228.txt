@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 228
+PDF 页码标签: 220
+页脚页码候选: 220
+章节提示（书签推断）: 类型转换intrinsic
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+• 返回转换的结果。
+函数描述
+• 将double数据x用向最近偶数舍入模式转换成一个64位有符号整数。
+__device__ long long int __double2ll_ru (double x)
+把一个double用向上舍入模式转换成一个64位有符号整数。
+返回值
+• 返回转换的结果。
+函数描述
+• 将double数据x用向上舍入模式转换成一个64位有符号整数。
+__device__ long long int __double2ll_rz (double x)
+把一个double用向零舍入模式转换成一个64位有符号整数。
+返回值
+• 返回转换的结果。
+函数描述
+• 将double数据x用向零舍入模式转换成一个64位有符号整数。
+__device__ int __double2loint (double x)
+将double中的低32位重新解释为有符号整数。
+返回值
+• 返回转换的结果。
+函数描述
+• 将double数据x中的低32位重新解释为有符号整数。
+__device__ unsigned int __double2uint_rd (double x)
+把一个double用向下舍入模式转换成一个unsignedint。
+返回值
+• 返回转换的结果。
+函数描述
+• 将double数据x用向下舍入模式转换成一个无符号整数值。
+__device__ unsigned int __double2uint_rn (double x)
+把一个double用向最近偶数舍入模式转换成一个无符号整数。
+返回值
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 220

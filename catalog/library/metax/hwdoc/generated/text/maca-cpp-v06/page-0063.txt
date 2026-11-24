@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 63
+PDF 页码标签: 55
+页脚页码候选: 55
+章节提示（书签推断）: 半精度转换与数据移动函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+函数描述
+• 输入指针，返回指针指向的值。
+__device__ __half __ll2half_rd (const long long int i)
+参数
+i
+• longlongint，只读入参
+返回值
+• half，将i转换成half结构
+函数描述
+• 以向下舍入模式将signed64bitint类型的i，转换成半精度的浮点类型输出。
+__host__ __device__ __half __ll2half_rn (const long long int i)
+参数
+i
+• longlongint，只读入参
+返回值
+• half，将i转换成half结构
+函数描述
+• 以向最近偶数舍入模式将signed64bitint类型的i，转换成半精度的浮点类型输出。
+__device__ __half __ll2half_ru (const long long int i)
+参数
+i
+• longlongint，只读入参
+返回值
+• half，将i转换成half结构
+函数描述
+• 以向上舍入的模式将signed64bitint类型的i，转换成半精度的浮点类型输出。
+__device__ __half __ll2half_rz (const long long int i)
+参数
+i
+• longlongint，只读入参
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 55

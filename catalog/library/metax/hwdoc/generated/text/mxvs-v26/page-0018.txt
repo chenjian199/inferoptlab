@@ -1,0 +1,37 @@
+文档: 沐曦通用GPU_mxvs测试工具套件使用手册_CN_V26.pdf
+文档 ID: mxvs-v26
+SHA256: f14e664d429c6568ce5723a3a83c7a9164c2fcb33fd59137fb49c1128ab63ce2
+PDF 页序号: 18
+PDF 页码标签: 8
+页脚页码候选: 8
+章节提示（书签推断）: PCIe双向带宽测试
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mxvs 测试工具套件使用手册
+6.3 PCIe 双向带宽测试
+命令
+/opt/maca/bin/mxvs pcie benchmark bidirection --devices <DEVICE_1>,<DEVICE_2>
+命令参数
+表 6.3 PCIe 双向带宽测试命令参数
+参数 必填 描述
+-d, --devices 是 双向带宽测试对象 PCIe 设备编号，选择两个以上设备测试。
+如果需要指定所有设备，可用 all 作为参数值。
+-s, --data-sizes 否 指定测试的基准数据流，支持单个基准数据流测试或多个基
+准数据流同时进行测试。可选单位有 KB、MB、GB，示例：
+--data-sizes 1KB,1MB,1GB 。默认选择 1GB 的基准数
+据流进行测试。
+--cpu-affinity 否 设置 CPU 亲和度，如需指定多个 CPU 核心编号，可通过逗
+号分隔。
+--bref 否 仅显示测试结果，不显示 MetaX GPU 基本信息。
+--json 否 将结果以 JSON 格式输出到文本中，可指定输出的文件名，
+如 --json result.json
+--monitor-log 否 在测试期间若有内核错误可打印显示。
+--no-check 否 指定该参数关闭数据校验，默认数据校验为打开。
+--detail 否 显示详细 GPU 测试结果，默认仅显示整板测试结果。
+输出结果
+图 6.3 双向带宽测试结果示例图
+注解: 若不同 NUMA 节点下的设备带宽结果相差较大，且通过 --cpu-affinity 指定合适的 CPU
+核心编号后，依旧是一样结果，则可以尝试执行以下命令清理缓存，避免 cache 导致的跨 NUMA 节
+点内存访问。
+echo 3 > /proc/sys/vm/drop_caches
+6 PCIe 验收测试工具 沐曦股份专有信息 OG‑23023‑020‑F5_V26 | 8

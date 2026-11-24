@@ -1,0 +1,134 @@
+{
+  "python": "3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]",
+  "cwd": "/workspace",
+  "env": {
+    "PYTHONPATH": null,
+    "USE_PRECOMPILED_KERNEL": null,
+    "MACA_PATH": "/opt/maca",
+    "CUDA_PATH": "/opt/maca/tools/cu-bridge"
+  },
+  "modules": {
+    "torch": {
+      "file": "/opt/conda/lib/python3.12/site-packages/torch/__init__.py",
+      "version": "2.10.0+metax3.8.2.2"
+    },
+    "triton": {
+      "file": "/opt/conda/lib/python3.12/site-packages/triton/__init__.py",
+      "version": "3.6.0"
+    },
+    "vllm": {
+      "file": "/opt/conda/lib/python3.12/site-packages/vllm/__init__.py",
+      "version": "0.28.0"
+    },
+    "vllm_metax": {
+      "file": "/opt/conda/lib/python3.12/site-packages/vllm_metax/__init__.py",
+      "version": "0.28.0+g4840e8.d20261111"
+    },
+    "mcoplib": {
+      "file": "/opt/conda/lib/python3.12/site-packages/mcoplib/__init__.py",
+      "version": null
+    },
+    "mctlassEx": {
+      "file": "/opt/conda/lib/python3.12/site-packages/mctlassEx/__init__.py",
+      "version": null
+    },
+    "transformers": {
+      "file": "/opt/conda/lib/python3.12/site-packages/transformers/__init__.py",
+      "version": "5.17.0"
+    },
+    "compressed_tensors": {
+      "file": "/opt/conda/lib/python3.12/site-packages/compressed_tensors/__init__.py",
+      "version": "0.17.0"
+    }
+  },
+  "packages": {
+    "transformers": [
+      {
+        "version": "5.17.0",
+        "direct_url": null
+      }
+    ],
+    "torch": [
+      {
+        "version": "2.10.0+metax3.8.2.2",
+        "direct_url": "{\"archive_info\": {\"hash\": \"sha256=5c715084ffc2a51df0ce5d1f657e9bbb09f7c56effd8e5e840aaf6b2c2086ed6\", \"hashes\": {\"sha256\": \"5c715084ffc2a51df0ce5d1f657e9bbb09f7c56effd8e5e840aaf6b2c2086ed6\"}}, \"url\": \"file:///mnt/wheel/torch-2.10.0%2Bmetax3.8.2.2-cp312-cp312-linux_x86_64.whl\"}"
+      }
+    ],
+    "triton": [
+      {
+        "version": "3.6.0+metax3.8.2.2",
+        "direct_url": "{\"archive_info\": {\"hash\": \"sha256=b1a8cbb7715a20166e51a1e358c09ef231baa7bc55e5ee02dabc84b610c60e5a\", \"hashes\": {\"sha256\": \"b1a8cbb7715a20166e51a1e358c09ef231baa7bc55e5ee02dabc84b610c60e5a\"}}, \"url\": \"file:///mnt/wheel/triton-3.6.0%2Bmetax3.8.2.2-cp312-cp312-linux_x86_64.whl\"}"
+      }
+    ],
+    "mctlassEx": [
+      {
+        "version": "0.1.1+metax3.8.2.2torch2.10",
+        "direct_url": "{\"archive_info\": {\"hash\": \"sha256=c0a4a4abf94e3275f558d6905f6254d7e2675da404657bf6ebb3e157c85f08d9\", \"hashes\": {\"sha256\": \"c0a4a4abf94e3275f558d6905f6254d7e2675da404657bf6ebb3e157c85f08d9\"}}, \"url\": \"file:///mnt/wheel/mctlassEx-0.1.1%2Bmetax3.8.2.2torch2.10-cp312-cp312-linux_x86_64.whl\"}"
+      }
+    ],
+    "torchvision": [
+      {
+        "version": "0.25.0+metax3.8.2.2",
+        "direct_url": "{\"archive_info\": {\"hash\": \"sha256=3f39e44a8bcd95050c48050f01ea722245dab1ae016b6763221aef87e6afc7bc\", \"hashes\": {\"sha256\": \"3f39e44a8bcd95050c48050f01ea722245dab1ae016b6763221aef87e6afc7bc\"}}, \"url\": \"file:///mnt/wheel/torchvision-0.25.0%2Bmetax3.8.2.2-cp312-cp312-linux_x86_64.whl\"}"
+      }
+    ],
+    "torchcodec": [
+      {
+        "version": "0.6.0+metax3.8.2.2",
+        "direct_url": "{\"archive_info\": {\"hash\": \"sha256=c91e279b505ed1b67a0dfd682c7042aefd47a4993d83b804aeb5dcc747da52d6\", \"hashes\": {\"sha256\": \"c91e279b505ed1b67a0dfd682c7042aefd47a4993d83b804aeb5dcc747da52d6\"}}, \"url\": \"file:///mnt/wheel/torchcodec-0.6.0%2Bmetax3.8.2.2-cp312-cp312-linux_x86_64.whl\"}"
+      }
+    ],
+    "torchaudio": [
+      {
+        "version": "2.4.1+metax3.8.2.2",
+        "direct_url": "{\"archive_info\": {\"hash\": \"sha256=3b652c1a779265acfeeac23d3aba8578df34899a6968ab106d9581510b3b2f3f\", \"hashes\": {\"sha256\": \"3b652c1a779265acfeeac23d3aba8578df34899a6968ab106d9581510b3b2f3f\"}}, \"url\": \"file:///mnt/wheel/torchaudio-2.4.1%2Bmetax3.8.2.2-cp312-cp312-linux_x86_64.whl\"}"
+      }
+    ],
+    "modelscope": [
+      {
+        "version": "1.40.3",
+        "direct_url": null
+      }
+    ],
+    "vllm_metax": [
+      {
+        "version": "0.28.0+g4840e8.d20261111.maca3.8.2.6.torch2.10.0",
+        "direct_url": null
+      },
+      {
+        "version": "0.28.0+g4840e8.d20261111.maca3.8.2.6.torch2.10.0",
+        "direct_url": "{\"dir_info\": {\"editable\": true}, \"url\": \"file:///workspace/vLLM-metax\"}"
+      }
+    ],
+    "modelscope-hub": [
+      {
+        "version": "0.7.1",
+        "direct_url": null
+      }
+    ],
+    "vllm": [
+      {
+        "version": "0.28.0",
+        "direct_url": null
+      }
+    ],
+    "compressed-tensors": [
+      {
+        "version": "0.17.0",
+        "direct_url": null
+      }
+    ],
+    "mcoplib": [
+      {
+        "version": "0.4.13+gcdc10b7.maca3.8.2.6.torch2.10",
+        "direct_url": "{\"archive_info\": {\"hash\": \"sha256=1e917afab49f0ddbcfb1493b68d7a9b818f33ffe2911b91bc2b14b86599b5d15\", \"hashes\": {\"sha256\": \"1e917afab49f0ddbcfb1493b68d7a9b818f33ffe2911b91bc2b14b86599b5d15\"}}, \"url\": \"file:///mnt/wheel/mcoplib-0.4.13%2Bgcdc10b7.maca3.8.2.6.torch2.10-cp312-cp312-linux_x86_64.whl\"}"
+      }
+    ],
+    "torch_c_dlpack_ext": [
+      {
+        "version": "0.1.5",
+        "direct_url": null
+      }
+    ]
+  }
+}

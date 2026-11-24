@@ -1,0 +1,82 @@
+{
+  "schema_version": "0.2.0",
+  "kind": "MeasurementBundle",
+  "run_id": "run-e6846eba0d334d5a",
+  "comparison_sha256": "cff0a3f04ccf1f2d1238c68c193afb1bbde099c837a56ecad175f42a2d72940d",
+  "evidence_kind": "measured",
+  "validity": "valid",
+  "issues": [],
+  "counts": {
+    "planned": 4,
+    "observed": 4,
+    "succeeded": 4,
+    "failed": 0,
+    "missing": 0
+  },
+  "duration_s": 1.529631223,
+  "statistics": {
+    "ttft": {
+      "count": 4,
+      "mean": 37.705014999999996,
+      "min": 31.306732999999998,
+      "max": 55.462931999999995,
+      "p50": 32.0251975,
+      "p90": 48.6430827,
+      "p95": 52.05300734999999,
+      "p99": 54.78094706999999
+    },
+    "tpot": {
+      "count": 4,
+      "mean": 22.867311266666665,
+      "min": 22.846244666666667,
+      "max": 22.923686866666664,
+      "p50": 22.849656766666666,
+      "p90": 22.902304686666664,
+      "p95": 22.912995776666662,
+      "p99": 22.921548648666665
+    },
+    "e2e_latency": {
+      "count": 4,
+      "mean": 380.714684,
+      "min": 374.000403,
+      "max": 399.31823499999996,
+      "p50": 374.770049,
+      "p90": 392.15284749999995,
+      "p95": 395.73554125,
+      "p99": 398.60169625
+    },
+    "input_tokens": {
+      "count": 4,
+      "mean": 128.0,
+      "min": 128,
+      "max": 128,
+      "p50": 128.0,
+      "p90": 128.0,
+      "p95": 128.0,
+      "p99": 128.0
+    },
+    "output_tokens": {
+      "count": 4,
+      "mean": 16.0,
+      "min": 16,
+      "max": 16,
+      "p50": 16.0,
+      "p90": 16.0,
+      "p95": 16.0,
+      "p99": 16.0
+    }
+  },
+  "rates": {
+    "success_rate": 1.0,
+    "request_throughput": 2.6150093825588705,
+    "input_token_throughput": 334.7212009675354,
+    "output_token_throughput": 41.84015012094193
+  },
+  "semantics": {
+    "latency_population": "successful_requests",
+    "rate_window": "first AIPerf request_start_ns to last request_end_ns, including recorded failures/timeouts",
+    "percentile_method": "linear interpolation at (n-1)*q",
+    "tpot": "client (request_latency - TTFT)/(actual output tokens - 1); requires single-token streaming; not a token-level ITL distribution"
+  },
+  "raw_sha256": "6372f9d72385756b7833b2fb8f0711a11dcf56f5ab6cc0c5e0c5995daadffa3e"
+}

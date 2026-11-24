@@ -1,0 +1,44 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 56
+PDF 页码标签: 44
+页脚页码候选: 44
+章节提示（书签推断）: 服务端部署
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+(续上页)
+export LD_LIBRARY_PATH=${MACA_PATH}/lib:${MACA_PATH}/mxgpu_llvm/lib:${LD_LIBRARY_
+,→PATH}
+export USE_GEMM_NN=true
+benchmark_7b.sh
+执行完上述命令后，会输出对应设置下的性能测试数据，如下所示：
+CSV format header:prefill(ms),decode(ms),avg(ms),tps(ms),mem(gib)
+CSV format output:40.16,14.2576,14.4599,69.1567,14.3461
+分别对应 prefill 耗时、平均 decode 延迟、平均 step 延迟、tokens 吞吐 （tokens per second） 以及
+显存使用。
+注解: 执行测试脚本前，需要激活测试环境变量，否则会测试失败。
+6.3.4 服务化部署
+大模型服务化部署是一种将大模型应用于实际场景的有效方式。它具有以下优势：
+• 提供更高的性能和更准确的结果。由于大模型具备更深层次的理解和更复杂的参数配置，其在各种任
+务上表现更出色。通过将大模型部署为服务，可以利用其强大的计算能力和学习能力，为用户提供更
+高质量的预测、推荐和决策。
+• 可以实现灵活的扩展性和定制化需求。采用服务化架构，可以将模型与其他组件解耦，使得系统更易
+于扩展和维护。同时，根据不同业务需求，可以对大模型进行个性化的调整和优化，以满足特定任务
+的要求。
+• 提升数据安全和隐私保护。通过将模型部署在云端或私有环境中，可以有效保护敏感数据的安全性，
+避免将数据传输到公共网络或设备中。这种集中化的方式可以通过严格的权限控制和加密技术来保护
+用户数据的隐私。
+总的来说，大模型服务化部署具有性能优越、灵活扩展和安全保护等诸多优势，可为各行各业提供更高
+水平的智能服务。
+本节将从服务端部署、C++ 客户端部署、Python 客户端部署三个部分介绍服务化部署。
+6.3.4.1 服务端部署
+服务端部署依赖文件如下：
+• ppl_llm_server： 服务端部署可执行文件， 安装ppl.llm.serving_*_amd64.deb 后在/opt/maca‑
+ai/ppl.llm.serving/bin/下获取。
+• xxx_config.json： 特 定 大 模 型 配 置 文 件， ppl_llm_server 通 过 解 析 该 配 置 文 件
+加 载 并 运 行 对 应 的 模 型。 安 装 ppl.llm.serving_*_amd64.deb 后， 在 /opt/maca‑
+ai/ppl.llm.serving/samples/samples/ppl_server_client/model_config/ 路 径 下， 可 找 到 当
+前所有已支持模型的配置示例。
+6 MacaRT‑LLM 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 44

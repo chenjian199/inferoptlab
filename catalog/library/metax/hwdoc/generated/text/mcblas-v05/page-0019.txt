@@ -1,0 +1,37 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 19
+PDF 页码标签: 12
+页脚页码候选: 12
+章节提示（书签推断）: mcblasGetProperty()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+2.2.2 mcblasDestroy()
+mcblasStatus_t
+mcblasDestroy(mcblasHandle_t handle)
+此函数释放 mcBLAS 库使用的硬件资源。此函数通常是使用 mcBLAS 库的特定句柄进行的最后一次
+调用。由于通过 mcblasCreate() 分配一些内部资源和通过 mcblasDestroy() 释放这些资源将隐
+式调用 mcblasDeviceSynchronize()， 因此建议尽量减少mcblasCreate()/mcblasDestroy()
+的调用次数。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 释放成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+2.2.3 mcblasGetVersion()
+mcblasStatus_t
+mcblasGetVersion(mcblasHandle_t handle, int *version)
+此函数返回 mcBLAS 库的版本号。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_INVALID_VALUE 为库版本号提供的存储未初始化（NULL）
+2.2.4 mcblasGetProperty()
+mcblasStatus_t
+mcblasGetProperty(libraryPropertyType type, int *value)
+该函数返回内存中请求属性的值（由 value 指向） 。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_INVALID_VALUE 无效的类型值
+• 无效的类型值
+• value == NULL
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 12

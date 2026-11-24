@@ -1,0 +1,92 @@
+# GPU Benchmark
+
+## 项目简介
+
+GPU Benchmark是一个用于评估和比较不同 GPU 性能的开源项目。通过运行一系列任务, GPU Benchmark 能够帮助用户了解不同 GPU 在执行特定任务时的性能表现。受到[cu-bridge](https://gitee.com/p4ul/cu-bridge)项目的启发，本项目致力于构建一套用CUDA编程语言构建的benchmark, 方便评估不同厂商GPU硬件性能和软件优化水平。
+
+## 功能特性
+
+- 支持多种厂商 GPU 类型（目前支持MetaX, NVIDIA）
+- 提供多种基准测试任务
+- 提供性能报告和分析脚本
+- 易于扩展和定制测试集
+  
+## 项目结构
+- **benchmarks**: 存放 Compute、Memory、Op、Algorithm四大类benchmark case
+- **docs**: 存放项目文档，包含benchmark case添加规则，脚本使用说明等
+- **report**: 存放 benchmark case 运行的性能数据和图表, 使用脚本测试benchmark case后自动创建该目录
+- **scripts**: 存放编译运行 benchmark case 的脚本以及统计分析性能的脚本
+- **tools**: 存放benchmark脚本工具以及benchmark case 配置的YAML文件
+- **utils**: benchmark case的公共头文件
+
+## 跨平台兼容
+本项目所有benchmark case都在Nvidia A100和MetaXGPU上进行了测试。为了保证代码在不同平台上的兼容性，需要注意以下几点：
+1. benchmark 所有测试case都用cuda编程语言编写且不允许使用PTX写法
+2. 为保证测试性能的准确性和稳定性，测试benchmark case 时注意要warm up kernel 和锁频设置
+3. 不同GPU硬件架构实现上有些差异，如WarpSize的区别，需要用宏进行隔离。部分代码在不同平台需要切换宏定义中的NVIDIA_GPU_ARCH或METAX_GPU_ARCH
+4. 部分case下的子目录有自己的README.md, 使用前请仔细阅读
+
+## 系统需求
+
+请确保您的系统满足以下软件要求：
+- 操作系统：Linux
+- CUDA Toolkit 版本 >= 11.6
+- MXMACA Toolkit 版本 >= 2.27
+- Python 版本 >= 3.8
+- 相关 Python 库（见[requirements.txt](./requirements.txt)）
+
+
+## 安装
+
+要安装 GPU Benchmark，请按照以下步骤操作：
+1. 建议在安装了以下软件的系统环境中安装cu-bridge, 然后再开始使用
+   
+   | 软件安装     | 安装指南                                                     |      |
+   | ------------ | ------------------------------------------------------------ | ---- |
+   | CUDA工具包   | 详见[NVIDIA CUDA Installation Guide for Linux](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html) |      |
+   | MXMACA工具包 | 详见[MXMACA快速上手指南](https://www.metax-tech.com/platform.html?cid=4) |      |
+   
+2. 安装cu-bridge，详见[cu-bridge使用指南](https://gitee.com/p4ul/cu-bridge/tree/master/docs/02_User_Manual)
+
+## 测量方法
+ - 连续多次执行benchmark case，取性能平均值
+
+
+## 范围
+ - GPU Benchmark 用于测量gpu kernel在单卡GPU上执行时间和性能
+
+## 使用方法
+
+1. 使用 GPU Benchmark 非常简单, 每个case都可以单独编译。
+
+   - 如果要在NVIDIA平台测试, 直接在case所在目录 `make`
+
+   - 如果要在MetaX平台测试, 直接在case所在目录 `make CC=cucc` 
+
+
+2. 本项目提供脚本可将所有benchmark case 一键编译运行，编译和运行的结果以json文件保存在`report`目录中。
+
+具体使用方式可查看脚本使用文档[script_usage](./docs/script_usage.md)。以下是一个基本的使用示例：
+
+ - 如运行MetaX基准测试：
+   ```sh
+   cd gpu-benchmark/scripts
+   ./run_metax_bench.sh
+   ```
+
+- 查看结果：
+
+   基准测试完成后，结果将保存在`report` 目录中。可以打开相关文件查看详细的性能报告。
+
+3. benchmark case 测试集自定义配置方法及新增benchmark case要求，请参考[benchmarks.md](./docs/benchmarks.md)
+
+## 贡献
+
+我们欢迎任何形式的贡献。如果你有任何建议、问题或发现了 bug，请通过 GitHub Issues 与我们联系。
+
+## 开源协议
+
+基于Apache-2.0协议。详细信息请参阅 [LICENSE](./LICENSE) 文件。
+
+
+感谢你使用 GPU Benchmark！

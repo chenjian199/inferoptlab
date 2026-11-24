@@ -1,0 +1,762 @@
+{
+  "schema_version": 1,
+  "components": [
+    {
+      "id": "maca",
+      "name": "MXMACA / SDK",
+      "aliases": [
+        "MXMACA",
+        "MACA SDK",
+        "SDK"
+      ],
+      "images": [
+        "maca"
+      ],
+      "packages": [
+        "SDK"
+      ],
+      "topics": [
+        "environment",
+        "development"
+      ],
+      "documents": [
+        "maca-cpp-v06",
+        "runtime-api-v18",
+        "mxcc-v06"
+      ],
+      "note": "SDK 与基础镜像的导航关联；不代表所有版本包含相同组件。"
+    },
+    {
+      "id": "mcpytorch",
+      "name": "mcPyTorch / maca-pytorch",
+      "aliases": [
+        "mcPyTorch",
+        "PyTorch",
+        "maca-pytorch"
+      ],
+      "images": [
+        "maca-pytorch"
+      ],
+      "packages": [
+        "Pytorch"
+      ],
+      "topics": [
+        "environment",
+        "inference",
+        "training"
+      ],
+      "documents": [
+        "mcpytorch-v16"
+      ]
+    },
+    {
+      "id": "mctriton",
+      "name": "mcTriton",
+      "aliases": [
+        "mcTriton",
+        "Triton 编译器"
+      ],
+      "topics": [
+        "kernels",
+        "development"
+      ],
+      "documents": [
+        "mctriton-v08"
+      ],
+      "related_components": [
+        "mcpytorch"
+      ],
+      "note": "算子编程组件；与 Triton Inference Server 分开。发行入口可参考 PyTorch 配套说明，具体版本需核对。"
+    },
+    {
+      "id": "triton-inference-server",
+      "name": "Triton Inference Server",
+      "aliases": [
+        "Triton-Inference-Server"
+      ],
+      "images": [
+        "triton-inference-server"
+      ],
+      "packages": [
+        "Triton-Inference-Server"
+      ],
+      "topics": [
+        "inference"
+      ],
+      "related_documents": [
+        "ai-inference-v21"
+      ],
+      "note": "推理服务框架；不是 mcTriton。"
+    },
+    {
+      "id": "vllm-metax",
+      "name": "vLLM-MetaX",
+      "aliases": [
+        "vllm-metax"
+      ],
+      "images": [
+        "vllm-metax"
+      ],
+      "packages": [
+        "vLLM【0.10.2版本及以上】"
+      ],
+      "topics": [
+        "inference"
+      ],
+      "related_documents": [
+        "ai-inference-v21"
+      ],
+      "note": "推理手册是背景入口；旧版表格不证明新 tag 的兼容性。"
+    },
+    {
+      "id": "vllm",
+      "name": "vLLM 旧分支",
+      "aliases": [
+        "vllm"
+      ],
+      "images": [
+        "vllm"
+      ],
+      "packages": [
+        "vLLM【0.10.0版本及以下】"
+      ],
+      "topics": [
+        "inference"
+      ],
+      "related_documents": [
+        "ai-inference-v21"
+      ]
+    },
+    {
+      "id": "sglang",
+      "name": "SGLang",
+      "aliases": [
+        "sglang"
+      ],
+      "images": [
+        "sglang"
+      ],
+      "packages": [
+        "SGLANG"
+      ],
+      "topics": [
+        "inference"
+      ],
+      "related_documents": [
+        "ai-inference-v21"
+      ]
+    },
+    {
+      "id": "onnxruntime",
+      "name": "ONNX Runtime",
+      "aliases": [
+        "onnxruntime",
+        "ONNX Runtime"
+      ],
+      "images": [
+        "onnxruntime"
+      ],
+      "packages": [
+        "ONNXRuntime"
+      ],
+      "topics": [
+        "inference"
+      ],
+      "related_documents": [
+        "ai-inference-v21"
+      ]
+    },
+    {
+      "id": "megatron-lm",
+      "name": "Megatron LM",
+      "aliases": [
+        "megatron-lm",
+        "Megatron LM"
+      ],
+      "images": [
+        "megatron-lm"
+      ],
+      "packages": [
+        "Megatron LM"
+      ],
+      "topics": [
+        "training"
+      ]
+    },
+    {
+      "id": "paddle",
+      "name": "Paddle 旧分支",
+      "aliases": [
+        "paddle"
+      ],
+      "images": [
+        "paddle"
+      ],
+      "packages": [
+        "Paddle【2.6.0版本及以下】"
+      ],
+      "topics": [
+        "training"
+      ]
+    },
+    {
+      "id": "paddle-metax",
+      "name": "Paddle-MetaX",
+      "aliases": [
+        "paddle-metax"
+      ],
+      "images": [
+        "paddle-metax"
+      ],
+      "packages": [
+        "Paddle【3.3.0版本及以上】"
+      ],
+      "topics": [
+        "training"
+      ]
+    },
+    {
+      "id": "physicsnemo",
+      "name": "PhysicsNeMo",
+      "aliases": [
+        "PhysicsNeMo"
+      ],
+      "images": [
+        "physicsnemo-maca"
+      ],
+      "packages": [
+        "PhysicsNeMo"
+      ],
+      "topics": [
+        "ai4s"
+      ]
+    },
+    {
+      "id": "pyg",
+      "name": "PyG",
+      "aliases": [
+        "PyG"
+      ],
+      "images": [
+        "pyg_lib-maca"
+      ],
+      "packages": [
+        "PyG"
+      ],
+      "topics": [
+        "ai4s"
+      ],
+      "note": "同生态的目录关联，不将 PyG 与 pyg_lib 视为相同发行物。"
+    },
+    {
+      "id": "warp",
+      "name": "Warp",
+      "aliases": [
+        "Warp"
+      ],
+      "images": [
+        "warp-maca"
+      ],
+      "packages": [
+        "Warp"
+      ],
+      "topics": [
+        "ai4s"
+      ]
+    },
+    {
+      "id": "mccl",
+      "name": "MCCL",
+      "aliases": [
+        "MCCL"
+      ],
+      "topics": [
+        "communication"
+      ],
+      "documents": [
+        "mccl-v08"
+      ],
+      "related_components": [
+        "maca"
+      ]
+    },
+    {
+      "id": "deepep",
+      "name": "DeepEP / MXDeepEP",
+      "aliases": [
+        "DeepEP",
+        "MXDeepEP"
+      ],
+      "topics": [
+        "communication"
+      ],
+      "documents": [
+        "deepep-v01"
+      ],
+      "related_components": [
+        "sdk-python"
+      ],
+      "note": "关联多机通信配置资料；不推定其他 SDK 或单机环境适用。"
+    },
+    {
+      "id": "mcprofiler",
+      "name": "mcProfiler",
+      "aliases": [
+        "mcProfiler"
+      ],
+      "topics": [
+        "profiling"
+      ],
+      "documents": [
+        "mcprofiler-v06"
+      ],
+      "related_components": [
+        "linux-perf-kit",
+        "win-perf-kit"
+      ]
+    },
+    {
+      "id": "mctracer",
+      "name": "mcTracer",
+      "aliases": [
+        "mcTracer"
+      ],
+      "topics": [
+        "profiling"
+      ],
+      "documents": [
+        "mctracer-v08"
+      ],
+      "related_components": [
+        "maca"
+      ]
+    },
+    {
+      "id": "mxvs",
+      "name": "mxvs",
+      "aliases": [
+        "mxvs"
+      ],
+      "topics": [
+        "environment",
+        "profiling",
+        "communication"
+      ],
+      "documents": [
+        "mxvs-v26"
+      ],
+      "related_components": [
+        "maca"
+      ],
+      "note": "不与官网目录中的 mcvs 合并；二者关系待核实。"
+    },
+    {
+      "id": "mxcc",
+      "name": "mxcc",
+      "aliases": [
+        "mxcc"
+      ],
+      "topics": [
+        "development",
+        "kernels"
+      ],
+      "documents": [
+        "mxcc-v06"
+      ],
+      "related_components": [
+        "maca"
+      ]
+    },
+    {
+      "id": "maca-cpp",
+      "name": "MXMACA C++ 编程",
+      "aliases": [
+        "MACA C++"
+      ],
+      "topics": [
+        "kernels",
+        "development"
+      ],
+      "documents": [
+        "maca-cpp-v06",
+        "builtins-v01"
+      ],
+      "related_components": [
+        "maca"
+      ]
+    },
+    {
+      "id": "runtime-api",
+      "name": "运行时 API",
+      "aliases": [
+        "runtime API",
+        "运行时API"
+      ],
+      "topics": [
+        "environment",
+        "kernels",
+        "communication"
+      ],
+      "documents": [
+        "runtime-api-v18"
+      ],
+      "related_components": [
+        "maca"
+      ]
+    },
+    {
+      "id": "clangd",
+      "name": "MXMACA Clangd",
+      "aliases": [
+        "clangd"
+      ],
+      "topics": [
+        "development"
+      ],
+      "documents": [
+        "clangd-v03"
+      ],
+      "related_components": [
+        "maca"
+      ]
+    },
+    {
+      "id": "mcblas",
+      "name": "mcBLAS",
+      "aliases": [
+        "mcBLAS"
+      ],
+      "topics": [
+        "libraries",
+        "kernels"
+      ],
+      "documents": [
+        "mcblas-v05"
+      ],
+      "related_components": [
+        "maca"
+      ]
+    },
+    {
+      "id": "mceigen",
+      "name": "mcEigen",
+      "aliases": [
+        "mcEigen"
+      ],
+      "topics": [
+        "libraries",
+        "development"
+      ],
+      "documents": [
+        "mceigen-v03"
+      ]
+    },
+    {
+      "id": "device-order",
+      "name": "设备卡序配置",
+      "aliases": [
+        "MACA_VISIBLE_DEVICES"
+      ],
+      "topics": [
+        "environment",
+        "communication"
+      ],
+      "documents": [
+        "device-order-v01"
+      ]
+    },
+    {
+      "id": "ai-inference",
+      "name": "AI 推理综合手册",
+      "aliases": [
+        "AI推理",
+        "MacaRT"
+      ],
+      "topics": [
+        "inference"
+      ],
+      "documents": [
+        "ai-inference-v21"
+      ]
+    },
+    {
+      "id": "maca-samples",
+      "name": "MACA 编程示例",
+      "aliases": [
+        "maca-samples"
+      ],
+      "topics": [
+        "development",
+        "kernels"
+      ],
+      "related_documents": [
+        "maca-cpp-v06",
+        "runtime-api-v18",
+        "mxcc-v06"
+      ]
+    },
+    {
+      "id": "mccl-tests",
+      "name": "MCCL 通信测试",
+      "aliases": [
+        "mccl_tests"
+      ],
+      "topics": [
+        "communication",
+        "profiling"
+      ],
+      "related_documents": [
+        "mccl-v08"
+      ],
+      "related_components": [
+        "mccl"
+      ]
+    },
+    {
+      "id": "gpu-benchmark",
+      "name": "GPU 基准测试集合",
+      "aliases": [
+        "gpuBenchmark"
+      ],
+      "topics": [
+        "profiling"
+      ],
+      "related_documents": [
+        "mcprofiler-v06",
+        "mctracer-v08",
+        "mxvs-v26"
+      ]
+    },
+    {
+      "id": "op-optimization",
+      "name": "C500 算子优化实践",
+      "aliases": [
+        "op_optimization"
+      ],
+      "topics": [
+        "kernels",
+        "profiling"
+      ],
+      "related_documents": [
+        "mctriton-v08",
+        "mxcc-v06"
+      ],
+      "related_components": [
+        "tilelang"
+      ]
+    },
+    {
+      "id": "aimodels-pd",
+      "name": "AIModels PD 分离方案",
+      "aliases": [
+        "AIModels",
+        "PD分离"
+      ],
+      "topics": [
+        "inference",
+        "communication"
+      ],
+      "related_documents": [
+        "ai-inference-v21"
+      ],
+      "related_components": [
+        "sglang",
+        "mooncake"
+      ],
+      "note": "此 GitHub 仓库是 PD 分离方案，不与 AI4S aimodels-maca 镜像混同。"
+    },
+    {
+      "id": "verl-metax",
+      "name": "verl MetaX 硬件插件",
+      "aliases": [
+        "verl-metax"
+      ],
+      "topics": [
+        "training"
+      ],
+      "related_components": [
+        "verl"
+      ],
+      "note": "插件与上游 verl 分开记录；关系不证明任意版本配套。"
+    },
+    {
+      "id": "mim",
+      "name": "MIM 镜像服务",
+      "aliases": [
+        "MIM",
+        "Docker registry"
+      ],
+      "topics": [
+        "environment"
+      ],
+      "documents": [],
+      "note": "部署基础设施导航；不表示厂商 C500 软件兼容认证。"
+    },
+    {
+      "id": "mihomo",
+      "name": "Mihomo 下载代理",
+      "aliases": [
+        "Mihomo",
+        "Clash"
+      ],
+      "topics": [
+        "environment"
+      ],
+      "documents": [],
+      "note": "部署基础设施导航；不表示厂商 C500 软件兼容认证。"
+    }
+  ],
+  "repository_bindings": {
+    "vLLM-metax": "vllm-metax",
+    "sglang": "sglang",
+    "vllm-omni-metax": "vllm-omni-metax",
+    "verl-metax": "verl-metax",
+    "mcPytorch": "mcpytorch",
+    "mcTriton": "mctriton",
+    "Onnxruntime": "onnxruntime",
+    "mcoplib": "mcoplib",
+    "MXDeepEP": "deepep",
+    "mccl-nccl": "mccl",
+    "mccl_tests": "mccl-tests",
+    "mcEigen": "mceigen",
+    "mcdf": "mcdf",
+    "mcpy": "mcpy",
+    "mcFaiss": "mcfaiss",
+    "mxExporter": "mx-exporter",
+    "Mooncake": "mooncake",
+    "LMCache": "lmcache",
+    "hpc_warp": "warp",
+    "mxDlrover": "dlrover",
+    "maca-samples": "maca-samples",
+    "gpuBenchmark": "gpu-benchmark",
+    "op_optimization": "op-optimization",
+    "AIModels": "aimodels-pd"
+  },
+  "extra_topics": [
+    {
+      "id": "training",
+      "title": "训练、微调与后训练"
+    },
+    {
+      "id": "ai4s",
+      "title": "科学计算与 AI4S"
+    },
+    {
+      "id": "cloud",
+      "title": "容器、集群与运维"
+    }
+  ],
+  "name_topics": {
+    "modelzoo.cnn.training": [
+      "training"
+    ],
+    "modelzoo.cnn.inference": [
+      "inference"
+    ],
+    "modelzoo.llm.vllm": [
+      "inference"
+    ],
+    "modelzoo.llm.sglang": [
+      "inference"
+    ],
+    "modelzoo.llm.transformers": [
+      "inference"
+    ],
+    "modelzoo.llm.diffusers": [
+      "inference"
+    ],
+    "vllm-omni-metax": [
+      "inference"
+    ],
+    "maca-llm-quantizer": [
+      "inference"
+    ],
+    "cv-cuda": [
+      "kernels"
+    ],
+    "mmcv": [
+      "kernels"
+    ],
+    "mooncake": [
+      "communication",
+      "inference"
+    ],
+    "lmcache": [
+      "inference"
+    ],
+    "bitsandbytes": [
+      "training",
+      "inference"
+    ],
+    "transformerengine": [
+      "training",
+      "kernels"
+    ],
+    "ray【2.46.0版本及以下】": [
+      "training",
+      "cloud"
+    ],
+    "ray【2.48.0版本及以上】": [
+      "training",
+      "cloud"
+    ]
+  },
+  "group_topics": {
+    "基础环境": [
+      "environment"
+    ],
+    "训练框架": [
+      "training"
+    ],
+    "推理框架": [
+      "inference"
+    ],
+    "工具库": [
+      "kernels"
+    ],
+    "ModelZoo": [
+      "inference",
+      "training"
+    ],
+    "科学计算加速工具包": [
+      "libraries"
+    ],
+    "GPU集群管理工具": [
+      "cloud"
+    ],
+    "云平台工具": [
+      "cloud"
+    ],
+    "Perf工具": [
+      "profiling"
+    ]
+  },
+  "category_topics": {
+    "MXMACA": [
+      "environment"
+    ],
+    "AI": [
+      "inference",
+      "training"
+    ],
+    "AI4S": [
+      "ai4s"
+    ],
+    "Cloud-Tools": [
+      "cloud"
+    ],
+    "Driver": [
+      "environment"
+    ],
+    "SDK": [
+      "environment"
+    ],
+    "Tools": [
+      "development"
+    ],
+    "DSL": [
+      "kernels",
+      "development"
+    ]
+  }
+}

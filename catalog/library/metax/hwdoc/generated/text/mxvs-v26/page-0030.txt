@@ -1,0 +1,39 @@
+文档: 沐曦通用GPU_mxvs测试工具套件使用手册_CN_V26.pdf
+文档 ID: mxvs-v26
+SHA256: f14e664d429c6568ce5723a3a83c7a9164c2fcb33fd59137fb49c1128ab63ce2
+PDF 页序号: 30
+PDF 页码标签: 20
+页脚页码候选: 20
+章节提示（书签推断）: XCORE压力测试
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mxvs 测试工具套件使用手册
+11 压力测试
+11.1 XCORE 压力测试
+命令
+/opt/maca/bin/mxvs stress --xcore --xcore-devices <DEVICE_ID>
+命令参数
+表 11.1 XCore 压力测试命令参数
+参数 必填 描述
+--xcore 是 XCORE 压力测试开关。
+--xcore-devices 否 测试对象 PCIe 设备编号，支持单个设备测试或多个设备同
+时测试。如果需要指定所有设备，可用all 作为参数值，默
+认选择所有 PCIe 显卡设备。
+--xcore-datatype 否 指 定 执 行 压 力 测 试 时 的 数 据 类 型， 支 持 的 类 型 有
+half|float|double|int8；MXC600 系列默认为 int8，
+其他 GPU 默认为 half。
+--gpu-memory 否 在 执 行 压 力 测 试 时 可 设 置 指 定 显 存 使 用 量， 如
+--gpu-memory 80 表 示 指 定 显 存 的 80% 执 行 压 力 测 试
+（由于系统预留，当设置为 100 时，无法在 dashboard 中看
+到 Memory 百分百占用）
+--duration 否 以 “HH:MM” 的 格 式， 指 定 执 行 压 力 测 试 的 持 续 时 间，
+默 认 为 00:30。 当 进 行 长 时 间 压 力 测 试 时， 建 议 在
+后 台 执 行， 例：nohup /opt/maca/bin/mxvs stress
+--xcore --duration 12:00 &
+--pulse 否 脉冲测试开关。
+--panels 否 选择要在压力测试面板中展示的内容，默认显示以下几项：
+0：DEVICE LIST（所有可测试的设备列表信息）
+1：BOARD POWER（功耗）
+2：USAGE（使用率）
+--monitor-log 否 在测试期间若有内核错误可打印显示。
+11 压力测试 沐曦股份专有信息 OG‑23023‑020‑F5_V26 | 20

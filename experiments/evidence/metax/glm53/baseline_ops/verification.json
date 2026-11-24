@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "archive_files_checked": 65,
+  "results": {
+    "smoke32": {
+      "tasks": 32,
+      "passed": 31,
+      "pass_at_1": 0.96875
+    },
+    "full164": {
+      "tasks": 164,
+      "passed": 153,
+      "pass_at_1": 0.9329268292682927
+    }
+  },
+  "scope": "Offline integrity and completeness; no inference or candidate code execution.",
+  "artifact_manifest_sha256": "a23a5e4d2aef472eb255183afb03c1bcd16e6f0323aa27583bf538ab64a8f40b"
+}

@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 271
+PDF 页码标签: 263
+页脚页码候选: 263
+章节提示（书签推断）: __builtin_mxc_byte_perm
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+2.18.5 __builtin_unreachable()
+void __builtin_unreachable(void)
+指示编译器控制流从未到达调用此函数的位置。如果控制流在运行时确实达到此点，则程序行为不明确。
+例子：
+// 指示编译器 default分支永远不会到达。
+switch (in) {
+case 1: return 4;
+case 2: return 10;
+default: __builtin_unreachable();
+}
+2.18.6 __builtin_mxc_byte_perm
+描述
+提供字节置换（bytepermute）操作：将 {s0, s1}视为一个8字节数组，通过 perm指定的新顺序对
+其中的字节进行重排。
+语法
+// 伪代码：拆分为单字节数组并按选择器取字节
+byte permute(byte in[8], byte sel) {
+if (sel >= 13) return 0xFF; // 超界返回 0xFF
+else if (sel == 12) return 0; // 12 ：返回 0
+else if (sel == 11) return in[7] & 0xFF;
+else if (sel == 10) return in[6] & 0xFF;
+else if (sel == 9) return in[5] & 0xFF;
+else if (sel == 8) return in[4] & 0xFF;
+else return in[sel] & 0xFF;
+}
+声明
+unsigned int __builtin_mxc_byte_perm(unsigned int s0,
+unsigned int s1,
+unsigned int perm);
+参数
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 263

@@ -1,0 +1,28 @@
+文档: 沐曦通用GPU_mcTriton用户指南_CN_V08.pdf
+文档 ID: mctriton-v08
+SHA256: 5486a806ac8e48e40514347bac7403c40aee53d59515a9bded39cc17a7daed59
+PDF 页序号: 8
+PDF 页码标签: 4
+页脚页码候选: 4
+章节提示（书签推断）: 扩展功能
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcTriton 用户指南
+3 功能支持
+3.1 基本功能
+mcTriton 以兼容 Triton 的原生使用方式为设计目标。大部分情况下，用户可以参考 官方文档 获得
+mcTriton 的使用方式。
+3.1.1 tl.dot 的数据类型支持
+tl.dot 是 Triton 中用于矩阵乘的核心算子。C50X 系列与 C60X 系列产品对 tl.dot 的数据类型支持情
+况对比如下：
+表 3.1 C50X 系列与 C60X 系列的 tl.dot 数据类型支持对比
+数据类型 C50X 系列 C60X 系列
+fp32 支持（mma） 支持（fma）
+tf32 支持（mma） 支持（mma）
+fp16 支持（mma） 支持（mma）
+bf16 支持（mma） 支持（mma）
+int8 支持（mma） 支持（mma）
+fp8 不支持 支持（mma）
+3.2 扩展功能
+本章介绍 mcTriton 相较官方 Triton 提供的额外功能。
+3 功能支持 沐曦股份专有信息 OG‑25009‑020‑F5_V08 | 4

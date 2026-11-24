@@ -1,0 +1,25 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 70
+PDF 页码标签: 58
+页脚页码候选: 58
+章节提示（书签推断）: Server服务
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+模型为 XXX，tensor 并行为 1，8 条请求数量，信任模型路径的 tokenizer 方式，通过从 dataset 选取语
+料进行真实模拟。json 格式可参考ShareGPT_V3_unfiltered_cleaned_split.json。
+运行程序后，结果打印如下：
+Throughout: XXX request/s, XXXX token/s
+打印结果指示每秒能接受多少请求，以及每秒处理的 token 数量（包括输入 token） 。
+8.3.4 Server 服务
+Server 请求服务参数设置可参考官方 vLLM‑0.11.0 版本：
+API server 参数配置可参考api_server.py。
+OpenAI server 参数配置可参考api_server.py。
+参考示例如下：
+python -m vllm.entrypoints.api_server --model XXX # 普 通server 方 式
+python -m vllm.entrypoints.openai.api_server --model XXX --host localhost --chat-
+,→template XXX.jinja ## openai 方 式 的 请 求
+vllm server --model XXX
+8 MacaRT‑vLLM‑metax 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 58

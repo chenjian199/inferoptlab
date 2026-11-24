@@ -1,0 +1,55 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 139
+PDF 页码标签: 132
+页脚页码候选: 132
+章节提示（书签推断）: mcblasGemmEx()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+2.6.12 mcblasGemmEx()
+mcblasStatus_t mcblasGemmEx(mcblasHandle_t handle,
+mcblasOperation_t transa,
+mcblasOperation_t transb,
+int m,
+int n,
+int k,
+const void *alpha,
+const void *A,
+macaDataType_t Atype,
+int lda,
+const void *B,
+macaDataType_t Btype,
+int ldb,
+const void *beta,
+void *C,
+macaDataType_t Ctype,
+int ldc,
+mcblasComputeType_t computeType,
+mcblasGemmAlgo_t algo)
+#if defined(__cplusplus)
+mcblasStatus_t mcblasGemmEx(mcblasHandle_t handle,
+mcblasOperation_t transa,
+mcblasOperation_t transb,
+int m,
+int n,
+int k,
+const void *alpha,
+const void *A,
+macaDataType Atype,
+int lda,
+const void *B,
+macaDataType Btype,
+int ldb,
+const void *beta,
+void *C,
+macaDataType Ctype,
+int ldc,
+mcblasComputeType computeType,
+mcblasGemmAlgo_t algo)
+#endif
+此函数是 mcblas<t>gemm 的扩展，允许用户单独指定每个 A、B、C 矩阵的数据类型，计算精度和要运
+行的 GEMM 算法。本节进一步列出了支持的参数组合。
+mcblasGemmEx 函 数 的 第 二 个 变 量 用 于 向 后 兼 容 C++ 应 用 程 序 代 码， 其 中computeType 参 数 是
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 132

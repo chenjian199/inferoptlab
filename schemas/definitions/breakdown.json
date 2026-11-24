@@ -1,0 +1,229 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/breakdown.json",
+  "title": "BreakdownPlan",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.2.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/provenance"
+      },
+      "minItems": 0
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/issue"
+      },
+      "minItems": 0
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_.-]*$"
+      }
+    },
+    "kind": {
+      "const": "BreakdownPlan"
+    },
+    "model_ref": {
+      "$ref": "common.json#/$defs/reference"
+    },
+    "hardware_ref": {
+      "$ref": "common.json#/$defs/reference"
+    },
+    "runtime_ref": {
+      "$ref": "common.json#/$defs/reference"
+    },
+    "method_sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "$ref": "common.json#/$defs/sha256"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "stages": {
+      "const": [
+        "request_timeline",
+        "module_attribution",
+        "kernel_communication",
+        "operator_replay"
+      ]
+    },
+    "operator_targets": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "capture": {
+      "type": "object",
+      "properties": {
+        "phases": {
+          "const": [
+            "prefill",
+            "decode"
+          ]
+        },
+        "all_ranks": {
+          "const": true
+        },
+        "required_fields": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "max_fixture_bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_shapes_per_operator": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "instrumented_scoring": {
+          "const": false
+        }
+      },
+      "required": [
+        "phases",
+        "all_ranks",
+        "required_fields",
+        "max_fixture_bytes",
+        "max_shapes_per_operator",
+        "instrumented_scoring"
+      ],
+      "additionalProperties": false
+    },
+    "replay": {
+      "type": "object",
+      "properties": {
+        "baseline_self_replay_required": {
+          "const": true
+        },
+        "preserve_stride_alias_state": {
+          "const": true
+        },
+        "independent_reference_required": {
+          "const": true
+        },
+        "unsupported_inputs": {
+          "const": "verified_baseline_fallback_or_reject"
+        },
+        "numeric_thresholds_frozen": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "baseline_self_replay_required",
+        "preserve_stride_alias_state",
+        "independent_reference_required",
+        "unsupported_inputs",
+        "numeric_thresholds_frozen"
+      ],
+      "additionalProperties": false
+    },
+    "timing": {
+      "type": "object",
+      "properties": {
+        "device_timer_qualified": {
+          "type": "boolean"
+        },
+        "warmup": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "repeats": {
+          "type": "integer",
+          "minimum": 2
+        },
+        "iterations": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "separate_kernel_wrapper": {
+          "const": true
+        },
+        "reset_state_each_sample": {
+          "const": true
+        },
+        "exclude_compile_and_input_creation": {
+          "const": true
+        }
+      },
+      "required": [
+        "device_timer_qualified",
+        "warmup",
+        "repeats",
+        "iterations",
+        "separate_kernel_wrapper",
+        "reset_state_each_sample",
+        "exclude_compile_and_input_creation"
+      ],
+      "additionalProperties": false
+    },
+    "operator_case_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "common.json#/$defs/reference"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "version",
+    "title",
+    "provenance",
+    "issues",
+    "extensions",
+    "kind",
+    "model_ref",
+    "hardware_ref",
+    "runtime_ref",
+    "method_sources",
+    "stages",
+    "operator_targets",
+    "capture",
+    "replay",
+    "timing",
+    "operator_case_refs"
+  ],
+  "additionalProperties": false
+}

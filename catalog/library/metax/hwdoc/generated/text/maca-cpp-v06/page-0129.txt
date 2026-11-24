@@ -1,0 +1,44 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 129
+PDF 页码标签: 121
+页脚页码候选: 121
+章节提示（书签推断）: Bfloat16精度转换与数据移动函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+• maca_bfloat162，线程间交换数据得到的值
+函数描述
+• 指定一组线程互相交换数据。
+• 以 width 将同一个 wave 中的线程分组，同一组的线程从零开始计算序号，被 mask 指定的线程会返
+回向后序号偏移量等于delta的线程中的变量var的值。
+• 若偏移后的线程超出了组大小，或该线程没有被mask指定，则直接返回入参var。
+• mask中的每一个位都对应着一个线程，将位的值设置为1即代表指定了该线程进行数据交换。
+__device__ maca_bfloat16 __shfl_sync (const unsigned mask, const maca_bfloat16 var,
+const int delta, const int width)
+参数
+mask
+• unsignedint，只读入参
+var
+• maca_bfloat16，只读入参
+delta
+• int，只读入参
+width
+• int，只读入参
+返回值
+• maca_bfloat16，线程间交换数据得到的值
+函数描述
+• 指定一组线程互相交换数据。
+• 以 width 将同一个 wave 中的线程分组，同一组的线程从零开始计算序号，被 mask 指定的线程会返
+回序号等于delta的线程中的变量var的值。
+• 若序号超过了组大小，或该线程没有被mask指定，则直接返回入参var。
+• mask中的每一个位都对应着一个线程，将位的值设置为1即代表指定了该线程进行数据交换。
+__device__ maca_bfloat162 __shfl_sync (const unsigned mask, const maca_bfloat162 
+,→var,
+const int delta, const int width)
+参数
+mask
+• unsignedint，只读入参
+var
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 121

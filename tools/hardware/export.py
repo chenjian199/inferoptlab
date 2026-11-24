@@ -67,10 +67,12 @@ def build(run, destination, catalog):
     run, destination = Path(run).resolve(), Path(destination).resolve()
     if not destination.is_relative_to(catalog.root):
         raise SpecError('export destination must be inside the repository for portable source references')
+    if destination.is_relative_to(catalog.root/'schemas'):
+        raise SpecError('schemas holds standards only; export to the repository root or a review directory')
     manifest, plan = verify(run)
     if manifest['status'] != 'complete':
         raise SpecError('incomplete runs cannot be exported; inspect report and rerun into a new directory')
-    evidence = destination/'evidence'/plan['id']/plan['version']
+    evidence = destination/'experiments/evidence'/plan['id']/plan['version']
     version = plan['version']
     documents = []
     for host_entry, host_plan in zip(manifest['hosts'], plan['hosts']):

@@ -1,0 +1,26 @@
+文档: 曦云系列_通用计算GPU_mcEigen用户指南_CN_V03.pdf
+文档 ID: mceigen-v03
+SHA256: a99c752735a07ef038d743a050c3739dd167d2614b3f2619b77ba833c87947ec
+PDF 页序号: 9
+PDF 页码标签: 5
+页脚页码候选: 5
+章节提示（书签推断）: 模块以及头文件
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+2 使用 Eigen API
+2.1 模块以及头文件
+Eigen 库可以分为一个 Core 模块和几个其他模块。每个模块都有一个相对应的头文件，只有包含对应的
+头文件才能使用对应的模块。为方便同时访问多个模块，我们提供了 Dense 和 Eigen 头文件。Eigen 头
+文件的内容如下：
+• Core: 包含矩阵和数组类, 基本线性代数 (包括三角函数和自伴乘积相关), 以及相关数组操作
+• Geometry: 包括变换, 平移、缩放、二维旋转、三维旋转 (四元数, 角轴相关)
+• LU: 有关求逆、求行列式、LU 分解解算器 (FullPivLU, PartialPivLU)
+• Cholesky: 包含 LL T 和 LDL T 的 Cholesky 因式分解法
+• Householder: Householder 变换; 这个模块供几何线性代数模块使用
+• SVD: SVD 奇异值分解, 最小二乘解算器解决奇异值分解 (JacobiSVD, BDCSVD)
+• QR: QR 分解解算器 (HouseholderQR, ColPivHouseholderQR, FullPivHouseholderQR)
+• Eigenvalues: 特征值和特征向量分解 (EigenSolver, SelfAdjpintEigenSolver, ComplexEigenSolver)
+• Sparse: 稀疏矩阵存储以及相关线性代数 (SparseMatrix, SparseVector)
+• Dense: 包含 Core, Geometry, LU, Cholesky, SVD, QR 和 Eigenvalues 模块的头文件
+• Eigen: 包含 Dense 和 Sparse 的头文件 (上述所有模块)
+5

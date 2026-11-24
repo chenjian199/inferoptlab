@@ -1,0 +1,35 @@
+文档: 沐曦通用GPU_MCCL编程指南_CN_V08.pdf
+文档 ID: mccl-v08
+SHA256: 7a95ac3ce4f68b0fb11baabb7fa08794cd5f5081c9ec3e888eefaaa03ab8c8b2
+PDF 页序号: 40
+PDF 页码标签: 33
+页脚页码候选: 33
+章节提示（书签推断）: MX_TRACER_ENABLED_MCPTI
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MCCL 编程指南
+4.2.5.6 MACA_EXT_MPS_MODE
+描述：控制多进程场景下对 GPU 硬件 Queue 的调度。
+可选值：
+• 0：每个进程独占其申请到的 GPU 硬件 Queue，其它进程可以通过其它可用的 GPU 硬件 Queue 同时
+向 GPU 提交工作
+• 1： 允许多个进程共享同一个 GPU 硬件 Queue， 进程通过一个或多个共享的 GPU 硬件 Queue 向 GPU
+提交工作
+• 2：类似 0 值模式，但会延迟 GPU 硬件 queue 的申请直到对应流上真正有业务开始
+默认值：0
+4.2.5.7 MACA_EXT_DIRECT_DISPATCH
+描述：配置 stream 下发任务时驱动侧的行为。
+可选值：
+• 0：每个 Stream 会额外创建一个线程，管理该 Stream 上的任务并提交到硬件执行
+• 1：Stream 上的任务由 application 线程直接管理并提交到硬件去执行，多 Stream 场景下 CPU 负载
+较低
+默认值：默认值为 0，后续经大规模验证后会将默认值配置为 1
+4.2.6 工具相关
+主要针对 MCCL test 和 Transferbench 等工具的环境变量。
+4.2.6.1 MX_TRACER_ENABLED_MCPTI
+描述：MCCL test 中用于控制是否进行 MCCL Kernel 时长度量。
+可选值：
+• ON：进行 MCCL Kernel 时长度量
+• OFF：不进行 MCCL Kernel 时长度量
+默认值：OFF
+4 环境变量 沐曦股份专有信息 PG‑23004‑020‑F5_V08 | 33

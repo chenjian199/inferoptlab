@@ -1,0 +1,44 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 130
+PDF 页码标签: 123
+页脚页码候选: 123
+章节提示（书签推断）: mcblas<t>gelsBatched()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+H[j][i] = I - tau[j] * v * v'
+其中 tau[j] 是一个实标量， 而 v 是一个实向量， v(1:i‑1) = 0 且 v(i) = 1。 v(i+1:m) 会存储在 Aarray[j][i+1:m,i]
+中，tau 存储在 TauArray[j][i] 中。
+此函数用于较小的矩阵，其中启动开销是一个重要因素。
+mcblas<t>geqrfBatched 支持任意维度。
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+m input Aarray[i] 的行数
+n input Aarray[i] 的列数
+Aarray 设备 input 指向 <type> 数组的指针数组，每个数组维度为 m x n，其中
+lda >=max(1,m)
+lda input 用于存储矩阵 Aarray[i] 的二维数组的前导维度
+TauArray 设备 output 指 向 <type> 数 组 的 指 针 数 组， 每 个 向 量 维 度 为 max
+(1,min(m,n))
+info 设备 output 如果 info=0，则传递给函数的参数有效；
+如果 info<0，则 postion‑info 中的参数无效
+batchSize input A 中包含的指针数
+下面列出了此函数可能的返回值及其含义。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE
+• If m < 0 ，n < 0 或 batchSize < 0
+• lda < max(1, m)
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2.6.8 mcblas<t>gelsBatched()
+mcblasStatus_t mcblasSgelsBatched(mcblasHandle_t handle,
+mcblasOperation_t trans,
+int m,
+int n,
+int nrhs,
+float *const Aarray[],
+(下页继续)
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 123

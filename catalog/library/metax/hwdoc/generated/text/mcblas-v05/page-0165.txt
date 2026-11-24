@@ -1,0 +1,50 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 165
+PDF 页码标签: 158
+页脚页码候选: 158
+章节提示（书签推断）: mcblasRotEx()
+质量标记: private_use_characters
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+2.6.22 mcblasRotEx()
+mcblasStatus_t mcblasRotEx(mcblasHandle_t handle,
+int n,
+void *x,
+macaDataType xType,
+int incx,
+void *y,
+macaDataType yType,
+int incy,
+const void *c, /* host or device pointer */
+const void *s,
+macaDataType csType,
+macaDataType executiontype);
+此函数是 mcblas<t>rot 的扩展，可在其中独立指定输入数据，输出数据，cosine/sine 类型和计算类
+型。
+该函数将吉文斯旋转 （Givens rotation） 矩阵 （即， 在 x， y 平面上逆时针旋转， 旋转角度由 cos(alpha)=c，
+sin(alpha)=s 定义） ：
+G =
+
+ c s
+−s c
+
+ 应用到向量 x 和 y 中。
+因此，结果为 x[k] = c × x[k] + s × y[j] 和 y[j] = −s × x[k] + c × y[j]，其中 k = 1 + ( i − 1) ∗ incx，
+j = 1 + ( i − 1) ∗ incy。请注意，最后两个公式反映了基于 1 的索引，该索引用于与 Fortran 兼容。
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+n input 向量 x 和 y 中的元素数
+x 设备 in/out 包含 n 个元素的 <type> 向量
+xType input 枚举，指定向量 x 的数据类型
+incx input x 中连续元素之间的步幅
+y 设备 in/out 包含 n 个元素的 <type> 向量
+yType input 枚举，指定向量 y 的数据类型
+incy input y 中连续元素之间的步幅
+c 主机或设备 output 旋转矩阵余弦元素
+c 主机或设备 output 旋转矩阵正弦元素
+csType input 枚举，指定 c 和 s 的数据类型
+executionType input 枚举，指定计算执行中的数据类型
+mcblasRotEx 支持的数据类型组合如下所示：
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 158

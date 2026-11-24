@@ -1,0 +1,23 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 13
+PDF 页码标签: 1
+页脚页码候选: 1
+章节提示（书签推断）: MacaRT介绍
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+1 概述
+本文档主要用于指导用户如何使用 MacaRT 推理引擎，并快速有效地将训练好的模型部署到沐曦通用
+GPU 上。
+1.1 MacaRT 介绍
+MacaRT （MXMACA® Runtime） 是在沐曦通用 GPU 上进行人工智能算法模型部署和执行的推理引擎， 它
+是在 ONNX Runtime 上扩展了 MXMACA 后端。在进行推理时，只需指定 MXMACA Execution Provider
+（MacaEP）就可以在沐曦通用 GPU 上完成模型推理。MacaRT 的使用方法与 ONNX Runtime 完全兼容。
+MacaRT 进行模型推理的整体架构，如图 1.1 所示，可以分为以下部分：
+• 解析 ONNX 模型，获取模型图和参数信息
+• 对模型图进行处理，包括图优化、图拆分、图编译等
+• 通过 MacaEP 在沐曦通用 GPU 上执行模型
+图 1.1 MacaRT 的模型推理整体架构
+1 概述 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 1

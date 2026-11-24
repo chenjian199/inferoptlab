@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_MXMACA编译器内建函数编程指南_CN_V01.pdf
+文档 ID: builtins-v01
+SHA256: 80dfb3a83381e48e19968b432d4eb24d37c505bd711af14f74889277cffc3835
+PDF 页序号: 42
+PDF 页码标签: 36
+页脚页码候选: 36
+章节提示（书签推断）: __builtin_mxc_rsq*
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® 编译器内建函数编程指南
+3.7.9 __builtin_mxc_rcp*
+功能描述
+float 和 fp16 类型的倒数运算。
+接口声明
+float __builtin_mxc_rcpf(float);
+_Float16 __builtin_mxc_rcph(_Float16);
+代码示例
+__global__ void test_rcp(float * fres, float* fin, _Float16 *hres, _Float16 *hin) {
+unsigned int id = threadIdx.x;
+fres[id] = __builtin_mxc_rcpf(fin[id]);
+hres[id] = __builtin_mxc_rcph(hin[id]);
+}
+3.7.10 __builtin_mxc_sqrt*
+功能描述
+float 和 fp16 类型的平方根运算
+接口声明
+float __builtin_mxc_sqrtf(float src);
+_Float16 __builtin_mxc_sqrth(_Float16 src);
+代码示例
+__global__ void test_sqrt(float * fres, float* fin, _Float16 *hres, _Float16 *hin)
+,→{
+unsigned int id = threadIdx.x;
+fres[id] = __builtin_mxc_sqrtf(fin[id]);
+hres[id] = __builtin_mxc_sqrth(hin[id]);
+}
+3.7.11 __builtin_mxc_rsq*
+功能描述
+float 和 fp16 类型的平方根倒数运算：1.0/sqrt(x)。
+接口声明
+float __builtin_mxc_rsqf(float src);
+_Float16 __builtin_mxc_rsqh(_Float16 src);
+3 接口介绍 沐曦股份专有信息 OG‑26013‑000‑F5_V01 | 36

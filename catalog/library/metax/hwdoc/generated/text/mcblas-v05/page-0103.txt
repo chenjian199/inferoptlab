@@ -1,0 +1,50 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 103
+PDF 页码标签: 96
+页脚页码候选: 96
+章节提示（书签推断）: mcblas<t>trsm()
+质量标记: private_use_characters
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+(续上页)
+mcblasStatus_t mcblasDtrsm(mcblasHandle_t handle,
+mcblasSideMode_t side, mcblasFillMode_t uplo,
+mcblasOperation_t trans, mcblasDiagType_t diag,
+int m, int n,
+const double *alpha,
+const double *A, int lda,
+double *B, int ldb)
+mcblasStatus_t mcblasCtrsm(mcblasHandle_t handle,
+mcblasSideMode_t side, mcblasFillMode_t uplo,
+mcblasOperation_t trans, mcblasDiagType_t diag,
+int m, int n,
+const mcComplex *alpha,
+const mcComplex *A, int lda,
+mcComplex *B, int ldb)
+mcblasStatus_t mcblasZtrsm(mcblasHandle_t handle,
+mcblasSideMode_t side, mcblasFillMode_t uplo,
+mcblasOperation_t trans, mcblasDiagType_t diag,
+int m, int n,
+const mcDoubleComplex *alpha,
+const mcDoubleComplex *A, int lda,
+mcDoubleComplex *B, int ldb)
+该函数使用以下公式求解三角线性方程组
+
+
+
+op(A)X = αB if side == M CBLAS_SIDE _LEF T
+Xop(A) = αB if side == M CBLAS_SIDE _RIGHT
+其中 A 是以 lower 或 upper 模式存储的三角矩阵（无论是否有主对角线） ，X 和 B 为 m × n 矩阵，α 是
+标量。此外，对于矩阵 A，
+op(A) =
+
+
+
+A if trans == M CBLAS_OP _N
+AT if trans == M CBLAS_OP _T
+AH if trans == M CBLAS_OP _C
+结束时 X 覆盖右侧 B。
+此函数中不包括奇异性或接近奇异性的测试。
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 96

@@ -1,0 +1,10 @@
+{
+  "revision": 4,
+  "change": "Before execution: compare same logical prefix using prefill and validated V2 trace_decode_token_ids cached path; capture target step only. Two processes x three repeats x nine cases x two modes = 108 captures. No inference source modification.",
+  "files": {
+    "harness/diagnostic_worker.py": "796dc5661e877c19b9cca399fc50a087292bfa5455f7be05530dfa3e3fa3bc5c",
+    "harness/run_diagnostic.py": "6e06f84bc8a4c595a950537443ee86a06df0b4b3b3bc04e3bfbf46ae102f78c3",
+    "harness/analyze_tensors.py": "01f9266957a598dbfd85283f0dc370bcace4f0be9076882811711b4bfa911fde"
+  },
+  "source_api": "vllm/v1/worker/gpu/sample/trace_replay.py; vllm/sampling_params.py _validate_trace_replay; vllm/config/vllm.py _verify_trace_replay_config"
+}

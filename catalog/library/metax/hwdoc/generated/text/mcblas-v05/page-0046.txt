@@ -1,0 +1,55 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 46
+PDF 页码标签: 39
+页脚页码候选: 39
+章节提示（书签推断）: mcblas<t>ger()
+质量标记: private_use_characters
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+(续上页)
+const double *alpha,
+const double *x, int incx,
+const double *y, int incy,
+double *A, int lda)
+mcblasStatus_t mcblasCgeru(mcblasHandle_t handle, int m, int n,
+const mcComplex *alpha,
+const mcComplex *x, int incx,
+const mcComplex *y, int incy,
+mcComplex *A, int lda)
+mcblasStatus_t mcblasCgerc(mcblasHandle_t handle, int m, int n,
+const mcComplex *alpha,
+const mcComplex *x, int incx,
+const mcComplex *y, int incy,
+mcComplex *A, int lda)
+mcblasStatus_t mcblasZgeru(mcblasHandle_t handle, int m, int n,
+const mcDoubleComplex *alpha,
+const mcDoubleComplex *x, int incx,
+const mcDoubleComplex *y, int incy,
+mcDoubleComplex *A, int lda)
+mcblasStatus_t mcblasZgerc(mcblasHandle_t handle, int m, int n,
+const mcDoubleComplex *alpha,
+const mcDoubleComplex *x, int incx,
+const mcDoubleComplex *y, int incy,
+mcDoubleComplex *A, int lda)
+此函数执行秩一校正（rank‑1 update）
+A =
+
+
+
+αxyT + A if ger(), geru() is called
+αxyH + A if gerc() is called
+其中 A 是以列主格式存储的 m × n 矩阵，x 和 y 是向量，α 是标量。
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+m input 矩阵 A 的行数
+n input 矩阵 A 的列数
+alpha 主机或设备 input 用于乘法的 <type> 标量
+x 设备 input 包含 m 个元素的 <type> 向量
+incx input x 中连续元素之间的步幅
+y 设备 input 包含 n 个元素的 <type> 向量
+incy input y 中连续元素之间的步幅
+A 设备 in/out <type> 数组，维度为 lda x n ，其中 lda >= max(1,m)
+lda input 用于存储矩阵 A 的二维数组的前导维度
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 39

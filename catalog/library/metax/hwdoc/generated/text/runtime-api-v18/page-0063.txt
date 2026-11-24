@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 63
+PDF 页码标签: 54
+页脚页码候选: 54
+章节提示（书签推断）: 运行时编译和动态加载
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+图 4.4 即时编译流程
+代码示例
+用户可以将 device 代码和 host 代码分别写在不同的文件中，生成可执行程序时，只编译 host 代码，
+device 代码在程序运行时编译。以下介绍了这种编程范式的简单实现。
+1. device 代码写在单独的文件中：
+//my_kernel.cu：
+extern "C" __global__ void test_kernel()
+{
+/* kernel code */
+printf("my kernel\n");
+}
+2. host 代码写在另外的文件中：
+//host文 件 rtc_test.cpp:
+#include <fstream>
+#include <vector>
+#include<mc_runtime.h>
+#include<mcrtc.h>
+static inline std::vector<char> load_file_data(const char *filename)
+{
+std::ifstream file(filename, std::ios::binary | std::ios::ate);
+std::streamsize fsize = file.tellg();
+file.seekg(0, std::ios::beg);
+std::vector<char> buffer(fsize + 1);
+file.read(buffer.data(), fsize);
+buffer[fsize] = '\x0';
+file.close();
+return buffer;
+}
+void rtcTest()
+{
+(下页继续)
+4 编译和调试 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 54

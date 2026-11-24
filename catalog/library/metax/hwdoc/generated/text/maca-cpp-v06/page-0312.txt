@@ -1,0 +1,43 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 312
+PDF 页码标签: 304
+页脚页码候选: 304
+章节提示（书签推断）: 多设备同步
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+(续上页)
+for (int i = 0; i < numGpus; i++) {
+mcSetDevice(i);
+// 每个设备的 stream，但是每个设备也可以使用默认的 NULL stream
+mcStreamCreate(&streams[i]);
+// 循环其他设备以及设置 mcDeviceEnablePeerAccess 以获取一个更快的 barrier的实现
+}
+// 所有设备必须相同的计算能力并且有相同的启动配置
+// 这里查询设备 0是必要的
+mcGetDeviceProperties(&deviceProp[i], 0);
+dim3 dimBlock(numThreads, 1, 1);
+dim3 dimGrid(deviceProp.multiProcessorCount, 1, 1);
+for (int i = 0; i < numGpus; i++) {
+launchParamsList[i].func = (void*)my_kernel;
+launchParamsList[i].gridDim = dimGrid;
+launchParamsList[i].blockDim = dimBlock;
+launchParamsList[i].sharedMem = 0;
+launchParamsList[i].stream = streams[i];
+launchParamsList[i].args = kernelArgs;
+}
+mcLaunchCooperativeKernelMultiDevice(launchParams, numGpus);
+此外，就像grid级别的同步，设备侧代码看起来也很像：
+multi_grid_group multi_grid = this_multi_grid();
+multi_grid.sync();
+但是代码需要用独立编译的方式，传递‑rdc=true到mxcc。
+推荐通过查询设备的 mcDevAttrCooperativeMultiDeviceLaunch 属性来先确认设备支持多设备
+cooperativelaunch：
+int dev = 0;
+int supportsMdCoopLaunch = 0;
+mcDeviceGetAttribute(&supportsMdCoopLaunch,
+mcDevAttrCooperativeMultiDeviceLaunch, dev);
+如果设备0的属性显示支持多设备cooperativelaunch， supportsMdCoopLaunch将会被设为1。
+3 CooperativeGroups 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 304

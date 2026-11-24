@@ -1,0 +1,37 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 22
+PDF 页码标签: 15
+页脚页码候选: 15
+章节提示（书签推断）: mcblasSetVector()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+2.2.10 mcblasGetPointerMode()
+mcblasStatus_t
+mcblasGetPointerMode(mcblasHandle_t handle, mcblasPointerMode_t *mode)
+此函数获取 mcBLAS 库使用的指针模式。有关详细信息，请参见mcblasPointerMode_t 。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 指针模式获取成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE mode == NULL
+2.2.11 mcblasSetPointerMode()
+mcblasStatus_t
+mcblasSetPointerMode(mcblasHandle_t handle, mcblasPointerMode_t mode)
+此函数设置 mcBLAS 库使用的指针模式。default 是在主机上通过引用传递的值。有关详细信息，请参
+见mcblasPointerMode_t 。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 指针模式设置成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE mode 不 是 MCBLAS_POINTER_MODE_HOST 或
+MCBLAS_POINTER_MODE_DEVICE
+2.2.12 mcblasSetVector()
+mcblasStatus_t
+mcblasSetVector(int n, int elemSize,
+const void *x, int incx, void *y, int incy)
+此函数将主机内存空间中 x 向量的 n 个元素复制到 GPU 内存空间中的 y 向量。假定两个向量中的元素
+为 elemSize 字节。源向量 x 连续元素之间的存储间距由 incx 提供，目标向量 y 的由 incy 提供。
+假定二维矩阵为列主格式，如果向量是矩阵的一部分，则等于 1 的向量增量会访问该矩阵的（部分）列。
+同样，使用与矩阵前导维度相等的增量会导致访问该矩阵的（部分）行。
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 15

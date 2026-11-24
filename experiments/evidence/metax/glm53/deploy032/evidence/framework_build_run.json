@@ -1,0 +1,13 @@
+{
+  "command": [
+    "docker",
+    "exec",
+    "glm53-vllm032",
+    "python",
+    "-u",
+    "/work/scripts/install_frameworks.py",
+    "--plugin-only"
+  ],
+  "exit": 0,
+  "elapsed_seconds": 79.9021668434143
+}

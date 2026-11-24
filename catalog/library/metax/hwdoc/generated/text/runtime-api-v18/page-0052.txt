@@ -1,0 +1,45 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 52
+PDF 页码标签: 43
+页脚页码候选: 43
+章节提示（书签推断）: 启用或禁用节点（Individual Node Enable）
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+(续上页)
+// Instantiate graphExec from graph. The error node and
+// error message parameters are unused here.
+mcGraphInstantiate(&graphExec, graph, NULL, NULL, 0);
+}
+mcGraphDestroy(graph);
+mcGraphLaunch(graphExec, stream);
+mcStreamSynchronize(stream);
+}
+典型的工作流是使用流捕获图编程接口或显式图编程接口创建初始 mcGraph_t；然后将 mcGraph_
+t 实例化并正常启动。初始启动后，使用与原始任务图相同的方法创建新的 mcGraph_t，并调用函
+数 mcGraphExecUpdate。如果任务图更新成功（如上面示例中的 updateResult 参数所示） ，则
+启动更新的 mcGraphExec_t。如果更新因任何原因失败，将调用函数 mcGraphExecDestroy 和
+mcGraphInstantiate，以销毁原始的 mcGraphExec_t 并实例化一个新的。
+3.8.3.2 单个节点更新
+实例化的图节点参数可以直接更新。 这消除了实例化的开销以及创建新mcGraph_t 的开销。 如果需要更
+新的节点数量相对于图中的节点总数较少，则最好单独更新节点。以下方法可用于更新mcGraphExec_
+t 节点：
+• 函数 mcGraphExecKernelNodeSetParams
+• 函数 mcGraphExecMemcpyNodeSetParams
+• 函数 mcGraphExecMemsetNodeSetParams
+• 函数 mcGraphExecHostNodeSetParams
+• 函数 mcGraphExecChildGraphNodeSetParams
+• 函数 mcGraphExecEventRecordNodeSetEvent
+• 函数 mcGraphExecEventWaitNodeSetEvent
+• 函数 mcGraphExecExternalSemaphoresSignalNodeSetParams
+• 函数 mcGraphExecExternalSemaphoresWaitNodeSetParams
+3.8.3.3 启用或禁用节点（Individual Node Enable）
+实例化图中的 kernel、memset 和 memcpy 节点可以使用函数 mcGraphNodeSetEnabled 启用或
+禁用。这允许创建一个图，该图包含所需功能的超集，该超集可以针对每次启动进行自定义。可以使用
+函数 mcGraphNodeGetEnabled 查询节点的启用状态。
+在重新启用之前，禁用的节点在功能上等同于空节点。节点参数不受启用/禁用节点的影响。启用状态不
+受单个节点更新或使用函数 mcGraphExecUpdate 进行整图更新的影响。禁用节点时的参数更新将在
+重新启用节点时生效。
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 43

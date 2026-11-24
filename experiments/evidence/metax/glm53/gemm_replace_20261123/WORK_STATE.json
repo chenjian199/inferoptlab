@@ -1,0 +1,23 @@
+{
+  "status": "local_correctness_passed_full_model_blocked",
+  "date": "2026-11-23",
+  "remote_root": "/home/metax/glm53-gemm-20261123",
+  "container": "glm53-gemm-v1",
+  "container_stopped": true,
+  "device_tests": "56/56 on all8 before GPU6 error",
+  "isolated_vllm_layer": "24/24 on GPU0 using8 actual checkpoint partitions and synthetic activations; rollback exact",
+  "model": "blocked before candidate injection; no generated answers/scoring",
+  "pending": [
+    "GPU6 recovery and bounded8GPU communication test",
+    "new-directory paired original32/candidate32/rollback4 on same actual driver",
+    "full164 release regression only after pilot"
+  ],
+  "preserved": [
+    "baseline_ops",
+    "repeatability_20261123",
+    "dcc",
+    "glm53-vllm032",
+    "glm53-heval-v1",
+    "glm53-repeat-v1"
+  ]
+}

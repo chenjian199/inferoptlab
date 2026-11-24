@@ -1,0 +1,32 @@
+文档: 沐曦通用GPU_MACA_VISIBLE_DEVICES配置工具介绍_CN_V01.pdf
+文档 ID: device-order-v01
+SHA256: a46029cb1594ee57eaac6881937f14279ad0bf0810183c06108cce1e7b407356
+PDF 页序号: 7
+PDF 页码标签: 3
+页脚页码候选: 3
+章节提示（书签推断）: 输出说明
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MACA_VISIBLE_DEVICES 配置工具介绍
+/opt/maca/tools/communication/inspector/mx-cmi device_order -h
+2.3 使用示例
+# TP8 + DP2
+/opt/maca/tools/communication/inspector/mx-cmi device_order --tp 8 --dp 2
+# TP4 + DP4
+/opt/maca/tools/communication/inspector/mx-cmi device_order --tp 4 --dp 4
+# MoE ：TP2 + EP8
+/opt/maca/tools/communication/inspector/mx-cmi device_order --tp 2 --ep 8
+2.4 输出说明
+标准输出为可直接使用的 MACA 卡序环境变量配置，可以导入到当前运行环境：
+• MACA_DEVICE_ORDER=PCI_BUS_ID
+• MACA_VISIBLE_DEVICES=…
+示例如下：
+# TP4 + DP4
+$ /opt/maca/tools/communication/inspector/mx-cmi device_order --tp 4 --dp 4
+MACA_DEVICE_ORDER=PCI_BUS_ID
+MACA_VISIBLE_DEVICES="0,1,2,3,6,5,4,7,10,11,8,9,14,13,12,15"
+# TP8 + DP2
+$ /opt/maca/tools/communication/inspector/mx-cmi device_order --tp 8 --dp 2
+MACA_DEVICE_ORDER=PCI_BUS_ID
+MACA_VISIBLE_DEVICES="0,1,2,3,6,5,4,7,10,9,8,11,14,15,12,13"
+2 工具介绍 沐曦股份专有信息 OG‑26020‑020‑F5_V01 | 3

@@ -1,0 +1,59 @@
+{"time": "2026-11-22T01:16:51.659980+00:00", "event": "manifest", "revision": "6df7a9b0309e530094e29b2a6ced3e21bed6c16d", "count": 4, "bytes": 30103647688}
+{"time": "2026-11-22T01:16:51.962735+00:00", "event": "download_started", "file": "model-language_model-layers-00038.safetensors", "offset": 6887047168, "size": 7557528572, "attempt": 0}
+{"time": "2026-11-22T01:16:52.042197+00:00", "event": "download_started", "file": "model-language_model-layers-00043.safetensors", "offset": 6023020544, "size": 7431061972, "attempt": 0}
+{"time": "2026-11-22T01:16:52.061256+00:00", "event": "download_started", "file": "model-language_model-layers-00033.safetensors", "offset": 5989466112, "size": 7557528572, "attempt": 0}
+{"time": "2026-11-22T01:16:52.062596+00:00", "event": "download_started", "file": "model-language_model-layers-00037.safetensors", "offset": 5515509760, "size": 7557528572, "attempt": 0}
+{"time": "2026-11-22T01:17:52.698977+00:00", "event": "progress", "file": "model-language_model-layers-00038.safetensors", "bytes": 6987710464, "size": 7557528572}
+{"time": "2026-11-22T01:17:52.833430+00:00", "event": "progress", "file": "model-language_model-layers-00043.safetensors", "bytes": 6102712320, "size": 7431061972}
+{"time": "2026-11-22T01:17:53.935289+00:00", "event": "progress", "file": "model-language_model-layers-00037.safetensors", "bytes": 5595201536, "size": 7557528572}
+{"time": "2026-11-22T01:17:55.110878+00:00", "event": "progress", "file": "model-language_model-layers-00033.safetensors", "bytes": 6094323712, "size": 7557528572}
+{"time": "2026-11-22T01:18:54.470942+00:00", "event": "progress", "file": "model-language_model-layers-00037.safetensors", "bytes": 5687476224, "size": 7557528572}
+{"time": "2026-11-22T01:18:54.890795+00:00", "event": "progress", "file": "model-language_model-layers-00038.safetensors", "bytes": 7071596544, "size": 7557528572}
+{"time": "2026-11-22T01:18:57.196980+00:00", "event": "progress", "file": "model-language_model-layers-00043.safetensors", "bytes": 6194987008, "size": 7431061972}
+{"time": "2026-11-22T01:18:57.328924+00:00", "event": "progress", "file": "model-language_model-layers-00033.safetensors", "bytes": 6186598400, "size": 7557528572}
+{"time": "2026-11-22T01:19:55.292739+00:00", "event": "progress", "file": "model-language_model-layers-00037.safetensors", "bytes": 5762973696, "size": 7557528572}
+{"time": "2026-11-22T01:19:56.455144+00:00", "event": "progress", "file": "model-language_model-layers-00038.safetensors", "bytes": 7176454144, "size": 7557528572}
+{"time": "2026-11-22T01:19:58.494331+00:00", "event": "progress", "file": "model-language_model-layers-00033.safetensors", "bytes": 6270484480, "size": 7557528572}
+{"time": "2026-11-22T01:19:59.798885+00:00", "event": "progress", "file": "model-language_model-layers-00043.safetensors", "bytes": 6287261696, "size": 7431061972}
+{"time": "2026-11-22T01:20:57.956720+00:00", "event": "progress", "file": "model-language_model-layers-00037.safetensors", "bytes": 5855248384, "size": 7557528572}
+{"time": "2026-11-22T01:20:58.770719+00:00", "event": "progress", "file": "model-language_model-layers-00038.safetensors", "bytes": 7268728832, "size": 7557528572}
+{"time": "2026-11-22T01:20:59.793967+00:00", "event": "progress", "file": "model-language_model-layers-00033.safetensors", "bytes": 6354370560, "size": 7557528572}
+{"time": "2026-11-22T01:21:04.929078+00:00", "event": "progress", "file": "model-language_model-layers-00043.safetensors", "bytes": 6392119296, "size": 7431061972}
+{"time": "2026-11-22T01:22:00.499587+00:00", "event": "progress", "file": "model-language_model-layers-00037.safetensors", "bytes": 5939134464, "size": 7557528572}
+{"time": "2026-11-22T01:22:03.547647+00:00", "event": "progress", "file": "model-language_model-layers-00033.safetensors", "bytes": 6459228160, "size": 7557528572}
+{"time": "2026-11-22T01:22:03.553318+00:00", "event": "progress", "file": "model-language_model-layers-00038.safetensors", "bytes": 7352614912, "size": 7557528572}
+{"time": "2026-11-22T01:22:07.824802+00:00", "event": "progress", "file": "model-language_model-layers-00043.safetensors", "bytes": 6496976896, "size": 7431061972}
+{"time": "2026-11-22T01:23:03.194307+00:00", "event": "progress", "file": "model-language_model-layers-00037.safetensors", "bytes": 6014631936, "size": 7557528572}
+{"time": "2026-11-22T01:23:04.075931+00:00", "event": "progress", "file": "model-language_model-layers-00033.safetensors", "bytes": 6547308544, "size": 7557528572}
+{"time": "2026-11-22T01:23:06.342300+00:00", "event": "progress", "file": "model-language_model-layers-00038.safetensors", "bytes": 7474249728, "size": 7557528572}
+{"time": "2026-11-22T01:23:09.368250+00:00", "event": "progress", "file": "model-language_model-layers-00043.safetensors", "bytes": 6568280064, "size": 7431061972}
+{"time": "2026-11-22T01:24:01.720073+00:00", "event": "verified_download", "file": "model-language_model-layers-00038.safetensors", "size": 7557528572}
+{"time": "2026-11-22T01:24:04.652514+00:00", "event": "progress", "file": "model-language_model-layers-00037.safetensors", "bytes": 6111100928, "size": 7557528572}
+{"time": "2026-11-22T01:24:05.935832+00:00", "event": "progress", "file": "model-language_model-layers-00033.safetensors", "bytes": 6639583232, "size": 7557528572}
+{"time": "2026-11-22T01:24:11.075256+00:00", "event": "progress", "file": "model-language_model-layers-00043.safetensors", "bytes": 6656360448, "size": 7431061972}
+{"time": "2026-11-22T01:25:05.516564+00:00", "event": "progress", "file": "model-language_model-layers-00037.safetensors", "bytes": 6249512960, "size": 7557528572}
+{"time": "2026-11-22T01:25:07.269905+00:00", "event": "progress", "file": "model-language_model-layers-00033.safetensors", "bytes": 6752829440, "size": 7557528572}
+{"time": "2026-11-22T01:25:13.263131+00:00", "event": "progress", "file": "model-language_model-layers-00043.safetensors", "bytes": 6757023744, "size": 7431061972}
+{"time": "2026-11-22T01:26:07.791443+00:00", "event": "progress", "file": "model-language_model-layers-00037.safetensors", "bytes": 6371147776, "size": 7557528572}
+{"time": "2026-11-22T01:26:07.948501+00:00", "event": "progress", "file": "model-language_model-layers-00033.safetensors", "bytes": 6878658560, "size": 7557528572}
+{"time": "2026-11-22T01:26:14.436161+00:00", "event": "progress", "file": "model-language_model-layers-00043.safetensors", "bytes": 6870269952, "size": 7431061972}
+{"time": "2026-11-22T01:27:08.521569+00:00", "event": "progress", "file": "model-language_model-layers-00033.safetensors", "bytes": 7008681984, "size": 7557528572}
+{"time": "2026-11-22T01:27:15.179603+00:00", "event": "progress", "file": "model-language_model-layers-00043.safetensors", "bytes": 6975127552, "size": 7431061972}
+{"time": "2026-11-22T01:27:17.530940+00:00", "event": "progress", "file": "model-language_model-layers-00037.safetensors", "bytes": 6496976896, "size": 7557528572}
+{"time": "2026-11-22T01:28:09.656361+00:00", "event": "progress", "file": "model-language_model-layers-00033.safetensors", "bytes": 7147094016, "size": 7557528572}
+{"time": "2026-11-22T01:28:17.121383+00:00", "event": "progress", "file": "model-language_model-layers-00043.safetensors", "bytes": 7096762368, "size": 7431061972}
+{"time": "2026-11-22T01:28:19.853412+00:00", "event": "progress", "file": "model-language_model-layers-00037.safetensors", "bytes": 6606028800, "size": 7557528572}
+{"time": "2026-11-22T01:29:10.974942+00:00", "event": "progress", "file": "model-language_model-layers-00033.safetensors", "bytes": 7264534528, "size": 7557528572}
+{"time": "2026-11-22T01:29:20.066483+00:00", "event": "progress", "file": "model-language_model-layers-00037.safetensors", "bytes": 6723469312, "size": 7557528572}
+{"time": "2026-11-22T01:29:20.270485+00:00", "event": "progress", "file": "model-language_model-layers-00043.safetensors", "bytes": 7214202880, "size": 7431061972}
+{"time": "2026-11-22T01:30:11.704217+00:00", "event": "progress", "file": "model-language_model-layers-00033.safetensors", "bytes": 7386169344, "size": 7557528572}
+{"time": "2026-11-22T01:30:20.946224+00:00", "event": "progress", "file": "model-language_model-layers-00037.safetensors", "bytes": 6861881344, "size": 7557528572}
+{"time": "2026-11-22T01:30:20.992773+00:00", "event": "progress", "file": "model-language_model-layers-00043.safetensors", "bytes": 7314866176, "size": 7431061972}
+{"time": "2026-11-22T01:31:13.348828+00:00", "event": "progress", "file": "model-language_model-layers-00033.safetensors", "bytes": 7520387072, "size": 7557528572}
+{"time": "2026-11-22T01:31:21.924546+00:00", "event": "progress", "file": "model-language_model-layers-00037.safetensors", "bytes": 6966738944, "size": 7557528572}
+{"time": "2026-11-22T01:31:22.533620+00:00", "event": "progress", "file": "model-language_model-layers-00043.safetensors", "bytes": 7431061972, "size": 7431061972}
+{"time": "2026-11-22T01:31:29.508176+00:00", "event": "verified_download", "file": "model-language_model-layers-00043.safetensors", "size": 7431061972}
+{"time": "2026-11-22T01:31:36.247730+00:00", "event": "verified_download", "file": "model-language_model-layers-00033.safetensors", "size": 7557528572}
+{"time": "2026-11-22T01:32:22.892059+00:00", "event": "progress", "file": "model-language_model-layers-00037.safetensors", "bytes": 7256145920, "size": 7557528572}
+{"time": "2026-11-22T01:33:29.211635+00:00", "event": "verified_download", "file": "model-language_model-layers-00037.safetensors", "size": 7557528572}
+{"time": "2026-11-22T01:33:29.220728+00:00", "event": "finished", "complete": true, "verified": 59, "failures": []}

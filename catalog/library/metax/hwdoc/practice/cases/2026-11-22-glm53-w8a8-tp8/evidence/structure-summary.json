@@ -1,0 +1,15 @@
+{
+  "complete": false,
+  "tensor_data_and_mapping_valid": true,
+  "errors": [
+    "index total_size mismatch"
+  ],
+  "shards": 47,
+  "indexed_tensors": 76108,
+  "actual_tensors": 76108,
+  "computed_total_tensor_bytes": 328461011068,
+  "index_metadata": {
+    "total_size": []
+  },
+  "original_checkpoint_modified": false
+}

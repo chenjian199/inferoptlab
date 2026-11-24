@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 286
+PDF 页码标签: 278
+页脚页码候选: 278
+章节提示（书签推断）: 其他浮点类型
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+使用变量 v的值填充矩阵分片。因为分片到内存中的映射方式是不确定的，需要 warp 中的所有线程调
+用该函数并提供相同的参数值。
+mma_sync
+warp 中的所有线程都执行到 mma_sync 时执行矩阵乘加运算 D=A*B+C 。支持 C=A*B+C 的原地操作。
+warp中的所有线程的每个矩阵分片的模板参数和 satf值必须相同。此外，模板参数 m、n和 k必须在
+分片 A、B、C和 D之间匹配。该函数必须被warp中的所有线程调用，否则行为是未定义的。
+如果 satf（saturatetofinitevalue）是 true，则为目标结果附加以下数值属性：
+• 如果一个元素结果为正无穷大，则调整为 +MAX_NORM。
+• 如果一个元素结果为负无穷大，则调整为 -MAX_NORM。
+• 如果一个元素结果为NaN，则调整为 0。
+由于矩阵分片到内存中的映射方式是不确定的，因此必须在调用 store_matrix_sync 后才能从内存
+中访问单个元素。有一种特殊场景是 warp 中的所有线程对所有分片元素执行相同操作，此时可以使用
+以下类成员直接访问元素。
+enum fragment<Use, m, n, k, T, Layout>::num_elements;
+T fragment<Use, m, n, k, T, Layout>::x[num_elements];
+例如，以下代码将 accumulator矩阵缩放一半。
+wmma::fragment<wmma::accumulator, 16, 16, 16, float> frag;
+float alpha = 0.5f;
+/*...*/
+for (int t = 0; t < frag.num_elements; t++)
+frag.x[t] *= alpha;
+2.24.2 其他浮点类型
+maca_bfloat16
+该数据格式是另一种fp16格式， 其范围与f32相同， 但精度有所降低 （7bits） 。 可以引入maca_bfloat16.
+h 头文件然后使用 maca_bfloat16 数据格式。使用 maca_bfloat16 的矩阵分片需要与 float 类型
+的累加数组合使用。支持的形状和操作与 __half保持一致。
+tf32
+该类型是一种特殊的浮点格式，范围与f32相同，但精度有所降低（>=10bits） 。该格式的布局在设备端
+已定义实现，可以在WMMA操作中直接使用这种浮点格式。数据格式之间的转换是在设备端完成的，用
+户不需要手动进行。
+该类型唯一支持的矩阵形状是16x16x8（m‑n‑k） 。
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 278

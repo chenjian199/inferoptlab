@@ -1,0 +1,6 @@
+{
+  "container": "glm53-vllm032",
+  "entry": "127.0.0.1 glm53-vllm032",
+  "reason": "single-node torchrun rendezvous resolves container hostname",
+  "host_etc_hosts_changed": false
+}

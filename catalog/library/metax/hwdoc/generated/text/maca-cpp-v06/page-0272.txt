@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 272
+PDF 页码标签: 264
+页脚页码候选: 264
+章节提示（书签推断）: __builtin_mxc_load_global_async
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+参数名 说明
+s0 32位数据，高4字节，记作 byte[7:4]
+s1 32位数据，低4字节，记作 byte[3:0]
+perm 32 位选择器，按字节划分为 4 个选择器： perm[31:24]、perm[23:16]、
+perm[15:8]、perm[7:0]。
+每个选择器的取值：
+• 0–7：代表取 in[sel]
+• 8–12：对应特定字符常量
+• ≥13：返回 0xFF
+返回
+字段 说明
+dest 字节置换后的32位结果：
+dest[31:24] = byte_permute({s0,s1}, perm[31:24])
+dest[23:16] = byte_permute({s0,s1}, perm[23:16])
+dest[15:8] = byte_permute({s0,s1}, perm[15:8])
+dest[7:0] = byte_permute({s0,s1}, perm[7:0])
+示例
+// 将两个 32 位数的 8 字节，重新组合为 0x88776655
+unsigned int s0 = 0x11223344; // byte[7]=11h … byte[4]=44h
+unsigned int s1 = 0x55667788; // byte[3]=55h … byte[0]=88h
+unsigned int perm = 0x00670504; // 设定次序 7,6,5,4
+unsigned int out = __builtin_mxc_byte_perm(s0, s1, perm);
+// out == 0x88776655
+2.18.7 __builtin_mxc_load_global_async
+描述
+执行异步全局内存加载。无内存栅栏，即不会隐式等待加载完成。若需等待完成，请在后续显式插入同
+步或使用带内存栅栏的变体。不建议使用不会自动插入内存栅栏的加载函数。
+MXMACA平台上的内存栅栏（memoryfence） ，请参考2.6MemoryFence函数 。
+以下所有 __builtin_mxc_load_global_async内置函数都不会自动插入内存栅栏。
+语法
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 264

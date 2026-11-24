@@ -1,0 +1,16 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 85
+PDF 页码标签: 73
+页脚页码候选: 73
+章节提示（书签推断）: C-Eval精度测试
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+该脚本对接的 Server 端口号为 8000，所以需要在启动 SGLang Server 时加上 --port 8000，示例如
+下:
+python -m sglang.launch_server --model ${Model_path} --tp 32 --dist-init-addr 100.
+,→79.153.153:5000 --nnodes 4 --node-rank 0 --trust-remote-code --isable-cuda-graph 
+,→--port 8000
+13 MacaRT‑SGLang 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 73

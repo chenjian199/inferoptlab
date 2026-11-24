@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "observed_on": "2026-11-22",
+  "verification": "official_dataset_cards_and_project_docs_observed_not_downloaded_or_run",
+  "sources": [
+    {
+      "name": "HumanEval",
+      "dataset_id": "openai/openai_humaneval",
+      "split": "test",
+      "test_rows": 164,
+      "source_url": "https://huggingface.co/datasets/openai/openai_humaneval",
+      "evaluation_url": "https://github.com/openai/human-eval",
+      "selected": true
+    },
+    {
+      "name": "MATH-500",
+      "dataset_id": "HuggingFaceH4/MATH-500",
+      "split": "test",
+      "test_rows": 500,
+      "source_url": "https://huggingface.co/datasets/HuggingFaceH4/MATH-500",
+      "origin_url": "https://github.com/openai/prm800k",
+      "selected": false
+    },
+    {
+      "name": "GSM8K",
+      "dataset_id": "openai/gsm8k",
+      "configuration": "main",
+      "split": "test",
+      "test_rows": 1319,
+      "source_url": "https://huggingface.co/datasets/openai/gsm8k",
+      "evaluation_url": "https://github.com/openai/grade-school-math",
+      "selected": false
+    }
+  ],
+  "latency_measurements_available": false,
+  "selection_basis": "Smallest complete test split; expected lower request count at one completion per task, not a measured latency ranking."
+}

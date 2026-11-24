@@ -1,0 +1,48 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 78
+PDF 页码标签: 66
+页脚页码候选: 66
+章节提示（书签推断）: Server服务动态推理性能测试
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+• --cache-block-seq-len 16 ：设置 block size 为 16。
+• --dtype float16 ：指定数据类型为 float16。
+运行程序后，结果打印如下：
+-------------------------------------
+total time: 5.51s
+concurrency: 1, test_round: 3
+input_tokens: 256, output_tokens: 128
+first_token latency(min, max, ave): 0.045s, 0.047s, 0.046s
+total_token latency(min, max, ave): 1.833s, 1.846s, 1.839s
+token_latency percentiles(50%,75%,95%,99%)(s):[0.014, 0.014, 0.02, 0.021]
+throughput(output): 69.68 token/s
+throughput(total): 209.04 token/s
+--------------------------------------
+打印结果指示首字延迟、输出吞吐和全部吞吐（包括首个 token） 。
+10.3.4 Server 服务动态推理性能测试
+详细信息可参考官方文档请求吞吐量性能测试和api_server 性能测试。
+启动服务
+启动服务代码示例：
+lmdeploy serve api_server --server-port 23333 --tp 1 --backend pytorch --max-batch-
+,→size 256 /models/llm/Internlm2-chat-7b --dtype float16 --device maca --cache-
+,→block-seq-len 16
+输出如下：
+HINT: Please open http://0.0.0.0:23333 in a browser for detailed api usage!!!
+HINT: Started server process[1384373]
+HINT: Waiting for application startup.
+HINT: Application startup complete.
+HINT: Uvicorn running on http://0.0.0.0:23333 (Press CTRL+C to quit)
+发起吞吐测试请求
+1. profile_restful_api.py 偶发 NaN 异常，为了暂时规避该问题，请手动修改代码如下：
+--- a/benchmark/profile_restful_api.py
++++ b/benchmark/profile_restful_api.py
+@@ -153,7 +153,7 @@ async def async_request_openai_completions(
+payload = {
+'model': request_func_input.model,
+'prompt': prompt,
+- 'temperature': 0.0,
+(下页继续)
+10 MacaRT‑LMDeploy 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 66

@@ -1,0 +1,51 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 295
+PDF 页码标签: 287
+页脚页码候选: 287
+章节提示（书签推断）: Per Thread block 分配
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+(续上页)
+return 0;
+}
+将会输出：
+Thread 0 got pointer: 00057020
+Thread 1 got pointer: 0005708c
+Thread 2 got pointer: 000570f8
+Thread 3 got pointer: 00057164
+Thread 4 got pointer: 000571d0
+2.30.3.2 Per Thread block 分配
+#include <stdlib.h>
+__global__ void mallocTest()
+{
+__shared__ int* data;
+// 
+,→block中的第一个线程执行分配动作并通过 shared内存将指针与其 block中所有其他的线程共享，
+// 因此可以轻松地合并访问。每个线程分配 64字节。
+if (threadIdx.x == 0)
+{
+size_t size = blockDim.x * 64;
+data = (int*)malloc(size);
+}
+__syncthreads();
+// 检查是否失败
+if (data == NULL)
+return;
+// 把线程 ID写入指针，保证合并
+int* ptr = data;
+for (int i = 0; i < 64; ++i)
+ptr[i * blockDim.x + threadIdx.x] = threadIdx.x;
+// 保证在释放之前所有的线程都完毕
+__syncthreads();
+// 只有一个线程执行释放的动作
+if (threadIdx.x == 0)
+free(data);
+}
+int main()
+{
+mcDeviceSetLimit(mcLimitMallocHeapSize, 128 * 1024 * 1024);
+(下页继续)
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 287

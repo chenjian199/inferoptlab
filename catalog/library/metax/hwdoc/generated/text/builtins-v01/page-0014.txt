@@ -1,0 +1,44 @@
+文档: 沐曦通用GPU_MXMACA编译器内建函数编程指南_CN_V01.pdf
+文档 ID: builtins-v01
+SHA256: 80dfb3a83381e48e19968b432d4eb24d37c505bd711af14f74889277cffc3835
+PDF 页序号: 14
+PDF 页码标签: 8
+页脚页码候选: 8
+章节提示（书签推断）: __builtin_mxc_ldg_*_predicator_ret
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® 编译器内建函数编程指南
+(续上页)
+,→v16i8 ret_val, bool saddr_flag, bool pred_neg, bool is_async, unsigned cmp_
+,→operand1, unsigned cmp_operand2, int cmp_flag);
+参数
+名称 描述
+return_value 从内容中载入的值
+global_addr 全局内存地址
+offset 全局内存偏移
+ret_val 非活跃线程的返回值
+saddr_flag 暗示编译器使用 streg(single thread register) 存储全局内存地址
+pred_neg 当参数为 true 时，将活跃线程掩码取反
+is_async 当参数为 true 时，用户需要主动插入 arrive 操作进行访存同步，而非依赖编译
+器处理。请谨慎使用
+cmp_operand1 用于生成活跃线程掩码的第一个比较操作数
+cmp_operand2 用于生成活跃线程掩码的第二个比较操作数
+cmp_flag 可用的比较操作。取值范围及含义如下:
+MACA_ICMP_EQ: exec_mask = (cmp_operand1 == cmp_operand2)
+MACA_ICMP_NE: exec_mask = (cmp_operand1 != cmp_operand2)
+MACA_ICMP_UGT: exec_mask = (cmp_operand1 > cmp_operand2), usigned
+MACA_ICMP_UGE: exec_mask = (cmp_operand1 >= cmp_operand2), usigned
+MACA_ICMP_UL T: exec_mask = (cmp_operand1 < cmp_operand2) usigned
+MACA_ICMP_ULE: exec_mask = (cmp_operand1 <= cmp_operand2), usigned
+MACA_ICMP_SGT: exec_mask = (cmp_operand1 > cmp_operand2), signed
+MACA_ICMP_SGE: exec_mask = (cmp_operand1 >= cmp_operand2), signed
+MACA_ICMP_SL T: exec_mask = (cmp_operand1 < cmp_operand2), signed
+MACA_ICMP_SLE: exec_mask = (cmp_operand1 <= cmp_operand2), signed
+代码示例
+__device__ v1u32 test_builtin_mxc_ldg_b32_predicator_ret(int *ptr, v1u32 ret_val, 
+,→int a) {
+v1u32 val = __builtin_mxc_ldg_b32_predicator_ret(ptr, 0, ret_val, false, false, 
+,→false, threadIdx.x, a, MACA_ICMP_ULT);
+return val;
+}
+3 接口介绍 沐曦股份专有信息 OG‑26013‑000‑F5_V01 | 8

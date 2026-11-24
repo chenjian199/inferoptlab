@@ -1,0 +1,46 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 311
+PDF 页码标签: 303
+页脚页码候选: 303
+章节提示（书签推断）: 多设备同步
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+int dev = 0;
+int supportsCoopLaunch = 0;
+mcDeviceGetAttribute(&supportsCoopLaunch, mcDevAttrCooperativeLaunch, dev);
+如果设备0的属性显示支持cooperativelaunch， supportsCoopLaunch将会被设为1。
+3.7 多设备同步
+为 了 支 持 使 用 Cooperative Groups 进 行 多 设 备 之 间 的 同 步， 必 须 使 用 MXMACA 启 动 接 口
+mcLaunchCooperativeKernelMultiDevice。这个与现存的 MXMACA 接口明显不同的接口允许
+一个主机线程在多个设备上启动一个内核。除了 mcLaunchCooperativeKernel 的限制与保证之外，
+这个接口有其他的语法：
+• 这个接口保证启动是原子的，比如：如果这个接口调用成功，提供的线程块的数量将会在所有指定的
+设备上启动。
+• 通过这个接口启动的函数必须是相同的。驱动不会在这一点上有显示的检查，因为是不可行的。这一
+点需要应用来保证。
+• 在提供的 mcLaunchParams中没有映射到相同设备的两个条目。
+• 这个启动的所有目标设备必须有相同的计算能力——主要版本以及次要版本。
+• 所有设备上每个 grid 的 block size, grid size 以及共享内存的数量都必须相同。这意味着每个设备上
+可以启动的block数量的最大值是受有最少SM数量的设备的限制的。
+• 任何用户定义的 __device__ ，__constant__ 或者 __managed__ 的出现在模块中的设备侧全局
+变量拥有正在启动的 CU 函数，并在每个设备上独立实例化。用户有责任给这些全局变量合适的初始
+化。
+可 以 通 过 启 用 对 等 访 问 （通 过 对 所 有 参 与 的 设 备 设 置mcCtxEnablePeerAccess 或 者
+mcDeviceEnablePeerAccess） 。
+启 动 参 数 应 该 使 用 一 个 结 构 体 的 数 组 定 义 （一 个 设 备 一 个 结 构 体 对 象） ， 并 且 使 用
+mcLaunchCooperativeKernelMultiDevice启动。
+例子：
+mcDeviceProp deviceProp;
+mcGetDeviceCount(&numGpus);
+// 每个设备的启动参数
+mcLaunchParams *launchParams =
+(mcLaunchParams*)malloc(sizeof(mcLaunchParams) * numGpus);
+mcStream_t *streams = (mcStream_t*)malloc(sizeof(mcStream_t) * numGpus);
+// 启动过程中拷贝内核启动参数
+// 也可以使用每个设备独立的内核参数拷贝，但是函数 /内核的签名以及名字必须相同
+void* kernelArgs = { /* 添加内核参数 */ }
+(下页继续)
+3 CooperativeGroups 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 303

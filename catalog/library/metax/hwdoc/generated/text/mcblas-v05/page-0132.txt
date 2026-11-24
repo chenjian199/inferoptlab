@@ -1,0 +1,43 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 132
+PDF 页码标签: 125
+页脚页码候选: 125
+章节提示（书签推断）: mcblas<t>gelsBatched()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+该函数查找一组超定方程组（overdetermined systems）的最小二乘解（least squares solution） ，解
+决如下所述的最小二乘问题：
+minimize || Carray[i] - Aarray[i]*Xarray[i] || , with i = 0, ...,batchSize-1
+结束时，每个 Aarray[i] 都由其 QR 分解覆盖，每个 Carray[i] 都由最小二乘解覆盖。
+mcblas<t>gelsBatched 仅支持非转置操作，并且只求解超定方程组（m >=n） 。
+此函数用于较小的矩阵，其中启动开销是一个重要因素。
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+trans input 非转置或共轭转置运算 op(Aarray[i])。目前仅支持非转置运算
+m input Aarray[i] 的行数
+n input 每个 Aarray[i] 的列数和每个 Carray[i] 的行数
+nrhs input 每个 Carray[i] 的列数
+Aarray 设备 in/out 指向 <type> 数组的指针数组。每个数组维度为 m x n，其中 lda
+>=max(1,m)。
+矩阵 Aarray[i] 不应重叠；否则，将出现未定义的行为。
+lda input 用于存储矩阵 Aarray[i] 的二维数组的前导维度
+Carray 设备 in/out 指向 <type> 数组的指针数组。每个数组维度为 n x nrhs，其中 ldc
+>=max(1,m)。
+矩阵 Carray[i] 不应重叠；否则，将出现未定义的行为。
+ldc input 用于存储矩阵 Aarray[i] 的二维数组的前导维度
+info 设备 output 如果 info=0，则传递给函数的参数有效；
+如果 info<0，则 postion‑info 中的参数无效
+devInfoAr‑
+ray
+设备 output 维度为 batchsize 的整数的可选数组。
+如果不是 null，则每个元素 devInfoArray[i] 都包含一个值 V，其含
+义如下：
+V = 0：第 i 个问题已成功解决；
+V > 0： Aarray[i] 的第 V 个对角线元素为 0。 数组 Aarray[i] 没有完整
+的秩。
+batchSize input Aarray 和 Carray 中包含的指针数
+下面列出了此函数可能的返回值及其含义。
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 125

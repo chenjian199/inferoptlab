@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "head_dim": 512,
+      "passed": true,
+      "max_abs_error": 0.007370471954345703,
+      "relative_l2": 0.002006722381338477
+    },
+    {
+      "head_dim": 576,
+      "passed": true,
+      "max_abs_error": 0.005019783973693848,
+      "relative_l2": 0.001996222883462906
+    }
+  ],
+  "reference": "CPU FP32 softmax(QK^T/sqrt(D))V over selected valid keys"
+}

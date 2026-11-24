@@ -1,0 +1,46 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 68
+PDF 页码标签: 60
+页脚页码候选: 60
+章节提示（书签推断）: 半精度转换与数据移动函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+• int，只读入参
+width
+• int，只读入参
+返回值
+• 从sourcethreadID返回一个引用了var的4字节的word作为一个half2。如果sourcethreadID超
+过了source的范围或者sourcethread已经退出，则返callingthread自己的var。
+函数描述
+• 通过将caller’slaneID减去delta得到sourcethreadID。返回resultinglaneID所持有的var的值：
+var 被 delta thread 向上移动。如果 width 小于 warpSize 则 warp 的每个子部分都表现为 starting
+logical thread ID 为 0 的单独实体。source thread ID 不会环绕 width 值，所以较低的 delta threads
+不会被改变。width的值必须是一个2的幂。如果width不是2的幂或者一个大于warpSize的值，则
+results应为undefined。
+__device__ __half __shfl_xor_sync (const unsigned mask, const __half var,
+const int delta, const int width)
+参数
+mask
+• unsignedint，只读入参
+var
+• half，只读入参
+delta
+• int，只读入参
+width
+• int，只读入参
+返回值
+• 从 source thread ID 返回一个引用了 var 的 2 字节的 word 作为一个 half。如果 source thread ID 超
+过了source的范围或者sourcethread已经退出，则返callingthread自己的var。
+函数描述
+• 通过对 caller’s thread ID 和 mask 进行按位异或计算来得到 source thread ID：返回由 resulting
+threadID所持有的var的值。如果width小于warpSize则每组widthconsecutivethread都能够访
+问 earlier groups 中 d 线程的元素，然而如果他们尝试访问 later groups 的线程，则会返回他们自己
+的var。这种模式实现了一种蝶式寻址模式，例如用于treereduction和broadcast。
+__device__ __half2 __shfl_xor_sync (const unsigned mask, const __half2 var,
+const int delta, const int width)
+参数
+mask
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 60

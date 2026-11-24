@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 220
+PDF 页码标签: 212
+页脚页码候选: 212
+章节提示（书签推断）: 整数型intrinsic
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+• fmaf(±∞, ±, z)返回NaN。
+• fmaf(±0, ±∞, z)返回NaN。
+• 如果 x * y是确切的正无穷，fmaf(x, y, -∞)返回NaN。
+• 如果 x * y是确切的负无穷，fmaf(x, y, +∞)返回NaN。
+函数描述
+• 以向零舍入模式作为单个操作计算 x * y + z。
+2.8.20 整数型 intrinsic
+这一节描述仅在 device 代码中支持的整数型 intrinsic 函数。不需要在程序中包含任何头文件就可以使
+用这些函数。
+__device__ unsigned int __brev (unsigned int x)
+把一个无符号整数中的32个bit反转。
+返回值
+• 返回bit反转之后的x的值，比如返回值的第N个bit对应x的第31‑N个bit。
+函数描述
+• 把无符号整数x中的32个bit反转。
+__device__ unsigned long long int __brevll (unsigned long long int x)
+把一个64位无符号整数中的64个bit顺序反转。
+返回值
+• 返回bit反转之后的x的值，比如返回值的第N个bit对应x的第63‑N个bit。
+函数描述
+• 把64位无符号整数x中的64个bit反转。
+__device__ unsigned int __byte_perm (unsigned int x, unsigned int y, unsigned int 
+,→s)
+从两个32位无符号整数中返回选择的字节。
+返回值
+• 返回值这样计算：result[n] := input[selector[n]]这里的 result[n]是r的第n个字节。
+函数描述
+• byte_perm(x,y,s)返回一个32位的整数，这个整数由8个输入的字节（整数x，y）中提供4个字
+节组成，由选择器s选择这4个字节。
+输入的字节这样索引： input[0] = x<7:0> input[1] = x<15:8> input[2] = x<23:16>
+input[3] = x<31:24> input[4] = y<7:0> input[5] = y<15:8> input[6] =
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 212

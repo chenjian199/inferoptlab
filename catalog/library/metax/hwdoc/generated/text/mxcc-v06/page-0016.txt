@@ -1,0 +1,34 @@
+文档: 沐曦通用GPU_mxcc编译器用户指南_CN_V06.pdf
+文档 ID: mxcc-v06
+SHA256: 6fceba6f92b1b4274a5c2dd106d76320947a0b4ef0cdaffd36af5497fdffb6dd
+PDF 页序号: 16
+PDF 页码标签: 11
+页脚页码候选: 11
+章节提示（书签推断）: 设备链接器选项
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mxcc 编译器用户指南
+--fmad {true|false} (-fmad)
+启用/禁用浮点乘法和加法/减法到浮点乘加运算的收缩。-use-fast-math 会设置 -fmad=true。 默认
+值为 true。
+4.7 通用工具选项
+--disable-warnings (-w)
+禁止所有警告消息。
+--Werror (-Werror)
+将指定类型的警告改为错误。
+--help (-h)
+显示帮助。
+--version (-V)
+打印此工具的版本信息。
+--options-file file (-optf)
+包含指定文件中的命令行选项。
+-fproc-stat-report
+打印子流程统计信息。
+--fproc-stat-report=file (-fproc-stat-report=)
+将子流程统计信息保存到给定的文件中。
+4.8 设备链接器选项
+--disable-warnings (-w)
+禁止所有警告消息。
+--preserve-relocs (-preserve-relocs)
+在链接的可执行文件中保留已解决的重定位。
+4 支持的选项 沐曦股份专有信息 OG‑23026‑020‑F5_V06 | 11

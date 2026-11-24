@@ -1,0 +1,667 @@
+[
+  {
+    "title": "简介",
+    "pdf_page": 8,
+    "depth": 1
+  },
+  {
+    "title": "适用产品",
+    "pdf_page": 8,
+    "depth": 2
+  },
+  {
+    "title": "安装mcBLAS",
+    "pdf_page": 8,
+    "depth": 2
+  },
+  {
+    "title": "Hello mcBLAS",
+    "pdf_page": 9,
+    "depth": 2
+  },
+  {
+    "title": "数据布局",
+    "pdf_page": 12,
+    "depth": 2
+  },
+  {
+    "title": "使用mcBLAS API",
+    "pdf_page": 13,
+    "depth": 1
+  },
+  {
+    "title": "mcBLAS数据类型",
+    "pdf_page": 13,
+    "depth": 2
+  },
+  {
+    "title": "mcblasHandle_t",
+    "pdf_page": 13,
+    "depth": 3
+  },
+  {
+    "title": "mcblas_int",
+    "pdf_page": 13,
+    "depth": 3
+  },
+  {
+    "title": "mcblas_stride",
+    "pdf_page": 13,
+    "depth": 3
+  },
+  {
+    "title": "mcblas_half",
+    "pdf_page": 13,
+    "depth": 3
+  },
+  {
+    "title": "mcComplex",
+    "pdf_page": 13,
+    "depth": 3
+  },
+  {
+    "title": "mcDoubleComplex",
+    "pdf_page": 13,
+    "depth": 3
+  },
+  {
+    "title": "mcblasStatus_t",
+    "pdf_page": 14,
+    "depth": 3
+  },
+  {
+    "title": "macaDataType_t",
+    "pdf_page": 14,
+    "depth": 3
+  },
+  {
+    "title": "mcblasOperation_t",
+    "pdf_page": 15,
+    "depth": 3
+  },
+  {
+    "title": "mcblasFillMode_t",
+    "pdf_page": 15,
+    "depth": 3
+  },
+  {
+    "title": "mcblasDiagType_t",
+    "pdf_page": 15,
+    "depth": 3
+  },
+  {
+    "title": "mcblasSideMode_t",
+    "pdf_page": 15,
+    "depth": 3
+  },
+  {
+    "title": "mcblasPointerMode_t",
+    "pdf_page": 16,
+    "depth": 3
+  },
+  {
+    "title": "mcblasAtomicsMode_t",
+    "pdf_page": 16,
+    "depth": 3
+  },
+  {
+    "title": "mcblasGemmAlgo_t",
+    "pdf_page": 16,
+    "depth": 3
+  },
+  {
+    "title": "mcblasMath_t",
+    "pdf_page": 17,
+    "depth": 3
+  },
+  {
+    "title": "mcblasComputeType_t",
+    "pdf_page": 17,
+    "depth": 3
+  },
+  {
+    "title": "mcBLAS辅助函数",
+    "pdf_page": 18,
+    "depth": 2
+  },
+  {
+    "title": "mcblasCreate()",
+    "pdf_page": 18,
+    "depth": 3
+  },
+  {
+    "title": "mcblasDestroy()",
+    "pdf_page": 19,
+    "depth": 3
+  },
+  {
+    "title": "mcblasGetVersion()",
+    "pdf_page": 19,
+    "depth": 3
+  },
+  {
+    "title": "mcblasGetProperty()",
+    "pdf_page": 19,
+    "depth": 3
+  },
+  {
+    "title": "mcblasGetStatusName()",
+    "pdf_page": 20,
+    "depth": 3
+  },
+  {
+    "title": "mcblasGetStatusString()",
+    "pdf_page": 20,
+    "depth": 3
+  },
+  {
+    "title": "mcblasSetStream()",
+    "pdf_page": 20,
+    "depth": 3
+  },
+  {
+    "title": "mcblasSetWorkspace()",
+    "pdf_page": 21,
+    "depth": 3
+  },
+  {
+    "title": "mcblasGetStream()",
+    "pdf_page": 21,
+    "depth": 3
+  },
+  {
+    "title": "mcblasGetPointerMode()",
+    "pdf_page": 22,
+    "depth": 3
+  },
+  {
+    "title": "mcblasSetPointerMode()",
+    "pdf_page": 22,
+    "depth": 3
+  },
+  {
+    "title": "mcblasSetVector()",
+    "pdf_page": 22,
+    "depth": 3
+  },
+  {
+    "title": "mcblasGetVector()",
+    "pdf_page": 23,
+    "depth": 3
+  },
+  {
+    "title": "mcblasSetMatrix()",
+    "pdf_page": 23,
+    "depth": 3
+  },
+  {
+    "title": "mcblasGetMatrix()",
+    "pdf_page": 24,
+    "depth": 3
+  },
+  {
+    "title": "mcblasSetVectorAsync()",
+    "pdf_page": 24,
+    "depth": 3
+  },
+  {
+    "title": "mcblasGetVectorAsync()",
+    "pdf_page": 24,
+    "depth": 3
+  },
+  {
+    "title": "mcblasSetMatrixAsync()",
+    "pdf_page": 25,
+    "depth": 3
+  },
+  {
+    "title": "mcblasGetMatrixAsync()",
+    "pdf_page": 25,
+    "depth": 3
+  },
+  {
+    "title": "mcblasSetAtomicsMode()",
+    "pdf_page": 26,
+    "depth": 3
+  },
+  {
+    "title": "mcblasGetAtomicsMode()",
+    "pdf_page": 26,
+    "depth": 3
+  },
+  {
+    "title": "mcblasSetMathMode()",
+    "pdf_page": 26,
+    "depth": 3
+  },
+  {
+    "title": "mcblasGetMathMode()",
+    "pdf_page": 27,
+    "depth": 3
+  },
+  {
+    "title": "mcblasSetSmCountTarget()",
+    "pdf_page": 27,
+    "depth": 3
+  },
+  {
+    "title": "mcblasGetSmCountTarget()",
+    "pdf_page": 27,
+    "depth": 3
+  },
+  {
+    "title": "mcblasLoggerConfigure()",
+    "pdf_page": 27,
+    "depth": 3
+  },
+  {
+    "title": "mcblasGetLoggerCallback()",
+    "pdf_page": 28,
+    "depth": 3
+  },
+  {
+    "title": "mcblasSetLoggerCallback()",
+    "pdf_page": 28,
+    "depth": 3
+  },
+  {
+    "title": "mcBLAS Level-1函数",
+    "pdf_page": 29,
+    "depth": 2
+  },
+  {
+    "title": "mcblasI<t>amax()",
+    "pdf_page": 29,
+    "depth": 3
+  },
+  {
+    "title": "mcblasI<t>amin()",
+    "pdf_page": 30,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>asum()",
+    "pdf_page": 31,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>axpy()",
+    "pdf_page": 31,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>copy()",
+    "pdf_page": 32,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>dot()",
+    "pdf_page": 33,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>nrm2()",
+    "pdf_page": 34,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>rot()",
+    "pdf_page": 35,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>rotg()",
+    "pdf_page": 36,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>rotm()",
+    "pdf_page": 38,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>rotmg()",
+    "pdf_page": 39,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>scal()",
+    "pdf_page": 40,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>swap()",
+    "pdf_page": 41,
+    "depth": 3
+  },
+  {
+    "title": "mcBLAS Level-2函数",
+    "pdf_page": 42,
+    "depth": 2
+  },
+  {
+    "title": "mcblas<t>gbmv()",
+    "pdf_page": 42,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>gemv()",
+    "pdf_page": 44,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>ger()",
+    "pdf_page": 45,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>sbmv()",
+    "pdf_page": 47,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>spmv()",
+    "pdf_page": 48,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>spr()",
+    "pdf_page": 49,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>spr2()",
+    "pdf_page": 50,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>symv()",
+    "pdf_page": 51,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>syr()",
+    "pdf_page": 53,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>syr2()",
+    "pdf_page": 54,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>tbmv()",
+    "pdf_page": 55,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>tbsv()",
+    "pdf_page": 57,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>tpmv()",
+    "pdf_page": 58,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>tpsv()",
+    "pdf_page": 60,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>trmv()",
+    "pdf_page": 62,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>trsv()",
+    "pdf_page": 63,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>hemv()",
+    "pdf_page": 65,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>hbmv()",
+    "pdf_page": 66,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>hpmv()",
+    "pdf_page": 68,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>her()",
+    "pdf_page": 69,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>her2()",
+    "pdf_page": 70,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>hpr()",
+    "pdf_page": 71,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>hpr2()",
+    "pdf_page": 73,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>gemvBatched()",
+    "pdf_page": 74,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>gemvStridedBatched()",
+    "pdf_page": 77,
+    "depth": 3
+  },
+  {
+    "title": "mcBLAS Level-3函数",
+    "pdf_page": 81,
+    "depth": 2
+  },
+  {
+    "title": "mcblas<t>gemm()",
+    "pdf_page": 81,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>gemm3m()",
+    "pdf_page": 83,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>gemmBatched()",
+    "pdf_page": 85,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>gemmStridedBatched()",
+    "pdf_page": 88,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>symm()",
+    "pdf_page": 92,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>syrk()",
+    "pdf_page": 94,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>syr2k()",
+    "pdf_page": 96,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>syrkx()",
+    "pdf_page": 98,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>trmm()",
+    "pdf_page": 100,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>trsm()",
+    "pdf_page": 102,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>trsmBatched()",
+    "pdf_page": 105,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>hemm()",
+    "pdf_page": 108,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>herk()",
+    "pdf_page": 110,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>her2k()",
+    "pdf_page": 111,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>herkx()",
+    "pdf_page": 113,
+    "depth": 3
+  },
+  {
+    "title": "BLAS-Like扩展函数",
+    "pdf_page": 115,
+    "depth": 2
+  },
+  {
+    "title": "mcblas<t>geam()",
+    "pdf_page": 115,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>dgmm()",
+    "pdf_page": 118,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>getrfBatched()",
+    "pdf_page": 120,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>getrsBatched()",
+    "pdf_page": 122,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>getriBatched()",
+    "pdf_page": 125,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>matinvBatched()",
+    "pdf_page": 127,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>geqrfBatched()",
+    "pdf_page": 129,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>gelsBatched()",
+    "pdf_page": 130,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>tpttr()",
+    "pdf_page": 133,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>trttp()",
+    "pdf_page": 134,
+    "depth": 3
+  },
+  {
+    "title": "mcblas<t>gemmEx()",
+    "pdf_page": 136,
+    "depth": 3
+  },
+  {
+    "title": "mcblasGemmEx()",
+    "pdf_page": 139,
+    "depth": 3
+  },
+  {
+    "title": "mcblasGemmBatchedEx()",
+    "pdf_page": 142,
+    "depth": 3
+  },
+  {
+    "title": "mcblasGemmStridedBatchedEx()",
+    "pdf_page": 147,
+    "depth": 3
+  },
+  {
+    "title": "mcblasCsyrkEx()",
+    "pdf_page": 152,
+    "depth": 3
+  },
+  {
+    "title": "mcblasCsyrk3mEx()",
+    "pdf_page": 154,
+    "depth": 3
+  },
+  {
+    "title": "mcblasCherkEx()",
+    "pdf_page": 156,
+    "depth": 3
+  },
+  {
+    "title": "mcblasCherk3mEx()",
+    "pdf_page": 158,
+    "depth": 3
+  },
+  {
+    "title": "mcblasNrm2Ex()",
+    "pdf_page": 160,
+    "depth": 3
+  },
+  {
+    "title": "mcblasAxpyEx()",
+    "pdf_page": 162,
+    "depth": 3
+  },
+  {
+    "title": "mcblasDotEx()",
+    "pdf_page": 163,
+    "depth": 3
+  },
+  {
+    "title": "mcblasRotEx()",
+    "pdf_page": 165,
+    "depth": 3
+  },
+  {
+    "title": "mcblasScalEx()",
+    "pdf_page": 166,
+    "depth": 3
+  }
+]

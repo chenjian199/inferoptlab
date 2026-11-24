@@ -1,0 +1,15 @@
+{
+  "command": [
+    "docker",
+    "exec",
+    "glm53-vllm032",
+    "python",
+    "-m",
+    "torch.distributed.run",
+    "--standalone",
+    "--nproc_per_node=8",
+    "/work/scripts/check_gpu8.py"
+  ],
+  "exit": 0,
+  "elapsed_seconds": 129.01587677001953
+}

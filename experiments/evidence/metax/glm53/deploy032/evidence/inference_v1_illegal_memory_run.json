@@ -1,0 +1,22 @@
+{
+  "command": [
+    "docker",
+    "exec",
+    "-e",
+    "PYTHONPATH=/work/scripts",
+    "-e",
+    "VLLM_USE_V2_MODEL_RUNNER=0",
+    "-e",
+    "VLLM_WORKER_MULTIPROC_METHOD=spawn",
+    "-e",
+    "HF_HUB_OFFLINE=1",
+    "-e",
+    "TRANSFORMERS_OFFLINE=1",
+    "glm53-vllm032",
+    "python",
+    "-u",
+    "/work/scripts/infer_smoke.py"
+  ],
+  "exit": 1,
+  "elapsed_seconds": 476.96491453400813
+}

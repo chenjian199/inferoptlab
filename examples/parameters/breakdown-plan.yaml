@@ -1,0 +1,80 @@
+id: example-breakdown-plan
+version: 1.0.0
+title: GLM Flash C500 capture and operator replay preparation
+provenance: []
+issues: []
+extensions: {}
+model_ref:
+  id: metax-glm-5.3-flash-w8a8
+  version: 1.0.0
+hardware_ref:
+  id: metax-c500-8gpu
+  version: 1.0.0
+runtime_ref:
+  id: metax-vllm-glm53-observed
+  version: 1.0.0
+method_sources:
+- path: catalog/library/metax/methods/operator-workflow.md
+  sha256: 56556f201ccefae494591b87ceaeee4769e5f84127fd64034c3ae6474875df84
+- path: catalog/library/metax/methods/regression-policy.md
+  sha256: 04930880851d3c370dd83e646e2b8dd9f4488bdc9d86c945091f1f1717b98f9e
+stages:
+- request_timeline
+- module_attribution
+- kernel_communication
+- operator_replay
+operator_targets:
+- int8_linear_quant_gemm_scale
+- moe_alignment_routing_dispatch
+- sparse_attention_indexer
+- kda_state_update
+- sampling_argmax
+- collective_communication
+capture:
+  phases:
+  - prefill
+  - decode
+  all_ranks: true
+  required_fields:
+  - request_id
+  - correlation_id
+  - phase
+  - layer_module_path
+  - operator_id
+  - source_commit
+  - rank
+  - clock_domain
+  - stream
+  - shape
+  - dtype
+  - stride
+  - layout
+  - storage_offset
+  - alias_map
+  - quantization_scales_zero_points
+  - routing_mask_padding
+  - state_before_after
+  - workspace
+  - input_sha256
+  - reference_output_sha256
+  - shape_frequency
+  max_fixture_bytes: 268435456
+  max_shapes_per_operator: 16
+  instrumented_scoring: false
+replay:
+  baseline_self_replay_required: true
+  preserve_stride_alias_state: true
+  independent_reference_required: true
+  unsupported_inputs: verified_baseline_fallback_or_reject
+  numeric_thresholds_frozen: false
+timing:
+  device_timer_qualified: false
+  warmup: 10
+  repeats: 5
+  iterations: 20
+  separate_kernel_wrapper: true
+  reset_state_each_sample: true
+  exclude_compile_and_input_creation: true
+operator_case_refs:
+- id: glm53-c500-layer0-gate-up
+  version: 1.0.0

@@ -1,0 +1,37 @@
+文档: 沐曦通用GPU_MXMACA编译器内建函数编程指南_CN_V01.pdf
+文档 ID: builtins-v01
+SHA256: 80dfb3a83381e48e19968b432d4eb24d37c505bd711af14f74889277cffc3835
+PDF 页序号: 39
+PDF 页码标签: 33
+页脚页码候选: 33
+章节提示（书签推断）: __builtin_mxc_ubfe
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® 编译器内建函数编程指南
+代码示例
+typedef __NATIVE_VECTOR__(2, float) v2f32;
+__global__ void pkFmulKernel(v2f32* input, v2f32* output) {
+int idx = threadIdx.x;
+output[idx] = __builtin_mxc_pk_add_f32(input[idx], output[idx]);
+}
+3.7.4 __builtin_mxc_ubfe
+功能描述无符号位域提取。
+接口声明
+unsigned int __builtin_mxc_ubfe(unsigned int data, unsigned int field_offset, 
+,→unsigned int field_width);
+参数
+表 3.26 __builtin_mxc_ubfe 参数说明
+名称 描述
+return_value 返回值
+data 输入数据
+field_offset 要提取的位域的起始位置
+field_width 要提取的位域的宽度
+算法
+return_value = (data >> field_offset[4:0]) & ((1 << field_width[4:0]) - 1)
+代码示例
+__global__ static void test_ubfe(unsigned int *res, unsigned int *src, unsigned 
+,→int *offset, unsigned int *field) {
+unsigned int id = threadIdx.x;
+res[id] = __builtin_mxc_ubfe(src[id], offset[id], field[id]);
+}
+3 接口介绍 沐曦股份专有信息 OG‑26013‑000‑F5_V01 | 33

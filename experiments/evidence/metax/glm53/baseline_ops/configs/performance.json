@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "draft_not_measured",
+  "runtime_reference": "configs/d0_environment.json",
+  "input_tokens_after_template": [
+    128,
+    512,
+    2048,
+    3072
+  ],
+  "output_tokens": [
+    128,
+    512
+  ],
+  "matrix_mode": "cartesian_product",
+  "max_model_len": 4096,
+  "concurrency": 1,
+  "proposed_warmup_requests_per_cell": 5,
+  "proposed_measured_requests_per_cell": 30,
+  "proposed_independent_rounds": 3,
+  "pair_order": [
+    "baseline",
+    "candidate",
+    "candidate",
+    "baseline"
+  ],
+  "eos_policy": null,
+  "synchronization_protocol": null,
+  "profiler_during_timing": false,
+  "report": [
+    "actual_token_counts",
+    "end_to_end_latency",
+    "output_tokens_per_second",
+    "dispersion",
+    "per_rank_memory"
+  ],
+  "ttft_itl_status": "Requires separately verified per-token instrumentation; unavailable from aggregate LLM.generate time."
+}

@@ -1,0 +1,50 @@
+{
+  "status": "complete",
+  "updated_on": "2026-11-23",
+  "remote_root": "/home/metax/glm53-baseline-ops",
+  "inference_container": "glm53-heval-v1",
+  "run_label": "20261123_humaneval_v1",
+  "dataset_revision": "7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544",
+  "canonical_solutions": {
+    "passed": 164,
+    "total": 164,
+    "sandbox_selftests_passed": true
+  },
+  "preserve": [
+    "dcc",
+    "glm53-vllm032",
+    "host driver and SDK",
+    "canonical model weights"
+  ],
+  "next_steps": [],
+  "no_credentials_stored": true,
+  "smoke32": {
+    "passed": 31,
+    "tasks": 32,
+    "pass_at_1": 0.96875,
+    "truncated": 0,
+    "formatting_failure": "HumanEval/37"
+  },
+  "frozen_protocol": "configs/humaneval_regression.frozen.json",
+  "local_tests": {
+    "passed": 9
+  },
+  "full_scoring_waiter_pid": 385954,
+  "full164": {
+    "passed": 153,
+    "tasks": 164,
+    "pass_at_1": 0.9329268292682927,
+    "truncated": 0,
+    "infrastructure_errors": 0
+  },
+  "repeatability": {
+    "overlap_exact_token_matches": 23,
+    "overlap_tasks": 32,
+    "independent_process_repeatability": "not measured"
+  },
+  "original_containers_unchanged": true,
+  "experiment_container_running": false,
+  "archive_verification": "passed",
+  "baseline_report": "BASELINE_REPORT.md",
+  "baseline_summary": "baseline_summary.json"
+}

@@ -1,120 +1,86 @@
-# 建议仓库结构
+# 当前目录与工作流程
 
-第四步新增 `optimization/`（离线交接 CLI、交接逻辑和后续执行接口）、`agent/skills/`（四个阶段的项目技能）与 `runs/optimization/`（生成结果）。入口见 [第四步说明](../optimization/README.md) 和 [技能约束](../agent/README.md)。
-
-本文件描述当前实现和未来运行目录。当前已提供规约工具、`benchmark/` 测试模块、`diagnosis/` 离线归因与 `analysis/` 专项规划/trace 汇总。新阶段的实际目录、契约及边界见 [阶段设计](diagnosis-analysis.md)；以下 `src/` 中的完整平台模块仍是后续蓝图，不要求现在把已运行代码迁入该布局。
+本项目以当前目录和规约版本为唯一入口。定义、实际配置、实现代码、知识资料与运行结果分别保存；代码不自动寻找旧目录，也不转换旧版契约。
 
 ```text
 inferoptlab/
-  README.md
-  pyproject.toml                     # 实施时新增，依赖和 CLI 入口
-  docs/
-    architecture.md
-    data-contracts.md
-    measurement.md
-    validation.md
-    platform-adapters.md
-    kda-integration.md
-    external-integrations.md
-    roadmap.md
-    backlog.md
-    adr/
-  schemas/                          # 规约体系统一入口
-    definitions/                    # 校验规则，如 model.json、hardware.json
-      legacy/                       # 旧版规则
-    templates/                      # 创建模板，如 models/model.yaml
-    recipes/                        # 来源配方、Case/Study、报告结果
-    examples/                       # 模板参数示例
-    requirements.txt                # 离线规约工具依赖
-    README.md
-  tools/specs.py                    # 已实现：validate/instantiate/resolve/freeze
-  benchmark/                        # 已实现的第一步测试闭环
-    cli.py                          # plan/prepare/run/analyze/report
-    planner.py                      # 规约解析、快照、矩阵与预算
-    runner.py                       # 顺序执行、进程所有权、归档
-    dataset.py                      # 固定请求集与精确长度
-    adapters/                       # AIPerf / 单机 SGLang
-    metrics/                        # 归一化、SLA、报告
-    scenarios/                      # 引用 Case
-    recipes/                        # 模型/硬件/框架部署配方
-    plans/                          # 基线、分块、并行布局比较
-    README.md
-  tests/test_specs.py               # 已实现：结构、语义、快照与兼容性检查
-  tests/test_benchmark.py           # 已实现：合成流程、失败处理、统计与重算
-  configs/
-    studies/                        # 实际 Study，引用密钥而不保存密钥
-    platforms/                      # 平台清单与待探测参数
-    engines/                        # 框架版本和参数映射
-    policies/                       # 测量、正确性、评分策略
-  examples/                         # 旧版架构与任务设计示例
+  schemas/
+    definitions/                    # 当前 JSON Schema
+    templates/                      # 新配置的参数化模板
+  recipes/
+    models/<family>/<model>/        # 按家族与具体模型归档的实际模型配方
+    hardware/ runtimes/             # 实际硬件和软件身份
+    deployments/ scenarios/         # 部署配置与请求场景
+    workloads/ protocols/ slas/      # 请求、测量与验收条件
+    plans/                          # 硬件及各阶段执行计划
+    operators/                      # 实际算子测试契约
+    sources/ observations/          # 来源登记和结构化历史观测
+  examples/
+    parameters/                     # 模板参数示例
+    traces/                         # 明确标记的合成 trace
   catalog/
-    mechanisms/                     # 开放机制卡与区分实验
-    probes/                         # 可复用的能力/校准实验
-  src/inferoptlab/
-    domain/                         # 对象、ID、单位、枚举、不变量
-    application/                    # 创建 Study、执行实验、导入候选等用例
-    orchestrator/                   # 状态机、预算、租约、恢复
-    inventory/                      # 软硬件与模型清单、能力协商
-    measurement/                    # benchmark、校准、归一化、有效性
-    diagnosis/                      # 可比性、关键路径、假设、未解释问题
-    search/                         # 条件候选空间、策略、剪枝、成本
-    optimizers/
-      configuration.py              # 修改已有可用配置
-      code.py                       # 代码优化器通用接口
-      task_packager.py              # 任务包导出与候选包导入
-    validation/                     # 正确性、局部、E2E、统计、组合回归
-    adapters/
-      devices/                      # nvidia / ascend / metax / hygon，逐个实现
-      engines/                      # sglang / vllm，逐个验证具体版本
-      models/                       # 模型结构、形状与状态类型
-      profilers/                    # 各平台 trace 与计数器采集
-      benchmarks/                   # vLLM / SGLang / 自有负载驱动器
-      executors/                    # local / ssh / container，后续 k8s
-      code_optimizers/               # kda_workflow / external_agent / manual
-      performance_models/           # empirical / aisim 等可选预测器
-    registry/                       # 元数据、事件、制品、候选血缘
-    reporting/                      # 结构化报告与展示层
-    cli/                            # 调用 application 的薄入口
-  tests/
-    unit/                           # 状态机、评分公式、条件候选约束
-    contracts/                      # 适配器返回、Schema、解析器 fixture
-    integration/                    # 构建/启动/测量/清理的控制路径
-    qualification/                  # 需要真机的资格测试
-  tools/                            # 开发辅助与证据导出
-  .gitignore
+    mechanisms/                     # 机制卡
+    library/metax/
+      hwdoc/                        # PDF、索引、生态快照、实践资料、检索工具
+      methods/                      # 精度回归与算子优化方法
+      collection.yaml               # 来源范围与固定哈希
+      index.yaml                    # 可重建导航
+  benchmark/
+    load/                           # AIPerf 服务压测与 P/D 工作负载
+    accuracy/                       # 精度协议、原始输出核验与功能比较
+    breakdown/
+      operators/                    # 算子捕获、自重放与数值验收契约
+    common/                         # 公共制品和进程工具
+  diagnosis/                        # 第二步：基于测量证据提出归因假设
+  analysis/                         # 第三步：选择方法与规划控制实验
+  optimization/                     # 第四步：候选范围、验证要求和交接
+  tools/
+    hardware/                       # 盘点、校准、模型元数据采集
+    specs.py                        # 规约校验、模板展开和冻结
+    experiments.py                  # 结果登记、索引、查询和基线标签
+    import_inspected_model.py       # 将核验后的模型观察导入配方
+  experiments/
+    datasets/                       # 数据集与请求夹具
+    evidence/                       # 原始观察和历史实验附件
+      metax/glm53/                  # GLM 移交实验、张量与历史脚本快照
+      metax/intake/                 # 接收清单和整理后的文件核验记录
+    runs/                           # 本次运行及派生报告
+    records/                        # 完整测试配置与结果关联
+    baselines/                      # 显式基线标签
+    index.json                      # 可重建查询索引
+  contracts/                        # 跨阶段接口
+  agent/skills/                     # 四个阶段的工作约束
+  tests/                            # 合成契约测试和历史证据回归
+  docs/                             # 设计说明及后续路线
 ```
 
-## 依赖方向
+## 工作流程
 
-`cli → application → domain + ports`。具体 adapter 实现 ports；控制端通过依赖注入选用 adapter。`domain` 不反向依赖 CLI、数据库或厂商 SDK。
+1. 从资料库确认方法与适用范围，用硬件工具采集机器和模型身份。
+2. 用 schema 模板创建实际配方，补齐部署、数据集、并行组合、请求倍率和验收条件。
+3. 第一阶段分别准备或运行服务压测、精度检查、分层/算子测试，将配置闭包与证据保存到实验目录。
+4. 第二阶段从证据建立假设；第三阶段规划可区分假设的控制实验，所需采集仍由第一阶段测试模块承担。
+5. 第四阶段形成候选范围与验证交接；实际候选仍需正确性、数值、无 profiler 的性能测量和回归证据。
+6. 合格运行才能登记相应基线，资料库只接收经过审阅且有来源的可复用结论。
 
-尽量让状态和对象只存在一个定义：先把本蓝图 Schema 演化成可执行契约，运行时代码从其生成或用契约测试保证一致。不要在 CLI、Worker、KDA 适配层各维护一份不同的 StudySpec。
+## 当前命令边界
 
-## 什么放 Git，什么放制品库
-
-| 内容 | 位置 |
-|---|---|
-| 源码、设计、契约、公开小型测试 fixture、机制卡 | Git |
-| 每次实际运行的完整配置快照、命令、元数据 | 实验仓储，按 Run 导出 |
-| 模型权重、原始 trace、大日志、构建镜像、真实请求数据 | 制品存储或受控数据源 |
-| API key、SSH 凭据和访问令牌 | 运行环境的 secret 引用 |
-| 候选补丁 | 工作分支/工作区 + 制品快照，记录基础 commit |
-
-首版可以将 `artifacts/` 和 `runs/` 放本地，但必须排除于 Git；最终复现包引用内容 hash。不要把十几 GB 的 trace 或模型权重提交到源码仓库。
-
-## 目标 CLI 设计（待实现）
-
-```bash
-inferoptlab inspect --target configs/platforms/lab.yaml
-inferoptlab study validate configs/studies/demo.yaml
-inferoptlab study plan configs/studies/demo.yaml
-inferoptlab study run configs/studies/demo.yaml
-inferoptlab study resume STUDY_ID
-inferoptlab study report STUDY_ID
-inferoptlab task export TASK_ID --format kda-workspace
-inferoptlab candidate import CANDIDATE_BUNDLE
-inferoptlab candidate verify CANDIDATE_ID
-inferoptlab study package STUDY_ID
+```powershell
+python tools/specs.py validate
+python -m catalog verify metax
+python -m catalog search metax weight_scale --source practice
+python -m tools.hardware plan recipes/plans/hardware/metax.yaml
+python -m benchmark load plan recipes/plans/benchmark/glm53-flash-decode.yaml
+python -m benchmark accuracy --help
+python -m benchmark breakdown --help
+python -m diagnosis --help
+python -m analysis --help
+python -m optimization --help
+python -m tools.experiments query
 ```
 
-上述命令不属于已交付的可运行功能。`plan` 应只生成可审查计划；`run` 根据已冻结 Study 和资源配置执行。配置未解析、必要能力未验证或预算冲突时返回具体错误，不替用户猜测资源。
+统一 benchmark 命令必须选择模块；trace 汇总只有 `benchmark breakdown trace` 入口。规约只接受当前 `schema_version: 0.2.0`，Study 的定义直接位于 `schemas/definitions/study.json`。
+
+历史附件内的脚本、远程命令和环境路径是实验记录，不属于当前可执行 API。布局整理的文件清单用于审计，不参与路径解析。新执行适配器的能力范围以各模块 README 为准；精度与算子模块尚未接入的执行能力不能由目录存在推断。
+
+后续集中调度、Candidate 血缘和多机制品服务见 [路线图](roadmap.md)，不在当前目录中预留第二套配置体系或命令别名。

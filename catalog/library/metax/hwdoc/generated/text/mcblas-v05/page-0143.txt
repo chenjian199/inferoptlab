@@ -1,0 +1,54 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 143
+PDF 页码标签: 136
+页脚页码候选: 136
+章节提示（书签推断）: mcblasGemmBatchedEx()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+(续上页)
+const void *Aarray[],
+macaDataType_t Atype,
+int lda,
+const void *Barray[],
+macaDataType_t Btype,
+int ldb,
+const void *beta,
+void *Carray[],
+macaDataType_t Ctype,
+int ldc,
+int batchCount,
+mcblasComputeType_t computeType,
+mcblasGemmAlgo_t algo)
+#if defined(__cplusplus)
+mcblasStatus_t mcblasGemmBatchedEx(mcblasHandle_t handle,
+mcblasOperation_t transa,
+mcblasOperation_t transb,
+int m,
+int n,
+int k,
+const void *alpha,
+const void *Aarray[],
+macaDataType Atype,
+int lda,
+const void *Barray[],
+macaDataType Btype,
+int ldb,
+const void *beta,
+void *Carray[],
+macaDataType Ctype,
+int ldc,
+int batchCount,
+macaDataType computeType,
+mcblasGemmAlgo_t algo)
+#endif
+此函数是 mcblas<t>gemmBatched 的扩展，执行一批矩阵的矩阵‑矩阵乘法，并允许用户单独指定每
+个 A、B、C 矩阵数组的数据类型，计算精度和要运行的 GEMM 算法。与 mcblas<t>gemmBatched 相
+似，该批是“均匀”的，即所有实例对于各自的 A、B、C 矩阵具有相同的维度（m，n，k） ，前导维度
+（lda，ldb，ldc）和转置（transa，transb） 。批处理的每个实例的输入矩阵和输出矩阵的地址都是从调
+用者传递给函数的指针数组中读取的。本节进一步列出了支持的参数组合。
+注 解: mcblasGemmBatchedEx 函 数 的 第 二 个 变 量 用 于 向 后 兼 容 C++ 应 用 程 序 代 码， 其 中
+computeType 参 数 是 macaDataType， 而 不 是mcblasComputeType_t。C 应 用 程 序 仍 将 使
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 136

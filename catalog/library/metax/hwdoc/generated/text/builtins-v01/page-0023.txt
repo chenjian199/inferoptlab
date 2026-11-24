@@ -1,0 +1,43 @@
+文档: 沐曦通用GPU_MXMACA编译器内建函数编程指南_CN_V01.pdf
+文档 ID: builtins-v01
+SHA256: 80dfb3a83381e48e19968b432d4eb24d37c505bd711af14f74889277cffc3835
+PDF 页序号: 23
+PDF 页码标签: 17
+页脚页码候选: 17
+章节提示（书签推断）: __builtin_mxc_cvt_f32totf32
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® 编译器内建函数编程指南
+表 3.11 – 续上页
+名称 描述
+ICMP_OP 运算符枚举值。取值范围如下：
+CMP_EQ：等于
+CMP_L T：小于
+CMP_LE：小于等于
+CMP_GT：大于
+CMP_GE：大于等于
+CMP_NEQ：不等于
+CMP_O：有序比较，当两个操作数均不是 NaN 时返回 1
+CMP_U：无序比较，当两个操作数任意一个为 NaN 时返回 1
+代码示例
+__global__ void test_mxc_fcmp(uint64_t& dres, uint64_t& fres, uint64_t& hres,
+double da, double db, float fa, float fb, _Float16 
+,→ha, _Float16 hb) {
+dres= __builtin_mxc_fcmp(da, db, 1);
+fres = __builtin_mxc_fcmpf(fa, fb, 2);
+hres = __builtin_mxc_fcmph(ha, hb, 3);
+}
+3.3 类型转换函数
+3.3.1 __builtin_mxc_cvt_f32totf32
+架构支持限制
+offload arch 需要大于等于 xcore1500。例如–offload‑arch=xcore1500、 –offload‑arch=xcore1520 等。
+功能描述
+将 float 类型数据转换为 tf32 类型.
+接口声明
+float __builtin_mxc_cvt_f32totf32(float);
+代码示例
+__global__ void test_cvt_f32totf32(float *in, float *out) {
+int tid = threadIdx.x;
+out[tid] = __builtin_mxc_cvt_f32totf32(in[tid]);
+}
+3 接口介绍 沐曦股份专有信息 OG‑26013‑000‑F5_V01 | 17

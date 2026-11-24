@@ -1,0 +1,45 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 302
+PDF 页码标签: 294
+页脚页码候选: 294
+章节提示（书签推断）: Multi Grid Group
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+3.3.1.2 Grid Group
+这个group对象表示在一个单独的grid中启动的所有threads。除了sync()之外的接口任何时间都可以
+调用，但是为了整个grid同步，你需要使用cooperativelaunchAPI（mcLaunchCooperativeKernel） 。
+class grid_group;
+// 如下构造方式：
+grid_group g = this_grid();
+// Public 成员函数：
+bool is_valid() const; // 返回当前 grid_group是否可以同步
+void sync() const; // 同步当前 group中所有的线程
+static unsigned long long thread_rank(); // 调用线程在 [0, num_threads)上的排序
+static unsigned long long block_rank(); // 调用 block在[0, num_blocks)上的排序
+static unsigned long long num_threads(); // group中threads的总数目
+static unsigned long long num_blocks(); // group中block的总数目
+static dim3 dim_blocks(); // 以units为单位的启动的 block的大小
+static dim3 block_index(); // 在启动的 grid中当前 block的3-D index
+// 传统成员函数（别名）
+static unsigned long long size(); // 当前 group中总的线程数 (num_threads的别名 )
+static dim3 group_dim(); // 启动的 grid的尺寸 (dim_blocks的别名 )
+3.3.1.3 Multi Grid Group
+这个 group 对象表示一个 multi‑device cooperative launch 里面所有 devices 的所有 threads。与
+grid_group不同，所有的API需要你使用合适的启动API （mcLaunchCooperativeKernelMultiDevice） 。
+class multi_grid_group;
+// 如下构造方式
+// 内核必须通过 cooperative multi-device API 启动
+multi_grid_group g = this_multi_grid();
+// Public 成员函数：
+bool is_valid() const; // 返回当前 multi_grid_group是否可以同步
+void sync() const; // 同步当前 group中所有的线程
+unsigned long long num_threads(); // group 中threads的总数目
+unsigned long long thread_rank(); // 调用线程在 [0, num_threads) 上的排序
+unsigned int grid_rank(); // 调用线程在 [0, num_grids) 上的排序
+// 传统成员函数（别名）
+static unsigned long long size(); // 当前 group中总的线程数 (num_threads的别名 )
+// 描述 : 所有 devices不推荐使用 multi_grid_group。
+3 CooperativeGroups 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 294

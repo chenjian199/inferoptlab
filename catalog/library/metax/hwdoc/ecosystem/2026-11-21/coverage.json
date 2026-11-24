@@ -1,0 +1,40 @@
+{
+  "observed_on": "2026-11-21",
+  "timezone": "Asia/Shanghai",
+  "chip_filter": "MXC500",
+  "scope": "public family-level catalogue plus representative tags; not exhaustive registry/history export",
+  "server_validation": "not performed; no remote changes, downloads, pulls or installs",
+  "image_family_count": 62,
+  "package_directory_entry_count": 67,
+  "scan_observations": {
+    "MXMACA": {
+      "cards": 14,
+      "families": 2
+    },
+    "AI": {
+      "pages": 9,
+      "page_size": 100,
+      "cards_read": 815,
+      "unique_tags_observed": 711,
+      "families": 29
+    },
+    "AI4S": {
+      "cards": 28,
+      "families": 11
+    },
+    "Cloud-Tools": {
+      "cards": 63,
+      "families": 20,
+      "includes_helm_chart": true
+    }
+  },
+  "limitations": [
+    "AI pagination showed repeated tags and ordering changes; observed counts are not authoritative site totals.",
+    "Historical-version dropdowns, archive and preview catalogues were not exhaustively expanded.",
+    "Copying a Docker pull command redirected to login; registry prefixes were not guessed.",
+    "Ubuntu 22 examples are alternatives and may be older; the representative driver's recommendation must not be applied to them.",
+    "The family catalogue saves representative observations, not every scanned tag or full raw page text.",
+    "The SDK compatible-resources button returned HTTP 500; a full paired-resource BOM was not obtained.",
+    "Signed download URLs were not stored; stable source pages are provided instead."
+  ]
+}

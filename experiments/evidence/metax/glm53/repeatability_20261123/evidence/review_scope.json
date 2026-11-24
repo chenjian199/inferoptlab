@@ -1,0 +1,6 @@
+{
+  "date": "2026-11-23",
+  "scope": "Selected manifests, source excerpts, generated benchmark outputs and scoring results, analysis summaries and scripts. No SSH credentials, private proxy configuration, subscription URLs, registry login files, full environment dumps or unreviewed raw startup logs imported.",
+  "automated_token_url_scan_hits": 0,
+  "boundary": "Automated scan supplements selected evidence review; not a proof that arbitrary content is secret-free."
+}

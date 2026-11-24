@@ -1,0 +1,48 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 285
+PDF 页码标签: 277
+页脚页码候选: 277
+章节提示（书签推断）: 描述
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+2.24.1 描述
+以下所有函数和类型都定义在 wmma命名空间中。
+template <typename Use, int m, int n, int k, typename T, typename Layout = void>
+class fragment;
+void load_matrix_sync(fragment<...> &f, const T* p, unsigned ldm);
+void load_matrix_sync(fragment<...> &f, const T* p, unsigned ldm, layout_t layout);
+void store_matrix_sync(T* p, const fragment<...> &f, unsigned ldm, layout_t 
+,→layout);
+void fill_fragment(fragment<...> &f, const T& v);
+void mma_sync(fragment<...> &d, const fragment<...> &a, const fragment<...> &b,
+const fragment<...> &c, bool satf = false);
+fragment
+warp中所有线程共同存储矩阵的数据结构。矩阵分片到内存中的映射方式是不确定的。
+定义矩阵分片时必须明确模板中的参数。第一个模板参数指示矩阵分片如何参与矩阵运算。 Use可以接
+受的类型有：
+• matrix_a将fragment用作第一个被乘数A。
+• matrix_b将fragment用作第二个被乘数B。
+• accumulator将fragment用作累加数或者目标结果（C或D） 。
+m、n和 k指示了矩阵的shape。每个矩阵的shape取决于它的角色。对于 matrix_a为 m x k，对于
+matrix_b为 k x n，对于 accumulator为 m x n。
+数据类型 T 对于被乘数可以是double 、float 、__half 、maca_bfloat16 、signed char 或者
+unsigned char， 对于累加数可以是double float int和 __half。 必须为matrix_a和 matrix_b
+矩阵分片指定 Layout 模板参数。row_major或 col_major分别表示矩阵的行或列的元素在内存中是
+连续的。accumulator 矩阵的 Layout 参数应保留默认值 void 。当加载或者存储累加数的时候再指
+定行或列布局。
+load_matrix_sync
+warp中的所有线程都执行到 load_matrix_sync时从内存中加载矩阵。p指向矩阵在内存中的第一个
+元素。ldm描述了连续行（行主序）或列（列主序）之间的元素个数。如果矩阵分片是 accumulator，
+layout 参数必须是 mem_row_major 或者 mem_col_major 。对于 matrix_a 和 matrix_b 的矩阵
+分片，内存布局从分片的 Layout参数中推断。p、ldm、layout以及 f的所有模板参数在同一warp
+的所有线程中必须相同。
+store_matrix_sync
+warp 中的所有线程都执行到store_matrix_sync时将矩阵存储到内存中。p指向矩阵在内存中的第
+一个元素。ldm描述了连续行 （行主序） 或列 （列主序） 之间的元素个数。 如果矩阵分片是accumulator
+，layout参数必须是 mem_row_major或者 mem_col_major。p、ldm、layout以及 f的所有模
+板参数在同一warp的所有线程中必须相同。
+fill_fragment
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 277

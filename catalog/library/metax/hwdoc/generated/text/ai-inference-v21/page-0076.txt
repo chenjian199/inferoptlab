@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 76
+PDF 页码标签: 64
+页脚页码候选: 64
+章节提示（书签推断）: 安装LMDeploy
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+10.3.1.1 获取 vLLM 镜像
+从发布的软件包中获取vLLM 镜像并启动，参见《沐曦通用 GPU 用户指南》中“容器相关场景支持”章
+节。
+10.3.1.2 安装 dlinfer
+1. dlinfer 编译需要 CUDA toolkit，建议使用CUDA 11.6。 可以在启动容器时通过/usr/local:/usr/
+local -v 挂载宿主机的 /usr/local/cuda 路径到容器。
+2. 设置 MACA 环境变量：
+DEFAULT_DIR="/opt/maca"
+export MACA_PATH=${1:-$DEFAULT_DIR}
+export CUDA_PATH=/usr/local/cuda
+export CUCC_PATH=${MACA_PATH}/tools/cu-bridge
+export PATH=${CUDA_PATH}/bin:${MACA_PATH}/mxgpu_llvm/bin:${MACA_PATH}/bin:${CUCC_
+,→PATH}/tools:${CUCC_PATH}/bin:$PATH
+export LD_LIBRARY_PATH=${MACA_PATH}/lib:${MACA_PATH}/ompi/lib:${MACA_PATH}/mxgpu_
+,→llvm/lib:${LD_LIBRARY_PATH}
+3. 源码安装：
+git clone https://github.com/DeepLink-org/dlinfer.git
+cd dlinfer
+# 建 议 使 用 以 下commit ， 已 经 过 测 试
+git checkout dbb1feb71b0983d8b5b166771a7bb99e00461b36
+rm -rf _skbuild
+pip3 install -r requirements/maca/full.txt
+DEVICE=maca python3 setup.py develop
+10.3.1.3 安装 LMDeploy
+源码安装：
+git clone https://github.com/InternLM/lmdeploy.git
+cd lmdeploy
+# 建 议 使 用 以 下commit ， 已 经 过 测 试
+git checkout 832bfc45b4497e8d16e08ecfd663671e634aae40
+LMDEPLOY_TARGET_DEVICE=maca python setup.py develop
+10 MacaRT‑LMDeploy 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 64

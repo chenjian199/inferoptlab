@@ -1,0 +1,37 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 269
+PDF 页码标签: 261
+页脚页码候选: 261
+章节提示（书签推断）: __builtin_assume_aligned()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+2.16.8 __cvta_local_to_generic()
+__device__ size_t __cvta_local_to_generic(size_t rawbits);
+返回对值rawbits转换所得的local内存通用地址指针。
+2.17 Alloca 函数
+2.17.1 alloca()
+__host__ __device__ void * alloca(size_t size);
+alloca函数的作用是在调用者的堆栈帧中分配size字节的内存，返回一个指向已分配内存的指针。当从
+device 代码调用该函数时，内存的开头对齐为 16 字节。当返回 alloca() 的调用者时，分配的内存会自
+动释放。
+例子：
+__device__ void foo(unsigned int num) {
+int *ptr = (int *)alloca(num * sizeof(int));
+// use of ptr
+...
+}
+2.18 编译器内置函数
+该章节列出的所有函数皆为编译器内部experimental函数，请谨慎使用。建议使用高级语言API。
+2.18.1 __builtin_assume_aligned()
+void * __builtin_assume_aligned (const void *exp, size_t align)
+让编译器假设参数指针至少是按照align字节对齐的，并且返回参数指针。
+例子：
+void *res = __builtin_assume_aligned(ptr, 32); // 
+,→编译器可以假设 res是按照最少 32字节对齐
+三个参数的版本：
+void * __builtin_assume_aligned (const void *exp, size_t align,
+<integral type> offset)
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 261

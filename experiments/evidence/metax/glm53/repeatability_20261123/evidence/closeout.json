@@ -1,0 +1,16 @@
+{
+  "status": "complete",
+  "completed_epoch": 1795404966.891861,
+  "original_containers_unchanged": true,
+  "experiment_container_stopped": true,
+  "original_baseline_archive_sha256": "95278d7b264b88db8398d4916ab78f0f3869f935639cb0041c0dc37394af45e6",
+  "mx_smi_exit_code": 4,
+  "mx_smi_boundary": "Raw exit code retained; do not interpret exit 4 as a health-check pass.",
+  "tensor_archive": {
+    "path": "/home/metax/glm53-repeatability-20261123/archives/diagnostic_tensors_20261123.tar.gz",
+    "bytes": 302241093,
+    "sha256": "2c6b7d70ec33898a40dbb404f92a77ec208382b14d51a2cd9e46a1adcafab4bc",
+    "verified_tensors": 108
+  },
+  "failed_v4": "Retained separately under evidence/failed_diagnostic_v4; excluded from final tensor archive."
+}

@@ -1,0 +1,45 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 24
+PDF 页码标签: 15
+页脚页码候选: 15
+章节提示（书签推断）: 设置流之间依赖
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+表 3.2 – 续上页
+功能 运行时 API 函数
+事件的查询与同步 mcEventQuery
+mcEventSynchronize
+mcStreamWaitEvent
+事件的持续时间 mcEventElapsedTime
+3.3.3 操作并发
+3.3.3.1 使用异步流进行并发
+在使用沐曦通用 GPU 时，可以通过将操作发布在不同的异步流上以实现操作的并发。
+代码示例
+使用异步流进行模型推理的并发操作，代码如下所示：
+#define STREAM_NUMS 5
+mcStream_t stream[STREAN_NUMS];
+for (uint32_t i = 0; i < STREAM_NUMS; i++) {
+mcStreamCreate(&stream[i]);
+mcnnExecuteAsync(ctx, network_id, batch_size, inputs, outputs, stream[i]);
+}
+for(uint32_t i = 0; i < STREAM_NUMS; i++) {
+mcStreamSynchronized(stream[i]);
+mcStreamDestroy(stream[i]);
+}
+3.3.3.2 设置流之间依赖
+在一些复杂的应用场景下，可能需要在一个流中阻塞调用线程以等待另一个流中的操作执行完成，这时
+需要设置流之间的依赖。
+使用如下 API，在一个流中插入对另一个流中同步点的依赖：
+mcError_t mcStreamWaitEvent(mcStream_t stream, mcEvent_t event, unsigned int flags)
+代码示例
+设置两个流的推理操作与内存拷贝的依赖关系，代码如下所示：
+mcStream_t stream1, stream2;
+mcEvent_t sync_event;
+mcStreamCreateWithFlags(&stream1, mcStreamNonBlocking);
+mcStreamCreateWithFlags(&stream2, mcStreamNonBlocking);
+mcEventCreateWithFlags(&sync_event, mcEventBlockingSync);
+(下页继续)
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 15

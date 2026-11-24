@@ -1,0 +1,30 @@
+{
+  "observed_on": "2026-11-23",
+  "user_reported_os_reboot": true,
+  "boot_id_changed_from_previous_attempt": true,
+  "driver": "3.10.14 unchanged",
+  "initial_gpu6_port4": "down/x4 CE2 UE0 before this task GPU execution",
+  "final_gpu6_port4": "down/x4 CE2 UE0 after successful model pilot",
+  "final_all8_available": true,
+  "new_selected_kernel_events": [],
+  "hardware_repaired": false,
+  "assistant_reset_reboot_driver_changes": false,
+  "original_sources": [
+    {
+      "path": "glmf/reboot_recheck_20261123/evidence/preflight.json",
+      "sha256": "9bd197d9d53329226a4b113da779ffcf7f0d744225042e77276082e054cdfb45"
+    },
+    {
+      "path": "glmf/reboot_recheck_20261123/evidence/final_health.json",
+      "sha256": "ba79e183e1bcc698f267d897acefea18b962b67b8dc51765c08648bc8e5dbb40"
+    },
+    {
+      "path": "glmf/reboot_recheck_20261123/evidence/boot_link_events.json",
+      "sha256": "d5e02efaf8fd800fac7d9d8fef4780d2b6a693decc5eceb72c83356c15a1838a"
+    },
+    {
+      "path": "glmf/reboot_recheck_20261123/evidence/final_kernel_events.json",
+      "sha256": "e5c96a77d3d04956db2c7815feb8baf09bbc2f264160c568159f31645470db6b"
+    }
+  ]
+}

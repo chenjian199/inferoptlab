@@ -2,35 +2,35 @@
 
 本模块把实机测试固定为 **计划 → 探测 → 测试 → 报告 → YAML 配方**。新机器复用同一套协议，只修改 SSH 别名、本机镜像 ID、设备范围及测试矩阵。当前已在 MetaX C500 / MACA 上验证；其他厂商需要实现采集和执行适配，不能直接把 `backend` 改成厂商名。
 
-四台新集群的只读发现计划见 [plans/metax-four-nodes.yaml](plans/metax-four-nodes.yaml)，实际清点结果见 [集群记录](../../docs/cluster-intake-20261123.md)。MACA 管理命令未提供的驱动预留显存使用 `null`，不会按零导出。`probes/runtime.py` 可在 Linux 上额外检查模型文件、镜像包版本候选和模块位置；该探针不加载模型、不分配 GPU，不把镜像存在视为推理兼容性已通过。
+四台新集群的只读发现计划见 [plans/metax-four-nodes.yaml](../../recipes/plans/hardware/metax-four-nodes.yaml)，实际清点结果见 [集群记录](../../docs/cluster-intake-20261123.md)。MACA 管理命令未提供的驱动预留显存使用 `null`，不会按零导出。`probes/runtime.py` 可在 Linux 上额外检查模型文件、镜像包版本候选和模块位置；该探针不加载模型、不分配 GPU，不把镜像存在视为推理兼容性已通过。
 
 ## 快速开始
 
 在仓库根目录运行。控制端依赖 Python、OpenSSH，以及 `schemas/requirements.txt`；控制端不需要安装 PyTorch。远端需要 Linux、Python 3、`mx-smi`、Docker 使用权限，以及已经存在且包含 MACA PyTorch 的镜像。SSH alias 和主机指纹应已配置。
 
-复制 [plans/metax.yaml](plans/metax.yaml) 为新计划，修改 `id`、`version`、`hosts`。示例的镜像 ID 只代表 metax 已验证的本地镜像。新机器用 `docker image inspect --format '{{.Id}}' <本机镜像>` 获取自己的完整 ID。工具不拉取镜像、不安装远端软件。
+复制 [plans/metax.yaml](../../recipes/plans/hardware/metax.yaml) 为新计划，修改 `id`、`version`、`hosts`。示例的镜像 ID 只代表 metax 已验证的本地镜像。新机器用 `docker image inspect --format '{{.Id}}' <本机镜像>` 获取自己的完整 ID。工具不拉取镜像、不安装远端软件。
 
 ```powershell
 python -m pip install -r schemas/requirements.txt
 
 # 离线校验并查看执行参数
-python -m tools.hardware plan tools/hardware/plans/my-cluster.yaml
+python -m tools.hardware plan recipes/plans/hardware/my-cluster.yaml
 
 # 只采集设备、拓扑和环境；占用中的机器也可探测
-python -m tools.hardware inspect tools/hardware/plans/my-cluster.yaml --out runs/hardware/my-cluster-inspect
+python -m tools.hardware inspect recipes/plans/hardware/my-cluster.yaml --out experiments/runs/hardware/my-cluster-inspect
 
 # 真正执行 GPU 微基准；输出目录必须不存在
-python -m tools.hardware run tools/hardware/plans/my-cluster.yaml --out runs/hardware/my-cluster-run1
+python -m tools.hardware run recipes/plans/hardware/my-cluster.yaml --out experiments/runs/hardware/my-cluster-run1
 
 # 校验文件哈希并显示每张卡的结果
-python -m tools.hardware report runs/hardware/my-cluster-run1
+python -m tools.hardware report experiments/runs/hardware/my-cluster-run1
 
-# 导出到 schemas，自动生成来源、设备、主机、运行环境及实测配方
-python -m tools.hardware export runs/hardware/my-cluster-run1 --out schemas
+# 导出到仓库根目录，生成 recipes/ 与 experiments/evidence/
+python -m tools.hardware export experiments/runs/hardware/my-cluster-run1 --out .
 python tools/specs.py validate
 ```
 
-需要先查看生成物时，将导出目标设为 `--out runs/hardware/my-cluster-review`；它同样生成 `recipes/` 和 `evidence/`。导出目标必须位于仓库内，保证来源路径可解析。检查后可从原始 run 再导出到 `schemas`。不要直接移动暂存 YAML：其中的来源路径指向暂存证据。
+需要先查看生成物时，将导出目标设为 `--out experiments/runs/hardware/my-cluster-review`；它生成暂存的 `recipes/` 和 `experiments/evidence/`。导出目标必须位于仓库内，保证来源路径可解析。检查后从原始 run 再导出到仓库根目录 `--out .`；禁止导出到只保存标准的 `schemas/`。不要直接移动暂存 YAML：其中的来源路径指向暂存证据。
 
 每次正式录入使用新的计划 `version` 或 `id`，已有文件和 `(id, version)` 不会被覆盖。同一观察的 inspect 与 run 任选一个导出，或给它们分配不同版本。重复性能观测保留为不同版本；旧证据和旧配方保持可追溯。
 
@@ -108,11 +108,11 @@ schemas/
 
 2026-11-23 在 `63metax` 上完成统一入口实测：GPU0、4096³ GEMM、256 MiB 设备内复制、10 次预热、每组 20 次、5 组。FP16 **225.216 TFLOPS**、BF16 **225.075 TFLOPS**、FP32 **29.298 TFLOPS**，复制 **1373.695 GB/s**。8 张卡均完成 inventory，本次仅 GPU0 执行性能测试。
 
-- [原始运行 manifest](../../schemas/evidence/metax-hardware-baseline/1.0.0/manifest.json)
-- [本次主机配方](../../schemas/recipes/hardware/metax-hardware-baseline-metax-host-1.0.0.yaml)
-- [本次 GPU0 实测配方](../../schemas/recipes/measurements/metax-hardware-baseline-metax-gpu0-measurement-1.0.0.yaml)
+- [原始运行 manifest](../../experiments/evidence/metax-hardware-baseline/1.0.0/manifest.json)
+- [本次主机配方](../../recipes/hardware/metax-hardware-baseline-metax-host-1.0.0.yaml)
+- [本次 GPU0 实测配方](../../recipes/measurements/metax-hardware-baseline-metax-gpu0-measurement-1.0.0.yaml)
 
-另在物理 GPU1 上完成小规模隔离冒烟测试：运行时仅见 1 张卡，逻辑编号为 0；前后进程检查及容器清理通过。[该记录](../../runs/hardware/metax-isolation-smoke-20261123/manifest.json) 仅验证非零 ordinal 的执行路径，不作为性能基线录入配方。回归结果：79 项测试中 78 项通过，1 项因历史原始附件缺失跳过；213 份规约通过结构、引用和语义校验。
+另在物理 GPU1 上完成小规模隔离冒烟测试：运行时仅见 1 张卡，逻辑编号为 0；前后进程检查及容器清理通过。[该记录](../../experiments/runs/hardware/metax-isolation-smoke-20261123/manifest.json) 仅验证非零 ordinal 的执行路径，不作为性能基线录入配方。回归结果：79 项测试中 78 项通过，1 项因历史原始附件缺失跳过；213 份规约通过结构、引用和语义校验。
 
 ## 代码边界与扩展
 
@@ -120,7 +120,16 @@ schemas/
 
 新增平台时需要同时增加 inventory probe、标准化解析、远端设备/容器适配及测试；只有真机验证后才扩展 `backend` 枚举。性能 probe 使用 PyTorch 接口，但设备选择、运行时和健康判断并不跨厂商通用。
 
-原来的 `tools/collect_metax.py`、`tools/run_metax_calibration.py` 保留为兼容入口，并复用这里的 probe；新项目使用统一入口。旧证据目录内归档的脚本保持原样，不随代码修改。
+硬件盘点、校准和导出统一使用 `python -m tools.hardware inspect/run/export`，参数集中在 `recipes/plans/hardware/`。证据目录里的历史脚本是实验附件，不作为当前执行入口。
+
+模型 header、量化与 tokenizer 元数据采集同样通过统一入口，不加载权重进行 GPU 推理：
+
+```powershell
+python -m tools.hardware inspect-model --host metax --model /NFS_62/Models/GLM_Series/GLM-5.3-Flash-W8A8 --out experiments/runs/hardware/metax-next-model.json
+python -m tools.import_inspected_model experiments/runs/hardware/metax-next-model.json --id metax-glm-next --family glm --model glm-5.3-flash
+```
+
+观察 JSON 与同名 `.probe.py` 成对保存，导入器核对探针哈希；目标文件已存在时拒绝覆盖。`--family` 和 `--model` 明确指定归档位置，模型配方写入 `recipes/models/<family>/<model>/<id>.yaml`。
 
 ```powershell
 python -m unittest tests.test_hardware_tools

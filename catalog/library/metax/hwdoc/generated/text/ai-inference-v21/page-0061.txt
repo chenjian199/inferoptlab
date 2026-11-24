@@ -1,0 +1,39 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 61
+PDF 页码标签: 49
+页脚页码候选: 49
+章节提示（书签推断）: MacaRT-vLLM功能与局限性
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+7 MacaRT‑vLLM
+7.1 MacaRT‑vLLM 介绍
+MacaRT‑vLLM 是在沐曦通用 GPU 上适配官方 vLLM 的推理工具，基于 MXMACA 后端对 vLLM 方法进行
+了兼容适配和 Kernel 优化。使用 MacaRT‑vLLM 在沐曦通用 GPU 上进行大模型推理，其方法和功能与
+官方 vLLM 兼容。当前兼容版本为 vLLM‑0.8.2。
+vLLM 版本与 PyTorch 版本的兼容适配关系，参见表 7.1。
+表 7.1 vLLM 与 PyTorch 的版本兼容关系
+vLLM PyTorch
+0.6.2 2.1
+0.6.6 2.1
+0.7.2 2.4
+0.8.2 2.4
+7.2 MacaRT‑vLLM 功能与局限性
+MacaRT‑vLLM 兼容适配了 vLLM‑0.8.2，包含了以下功能和特性，以及局限性：
+功能和特性：
+• 兼容 vLLM‑0.8.2 支持的所有模型 BFLOAT16 推理和部分模型 FLOAT16 推理，支持官方多模态模型
+• 兼容原生 LLM、Engine、Kernel 的 API 接口
+• 兼容原生 server 和 OpenAI server 接口
+• 支持 Lora 特性
+• 支持 GPTQ 和 AWQ 量化方式
+• 支持 ray 和 mp 方式启动单机多卡推理；设置 --distributed-executor-backend 可以指定不同
+后端进行多卡推理，默认使用 ray
+• 支持 prefix_cache 方式
+• 支持 enforce_eager=False 方式。需通过显式配置，默认为True。另外，需要额外设置 MACA 环
+境变量来获取加速效果：export MACA_GRAPH_LAUNCH_MODE=1
+局限性：
+• 不支持 FP8 类型 KV Cache 和相关 FP8 模型
+• 包含 Ubuntu 20、Ubuntu 22、kylin2309a 系统版本，后续完善支持其他系统
+7 MacaRT‑vLLM 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 49

@@ -1,0 +1,4324 @@
+{
+  "observed_on": "2026-11-21",
+  "repositories": [
+    {
+      "name": "3FS",
+      "full_name": "MetaX-MACA/3FS",
+      "description": " A high-performance distributed file system designed to address the challenges of AI training and inference workloads. ",
+      "default_branch": "main",
+      "fork": true,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2025-02-28T01:22:58Z",
+      "updated_at": "2025-02-28T07:54:16Z",
+      "language": null,
+      "size": 5879,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/3FS",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/3FS",
+      "category": "通信与存储",
+      "topics": [
+        "communication"
+      ],
+      "purpose": "分布式文件系统 fork，未从 README 确认 C500 适配",
+      "license_spdx": "MIT",
+      "readme": {
+        "name": "3FS",
+        "status": "downloaded",
+        "path": "readmes/3FS.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/3FS/main/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": null,
+        "sha256": "1ddab43bf2cb4c7c887d23a866c1494158060e12535c3680c2800a229c9de12e",
+        "bytes": 5777
+      },
+      "c500_assessment": "顶层 README 未确认 C500 条件",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "AI4S-Framework",
+      "full_name": "MetaX-MACA/AI4S-Framework",
+      "description": null,
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-08-24T02:19:00Z",
+      "updated_at": "2026-08-24T02:19:03Z",
+      "language": "Dockerfile",
+      "size": 613,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/AI4S-Framework",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/AI4S-Framework",
+      "category": "AI4S 与科学计算",
+      "topics": [
+        "ai4s"
+      ],
+      "purpose": "DeepXDE、PaddleScience、PhysicsNeMo 等适配方案集合",
+      "license_spdx": null,
+      "readme": {
+        "name": "AI4S-Framework",
+        "status": "downloaded",
+        "path": "readmes/AI4S-Framework.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/AI4S-Framework/main/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": null,
+        "sha256": "f5fd4a1eda5cf950b63bc384acf8a6e61a1a1cba8763fdc57a7ffbe52da23127",
+        "bytes": 4476
+      },
+      "c500_assessment": "README 提及 C 系列；C500 具体组合待核对",
+      "c500_clues": [
+        {
+          "line": 33,
+          "text": "*   **硬件**: 需具备沐曦（MetaX）GPU（如曦云C系列、曦索X系列科学计算GPU）。"
+        }
+      ],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "AIModels",
+      "full_name": "MetaX-MACA/AIModels",
+      "description": null,
+      "default_branch": "master",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-06-17T07:54:15Z",
+      "updated_at": "2026-06-17T07:54:19Z",
+      "language": "Python",
+      "size": 69,
+      "open_issues_count": 8,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/AIModels",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/AIModels",
+      "category": "推理与后训练",
+      "topics": [
+        "inference",
+        "training"
+      ],
+      "purpose": "SGLang PD 分离部署方案，包含 C500 等型号配套表",
+      "license_spdx": "Apache-2.0",
+      "readme": {
+        "name": "AIModels",
+        "status": "downloaded",
+        "path": "readmes/AIModels.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/AIModels/master/README.md",
+        "readme_filename": "README.md",
+        "branch": "master",
+        "commit": null,
+        "sha256": "fe7bfa70d10d8a69f00acbf7349cab1d778e10114a48fc5d05db041c031b9d4d",
+        "bytes": 5096
+      },
+      "c500_assessment": "README 明确提及 C500；本机未验证",
+      "c500_clues": [
+        {
+          "line": 14,
+          "text": "**本文档详细介绍了在沐曦曦云 C 系列硬件平台上，使用沐曦自研 MXMACA 软件栈和 SGLang 框架进行大语言模型（LLM）PD（Prefill-Decode，预填充 - 解码）分离推理部署与测试的完整流程。**"
+        },
+        {
+          "line": 70,
+          "text": "<td colspan=\"2\">曦云C500/C550/C588/C600</td>"
+        },
+        {
+          "line": 118,
+          "text": "<td>C500/C550</td>"
+        },
+        {
+          "line": 149,
+          "text": "<td>C500/C550</td>"
+        },
+        {
+          "line": 176,
+          "text": "<td>C500/C550</td>"
+        },
+        {
+          "line": 203,
+          "text": "<td>C500/C550</td>"
+        },
+        {
+          "line": 230,
+          "text": "<td>C500/C550</td>"
+        },
+        {
+          "line": 261,
+          "text": "<td>C500/C550</td>"
+        },
+        {
+          "line": 267,
+          "text": "<td>C588/C600</td>"
+        }
+      ],
+      "review_note": "此仓库实际为 PD 分离方案，不能因名称相近而关联到 AI4S aimodels-maca 镜像。表中具体 SDK 要求仅针对对应 SGLang 行。",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "Autonomous_Driving_Simulation",
+      "full_name": "MetaX-MACA/Autonomous_Driving_Simulation",
+      "description": null,
+      "default_branch": "master",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2025-05-29T08:05:59Z",
+      "updated_at": "2026-01-22T12:07:21Z",
+      "language": "Python",
+      "size": 76834,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/Autonomous_Driving_Simulation",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/Autonomous_Driving_Simulation",
+      "category": "应用解决方案",
+      "topics": [
+        "inference"
+      ],
+      "purpose": "自动驾驶场景重建、编辑与数据增强方案",
+      "license_spdx": "Apache-2.0",
+      "readme": {
+        "name": "Autonomous_Driving_Simulation",
+        "status": "downloaded",
+        "path": "readmes/Autonomous_Driving_Simulation.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/Autonomous_Driving_Simulation/master/README.md",
+        "readme_filename": "README.md",
+        "branch": "master",
+        "commit": null,
+        "sha256": "5e680ed6ba282dd112f3aa02708729299f8c94358468dc5de3566980400b0767",
+        "bytes": 3358
+      },
+      "c500_assessment": "README 提及 C 系列；C500 具体组合待核对",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "DeepEP",
+      "full_name": "MetaX-MACA/DeepEP",
+      "description": "DeepEP: an efficient expert-parallel communication library",
+      "default_branch": "main",
+      "fork": true,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2025-02-26T09:54:18Z",
+      "updated_at": "2025-02-27T01:56:57Z",
+      "language": null,
+      "size": 1798,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/DeepEP",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/DeepEP",
+      "category": "通信与存储",
+      "topics": [
+        "communication"
+      ],
+      "purpose": "DeepEP 上游 fork；与 MXDeepEP 分开记录",
+      "license_spdx": "MIT",
+      "readme": {
+        "name": "DeepEP",
+        "status": "downloaded",
+        "path": "readmes/DeepEP.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/DeepEP/3885404ffb31a3d9cbd238aa1a366408881bb069/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": "3885404ffb31a3d9cbd238aa1a366408881bb069",
+        "sha256": "94147964390f65ecf90ef99c5ffd4729fe70514f9428f2d51183bc12e3d57480",
+        "bytes": 16563
+      },
+      "c500_assessment": "顶层 README 未确认 C500 条件",
+      "c500_clues": [
+        {
+          "line": 41,
+          "text": "- Hopper GPUs (may support more architectures or devices later)"
+        },
+        {
+          "line": 43,
+          "text": "- CUDA 12.3 and above"
+        },
+        {
+          "line": 285,
+          "text": "- For extreme performance, we discover and use a behavior-out-of-doc PTX instruction: `ld.global.nc.L1::no_allocate.L2::256B`. This instruction will lead to an undefined behavior: accessing volatile GPU memory with non-coherent read-only PTX modifiers `.nc`. But the correctness is tested to be guaranteed with `.L1::no_allocate` on Hopper architectures, and performance will be much better. If you find kernels not working on some other platforms, you may add `DISABLE_AGGRESSIVE_PTX_INSTRS=1` to `setup.py` and disable this, or file an issue."
+        }
+      ],
+      "review_note": "fork 与 MXDeepEP 是不同仓库；顶层 NVIDIA 要求不证明 C500 支持或不支持。",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/DeepEP/branches?per_page=100",
+        "data": [
+          {
+            "name": "main",
+            "commit": {
+              "sha": "3885404ffb31a3d9cbd238aa1a366408881bb069",
+              "url": "https://api.github.com/repos/MetaX-MACA/DeepEP/commits/3885404ffb31a3d9cbd238aa1a366408881bb069"
+            },
+            "protected": false
+          }
+        ],
+        "link": null
+      },
+      "release_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/DeepEP/releases?per_page=3",
+        "data": [],
+        "link": null
+      }
+    },
+    {
+      "name": "DocFlowAI",
+      "full_name": "MetaX-MACA/DocFlowAI",
+      "description": "沐曦-智能文档工作流方案致力于文档知识结构化领域，依托沐曦C系列GPU强大的训练与推理性能，使用多模态AI技术，构建了一套高效、精准的文档结构化解析流程",
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2025-07-28T07:33:38Z",
+      "updated_at": "2026-09-19T16:47:39Z",
+      "language": "Python",
+      "size": 2336,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/DocFlowAI",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/DocFlowAI",
+      "category": "应用解决方案",
+      "topics": [
+        "inference"
+      ],
+      "purpose": "文档结构化与多模态解析方案",
+      "license_spdx": "AGPL-3.0",
+      "readme": {
+        "name": "DocFlowAI",
+        "status": "downloaded",
+        "path": "readmes/DocFlowAI.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/DocFlowAI/main/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": null,
+        "sha256": "ac1e3a295cf4f1c4beef2ad3f7243a8a7efcc7d3941df6e7b06a9ff277c9fff0",
+        "bytes": 7839
+      },
+      "c500_assessment": "README 提及 C 系列；C500 具体组合待核对",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "Embodied_AI_Simulation",
+      "full_name": "MetaX-MACA/Embodied_AI_Simulation",
+      "description": "MetaX Embodied AI Simulation Solution",
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2025-06-18T01:17:55Z",
+      "updated_at": "2026-03-06T14:59:11Z",
+      "language": "Python",
+      "size": 95558,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/Embodied_AI_Simulation",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/Embodied_AI_Simulation",
+      "category": "应用解决方案",
+      "topics": [
+        "inference"
+      ],
+      "purpose": "具身智能仿真方案",
+      "license_spdx": "Apache-2.0",
+      "readme": {
+        "name": "Embodied_AI_Simulation",
+        "status": "downloaded",
+        "path": "readmes/Embodied_AI_Simulation.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/Embodied_AI_Simulation/main/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": null,
+        "sha256": "235d26ec6f56693c08d672ebe23f9f2d2f063233c8ca9a0292569d182faac65b",
+        "bytes": 2770
+      },
+      "c500_assessment": "README 提及 C 系列；C500 具体组合待核对",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "fio",
+      "full_name": "MetaX-MACA/fio",
+      "description": "Flexible I/O Tester",
+      "default_branch": "master",
+      "fork": true,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-11-09T02:50:15Z",
+      "updated_at": "2026-11-09T02:50:21Z",
+      "language": "C",
+      "size": 31767,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/fio",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/fio",
+      "category": "通信与存储",
+      "topics": [
+        "communication"
+      ],
+      "purpose": "增加 MACA libmcfile I/O 引擎的 fio 工程",
+      "license_spdx": "GPL-2.0",
+      "readme": {
+        "name": "fio",
+        "status": "downloaded",
+        "path": "readmes/fio.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/fio/master/README.md",
+        "readme_filename": "README.md",
+        "branch": "master",
+        "commit": null,
+        "sha256": "6456172bed8ccbc2eb9a23e7529da90c614136b38a470fa7cfdf386b8cfbc39b",
+        "bytes": 3409
+      },
+      "c500_assessment": "README 有 MetaX/MACA 线索；C500 条件待核对",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "flashattn",
+      "full_name": "MetaX-MACA/flashattn",
+      "description": null,
+      "default_branch": "2.25.2",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-05-20T13:57:27Z",
+      "updated_at": "2026-09-14T06:44:46Z",
+      "language": "C++",
+      "size": 19237,
+      "open_issues_count": 1,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/flashattn",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/flashattn",
+      "category": "算子与数学库",
+      "topics": [
+        "kernels",
+        "libraries"
+      ],
+      "purpose": "FlashAttention 代码仓库；上游要求仍需区分",
+      "license_spdx": "NOASSERTION",
+      "readme": {
+        "name": "flashattn",
+        "status": "downloaded",
+        "path": "readmes/flashattn.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/flashattn/2.25.2/README.md",
+        "readme_filename": "README.md",
+        "branch": "2.25.2",
+        "commit": null,
+        "sha256": "c995fcdaf624a037b5020de21407a4163a4c3ead93f0cdcfd05b49b666d9517a",
+        "bytes": 18423
+      },
+      "c500_assessment": "顶层 README 未确认 C500 条件",
+      "c500_clues": [
+        {
+          "line": 69,
+          "text": "1. Ampere, Ada, or Hopper GPUs (e.g., A100, RTX 3090, RTX 4090, H100). Support for Turing"
+        },
+        {
+          "line": 72,
+          "text": "2. Datatype fp16 and bf16 (bf16 requires Ampere, Ada, or Hopper GPUs)."
+        }
+      ],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "FlashMLA",
+      "full_name": "MetaX-MACA/FlashMLA",
+      "description": "Fast and efficient attention method exploration and implementation.",
+      "default_branch": "main",
+      "fork": true,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-07-06T09:11:09Z",
+      "updated_at": "2026-08-15T09:53:33Z",
+      "language": "C++",
+      "size": 1540,
+      "open_issues_count": 15,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/FlashMLA",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/FlashMLA",
+      "category": "算子与数学库",
+      "topics": [
+        "kernels",
+        "libraries"
+      ],
+      "purpose": "MACA 上的 MLA/注意力实现，README 明确提及 C500/C600",
+      "license_spdx": "NOASSERTION",
+      "readme": {
+        "name": "FlashMLA",
+        "status": "downloaded",
+        "path": "readmes/FlashMLA.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/FlashMLA/b246af19465084b1a97d4de480c3ea0c1b356e4c/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": "b246af19465084b1a97d4de480c3ea0c1b356e4c",
+        "sha256": "a5f434cbc40fedb092d3696f52dfe7f45fcaf29d0bc7b156f9bf30eb1b757dff",
+        "bytes": 1938
+      },
+      "c500_assessment": "README 明确提及 C500；本机未验证",
+      "c500_clues": [
+        {
+          "line": 2,
+          "text": "We provide the implementation of FlashMLA from FlashAttention-2(version 2.6.3), based on MACA toolkit and C500 and C600 chips."
+        }
+      ],
+      "review_note": "README 明确写 C500/C600，但本机仍待验证；不与 mcFlashMLA 合并成同一版本。",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/FlashMLA/branches?per_page=100",
+        "data": [
+          {
+            "name": "main",
+            "commit": {
+              "sha": "b246af19465084b1a97d4de480c3ea0c1b356e4c",
+              "url": "https://api.github.com/repos/MetaX-MACA/FlashMLA/commits/b246af19465084b1a97d4de480c3ea0c1b356e4c"
+            },
+            "protected": false
+          }
+        ],
+        "link": null
+      },
+      "release_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/FlashMLA/releases?per_page=3",
+        "data": [],
+        "link": null
+      }
+    },
+    {
+      "name": "GeoScience",
+      "full_name": "MetaX-MACA/GeoScience",
+      "description": null,
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-08-19T05:56:40Z",
+      "updated_at": "2026-08-19T05:56:51Z",
+      "language": null,
+      "size": 68417,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/GeoScience",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/GeoScience",
+      "category": "AI4S 与科学计算",
+      "topics": [
+        "ai4s"
+      ],
+      "purpose": "地球科学模型与应用集合",
+      "license_spdx": null,
+      "readme": {
+        "name": "GeoScience",
+        "status": "downloaded",
+        "path": "readmes/GeoScience.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/GeoScience/main/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": null,
+        "sha256": "0a4a8d9d55d49c5e3ad2ff38bd7eba98980bc85d397d5cee58efe9938a90241d",
+        "bytes": 3164
+      },
+      "c500_assessment": "README 有 MetaX/MACA 线索；C500 条件待核对",
+      "c500_clues": [
+        {
+          "line": 34,
+          "text": "*   **硬件**：需具备沐曦（MetaX）GPU。"
+        }
+      ],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "go-mxsml",
+      "full_name": "MetaX-MACA/go-mxsml",
+      "description": "Go bindings for the MetaX System Management Library(MXSML)",
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-11-05T07:25:58Z",
+      "updated_at": "2026-08-24T09:40:48Z",
+      "language": "C",
+      "size": 147,
+      "open_issues_count": 15,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/go-mxsml",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/go-mxsml",
+      "category": "监控与工程工具",
+      "topics": [
+        "cloud",
+        "development"
+      ],
+      "purpose": "MXSML Go 绑定",
+      "license_spdx": "NOASSERTION",
+      "readme": {
+        "name": "go-mxsml",
+        "status": "downloaded",
+        "path": "readmes/go-mxsml.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/go-mxsml/main/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": null,
+        "sha256": "283993d2c8f20fbe90ea0c54b812e0a19ba817b8cce743a26da3d12f166e97d3",
+        "bytes": 2797
+      },
+      "c500_assessment": "README 有 MetaX/MACA 线索；C500 条件待核对",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "goutils",
+      "full_name": "MetaX-MACA/goutils",
+      "description": null,
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-11-08T11:03:01Z",
+      "updated_at": "2026-11-08T11:03:05Z",
+      "language": "Go",
+      "size": 10,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/goutils",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/goutils",
+      "category": "监控与工程工具",
+      "topics": [
+        "cloud",
+        "development"
+      ],
+      "purpose": "通用 Go 工具包，不等于 GPU 计算框架",
+      "license_spdx": "Apache-2.0",
+      "readme": {
+        "name": "goutils",
+        "status": "downloaded",
+        "path": "readmes/goutils.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/goutils/main/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": null,
+        "sha256": "c5aae0a2f087bcc252b16a17eb94a10e65268d63988ad06b5d3009838ddd0c3c",
+        "bytes": 477
+      },
+      "c500_assessment": "顶层 README 未确认 C500 条件",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "gpuBenchmark",
+      "full_name": "MetaX-MACA/gpuBenchmark",
+      "description": null,
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2025-04-15T09:24:32Z",
+      "updated_at": "2026-07-24T09:17:38Z",
+      "language": "Cuda",
+      "size": 56,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/gpuBenchmark",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/gpuBenchmark",
+      "category": "示例与性能实践",
+      "topics": [
+        "development",
+        "profiling",
+        "kernels"
+      ],
+      "purpose": "支持 MetaX/NVIDIA 的基准测试集合，具体数值不是本机结果",
+      "license_spdx": "Apache-2.0",
+      "readme": {
+        "name": "gpuBenchmark",
+        "status": "downloaded",
+        "path": "readmes/gpuBenchmark.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/gpuBenchmark/main/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": null,
+        "sha256": "51d41ebc98f35b2cff5d8069d5d061ff0945d8fb7e1fc6411dda977b05565ea9",
+        "bytes": 4085
+      },
+      "c500_assessment": "README 有 MetaX/MACA 线索；C500 条件待核对",
+      "c500_clues": [
+        {
+          "line": 5,
+          "text": "GPU Benchmark是一个用于评估和比较不同 GPU 性能的开源项目。通过运行一系列任务, GPU Benchmark 能够帮助用户了解不同 GPU 在执行特定任务时的性能表现。受到[cu-bridge](https://gitee.com/p4ul/cu-bridge)项目的启发，本项目致力于构建一套用CUDA编程语言构建的benchmark, 方便评估不同厂商GPU硬件性能和软件优化水平。"
+        },
+        {
+          "line": 26,
+          "text": "3. 不同GPU硬件架构实现上有些差异，如WarpSize的区别，需要用宏进行隔离。部分代码在不同平台需要切换宏定义中的NVIDIA_GPU_ARCH或METAX_GPU_ARCH"
+        }
+      ],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "hpc_warp",
+      "full_name": "MetaX-MACA/hpc_warp",
+      "description": "A Python framework for accelerated simulation, data generation and spatial computing.",
+      "default_branch": "releases/v1.8.1",
+      "fork": true,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-01-13T07:54:38Z",
+      "updated_at": "2026-01-13T06:47:21Z",
+      "language": null,
+      "size": 49563,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/hpc_warp",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/hpc_warp",
+      "category": "AI4S 与科学计算",
+      "topics": [
+        "ai4s"
+      ],
+      "purpose": "Warp v1.8.1 的 MetaX 适配，README 指向配套镜像",
+      "license_spdx": "Apache-2.0",
+      "readme": {
+        "name": "hpc_warp",
+        "status": "downloaded",
+        "path": "readmes/hpc_warp.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/hpc_warp/releases/v1.8.1/README.md",
+        "readme_filename": "README.md",
+        "branch": "releases/v1.8.1",
+        "commit": null,
+        "sha256": "05d7349075c73cbe06774f983e2670d41b736b29ae2b89786f4a4b82e966d8c7",
+        "bytes": 1896
+      },
+      "c500_assessment": "README 提及 C 系列；C500 具体组合待核对",
+      "c500_clues": [
+        {
+          "line": 24,
+          "text": "- Hardware: MetaX C-series"
+        }
+      ],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "LifeScience",
+      "full_name": "MetaX-MACA/LifeScience",
+      "description": null,
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-10-13T02:25:49Z",
+      "updated_at": "2026-10-13T02:25:53Z",
+      "language": "Dockerfile",
+      "size": 1247,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/LifeScience",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/LifeScience",
+      "category": "AI4S 与科学计算",
+      "topics": [
+        "ai4s"
+      ],
+      "purpose": "生命科学与蛋白质、分子应用集合",
+      "license_spdx": null,
+      "readme": {
+        "name": "LifeScience",
+        "status": "downloaded",
+        "path": "readmes/LifeScience.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/LifeScience/main/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": null,
+        "sha256": "9ab8cb496453a2b29672824bce441a1ebbef64531ec138d032e19aae00b07a56",
+        "bytes": 7695
+      },
+      "c500_assessment": "README 有 MetaX/MACA 线索；C500 条件待核对",
+      "c500_clues": [
+        {
+          "line": 58,
+          "text": "*   **硬件**：需具备沐曦（MetaX）GPU。"
+        }
+      ],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "LMCache",
+      "full_name": "MetaX-MACA/LMCache",
+      "description": "LMCache: Supercharge Your LLM with the Fastest KV Cache Layer",
+      "default_branch": "dev",
+      "fork": true,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-09-15T01:53:24Z",
+      "updated_at": "2026-09-16T03:46:06Z",
+      "language": null,
+      "size": 52276,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/LMCache",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/LMCache",
+      "category": "推理与后训练",
+      "topics": [
+        "inference",
+        "training"
+      ],
+      "purpose": "KV Cache 管理框架 fork；默认 README 未确认 C500 条件",
+      "license_spdx": "Apache-2.0",
+      "readme": {
+        "name": "LMCache",
+        "status": "downloaded",
+        "path": "readmes/LMCache.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/LMCache/dev/README.md",
+        "readme_filename": "README.md",
+        "branch": "dev",
+        "commit": null,
+        "sha256": "60b8409940e9fd6abf7ed04ac984cad5200b1b5fb428f138684038091c0f4dae",
+        "bytes": 10877
+      },
+      "c500_assessment": "顶层 README 未确认 C500 条件",
+      "c500_clues": [
+        {
+          "line": 47,
+          "text": "- [2025/06] LLM Production Stack goes cross-hardware: AMD, Arm and Ascend ([blog](https://blog.lmcache.ai/en/2025/06/20/llm-production-stack-goes-cross-hardware-ascend-arm-and-amd-support-incoming/))."
+        },
+        {
+          "line": 55,
+          "text": "LMCache is **vendor-neutral**. It can be used as a KV cache layer for a range of mainstream open-source serving engines, inference frameworks, hardware vendors, storage systems, and infrastructure providers. The vendor neutrality allows users to freely switch between serving engines and storage vendors, while reusing the stored KV caches."
+        },
+        {
+          "line": 81,
+          "text": "LMCache is becoming an integral layer in the LLM inference *ecosystem*, with *community*-driven integration with serving engines, inference frameworks, hardware vendors, storage systems, and infrastructure providers:"
+        }
+      ],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "maca-samples",
+      "full_name": "MetaX-MACA/maca-samples",
+      "description": "Reference implementations of fundamental GPU programming patterns with MXMACA.",
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2025-08-15T08:33:08Z",
+      "updated_at": "2025-12-17T13:28:28Z",
+      "language": "C++",
+      "size": 87,
+      "open_issues_count": 17,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/maca-samples",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/maca-samples",
+      "category": "示例与性能实践",
+      "topics": [
+        "development",
+        "profiling",
+        "kernels"
+      ],
+      "purpose": "MXMACA 基础 GPU 编程示例集合",
+      "license_spdx": "NOASSERTION",
+      "readme": {
+        "name": "maca-samples",
+        "status": "downloaded",
+        "path": "readmes/maca-samples.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/maca-samples/e6de14cc4d9248768d066a1475450ed7705fd766/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": "e6de14cc4d9248768d066a1475450ed7705fd766",
+        "sha256": "f5465716414d61cab3af2eac0bb2582bfd14e79684c6b1638e9af4b5142b9736",
+        "bytes": 3829
+      },
+      "c500_assessment": "README 有 MetaX/MACA 线索；C500 条件待核对",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/maca-samples/branches?per_page=100",
+        "data": [
+          {
+            "name": "main",
+            "commit": {
+              "sha": "e6de14cc4d9248768d066a1475450ed7705fd766",
+              "url": "https://api.github.com/repos/MetaX-MACA/maca-samples/commits/e6de14cc4d9248768d066a1475450ed7705fd766"
+            },
+            "protected": false
+          }
+        ],
+        "link": null
+      },
+      "release_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/maca-samples/releases?per_page=3",
+        "data": [],
+        "link": null
+      }
+    },
+    {
+      "name": "Materials",
+      "full_name": "MetaX-MACA/Materials",
+      "description": null,
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-10-13T02:31:16Z",
+      "updated_at": "2026-10-13T02:31:20Z",
+      "language": null,
+      "size": 36,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/Materials",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/Materials",
+      "category": "AI4S 与科学计算",
+      "topics": [
+        "ai4s"
+      ],
+      "purpose": "材料科学模型与计算方案集合",
+      "license_spdx": null,
+      "readme": {
+        "name": "Materials",
+        "status": "downloaded",
+        "path": "readmes/Materials.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/Materials/main/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": null,
+        "sha256": "5cab51d306dc5843e11cfad0767ea91c88a0f7d9c90481d25a1b53d174303c0d",
+        "bytes": 3833
+      },
+      "c500_assessment": "README 提及 C 系列；C500 具体组合待核对",
+      "c500_clues": [
+        {
+          "line": 34,
+          "text": "*   **硬件**: 需具备沐曦（MetaX）GPU（如曦云C系列、曦索X系列科学计算GPU）。"
+        }
+      ],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "mcApex",
+      "full_name": "MetaX-MACA/mcApex",
+      "description": null,
+      "default_branch": "2.25.2",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2025-06-04T08:04:05Z",
+      "updated_at": "2025-10-27T08:33:39Z",
+      "language": "Python",
+      "size": 1060,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/mcApex",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/mcApex",
+      "category": "框架与编译",
+      "topics": [
+        "development",
+        "training"
+      ],
+      "purpose": "混合精度与分布式训练扩展；顶层 README 保留上游介绍",
+      "license_spdx": "BSD-3-Clause",
+      "readme": {
+        "name": "mcApex",
+        "status": "downloaded",
+        "path": "readmes/mcApex.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/mcApex/2.25.2/README.md",
+        "readme_filename": "README.md",
+        "branch": "2.25.2",
+        "commit": null,
+        "sha256": "4f30df0f07fc1ae9025e2147f3db4d71dc28db1e4997f4d04adf4f5188fb3894",
+        "bytes": 9715
+      },
+      "c500_assessment": "顶层 README 未确认 C500 条件",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "mccl-nccl",
+      "full_name": "MetaX-MACA/mccl-nccl",
+      "description": null,
+      "default_branch": "2.20.5",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-06-24T08:23:08Z",
+      "updated_at": "2026-11-18T12:31:24Z",
+      "language": "C++",
+      "size": 595,
+      "open_issues_count": 8,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/mccl-nccl",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/mccl-nccl",
+      "category": "通信与存储",
+      "topics": [
+        "communication"
+      ],
+      "purpose": "MCCL 集合通信库工程，README 明确要求 MXMACA 环境",
+      "license_spdx": null,
+      "readme": {
+        "name": "mccl-nccl",
+        "status": "downloaded",
+        "path": "readmes/mccl-nccl.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/mccl-nccl/2.20.5/README.md",
+        "readme_filename": "README.md",
+        "branch": "2.20.5",
+        "commit": null,
+        "sha256": "569acfbc22348a470dd7582c03bc6af7345b96ad50376a3408c58e7bfcb16101",
+        "bytes": 436
+      },
+      "c500_assessment": "README 有 MetaX/MACA 线索；C500 条件待核对",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "mccl_tests",
+      "full_name": "MetaX-MACA/mccl_tests",
+      "description": null,
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-06-03T08:00:17Z",
+      "updated_at": "2026-06-03T08:00:28Z",
+      "language": "Cuda",
+      "size": 80,
+      "open_issues_count": 25,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/mccl_tests",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/mccl_tests",
+      "category": "通信与存储",
+      "topics": [
+        "communication"
+      ],
+      "purpose": "MCCL 性能与通信测试工具；执行前确认资源影响",
+      "license_spdx": "BSD-3-Clause",
+      "readme": {
+        "name": "mccl_tests",
+        "status": "downloaded",
+        "path": "readmes/mccl_tests.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/mccl_tests/1e44d4af1b177f2ab9e23bdd0b393ad757d08f4e/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": "1e44d4af1b177f2ab9e23bdd0b393ad757d08f4e",
+        "sha256": "4546098a7ee86d530544c0229fe2ff6ac5079df7e3170b10dad2d2b625cbf8b8",
+        "bytes": 4326
+      },
+      "c500_assessment": "README 有 MetaX/MACA 线索；C500 条件待核对",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/mccl_tests/branches?per_page=100",
+        "data": [
+          {
+            "name": "main",
+            "commit": {
+              "sha": "1e44d4af1b177f2ab9e23bdd0b393ad757d08f4e",
+              "url": "https://api.github.com/repos/MetaX-MACA/mccl_tests/commits/1e44d4af1b177f2ab9e23bdd0b393ad757d08f4e"
+            },
+            "protected": false
+          }
+        ],
+        "link": null
+      },
+      "release_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/mccl_tests/releases?per_page=3",
+        "data": [],
+        "link": null
+      }
+    },
+    {
+      "name": "mcdf",
+      "full_name": "MetaX-MACA/mcdf",
+      "description": null,
+      "default_branch": "2.1.9-maca",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2025-08-22T05:49:29Z",
+      "updated_at": "2025-08-22T05:49:33Z",
+      "language": "C++",
+      "size": 110034,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/mcdf",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/mcdf",
+      "category": "算子与数学库",
+      "topics": [
+        "kernels",
+        "libraries"
+      ],
+      "purpose": "DataFrame 数据处理生态工程，默认 MACA 命名分支",
+      "license_spdx": "Apache-2.0",
+      "readme": {
+        "name": "mcdf",
+        "status": "downloaded",
+        "path": "readmes/mcdf.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/mcdf/2.1.9-maca/README.md",
+        "readme_filename": "README.md",
+        "branch": "2.1.9-maca",
+        "commit": null,
+        "sha256": "3540144aea21bafe452b1ef37c98ff378fbc6dbd8afa403b9271b173aae197bc",
+        "bytes": 4787
+      },
+      "c500_assessment": "顶层 README 未确认 C500 条件",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "mcEigen",
+      "full_name": "MetaX-MACA/mcEigen",
+      "description": null,
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2025-06-17T05:47:50Z",
+      "updated_at": "2025-09-25T15:03:48Z",
+      "language": "C++",
+      "size": 3225,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/mcEigen",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/mcEigen",
+      "category": "算子与数学库",
+      "topics": [
+        "kernels",
+        "libraries"
+      ],
+      "purpose": "Eigen 线性代数工程；与本地 mcEigen 手册关联",
+      "license_spdx": "NOASSERTION",
+      "readme": {
+        "name": "mcEigen",
+        "status": "downloaded",
+        "path": "readmes/mcEigen.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/mcEigen/main/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": null,
+        "sha256": "bda5d099bcf2136910e5eee166d924f84ba9162902122b51bfc73600ca99fae2",
+        "bytes": 288
+      },
+      "c500_assessment": "顶层 README 未确认 C500 条件",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "mcFaiss",
+      "full_name": "MetaX-MACA/mcFaiss",
+      "description": "A library for efficient similarity search and clustering of dense vectors.",
+      "default_branch": "1.10.0-maca",
+      "fork": true,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2025-09-01T09:55:44Z",
+      "updated_at": "2025-09-01T09:55:48Z",
+      "language": "C++",
+      "size": 23430,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/mcFaiss",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/mcFaiss",
+      "category": "算子与数学库",
+      "topics": [
+        "kernels",
+        "libraries"
+      ],
+      "purpose": "向量相似度检索和聚类库 fork",
+      "license_spdx": "NOASSERTION",
+      "readme": {
+        "name": "mcFaiss",
+        "status": "downloaded",
+        "path": "readmes/mcFaiss.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/mcFaiss/1.10.0-maca/README.md",
+        "readme_filename": "README.md",
+        "branch": "1.10.0-maca",
+        "commit": null,
+        "sha256": "19e26cdfba2ccd91f0d8491d66bf5db65704566d47ba3190790dcd22843bce51",
+        "bytes": 6380
+      },
+      "c500_assessment": "顶层 README 未确认 C500 条件",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "mcfile-python",
+      "full_name": "MetaX-MACA/mcfile-python",
+      "description": "A very simple wrapper for MACA mcFile library",
+      "default_branch": "mx-dev",
+      "fork": true,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-09-17T03:18:26Z",
+      "updated_at": "2026-09-17T03:18:29Z",
+      "language": "Python",
+      "size": 41,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/mcfile-python",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/mcfile-python",
+      "category": "通信与存储",
+      "topics": [
+        "communication"
+      ],
+      "purpose": "MACA mcFile 的 Python 接口",
+      "license_spdx": null,
+      "readme": {
+        "name": "mcfile-python",
+        "status": "downloaded",
+        "path": "readmes/mcfile-python.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/mcfile-python/mx-dev/README.md",
+        "readme_filename": "README.md",
+        "branch": "mx-dev",
+        "commit": null,
+        "sha256": "24dd1932cc31dc52db644dededa94bf01664a76ebfc0a8239af40daac6179e21",
+        "bytes": 1001
+      },
+      "c500_assessment": "README 有 MetaX/MACA 线索；C500 条件待核对",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "McFlashInfer",
+      "full_name": "MetaX-MACA/McFlashInfer",
+      "description": null,
+      "default_branch": "master",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-03-09T05:47:28Z",
+      "updated_at": "2026-07-21T07:47:57Z",
+      "language": "Cuda",
+      "size": 1732,
+      "open_issues_count": 9,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/McFlashInfer",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/McFlashInfer",
+      "category": "算子与数学库",
+      "topics": [
+        "kernels",
+        "libraries"
+      ],
+      "purpose": "MACA 平台 LLM 推理算子及内核生成库",
+      "license_spdx": "Apache-2.0",
+      "readme": {
+        "name": "McFlashInfer",
+        "status": "downloaded",
+        "path": "readmes/McFlashInfer.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/McFlashInfer/master/README.md",
+        "readme_filename": "README.md",
+        "branch": "master",
+        "commit": null,
+        "sha256": "3b9d38d523919348a213dd4655ffb36f8bab5d377e8c8264b6d6c6f2c0342adc",
+        "bytes": 1539
+      },
+      "c500_assessment": "README 有 MetaX/MACA 线索；C500 条件待核对",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "mcFlashMLA",
+      "full_name": "MetaX-MACA/mcFlashMLA",
+      "description": "Update flashMLA implementation on MACA",
+      "default_branch": "main",
+      "fork": true,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-07-06T09:08:40Z",
+      "updated_at": "2026-07-06T08:26:59Z",
+      "language": "C++",
+      "size": 1540,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/mcFlashMLA",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/mcFlashMLA",
+      "category": "算子与数学库",
+      "topics": [
+        "kernels",
+        "libraries"
+      ],
+      "purpose": "另一份 MACA FlashMLA 实现，README 明确提及 C500；单独保留",
+      "license_spdx": "NOASSERTION",
+      "readme": {
+        "name": "mcFlashMLA",
+        "status": "downloaded",
+        "path": "readmes/mcFlashMLA.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/mcFlashMLA/c2dbf6e9328f839b96970662e6ec379b6d79d6c8/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": "c2dbf6e9328f839b96970662e6ec379b6d79d6c8",
+        "sha256": "911202874430b9b802c4d2e3c60b4f63c61b125f2532b95de275f4ea6b156ae8",
+        "bytes": 1979
+      },
+      "c500_assessment": "README 明确提及 C500；本机未验证",
+      "c500_clues": [
+        {
+          "line": 2,
+          "text": "We provide the implementation of FlashMLA from FlashAttention-2(version 2.6.3), based on MACA toolkit and C500 chips."
+        }
+      ],
+      "review_note": "README 明确写 C500；与 FlashMLA 分开保留 commit、分支和条件。",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/mcFlashMLA/branches?per_page=100",
+        "data": [
+          {
+            "name": "main",
+            "commit": {
+              "sha": "c2dbf6e9328f839b96970662e6ec379b6d79d6c8",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcFlashMLA/commits/c2dbf6e9328f839b96970662e6ec379b6d79d6c8"
+            },
+            "protected": false
+          },
+          {
+            "name": "mcFlashMLA",
+            "commit": {
+              "sha": "82c9f1bbda344cef2d17c67e3f4de14b235e4959",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcFlashMLA/commits/82c9f1bbda344cef2d17c67e3f4de14b235e4959"
+            },
+            "protected": false
+          }
+        ],
+        "link": null
+      },
+      "release_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/mcFlashMLA/releases?per_page=3",
+        "data": [],
+        "link": null
+      }
+    },
+    {
+      "name": "mcoplib",
+      "full_name": "MetaX-MACA/mcoplib",
+      "description": "A high perfromance op kernel lib running on metax HD platform ",
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-11-20T09:55:17Z",
+      "updated_at": "2026-10-22T03:07:25Z",
+      "language": "Cuda",
+      "size": 7966,
+      "open_issues_count": 28,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/mcoplib",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/mcoplib",
+      "category": "算子与数学库",
+      "topics": [
+        "kernels",
+        "libraries"
+      ],
+      "purpose": "MetaX 高性能算子库，README 含 vLLM/SGLang 配套关系",
+      "license_spdx": "Apache-2.0",
+      "readme": {
+        "name": "mcoplib",
+        "status": "downloaded",
+        "path": "readmes/mcoplib.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/mcoplib/0e64378285a5c693b15a57f7c03b600a520ce1fa/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": "0e64378285a5c693b15a57f7c03b600a520ce1fa",
+        "sha256": "a77771358793f8d918785a5f5ce5be330f07470fadf4bfc26fe6c6b7e1585dd1",
+        "bytes": 22406
+      },
+      "c500_assessment": "README 有 MetaX/MACA 线索；C500 条件待核对",
+      "c500_clues": [
+        {
+          "line": 67,
+          "text": "### 多平台编译(C600/C600U/C588)"
+        },
+        {
+          "line": 502,
+          "text": "- optimize moe_sum_reduce kernel on C600U sglang"
+        }
+      ],
+      "review_note": "README 的配套表使用 release/v0.4.x 标签形式，API 实际分支为 mcoplib-0.4.x、Release tag 为 mcoplib_0.4.x；三者必须分开核对。",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/branches?per_page=100",
+        "data": [
+          {
+            "name": "main",
+            "commit": {
+              "sha": "0e64378285a5c693b15a57f7c03b600a520ce1fa",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/0e64378285a5c693b15a57f7c03b600a520ce1fa"
+            },
+            "protected": false
+          },
+          {
+            "name": "mcoplib_params_dump",
+            "commit": {
+              "sha": "4c55921a276b9d43675635a2e04a4e75d72eada2",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/4c55921a276b9d43675635a2e04a4e75d72eada2"
+            },
+            "protected": false
+          },
+          {
+            "name": "mcoplib_0.2.0",
+            "commit": {
+              "sha": "c4dcf11a9269975a287b9d4b8edb7df77bd5f92c",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/c4dcf11a9269975a287b9d4b8edb7df77bd5f92c"
+            },
+            "protected": false
+          },
+          {
+            "name": "mcoplib_0.3.0",
+            "commit": {
+              "sha": "fc68e8d44ba70920fbe3304b5b5572573ea80a7d",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/fc68e8d44ba70920fbe3304b5b5572573ea80a7d"
+            },
+            "protected": false
+          },
+          {
+            "name": "mcoplib_0.3.1",
+            "commit": {
+              "sha": "bd9871709d97b9e2e0e89de7a53b98ae217e2b66",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/bd9871709d97b9e2e0e89de7a53b98ae217e2b66"
+            },
+            "protected": false
+          },
+          {
+            "name": "mcoplib_0.4.0",
+            "commit": {
+              "sha": "ce59c568a930191cbf7324051578633f87b2d612",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/ce59c568a930191cbf7324051578633f87b2d612"
+            },
+            "protected": false
+          },
+          {
+            "name": "mcoplib_0.4.1",
+            "commit": {
+              "sha": "a3c97d22f54aea1b5ab9ad15a65a46ee13083cfb",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/a3c97d22f54aea1b5ab9ad15a65a46ee13083cfb"
+            },
+            "protected": false
+          },
+          {
+            "name": "mcoplib_0.4.2",
+            "commit": {
+              "sha": "5473acab784ddf15b13a7506a376ddcc7905ff60",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/5473acab784ddf15b13a7506a376ddcc7905ff60"
+            },
+            "protected": false
+          },
+          {
+            "name": "mcoplib_0.4.3",
+            "commit": {
+              "sha": "604843a1af670bc2827523b2eb387df9078a36cf",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/604843a1af670bc2827523b2eb387df9078a36cf"
+            },
+            "protected": false
+          },
+          {
+            "name": "mcoplib-0.4.4",
+            "commit": {
+              "sha": "2b5bc881bcafefdd66e20c20e7e30cb3949e5b03",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/2b5bc881bcafefdd66e20c20e7e30cb3949e5b03"
+            },
+            "protected": false
+          },
+          {
+            "name": "mcoplib-0.4.5",
+            "commit": {
+              "sha": "998d67a65c5046c993d20f61c6106fe7890b2ea6",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/998d67a65c5046c993d20f61c6106fe7890b2ea6"
+            },
+            "protected": false
+          },
+          {
+            "name": "mcoplib-0.4.6",
+            "commit": {
+              "sha": "aaf33ed436bf1a87c293bcd7b4d30fa7688a535c",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/aaf33ed436bf1a87c293bcd7b4d30fa7688a535c"
+            },
+            "protected": false
+          },
+          {
+            "name": "mcoplib-0.4.7",
+            "commit": {
+              "sha": "d8a11d7042042ba43ea586890ed7ea628700a32d",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/d8a11d7042042ba43ea586890ed7ea628700a32d"
+            },
+            "protected": false
+          },
+          {
+            "name": "mcoplib-0.4.8",
+            "commit": {
+              "sha": "86663c7b2f2bc7feb7f42bb3d51cddfb9bf13f71",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/86663c7b2f2bc7feb7f42bb3d51cddfb9bf13f71"
+            },
+            "protected": false
+          },
+          {
+            "name": "mcoplib-0.4.9",
+            "commit": {
+              "sha": "4f63dd7f4d18e844d804fefc209ad54a1fd83575",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/4f63dd7f4d18e844d804fefc209ad54a1fd83575"
+            },
+            "protected": false
+          },
+          {
+            "name": "mcoplib-0.4.10",
+            "commit": {
+              "sha": "c10c3e25bc6a9fb8479fad0bce53407768510861",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/c10c3e25bc6a9fb8479fad0bce53407768510861"
+            },
+            "protected": false
+          },
+          {
+            "name": "mcoplib-0.4.11",
+            "commit": {
+              "sha": "3c3d0f26689ed42e6113d06b97bf19675d28500b",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/3c3d0f26689ed42e6113d06b97bf19675d28500b"
+            },
+            "protected": false
+          },
+          {
+            "name": "mcoplib-0.4.12",
+            "commit": {
+              "sha": "11140d533a8bfd9937520a1d8e4ed632741fa8b2",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/11140d533a8bfd9937520a1d8e4ed632741fa8b2"
+            },
+            "protected": false
+          },
+          {
+            "name": "mcoplib-0.4.13",
+            "commit": {
+              "sha": "79d68369e9bf6eab5ac09b8264104bd87133071e",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/79d68369e9bf6eab5ac09b8264104bd87133071e"
+            },
+            "protected": false
+          },
+          {
+            "name": "mcoplib-0.4.14",
+            "commit": {
+              "sha": "6e5abc3458c95897a322f71e349ed31f55e62925",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/6e5abc3458c95897a322f71e349ed31f55e62925"
+            },
+            "protected": false
+          },
+          {
+            "name": "mcoplib-0.4.15",
+            "commit": {
+              "sha": "e83f730a158a5432000488d19d77b23d22df6803",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/e83f730a158a5432000488d19d77b23d22df6803"
+            },
+            "protected": false
+          },
+          {
+            "name": "mcoplib-0.4.16",
+            "commit": {
+              "sha": "6805357a35821a6037e265872c818eef6076c8bb",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/6805357a35821a6037e265872c818eef6076c8bb"
+            },
+            "protected": false
+          },
+          {
+            "name": "vllm0.13.0_sglang0.5.6",
+            "commit": {
+              "sha": "8bcc67ed1a824648060ed02569f794e35f54f49c",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/8bcc67ed1a824648060ed02569f794e35f54f49c"
+            },
+            "protected": false
+          },
+          {
+            "name": "vllm_0120_sgl_056",
+            "commit": {
+              "sha": "7d6a97670f1279454b9f08417f8fe06dfa9662fb",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/7d6a97670f1279454b9f08417f8fe06dfa9662fb"
+            },
+            "protected": false
+          },
+          {
+            "name": "vllm_0130_sglang_057",
+            "commit": {
+              "sha": "3ac159e62135bf791c61aa9cef1927dbc784d025",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/3ac159e62135bf791c61aa9cef1927dbc784d025"
+            },
+            "protected": false
+          }
+        ],
+        "link": null
+      },
+      "release_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/releases?per_page=3",
+        "data": [
+          {
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/releases/452519065",
+            "assets_url": "https://api.github.com/repos/MetaX-MACA/mcoplib/releases/452519065/assets",
+            "upload_url": "https://uploads.github.com/repos/MetaX-MACA/mcoplib/releases/452519065/assets{?name,label}",
+            "html_url": "https://github.com/MetaX-MACA/mcoplib/releases/tag/mcoplib_0.4.16",
+            "id": 452519065,
+            "author": {
+              "login": "yiyu-metax",
+              "id": 250912274,
+              "node_id": "U_kgDODvSeEg",
+              "avatar_url": "https://avatars.githubusercontent.com/u/250912274?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/yiyu-metax",
+              "html_url": "https://github.com/yiyu-metax",
+              "followers_url": "https://api.github.com/users/yiyu-metax/followers",
+              "following_url": "https://api.github.com/users/yiyu-metax/following{/other_user}",
+              "gists_url": "https://api.github.com/users/yiyu-metax/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/yiyu-metax/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/yiyu-metax/subscriptions",
+              "organizations_url": "https://api.github.com/users/yiyu-metax/orgs",
+              "repos_url": "https://api.github.com/users/yiyu-metax/repos",
+              "events_url": "https://api.github.com/users/yiyu-metax/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/yiyu-metax/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "node_id": "RE_kwDOQs6oGs4a-OSZ",
+            "tag_name": "mcoplib_0.4.16",
+            "target_commitish": "mcoplib-0.4.16",
+            "name": "mcoplib-0.4.16",
+            "draft": false,
+            "immutable": false,
+            "prerelease": false,
+            "created_at": "2026-11-20T09:48:24Z",
+            "updated_at": "2026-11-20T09:55:18Z",
+            "published_at": "2026-11-20T09:55:18Z",
+            "assets": [],
+            "tarball_url": "https://api.github.com/repos/MetaX-MACA/mcoplib/tarball/mcoplib_0.4.16",
+            "zipball_url": "https://api.github.com/repos/MetaX-MACA/mcoplib/zipball/mcoplib_0.4.16",
+            "body": "vllm 0.32.0 && sglang 0.5.22"
+          },
+          {
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/releases/452518315",
+            "assets_url": "https://api.github.com/repos/MetaX-MACA/mcoplib/releases/452518315/assets",
+            "upload_url": "https://uploads.github.com/repos/MetaX-MACA/mcoplib/releases/452518315/assets{?name,label}",
+            "html_url": "https://github.com/MetaX-MACA/mcoplib/releases/tag/mcoplib_0.4.15",
+            "id": 452518315,
+            "author": {
+              "login": "yiyu-metax",
+              "id": 250912274,
+              "node_id": "U_kgDODvSeEg",
+              "avatar_url": "https://avatars.githubusercontent.com/u/250912274?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/yiyu-metax",
+              "html_url": "https://github.com/yiyu-metax",
+              "followers_url": "https://api.github.com/users/yiyu-metax/followers",
+              "following_url": "https://api.github.com/users/yiyu-metax/following{/other_user}",
+              "gists_url": "https://api.github.com/users/yiyu-metax/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/yiyu-metax/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/yiyu-metax/subscriptions",
+              "organizations_url": "https://api.github.com/users/yiyu-metax/orgs",
+              "repos_url": "https://api.github.com/users/yiyu-metax/repos",
+              "events_url": "https://api.github.com/users/yiyu-metax/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/yiyu-metax/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "node_id": "RE_kwDOQs6oGs4a-OGr",
+            "tag_name": "mcoplib_0.4.15",
+            "target_commitish": "mcoplib-0.4.15",
+            "name": "mcoplib-0.4.15",
+            "draft": false,
+            "immutable": false,
+            "prerelease": false,
+            "created_at": "2026-11-20T09:45:59Z",
+            "updated_at": "2026-11-20T09:54:36Z",
+            "published_at": "2026-11-20T09:54:36Z",
+            "assets": [],
+            "tarball_url": "https://api.github.com/repos/MetaX-MACA/mcoplib/tarball/mcoplib_0.4.15",
+            "zipball_url": "https://api.github.com/repos/MetaX-MACA/mcoplib/zipball/mcoplib_0.4.15",
+            "body": "vllm 0.30.0 && sglang 0.5.19"
+          },
+          {
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/releases/452516517",
+            "assets_url": "https://api.github.com/repos/MetaX-MACA/mcoplib/releases/452516517/assets",
+            "upload_url": "https://uploads.github.com/repos/MetaX-MACA/mcoplib/releases/452516517/assets{?name,label}",
+            "html_url": "https://github.com/MetaX-MACA/mcoplib/releases/tag/mcoplib_0.4.14",
+            "id": 452516517,
+            "author": {
+              "login": "yiyu-metax",
+              "id": 250912274,
+              "node_id": "U_kgDODvSeEg",
+              "avatar_url": "https://avatars.githubusercontent.com/u/250912274?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/yiyu-metax",
+              "html_url": "https://github.com/yiyu-metax",
+              "followers_url": "https://api.github.com/users/yiyu-metax/followers",
+              "following_url": "https://api.github.com/users/yiyu-metax/following{/other_user}",
+              "gists_url": "https://api.github.com/users/yiyu-metax/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/yiyu-metax/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/yiyu-metax/subscriptions",
+              "organizations_url": "https://api.github.com/users/yiyu-metax/orgs",
+              "repos_url": "https://api.github.com/users/yiyu-metax/repos",
+              "events_url": "https://api.github.com/users/yiyu-metax/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/yiyu-metax/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "node_id": "RE_kwDOQs6oGs4a-Nql",
+            "tag_name": "mcoplib_0.4.14",
+            "target_commitish": "mcoplib-0.4.14",
+            "name": "mcoplib-0.4.14",
+            "draft": false,
+            "immutable": false,
+            "prerelease": false,
+            "created_at": "2026-11-20T09:43:51Z",
+            "updated_at": "2026-11-20T09:53:35Z",
+            "published_at": "2026-11-20T09:52:57Z",
+            "assets": [],
+            "tarball_url": "https://api.github.com/repos/MetaX-MACA/mcoplib/tarball/mcoplib_0.4.14",
+            "zipball_url": "https://api.github.com/repos/MetaX-MACA/mcoplib/zipball/mcoplib_0.4.14",
+            "body": "mcoplib vllm 0.29.0 && sglang 0.5.19"
+          }
+        ],
+        "link": "<https://api.github.com/repositories/1120839706/releases?per_page=3&page=2>; rel=\"next\", <https://api.github.com/repositories/1120839706/releases?per_page=3&page=7>; rel=\"last\""
+      }
+    },
+    {
+      "name": "mcpy",
+      "full_name": "MetaX-MACA/mcpy",
+      "description": null,
+      "default_branch": "2.1.9-maca",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2025-08-22T07:49:36Z",
+      "updated_at": "2026-08-31T08:45:41Z",
+      "language": "Python",
+      "size": 34798,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/mcpy",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/mcpy",
+      "category": "算子与数学库",
+      "topics": [
+        "kernels",
+        "libraries"
+      ],
+      "purpose": "数组计算生态工程，默认 MACA 命名分支",
+      "license_spdx": "NOASSERTION",
+      "readme": {
+        "name": "mcpy",
+        "status": "downloaded",
+        "path": "readmes/mcpy.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/mcpy/2.1.9-maca/README.md",
+        "readme_filename": "README.md",
+        "branch": "2.1.9-maca",
+        "commit": null,
+        "sha256": "a6835034138d6e0985a4d2e7beccf1699ce28a22f3ee477ff5f4074a55f2e7ea",
+        "bytes": 5548
+      },
+      "c500_assessment": "顶层 README 未确认 C500 条件",
+      "c500_clues": [
+        {
+          "line": 49,
+          "text": "| CUDA 12.x             | x86_64            | `pip install cupy-cuda12x`                                    |"
+        }
+      ],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "mcPytorch",
+      "full_name": "MetaX-MACA/mcPytorch",
+      "description": null,
+      "default_branch": "2.4",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-08-03T02:18:58Z",
+      "updated_at": "2026-09-20T03:48:47Z",
+      "language": "Python",
+      "size": 141912,
+      "open_issues_count": 2,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/mcPytorch",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/mcPytorch",
+      "category": "框架与编译",
+      "topics": [
+        "development",
+        "training"
+      ],
+      "purpose": "PyTorch 的 MetaX 后端实现，默认 2.4；另有版本分支",
+      "license_spdx": "NOASSERTION",
+      "readme": {
+        "name": "mcPytorch",
+        "status": "downloaded",
+        "path": "readmes/mcPytorch.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/mcPytorch/b3db5eed6a6e330133cd3d4b173f8da392aa6bcb/README.md",
+        "readme_filename": "README.md",
+        "branch": "2.4",
+        "commit": "b3db5eed6a6e330133cd3d4b173f8da392aa6bcb",
+        "sha256": "3fc2c258bf98718de80b62faea90e6d1a65a605aada1f4f65d89224bc455744d",
+        "bytes": 6775
+      },
+      "c500_assessment": "README 有 MXC500 镜像示例；需匹配分支",
+      "c500_clues": [
+        {
+          "line": 14,
+          "text": "  登录[沐曦开发者社区](https://developer.metax-tech.com/developer/index)，在搜索栏中搜索“pytorch\"，找到相关的镜像包，如下图所示。选择 mxc500-torch2.1-py310-mc2.32.0.3-ubuntu22.04-amd64.container.xz 的镜像包并下载。这里以 torch2.1 python310的镜像环境为例，mc2.32.0.3 是 maca 的版本，数字越大表示版本越新，建议尽量选择较新的版本，另外如果有 torch2.4 的镜像可以直接选择 torch2.4 的镜像即可，如果没有 torch2.4 的镜像文件，可以使用相近版本的镜像（比如 torch2.1），然后下载 torch2.4 的安装包安装即可。"
+        },
+        {
+          "line": 23,
+          "text": "docker load -i mxc500-torch2.1-py310-mc2.32.0.3-ubuntu22.04-amd64.container.xz"
+        },
+        {
+          "line": 24,
+          "text": "docker run -it --device=/dev/dri --device=/dev/mxcd --group-add video mxc500-torch2.1-py310-mc2.32.0.3-ubuntu22.04-amd64 /bin/bash"
+        }
+      ],
+      "review_note": "默认 2.4 不能代表全部版本；API 还列出 2.8.0-maca3.8.0 和 2.10.0-maca3.8.0。旧 README 镜像示例不得覆盖新 PDF/镜像约束。",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/mcPytorch/branches?per_page=100",
+        "data": [
+          {
+            "name": "2.0",
+            "commit": {
+              "sha": "87e40fd02cec28edb700cc190a29f0b7b9d9b1a7",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcPytorch/commits/87e40fd02cec28edb700cc190a29f0b7b9d9b1a7"
+            },
+            "protected": false
+          },
+          {
+            "name": "2.4",
+            "commit": {
+              "sha": "b3db5eed6a6e330133cd3d4b173f8da392aa6bcb",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcPytorch/commits/b3db5eed6a6e330133cd3d4b173f8da392aa6bcb"
+            },
+            "protected": false
+          },
+          {
+            "name": "2.8.0-maca3.8.0",
+            "commit": {
+              "sha": "2ee4c34194937f3329cb7ecd27427927dfa3299e",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcPytorch/commits/2ee4c34194937f3329cb7ecd27427927dfa3299e"
+            },
+            "protected": false
+          },
+          {
+            "name": "2.10.0-maca3.8.0",
+            "commit": {
+              "sha": "eda08b2f4982b7009704c3d53bdcacfa402e74cb",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcPytorch/commits/eda08b2f4982b7009704c3d53bdcacfa402e74cb"
+            },
+            "protected": false
+          },
+          {
+            "name": "dependabot/bundler/ios/TestApp/bundler-00f0729802",
+            "commit": {
+              "sha": "b9b8f0b4941402ef06576578a5cb675050b96329",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcPytorch/commits/b9b8f0b4941402ef06576578a5cb675050b96329"
+            },
+            "protected": false
+          }
+        ],
+        "link": null
+      },
+      "release_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/mcPytorch/releases?per_page=3",
+        "data": [],
+        "link": null
+      }
+    },
+    {
+      "name": "mcSolver",
+      "full_name": "MetaX-MACA/mcSolver",
+      "description": null,
+      "default_branch": "2.25.2",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2025-06-04T09:58:07Z",
+      "updated_at": "2025-09-19T01:46:39Z",
+      "language": "C++",
+      "size": 441,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/mcSolver",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/mcSolver",
+      "category": "算子与数学库",
+      "topics": [
+        "kernels",
+        "libraries"
+      ],
+      "purpose": "MetaX GPU 加速矩阵分解与线性方程求解库",
+      "license_spdx": "NOASSERTION",
+      "readme": {
+        "name": "mcSolver",
+        "status": "downloaded",
+        "path": "readmes/mcSolver.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/mcSolver/2.25.2/README.md",
+        "readme_filename": "README.md",
+        "branch": "2.25.2",
+        "commit": null,
+        "sha256": "7aa39cd8651831f26557f2e2f1ad7188b03c64fc1dcc68c0976d699a2abcb38d",
+        "bytes": 690
+      },
+      "c500_assessment": "README 有 MetaX/MACA 线索；C500 条件待核对",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "mcSparse",
+      "full_name": "MetaX-MACA/mcSparse",
+      "description": null,
+      "default_branch": "2.25.2",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2025-06-04T10:26:08Z",
+      "updated_at": "2025-09-19T01:47:10Z",
+      "language": "C++",
+      "size": 270,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/mcSparse",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/mcSparse",
+      "category": "算子与数学库",
+      "topics": [
+        "kernels",
+        "libraries"
+      ],
+      "purpose": "MetaX 稀疏线性代数基础库",
+      "license_spdx": "NOASSERTION",
+      "readme": {
+        "name": "mcSparse",
+        "status": "downloaded",
+        "path": "readmes/mcSparse.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/mcSparse/2.25.2/README.md",
+        "readme_filename": "README.md",
+        "branch": "2.25.2",
+        "commit": null,
+        "sha256": "85de04a8bcb57c9f460b7b3c0ece718b4e52633eb8399992cc51a31def82a1e6",
+        "bytes": 651
+      },
+      "c500_assessment": "README 有 MetaX/MACA 线索；C500 条件待核对",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "mcTlass",
+      "full_name": "MetaX-MACA/mcTlass",
+      "description": null,
+      "default_branch": "2.20.2",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2025-06-05T04:01:31Z",
+      "updated_at": "2026-10-08T06:32:57Z",
+      "language": "C++",
+      "size": 929,
+      "open_issues_count": 2,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/mcTlass",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/mcTlass",
+      "category": "算子与数学库",
+      "topics": [
+        "kernels",
+        "libraries"
+      ],
+      "purpose": "仓库清单可见，常见根 README 未取得；用途和构建要求待确认",
+      "license_spdx": "NOASSERTION",
+      "readme": {
+        "name": "mcTlass",
+        "status": "not_retrieved",
+        "branch": "2.20.2",
+        "errors": [],
+        "note": "Common root README filenames tried; no assertion that repository has no documentation"
+      },
+      "c500_assessment": "未取得根 README；未知",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "mcTriton",
+      "full_name": "MetaX-MACA/mcTriton",
+      "description": null,
+      "default_branch": "3.0",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-06-02T11:12:19Z",
+      "updated_at": "2026-09-24T06:54:38Z",
+      "language": "C++",
+      "size": 11977,
+      "open_issues_count": 2,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/mcTriton",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/mcTriton",
+      "category": "框架与编译",
+      "topics": [
+        "development",
+        "training"
+      ],
+      "purpose": "Triton 算子编译器适配；与 Triton Inference Server 分开",
+      "license_spdx": "NOASSERTION",
+      "readme": {
+        "name": "mcTriton",
+        "status": "downloaded",
+        "path": "readmes/mcTriton.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/mcTriton/7dd407c26568fceaca44cb894138e5202d369805/README.md",
+        "readme_filename": "README.md",
+        "branch": "3.0",
+        "commit": "7dd407c26568fceaca44cb894138e5202d369805",
+        "sha256": "82a3029dc001b38cd9c28a355c98170259f29c216b81aef322c9bda69c5441ed",
+        "bytes": 1096
+      },
+      "c500_assessment": "README 有 MetaX/MACA 线索；C500 条件待核对",
+      "c500_clues": [],
+      "review_note": "存在 3.0 与 3.6 分支；本次 README 取自默认 3.0，不能据此推定 3.6 构建要求。",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/mcTriton/branches?per_page=100",
+        "data": [
+          {
+            "name": "3.0",
+            "commit": {
+              "sha": "7dd407c26568fceaca44cb894138e5202d369805",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcTriton/commits/7dd407c26568fceaca44cb894138e5202d369805"
+            },
+            "protected": false
+          },
+          {
+            "name": "3.6",
+            "commit": {
+              "sha": "eb5e9b9a7c1f3ef644dca91aafadc961a46f3615",
+              "url": "https://api.github.com/repos/MetaX-MACA/mcTriton/commits/eb5e9b9a7c1f3ef644dca91aafadc961a46f3615"
+            },
+            "protected": false
+          }
+        ],
+        "link": null
+      },
+      "release_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/mcTriton/releases?per_page=3",
+        "data": [],
+        "link": null
+      }
+    },
+    {
+      "name": "mcTVM",
+      "full_name": "MetaX-MACA/mcTVM",
+      "description": "Open deep learning compiler stack for cpu, gpu and specialized accelerators",
+      "default_branch": "dev",
+      "fork": true,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-11-06T01:09:13Z",
+      "updated_at": "2026-10-22T02:22:58Z",
+      "language": "Python",
+      "size": 166321,
+      "open_issues_count": 26,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/mcTVM",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/mcTVM",
+      "category": "框架与编译",
+      "topics": [
+        "development",
+        "training"
+      ],
+      "purpose": "TVM 编译框架 fork，默认 dev；适配范围需看具体子目录",
+      "license_spdx": "Apache-2.0",
+      "readme": {
+        "name": "mcTVM",
+        "status": "downloaded",
+        "path": "readmes/mcTVM.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/mcTVM/dev/README.md",
+        "readme_filename": "README.md",
+        "branch": "dev",
+        "commit": null,
+        "sha256": "c9c370f0eea561339bd1d7aeb539f5bd08880064b6f4850332bba0f1bbe7d270",
+        "bytes": 2994
+      },
+      "c500_assessment": "README 有 MetaX/MACA 线索；C500 条件待核对",
+      "c500_clues": [
+        {
+          "line": 29,
+          "text": "[Apache TVM](https://github.com/apache/tvm) is one of the earliest and most successful AI compiler，it can take models from popular deep learning frameworks like pytorch and optimize them for diverse hardware. The [TVM community](https://discuss.tvm.apache.org/) is also highly active and [well-documented](https://tvm.apache.org/docs)."
+        },
+        {
+          "line": 60,
+          "text": "target = tvm.target.Target(\"metax/mxc-c500\")"
+        }
+      ],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "mcXformer",
+      "full_name": "MetaX-MACA/mcXformer",
+      "description": null,
+      "default_branch": "2.22.0",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2025-06-05T03:58:31Z",
+      "updated_at": "2025-09-28T05:40:02Z",
+      "language": "Python",
+      "size": 9115,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/mcXformer",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/mcXformer",
+      "category": "框架与编译",
+      "topics": [
+        "development",
+        "training"
+      ],
+      "purpose": "Transformer 算子与组件工程；顶层适配约束待核对",
+      "license_spdx": "NOASSERTION",
+      "readme": {
+        "name": "mcXformer",
+        "status": "downloaded",
+        "path": "readmes/mcXformer.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/mcXformer/2.22.0/README.md",
+        "readme_filename": "README.md",
+        "branch": "2.22.0",
+        "commit": null,
+        "sha256": "a67425e919272f8cb766b0ba8203c874f7aacc7184b03f16221f5b7244df28ab",
+        "bytes": 13620,
+        "distribution_sanitization": {
+          "date": "2026-11-23",
+          "original_sha256": "292c1c18afeebcb3d44ecb54539aa5cf32ce9570349edd6e4c7a15eacbb94e78",
+          "sanitized_sha256": "a67425e919272f8cb766b0ba8203c874f7aacc7184b03f16221f5b7244df28ab",
+          "transformation": "Removed Codecov badge URL token query parameter on line 13; other README bytes unchanged.",
+          "provenance": "../../../TRANSFER_PROVENANCE.json"
+        }
+      },
+      "c500_assessment": "顶层 README 未确认 C500 条件",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "MedicalImage",
+      "full_name": "MetaX-MACA/MedicalImage",
+      "description": null,
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-10-13T02:30:02Z",
+      "updated_at": "2026-10-13T02:30:06Z",
+      "language": "Jupyter Notebook",
+      "size": 18462,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/MedicalImage",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/MedicalImage",
+      "category": "AI4S 与科学计算",
+      "topics": [
+        "ai4s"
+      ],
+      "purpose": "医学影像模型与适配方案集合",
+      "license_spdx": null,
+      "readme": {
+        "name": "MedicalImage",
+        "status": "downloaded",
+        "path": "readmes/MedicalImage.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/MedicalImage/main/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": null,
+        "sha256": "1492e11f69ad108a7bec91da154694e310aedd16e9a430eac74655b4898a27c5",
+        "bytes": 6914
+      },
+      "c500_assessment": "README 提及 C 系列；C500 具体组合待核对",
+      "c500_clues": [
+        {
+          "line": 46,
+          "text": "- **硬件**：需具备沐曦（MetaX）GPU（曦云C系列、曦思N系列等）。"
+        }
+      ],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "metax-ai4s",
+      "full_name": "MetaX-MACA/metax-ai4s",
+      "description": null,
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-10-10T11:52:32Z",
+      "updated_at": "2026-10-10T11:52:35Z",
+      "language": "HTML",
+      "size": 88,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/metax-ai4s",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/metax-ai4s",
+      "category": "AI4S 与科学计算",
+      "topics": [
+        "ai4s"
+      ],
+      "purpose": "AI4S 领域总导航",
+      "license_spdx": null,
+      "readme": {
+        "name": "metax-ai4s",
+        "status": "downloaded",
+        "path": "readmes/metax-ai4s.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/metax-ai4s/main/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": null,
+        "sha256": "9b462cda582333d108ac632a6e9f283f476ebe74f96dcebe541dbc5d32afc4bf",
+        "bytes": 16546
+      },
+      "c500_assessment": "README 有 MetaX/MACA 线索；C500 条件待核对",
+      "c500_clues": [
+        {
+          "line": 238,
+          "text": "| **硬件** | 沐曦 GPU (曦云C / 曦索X) |"
+        }
+      ],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "metax-lifescience-toolkit",
+      "full_name": "MetaX-MACA/metax-lifescience-toolkit",
+      "description": null,
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-09-22T02:59:37Z",
+      "updated_at": "2026-11-17T09:00:43Z",
+      "language": "Python",
+      "size": 71,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/metax-lifescience-toolkit",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/metax-lifescience-toolkit",
+      "category": "AI4S 与科学计算",
+      "topics": [
+        "ai4s"
+      ],
+      "purpose": "生命科学 Agent skills 工具包；本次只盘点，未安装技能",
+      "license_spdx": "NOASSERTION",
+      "readme": {
+        "name": "metax-lifescience-toolkit",
+        "status": "downloaded",
+        "path": "readmes/metax-lifescience-toolkit.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/metax-lifescience-toolkit/main/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": null,
+        "sha256": "206e835051fbacbd36b2efc3b4373859d13d2c1e2339c65f557dda2d491ebdab",
+        "bytes": 2613
+      },
+      "c500_assessment": "README 有 MetaX/MACA 线索；C500 条件待核对",
+      "c500_clues": [
+        {
+          "line": 15,
+          "text": "with changes for MetaX hardware and MIM service contracts. See [NOTICE](NOTICE)"
+        }
+      ],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "MetaX-MACA.github.io",
+      "full_name": "MetaX-MACA/MetaX-MACA.github.io",
+      "description": null,
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2025-11-05T03:40:54Z",
+      "updated_at": "2025-11-05T07:58:26Z",
+      "language": null,
+      "size": 0,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/MetaX-MACA.github.io",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/MetaX-MACA.github.io",
+      "category": "监控与工程工具",
+      "topics": [
+        "cloud",
+        "development"
+      ],
+      "purpose": "组织网页工程；常见根 README 未取得",
+      "license_spdx": null,
+      "readme": {
+        "name": "MetaX-MACA.github.io",
+        "status": "not_retrieved",
+        "branch": "main",
+        "errors": [],
+        "note": "Common root README filenames tried; no assertion that repository has no documentation"
+      },
+      "c500_assessment": "未取得根 README；未知",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "modelzoo",
+      "full_name": "MetaX-MACA/modelzoo",
+      "description": null,
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2023-06-08T07:25:31Z",
+      "updated_at": "2026-09-02T08:52:19Z",
+      "language": "Python",
+      "size": 10982,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/modelzoo",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/modelzoo",
+      "category": "示例与性能实践",
+      "topics": [
+        "inference",
+        "training"
+      ],
+      "purpose": "历史 ModelZoo 导航和模型资源入口",
+      "license_spdx": "Apache-2.0",
+      "readme": {
+        "name": "modelzoo",
+        "status": "downloaded",
+        "path": "readmes/modelzoo.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/modelzoo/main/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": null,
+        "sha256": "7b0d9f02020f18da85b625f5b70c2f8dd98326aefeb19bba121dbc7d3d51bf37",
+        "bytes": 1611
+      },
+      "c500_assessment": "README 有 MetaX/MACA 线索；C500 条件待核对",
+      "c500_clues": [],
+      "review_note": "保留历史入口；不得等同于官网当前各 ModelZoo 镜像。",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "Mooncake",
+      "full_name": "MetaX-MACA/Mooncake",
+      "description": "Mooncake is the serving platform for Kimi, a leading LLM service provided by Moonshot AI.",
+      "default_branch": "main",
+      "fork": true,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-09-17T23:47:18Z",
+      "updated_at": "2026-09-18T01:53:14Z",
+      "language": null,
+      "size": 55813,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/Mooncake",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/Mooncake",
+      "category": "推理与后训练",
+      "topics": [
+        "inference",
+        "training"
+      ],
+      "purpose": "分布式 KV 缓存与传输引擎，README 提及 MACA 传输支持",
+      "license_spdx": "Apache-2.0",
+      "readme": {
+        "name": "Mooncake",
+        "status": "downloaded",
+        "path": "readmes/Mooncake.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/Mooncake/main/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": null,
+        "sha256": "e4f50b04861fc45b369dd43ffe251f67a949733a6e0e8b7f1a8d628a89ae4158",
+        "bytes": 32666
+      },
+      "c500_assessment": "README 有 MetaX/MACA 线索；C500 条件待核对",
+      "c500_clues": [
+        {
+          "line": 23,
+          "text": "  [![PyPI CUDA 13.0/13.1](https://img.shields.io/static/v1?label=pypi&message=CUDA%2013.0%2F13.1&color=76B900)](https://pypi.org/project/mooncake-transfer-engine-cuda13)"
+        },
+        {
+          "line": 197,
+          "text": "<h2 id=\"supported-hardware\">🖥️ Supported Hardware</h2>"
+        },
+        {
+          "line": 199,
+          "text": "Mooncake supports hardware backends across accelerator vendors, cloud fabrics, and standard datacenter interconnects, as listed below. See the [supported protocols](https://kvcache-ai.github.io/Mooncake/getting_started/supported-protocols.html) and [Transfer Engine design docs](https://kvcache-ai.github.io/Mooncake/design/transfer-engine/index.html) for details."
+        },
+        {
+          "line": 201,
+          "text": "| <img src=\"image/partners/nvidia_logo.png\" width=\"120\" alt=\"NVIDIA\"/> | <img src=\"image/partners/huawei_logo.png\" width=\"120\" alt=\"Huawei\"/> | <img src=\"image/partners/amd_logo.png\" width=\"120\" alt=\"AMD\"/> | <img src=\"image/hardwares/cambricon_logo.png\" width=\"120\" alt=\"Cambricon\"/> | <img src=\"image/partners/moore_thread_logo.jpg\" width=\"120\" alt=\"Moore Threads\"/> | <img src=\"image/partners/aws-logo.png\" width=\"120\" alt=\"AWS\"/> |"
+        },
+        {
+          "line": 203,
+          "text": "| <img src=\"image/hardwares/MetaX_logo.png\" width=\"120\" alt=\"MetaX\"/> | <img src=\"image/hardwares/T-Head_logo.png\" width=\"120\" alt=\"T-Head\"/> | <img src=\"image/partners/aliyun_logo.png\" width=\"120\" alt=\"Alibaba Cloud\"/> | <img src=\"image/partners/sunrise_logo.png\" width=\"120\" alt=\"Sunrise\"/> | <img src=\"image/partners/hygon_logo.png\" width=\"120\" alt=\"Hygon\"/> | <img src=\"image/hardwares/biren_logo.png\" width=\"120\" alt=\"Biren Technology\"/> |"
+        }
+      ],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "mxCuco",
+      "full_name": "MetaX-MACA/mxCuco",
+      "description": null,
+      "default_branch": "2.1.9-maca",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2025-08-21T08:42:50Z",
+      "updated_at": "2025-08-21T08:44:23Z",
+      "language": "C++",
+      "size": 4546,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/mxCuco",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/mxCuco",
+      "category": "算子与数学库",
+      "topics": [
+        "kernels",
+        "libraries"
+      ],
+      "purpose": "并发数据结构相关工程；默认 MACA 命名分支",
+      "license_spdx": "Apache-2.0",
+      "readme": {
+        "name": "mxCuco",
+        "status": "downloaded",
+        "path": "readmes/mxCuco.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/mxCuco/2.1.9-maca/README.md",
+        "readme_filename": "README.md",
+        "branch": "2.1.9-maca",
+        "commit": null,
+        "sha256": "992005af0b8753b0dc516efcde8b6195aa37fc3c293d2390ec1b01b96864295c",
+        "bytes": 8074
+      },
+      "c500_assessment": "顶层 README 未确认 C500 条件",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "MXDeepEP",
+      "full_name": "MetaX-MACA/MXDeepEP",
+      "description": null,
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-09-17T08:02:53Z",
+      "updated_at": "2026-09-17T08:02:57Z",
+      "language": "Cuda",
+      "size": 2177,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/MXDeepEP",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/MXDeepEP",
+      "category": "通信与存储",
+      "topics": [
+        "communication"
+      ],
+      "purpose": "专家并行通信工程；顶层 README 保留上游 NVIDIA 条件",
+      "license_spdx": "MIT",
+      "readme": {
+        "name": "MXDeepEP",
+        "status": "downloaded",
+        "path": "readmes/MXDeepEP.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/MXDeepEP/5ce9cce6efc06f2596b8f395e5cae3c78494699a/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": "5ce9cce6efc06f2596b8f395e5cae3c78494699a",
+        "sha256": "94147964390f65ecf90ef99c5ffd4729fe70514f9428f2d51183bc12e3d57480",
+        "bytes": 16563
+      },
+      "c500_assessment": "顶层 README 未确认 C500 条件",
+      "c500_clues": [
+        {
+          "line": 41,
+          "text": "- Hopper GPUs (may support more architectures or devices later)"
+        },
+        {
+          "line": 43,
+          "text": "- CUDA 12.3 and above"
+        },
+        {
+          "line": 285,
+          "text": "- For extreme performance, we discover and use a behavior-out-of-doc PTX instruction: `ld.global.nc.L1::no_allocate.L2::256B`. This instruction will lead to an undefined behavior: accessing volatile GPU memory with non-coherent read-only PTX modifiers `.nc`. But the correctness is tested to be guaranteed with `.L1::no_allocate` on Hopper architectures, and performance will be much better. If you find kernels not working on some other platforms, you may add `DISABLE_AGGRESSIVE_PTX_INSTRS=1` to `setup.py` and disable this, or file an issue."
+        }
+      ],
+      "review_note": "根 README 仍列 Hopper/CUDA/NVLink/NVSHMEM；仓库另有 build.md 和 maca_tools，但本次未审计其源码或构建流程。C500 部署条件待核实。",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/MXDeepEP/branches?per_page=100",
+        "data": [
+          {
+            "name": "main",
+            "commit": {
+              "sha": "5ce9cce6efc06f2596b8f395e5cae3c78494699a",
+              "url": "https://api.github.com/repos/MetaX-MACA/MXDeepEP/commits/5ce9cce6efc06f2596b8f395e5cae3c78494699a"
+            },
+            "protected": false
+          }
+        ],
+        "link": null
+      },
+      "release_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/MXDeepEP/releases?per_page=3",
+        "data": [],
+        "link": null
+      }
+    },
+    {
+      "name": "mxDlrover",
+      "full_name": "MetaX-MACA/mxDlrover",
+      "description": "DLRover: An Automatic Distributed Deep Learning System",
+      "default_branch": "0.4.0-maca",
+      "fork": true,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-01-09T02:34:51Z",
+      "updated_at": "2026-01-28T01:09:41Z",
+      "language": null,
+      "size": 180281,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/mxDlrover",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/mxDlrover",
+      "category": "监控与工程工具",
+      "topics": [
+        "cloud",
+        "development"
+      ],
+      "purpose": "分布式训练管理 DLRover fork",
+      "license_spdx": "NOASSERTION",
+      "readme": {
+        "name": "mxDlrover",
+        "status": "downloaded",
+        "path": "readmes/mxDlrover.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/mxDlrover/0.4.0-maca/README.md",
+        "readme_filename": "README.md",
+        "branch": "0.4.0-maca",
+        "commit": null,
+        "sha256": "c56f2b5dd784873413af614e8bc49e40800f87b10d19a53dedba1628de4e0782",
+        "bytes": 9680
+      },
+      "c500_assessment": "顶层 README 未确认 C500 条件",
+      "c500_clues": [
+        {
+          "line": 16,
+          "text": "any engineering stuff, say, hardware acceleration, distributed running, etc."
+        }
+      ],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "mxExporter",
+      "full_name": "MetaX-MACA/mxExporter",
+      "description": null,
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-06-08T10:07:53Z",
+      "updated_at": "2026-11-17T05:53:22Z",
+      "language": "Python",
+      "size": 1828,
+      "open_issues_count": 17,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/mxExporter",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/mxExporter",
+      "category": "监控与工程工具",
+      "topics": [
+        "cloud",
+        "development"
+      ],
+      "purpose": "基于 MXSML 的 MetaX GPU Prometheus 指标导出工具",
+      "license_spdx": "NOASSERTION",
+      "readme": {
+        "name": "mxExporter",
+        "status": "downloaded",
+        "path": "readmes/mxExporter.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/mxExporter/main/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": null,
+        "sha256": "85efd05b8dd4444b3bcd2ee952d143ea5ffbf8aca795d1832543dc7c1eb5d169",
+        "bytes": 2694
+      },
+      "c500_assessment": "README 有 MetaX/MACA 线索；C500 条件待核对",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "mxFIO",
+      "full_name": "MetaX-MACA/mxFIO",
+      "description": null,
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2025-10-22T01:46:04Z",
+      "updated_at": "2025-10-22T01:46:09Z",
+      "language": "C",
+      "size": 7719,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/mxFIO",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/mxFIO",
+      "category": "通信与存储",
+      "topics": [
+        "communication"
+      ],
+      "purpose": "MACA MAS 存储测试工程；与 fio 分开保留",
+      "license_spdx": "GPL-2.0",
+      "readme": {
+        "name": "mxFIO",
+        "status": "downloaded",
+        "path": "readmes/mxFIO.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/mxFIO/main/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": null,
+        "sha256": "f4434e0159ec821f3050b63cf13af749a2593302c61c2285dcdba609e11d2ac0",
+        "bytes": 3447
+      },
+      "c500_assessment": "README 有 MetaX/MACA 线索；C500 条件待核对",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "mxJitify",
+      "full_name": "MetaX-MACA/mxJitify",
+      "description": null,
+      "default_branch": "jitify2",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2025-08-21T10:13:59Z",
+      "updated_at": "2025-08-21T10:14:18Z",
+      "language": "C++",
+      "size": 427,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/mxJitify",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/mxJitify",
+      "category": "框架与编译",
+      "topics": [
+        "development",
+        "training"
+      ],
+      "purpose": "运行时编译辅助库；上游 CUDA 说明不能作为 C500 安装依据",
+      "license_spdx": "NOASSERTION",
+      "readme": {
+        "name": "mxJitify",
+        "status": "downloaded",
+        "path": "readmes/mxJitify.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/mxJitify/jitify2/README.md",
+        "readme_filename": "README.md",
+        "branch": "jitify2",
+        "commit": null,
+        "sha256": "1ef96d39afba485f4f7eeb03612631ec101578fdacd12ce152633bbf4c7ba317",
+        "bytes": 3348
+      },
+      "c500_assessment": "顶层 README 未确认 C500 条件",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "mxNumbax",
+      "full_name": "MetaX-MACA/mxNumbax",
+      "description": null,
+      "default_branch": "2.1.9-maca",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2025-08-22T08:21:57Z",
+      "updated_at": "2025-08-22T08:22:03Z",
+      "language": "Python",
+      "size": 64989,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/mxNumbax",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/mxNumbax",
+      "category": "框架与编译",
+      "topics": [
+        "development",
+        "training"
+      ],
+      "purpose": "Numba 相关 Python 编译工程，默认 MACA 命名分支",
+      "license_spdx": "NOASSERTION",
+      "readme": {
+        "name": "mxNumbax",
+        "status": "downloaded",
+        "path": "readmes/mxNumbax.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/mxNumbax/2.1.9-maca/README.rst",
+        "readme_filename": "README.rst",
+        "branch": "2.1.9-maca",
+        "commit": null,
+        "sha256": "c71daa8a05709b058a8120f87fe6c2df350739c81a962de3e824e6df788e0476",
+        "bytes": 1842
+      },
+      "c500_assessment": "顶层 README 未确认 C500 条件",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "mxRmmx",
+      "full_name": "MetaX-MACA/mxRmmx",
+      "description": null,
+      "default_branch": "2.1.9-maca",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2025-08-21T10:21:05Z",
+      "updated_at": "2025-08-21T10:21:10Z",
+      "language": "C++",
+      "size": 4252,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/mxRmmx",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/mxRmmx",
+      "category": "算子与数学库",
+      "topics": [
+        "kernels",
+        "libraries"
+      ],
+      "purpose": "GPU 内存管理工程，README 含 MACA_PATH 构建提示",
+      "license_spdx": "Apache-2.0",
+      "readme": {
+        "name": "mxRmmx",
+        "status": "downloaded",
+        "path": "readmes/mxRmmx.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/mxRmmx/2.1.9-maca/README.md",
+        "readme_filename": "README.md",
+        "branch": "2.1.9-maca",
+        "commit": null,
+        "sha256": "0ade78123e4df2dfc548c26862d189abf98adbcc531589432d36c1f0fd8c9d10",
+        "bytes": 32765
+      },
+      "c500_assessment": "README 有 MetaX/MACA 线索；C500 条件待核对",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "Onnxruntime",
+      "full_name": "MetaX-MACA/Onnxruntime",
+      "description": null,
+      "default_branch": "2.25.2",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2025-06-06T02:20:04Z",
+      "updated_at": "2025-09-12T03:02:15Z",
+      "language": "C++",
+      "size": 98983,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/Onnxruntime",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/Onnxruntime",
+      "category": "推理与后训练",
+      "topics": [
+        "inference",
+        "training"
+      ],
+      "purpose": "ONNX Runtime 代码仓库；具体 MetaX 构建条件需查对应分支",
+      "license_spdx": "MIT",
+      "readme": {
+        "name": "Onnxruntime",
+        "status": "downloaded",
+        "path": "readmes/Onnxruntime.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/Onnxruntime/2.25.2/README.md",
+        "readme_filename": "README.md",
+        "branch": "2.25.2",
+        "commit": null,
+        "sha256": "41ead4365dc6295dcdec13e9550cb0471dfee98bc03e4620d6f11638bc42f853",
+        "bytes": 6684
+      },
+      "c500_assessment": "顶层 README 未确认 C500 条件",
+      "c500_clues": [
+        {
+          "line": 5,
+          "text": "**ONNX Runtime inference** can enable faster customer experiences and lower costs, supporting models from deep learning frameworks such as PyTorch and TensorFlow/Keras as well as classical machine learning libraries such as scikit-learn, LightGBM, XGBoost, etc. ONNX Runtime is compatible with different hardware, drivers, and operating systems, and provides optimal performance by leveraging hardware accelerators where applicable alongside graph optimizations and transforms. [Learn more &rarr;](https://www.onnxruntime.ai/docs/#onnx-runtime-for-inferencing)"
+        }
+      ],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "op_optimization",
+      "full_name": "MetaX-MACA/op_optimization",
+      "description": null,
+      "default_branch": "master",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-05-26T09:49:36Z",
+      "updated_at": "2026-10-11T16:28:58Z",
+      "language": null,
+      "size": 257,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/op_optimization",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/op_optimization",
+      "category": "示例与性能实践",
+      "topics": [
+        "development",
+        "profiling",
+        "kernels"
+      ],
+      "purpose": "C500 与 TileLang 算子优化竞赛、指南入口",
+      "license_spdx": null,
+      "readme": {
+        "name": "op_optimization",
+        "status": "downloaded",
+        "path": "readmes/op_optimization.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/op_optimization/67875de0d2f159f7380ad6471a34bf8c6551a8f1/README.md",
+        "readme_filename": "README.md",
+        "branch": "master",
+        "commit": "67875de0d2f159f7380ad6471a34bf8c6551a8f1",
+        "sha256": "c3120f2ccaae98e97ba91fba8681404ecb5e2b9b7e775ddd92393c96649c1ffc",
+        "bytes": 4051
+      },
+      "c500_assessment": "README 明确提及 C500；本机未验证",
+      "c500_clues": [
+        {
+          "line": 11,
+          "text": "本赛题依托国产开源 TileLang语言 + 沐曦 MXMACA 全栈软件栈 + 曦云 C500 算力，聚焦三大业界前沿高价值算子攻坚："
+        },
+        {
+          "line": 41,
+          "text": "**硬件福利加码**"
+        },
+        {
+          "line": 55,
+          "text": "提供曦云 C500 在线算力资源券，无需自备硬件"
+        }
+      ],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/op_optimization/branches?per_page=100",
+        "data": [
+          {
+            "name": "master",
+            "commit": {
+              "sha": "67875de0d2f159f7380ad6471a34bf8c6551a8f1",
+              "url": "https://api.github.com/repos/MetaX-MACA/op_optimization/commits/67875de0d2f159f7380ad6471a34bf8c6551a8f1"
+            },
+            "protected": false
+          }
+        ],
+        "link": null
+      },
+      "release_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/op_optimization/releases?per_page=3",
+        "data": [],
+        "link": null
+      }
+    },
+    {
+      "name": "Physics",
+      "full_name": "MetaX-MACA/Physics",
+      "description": null,
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-11-18T02:43:42Z",
+      "updated_at": "2026-11-12T10:22:52Z",
+      "language": "Dockerfile",
+      "size": 26437,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/Physics",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/Physics",
+      "category": "AI4S 与科学计算",
+      "topics": [
+        "ai4s"
+      ],
+      "purpose": "物理仿真及科学机器学习框架集合",
+      "license_spdx": null,
+      "readme": {
+        "name": "Physics",
+        "status": "downloaded",
+        "path": "readmes/Physics.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/Physics/main/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": null,
+        "sha256": "8578e4685db7df7c425be1ca18606b636616fec860874b2cddb526d2e19ae68a",
+        "bytes": 4787
+      },
+      "c500_assessment": "README 有 MetaX/MACA 线索；C500 条件待核对",
+      "c500_clues": [
+        {
+          "line": 58,
+          "text": "- **硬件**：需具备沐曦（MetaX）GPU。"
+        }
+      ],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "ppl.llm.serving",
+      "full_name": "MetaX-MACA/ppl.llm.serving",
+      "description": null,
+      "default_branch": "2.20.2",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2025-06-05T06:18:41Z",
+      "updated_at": "2025-09-12T03:02:58Z",
+      "language": "C++",
+      "size": 21262,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/ppl.llm.serving",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/ppl.llm.serving",
+      "category": "推理与后训练",
+      "topics": [
+        "inference",
+        "training"
+      ],
+      "purpose": "PPL 大模型服务工程；具体平台适用性待核对",
+      "license_spdx": "Apache-2.0",
+      "readme": {
+        "name": "ppl.llm.serving",
+        "status": "downloaded",
+        "path": "readmes/ppl.llm.serving.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/ppl.llm.serving/2.20.2/README.md",
+        "readme_filename": "README.md",
+        "branch": "2.20.2",
+        "commit": null,
+        "sha256": "90d7a7ac49417200fd40498ddf4de2a1e00aa3ab345f75667cc49d4bc1d88998",
+        "bytes": 2979
+      },
+      "c500_assessment": "顶层 README 未确认 C500 条件",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "pymxsml",
+      "full_name": "MetaX-MACA/pymxsml",
+      "description": "Python bindings to the MetaX Management Library(MXSML)",
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-03-19T06:26:19Z",
+      "updated_at": "2026-05-14T14:29:19Z",
+      "language": "Python",
+      "size": 25,
+      "open_issues_count": 12,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/pymxsml",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/pymxsml",
+      "category": "监控与工程工具",
+      "topics": [
+        "cloud",
+        "development"
+      ],
+      "purpose": "MXSML Python 绑定，README 有 MXC500 示例输出",
+      "license_spdx": "NOASSERTION",
+      "readme": {
+        "name": "pymxsml",
+        "status": "downloaded",
+        "path": "readmes/pymxsml.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/pymxsml/main/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": null,
+        "sha256": "196e9983a75c0999280c75a905735f69b8c4c8ebe58108eda4e80651f6ba0566",
+        "bytes": 2356
+      },
+      "c500_assessment": "README 有 MXC500 示例；非支持矩阵",
+      "c500_clues": [
+        {
+          "line": 28,
+          "text": "Device 0 : MXC500"
+        },
+        {
+          "line": 94,
+          "text": "    Device 100 : MXC500"
+        }
+      ],
+      "review_note": "MXC500 出现在示例输出中，属于示例线索，不是完整支持矩阵。",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "QuickGuide",
+      "full_name": "MetaX-MACA/QuickGuide",
+      "description": null,
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2025-07-30T06:08:41Z",
+      "updated_at": "2025-07-30T06:08:45Z",
+      "language": null,
+      "size": 0,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/QuickGuide",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/QuickGuide",
+      "category": "示例与性能实践",
+      "topics": [
+        "development",
+        "profiling",
+        "kernels"
+      ],
+      "purpose": "根 README 只有标题，需进一步查看仓库内容",
+      "license_spdx": null,
+      "readme": {
+        "name": "QuickGuide",
+        "status": "downloaded",
+        "path": "readmes/QuickGuide.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/QuickGuide/main/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": null,
+        "sha256": "e34ecdebd7221d6e101cc8dce19123ac9609fbebd75ec3e404987742d022066a",
+        "bytes": 12
+      },
+      "c500_assessment": "顶层 README 未确认 C500 条件",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "sglang",
+      "full_name": "MetaX-MACA/sglang",
+      "description": "SGLang is a high-performance serving framework for large language models and multimodal models.",
+      "default_branch": "main",
+      "fork": true,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-11-17T04:18:57Z",
+      "updated_at": "2026-11-10T06:29:20Z",
+      "language": null,
+      "size": 302722,
+      "open_issues_count": 12,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/sglang",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/sglang",
+      "category": "推理与后训练",
+      "topics": [
+        "inference",
+        "training"
+      ],
+      "purpose": "SGLang 推理框架 fork；顶层说明仍以上游为主",
+      "license_spdx": "Apache-2.0",
+      "readme": {
+        "name": "sglang",
+        "status": "downloaded",
+        "path": "readmes/sglang.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/sglang/e55a35fbcd491eeb3743be9b021534512c6acf85/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": "e55a35fbcd491eeb3743be9b021534512c6acf85",
+        "sha256": "bc9f204342a4735892681f4add8d988b3837e1c84ad8a54e808c7fa2bf55f987",
+        "bytes": 10811
+      },
+      "c500_assessment": "顶层 README 未确认 C500 条件",
+      "c500_clues": [
+        {
+          "line": 64,
+          "text": "- **Extensive Hardware Support**: Runs on NVIDIA GPUs (GB200/B300/H100/A100/Spark/5090), AMD GPUs (MI355/MI300), Intel Xeon CPUs, Google TPUs, Ascend NPUs, and more."
+        }
+      ],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/sglang/branches?per_page=100",
+        "data": [
+          {
+            "name": "main",
+            "commit": {
+              "sha": "e55a35fbcd491eeb3743be9b021534512c6acf85",
+              "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/e55a35fbcd491eeb3743be9b021534512c6acf85"
+            },
+            "protected": false
+          },
+          {
+            "name": "release/v0.5.7",
+            "commit": {
+              "sha": "0900c2e1cb5cea1ef75a3e8ed31c016a51830e5a",
+              "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/0900c2e1cb5cea1ef75a3e8ed31c016a51830e5a"
+            },
+            "protected": false
+          },
+          {
+            "name": "release/v0.5.10",
+            "commit": {
+              "sha": "0ea078de33c49b3c9e538eb77193a08a7e1325f2",
+              "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/0ea078de33c49b3c9e538eb77193a08a7e1325f2"
+            },
+            "protected": false
+          },
+          {
+            "name": "release/v0.5.12",
+            "commit": {
+              "sha": "f261eb651c5a72ddc4d729dea4a77585056112a0",
+              "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/f261eb651c5a72ddc4d729dea4a77585056112a0"
+            },
+            "protected": false
+          },
+          {
+            "name": "release/v0.5.14-cr1",
+            "commit": {
+              "sha": "8af8c433a9fc2e72b6dd33c2355d1ad08b2f641f",
+              "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/8af8c433a9fc2e72b6dd33c2355d1ad08b2f641f"
+            },
+            "protected": false
+          },
+          {
+            "name": "release/v0.5.14-cr2",
+            "commit": {
+              "sha": "6ddf478dc90e3260c119a8208e456d7db24a52a5",
+              "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/6ddf478dc90e3260c119a8208e456d7db24a52a5"
+            },
+            "protected": false
+          },
+          {
+            "name": "release/v0.5.14",
+            "commit": {
+              "sha": "052dcfb5f7d968a121497b3fed82b1c563d856e8",
+              "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/052dcfb5f7d968a121497b3fed82b1c563d856e8"
+            },
+            "protected": false
+          },
+          {
+            "name": "release/v0.5.19",
+            "commit": {
+              "sha": "21b326b3d748412389789953bb65a28ee42779b3",
+              "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/21b326b3d748412389789953bb65a28ee42779b3"
+            },
+            "protected": false
+          },
+          {
+            "name": "release/v0.5.21",
+            "commit": {
+              "sha": "cea8f950303ae0635af66f021d1e9fb48fd06d5b",
+              "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/cea8f950303ae0635af66f021d1e9fb48fd06d5b"
+            },
+            "protected": false
+          },
+          {
+            "name": "release/v0.5.22-cr1",
+            "commit": {
+              "sha": "bcbd6c8d1daf156c916a8fdce202c36fee71cf37",
+              "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/bcbd6c8d1daf156c916a8fdce202c36fee71cf37"
+            },
+            "protected": false
+          }
+        ],
+        "link": null
+      },
+      "release_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/sglang/releases?per_page=3",
+        "data": [],
+        "link": null
+      }
+    },
+    {
+      "name": "simple-jenkins-githubaction",
+      "full_name": "MetaX-MACA/simple-jenkins-githubaction",
+      "description": "Action used to trigger jenkins job in metax jenkins",
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-05-26T08:26:20Z",
+      "updated_at": "2026-05-26T08:24:49Z",
+      "language": "Python",
+      "size": 945,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/simple-jenkins-githubaction",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/simple-jenkins-githubaction",
+      "category": "监控与工程工具",
+      "topics": [
+        "cloud",
+        "development"
+      ],
+      "purpose": "触发 Jenkins 的 CI Action；非模型运行依赖",
+      "license_spdx": "MIT",
+      "readme": {
+        "name": "simple-jenkins-githubaction",
+        "status": "downloaded",
+        "path": "readmes/simple-jenkins-githubaction.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/simple-jenkins-githubaction/main/README",
+        "readme_filename": "README",
+        "branch": "main",
+        "commit": null,
+        "sha256": "060a26f1d48e06e6a1d06380c4be7ee3afc57e8bc97882b9b4a930f3d5b5ad19",
+        "bytes": 52
+      },
+      "c500_assessment": "顶层 README 未确认 C500 条件",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "TileKernels-Metax",
+      "full_name": "MetaX-MACA/TileKernels-Metax",
+      "description": "A kernel library written in tilelang",
+      "default_branch": "dev",
+      "fork": true,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-07-08T01:16:05Z",
+      "updated_at": "2026-11-03T19:59:02Z",
+      "language": "Python",
+      "size": 72,
+      "open_issues_count": 9,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/TileKernels-Metax",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/TileKernels-Metax",
+      "category": "算子与数学库",
+      "topics": [
+        "kernels",
+        "libraries"
+      ],
+      "purpose": "基于 TileLang 的算子库 fork；默认 README 仍列 NVIDIA 要求",
+      "license_spdx": "NOASSERTION",
+      "readme": {
+        "name": "TileKernels-Metax",
+        "status": "downloaded",
+        "path": "readmes/TileKernels-Metax.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/TileKernels-Metax/0266ab740980de7dc03a828b8259cd73d100c2eb/README.md",
+        "readme_filename": "README.md",
+        "branch": "dev",
+        "commit": "0266ab740980de7dc03a828b8259cd73d100c2eb",
+        "sha256": "d1706aa357c002cbe3fad9abc56e37d29af2606e74c3096787c3e5d73cc7eb87",
+        "bytes": 3002
+      },
+      "c500_assessment": "顶层 README 未确认 C500 条件",
+      "c500_clues": [
+        {
+          "line": 5,
+          "text": "Most kernels in this project approach the limit of hardware performance regarding the compute intensity and memory bandwidth. Some of them have already been used in internal training and inference scenarios. However, they do not represent best practices and we are actively working on improving the code quality and documentation."
+        },
+        {
+          "line": 22,
+          "text": "- NVIDIA SM90 or SM100 architecture GPU"
+        }
+      ],
+      "review_note": "默认 dev README 列 NVIDIA SM90/SM100 与 CUDA13.1；仓库名中的 Metax 不足以证明该分支在 C500 可用。",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/TileKernels-Metax/branches?per_page=100",
+        "data": [
+          {
+            "name": "dev",
+            "commit": {
+              "sha": "0266ab740980de7dc03a828b8259cd73d100c2eb",
+              "url": "https://api.github.com/repos/MetaX-MACA/TileKernels-Metax/commits/0266ab740980de7dc03a828b8259cd73d100c2eb"
+            },
+            "protected": false
+          },
+          {
+            "name": "main",
+            "commit": {
+              "sha": "36d9e45d38e204ebb87e6f6e833821eee0482fe5",
+              "url": "https://api.github.com/repos/MetaX-MACA/TileKernels-Metax/commits/36d9e45d38e204ebb87e6f6e833821eee0482fe5"
+            },
+            "protected": false
+          }
+        ],
+        "link": null
+      },
+      "release_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/TileKernels-Metax/releases?per_page=3",
+        "data": [],
+        "link": null
+      }
+    },
+    {
+      "name": "TileOPs-Metax",
+      "full_name": "MetaX-MACA/TileOPs-Metax",
+      "description": "High-performance LLM operator library built on TileLang.",
+      "default_branch": "dev",
+      "fork": true,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-11-21T14:37:20Z",
+      "updated_at": "2026-11-19T06:22:02Z",
+      "language": "Python",
+      "size": 21157,
+      "open_issues_count": 16,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/TileOPs-Metax",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/TileOPs-Metax",
+      "category": "算子与数学库",
+      "topics": [
+        "kernels",
+        "libraries"
+      ],
+      "purpose": "基于 TileLang 的 LLM 算子库 fork，默认 dev",
+      "license_spdx": "NOASSERTION",
+      "readme": {
+        "name": "TileOPs-Metax",
+        "status": "downloaded",
+        "path": "readmes/TileOPs-Metax.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/TileOPs-Metax/916221870e092fff9c2219ef7d15f2e52299e141/README.md",
+        "readme_filename": "README.md",
+        "branch": "dev",
+        "commit": "916221870e092fff9c2219ef7d15f2e52299e141",
+        "sha256": "f12e9ac6dcaeba34218357c10d4c03b5117fd4fe8f57d699ddfd55386466b69b",
+        "bytes": 9759
+      },
+      "c500_assessment": "顶层 README 未确认 C500 条件",
+      "c500_clues": [
+        {
+          "line": 33,
+          "text": "| Each op starts with a YAML spec. Tests and benchmarks use the reference implementation, workloads and roofline formula declared in the spec to check correctness and measure performance. | A tile-based AI compiler that coding agents use to generate high-performance programs across hardware platforms. |"
+        },
+        {
+          "line": 76,
+          "text": "0.0.3 and the benchmark baselines, on CUDA 13.2, PyTorch 2.13 and TileLang 0.1.12."
+        },
+        {
+          "line": 149,
+          "text": "- Linux and an NVIDIA GPU with compute capability 9.0 (SM90), with its driver"
+        }
+      ],
+      "review_note": "默认 dev README 主要为上游算子项目说明；尚未从顶层资料确认 C500 运行条件。",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/TileOPs-Metax/branches?per_page=100",
+        "data": [
+          {
+            "name": "dev",
+            "commit": {
+              "sha": "916221870e092fff9c2219ef7d15f2e52299e141",
+              "url": "https://api.github.com/repos/MetaX-MACA/TileOPs-Metax/commits/916221870e092fff9c2219ef7d15f2e52299e141"
+            },
+            "protected": false
+          },
+          {
+            "name": "main",
+            "commit": {
+              "sha": "ee97eb7b300ea989e1959478e916972ad07f542c",
+              "url": "https://api.github.com/repos/MetaX-MACA/TileOPs-Metax/commits/ee97eb7b300ea989e1959478e916972ad07f542c"
+            },
+            "protected": false
+          },
+          {
+            "name": "stats",
+            "commit": {
+              "sha": "e04796da613b73251d2301e168b09277bdef60be",
+              "url": "https://api.github.com/repos/MetaX-MACA/TileOPs-Metax/commits/e04796da613b73251d2301e168b09277bdef60be"
+            },
+            "protected": false
+          }
+        ],
+        "link": null
+      },
+      "release_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/TileOPs-Metax/releases?per_page=3",
+        "data": [],
+        "link": null
+      }
+    },
+    {
+      "name": "verl-metax",
+      "full_name": "MetaX-MACA/verl-metax",
+      "description": null,
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-10-14T02:21:11Z",
+      "updated_at": "2026-11-14T06:43:15Z",
+      "language": "Python",
+      "size": 146,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/verl-metax",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/verl-metax",
+      "category": "推理与后训练",
+      "topics": [
+        "inference",
+        "training"
+      ],
+      "purpose": "verl 的独立 MetaX 硬件插件，查看准确版本契约",
+      "license_spdx": "Apache-2.0",
+      "readme": {
+        "name": "verl-metax",
+        "status": "downloaded",
+        "path": "readmes/verl-metax.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/verl-metax/b39f7ce49014b605369344287896849a8457a76f/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": "b39f7ce49014b605369344287896849a8457a76f",
+        "sha256": "fdc7a60157f78b1737e4155bed07e1149272886400836a4702c35f2e01d1d5a8",
+        "bytes": 5979
+      },
+      "c500_assessment": "README 有 MetaX/MACA 线索；C500 条件待核对",
+      "c500_clues": [
+        {
+          "line": 3,
+          "text": "Production-oriented MetaX hardware plugin for"
+        },
+        {
+          "line": 12,
+          "text": "> workarounds applicable to this stack have completed hardware validation. See the"
+        },
+        {
+          "line": 15,
+          "text": "## Relationship to verl-hardware-plugin"
+        },
+        {
+          "line": 17,
+          "text": "[`verl-hardware-plugin`](https://github.com/verl-project/verl-hardware-plugin)"
+        },
+        {
+          "line": 18,
+          "text": "is the multi-vendor reference implementation for verl's hardware extension"
+        },
+        {
+          "line": 20,
+          "text": "MetaX-owned production package. It does not depend on `verl-hardware-plugin`."
+        },
+        {
+          "line": 86,
+          "text": "- hardware detection: `mx-smi`"
+        }
+      ],
+      "review_note": "README 的硬件验证是项目维护者声明，不是本服务器实测；要求 verl-metax 0.9.0 与 verl 0.9.0 对齐，并提示不要同时自动加载两个 MetaX 插件。",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/verl-metax/branches?per_page=100",
+        "data": [
+          {
+            "name": "main",
+            "commit": {
+              "sha": "b39f7ce49014b605369344287896849a8457a76f",
+              "url": "https://api.github.com/repos/MetaX-MACA/verl-metax/commits/b39f7ce49014b605369344287896849a8457a76f"
+            },
+            "protected": false
+          },
+          {
+            "name": "release/v0.9.0",
+            "commit": {
+              "sha": "1ff470bc95a9326fa23314a10f5cf32bda005e9f",
+              "url": "https://api.github.com/repos/MetaX-MACA/verl-metax/commits/1ff470bc95a9326fa23314a10f5cf32bda005e9f"
+            },
+            "protected": false
+          }
+        ],
+        "link": null
+      },
+      "release_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/verl-metax/releases?per_page=3",
+        "data": [],
+        "link": null
+      }
+    },
+    {
+      "name": "VirtualHuman",
+      "full_name": "MetaX-MACA/VirtualHuman",
+      "description": null,
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2025-12-24T03:13:23Z",
+      "updated_at": "2026-10-14T02:59:03Z",
+      "language": null,
+      "size": 2956,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/VirtualHuman",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/VirtualHuman",
+      "category": "应用解决方案",
+      "topics": [
+        "inference"
+      ],
+      "purpose": "虚拟人应用迁移方案",
+      "license_spdx": "NOASSERTION",
+      "readme": {
+        "name": "VirtualHuman",
+        "status": "downloaded",
+        "path": "readmes/VirtualHuman.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/VirtualHuman/main/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": null,
+        "sha256": "900f4373fc687de0b7c3b0cefba20e34739b854d42b4aec19b8d410c778a764b",
+        "bytes": 3660
+      },
+      "c500_assessment": "README 有 MetaX/MACA 线索；C500 条件待核对",
+      "c500_clues": [],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    },
+    {
+      "name": "vLLM-metax",
+      "full_name": "MetaX-MACA/vLLM-metax",
+      "description": "Community maintained hardware plugin for vLLM on MetaX GPU",
+      "default_branch": "master",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-11-20T10:33:30Z",
+      "updated_at": "2026-11-20T08:34:43Z",
+      "language": "Python",
+      "size": 34483,
+      "open_issues_count": 68,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/vLLM-metax",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax",
+      "category": "推理与后训练",
+      "topics": [
+        "inference",
+        "training"
+      ],
+      "purpose": "vLLM 的 MetaX 硬件插件；重点查看发布分支和匹配镜像",
+      "license_spdx": "Apache-2.0",
+      "readme": {
+        "name": "vLLM-metax",
+        "status": "downloaded",
+        "path": "readmes/vLLM-metax.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/vLLM-metax/5d0b6a8ebbdcf145cc87e53c594b4ca64d120024/README.md",
+        "readme_filename": "README.md",
+        "branch": "master",
+        "commit": "5d0b6a8ebbdcf145cc87e53c594b4ca64d120024",
+        "sha256": "da13255d3afb0ada78ad17e5a6321cd2a2f56f38dab501cf083282b18ad6b6c5",
+        "bytes": 7451
+      },
+      "c500_assessment": "README 提及 C 系列；C500 具体组合待核对",
+      "c500_clues": [
+        {
+          "line": 52,
+          "text": "vLLM MetaX is a hardware plugin that enables vLLM to run seamlessly on MetaX GPUs. MetaX provides a cuda-like backend through [*MACA*](https://www.metax-tech.com/en/goods/platform.html?cid=4), delivering a near-native CUDA experience on MetaX hardware."
+        },
+        {
+          "line": 58,
+          "text": "- [[RFC]: Hardware pluggable](https://github.com/vllm-project/vllm/issues/11162)"
+        },
+        {
+          "line": 65,
+          "text": "- Hardware: MetaX C-series"
+        },
+        {
+          "line": 74,
+          "text": "vLLM MetaX currently supports deployment only with Docker images released by the [MetaX developer community](https://developer.metax-tech.com/softnova/docker?chip_name=%E6%9B%A6%E4%BA%91C500%E7%B3%BB%E5%88%97&package_kind=AI&dimension=docker&deliver_type=%E5%88%86%E5%B1%82%E5%8C%85&ai_frame=vllm-metax), which work out of the box."
+        }
+      ],
+      "review_note": "默认 master 跟踪上游；README 区分 master、dev、releases 分支，并要求 vLLM 与插件同版本。当前 README 的 Python>=3.12 不可套用官网历史 py310 镜像。",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/branches?per_page=100",
+        "data": [
+          {
+            "name": "fix-int8-w8a8-mla",
+            "commit": {
+              "sha": "9902b34ed881d439fc9ba122fbde4e3dece708d4",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/9902b34ed881d439fc9ba122fbde4e3dece708d4"
+            },
+            "protected": false
+          },
+          {
+            "name": "master",
+            "commit": {
+              "sha": "5d0b6a8ebbdcf145cc87e53c594b4ca64d120024",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/5d0b6a8ebbdcf145cc87e53c594b4ca64d120024"
+            },
+            "protected": true
+          },
+          {
+            "name": "releases/v0.8.5",
+            "commit": {
+              "sha": "11b156053ec0344b8637c621c49b25c45f0a2331",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/11b156053ec0344b8637c621c49b25c45f0a2331"
+            },
+            "protected": true
+          },
+          {
+            "name": "releases/v0.10.2",
+            "commit": {
+              "sha": "97da48a64def90e7ecfc71df66c52fe87da97351",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/97da48a64def90e7ecfc71df66c52fe87da97351"
+            },
+            "protected": true
+          },
+          {
+            "name": "releases/v0.11.2",
+            "commit": {
+              "sha": "7eeeb9e523467e1c1484b2e8304c2b401e4f46a8",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/7eeeb9e523467e1c1484b2e8304c2b401e4f46a8"
+            },
+            "protected": true
+          },
+          {
+            "name": "releases/v0.12.0",
+            "commit": {
+              "sha": "b12e350951d57bd20e3da50260387ba534f8ef1e",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/b12e350951d57bd20e3da50260387ba534f8ef1e"
+            },
+            "protected": true
+          },
+          {
+            "name": "releases/v0.13.0",
+            "commit": {
+              "sha": "cd578d635b400ad43a6ae2f74a0731bd5859d207",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/cd578d635b400ad43a6ae2f74a0731bd5859d207"
+            },
+            "protected": true
+          },
+          {
+            "name": "releases/v0.14.0",
+            "commit": {
+              "sha": "3fac66a4b39a37d853ee9ddaf1753c9fe19b2288",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/3fac66a4b39a37d853ee9ddaf1753c9fe19b2288"
+            },
+            "protected": true
+          },
+          {
+            "name": "releases/v0.15.0",
+            "commit": {
+              "sha": "95db3e06e85a854d04c6982681f862c38ba5e18d",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/95db3e06e85a854d04c6982681f862c38ba5e18d"
+            },
+            "protected": true
+          },
+          {
+            "name": "releases/v0.17.0",
+            "commit": {
+              "sha": "14d1f8889bf08c3a368f572d885d04f95ea88dfb",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/14d1f8889bf08c3a368f572d885d04f95ea88dfb"
+            },
+            "protected": true
+          },
+          {
+            "name": "releases/v0.18.0",
+            "commit": {
+              "sha": "d439f38762777498e6293c9ee32a07287d959ae9",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/d439f38762777498e6293c9ee32a07287d959ae9"
+            },
+            "protected": true
+          },
+          {
+            "name": "releases/v0.19.0",
+            "commit": {
+              "sha": "cfbfef3d80518a14995b4a9cf46fae2565b01ff7",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/cfbfef3d80518a14995b4a9cf46fae2565b01ff7"
+            },
+            "protected": true
+          },
+          {
+            "name": "releases/v0.20.0",
+            "commit": {
+              "sha": "600f6b6dd5906c2253da2626e75efad410b9f3f6",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/600f6b6dd5906c2253da2626e75efad410b9f3f6"
+            },
+            "protected": true
+          },
+          {
+            "name": "releases/v0.21.0",
+            "commit": {
+              "sha": "6f591c7062edd5e749763e72e09ea80e9c8b3b92",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/6f591c7062edd5e749763e72e09ea80e9c8b3b92"
+            },
+            "protected": true
+          },
+          {
+            "name": "releases/v0.22.0",
+            "commit": {
+              "sha": "eda1e4107f73e24e0a983745b7921d254b06c1c5",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/eda1e4107f73e24e0a983745b7921d254b06c1c5"
+            },
+            "protected": true
+          },
+          {
+            "name": "releases/v0.23.0",
+            "commit": {
+              "sha": "af1f8f7bfa3542624d1104f58db52a8bbe92c7a3",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/af1f8f7bfa3542624d1104f58db52a8bbe92c7a3"
+            },
+            "protected": true
+          },
+          {
+            "name": "releases/v0.24.0",
+            "commit": {
+              "sha": "8cd232826e34c23df6ecf0059f1d08826fae65f8",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/8cd232826e34c23df6ecf0059f1d08826fae65f8"
+            },
+            "protected": true
+          },
+          {
+            "name": "releases/v0.25.0",
+            "commit": {
+              "sha": "1b3811229d8770f5fbbf1209ec7c88d50cb23e9d",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/1b3811229d8770f5fbbf1209ec7c88d50cb23e9d"
+            },
+            "protected": true
+          },
+          {
+            "name": "releases/v0.26.0",
+            "commit": {
+              "sha": "615ac623bdbb8dcbd337436ab9bbff5f263cc3d0",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/615ac623bdbb8dcbd337436ab9bbff5f263cc3d0"
+            },
+            "protected": true
+          },
+          {
+            "name": "releases/v0.27.0",
+            "commit": {
+              "sha": "c46a5b464dccaf014bb3ce023fbfba1a3659b888",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/c46a5b464dccaf014bb3ce023fbfba1a3659b888"
+            },
+            "protected": true
+          },
+          {
+            "name": "releases/v0.28.0",
+            "commit": {
+              "sha": "4840e80c17fca73cb6fd6daa9d80f4f948c29aec",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/4840e80c17fca73cb6fd6daa9d80f4f948c29aec"
+            },
+            "protected": true
+          },
+          {
+            "name": "releases/v0.29.0",
+            "commit": {
+              "sha": "ae1df26a5177d8c3b90f4fc89bf08b3c4949aed8",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/ae1df26a5177d8c3b90f4fc89bf08b3c4949aed8"
+            },
+            "protected": true
+          },
+          {
+            "name": "support_deep_gemm_fp8",
+            "commit": {
+              "sha": "0e1b207a4bb11e60511c81968006cb1830e1372e",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/0e1b207a4bb11e60511c81968006cb1830e1372e"
+            },
+            "protected": false
+          },
+          {
+            "name": "support-flashinfermla",
+            "commit": {
+              "sha": "c99710907262eb0b5a91da72bd6382dd3ed82e9a",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/c99710907262eb0b5a91da72bd6382dd3ed82e9a"
+            },
+            "protected": false
+          },
+          {
+            "name": "switch-to-torch-stable-api",
+            "commit": {
+              "sha": "6fef18b641fd84fc880455d0e3c82a19c990a193",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/6fef18b641fd84fc880455d0e3c82a19c990a193"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.9.1-dev",
+            "commit": {
+              "sha": "809195c67418be083bc758f27aa613544011e54b",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/809195c67418be083bc758f27aa613544011e54b"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.10.1.1-dev",
+            "commit": {
+              "sha": "800ca7c6527f08247113a638a44844993e7c2a2d",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/800ca7c6527f08247113a638a44844993e7c2a2d"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.10.2-dev",
+            "commit": {
+              "sha": "62f9187faa8f3cb96675618e61ec52ece5b113fd",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/62f9187faa8f3cb96675618e61ec52ece5b113fd"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.11.0-dev",
+            "commit": {
+              "sha": "7848c28407e105be5f3bea8576d9be8edb088c48",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/7848c28407e105be5f3bea8576d9be8edb088c48"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.11.1rc6-dev",
+            "commit": {
+              "sha": "73fd46308252500965915e47c1bed803cf40df38",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/73fd46308252500965915e47c1bed803cf40df38"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.11.2-dev",
+            "commit": {
+              "sha": "d5d1dbf0c7450dd3846bba80b1742360c2dc8ee0",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/d5d1dbf0c7450dd3846bba80b1742360c2dc8ee0"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.12.0-dev",
+            "commit": {
+              "sha": "778f6a09de0d9d1760e10f3fefb472632c94b5f5",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/778f6a09de0d9d1760e10f3fefb472632c94b5f5"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.13.0-dev",
+            "commit": {
+              "sha": "9168a1275e950198e7a94febdabe6cd91c6ed869",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/9168a1275e950198e7a94febdabe6cd91c6ed869"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.14.0-dev",
+            "commit": {
+              "sha": "5728a84d966faa4d17abb2ecf91baa3ccc55c718",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/5728a84d966faa4d17abb2ecf91baa3ccc55c718"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.15.0-dev",
+            "commit": {
+              "sha": "9b2750c46a140020eab5c1e6e40d358e12d7a69b",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/9b2750c46a140020eab5c1e6e40d358e12d7a69b"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.17.0-dev",
+            "commit": {
+              "sha": "a2a4e3cdab45bac067e8cc2a00fb5cfd3a858688",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/a2a4e3cdab45bac067e8cc2a00fb5cfd3a858688"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.18.0-dev",
+            "commit": {
+              "sha": "e8a33d04584f3c2169b1271cbbeaa353b5843382",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/e8a33d04584f3c2169b1271cbbeaa353b5843382"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.19.0-dev",
+            "commit": {
+              "sha": "d5142560d356e581b420e9c228cb3055309bf16d",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/d5142560d356e581b420e9c228cb3055309bf16d"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.20.0-dev",
+            "commit": {
+              "sha": "fe3e7d3ac92fc1eb21636ff920b7d537e9d7ee63",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/fe3e7d3ac92fc1eb21636ff920b7d537e9d7ee63"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.21.0-dev",
+            "commit": {
+              "sha": "2e91de6debba58e145bdb76df13b5e359877328e",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/2e91de6debba58e145bdb76df13b5e359877328e"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.22.0-dev",
+            "commit": {
+              "sha": "b78dab8bb7f5dcd6815a665fe099f23ce5feb0b8",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/b78dab8bb7f5dcd6815a665fe099f23ce5feb0b8"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.23.0-dev",
+            "commit": {
+              "sha": "0c296bceaa4ec8a7432d783dee9506db0306fd56",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/0c296bceaa4ec8a7432d783dee9506db0306fd56"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.24.0-dev",
+            "commit": {
+              "sha": "3d7d9f2623a34abec11219f3a001bc6dec8f3bba",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/3d7d9f2623a34abec11219f3a001bc6dec8f3bba"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.25.0-dev",
+            "commit": {
+              "sha": "3e0abea423c90d52eef59a932e9944e3416bf886",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/3e0abea423c90d52eef59a932e9944e3416bf886"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.26.0-dev",
+            "commit": {
+              "sha": "625b0528c04d4e3576c7b199605072c42b2240c3",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/625b0528c04d4e3576c7b199605072c42b2240c3"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.27.0-dev",
+            "commit": {
+              "sha": "7cca94dd748ae7789c0f181b02bc409f44c62cb9",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/7cca94dd748ae7789c0f181b02bc409f44c62cb9"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.28.0-dev",
+            "commit": {
+              "sha": "28be6c0772d8ca798390339339a873857ef24171",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/28be6c0772d8ca798390339339a873857ef24171"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.29.0-dev",
+            "commit": {
+              "sha": "a1d5d32b8e2ada30cc4b9bbffe4926ececfc96c6",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/a1d5d32b8e2ada30cc4b9bbffe4926ececfc96c6"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.30.0-dev",
+            "commit": {
+              "sha": "968a4f3a250861851bb955239a049b71c8482d2b",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/968a4f3a250861851bb955239a049b71c8482d2b"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.32.0-dev",
+            "commit": {
+              "sha": "0962c8735ffe4795800030680311410848512b82",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/0962c8735ffe4795800030680311410848512b82"
+            },
+            "protected": false
+          },
+          {
+            "name": "vllm-cpu-dockerfile",
+            "commit": {
+              "sha": "e289ef8938447fe5a8960a12fe2d9c8f05ee399d",
+              "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/e289ef8938447fe5a8960a12fe2d9c8f05ee399d"
+            },
+            "protected": false
+          }
+        ],
+        "link": null
+      },
+      "release_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/releases?per_page=3",
+        "data": [
+          {
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/releases/452435272",
+            "assets_url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/releases/452435272/assets",
+            "upload_url": "https://uploads.github.com/repos/MetaX-MACA/vLLM-metax/releases/452435272/assets{?name,label}",
+            "html_url": "https://github.com/MetaX-MACA/vLLM-metax/releases/tag/v0.29.0",
+            "id": 452435272,
+            "author": {
+              "login": "ILikeIneine",
+              "id": 37239608,
+              "node_id": "MDQ6VXNlcjM3MjM5NjA4",
+              "avatar_url": "https://avatars.githubusercontent.com/u/37239608?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/ILikeIneine",
+              "html_url": "https://github.com/ILikeIneine",
+              "followers_url": "https://api.github.com/users/ILikeIneine/followers",
+              "following_url": "https://api.github.com/users/ILikeIneine/following{/other_user}",
+              "gists_url": "https://api.github.com/users/ILikeIneine/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/ILikeIneine/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/ILikeIneine/subscriptions",
+              "organizations_url": "https://api.github.com/users/ILikeIneine/orgs",
+              "repos_url": "https://api.github.com/users/ILikeIneine/repos",
+              "events_url": "https://api.github.com/users/ILikeIneine/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/ILikeIneine/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "node_id": "RE_kwDOO-O1Pc4a951I",
+            "tag_name": "v0.29.0",
+            "target_commitish": "master",
+            "name": "v0.29.0",
+            "draft": false,
+            "immutable": false,
+            "prerelease": false,
+            "created_at": "2026-11-20T08:09:05Z",
+            "updated_at": "2026-11-20T08:28:54Z",
+            "published_at": "2026-11-20T08:28:54Z",
+            "assets": [],
+            "tarball_url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/tarball/v0.29.0",
+            "zipball_url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/zipball/v0.29.0",
+            "body": "**Full Changelog**: https://github.com/MetaX-MACA/vLLM-metax/compare/v0.28.0...v0.29.0"
+          },
+          {
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/releases/413603001",
+            "assets_url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/releases/413603001/assets",
+            "upload_url": "https://uploads.github.com/repos/MetaX-MACA/vLLM-metax/releases/413603001/assets{?name,label}",
+            "html_url": "https://github.com/MetaX-MACA/vLLM-metax/releases/tag/v0.28.0",
+            "id": 413603001,
+            "author": {
+              "login": "ILikeIneine",
+              "id": 37239608,
+              "node_id": "MDQ6VXNlcjM3MjM5NjA4",
+              "avatar_url": "https://avatars.githubusercontent.com/u/37239608?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/ILikeIneine",
+              "html_url": "https://github.com/ILikeIneine",
+              "followers_url": "https://api.github.com/users/ILikeIneine/followers",
+              "following_url": "https://api.github.com/users/ILikeIneine/following{/other_user}",
+              "gists_url": "https://api.github.com/users/ILikeIneine/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/ILikeIneine/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/ILikeIneine/subscriptions",
+              "organizations_url": "https://api.github.com/users/ILikeIneine/orgs",
+              "repos_url": "https://api.github.com/users/ILikeIneine/repos",
+              "events_url": "https://api.github.com/users/ILikeIneine/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/ILikeIneine/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "node_id": "RE_kwDOO-O1Pc4YpxS5",
+            "tag_name": "v0.28.0",
+            "target_commitish": "master",
+            "name": "v0.28.0",
+            "draft": false,
+            "immutable": false,
+            "prerelease": false,
+            "created_at": "2026-10-15T08:52:45Z",
+            "updated_at": "2026-10-15T08:59:45Z",
+            "published_at": "2026-10-15T08:59:45Z",
+            "assets": [],
+            "tarball_url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/tarball/v0.28.0",
+            "zipball_url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/zipball/v0.28.0",
+            "body": "## What's Changed\r\n\r\n- **DeepSeek-V4 / DSpark**: fix FlashMLA head padding with BF16 KV cache, keep DSpark `main_proj` in BF16, and sync the MLA base class. Keep main_proj in BF16 by @caozuoba in https://github.com/MetaX-MACA/vLLM-metax/pull/337\r\n- **Platform and attention**: force-enable the sparse attention indexer and add the `check_runner_kv_caches_multi_layer` platform interface.\r\n- **Operators and MoE**: register OOT implementations for `SituAndMul` and `ReLUSquaredActivation`; sync Modular MoE and all-to-all; remove imports of an upstream-deleted Marlin MoE class.\r\n- **Patch cleanup**: remove legacy Triton LoRA compatibility patches; retain version-specific telechat3-yarn adaptations.\r\n- **Dependencies and tooling**: remove the previous `kv_connectors` dependency entries, update TVM FFI and numba, and refactor batch validation tools.\r\n- **Upstream interface changes**: move bitsandbytes to an OOT plugin and remove `calculate_kv_scales` and `override_attention_dtype`.\r\n\r\n\r\n**Full Changelog**: https://github.com/MetaX-MACA/vLLM-metax/compare/v0.27.0...v0.28.0",
+            "mentions_count": 1
+          },
+          {
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/releases/413572151",
+            "assets_url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/releases/413572151/assets",
+            "upload_url": "https://uploads.github.com/repos/MetaX-MACA/vLLM-metax/releases/413572151/assets{?name,label}",
+            "html_url": "https://github.com/MetaX-MACA/vLLM-metax/releases/tag/v0.27.0",
+            "id": 413572151,
+            "author": {
+              "login": "ILikeIneine",
+              "id": 37239608,
+              "node_id": "MDQ6VXNlcjM3MjM5NjA4",
+              "avatar_url": "https://avatars.githubusercontent.com/u/37239608?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/ILikeIneine",
+              "html_url": "https://github.com/ILikeIneine",
+              "followers_url": "https://api.github.com/users/ILikeIneine/followers",
+              "following_url": "https://api.github.com/users/ILikeIneine/following{/other_user}",
+              "gists_url": "https://api.github.com/users/ILikeIneine/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/ILikeIneine/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/ILikeIneine/subscriptions",
+              "organizations_url": "https://api.github.com/users/ILikeIneine/orgs",
+              "repos_url": "https://api.github.com/users/ILikeIneine/repos",
+              "events_url": "https://api.github.com/users/ILikeIneine/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/ILikeIneine/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "node_id": "RE_kwDOO-O1Pc4Yppw3",
+            "tag_name": "v0.27.0",
+            "target_commitish": "master",
+            "name": "v0.27.0",
+            "draft": false,
+            "immutable": false,
+            "prerelease": false,
+            "created_at": "2026-10-15T08:26:41Z",
+            "updated_at": "2026-10-15T08:27:22Z",
+            "published_at": "2026-10-15T08:24:05Z",
+            "assets": [],
+            "tarball_url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/tarball/v0.27.0",
+            "zipball_url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/zipball/v0.27.0",
+            "body": "- **DeepSeek-V4**: update model, sparse MLA, and speculative decoding interfaces; fix `_gather_k_cache_kernel` stride order and disable the model's FP8 KV cache layout by default.\r\n- **MiniMax-M3**: fix Triton shared-memory limits; disable `cooperative_topk` / `persistent_topk`, which mcoplib does not support.\r\n- **MoE**: fix mctlass FP8, skip invalid experts, and explicitly prohibit non-batched DeepGEMM for INT8 W8A8.\r\n- **Distributed execution and memory**: add mxmesh support, fix MCCL all-gather hangs, and add `MacaMemBackend` for sleep mode.\r\n- **Toolchain integration**: update csrc, custom operators, and attention backends; disable `cudaLaunchAttribute` on MACA.\r\n"
+          }
+        ],
+        "link": "<https://api.github.com/repositories/1004778813/releases?per_page=3&page=2>; rel=\"next\", <https://api.github.com/repositories/1004778813/releases?per_page=3&page=7>; rel=\"last\""
+      }
+    },
+    {
+      "name": "vllm-omni-metax",
+      "full_name": "MetaX-MACA/vllm-omni-metax",
+      "description": null,
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-11-17T05:45:05Z",
+      "updated_at": "2026-09-16T10:44:40Z",
+      "language": "Python",
+      "size": 2523,
+      "open_issues_count": 1,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/vllm-omni-metax",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/vllm-omni-metax",
+      "category": "推理与后训练",
+      "topics": [
+        "inference",
+        "training"
+      ],
+      "purpose": "多模态多阶段推理适配插件，依赖 vllm-metax 后端",
+      "license_spdx": null,
+      "readme": {
+        "name": "vllm-omni-metax",
+        "status": "downloaded",
+        "path": "readmes/vllm-omni-metax.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/vllm-omni-metax/679716dd798afc2d3cae5852e7ddfff308507550/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": "679716dd798afc2d3cae5852e7ddfff308507550",
+        "sha256": "81cedffd436c9a543ab2b971158af2c908dd540ee77e8179b194b3d71fc45bdc",
+        "bytes": 2230
+      },
+      "c500_assessment": "README 提及 C 系列；C500 具体组合待核对",
+      "c500_clues": [
+        {
+          "line": 11,
+          "text": "Unlike `vllm-metax`, which provides the low-level hardware platform"
+        }
+      ],
+      "review_note": "当前 main README 指向 0.32.0 软件栈；官网快照中的 0.26.0 样例是另一版本，不能直接混装。",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/vllm-omni-metax/branches?per_page=100",
+        "data": [
+          {
+            "name": "main",
+            "commit": {
+              "sha": "679716dd798afc2d3cae5852e7ddfff308507550",
+              "url": "https://api.github.com/repos/MetaX-MACA/vllm-omni-metax/commits/679716dd798afc2d3cae5852e7ddfff308507550"
+            },
+            "protected": false
+          },
+          {
+            "name": "release/v0.18.0",
+            "commit": {
+              "sha": "2e52885116bff6e6d1642fa2284a3050fbe0a29b",
+              "url": "https://api.github.com/repos/MetaX-MACA/vllm-omni-metax/commits/2e52885116bff6e6d1642fa2284a3050fbe0a29b"
+            },
+            "protected": false
+          },
+          {
+            "name": "release/v0.19.0rc1",
+            "commit": {
+              "sha": "16e43251dcdd487baff2a1ed19f6d3a87bec6a78",
+              "url": "https://api.github.com/repos/MetaX-MACA/vllm-omni-metax/commits/16e43251dcdd487baff2a1ed19f6d3a87bec6a78"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.20.0-dev",
+            "commit": {
+              "sha": "afb64a428b32dff8e5dc7f7b8831027722472721",
+              "url": "https://api.github.com/repos/MetaX-MACA/vllm-omni-metax/commits/afb64a428b32dff8e5dc7f7b8831027722472721"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.22.0-dev",
+            "commit": {
+              "sha": "426b1e35fad1ce1c59e92c1293622d095d261e4b",
+              "url": "https://api.github.com/repos/MetaX-MACA/vllm-omni-metax/commits/426b1e35fad1ce1c59e92c1293622d095d261e4b"
+            },
+            "protected": false
+          },
+          {
+            "name": "v0.26.0-dev",
+            "commit": {
+              "sha": "fab3e33b292a8df85b701118cb6d14fd4557930a",
+              "url": "https://api.github.com/repos/MetaX-MACA/vllm-omni-metax/commits/fab3e33b292a8df85b701118cb6d14fd4557930a"
+            },
+            "protected": false
+          }
+        ],
+        "link": null
+      },
+      "release_observations": {
+        "url": "https://api.github.com/repos/MetaX-MACA/vllm-omni-metax/releases?per_page=3",
+        "data": [],
+        "link": null
+      }
+    },
+    {
+      "name": "WeatherForecast",
+      "full_name": "MetaX-MACA/WeatherForecast",
+      "description": null,
+      "default_branch": "main",
+      "fork": false,
+      "archived": false,
+      "disabled": false,
+      "pushed_at": "2026-10-13T02:39:41Z",
+      "updated_at": "2026-10-13T02:39:45Z",
+      "language": "Dockerfile",
+      "size": 21,
+      "open_issues_count": 0,
+      "github_topics": [],
+      "source_url": "https://github.com/MetaX-MACA/WeatherForecast",
+      "metadata_url": "https://api.github.com/repos/MetaX-MACA/WeatherForecast",
+      "category": "AI4S 与科学计算",
+      "topics": [
+        "ai4s"
+      ],
+      "purpose": "气象预报模型集合",
+      "license_spdx": null,
+      "readme": {
+        "name": "WeatherForecast",
+        "status": "downloaded",
+        "path": "readmes/WeatherForecast.txt",
+        "source_url": "https://raw.githubusercontent.com/MetaX-MACA/WeatherForecast/main/README.md",
+        "readme_filename": "README.md",
+        "branch": "main",
+        "commit": null,
+        "sha256": "0e648b0f0b1f9c4246ee1f25eb3f46d8122b1e711f6051eeec7f1093a0e36f0c",
+        "bytes": 3694
+      },
+      "c500_assessment": "README 有 MetaX/MACA 线索；C500 条件待核对",
+      "c500_clues": [
+        {
+          "line": 30,
+          "text": "* **硬件**：需具备沐曦（MetaX）GPU。"
+        }
+      ],
+      "review_note": "",
+      "verification": "repository_observed_not_built_or_run",
+      "branch_observations": null,
+      "release_observations": null
+    }
+  ]
+}

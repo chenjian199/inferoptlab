@@ -1,0 +1,38 @@
+文档: 沐曦通用GPU_mcTriton用户指南_CN_V08.pdf
+文档 ID: mctriton-v08
+SHA256: 5486a806ac8e48e40514347bac7403c40aee53d59515a9bded39cc17a7daed59
+PDF 页序号: 6
+PDF 页码标签: 2
+页脚页码候选: 2
+章节提示（书签推断）: 验证安装
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcTriton 用户指南
+2 快速安装
+2.1 基于 pip 安装
+2.1.1 环境准备
+• Python
+匹配目标安装包的 Python 版本
+• MXMACA 环境
+安装 Driver 软件包以及 MXMACA SDK 软件包
+2.1.2 开始安装
+可在 PyTorch 安装压缩包中获取 Triton 的 wheel 安装包。解压 PyTorch 安装压缩包，可以获得 Triton
+和 PyTorch 的 wheel 安装包。
+PyTorch 安 装 压 缩 包 以 maca‑pytorch${pytorch_version}‑py${python_version}‑
+${release_version}‑${arch_info}.tar .xz格 式 命 名。Triton 和 PyTorch 的 wheel 安 装 包 分 别 以
+triton‑*.whl 和 torch‑*.whl 格式命名。
+操作步骤
+安装方式同标准 whl 包。
+1. 安装 mcPyTorch：
+python -m pip install torch-\*.whl
+2. 安装 mcTriton：
+python -m pip install triton-\*.whl
+2.1.3 验证安装
+操作步骤
+1. 运行前设置环境变量：
+export MACA_PATH=/opt/maca/
+export LD_LIBRARY_PATH=${MACA_PATH}/lib:${MACA_PATH}/mxgpu_llvm/lib: ${MACA_PATH}
+,→/ompi/lib:${LD_LIBRARY_PATH}
+export MACA_CLANG_PATH=${MACA_PATH}/mxgpu_llvm/bin
+2. 执行以下命令：
+2 快速安装 沐曦股份专有信息 OG‑25009‑020‑F5_V08 | 2

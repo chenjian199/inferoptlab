@@ -1,0 +1,40 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 50
+PDF 页码标签: 38
+页脚页码候选: 38
+章节提示（书签推断）: 导出为ONNX模型
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+注解: BaiChuan2_7B 对应的 PMX 运行函数与其余模型不同，需要同步修改第 5 行中的函数名。
+2. 执行以下命令，验证 PMX 模型精度。
+OMP_NUM_THREADS=1 torchrun --nproc_per_node $num_gpu Demo.py --ckpt_dir <llama_
+,→dir> --tokenizer_path <llama_tokenizer_dir>/tokenizer.model --fused_qkv 1 --
+,→fused_kvcache 1 --auto_causal 1 --quantized_cache 1 --dynamic_batching 1 --
+,→seqlen_scale_up 1 --max_gen_len 256 --dump_steps 0,1,255 --dump_tensor_path
+,→<dump_dir> --batch 1 --cache_layout 3
+参数说明：
+num_gpu ：模型推理需要的 GPU 数量
+ckpt_dir ：PMX 模型路径
+tokenizer_path ：tokenizer 模型路径
+当需要保存测试数据时，设置以下参数：
+seqlen_scale_up：输入字节大小的比例因子（序列长度按 8 放大）
+max_gen_len ：指定生成的最大输出长度（以字节为单位）
+dump_steps ：保存测试数据的 step，可以指定多个 step，以“,”分隔。若只保存单个 step，必须
+用“,”结尾，否则会执行失败。
+dump_tensor_path ：保存测试数据的路径
+batch ：指定数据处理的批大小
+cache_layout ：cacheAttention 中 cache 存储 layout，当前仅支持 0 和 3。0：layout 为 [MaxT ,
+L, 2, H, Dh]；3：layout 为 [L, 2, H, MaxT , Dh]。建议设置为 3，性能更佳。
+其余参数与命令中保持一致即可。
+注解: cache_layout 的设置需要与 6.3.1.6 导出为 ONNX 模型 中的设置一致，否则 6.3.2 本地
+模型部署精度验证 会失败。
+6.3.1.6 导出为 ONNX 模型
+在验证 PMX 模型精度无误后，可以执行最终步骤：将 PMX 导出至 ONNX 模型。
+操作步骤
+1. 在/opt/maca‑ai/ppl.llm.serving/samples/samples/model_converter/路径下获取 ONNX 模
+型导出示例脚本 Export.py。
+根据需要， 修改第 2 行导入相应模型的 ONNX 导出函数。 当前支持的模型及对应导入代码参见表 6.5。
+6 MacaRT‑LLM 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 38

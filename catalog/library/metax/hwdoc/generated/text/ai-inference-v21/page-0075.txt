@@ -1,0 +1,35 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 75
+PDF 页码标签: 63
+页脚页码候选: 63
+章节提示（书签推断）: 环境准备
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+10 MacaRT‑LMDeploy
+10.1 MacaRT‑LMDeploy 介绍
+MacaRT‑LMDeploy 是 在 沐 曦 通 用 GPU 上 适 配 官 方 LMDeploy 的 推 理 工 具， 基 于 MXMACA 后 端 对
+LMDeploy 方法进行了兼容适配和 Kernel 优化。使用 MacaRT‑LMDeploy 在沐曦通用 GPU 上进行大模
+型推理，其方法和功能与官方 LMDeploy 兼容。
+10.2 MacaRT‑LMDeploy 功能与局限性
+MacaRT‑LMDeploy 兼容适配了最新 LMDeploy，除以下局限性以外，兼容其他所有 LMDeploy 原有功
+能，包括离线批处理、在线推理、控制台命令行交互等，可参考LMDeploy 官方文档。
+局限性：
+• 支持 PyTorch 推理后端，不支持 TurboMind 引擎
+• 支持 FLOAT16 和 BFLOAT16 推理，暂不支持量化模型部署
+• 当前只对 Qwen2.5，InternLM 等部分模型进行了功能验证和性能优化
+• 处于性能考虑，block_size 只支持 8、16、32，建议 16
+• 当前仅包含 Ubuntu 20 和 Ubuntu 22 系统版本，后续完善支持其他系统
+10.3 MacaRT‑LMDeploy 使用流程
+本章节介绍 MacaRT‑LMDeploy 的使用步骤，主要分为离线推理、静态推理性能测试和 Server 服务动态
+推理性能测试。
+10.3.1 环境准备
+使用 MacaRT‑LMDeploy 进行推理需要以下准备：
+• 获取 vLLM 镜像
+• 安装 dlinfer
+• 安装 lmdeploy
+注解: 完成上述步骤后，LMDeploy 本身的依赖已经完整，但是在运行具体模型时，某些模型可能
+有它自己独有的依赖，请按照相关提示进行安装，提前配置好 Python 的 pip 源。
+10 MacaRT‑LMDeploy 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 63

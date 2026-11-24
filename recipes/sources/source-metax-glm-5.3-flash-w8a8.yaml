@@ -1,0 +1,16 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-metax-glm-5.3-flash-w8a8
+version: 1.0.0
+title: 63metax 采集记录：glm-5.3-flash-w8a8.final.json
+provenance: []
+issues: []
+extensions: {}
+path: experiments/evidence/metax/20261123/glm-5.3-flash-w8a8.final.json
+sha256: 7045e60d35a211508438ee128655c08b05b3deead3330d6e65f009dbcbf62029
+media_type: application/json
+role: model_metadata
+authority: machine_collected
+coverage:
+  status: complete_visible
+  description: 通过 SSH 从 63metax 采集或归档的记录；覆盖范围以原文件实际字段为准，未记录的状态不作推断。

@@ -1,0 +1,48 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 51
+PDF 页码标签: 42
+页脚页码候选: 42
+章节提示（书签推断）: 整图更新
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+3.8.3.1 整图更新
+函数 mcGraphExecUpdate 支持把一个已实例化的原始任务图，通过参数更新生成另外一个拓扑相同
+的新任务图，不过有一些限制：
+• 新任务图的拓扑必须与用于实例化 mcGraphExec_t 的原始任务图相同；
+• 此外，节点添加到原始任务图或从原始任务图中移除的顺序必须与节点添加到新任务图（或从新任务
+图中移除）的顺序匹配。因此，
+– 当使用流捕获图编程接口时，必须以相同的顺序捕获节点
+– 当使用显式图编程接口时，必须按相同的顺序添加和/或删除所有节点
+如下代码所示，使用流捕获图编程接口更新实例化任务图：
+mcGraphExec_t graphExec = NULL;
+for (int i = 0; i < 10; i++) {
+mcGraph_t graph;
+mcGraphExecUpdateResult updateResult;
+mcGraphNode_t errorNode;
+// use stream capture to create the graph.
+// You can also use the Graph API to produce a graph.
+mcStreamBeginCapture(stream, mcStreamCaptureModeGlobal);
+// Call a user-defined, stream based workload, for example
+do_MACA_work(stream);
+mcStreamEndCapture(stream, &graph);
+// If already instantiated the graph, update it directly
+// and avoid the instantiation overhead
+if (graphExec != NULL) {
+// If fails to update, errorNode will be set to the
+// node causing the failure and updateResult will be
+// set to a reason code.
+mcGraphExecUpdate(graphExec, graph, &errorNode, &updateResult);
+}
+// Instantiate during the first iteration or whenever the update
+// fails for any reason
+if (graphExec == NULL || updateResult != mcGraphExecUpdateSuccess) {
+// If a previous update failed, destroy the mcGraphExec_t
+// before re-instantiating it
+if (graphExec != NULL) {
+mcGraphExecDestroy(graphExec);
+}
+(下页继续)
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 42

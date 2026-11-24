@@ -1,0 +1,16 @@
+文档: 沐曦通用GPU_MXMACA Clangd用户手册_CN_V03.pdf
+文档 ID: clangd-v03
+SHA256: f84564a4060d30251dbb164705b0aec56b25f11c02c1c748d5ce6187e44868ad
+PDF 页序号: 11
+PDF 页码标签: 6
+页脚页码候选: 6
+章节提示（书签推断）: 独立文件或简单工程
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® Clangd 用户手册
+3.2 独立文件或简单工程
+Clangd 支 持 没 有 compile_commands.json 文 件 的 情 况， 此 时 Clangd 默 认 其 编 译 命 令 为mxcc
+<file> 。对单个文件或包含关系比较简单的工程，此时也能有相对完整的功能体验。
+如 果 需 要 在 默 认 命 令 上 添 加 一 些 编 译 选 项， 可 以 使 用compile_flags.txt 配 置 文 件， 参 考com‑
+pile_flags.txt 相关文档 。
+3 MXMACA Clangd 使用 沐曦股份专有信息 OG‑24072‑020‑F5_V03 | 6

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "template_not_run",
+  "run_id": null,
+  "baseline_id": null,
+  "candidate_id": null,
+  "started_at": null,
+  "finished_at": null,
+  "timezone": "Asia/Shanghai",
+  "command": null,
+  "image_id": null,
+  "source_fingerprints": null,
+  "dataset_manifest_sha256": null,
+  "effective_config_sha256": null,
+  "expected_task_count": null,
+  "scored_task_count": null,
+  "exit_code": null,
+  "artifacts": [],
+  "incomplete_items": [
+    "Template only; no execution."
+  ]
+}

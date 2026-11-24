@@ -1,0 +1,12 @@
+schema_version: 0.2.0
+kind: BenchmarkScenario
+id: qwen-pipeline-long
+version: 1.0.0
+title: Qwen long scenario
+provenance: []
+issues: []
+extensions: {}
+case_ref:
+  id: qwen-pipeline-long-case
+  version: 1.0.0
+dataset_dir: runs/datasets/qwen-pipeline-long

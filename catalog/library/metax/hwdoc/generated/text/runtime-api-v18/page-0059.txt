@@ -1,0 +1,52 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 59
+PDF 页码标签: 50
+页脚页码候选: 50
+章节提示（书签推断）: Makefile编译和示例
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+(续上页)
+if (a_h[i] != 1){
+resCheck = false;
+}
+}
+printf("vector add result: %s\n", resCheck ? "success": "fail");
+free(a_h);
+mcFree(a_d);
+}
+//a.h:
+extern void func_a();
+//b.cpp:
+#include<mc_runtime.h>
+__global__ void kernel_b()
+{
+/* kernel code*/
+}
+void func_b()
+{
+/* launch kernel */
+kernel_b<<<1, 1>>>();
+}
+//b.h:
+extern void func_b();
+//main.cpp:
+#include <stdio.h>
+#include "a.h"
+#include "b.h"
+int main()
+{
+func_a();
+func_b();
+printf("my program!\n");
+return 1;
+}
+上述工程中包含 main.cpp，a.cpp，b.cpp 三个源文件，其中 a.cpp 中包含 vector_add 核函数，
+b.cpp 中包含 kernel_b 核函数。若要将该工程编译成可执行文件，可按照如下方法编写 Makefile 文
+件：
+# Makefile 文 件 ：
+# MXMACA Compiler
+(下页继续)
+4 编译和调试 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 50

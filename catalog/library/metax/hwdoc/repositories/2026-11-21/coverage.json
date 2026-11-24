@@ -1,0 +1,41 @@
+{
+  "observed_on": "2026-11-21",
+  "fetched_at_utc": "2026-11-21T15:44:08.736145+00:00",
+  "organization": "MetaX-MACA",
+  "source_url": "https://github.com/MetaX-MACA",
+  "pages": [
+    {
+      "url": "https://api.github.com/orgs/MetaX-MACA/repos?per_page=100&type=public&sort=full_name&page=1",
+      "count": 66,
+      "link": null
+    }
+  ],
+  "repository_count": 66,
+  "readmes_downloaded": 64,
+  "focus_repositories": [
+    "DeepEP",
+    "FlashMLA",
+    "MXDeepEP",
+    "TileKernels-Metax",
+    "TileOPs-Metax",
+    "maca-samples",
+    "mcFlashMLA",
+    "mcPytorch",
+    "mcTriton",
+    "mccl_tests",
+    "mcoplib",
+    "op_optimization",
+    "sglang",
+    "vLLM-metax",
+    "verl-metax",
+    "vllm-omni-metax"
+  ],
+  "limitations": [
+    "Public repositories only; repository metadata is not proof of C500 support.",
+    "README files are from default branches, pinned to commit where focus branch API succeeded.",
+    "Only focus repositories have branch lists (first 100) and up to 3 release records; no exhaustive tags/history audit.",
+    "Fork READMEs may retain upstream NVIDIA/CUDA instructions; not proof of MetaX adaptation.",
+    "pushed_at is repository-level activity, not the default branch commit date or maintenance guarantee.",
+    "No repository code, install script, benchmark or model was run. No server validation."
+  ]
+}

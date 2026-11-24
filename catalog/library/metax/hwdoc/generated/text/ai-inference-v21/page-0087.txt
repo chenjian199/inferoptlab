@@ -1,0 +1,46 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 87
+PDF 页码标签: 75
+页脚页码候选: 75
+章节提示（书签推断）: 源码镜像获取
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+(续上页)
+├── connection.py
+├── master.py
+├── output.py
+├── slave.py
+└── task.py
+├── utils(公 共 工 具 库 )
+├── __init__.py
+└── utils.py
+├── bench_sglang.py
+├── run_ceval_client.py
+├── pd_scripts(启 动 脚 本)
+├── generate_config.py
+├── launch_servers.sh
+├── template_decoder.sh
+├── template_docker.sh
+└── template_prefill.sh
+├── dataset( 评 测 数 据 集 目 录)
+└── ceval_val_cmcc.jsonl
+├── models（ 模 型 配 置 集 合 ）
+├── ${MODEL_NAME}
+├── config.json(单 模 型 专 属 部 署 配 置 文 件)
+├── machines.json( 集 群 硬 件 资 源 配 置 文 件)
+└── readme.md （ 模 型 评 测 说 明 ， 注 意 每 个 模 型 类 别 的 此 文 件 ， 可 能 有 特 殊 说 明 ）
+14.4 源码、模型和环境准备
+14.4.1 源码镜像获取
+操作步骤
+1. 进入沐曦软件中心，点击页面上方的 Docker 页签。
+2. 选择沐曦通用 GPU 的型号。
+3. 在左侧的分类导航栏，点击 AI，然后选中 ModelZoo 下的 Modelzoo.LLM.SGLlang。
+4. 在筛选出的镜像列表上方，按需设置架构、操作系统、Python 版本和框架版本。
+通过上述操作选择 ModelZoo.LLm.SGLang 源代码的镜像， 点击docker pull 命令复制， 获取此 Docker
+镜像的拉取命令，可通过此命令在沐曦软件中心服务器上拉取此镜像。
+进入容器，可在 /workspace/ModelZoo.LLM.Inference 目录查看 ModelZoo.LLm.SGLang 源代码。
+容器镜像的使用，参见《沐曦通用 GPU 用户指南》中“容器相关场景支持”章节。
+14 ModelZoo.LLM.SGLang 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 75

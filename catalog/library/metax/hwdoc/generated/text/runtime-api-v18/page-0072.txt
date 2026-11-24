@@ -1,0 +1,71 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 72
+PDF 页码标签: 63
+页脚页码候选: 63
+章节提示（书签推断）: 环境变量
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+表 4.2 – 续上页
+变量名称 可设置值 缺省值 描述
+MACA_EXT_
+GRAPH_
+OPTIMIZE_
+POLICY
+（3.10.0 起新增）
+0‑2 0 控制 Graph 运行时优化策略。
+0：缺省策略；
+1：优化减少 Graph 运行时使用 stream 的数量；
+2：开启 Graph 的菱形图优化。
+高阶执行控制
+MACA_
+EXT_TRAP_
+HANDLER
+0‑3 1 功能异常 Trap 处理开关。
+0：关闭 trap 上报功能，trap 指令会替换成 snop 指令
+继续执行至 kernel 完成；
+1：开启 trap 上报功能，仅对 Fatal 类异常进行上报；
+2：开启 trap 上报功能，对 Fatal 类异常和 Numeric 类
+异常（不包含精度损失异常）都进行上报；
+3：开启 trap 上报功能，对 Fatal 类异常和 Numeric 类
+异常都进行上报。
+MACA_EXT_
+GRAPH_
+LAUNCH_
+MODE
+0‑2 1 控制 Graph 启动方式。
+0：图编程的任务提交使用标准核函数提交模式，即使
+用 Ring Buffer 逐一启动 Graph 节点；
+1：图编程的任务提交使用任务图提交模式，即使用 in‑
+direct buffer 缓存所有 Graph 节点并从 indirect buffer
+启动 Graph；
+2：使用任务图提交模式并在 Graph 中启用程序依赖启
+动（PDL） 。
+MACA_EXT_
+DIRECT_
+DISPATCH
+0‑1 1 Direct Dispatch 功能开关。
+设置为 0 时，每个 Stream 会额外创建一个线程管理该
+Stream 上的任务并提交到硬件去执行；
+设置为 1 时，Stream 上直接在 Application 线程管理任
+务直至提交到硬件去执行。
+注意：设置为 1 时，MACA_EXT_SYNC_POLICY 自动设
+置成 3。
+MACA_
+EXT_RING_
+BUFFER_SIZE
+2 的 N 次方
+（N ＞ = 10）
+1024 控制 GPU 异构系统的环形缓冲区（Ring Buffer）大小，
+平衡数据处理性能和内存占用。
+正 确 配 置 示 例：export MACA_EXT_RING_BUFFER_
+SIZE=4096 # 设置为 4096（2^12） 。
+错 位 配 置 示 例：export MACA_EXT_RING_BUFFER_
+SIZE=3000 # 错误：不是 2 的幂次方。
+注意：MACA_EXT_DIRECT_DISPATCH 设置为 1 时，该
+环境变量缺省值是 2048。
+多进程服务（Multi‑Process Service）
+下页继续
+4 编译和调试 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 63

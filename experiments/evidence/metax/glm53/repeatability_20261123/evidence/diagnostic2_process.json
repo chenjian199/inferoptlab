@@ -1,0 +1,17 @@
+{
+  "status": "complete",
+  "pid": 453732,
+  "command": [
+    "docker",
+    "exec",
+    "glm53-repeat-v1",
+    "python3",
+    "-u",
+    "/experiment/harness/run_diagnostic.py",
+    "--label",
+    "d2"
+  ],
+  "started_epoch": 1795404088.2068202,
+  "exit_code": 0,
+  "elapsed_seconds": 297.1738176345825
+}

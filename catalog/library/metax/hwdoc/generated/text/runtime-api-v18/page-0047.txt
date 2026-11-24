@@ -1,0 +1,43 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 47
+PDF 页码标签: 38
+页脚页码候选: 38
+章节提示（书签推断）: 性能分析
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+3.7.6 代码示例
+以下示例显示了一个包含动态并行性的简单程序：
+#include <stdio.h>
+__global__ void childKernel()
+{
+printf("This is child kernel\n");
+}
+__global__ void parentKernel()
+{
+// launch child
+childKernel<<<1,1>>>();
+printf("This is parent kernel!\n");
+}
+int main(int argc, char *argv[])
+{
+// launch parent
+parentKernel<<<1,1>>>();
+if (mcSuccess != mcGetLastError()) {
+return 1;
+}
+// wait for parent to complete
+if (mcSuccess != mcDeviceSynchronize()) {
+return 2;
+}
+return 0;
+}
+将上面示例代码保存到 deviceHelloWorld.maca，可以使用以下命令编译代码：
+mxcc -x maca deviceHelloWorld.maca -o deviceHelloWorld
+3.7.7 性能分析
+当动态并行功能启动时，无论核函数是否调用别的核函数，系统软件和核函数的开销将增加。该开销来
+自设备运行时所需要准备的资源以及设备端启动核函数，并可能导致性能下降。通常，这种开销是由链
+接到设备运行时库的应用程序产生的。
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 38

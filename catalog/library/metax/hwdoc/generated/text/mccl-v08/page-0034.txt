@@ -1,0 +1,36 @@
+文档: 沐曦通用GPU_MCCL编程指南_CN_V08.pdf
+文档 ID: mccl-v08
+SHA256: 7a95ac3ce4f68b0fb11baabb7fa08794cd5f5081c9ec3e888eefaaa03ab8c8b2
+PDF 页序号: 34
+PDF 页码标签: 27
+页脚页码候选: 27
+章节提示（书签推断）: MCCL_SHM_DISABLE
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MCCL 编程指南
+4.2.2.25 MCCL_RUNTIME_CONNECT
+描述：控制是否分配所有算法对应的 Buffer 空间。从性能角度看，数据传输过程中不使用的算法可以不
+分配 Buffer 空间，以减少内存空间占用。
+可选值：
+• 0：分配所有算法 Buffer 空间
+• 1：只分配所使用算法的 Buffer 空间
+默认值：1
+4.2.2.26 MCCL_HFC_EP4_KERNEL_LIMIT
+描述： 控制 AlltoAll 4 卡算法在 Dragonfly Switch 拓扑下的算法选择。 该值为 4 卡 （每个机器一张卡） 使
+用 HFC 的 kernel 限制值。小于等于该值时使用 ep4 的 kernel。大于该值时使用 send/recv 算法。
+可选值：0‑0x7fffffffffffffff
+默认值：524288
+4.2.2.27 MCCL_HFC_EP8_KERNEL_LIMIT
+描述： 控制 AlltoAll 8 卡算法在 Dragonfly Switch 拓扑下的算法选择。 该值为 8 卡 （每个机器一张卡） 使
+用 HFC 的 kernel 限制值。小于等于该值时使用 ep8 的 kernel。大于该值时使用 send/recv 算法。
+可选值：0‑0x7fffffffffffffff
+默认值：524288
+4.2.3 网络相关
+4.2.3.1 MCCL_SHM_DISABLE
+描述：设置为 1 后将禁用共享内存（SHM）传输，MCCL 将使用网络（即 InfiniBand 或 IP 套接字）在
+CPU 套接字之间进行通信。
+可选值：
+• 0：启用共享内存（SHM）传输
+• 1：关闭共享内存（SHM）传输
+默认值：0
+4 环境变量 沐曦股份专有信息 PG‑23004‑020‑F5_V08 | 27

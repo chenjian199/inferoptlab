@@ -1,0 +1,43 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 184
+PDF 页码标签: 176
+页脚页码候选: 176
+章节提示（书签推断）: 双精度数学函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+• modf(±x,iptr)返回一个与x具有相同的符号的结果。
+• modf(±∞,iptr)返回±0并且在iptr指向的内存中存入±∞。
+• modf(NaN,iptr)返货NaN并且在iptr指向的内存中存入NaN。
+函数描述
+将参数x分解为分数和整数部分。分数部分存储在参数iptr中。分数和整数部分的符号与参数x相同。
+__device__ double nan (const char *tagp)
+返回“NotaNumber”值。
+返回值
+• nan(tagp)返回NaN。
+函数描述
+返回安静NaN的表示。参数tagp选择一种可能的表示形式。
+__device__ double nearbyint (double x)
+将输入参数四舍五入到最接近的整数。
+返回值
+• nearbyint(±0)返回±0。
+• nearbyint(±∞)返回±∞。
+函数描述
+将参数x舍入为单精度浮点格式的整数值。
+__device__ double nextafter (double x, double y)
+返回y方向上参数x之后的下一个可表示的单精度浮点值。
+返回值
+• 如果x==y，nextafter(x,y)=y。
+• 如果x或y是NaN，nextafter(x,y)=NaN。
+函数描述
+计算沿 y 方向 x 之后的下一个可表示的单精度浮点值。例如，如果 y 大于 x，则 nextafterf() 返回大于 x
+的最小可表示数字。
+__device__ double norm (int dim, const double *p)
+计算任意数量坐标的平方和的平方根。
+返回值
+• 返回dim维向量长度sqrt(p 02 +p 12 +…+p dim‑1
+2)。如果计算结果溢出，则返回+∞，如果计算结果向
+下溢出，则返回0。
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 176

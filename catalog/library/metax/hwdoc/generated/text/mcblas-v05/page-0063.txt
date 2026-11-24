@@ -1,0 +1,45 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 63
+PDF 页码标签: 56
+页脚页码候选: 56
+章节提示（书签推断）: mcblas<t>trsv()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE • n < 0
+• incx = 0
+• trans != MCBLAS_OP_N, MCBLAS_OP_C,
+MCBLAS_OP_T
+• uplo != MCBLAS_FILL_MODE_LOWER,
+MCBLAS_FILL_MODE_UPPER
+• diag != MCBLAS_DIAG_UNIT,
+MCBLAS_DIAG_NON_UNIT
+• lda < max(1, n)
+MCBLAS_STATUS_ALLOC_FAILED 内部暂存内存分配失败
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2.4.16 mcblas<t>trsv()
+mcblasStatus_t mcblasStrsv(mcblasHandle_t handle, mcblasFillMode_t uplo,
+mcblasOperation_t trans, mcblasDiagType_t diag,
+int n, const float *A, int lda,
+float *x, int incx)
+mcblasStatus_t mcblasDtrsv(mcblasHandle_t handle, mcblasFillMode_t uplo,
+mcblasOperation_t trans, mcblasDiagType_t diag,
+int n, const double *A, int lda,
+double *x, int incx)
+mcblasStatus_t mcblasCtrsv(mcblasHandle_t handle, mcblasFillMode_t uplo,
+mcblasOperation_t trans, mcblasDiagType_t diag,
+int n, const mcComplex *A, int lda,
+mcComplex *x, int incx)
+mcblasStatus_t mcblasZtrsv(mcblasHandle_t handle, mcblasFillMode_t uplo,
+mcblasOperation_t trans, mcblasDiagType_t diag,
+int n, const mcDoubleComplex *A, int lda,
+mcDoubleComplex *x, int incx)
+该函数使用以下公式求解三角线性方程组
+op(A)x = b
+其中 A 是以 lower 或 upper 模式存储的三角矩阵（无论是否有主对角线） ，x 和 b 是向量。此外，对于
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 56

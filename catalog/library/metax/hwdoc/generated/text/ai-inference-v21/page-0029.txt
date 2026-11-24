@@ -1,0 +1,26 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 29
+PDF 页码标签: 17
+页脚页码候选: 17
+章节提示（书签推断）: MacaConverter
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+5 MacaRT 工具链
+MacaRT 提供以下工具：
+• 模型转换工具 MacaConverter。针对各种深度学习框架（如 PyTorch，Caffe，Tensorflow）训练出
+来的模型，可以使用 MacaConverter 将训练的模型转换为 ONNX 模型。
+• 精度分析工具 MacaPrecision。通过比较 CPU 和沐曦通用 GPU 在各个层的输出值，更好地调试模型。
+• 模型量化工具 MacaQuantizer。 相对于 MacaRT 提供的模型量化功能， MacaQuantizer 可以在模型量
+化后达到更高的精度和更快的速度。
+MacaRT 模型部署工具链如下图所示：
+图 5.1 MacaRT 模型部署工具链
+5.1 MacaConverter
+ONNX 是一种便于在各个主流深度学习框架中迁移模型的中间表达格式，可用于存储训练好的模型。它
+使得不同的深度学习框架 （如 PyTorch，Caffe，TensorFlow） 可以采用相同格式存储模型数据，从而进
+行推理任务的执行。
+为了将不同深度学习框架的模型转换为 ONNX 格式的模型，MacaConverter 的内部封装了常用的开源
+转换工具，对外提供统一的转换接口（命令行） ，同时提供了部分算子优化功能。
+5 MacaRT 工具链 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 17

@@ -1,0 +1,45 @@
+文档: 沐曦通用GPU_MXMACA编译器内建函数编程指南_CN_V01.pdf
+文档 ID: builtins-v01
+SHA256: 80dfb3a83381e48e19968b432d4eb24d37c505bd711af14f74889277cffc3835
+PDF 页序号: 28
+PDF 页码标签: 22
+页脚页码候选: 22
+章节提示（书签推断）: __builtin_mxc_bsm_bpermute
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® 编译器内建函数编程指南
+表 3.14 – 续上页
+名称 描述
+mode 混洗模式。取值范围及对应操作如下：
+0x000‑0x0FF: Quad Permutation
+0x101‑0x10F: Row Shift Left
+0x111‑0x11F: Row Shift Right
+0x121‑0x12F: Row Rotate Right
+0x140: Row Mirror
+0x150‑0x15f: Row Broadcast
+RMSK row mask。每个 bit 表示相应的 row 是否执行此次混洗。
+if (!(rmsk & 0x1)) row0 are disabled
+if (!(rmsk & 0x2)) row1 are disabled
+if (!(rmsk & 0x4)) row2 are disabled
+if (!(rmsk & 0x8)) row3 are disabled
+BMSK if (!(bmsk & 0x1)) lanes[0:3, 16:19, 32:35, 48:51] are disabled
+if (!(bmsk & 0x2)) lanes[4:7, 20:23, 36:39, 52:55] are disabled
+if (!(bmsk & 0x4)) lanes[8:11, 24:27, 40:43, 56:59] are disabled
+if (!(bmsk & 0x8)) lanes[12:15, 28:31, 44:47, 60:63] are disabled
+BC 如果 BC 为 0，则索引计算结果越界的线程将写 0
+如果 BC 为 1，则索引计算结果越界的线程将写 old_val
+Algorithm
+see __builtin_mxc_mov_shfl
+代码示例
+__device__ int test_mxc_mov_shfl(int val) {
+// Left shift every 16 threads, out of range return 100.
+return __builtin_mxc_update_shfl(100, val, 0x108, 0xf, 0xf, true);
+}
+3.4.3 __builtin_mxc_bsm_bpermute
+功能描述
+warp 内所有 64 个 thread 间的数据混洗。遍历返回值的所有线程，根据混洗规则参数选择输入数据特
+定线程的值写到返回值中。
+接口声明
+int __builtin_mxc_bsm_bpermute(int index, int data)
+参数
+3 接口介绍 沐曦股份专有信息 OG‑26013‑000‑F5_V01 | 22

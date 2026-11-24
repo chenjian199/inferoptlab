@@ -1,0 +1,51 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 85
+PDF 页码标签: 78
+页脚页码候选: 78
+章节提示（书签推断）: mcblas<t>gemmBatched()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE • m, n, k < 0
+• transa, transb != MCBLAS_OP_N,
+MCBLAS_OP_C, MCBLAS_OP_T
+• 如果 transa == MCBLAS_OP_N ，lda < max(1,
+m) ；否则 lda < max(1, k)
+• 如果 transb == MCBLAS_OP_N ，ldb < max(1,
+k) ；否则 ldb < max(1, n)
+• ldc < max(1, m)
+• alpha, beta == NULL
+• 如果 C 需要缩放，C = NULL
+MCBLAS_STATUS_ARCH_MISMATCH 不支持该设备
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2.5.3 mcblas<t>gemmBatched()
+mcblasStatus_t mcblasHgemmBatched(mcblasHandle_t handle,
+mcblasOperation_t transa,
+mcblasOperation_t transb,
+int m, int n, int k,
+const mcblas_half *alpha,
+const mcblas_half *Aarray[], int lda,
+const mcblas_half *Barray[], int ldb,
+const mcblas_half *beta,
+mcblas_half *Carray[], int ldc,
+int batchCount)
+mcblasStatus_t mcblasSgemmBatched(mcblasHandle_t handle,
+mcblasOperation_t transa,
+mcblasOperation_t transb,
+int m, int n, int k,
+const float *alpha,
+const float *Aarray[], int lda,
+const float *Barray[], int ldb,
+const float *beta,
+float *Carray[], int ldc,
+int batchCount)
+mcblasStatus_t mcblasDgemmBatched(mcblasHandle_t handle,
+mcblasOperation_t transa,
+mcblasOperation_t transb,
+(下页继续)
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 78

@@ -1,0 +1,46 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 22
+PDF 页码标签: 13
+页脚页码候选: 13
+章节提示（书签推断）: 流管理函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+3.3.1.1 代码示例
+使用流进行同步 API 和异步 API 的内存拷贝，代码如下所示：
+/***** 同 步 API *****/
+mcMalloc();
+mcMemcpy(..., mcMemcpyHostToDevice);
+kernel<<<Dg, Db, 0, 0>>>(...);
+mcMemcpy(...,mcMemcpyDeviceToHost);
+/***** 异 步 API *****/
+mcStreamCreate(&stream);
+mcMallocAsync(&ptr, mem_size, stream);
+mcMemcpyAsync(..., mcMemcpyHostToDevice, stream);
+kernel<<<Dg, Db, Ns, stream>>>(...);
+mcMemcpyAsync(...,mcMemcpyDeviceToHost, stream);
+mcFreeAsync(ptr, stream);
+/* 等 待 ， 直 到 之 前 的 异 步 操 作 全 部 完 成 */
+mcStreamSynchronize(stream);
+3.3.1.2 流管理函数
+沐曦通用 GPU 提供的流管理运行时 API 函数见 表 3.1，支持创建、销毁流，流上启动核函数，流的查询
+与同步，流属性的设置、获取和拷贝，以及流主机函数回调等操作。
+表 3.1 沐曦通用 GPU 流管理函数
+功能 运行时 API 函数
+流的创建与销毁 mcStreamCreate
+mcStreamCreateWithFlags
+mcStreamCreateWithPriority
+mcStreamDestroy
+流上启动核函数 mcLaunchKernel
+流的查询与同步 mcStreamQuery
+mcStreamSynchronize
+mcStreamWaitEvent
+流属性的设置、获取和拷贝 mcStreamGetFlags
+mcStreamGetPriority
+mcStreamSetAttribute
+mcStreamGetAttribute
+mcStreamCopyAttribute
+流主机函数回调 mcStreamAddCallback
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 13

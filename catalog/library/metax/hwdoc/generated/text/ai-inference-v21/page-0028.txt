@@ -1,0 +1,24 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 28
+PDF 页码标签: 16
+页脚页码候选: 16
+章节提示（书签推断）: 设备ID设置
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+(续上页)
+,→",0))
+for o_n in ouput_names:
+io_binding.bind_output(o_n,"cpu")
+session.run_with_iobinding(io_binding)
+output = io_binding.get_outputs()
+4.4 提升沐曦通用 GPU 推理性能
+使用 MacaRT 将 ONNX 模型部署到沐曦通用 GPU 上时，MacaEP 的配置信息 provider_options 会
+直接影响 MacaRT 的推理速度。相关配置信息的介绍，参见 3.4 提升沐曦通用 GPU 推理性能。
+4.4.1 设备 ID 设置
+操作步骤
+1. 执行以下命令，配置 device_id 来指定 gpu_id，以管理多个 GPU。
+provider_options=[{'device_id': your_gpu_id }]
+4 MacaRT Python API 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 16

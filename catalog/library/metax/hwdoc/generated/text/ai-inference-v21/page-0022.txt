@@ -1,0 +1,46 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 22
+PDF 页码标签: 10
+页脚页码候选: 10
+章节提示（书签推断）: 提升沐曦通用GPU推理性能
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+(续上页)
+Ort::TypeInfo inputTypeInfo = session.GetInputTypeInfo(i);
+auto inputTensorInfo = inputTypeInfo.GetTensorTypeAndShapeInfo();
+ONNXTensorElementDataType inputType = inputTensorInfo.GetElementType();
+// get input node data length
+std::vector<int64_t> inputDims=inputTensorInfo.GetShape();
+inputDims[0]=N;
+inputTensors.push_back(Ort::Value::CreateTensor(memoryInfo,input_data[i], 
+,→input_data_len[i], inputDims.data(), inputDims.size(),inputType));
+}
+4. 支持使用以下两种方式获取模型输出。
+// session run
+auto ouput = session.Run(Ort::RunOptions{nullptr},inputNames.data(),
+inputTensors.data(),inputNames.size(),
+ouputNames.data(),outputNames.size());
+或
+// iobinding
+Ort::IoBinding ioBinding(session);
+for(size_t i=0; i< inputNames.size(), i++){
+ioBinding.BindInput(inputNames[i],inputTensors[i]);
+}
+for(size_t i=0; i< outputNames.size(), i++){
+ioBinding.BindOutput(outputNames[i],memoryInfo);
+}
+session.Run(Ort::RunOptions{nullptr},ioBinding);
+auto outputs = ioBinding.GetOutputValues();
+3.4 提升沐曦通用 GPU 推理性能
+使用 MacaRT 将 ONNX 模型部署到沐曦通用 GPU 上时， MacaEP 配置信息OrtMACAProviderOptions
+会直接影响 MacaRT 的推理速度。OrtMACAProviderOptions 支持的配置选项参见表 3.1。
+表 3.1 OrtMACAProviderOptions 支持的配置选项
+选项 说明
+device_id 配置所使用的设备号
+gpu_mem_limit MacaRT 使用的最大显存量
+arena_extend_strategy 显存增长策略
+default_memory_arena_cfg 内存管理配置
+3 MacaRT C++ API 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 10

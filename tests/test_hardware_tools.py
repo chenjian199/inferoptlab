@@ -15,7 +15,7 @@ from tools.hardware.metax import parse
 from tools.hardware.runner import HERE, execute, verify, ssh
 from tools.specs import ROOT, Catalog, SpecError, read
 
-EVIDENCE = ROOT/'schemas/evidence/metax/20261123'
+EVIDENCE = ROOT/'experiments/evidence/metax/20261123'
 
 
 def json_file(name):
@@ -23,7 +23,7 @@ def json_file(name):
 
 
 def fixtures():
-    plan = load(HERE/'plans/metax.yaml')
+    plan = load(ROOT/'recipes/plans/hardware/metax.yaml')
     plan['id'] = 'unit-hardware-baseline'
     inventory = json_file('host.json')
     calibration = json_file('calibration-v3.json')
@@ -97,7 +97,7 @@ class HardwareToolsTests(unittest.TestCase):
 
     def test_run_export_and_full_source_closure(self):
         plan, raw = fixtures()
-        with tempfile.TemporaryDirectory(dir=ROOT/'runs') as tmp:
+        with tempfile.TemporaryDirectory(dir=ROOT/'experiments/runs') as tmp:
             run, out = Path(tmp)/'run', Path(tmp)/'export'
             manifest = execute(plan, run, transport=lambda *args: copy.deepcopy(raw))
             self.assertEqual('complete', manifest['status'])
@@ -119,7 +119,7 @@ class HardwareToolsTests(unittest.TestCase):
     def test_export_recomputes_rate_before_writing(self):
         plan, raw = fixtures()
         raw['attempts'][0]['result']['measurements'][0]['value'] *= 8
-        with tempfile.TemporaryDirectory(dir=ROOT/'runs') as tmp:
+        with tempfile.TemporaryDirectory(dir=ROOT/'experiments/runs') as tmp:
             run, out = Path(tmp)/'run', Path(tmp)/'export'
             execute(plan, run, transport=lambda *args: raw)
             with self.assertRaisesRegex(SpecError, 'raw timing'): export(run, out)
@@ -127,7 +127,7 @@ class HardwareToolsTests(unittest.TestCase):
 
     def test_incomplete_run_is_preserved_and_not_exportable(self):
         plan, _ = fixtures()
-        with tempfile.TemporaryDirectory(dir=ROOT/'runs') as tmp:
+        with tempfile.TemporaryDirectory(dir=ROOT/'experiments/runs') as tmp:
             run = Path(tmp)/'run'
             execute(plan, run, transport=lambda *args: dict(status='failed', error='unreachable'))
             manifest, _ = verify(run)
@@ -139,7 +139,7 @@ class HardwareToolsTests(unittest.TestCase):
     def test_inspection_never_creates_measurements(self):
         plan, raw = fixtures()
         raw.update(status='inspected', attempts=[])
-        with tempfile.TemporaryDirectory(dir=ROOT/'runs') as tmp:
+        with tempfile.TemporaryDirectory(dir=ROOT/'experiments/runs') as tmp:
             run = Path(tmp)/'run'
             execute(plan, run, mode='inspect', transport=lambda *args: raw)
             paths = export(run, Path(tmp)/'export')

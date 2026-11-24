@@ -1,0 +1,49 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 115
+PDF 页码标签: 108
+页脚页码候选: 108
+章节提示（书签推断）: mcblas<t>geam()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE
+• n < 0 或 k < 0
+• trans != MCBLAS_OP_N, MCBLAS_OP_C,
+MCBLAS_OP_T
+• uplo != MCBLAS_FILL_MODE_LOWER,
+MCBLAS_FILL_MODE_UPPER
+• 如果 trans == MCBLAS_OP_N ，lda < max(1,
+n) ；否则 lda < max(1, k)
+• 如果 trans == MCBLAS_OP_N ，ldb < max(1,
+n) ；否则 lda < max(1, k)
+• ldc < max(1, n)
+• alpha == NULL 或 beta == NULL
+• C = NULL
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2.6 BLAS‑Like 扩展函数
+本章中，我们将介绍执行矩阵‑矩阵操作的 BLAS 扩展函数。
+2.6.1 mcblas<t>geam()
+mcblasStatus_t mcblasSgeam(mcblasHandle_t handle,
+mcblasOperation_t transa, mcblasOperation_t transb,
+int m, int n,
+const float *alpha,
+const float *A, int lda,
+const float *beta,
+const float *B, int ldb,
+float *C, int ldc)
+mcblasStatus_t mcblasDgeam(mcblasHandle_t handle,
+mcblasOperation_t transa, mcblasOperation_t transb,
+int m, int n,
+const double *alpha,
+const double *A, int lda,
+const double *beta,
+const double *B, int ldb,
+double *C, int ldc)
+mcblasStatus_t mcblasCgeam(mcblasHandle_t handle,
+(下页继续)
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 108

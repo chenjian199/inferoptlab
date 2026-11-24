@@ -1,0 +1,36 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 15
+PDF 页码标签: 8
+页脚页码候选: 8
+章节提示（书签推断）: mcblasSideMode_t
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+2.1.9 mcblasOperation_t
+mcblasOperation_t 类型表明需要使用稠密矩阵（dense matrix）执行的操作。其值对应于 Fortran
+字符 ‘N’或 ‘n’ （非转置） ， ‘T’或 ‘t’ （转置） ，以及 ‘C’或 ‘c’ （共轭转置） ，这些常用作传统
+BLAS 实现的参数。
+值 含义
+MCBLAS_OP_N 选择非转置操作
+MCBLAS_OP_T 选择转置操作
+MCBLAS_OP_C 选择共轭转置操作
+2.1.10 mcblasFillMode_t
+该类型表明填充稠密矩阵的哪个部分（下或上） ，因此函数应使用该部分。其值对应于 Fortran 字符 ‘L’
+或 ‘l’ （下） ，以及 ‘U’或 ‘u’ （上） ，这些常用作传统 BLAS 实现的参数。
+值 含义
+MCBLAS_FILL_MODE_LOWER 填充矩阵的下半部分
+MCBLAS_FILL_MODE_UPPER 填充矩阵的上半部分
+MCBLAS_FILL_MODE_FULL 填充完整的矩阵
+2.1.11 mcblasDiagType_t
+该类型表明稠密矩阵的主对角线是否为单位元素，因此函数不应处理或修改主对角线。其值对应于
+Fortran 字符 ‘N’或 ‘n’ （非单位，non‑unit） ，以及 ‘U’或 ‘u’ （单位，unit） ，这些常用作传统
+BLAS 实现的参数。
+值 含义
+MCBLAS_DIAG_NON_UNIT 矩阵对角线具有非单位元素
+MCBLAS_DIAG_UNIT 矩阵对角线具有单位元素
+2.1.12 mcblasSideMode_t
+该类型表明稠密矩阵位于由特定函数解出的矩阵方程的左侧还是右侧。 其值对应于 Fortran 字符‘L’ 或
+‘l’ （左） ，以及 ‘R’或 ‘r’ （右） ，这些常用作传统 BLAS 实现的参数。
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 8

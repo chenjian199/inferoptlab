@@ -1,0 +1,87 @@
+[
+  {
+    "title": "概述",
+    "pdf_page": 5,
+    "depth": 1
+  },
+  {
+    "title": "适用产品",
+    "pdf_page": 5,
+    "depth": 2
+  },
+  {
+    "title": "快速安装",
+    "pdf_page": 6,
+    "depth": 1
+  },
+  {
+    "title": "基于pip安装",
+    "pdf_page": 6,
+    "depth": 2
+  },
+  {
+    "title": "环境准备",
+    "pdf_page": 6,
+    "depth": 3
+  },
+  {
+    "title": "开始安装",
+    "pdf_page": 6,
+    "depth": 3
+  },
+  {
+    "title": "验证安装",
+    "pdf_page": 6,
+    "depth": 3
+  },
+  {
+    "title": "如何卸载",
+    "pdf_page": 7,
+    "depth": 3
+  },
+  {
+    "title": "功能支持",
+    "pdf_page": 8,
+    "depth": 1
+  },
+  {
+    "title": "基本功能",
+    "pdf_page": 8,
+    "depth": 2
+  },
+  {
+    "title": "tl.dot的数据类型支持",
+    "pdf_page": 8,
+    "depth": 3
+  },
+  {
+    "title": "扩展功能",
+    "pdf_page": 8,
+    "depth": 2
+  },
+  {
+    "title": "triton.Config",
+    "pdf_page": 9,
+    "depth": 3
+  },
+  {
+    "title": "pipeline",
+    "pdf_page": 9,
+    "depth": 4
+  },
+  {
+    "title": "scenario",
+    "pdf_page": 9,
+    "depth": 4
+  },
+  {
+    "title": "MCTRITON_LOG_LEVEL",
+    "pdf_page": 11,
+    "depth": 3
+  },
+  {
+    "title": "开源资源",
+    "pdf_page": 12,
+    "depth": 1
+  }
+]

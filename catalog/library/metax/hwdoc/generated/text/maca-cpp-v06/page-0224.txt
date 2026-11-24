@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 224
+PDF 页码标签: 216
+页脚页码候选: 216
+章节提示（书签推断）: 整数型intrinsic
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+• 返回一个介于0和64（含0和64）之间的值，表示设置位的数目。
+函数描述
+• 计算x中设置为1的位数。
+__device__ int __rhadd (int, int)
+计算有符号输入参数的四舍五入平均值，避免中间和溢出。
+返回值
+• 返回一个有符号整数值，表示两个输入的有符号四舍五入平均值。
+函数描述
+• 用 ( x + y + 1 ) >> 1计算有符号输入参数x和y的平均值，避免中间和溢出。
+__device__ unsigned int __sad (int x, int y, unsigned int z)
+计算 |x - y| + z，绝对差之和。
+返回值
+• 返回 |x - y| + z。
+函数描述
+• 计算 |x - y| + z，一个 32 位的第三个参数与第一个参数 x，第二个参数 y 的绝对值之差的和的整
+数。输入的x与y是32位有符号整数，z是一个32位的无符号整数。
+__device__ unsigned int __uhadd (unsigned int, unsigned int)
+计算无符号输入参数的平均值，避免中间和溢出。
+返回值
+• 返回一个无符号整数值，表示两个输入的无符号平均值。
+函数描述
+• 将用 (x+y)>>1计算无符号输入参数x和y的平均值，避免中间和溢出。
+__device__ unsigned int __umul24 (unsigned int x, unsigned int y)
+计算两个无符号整数的最低有效24位乘积的最低有效32位。
+返回值
+• 返回乘积x*y的最低有效32位。
+函数描述
+• 计算x和y的最低有效24位的乘积的最低有效32位。忽略x和y的高阶8位。
+__device__ unsigned long long int __umul64hi (unsigned long long int x, unsigned 
+,→long long int y)
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 216

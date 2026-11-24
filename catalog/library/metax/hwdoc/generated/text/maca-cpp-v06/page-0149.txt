@@ -1,0 +1,40 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 149
+PDF 页码标签: 141
+页脚页码候选: 141
+章节提示（书签推断）: 单精度数学函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+• 计算输入参数x的立方根，x 1/3。
+__device__ float ceilf (float x)
+计算输入参数的向上取整值。
+返回值
+• ceilf(±0)返回±0。
+• ceilf(±∞)返回±∞
+函数描述
+• 计算不小于输入参数x的最小整数。
+__device__ float copysignf (float x, float y)
+以第二个参数的符号，创建具有第一个参数大小的值。
+返回值
+• 返回一个值，它有x的大小与y的符号。
+函数描述
+• 计算具有x的大小与y的符号的值。
+__device__ float cosf (float x)
+计算输入参数的余弦函数值
+返回值
+• cosf(±0)返回1。
+• cosf(±∞)返回NaN。
+函数描述
+• 计算输入参数x（以弧度为单位）的余弦值。
+__device__ float coshf (float x)
+计算输入参数的双曲余弦函数值。
+返回值
+• coshf(±0)返回1。
+• coshf(±∞)返回+∞。
+函数描述
+• 计算输入参数x的双曲余弦函数值。
+__device__ float cospif (float x)
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 141

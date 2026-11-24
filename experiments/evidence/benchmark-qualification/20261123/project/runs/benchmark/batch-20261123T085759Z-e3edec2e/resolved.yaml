@@ -1,0 +1,835 @@
+schema_version: 0.2.0
+kind: ResolvedBenchmark
+plan_ref:
+  id: qwen-metax-pipeline-plan
+  version: 1.0.0
+state: draft
+documents:
+- ref:
+    id: metax-hardware-baseline-metax-gpu0-device
+    version: 1.0.0
+  sha256: 5cbbfbd787b79e524614cf54d72ca17428d4737ba5d505c504c4bc3cf07c630f
+  document:
+    schema_version: 0.2.0
+    kind: HardwareSpec
+    id: metax-hardware-baseline-metax-gpu0-device
+    version: 1.0.0
+    title: MetaX C500
+    provenance:
+    - source_ref:
+        id: source-metax-hardware-baseline-metax
+        version: 1.0.0
+      locator: /inventory
+    issues: []
+    extensions: {}
+    profile_type: device
+    vendor: MetaX Integrated Circuites
+    product: MetaX C500
+    specifications:
+    - name: memory_capacity
+      quantity:
+        value: 68719476736
+        unit: bytes
+        basis: measured
+      precision: null
+      operation: null
+      conditions: Management-reported physical VRAM, including driver-reserved memory.
+    interfaces:
+    - name: memory
+      properties:
+        type: HBM2e
+    - name: pcie
+      properties:
+        negotiated_speed_gt_s: 32.0
+        lanes: 16
+    resources:
+      allocated_devices: null
+      nodes: []
+      topology: []
+    capabilities: []
+- ref:
+    id: metax-qwen-smoke-gpu0
+    version: 1.0.0
+  sha256: d89a54da4710e7c1ecc4e9366693744320870039e91d4341b70c8e895eab9c99
+  document:
+    schema_version: 0.2.0
+    kind: HardwareSpec
+    id: metax-qwen-smoke-gpu0
+    version: 1.0.0
+    title: 63metax GPU0 allocation for Qwen pipeline qualification
+    provenance:
+    - source_ref:
+        id: source-metax-hardware-baseline-metax
+        version: 1.0.0
+      locator: /inventory
+    issues:
+    - code: health-not-certified
+      path: /discovery/health
+      status: unverified
+      blocking: true
+      reason: Review raw device errors and perform link/ECC diagnostics before using
+        this node as an accepted hardware baseline.
+    extensions: {}
+    profile_type: cluster
+    vendor: MetaX
+    product: 63metax
+    specifications: []
+    interfaces: []
+    evidence_level: inspected
+    discovery:
+      captured_at: '2026-11-23T08:02:11.980613+00:00'
+      hostname: 63metax
+      os: Ubuntu 22.04.5 LTS
+      kernel: 5.15.0-138-generic
+      driver_version: 3.10.14
+      device_runtime_version: 3.9.0.29
+      management_tool_version: 2.3.4
+      cpu_sockets: 2
+      cores_per_socket: 48
+      threads_per_core: 2
+      logical_cpus: 192
+      numa_nodes: 8
+      dram_bytes: 1081901404160
+      availability: idle
+      health: unverified
+      health_notes:
+      - Health requires separate diagnostics; inventory and GEMM do not certify link/ECC
+        health.
+      inventory_source_ref:
+        id: source-metax-hardware-baseline-metax
+        version: 1.0.0
+    capabilities: []
+    resources:
+      allocated_devices: 1
+      nodes:
+      - node_id: metax
+        devices:
+        - device_id: metax-gpu0-AENA2402001182
+          device_profile_ref:
+            id: metax-hardware-baseline-metax-gpu0-device
+            version: 1.0.0
+          observed:
+            ordinal: 0
+            pci_bus_id: '0000:05:00.0'
+            board_serial: AENA2402001182
+            chip_serial: T6S040_22_8_3
+            memory_bytes: 68719476736
+            numa_node: 0
+            local_cpus: 0-11,96-107
+            pcie_speed_gt_s: 32.0
+            pcie_lanes: 16
+            driver_reserved_bytes: 902230016
+            observed_used_memory_bytes: 902230016
+            observed_utilization_percent: 0.0
+        cpu: Hygon C86-4G (OPN:7470)
+        dram_gb: 1081.90140416
+        nics:
+        - ens5f0
+        - ens5f1
+        - ens2f0
+        - ens5f2
+        - ens2f1
+        - ens5f3
+        - ens4np0
+        - tailscale0
+        - docker0
+      topology: []
+- ref:
+    id: metax-qwen3-06b
+    version: 1.0.0
+  sha256: bcd93f9078797f2d2a573610406229b802b9b9ddc7ba1220a609ceb25a8659ee
+  document:
+    schema_version: 0.2.0
+    kind: ModelSpec
+    id: metax-qwen3-06b
+    version: 1.0.0
+    title: Qwen3-0.6B inspected checkpoint
+    provenance:
+    - source_ref:
+        id: source-metax-qwen3-06b
+        version: 1.0.0
+      locator: /
+    issues:
+    - code: payload-not-hashed
+      path: /identity/weights_sha256
+      status: unverified
+      blocking: true
+      reason: Only metadata and every shard header were verified; weight payload bytes
+        were not hashed.
+    - code: upstream-revision-unavailable
+      path: /identity/revision
+      status: unverified
+      blocking: true
+      reason: No immutable upstream revision was established from this directory.
+    - code: quality-policy-missing
+      path: /semantics
+      status: unverified
+      blocking: true
+      reason: No model-quality acceptance policy has been attached.
+    extensions: {}
+    evidence_level: inspected
+    identity:
+      name: Qwen3-0.6B
+      family: Qwen3
+      variant: null
+      repository: null
+      revision: null
+      weights_sha256: null
+    tokenizer:
+      revision: null
+      sha256: aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4
+      chat_template_sha256: a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8
+    semantics:
+      contract: unspecified
+      correctness_policy_ref: null
+      quality_policy_ref: null
+    architecture:
+      type: dense
+      attention: gqa
+      context_limit_tokens: 40960
+      parameters: {}
+      state_types:
+      - kv_cache
+      text:
+        num_hidden_layers: 28
+        hidden_size: 1024
+        vocab_size: 151936
+        num_attention_heads: 16
+        num_key_value_heads: 8
+        max_position_embeddings: 40960
+        model_type: qwen3
+        layer_types: []
+      moe: null
+      attention_config:
+        head_dim: 128
+        rope_theta: 1000000
+      mtp_layers: 0
+      modalities:
+      - text
+      implementation:
+      - Qwen3ForCausalLM
+    precision:
+      label: bfloat16
+      weights: BF16
+      activations: bfloat16
+      kv_cache: null
+      quantization: null
+    checkpoint:
+      host: metax
+      path: /NFS_62/Models/Qwen_Series/Qwen3-0.6B
+      captured_at: '2026-11-23T08:27:22.552640+00:00'
+      format: safetensors
+      config_sha256: a9597c105a570f7e1bd5b8b95b13553d383f4355901bd9a544df369e8cff91e8
+      index: null
+      shard_count: 1
+      total_file_bytes: 1503300328
+      tensor_count: 311
+      storage_dtypes:
+      - dtype: BF16
+        tensor_count: 311
+        elements: 751632384
+        storage_bytes: 1503264768
+      manifest_sha256: 2a83dd7be999bf7254b0de9f9d9b679ae153f59572b89967d410269af781f2b5
+      manifest_algorithm: sha256_canonical_json_shard_name_size_header_sha256
+      verification_scope: index_and_headers
+      index_matches_headers: null
+      duplicate_tensor_names: []
+      payload_verified: false
+      auxiliary_files: []
+      compatibility:
+        target_vendor: MetaX
+        status: unverified
+        reason: Checkpoint inspected; loading and numerical correctness are separate
+          tests.
+- ref:
+    id: metax-vllm-qwen-smoke
+    version: 1.0.0
+  sha256: 71d857a833c87510e39cdb1dad88034cdf932894f758766d7e18cd13f666f7e8
+  document:
+    schema_version: 0.2.0
+    kind: RuntimeSpec
+    id: metax-vllm-qwen-smoke
+    version: 1.0.0
+    title: vLLM MetaX external Qwen smoke runtime
+    provenance:
+    - source_ref:
+        id: source-metax-qwen-runtime-audit
+        version: 1.0.0
+      locator: /
+    issues:
+    - code: editable-source
+      path: /source_commit
+      status: unverified
+      blocking: true
+      reason: Requires read-only /home/metax/glm53-vllm032 -> /work source mount;
+        image metadata alone is insufficient.
+    extensions: {}
+    engine: vllm-metax
+    version_label: 0.32.0+empty
+    source_commit: null
+    container_digest: sha256:9bbf20dbcaaf52b794b887f0311a6dcbff6d23bb0a78b72fb0f442f8aab0f285
+    container_identity_kind: docker_image_id
+    driver: 3.10.14
+    device_runtime: MACA 3.9.0.29 (host)
+    compiler: null
+    libraries:
+      torch: 2.10.0+metax3.9.0.8
+      transformers: 5.17.0
+    launch_parameters: {}
+    status: environment_verified
+- ref:
+    id: qwen-metax-pipeline
+    version: 1.0.0
+  sha256: ba2c81640f35ac151cb5fcb01f39e261b850eec84aa5e653ad984c41701dffd7
+  document:
+    schema_version: 0.2.0
+    kind: StudySpec
+    id: qwen-metax-pipeline
+    version: 1.0.0
+    title: Small-model workflow qualification before GLM performance
+    provenance: []
+    issues: []
+    extensions: {}
+    model_ref:
+      id: metax-qwen3-06b
+      version: 1.0.0
+    hardware_ref:
+      id: metax-qwen-smoke-gpu0
+      version: 1.0.0
+    runtime_ref:
+      id: metax-vllm-qwen-smoke
+      version: 1.0.0
+    case_refs:
+    - id: qwen-pipeline-smoke-case
+      version: 1.0.0
+    - id: qwen-pipeline-short-case
+      version: 1.0.0
+    - id: qwen-pipeline-long-case
+      version: 1.0.0
+    allowed_deployment_modes:
+    - aggregated
+    objective: null
+    budget:
+      max_candidates: 1
+      max_device_hours: 1
+      max_wall_hours: 1
+    capability_policy: probe_before_execution
+- ref:
+    id: qwen-metax-pipeline-plan
+    version: 1.0.0
+  sha256: 89b02afe9c76b431f7335cf9431fc55facebd1120a52e32072751d2e28407f68
+  document:
+    schema_version: 0.2.0
+    kind: BenchmarkPlan
+    id: qwen-metax-pipeline-plan
+    version: 1.0.0
+    title: Qwen smoke/short/long qualification
+    provenance: []
+    issues: []
+    extensions: {}
+    study_ref:
+      id: qwen-metax-pipeline
+      version: 1.0.0
+    scenario_refs:
+    - id: qwen-pipeline-smoke
+      version: 1.0.0
+    - id: qwen-pipeline-short
+      version: 1.0.0
+    - id: qwen-pipeline-long
+      version: 1.0.0
+    deployment_refs:
+    - id: qwen-metax-vllm-attached
+      version: 1.0.0
+    mode: exploratory
+    aiperf:
+      version: 0.12.0
+      server_metrics: []
+      gpu_telemetry: []
+      required_telemetry: none
+    budget:
+      max_runs: 4
+      max_wall_seconds: 1800
+      run_timeout_s: 300
+    order_seed: 20261123
+    failure_policy: continue
+- ref:
+    id: qwen-metax-vllm-attached
+    version: 1.0.0
+  sha256: b8280fbe940bbfb79478f13b5bf229a36109d96e9c6962f88dc42155909c36af
+  document:
+    schema_version: 0.2.0
+    kind: DeploymentSpec
+    id: qwen-metax-vllm-attached
+    version: 1.0.0
+    title: Qwen3-0.6B vLLM attachment on C500 GPU0
+    provenance: []
+    issues: []
+    extensions: {}
+    model_ref:
+      id: metax-qwen3-06b
+      version: 1.0.0
+    hardware_ref:
+      id: metax-qwen-smoke-gpu0
+      version: 1.0.0
+    runtime_ref:
+      id: metax-vllm-qwen-smoke
+      version: 1.0.0
+    mode: aggregated
+    parallelism:
+      tp: 1
+      pp: 1
+      ep: 1
+      dp: 1
+    scheduling:
+      chunked_prefill_tokens: null
+      kv_page_tokens: null
+      max_running_requests: 4
+    serving:
+      management: external
+      url: http://127.0.0.1:18080
+      served_model: qwen3-0.6b
+      model_path: /models/Qwen3-0.6B
+      tokenizer_path: /models/Qwen3-0.6B
+      startup_timeout_s: 300
+      device_visibility_env: MACA_VISIBLE_DEVICES
+    devices:
+    - rank: 0
+      device_id: metax-gpu0-AENA2402001182
+      visible_index: 0
+    backend_options: {}
+- ref:
+    id: qwen-pipeline-long
+    version: 1.0.0
+  sha256: 44571f54e58c9cd1cf22cb55946405ce5f124f119d7a0d688b82891dc04ea54d
+  document:
+    schema_version: 0.2.0
+    kind: BenchmarkScenario
+    id: qwen-pipeline-long
+    version: 1.0.0
+    title: Qwen long scenario
+    provenance: []
+    issues: []
+    extensions: {}
+    case_ref:
+      id: qwen-pipeline-long-case
+      version: 1.0.0
+    dataset_dir: experiments/datasets/qwen-pipeline-long
+- ref:
+    id: qwen-pipeline-long-case
+    version: 1.0.0
+  sha256: 9525e585fa245aa8a38317072920d9dbf8e23066f9c1610280fed01ca570c824
+  document:
+    schema_version: 0.2.0
+    kind: TestCaseSpec
+    id: qwen-pipeline-long-case
+    version: 1.0.0
+    title: Qwen long pipeline case
+    provenance: []
+    issues: []
+    extensions: {}
+    purpose: diagnostic
+    model_ref:
+      id: metax-qwen3-06b
+      version: 1.0.0
+    workload_ref:
+      id: qwen-pipeline-long-workload
+      version: 1.0.0
+    protocol_ref:
+      id: qwen-pipeline-protocol
+      version: 1.0.0
+    sla_ref: null
+    required: true
+    source_case_label: Small-model pipeline qualification
+    declared_context:
+      input: '8192'
+      output: '32'
+    priority: null
+- ref:
+    id: qwen-pipeline-long-workload
+    version: 1.0.0
+  sha256: a5ba11589914aa391c4c00c9d7bc57d9c2f849a8bf21363c9513126af7220ddf
+  document:
+    schema_version: 0.2.0
+    kind: WorkloadSpec
+    id: qwen-pipeline-long-workload
+    version: 1.0.0
+    title: Qwen pipeline long (not GLM acceptance)
+    provenance: []
+    issues: []
+    extensions: {}
+    input:
+      label: '8192'
+      tokens: 8192
+      k_multiplier: null
+      origin: test_override
+    output:
+      label: '32'
+      tokens: 32
+      k_multiplier: null
+      origin: test_override
+    requests:
+      content: random_independent
+      request_set_sha256: null
+      seed: 20261123
+      count: 4
+    generation:
+      ignore_eos: true
+      sampling: greedy
+      stop_policy: fixed_output_tokens
+    arrival:
+      mode: closed_loop
+      load_unit: concurrency
+      load_points:
+      - 1
+    cache:
+      prefix_reuse: disabled
+      target_hit_ratio: 0
+      preparation: disable_prefix_cache
+      reset_between_runs: true
+- ref:
+    id: qwen-pipeline-protocol
+    version: 1.0.0
+  sha256: 8cdbfd48ae950649d34420531788c501d03b073bedccf991640d5f1be92f7a3a
+  document:
+    schema_version: 0.2.0
+    kind: MeasurementProtocol
+    id: qwen-pipeline-protocol
+    version: 1.0.0
+    title: Qwen pipeline qualification protocol
+    provenance: []
+    issues: []
+    extensions: {}
+    scope: e2e
+    method: full_request
+    allowed_deployment_modes:
+    - aggregated
+    timing:
+      ttft_boundary: client_submit_to_first_content_token
+      tpot_boundary: first_to_last_token_over_n_minus_one
+      token_timestamps: unavailable
+      window: fixed_request_set
+      start: first_actual_send
+      finish: last_completion_or_timeout
+    execution:
+      warmup: Separate AIPerf process and disjoint warmup fixture; excluded from scoring.
+      warmup_request_count: 1
+      timeout_s: 120
+      repetitions: 1
+      profiler_during_scoring: false
+    accounting:
+      primary_population: all_planned_requests
+      failure_policy: retain_in_denominator
+      logical_request_deduplication: true
+    steps:
+    - Check model and cache configuration.
+    - Run excluded warmup fixture.
+    - Send fixed request set with closed-loop concurrency.
+    - Retain failures and drain until completion or timeout.
+- ref:
+    id: qwen-pipeline-short
+    version: 1.0.0
+  sha256: 72b2a8a2ea9b4baa012d8f92f2d34d45448a8c3f397a6dc85648b9f7169f29a4
+  document:
+    schema_version: 0.2.0
+    kind: BenchmarkScenario
+    id: qwen-pipeline-short
+    version: 1.0.0
+    title: Qwen short scenario
+    provenance: []
+    issues: []
+    extensions: {}
+    case_ref:
+      id: qwen-pipeline-short-case
+      version: 1.0.0
+    dataset_dir: experiments/datasets/qwen-pipeline-short
+- ref:
+    id: qwen-pipeline-short-case
+    version: 1.0.0
+  sha256: 598a7dcaa6fdb418513fa2deaba81137511255a964da002a1e37c2eb8e3b9646
+  document:
+    schema_version: 0.2.0
+    kind: TestCaseSpec
+    id: qwen-pipeline-short-case
+    version: 1.0.0
+    title: Qwen short pipeline case
+    provenance: []
+    issues: []
+    extensions: {}
+    purpose: diagnostic
+    model_ref:
+      id: metax-qwen3-06b
+      version: 1.0.0
+    workload_ref:
+      id: qwen-pipeline-short-workload
+      version: 1.0.0
+    protocol_ref:
+      id: qwen-pipeline-protocol
+      version: 1.0.0
+    sla_ref: null
+    required: true
+    source_case_label: Small-model pipeline qualification
+    declared_context:
+      input: '1024'
+      output: '32'
+    priority: null
+- ref:
+    id: qwen-pipeline-short-workload
+    version: 1.0.0
+  sha256: 7d4c3a9b464588d4c89182c602f5e73f0655da1ad8e5d113218e617c029901d8
+  document:
+    schema_version: 0.2.0
+    kind: WorkloadSpec
+    id: qwen-pipeline-short-workload
+    version: 1.0.0
+    title: Qwen pipeline short (not GLM acceptance)
+    provenance: []
+    issues: []
+    extensions: {}
+    input:
+      label: '1024'
+      tokens: 1024
+      k_multiplier: null
+      origin: test_override
+    output:
+      label: '32'
+      tokens: 32
+      k_multiplier: null
+      origin: test_override
+    requests:
+      content: random_independent
+      request_set_sha256: null
+      seed: 20261123
+      count: 4
+    generation:
+      ignore_eos: true
+      sampling: greedy
+      stop_policy: fixed_output_tokens
+    arrival:
+      mode: closed_loop
+      load_unit: concurrency
+      load_points:
+      - 1
+      - 2
+    cache:
+      prefix_reuse: disabled
+      target_hit_ratio: 0
+      preparation: disable_prefix_cache
+      reset_between_runs: true
+- ref:
+    id: qwen-pipeline-smoke
+    version: 1.0.0
+  sha256: e5ef57c13ebdfcb831790aba76a1b95e6668d2fd15c9a7fe69a8e2c22c65f343
+  document:
+    schema_version: 0.2.0
+    kind: BenchmarkScenario
+    id: qwen-pipeline-smoke
+    version: 1.0.0
+    title: Qwen smoke scenario
+    provenance: []
+    issues: []
+    extensions: {}
+    case_ref:
+      id: qwen-pipeline-smoke-case
+      version: 1.0.0
+    dataset_dir: experiments/datasets/qwen-pipeline-smoke
+- ref:
+    id: qwen-pipeline-smoke-case
+    version: 1.0.0
+  sha256: 5dc6a4b3ee53e5e51a83140b68c0301fc5d2414d44d00bf63291266e1743f528
+  document:
+    schema_version: 0.2.0
+    kind: TestCaseSpec
+    id: qwen-pipeline-smoke-case
+    version: 1.0.0
+    title: Qwen smoke pipeline case
+    provenance: []
+    issues: []
+    extensions: {}
+    purpose: diagnostic
+    model_ref:
+      id: metax-qwen3-06b
+      version: 1.0.0
+    workload_ref:
+      id: qwen-pipeline-smoke-workload
+      version: 1.0.0
+    protocol_ref:
+      id: qwen-pipeline-protocol
+      version: 1.0.0
+    sla_ref: null
+    required: true
+    source_case_label: Small-model pipeline qualification
+    declared_context:
+      input: '128'
+      output: '16'
+    priority: null
+- ref:
+    id: qwen-pipeline-smoke-workload
+    version: 1.0.0
+  sha256: 4661d09f6f603e92b7481e9599779bc9aa5edd152b1510e908a912072d40a8ac
+  document:
+    schema_version: 0.2.0
+    kind: WorkloadSpec
+    id: qwen-pipeline-smoke-workload
+    version: 1.0.0
+    title: Qwen pipeline smoke (not GLM acceptance)
+    provenance: []
+    issues: []
+    extensions: {}
+    input:
+      label: '128'
+      tokens: 128
+      k_multiplier: null
+      origin: test_override
+    output:
+      label: '16'
+      tokens: 16
+      k_multiplier: null
+      origin: test_override
+    requests:
+      content: random_independent
+      request_set_sha256: null
+      seed: 20261123
+      count: 4
+    generation:
+      ignore_eos: true
+      sampling: greedy
+      stop_policy: fixed_output_tokens
+    arrival:
+      mode: closed_loop
+      load_unit: concurrency
+      load_points:
+      - 1
+    cache:
+      prefix_reuse: disabled
+      target_hit_ratio: 0
+      preparation: disable_prefix_cache
+      reset_between_runs: true
+- ref:
+    id: source-metax-hardware-baseline-metax
+    version: 1.0.0
+  sha256: 45b0fb193931da41700255761f3cfb6ca1660fb483cbec2f3f53b431d80b3170
+  document:
+    schema_version: 0.2.0
+    kind: SourceDocument
+    id: source-metax-hardware-baseline-metax
+    version: 1.0.0
+    title: metax-hardware-baseline-metax raw hardware evidence
+    provenance: []
+    issues: []
+    extensions:
+      hardware.manifest:
+        path: experiments/evidence/metax-hardware-baseline/1.0.0/manifest.json
+        sha256: 2fce37ba383c80deed60a8d9f771a00c21ec768d0ef91791cc1a5e3e08a66904
+    path: experiments/evidence/metax-hardware-baseline/1.0.0/metax/result.json
+    sha256: 4da82d20a95a597d57980d7269921d9a63c0abe9b51513b5c672acde134056b5
+    media_type: application/json
+    role: calibration
+    authority: machine_collected
+    coverage:
+      status: partial
+      description: Inventory and selected single-device kernels; no collective or
+        model performance.
+- ref:
+    id: source-metax-qwen-runtime-audit
+    version: 1.0.0
+  sha256: 168c4b701256ef3db2dbe2ad07650a6301dda075e6f790df8afb182b2870ad6e
+  document:
+    schema_version: 0.2.0
+    kind: SourceDocument
+    id: source-metax-qwen-runtime-audit
+    version: 1.0.0
+    title: MetaX runtime package audit
+    provenance: []
+    issues: []
+    extensions: {}
+    path: experiments/evidence/model-intake/runtime-metax-20261123.json
+    sha256: 7fd911b9f971e0b2bea6034794686747e7c0738bac4bd0cb4c38aa7f0ca1fb5f
+    media_type: application/json
+    role: machine_inventory
+    authority: machine_collected
+    coverage:
+      status: partial
+      description: Package metadata only; editable vLLM source requires the recorded
+        /work bind mount.
+- ref:
+    id: source-metax-qwen3-06b
+    version: 1.0.0
+  sha256: 6dbb60993f589aa326b68de05ec8660571c147c4e85a96ca3effc7a2538006c9
+  document:
+    schema_version: 0.2.0
+    kind: SourceDocument
+    id: source-metax-qwen3-06b
+    version: 1.0.0
+    title: metax-qwen3-06b machine-collected model metadata
+    provenance: []
+    issues: []
+    extensions: {}
+    path: experiments/evidence/model-intake/metax-qwen3-06b/1.0.0/metadata.json
+    sha256: ced299f66fb3d2f1cb1ddace0a2eac0f941be1a05adaa909ee8f8e5246142002
+    media_type: application/json
+    role: model_metadata
+    authority: machine_collected
+    coverage:
+      status: partial
+      description: Config, tokenizer and all shard headers; no full payload hashing
+        or model execution.
+readiness_issues:
+- 'metax-qwen-smoke-gpu0/discovery/health: Review raw device errors and perform link/ECC
+  diagnostics before using this node as an accepted hardware baseline.'
+- 'metax-qwen-smoke-gpu0/discovery/health: hardware health is not verified'
+- 'metax-qwen-smoke-gpu0: required hardware capabilities not verified'
+- 'metax-qwen3-06b/checkpoint: shard index/header ambiguity remains'
+- 'metax-qwen3-06b/checkpoint: target loader compatibility is not verified'
+- 'metax-qwen3-06b/checkpoint: weight payload integrity is not verified'
+- 'metax-qwen3-06b/identity/repository: required before freezing'
+- 'metax-qwen3-06b/identity/revision: No immutable upstream revision was established
+  from this directory.'
+- 'metax-qwen3-06b/identity/revision: required before freezing'
+- 'metax-qwen3-06b/identity/weights_sha256: Only metadata and every shard header were
+  verified; weight payload bytes were not hashed.'
+- 'metax-qwen3-06b/identity/weights_sha256: required before freezing'
+- 'metax-qwen3-06b/semantics/contract: unresolved value unspecified'
+- 'metax-qwen3-06b/semantics/correctness_policy_ref: required before freezing'
+- 'metax-qwen3-06b/semantics: No model-quality acceptance policy has been attached.'
+- 'metax-qwen3-06b/tokenizer/revision: required before freezing'
+- 'metax-vllm-qwen-smoke/source_commit: Requires read-only /home/metax/glm53-vllm032
+  -> /work source mount; image metadata alone is insufficient.'
+- 'metax-vllm-qwen-smoke/source_commit: required before freezing'
+- 'qwen-pipeline-long-workload/requests/request_set_sha256: required before freezing'
+- 'qwen-pipeline-short-workload/requests/request_set_sha256: required before freezing'
+- 'qwen-pipeline-smoke-workload/requests/request_set_sha256: required before freezing'
+execution_issues: []
+trials:
+- id: trial-521099736823c5e5
+  deployment_ref: &id001
+    id: qwen-metax-vllm-attached
+    version: 1.0.0
+  scenario_ref:
+    id: qwen-pipeline-smoke
+    version: 1.0.0
+  concurrency: 1
+  repetition: 1
+  comparison_sha256: ee77bcd2c03a6d8bc790e68afa00df53c0d97b13eccc909b1b7735c3d3cf6a65
+- id: trial-3440bc71491ecb5b
+  deployment_ref: *id001
+  scenario_ref: &id002
+    id: qwen-pipeline-short
+    version: 1.0.0
+  concurrency: 1
+  repetition: 1
+  comparison_sha256: 935128f33bf9eb824accf70604441c53d8501d8b870dc1bcf6483799c3852681
+- id: trial-c2efeb16bf3a311c
+  deployment_ref: *id001
+  scenario_ref: *id002
+  concurrency: 2
+  repetition: 1
+  comparison_sha256: 62feeabfb98befa307e89e21e4c8fcf9f059217448f832ce4184a62466602418
+- id: trial-a43e577c6ef5cf28
+  deployment_ref: *id001
+  scenario_ref:
+    id: qwen-pipeline-long
+    version: 1.0.0
+  concurrency: 1
+  repetition: 1
+  comparison_sha256: 10da537851893d54d34a0d435e0453dbf194dd345525e01b99ddbe0064de3b46
+content_sha256: da4f6d9301a8c95fc11d1d9d77b8c37749af90140943381acfb8ded785691c86

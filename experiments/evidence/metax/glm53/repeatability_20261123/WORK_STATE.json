@@ -1,0 +1,25 @@
+{
+  "status": "complete",
+  "date": "2026-11-23",
+  "remote_root": "/home/metax/glm53-repeatability-20261123",
+  "container": "glm53-repeat-v1",
+  "plan": "configs/plan.json",
+  "preserve_baseline": "../baseline_ops",
+  "phases": [
+    "A/B/C: three independent engines, five plain32 runs, all exact, each31/32",
+    "C: two diagnostic9 free generations, exact, each8/9",
+    "D1/D2 v5: 108 captures and216 paired comparisons complete",
+    "Legacy: historical runner in fourth independent plain engine, exact to A,31/32"
+  ],
+  "source_integrity": {
+    "regular_files": 9334,
+    "symlinks": 8,
+    "mismatches": 0
+  },
+  "known_sampling": "Explicit SamplingParams temperature=0/top_p=1/top_k=0/seed=0/sampling_type=GREEDY; model default temperature=1 not used by these requests.",
+  "next_steps": [],
+  "diagnostic_revision": 5,
+  "historical_root_cause": "Not reproduced; unresolved. See REPORT.md for excluded factors and untested execution-history/cache conditions.",
+  "original_environment_preserved": true,
+  "experiment_container_stopped": true
+}

@@ -7,10 +7,10 @@
 ## 直接查看或复现
 
 ```powershell
-python -m analysis plan analysis/plans/qwen-metax.yaml --diagnosis runs/diagnosis/qwen-metax-v1/diagnosis.yaml --out runs/analysis/my-qwen
-python -m analysis plan analysis/plans/glm53-flash-w8a8-c500.yaml --out runs/analysis/my-glm-flash
-python -m analysis plan analysis/plans/glm53-w4a8-c500.yaml --out runs/analysis/my-glm-w4a8
-python -m analysis plan analysis/plans/glm53-w8a8-c500.yaml --out runs/analysis/my-glm-w8a8
+python -m analysis plan recipes/plans/analysis/qwen-metax.yaml --diagnosis experiments/runs/diagnosis/qwen-metax-v1/diagnosis.yaml --out experiments/runs/analysis/my-qwen
+python -m analysis plan recipes/plans/analysis/glm53-flash-w8a8-c500.yaml --out experiments/runs/analysis/my-glm-flash
+python -m analysis plan recipes/plans/analysis/glm53-w4a8-c500.yaml --out experiments/runs/analysis/my-glm-w4a8
+python -m analysis plan recipes/plans/analysis/glm53-w8a8-c500.yaml --out experiments/runs/analysis/my-glm-w8a8
 ```
 
 输出 `analysis.yaml` 与完整 `report.md`，目录须不存在。Qwen 关联已完成的第一步与第二步；GLM 计划使用实际模型配置和新集群硬件清单，但没有虚构推理基线或运行时配方。
@@ -23,17 +23,17 @@ python -m analysis plan analysis/plans/glm53-w8a8-c500.yaml --out runs/analysis/
 | `trace.py` | 按时钟域/rank 合并重叠区间，生成热点工作量和覆盖度 |
 | `plans/` | Qwen 与三种 GLM 的实际分析计划 |
 | `examples/` | 明确标为 synthetic 的 trace 契约样例 |
-| `schemas/recipes/analysis/` | 11 份可复用方法卡，保持 YAML 格式 |
+| `recipes/analysis/` | 11 份可复用方法卡，保持 YAML 格式 |
 | `schemas/templates/diagnosis/`、`schemas/templates/analysis/` | DiagnosisPlan、AnalysisPlan、AnalysisMethod 模板 |
 
 新任务仍从模板创建，不需复制 Python 代码：
 
 ```powershell
-python tools/specs.py instantiate schemas/templates/analysis/plan.yaml --params schemas/examples/analysis-plan.yaml --out runs/new-analysis.yaml
-python tools/specs.py instantiate schemas/templates/analysis/method.yaml --params schemas/examples/analysis-method.yaml --out runs/new-method.yaml
+python tools/specs.py instantiate schemas/templates/analysis/plan.yaml --params examples/parameters/analysis-plan.yaml --out experiments/runs/new-analysis.yaml
+python tools/specs.py instantiate schemas/templates/analysis/method.yaml --params examples/parameters/analysis-method.yaml --out experiments/runs/new-method.yaml
 ```
 
-生成后替换目标模型/硬件/runtime、归因引用、方法和预算。新增方法注册到 `schemas/recipes/analysis/` 并加入 Plan 的 `method_refs`。开放的 tags 和实验字段不限制优化方向；首版已有 MoE、单卡通信、量化、MTP 的确定性不适用判断，其余方法条件仍需人工/适配器确认。
+生成后替换目标模型/硬件/runtime、归因引用、方法和预算。新增方法注册到 `recipes/analysis/` 并加入 Plan 的 `method_refs`。开放的 tags 和实验字段不限制优化方向；首版已有 MoE、单卡通信、量化、MTP 的确定性不适用判断，其余方法条件仍需人工/适配器确认。
 
 ## 11 个专项
 
@@ -80,7 +80,7 @@ python tools/specs.py instantiate schemas/templates/analysis/method.yaml --param
 示例为人工构造的区间，运行不会测量任何硬件：
 
 ```powershell
-python -m analysis trace analysis/examples/overlap.yaml --out runs/analysis/overlap.yaml
+python -m benchmark breakdown trace examples/traces/overlap.yaml --out experiments/runs/analysis/overlap.yaml
 ```
 
 rank 0 的 `[0,60]` 和 `[40,80]` 合并后覆盖 80 ns，不能累加成 100 ns。rank 1 独立计算 90 ns，也不能与 rank 0 相加为请求延迟。输出保留 category union、热点调用数/累计工作时间、窗口未覆盖区间；不同 category 的 union 仍可能重叠。

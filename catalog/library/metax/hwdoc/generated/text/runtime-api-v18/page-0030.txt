@@ -1,0 +1,52 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 30
+PDF 页码标签: 21
+页脚页码候选: 21
+章节提示（书签推断）: 协作组示例
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+(续上页)
+}
+return val; // note: only thread 0 will return full sum
+}
+__device__ int thread_sum(int *input, int n)
+{
+int sum = 0;
+for(int i = blockIdx.x * blockDim.x + threadIdx.x;
+i < n / 4;
+i += blockDim.x * gridDim.x)
+{
+int4 in = ((int4*)input)[i];
+sum += in.x + in.y + in.z + in.w;
+}
+return sum;
+}
+__global__ void sum_kernel_block(int *sum, int *input, int n)
+{
+int my_sum = thread_sum(input, n);
+extern __shared__ int temp[];
+auto g = this_thread_block();
+int block_sum = reduce_sum(g, temp, my_sum);
+if (g.thread_rank() == 0) atomicAdd(sum, block_sum);
+}
+int main()
+{
+int n = 5 * 1024;
+int blockSize = 256;
+int nBlocks = (n + blockSize - 1) / blockSize;
+int sharedBytes = blockSize * sizeof(int);
+int *sum, *data;
+mcMallocManaged(&sum, sizeof(int));
+mcMallocManaged(&data, n * sizeof(int));
+std::fill_n(data, n, 1); // initialize data
+mcMemset(sum, 0, sizeof(int));
+void *kernelArgs[]={
+(void*)&sum,
+(void*)&data,
+(void*)&n,
+};
+(下页继续)
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 21

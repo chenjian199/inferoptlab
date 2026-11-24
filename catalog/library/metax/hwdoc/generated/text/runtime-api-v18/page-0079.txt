@@ -1,0 +1,43 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 79
+PDF 页码标签: 70
+页脚页码候选: 70
+章节提示（书签推断）: 术语/缩略语
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+5 附录
+5.1 术语/缩略语
+术语/缩略语 全名 描述
+DOT 一 种 图 描 述 语 言， 详 细 信 息 可 参 见：https://www.
+graphviz.org/doc/info/lang.html
+Grid 线程网格
+IPC Interprocess Communica‑
+tion
+进程间通信
+Makefile 描述了整个代码工程所有文件的编译顺序、编译规则。
+Makefile 有自己的书写格式、 关键字、 函数， 可以使用
+系统 shell 所提供的任何命令来完成想要的工作
+MCRTC MetaX Runtime Compila‑
+tion
+用于 MXMACA C++ 的运行时编译库
+MetaXLink 沐曦 GPU D2D 接口总线
+mxcc MXMACA 软件栈中，针对 MetaX GPU 的硬件架构和功
+能特性设计和发布的编译器
+MXMACA MetaX Advanced Compute
+Architecture
+沐曦推出的 GPU 软件栈，包含了沐曦 GPU 的底层驱
+动、编译器、数学库及整套软件工具套件
+PCIe Peripheral Component
+Interconnect‑Express
+一种高速串行计算机扩展总线标准
+SIMD Single Instruction Multiple
+Data
+单指令、多数据
+SIMT Single Instruction Multiple
+Thread
+单指令、多线程
+SVM Shared Virtual Memory 共享虚拟内存
+5 附录 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 70

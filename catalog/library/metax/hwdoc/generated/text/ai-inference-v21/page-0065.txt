@@ -1,0 +1,37 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 65
+PDF 页码标签: 53
+页脚页码候选: 53
+章节提示（书签推断）: MacaRT-vLLM-metax功能与局限性
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+8 MacaRT‑vLLM‑metax
+8.1 MacaRT‑vLLM‑metax介绍
+vLLM‑metax 是专为沐曦通用 GPU 打造的 vLLM 框架后端插件，用于使 vLLM 推理框架能够在沐曦 GPU
+上高效运行。当前兼容 vLLM v0.11.0 版本。
+8.1.1 分支说明
+已发布 vLLM‑metax 版本与 MXMACA 版本的映射关系，参见表 8.1。
+表 8.1 vLLM‑metax、vLLM 官方、PyTorch 的版本映射关系
+vLLM‑metax vLLM PyTorch
+v0.10.2 v0.10.2 2.6
+v0.11.0 v0.11.0 2.6
+v0.11.2 v0.11.2 2.8
+v0.12.0 v0.12.0 2.8
+v0.13.0 v0.13.0 2.8
+v0.14.0 v0.14.0 2.8
+v0.15.0 v0.15.0 2.8
+8.2 MacaRT‑vLLM‑metax功能与局限性
+MacaRT‑vLLM‑metax 兼容适配了 vLLM v0.11.0 版本，包含了以下功能和特性，以及局限性：
+功能和特性：
+• 兼容 vLLM v0.11.0 支持的所有模型 BFLOAT16 推理和部分模型 FLOAT16 推理，支持官方多模态模型
+• 兼容原生 LLM、Engine、Kernel 的 API 接口
+• 兼容原生 server 和 OpenAI server 接口
+• 支持 Lora 特性
+• 支持 GPTQ 和 AWQ 量化方式
+• 支持 ray 和 mp 方式启动单机多卡推理；设置 --distributed-executor-backend 可以指定不同
+后端进行多卡推理，默认使用 ray
+• 支持 prefix_cache 方式
+8 MacaRT‑vLLM‑metax 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 53

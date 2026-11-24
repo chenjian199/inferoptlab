@@ -1,0 +1,68 @@
+<h3 align="center">
+MetaX Warp
+</h3>
+
+
+<p align="center">
+| <a href="https://www.metax-tech.com/en/"><b>About MetaX</b></a> | <a href="https://nvidia.github.io/warp/"><b>Documentation</b></a> |
+</p>
+
+---
+
+*Latest News* 🔥
+
+- [2026/1] Released hpc_warp **v1.8.1** — aligned with Warp *v1.8.1*.
+
+## About
+
+Warp is a Python framework for writing high-performance simulation and graphics code. Warp takes regular Python functions and JIT compiles them to efficient kernel code that can run on the CPU or GPU.
+
+This project (hpc_warp) is based on [Warp v1.8.1 release](https://github.com/NVIDIA/warp/releases/tag/v1.8.1), and supports [MetaX](https://www.metax-tech.com) GPU.
+
+## Prerequisites
+
+- Hardware: MetaX C-series
+- OS: Linux
+- Software:
+  - Python >= 3.10
+  - Docker support
+
+## Getting Started
+
+hpc_warp currently only supports starting on docker images release by [MetaX develop community](https://developer.metax-tech.com/softnova/docker) which works out of the box.
+
+#### Setup environment variables
+
+```bash
+export MACA_PATH=/opt/maca
+export CUCC_PATH=/opt/maca/tools/cu-bridge
+export CUDA_PATH=/opt/maca/tools/cu-bridge
+export PATH=${CUCC_PATH}/bin:${CUCC_PATH}/tools:${MACA_CLANG_PATH}:${MACA_PATH}/bin:${CUDA_PATH}/bin:$PATH
+export LD_LIBRARY_PATH=${CUCC_PATH}/lib:${MACA_PATH}/lib:${MACA_PATH}/ompi/lib:${MACA_PATH}/ucx/lib:$LD_LIBRARY_PATH
+export MACA_DIRECT_DISPATCH=1
+```
+
+#### Build
+
+```bash
+python build_lib.py --no_libmathdx
+```
+
+#### Install
+
+```bash
+python install -e .
+```
+
+## Branches
+
+Below are maintained branches:
+
+| Branch      | Status       | Note                                 |
+|-------------|--------------|--------------------------------------|
+| master      | Maintained   | trying to support warp main, no gurantee on functionality |
+| releases/v1.8.1 | Maintained | Released |
+
+## License
+
+Apache License 2.0, as found in the [LICENSE](./LICENSE) file.

@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 39
+PDF 页码标签: 27
+页脚页码候选: 27
+章节提示（书签推断）: 全量模式
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+5.2.1 安装
+MacaPrecision 以 wheel 安 装 包 的 形 式 对 外 发 布， 建 议 在 Conda 环 境 中 安 装 （建 议 Python 版 本
+为 3.10） 。安装 MacaRT 后，可以在/opt/maca‑ai/onnxruntime‑maca/python/tools 目录下找到
+MacaPrecision 对应的 Python 安装包。
+操作步骤
+1. 执行以下命令，安装 MacaPrecision。
+conda create -n maca_test python=3.10
+source activate maca_test
+pip install onnxruntime_gpu-1.12.0+mc*.whl
+pip install maca_precision-*.whl
+wheel 包安装过程中会自动下载相关依赖库，主要有：
+• onnx
+• onnxruntime‑gpu
+• numpy
+5.2.2 使用说明
+MacaPrecision 以 CPU 计算结果为基准，对比每一层的输出结果，误差超过一定范围，认为计算精度有
+误。具体流程如下：
+1. 加载 ONNX 模型。
+2. 解析 ONNX 模型，分析 input 变量，生成随机输入数据。
+3. 在 CPU 上运行模型，保存输出结果（output_cpu） 。
+4. 在 GPU 上运行模型，保存输出结果（output_gpu） 。
+5. 逐层比较 output_cpu 与 output_gpu，如某一层的差值超过预设的阈值，则认为 GPU 计算精度存
+在问题，需要排查。
+由于常规模型与量化模型在内部处理方式上存在差异，所以执行操作时需要区分常规模型与量化模型。
+5.2.2.1 常规模型（FP32/FP16）
+全量模式
+执行以下命令，在全量模式下进行常规模型推理。
+python -m maca_precision -i ./test.onnx -c snr -t common -b 6
+• 参数 -i 指定需要测试的模型路径；
+• 参数 -c 指定用于逐层对比的计算方法，支持 snr/mse/cosine 三种方式（可不指定，默认 snr） ；
+5 MacaRT 工具链 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 27

@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_MCCL编程指南_CN_V08.pdf
+文档 ID: mccl-v08
+SHA256: 7a95ac3ce4f68b0fb11baabb7fa08794cd5f5081c9ec3e888eefaaa03ab8c8b2
+PDF 页序号: 36
+PDF 页码标签: 29
+页脚页码候选: 29
+章节提示（书签推断）: MCCL_DEBUG
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MCCL 编程指南
+4.2.3.7 MCCL_NET_GDR_LEVEL
+描述：允许用户精细控制何时在 NIC 和 GPU 之间使用 GPU Direct RDMA。该变量使用表示路径类型的
+字符串来指定 NIC 和 GPU 之间允许使用 GPU Direct RDMA 的最大距离级别。如果未指定，MCCL 将尝
+试根据其运行的体系结构和环境以最佳方式选择一个值。
+可选值：
+• 字符串类型值：
+– LOC：从不使用 GPU Direct RDMA（始终禁用）
+– MetaXLink：GPU 通过 MetaXLink 连接 NIC 时使用 GPU Direct RDMA
+– PIX：当 GPU 和 NIC 位于同一 PCI 交换机上时，使用 GPU Direct RDMA
+– PXB：当 GPU 和 NIC 通过 PCI 交换机（可能是多跳）连接时，使用 GPU Direct RDMA
+– PHB：当 GPU 和 NIC 位于同一 NUMA 节点上时，使用 GPU Direct RDMA，流量将通过 CPU
+– SYS：即使在 NUMA 节点之间的 SMP 互连中也可以使用 GPU Direct RDMA（始终启用）
+• 整数类型值（Legacy）
+可以选择将 MCCL_NET_GDR_LEVEL 声明为对应于路径类型的整数。保留这些数值是为了追溯兼容
+性，适用于在允许字符串之前使用数值的用户。
+不建议使用整数值，因为路径类型后续可能更改，数值与类型字符串标识符的映射关系可能会相应变
+化。为避免调试配置时遇到麻烦，请使用字符串标识符。
+– LOC: 0
+– PIX: 1
+– PXB: 2
+– PHB: 3
+– SYS: 4，大于 4 的值将被解释为 SYS
+默认值：无
+4.2.4 调试相关
+4.2.4.1 MCCL_DEBUG
+描述：控制 MCCL 日志打印级别，日志级别高的等级包含低等级日志信息。
+可选值：
+• NONE：日志级别为 0，不打印任何日志
+• VERSION：日志级别为 1，打印 MCCL 库版本号信息
+• WARN：日志级别为 2，打印 MCCL 错误信息
+• INFO：日志级别为 3，打印调试信息
+4 环境变量 沐曦股份专有信息 PG‑23004‑020‑F5_V08 | 29

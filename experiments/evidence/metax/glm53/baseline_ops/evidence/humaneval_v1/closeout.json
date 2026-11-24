@@ -1,0 +1,19 @@
+{
+  "completed_epoch": 1795367078.154734,
+  "original_containers_unchanged": true,
+  "comparison": "All saved identity/state/mount fields equal; mount array ordering normalized. Initial order-sensitive comparison was corrected. Raw before/after retained.",
+  "task_container": {
+    "name": "glm53-heval-v1",
+    "id": "e0d11ad7b9442ba58c519eaeac6af9ad4b47b3c0231ccbbabf4a8116d02b7343",
+    "running": false,
+    "exit_code": 137
+  },
+  "generation_exit_code": 0,
+  "scoring_exit_code": 0,
+  "host_python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "gpu_query": {
+    "path": "/usr/bin/mx-smi",
+    "exit": 4
+  },
+  "cleanup_scope": "Stopped only the new experiment container after successful generation and scoring; preserved container and bind-mounted files. Original containers left running."
+}

@@ -1,0 +1,40 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 30
+PDF 页码标签: 18
+页脚页码候选: 18
+章节提示（书签推断）: 安装
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+5.1.1 安装
+MacaConverter 以 wheel 安 装 包 的 形 式 对 外 发 布， 建 议 在 Conda 环 境 中 安 装 （建 议 Python 版 本
+3.10）。 安 装 MacaRT 后， 可 以 在/opt/maca‑ai/onnxruntime‑maca/python/tools 目 录 下 找 到
+MacaConverter 对应的 Python 安装包。
+操作步骤
+1. 执行以下命令，安装 MacaConverter。
+conda create -n maca_test python=3.10
+source activate maca_test
+pip install onnxruntime_gpu-1.12.0+mc*.whl
+pip install maca_converter-*.whl
+注解: 若运行时报以下错误：
+ImportError: libpython3.10.so.1.0: cannot open shared object file: No such 
+,→file or directory
+可执行以下命令：
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/xxx/anaconda3/envs/maca_test/
+,→lib/
+wheel 包安装过程中会自动下载相关依赖库，主要有：
+• numpy
+• onnx
+• onnxruntime‑gpu
+• TensorFlow==2.4.0
+• torch
+• torchvision
+• onnxoptimizer==0.2.6
+• rich==12.0.0
+• packaging
+• pyyaml
+• paddlepaddle
+• paddle2onnx
+5 MacaRT 工具链 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 18

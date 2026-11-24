@@ -181,6 +181,20 @@
               "type": "null"
             }
           ]
+        },
+        "count_multiplier": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "request_set_sha256_by_concurrency": {
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^[1-9][0-9]*$"
+          },
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
         }
       },
       "required": [
@@ -189,7 +203,26 @@
         "seed",
         "count"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "count_multiplier"
+            ]
+          },
+          "then": {
+            "properties": {
+              "count": {
+                "type": "null"
+              },
+              "request_set_sha256": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
     },
     "generation": {
       "type": "object",

@@ -1,0 +1,44 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 43
+PDF 页码标签: 31
+页脚页码候选: 31
+章节提示（书签推断）: dataset.txt文本格式说明
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+-c/--config ：yaml 参数文件
+5.3.2.1 预处理说明
+预处理流程如图 5.2 所示。
+图 5.2 预处理流程
+如果提供的预处理方案与模型的预处理方式不一致或无法满足要求时，可将预处理后的数据离线保存为
+npy 或二进制格式，关闭数据读取时的预处理，直接读取预处理后的数据。
+yaml 示例如下所示：
+import_model: /path/to/mode.onnx
+export_model: /path/to/export_model.onnx
+export_type: onnx
+quant_algorithm: percentile
+export_batch: 1
+without_bs: False
+force_advance_quant: False
+dataset:
+calib_dir: /path/to/dataset/calibrate/
+calib_num: 200
+batch_size: 8
+preprocessing:
+enable: False
+5.3.2.2 dataset.txt文本格式说明
+若输入 calib_dir 为 dataset.txt 文本格式，请参考如下格式。
+• 单输入模型：只读取每行第一列参数（空格分割） ；
+val/ILSVRC2012_val_00000001.JPEG 66
+val/ILSVRC2012_val_00000002.JPEG 971
+val/ILSVRC2012_val_00000003.JPEG 231
+val/ILSVRC2012_val_00000004.JPEG 810
+val/ILSVRC2012_val_00000005.JPEG 517
+val/ILSVRC2012_val_00000006.JPEG 58
+val/ILSVRC2012_val_00000007.JPEG 335
+val/ILSVRC2012_val_00000008.JPEG 416
+val/ILSVRC2012_val_00000009.JPEG 675
+• 多输入模型：每一行为一个数据样本，输入空格分割。
+5 MacaRT 工具链 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 31

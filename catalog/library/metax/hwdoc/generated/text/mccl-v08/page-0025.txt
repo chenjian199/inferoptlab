@@ -1,0 +1,38 @@
+文档: 沐曦通用GPU_MCCL编程指南_CN_V08.pdf
+文档 ID: mccl-v08
+SHA256: 7a95ac3ce4f68b0fb11baabb7fa08794cd5f5081c9ec3e888eefaaa03ab8c8b2
+PDF 页序号: 25
+PDF 页码标签: 18
+页脚页码候选: 18
+章节提示（书签推断）: MCCL_PCIE_BUFFER_MODE
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MCCL 编程指南
+4.2.1.7 MCCL_DISABLE_CACHEABLE_BUFFER
+描述：是否支持使用 RWK Buffer。
+可选值：
+• 0：不使用 RWK Buffer
+• 1：使用 RWK Buffer
+默认值：0
+4.2.1.8 MCCL_THRESHOLD_TO_USE_CACHEABLE_BUFFER
+描述：simple 模式下使用 RWK Buffer 的阈值，大于此值时使用 RWK Buffer
+可选值：
+• ‑1： 使用默认阈值， normal node 模式下为 134217728 （128M） ， dragonfly node 模式下为 536870912
+（512M）
+• 其他值：使用整数值，建议使用 2 的幂
+默认值：‑1
+4.2.1.9 MCCL_THRESHOLD_TO_USE_CACHEABLE_BUFFER_P2P
+描述：simple p2p 模式下使用 RWK Buffer 的阈值，大于此值时使用 RWK Buffer。
+可选值：
+• ‑1：使用默认阈值 134217728（128M）
+• 其他值：使用整数值，建议使用 2 的幂
+默认值：‑1
+4.2.1.10 MCCL_PCIE_BUFFER_MODE
+描述：设置 MCCL 中 PCIe Buffer 的工作模式，用于选择卡间通信是否使用 PCIe 链路进行通信。
+可选值：
+• ‑1：自动选择，由服务器的 GPU 拓扑决定
+• 0：首选 MetaXLink
+• 1：选择 MetaXLink 和 PCIe
+• 2：只选择 PCIe
+默认值：‑1
+4 环境变量 沐曦股份专有信息 PG‑23004‑020‑F5_V08 | 18

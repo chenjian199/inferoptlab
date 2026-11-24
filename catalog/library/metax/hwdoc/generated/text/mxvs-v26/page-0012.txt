@@ -1,0 +1,19 @@
+文档: 沐曦通用GPU_mxvs测试工具套件使用手册_CN_V26.pdf
+文档 ID: mxvs-v26
+SHA256: f14e664d429c6568ce5723a3a83c7a9164c2fcb33fd59137fb49c1128ab63ce2
+PDF 页序号: 12
+PDF 页码标签: 2
+页脚页码候选: 2
+章节提示（书签推断）: 工具部署
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mxvs 测试工具套件使用手册
+2 工具部署
+1. mxvs 基于 AppImage 进行封装，请确保系统中正确安装 FUSE。
+以 Ubuntu 为例，使用以下命令查看是否安装了 FUSE 用户空间工具：
+dpkg -l | grep fuse
+若未安装，可使用以下命令进行安装：
+sudo apt-get install fuse libnss3
+2. 从 MXMACA 2.31.0 版本起， MXMACA SDK 包安装过程中会默认将 mxvs 工具放置在/opt/maca/bin/
+目录下。
+2 工具部署 沐曦股份专有信息 OG‑23023‑020‑F5_V26 | 2

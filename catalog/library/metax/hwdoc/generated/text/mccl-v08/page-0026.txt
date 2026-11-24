@@ -1,0 +1,37 @@
+文档: 沐曦通用GPU_MCCL编程指南_CN_V08.pdf
+文档 ID: mccl-v08
+SHA256: 7a95ac3ce4f68b0fb11baabb7fa08794cd5f5081c9ec3e888eefaaa03ab8c8b2
+PDF 页序号: 26
+PDF 页码标签: 19
+页脚页码候选: 19
+章节提示（书签推断）: MCCL_DMABUF_ENABLE
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MCCL 编程指南
+4.2.1.11 MCCL_TUNING_MODEL
+描述：根据全局拓扑的种类设置了不同的算法选择适配模式，不同值会使用不同的算法固定延迟、带宽
+系数以及对应不同算法不同数据大小的带宽微调。
+可选值：
+• 5：单节点时推荐设置为 5
+• 6：多节点时推荐设置为 6
+默认值：5
+4.2.1.12 MCCL_PROTO
+描述：定义 MCCL 将使用哪种协议。不建议用户设置此变量，除非在怀疑 MCCL 中存在错误的情况下禁
+用特定协议。特别是在不支持 LL128 的平台上启用 LL128 可能会导致数据损坏。
+可选值：以逗号分隔的协议列表（不区分大小写） ，包括：LL、LL128、Simple。要指定要排除（而不是
+包含）的协议，请以 ^ 开头列表。
+默认值：在支持 LL128、LL、Simple 的平台上，默认值为 LL,LL128,Simple。
+4.2.1.13 MCCL_ALGO
+描述：定义 MCCL 将使用哪些算法。
+可选值： 以逗号分隔的算法列表 （不区分大小写） ， 包括： 树、 环、 Collnet、 CollnetDirect 和 CollnetChain。
+要指定要排除（而不是包含）的算法，请以 ^ 开始列表。
+默认值：Tree,Ring,CollnetDirect,CollnetChain
+4.2.1.14 MCCL_DMABUF_ENABLE
+描述： 使用 Linux dma‑buf 子系统启用 GPU Direct RDMA 缓冲区注册。 Linux dma‑buf 子系统允许支持
+GPU Direct RDMA 的 NIC 直接读取和写入 MXMACA 缓冲区，而无需 CPU 参与。
+可选值：
+• 0：禁用
+• 1：启用
+默认值：1
+如果 Linux 内核或 MXMACA/NIC 驱动程序不支持该功能，则会自动禁用该功能。
+4 环境变量 沐曦股份专有信息 PG‑23004‑020‑F5_V08 | 19

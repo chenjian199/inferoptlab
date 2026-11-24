@@ -1,0 +1,40 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 299
+PDF 页码标签: 291
+页脚页码候选: 291
+章节提示（书签推断）: 编程模型概念
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+3 Cooperative Groups
+3.1 介绍
+Cooperative Groups 是一个 MXMACA 编程模型的扩展，目的是组织线程之间的交互。Cooperative
+Groups允许开发者表达交互线程的粒度，帮助他们进行更有效的并行分解。
+3.2 编程模型概念
+Cooperative Groups 编程模型描述 MXMACA thread blocks 内部以及相互之间的同步模式。它为应用
+提供定义他们自己的线程分组的方法，以及同步它们的接口。还提供新的强制执行特定限制的 launch
+APIs 来保证同步的功能。这些原语在 MXMACA 中启用新的协作并行模型，包括生产者‑消费者并行性，
+机会并行性，以及整个Grid的整体同步。
+CooperativeGroups编程模型由以下元素构成：
+• 表示协作线程分组的数据类型；
+• 获取MXMACAlaunchAPI定义的隐式分组的操作（比如threadblocks） ；
+• 将现有分组划分为新分组的操作集合；
+• 数据移动和操作的算法集合（比如memcpy_async，reduce，scan） ；
+• 同步组内所有线程的操作；
+• 检查组属性的操作；
+• 暴露低级别、特定于组且通常由硬件加速的操作集合。
+CooperativeGroups中的主要概念是对象命名其中一部分的线程集。这种将组表示为一级程序对象的方
+式改进了软件组合，因为集合函数可以接收表示参与线程组的显式对象。该对象还使程序员的意图明确，
+从而消除了从而消除了代码脆弱的不合理架构假设、对编译器优化的不良限制以及与 GPU 的更好的兼
+容性。
+要编写高效的代码，最好使用专门的group（通用会失去很多编译时优化） ，并通过引用将这些组对象传
+递给打算以某种写作方式使用这些线程的函数。
+要使用CooperativeGroups，请包含头文件：
+#include <maca_cooperative_groups.h>
+并使用CooperativeGroups的命名空间：
+using namespace cooperative_groups;
+// 或者使用一个别名防止集体算法污染命名空间
+namespace cg = cooperative_groups;
+3 CooperativeGroups 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 291

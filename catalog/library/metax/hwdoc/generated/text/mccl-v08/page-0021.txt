@@ -1,0 +1,34 @@
+文档: 沐曦通用GPU_MCCL编程指南_CN_V08.pdf
+文档 ID: mccl-v08
+SHA256: 7a95ac3ce4f68b0fb11baabb7fa08794cd5f5081c9ec3e888eefaaa03ab8c8b2
+PDF 页序号: 21
+PDF 页码标签: 14
+页脚页码候选: 14
+章节提示（书签推断）: 极致性能
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MCCL 编程指南
+4 环境变量
+4.1 推荐环境变量
+常规情况下，使用 MCCL 不需要设置环境变量。如曦云 C500/C550 等 x86 机型。
+针对下述场景，需要单独设置环境变量来满足特定需求。
+4.1.1 多机环境
+集群多机网络如果是常规配置，通常不需要配置网络相关的环境变量。为了屏蔽网络设置差异，可以设
+置如下环境变量简化配置，保障多机正常运行。
+export MCCL_IB_HCA=mlx5_0,mlx5_1（ 可 用 的 计 算 网 卡 网 口 ， 不 包 括 存 储 网 卡 网 口 ）
+export MCCL_NET_GDR_LEVEL=SYS
+export MCCL_CROSS_NIC=1
+4.1.2 极致性能
+可设置如下环境变量提升通信性能，尤其是运行 MCCL 性能测试时。部分环境变量会对其他性能产生一
+些影响，在大模型中使用需要权衡。
+• UMD 环境变量，降低通信的 CPU 时延，但会增加 CPU 负载：
+export MACA_EXT_CPU_THREAD_POLICY=2
+• 提升 MCCL 使用 Cache 的性能，但可能会对 BLAS Kernel 产生性能影响：
+export MCCL_FAST_WRITE_BACK=1
+• 提升 MCCL 使用 Cache 的性能，但可能会对 BLAS Kernel 产生性能影响：
+export MCCL_EARLY_WRITE_BACK=15
+• 开启 PCIe 链路。OAM 机型上默认关闭 PCIe 链路，测试 bench perf 可以开启以提升性能：
+export MCCL_PCIE_BUFFER_MODE=1
+• 开启 MCCL 性能测试中的 All to All 性能优化：
+export MCCL_OPTIMIZATION_A2A=1
+4 环境变量 沐曦股份专有信息 PG‑23004‑020‑F5_V08 | 14

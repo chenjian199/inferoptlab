@@ -1,0 +1,29 @@
+文档: 沐曦通用GPU_MCCL编程指南_CN_V08.pdf
+文档 ID: mccl-v08
+SHA256: 7a95ac3ce4f68b0fb11baabb7fa08794cd5f5081c9ec3e888eefaaa03ab8c8b2
+PDF 页序号: 11
+PDF 页码标签: 4
+页脚页码候选: 4
+章节提示（书签推断）: mcclCommInitAll
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MCCL 编程指南
+3 编程模型
+3.1 通讯器管理
+3.1.1 mcclGetVersion
+mcclResult_t mcclGetVersion(int* version);
+获取当前 MCCL 版本号。
+3.1.2 mcclGetUniqueId
+mcclResult_t mcclGetUniqueId(mcclUniqueId* uniqueId);
+获取 ID 号，用于在多进程场景中初始化的 ID，由任意一个进程获取，并通过 MPI 或 socket 发送给其它
+进程用于初始化。多节点环境同样适用。
+3.1.3 mcclCommInitRank
+mcclResult_t mcclCommInitRank(mcclComm_t* comm, int nranks, mcclUniqueId commId, 
+,→int rank);
+创建通讯器，nranks 为通讯器总数，commId 为使用 mcclGetUniqueId 获取到的 ID，rank 为此通
+讯器的编号，其最小值为 0，最大值为 nranks-1。此通讯器所使用的设备为当前线程正在使用的设备。
+每个通讯器不能使用相同的设备。
+3.1.4 mcclCommInitAll
+mcclResult_t mcclCommInitAll(mcclComm_t* comm, int ndev, const int* devlist);
+用于在单进程场景中一次性创建所有通讯器。devlist 包含了每个 rank 使用的设备。
+3 编程模型 沐曦股份专有信息 PG‑23004‑020‑F5_V08 | 4

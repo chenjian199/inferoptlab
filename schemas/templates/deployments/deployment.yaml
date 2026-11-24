@@ -38,6 +38,10 @@ parameters:
   mode:
     type: string
     description: mode; validated by the target schema.
+  prefix_cache:
+    type: boolean
+    default: false
+    description: Enable only for a matching cache replay protocol.
   parallelism:
     type: object
     description: parallelism; validated by the target schema.
@@ -76,6 +80,8 @@ body:
     $param: runtime_ref
   mode:
     $param: mode
+  prefix_cache:
+    $param: prefix_cache
   parallelism:
     $param: parallelism
   scheduling:

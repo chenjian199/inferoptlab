@@ -1,0 +1,39 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 32
+PDF 页码标签: 23
+页脚页码候选: 23
+章节提示（书签推断）: 显式内存池
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+3.5.2 内存池和内存池数据结构
+内存池封装了虚拟地址和物理内存资源，根据内存池的特性（Attribute）和属性（Property）进行分配
+和管理。内存池的主要方面是它所管理内存的种类和位置。
+所有对 mcMallocAsync 的调用都使用内存池的资源。在没有指定内存池的情况下， mcMallocAsync
+API 使用所提供流设备的当前内存池。 可以分别使用mcDeviceSetMemPool 和 mcDeviceGetMemPool
+来设置和查询设备的当前内存池。默认情况下（没有 mcDeviceSetMemPool 调用） ，当前内存池是设
+备的默认内存池。 mcMallocFromPoolAsync API 和 C++ 重载允许用户指定要用于分配的池，而无需
+将其设置为当前池。mcDeviceGetDefaultMemPool 和 mcMemPoolCreate API 为用户提供内存池的
+句柄。
+注解:
+• 设备的当前内存池缺省是该设备的本地内存池。因此，在不指定内存池的情况下进行分配将始终
+产生流设备的本地分配。
+• mcMemPoolSetAttribute 和 mcMemPoolGetAttribute 可以设置和查询内存池的属性。
+3.5.3 默认内存池
+可以使用 mcDeviceGetDefaultMemPool API 检索设备的默认内存池。来自设备默认内存池的分配是
+位于该设备上的不可迁移设备分配。这些分配将始终可以从该设备访问。默认内存池的可访问性可以通
+过 mcMemPoolSetAccess 进行修改，并通过 mcMemPoolGetAccess 进行查询。由于不需要显式创建
+默认池，因此有时将它们称为隐式池。设备默认内存池不支持 IPC。
+3.5.4 显式内存池
+mcMemPoolCreate API 创建一个显式内存池。目前显式内存池只能分配设备内存，必须在属性结构中
+指定显式内存池将要驻留的设备。显式内存池的主要用例是 IPC 功能。
+// create a pool similar to the implicit pool on device 0
+int device = 0;
+mcMemPoolProps poolProps = { };
+poolProps.allocType = mcMemAllocationTypePinned;
+poolProps.location.id = device;
+poolProps.location.type = mcMemLocationTypeDevice;
+mcMemPoolCreate(&memPool, &poolProps));
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 23

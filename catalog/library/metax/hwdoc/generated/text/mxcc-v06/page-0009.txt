@@ -1,0 +1,34 @@
+文档: 沐曦通用GPU_mxcc编译器用户指南_CN_V06.pdf
+文档 ID: mxcc-v06
+SHA256: 6fceba6f92b1b4274a5c2dd106d76320947a0b4ef0cdaffd36af5497fdffb6dd
+PDF 页序号: 9
+PDF 页码标签: 4
+页脚页码候选: 4
+章节提示（书签推断）: File和Path说明
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mxcc 编译器用户指南
+4 支持的选项
+大多数选项都有一个长名称和一个短名称。短名称显示在括号中。对于有值的选项，使用空格或等号分
+隔选项名称和值。因此，opt value 和 opt=value 均受支持。
+4.1 File 和 Path 说明
+--output-file file (-o)
+指定输出文件的名称和位置
+--pre-include file (-include)
+编译时包含该文件，等效于所编译的源文件首行添加 #include "file" 。
+--library library (-l)
+指定要在链接阶段使用的库，不包含库文件的扩展名。
+--define-macro def (-D)
+定义预处理阶段要使用的宏。def 可以为 name 或者 name=definition 。
+--undefine-macro def (-U)
+在预处理或编译阶段，取消定义现有宏。
+--include-path path (-I)
+指定 include 的查找路径。
+--system-include path (-isystem)
+指定系统 include 的查找路径。
+--library-path path (-L)
+指定库的查找路径。
+--dependency-output file (-MF)
+指定依赖输出文件。此选项指定依赖生成步骤（参见 4.2 指定编译阶段的选项 中 -M）的输出文件。如果
+设置了依赖输出文件，则必须指定选项 -M 或 -MM 。
+4 支持的选项 沐曦股份专有信息 OG‑23026‑020‑F5_V06 | 4

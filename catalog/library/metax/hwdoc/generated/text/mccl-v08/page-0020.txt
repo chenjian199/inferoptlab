@@ -1,0 +1,25 @@
+文档: 沐曦通用GPU_MCCL编程指南_CN_V08.pdf
+文档 ID: mccl-v08
+SHA256: 7a95ac3ce4f68b0fb11baabb7fa08794cd5f5081c9ec3e888eefaaa03ab8c8b2
+PDF 页序号: 20
+PDF 页码标签: 13
+页脚页码候选: 13
+章节提示（书签推断）: 归约操作类型
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MCCL 编程指南
+3.6 返回值类型
+• mcclSuccess：成功
+• mcclUnhandledMacaError：调用 MXMACA API 时返回错误
+• mcclSystemError：调用系统函数错误
+• mcclInternalError：MCCL 内部错误，可能是内存错误
+• mcclInvalidArgument：参数错误
+• mcclInvalidUsage：使用错误，可能是用户编程导致
+• mcclRemoteError：多节点场景时，网络连接错误
+3.7 归约操作类型
+• mcclSum：求和
+• mcclProd：求乘积
+• mcclMax：求最大值
+• mcclMin：求最小值
+• mcclAvg：求平均值
+3 编程模型 沐曦股份专有信息 PG‑23004‑020‑F5_V08 | 13

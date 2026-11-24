@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 296
+PDF 页码标签: 288
+页脚页码候选: 288
+章节提示（书签推断）: Launch Bounds（启动边界）
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+(续上页)
+mallocTest<<<10, 128>>>();
+mcDeviceSynchronize();
+return 0;
+}
+2.31 执行配置
+任何对于 __global__ 函数的调用必须明确“执行配置” 。执行配置定义了将会在device上执行的函数
+的grid、block的维度，同时也定义了相关的流。
+执行配置通过在函数名与带括号的参数列表之间插入形如 <<<Dg, Db, Ns, S>>> 的表达式来确定，
+其中：
+• Dg的数据类型为dim3，该参数确定了grid的维度与大小，Dg.x*Dg.y*Dg.z的值为启动的block的
+数量。
+• Db的数据类型为dim3，该参数确定了block的维度与大小，Db.x*Db.y*Db.z的值为每个block中
+thread的数量。
+• Ns 的数据类型为 size_t，该参数指定了除静态分配的 shared 内存之外，本次调用中每个 block 可动
+态分配的shared内存的大小（单位：字节） 。这些动态分配的内存可以被任何声明为external的数组
+（2.2.3__shared__）使用；该参数为可选参数，默认为0。
+• S的数据类型为mcStream_t，该参数指定了相关的流对象。该参数为可选参数，默认为0。
+例如，一个kernel函数声明为：
+__global__ void Func(float* parameter);
+可以使用如下方式调用该kernel函数：
+Func<<< Dg, Db, Ns >>>(parameter);
+执行配置的参数会在函数参数计算之前被计算。
+如果Dg或者Db超出device允许的最大值，则函数调用会失败。当Ns超出device可用的最大shared
+内存时，将会减少静态分配所需的内存。
+2.32 Launch Bounds（启动边界）
+每个kernel使用的寄存器越少，多处理器上的thread与block就可能存在的越多，这样可以提升性能。
+因此，编译器使用启发式方法来最小化寄存器使用量，同时将寄存器溢出和指令计数保持在最小。
+应用程序可以通过在 __global__ 函数中使用 __launch_bounds__()标识符的形式，向编译器提供
+附加信息来有选择地帮助这些启发式。
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 288

@@ -1,0 +1,26 @@
+文档: 沐曦通用GPU_mcPyTorch用户指南_CN_V16.pdf
+文档 ID: mcpytorch-v16
+SHA256: 165b88e24e4768497ef4587368037b4bbc99ab933eafc3e4baac43175c83cdb2
+PDF 页序号: 22
+PDF 页码标签: 16
+页脚页码候选: 16
+章节提示（书签推断）: torch.utils.jit
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcPyTorch 用户指南
+3.31 torch.testing
+支持
+3.32 torch.utils.benchmark
+支持
+3.33 torch.utils.bottleneck
+支持
+3.34 torch.utils.checkpoint
+支持
+3.35 torch.utils.cpp_extension
+支持
+注解: 编译环境需满足 GCC/G++ 9.0 或更高版本。
+3.36 torch.utils.data
+支持
+3.37 torch.utils.jit
+支持
+3 功能支持 沐曦股份专有信息 OG‑23031‑020‑F5_V16 | 16

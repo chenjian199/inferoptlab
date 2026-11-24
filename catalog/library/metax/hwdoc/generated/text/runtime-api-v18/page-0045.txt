@@ -1,0 +1,48 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 45
+PDF 页码标签: 36
+页脚页码候选: 36
+章节提示（书签推断）: 排序和并发
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+3.7.4 流和事件
+MXMACA 设备运行时目前仅提供了未命名（NULL）流，且不支持用户创建并使用命名流，同时也不支
+持将主机端申请的流传到设备上使用。
+对于 MXMACA 设备运行时，一个主机端进程只有一个默认流，同一时间只能使用一个动态并行的核函
+数，一个程序中在主机端同时异步启动两个动态并行的核函数也只会顺序执行。
+MXMACA 设备运行时目前暂不支持事件。
+3.7.4.1 排序和并发
+在一个网格中，从设备运行时启动的所有核函数默认启动到同一个流（隐式的 NULL 流）中是并发执行
+的。当同一个线程中启动多个核函数也可能是并发执行，当需要一个核函数在另一个核函数执行完之后
+执行，则需要在两个核函数之间添加函数 mcDeviceSynchronize 来保证前一个执行结束。当同一网
+格中的多个线程启动多个相同或不同核函数时，流中的排序取决于网格中的线程调度，这可以通过函数
+__syncthreads 和 mcDeviceSynchronize 等同步语句来控制。
+如下代码所示，核函数 parentKernel 每个线程内均保证 childKernelA 在 childKernelB 之前执
+行， 但不保证两个线程之间的childKernelA 和 childKernelA 顺序、 两个线程之间的childKernelA
+和 childKernelB 顺序，如需保证线程间的顺序，则可以使用 _syncthreads 等函数。
+__global__ void childKernelB()
+{
+printf("This is child kernel B\n");
+}
+__global__ void childKernelA()
+{
+printf("This is child kernel A\n");
+}
+__global__ void parentKernel()
+{
+// launch child A
+childKernelA<<<1,1>>>();
+mcDeviceSynchronize()
+// launch child B
+childKernelB<<<1,1>>>();
+}
+void host_launch(int *data) {
+parentKernel<<< 1, 256 >>>(data);
+}
+另外，设备运行时在 MXMACA 执行模型中没有引入新的并发保证。不能保证在设备上任意数量的不同
+线程块之间并发执行。缺乏并发性保证扩展到父网格及其子网格。当父网格启动子网格时，一旦满足流
+依赖性并且硬件资源可用于启动子网格，子网格就可以开始执行，但在父网格到达隐式同步点或函数
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 36

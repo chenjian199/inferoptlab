@@ -1,0 +1,9 @@
+{
+  "revision": 3,
+  "change": "Frozen before execution: two fresh diagnostic engines d1/d2, each nine shared prefixes repeated three times; unique trace paths.",
+  "files": {
+    "harness/diagnostic_worker.py": "0d0817ab115c348800c3171fbdda069722deabaf66f8ac734d26a8cc27436bff",
+    "harness/run_diagnostic.py": "3557ae667b8960623d3323651f7b7d9673762950aa5488593960e9dec96890f3",
+    "harness/launch_diagnostic2.py": "d8aa17d0aec3ec74b5361039fb933f8bcba93464429f7f058622304648a57c01"
+  }
+}

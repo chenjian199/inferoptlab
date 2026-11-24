@@ -1,0 +1,45 @@
+文档: 沐曦通用GPU_mxvs测试工具套件使用手册_CN_V26.pdf
+文档 ID: mxvs-v26
+SHA256: f14e664d429c6568ce5723a3a83c7a9164c2fcb33fd59137fb49c1128ab63ce2
+PDF 页序号: 26
+PDF 页码标签: 16
+页脚页码候选: 16
+章节提示（书签推断）: P2P带宽测试
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mxvs 测试工具套件使用手册
+9 P2P 验收测试工具
+9.1 P2P 带宽测试
+命令
+/opt/maca/bin/mxvs p2p --src-devices <SRC_DEVICE_ID1>, <SRC_DEVICE_ID2> --dst-
+,→devices <DST_DEVICE_ID1>, <DST_DEVICE_ID2>
+命令参数
+表 9.1 P2P 带宽测试命令参数
+参数 必填 描述
+--src-devices 是 P2P 测试起点 PCIe 设备编号，支持单个设备测试或多个设备同
+时测试。如果需要指定所有设备，可用 all 作为参数值。
+--dst-devices 是 P2P 测试终点 PCIe 设备编号，支持单个设备测试或多个设备同
+时测试。如果需要指定所有设备，可用 all 作为参数值。
+-s, --data-sizes 否 指 定 测 试 的 基 准 数 据 流， 支 持 单 个 基 准 数 据 流 测 试 或 多 个
+基 准 数 据 流 同 时 进 行 测 试。 可 选 单 位 有 KB、MB、GB， 示 例：
+--data-sizes 1KB,1MB,1GB 。默认选择 1GB 的基准数据流
+进行测试。
+--mode 否 指定 D2D 带宽测试时，数据拷贝的模式：
+• ingress：源设备从目的设备拷贝数据
+• egress：源设备向目的设备拷贝数据
+默认选择 egress。
+--unidirection 否 P2P 测试单向数据发送使能开关。
+--parallel 否 并行带宽测试使能开关，需与 --unidirection 一同使用，示
+例：
+• GPU0 同时向 GPU1、GPU2、GPU3 拷贝数据：
+/opt/maca/bin/mxvs p2p --src-devices 0
+--dst-devices 1,2,3 --unidirection --parallel
+• GPU1、GPU2、GPU3 同时向 GPU0 拷贝数据：
+/opt/maca/bin/mxvs p2p --src-devices 1,2,3
+--dst-devices 0 --unidirection --parallel
+• 同时进行 GPU0 与 GPU2，GPU1 与 GPU3 间双向数据拷贝：
+/opt/maca/bin/mxvs p2p --src-devices 0,2,
+1,3 --dst-devices 2,0,3,1 --unidirection
+--parallel
+下页继续
+9 P2P 验收测试工具 沐曦股份专有信息 OG‑23023‑020‑F5_V26 | 16

@@ -1,0 +1,12 @@
+schema_version: 0.2.0
+kind: BenchmarkScenario
+id: benchmark-short
+version: 1.0.0
+title: benchmark-short
+provenance: []
+issues: []
+extensions: {}
+case_ref:
+  id: case-benchmark-short
+  version: 1.0.0
+dataset_dir: experiments/datasets/workload-benchmark-short

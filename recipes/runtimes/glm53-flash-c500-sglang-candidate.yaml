@@ -1,0 +1,32 @@
+schema_version: 0.2.0
+kind: RuntimeSpec
+id: glm53-flash-c500-sglang-candidate
+version: 1.0.0
+title: GLM Flash 八卡候选运行环境；尚未验证模型加载
+provenance:
+- source_ref:
+    id: source-glm53-c500-runtime-audit
+    version: 1.0.0
+  locator: /images/0/runtime
+issues:
+- code: unqualified-glm-runtime
+  path: /status
+  status: unverified
+  blocking: true
+  reason: 镜像包清单已读取；尚未验证 GLM loader、混合注意力缓存、PP/EP；原镜像缺少 AIPerf 0.12。先配置隔离测试环境并重新核对占用，不替换现有服务。
+extensions: {}
+engine: sglang
+version_label: 0.5.14+detached.bde79bde7.maca3.8.2.121
+source_commit: null
+container_digest: sha256:91b2504601a1d2bdc2f4b057127258311df95d1d9c7f7aa2b270c60e5d4848e3
+container_identity_kind: docker_image_id
+driver: 3.9.35
+device_runtime: 3.8.3.17
+compiler: null
+libraries:
+  sglang: 0.5.14+detached.bde79bde7.maca3.8.2.121
+  torch: 2.10.0+metax3.8.2.2
+  transformers: 5.12.0
+  triton: 3.6.0+metax3.8.2.2
+launch_parameters: {}
+status: source_reported

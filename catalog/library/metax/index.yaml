@@ -1,0 +1,251 @@
+format_version: 1
+collection: metax
+source_root: .
+entries:
+- id: mceigen-v03
+  kind: vendor_document
+  title: 曦云系列_通用计算GPU_mcEigen用户指南
+  revision: V03
+  publication_date: '2024-03-15'
+  pages: 9
+  sha256: a99c752735a07ef038d743a050c3739dd167d2614b3f2619b77ba833c87947ec
+  path: catalog/library/metax/hwdoc/曦云系列_通用计算GPU_mcEigen用户指南_CN_V03.pdf
+  navigation: catalog/library/metax/hwdoc/generated/documents/mceigen-v03.md
+  topics:
+  - libraries
+  - development
+  verification: not_verified_against_server
+- id: ai-inference-v21
+  kind: vendor_document
+  title: 沐曦通用GPU_AI推理用户手册
+  revision: V21
+  publication_date: '2026-07-06'
+  pages: 92
+  sha256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+  path: catalog/library/metax/hwdoc/沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+  navigation: catalog/library/metax/hwdoc/generated/documents/ai-inference-v21.md
+  topics:
+  - inference
+  verification: not_verified_against_server
+- id: deepep-v01
+  kind: vendor_document
+  title: 沐曦通用GPU_DeepEP多机通信内存注册环境变量配置说明
+  revision: V01
+  publication_date: '2026-11-13'
+  pages: 7
+  sha256: 04ecd9ea7a268dc14c88f283869f64e17479a5da63dadef5cc4b93b07732fbf0
+  path: catalog/library/metax/hwdoc/沐曦通用GPU_DeepEP多机通信内存注册环境变量配置说明_CN_V01.pdf
+  navigation: catalog/library/metax/hwdoc/generated/documents/deepep-v01.md
+  topics:
+  - communication
+  verification: not_verified_against_server
+- id: device-order-v01
+  kind: vendor_document
+  title: 沐曦通用GPU_MACA_VISIBLE_DEVICES配置工具介绍
+  revision: V01
+  publication_date: '2026-11-13'
+  pages: 7
+  sha256: a46029cb1594ee57eaac6881937f14279ad0bf0810183c06108cce1e7b407356
+  path: catalog/library/metax/hwdoc/沐曦通用GPU_MACA_VISIBLE_DEVICES配置工具介绍_CN_V01.pdf
+  navigation: catalog/library/metax/hwdoc/generated/documents/device-order-v01.md
+  topics:
+  - communication
+  - environment
+  verification: not_verified_against_server
+- id: mcblas-v05
+  kind: vendor_document
+  title: 沐曦通用GPU_mcBLAS API参考
+  revision: V05
+  publication_date: '2026-03-27'
+  pages: 167
+  sha256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+  path: catalog/library/metax/hwdoc/沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+  navigation: catalog/library/metax/hwdoc/generated/documents/mcblas-v05.md
+  topics:
+  - libraries
+  - kernels
+  verification: not_verified_against_server
+- id: mccl-v08
+  kind: vendor_document
+  title: 沐曦通用GPU_MCCL编程指南
+  revision: V08
+  publication_date: '2026-06-26'
+  pages: 42
+  sha256: 7a95ac3ce4f68b0fb11baabb7fa08794cd5f5081c9ec3e888eefaaa03ab8c8b2
+  path: catalog/library/metax/hwdoc/沐曦通用GPU_MCCL编程指南_CN_V08.pdf
+  navigation: catalog/library/metax/hwdoc/generated/documents/mccl-v08.md
+  topics:
+  - communication
+  verification: not_verified_against_server
+- id: mcprofiler-v06
+  kind: vendor_document
+  title: 沐曦通用GPU_mcProfiler使用手册
+  revision: V06
+  publication_date: '2026-03-27'
+  pages: 10
+  sha256: 22c9fa76c4f27e328b151bad16f105b11d81df4fc501075baec5794c29b5c66e
+  path: catalog/library/metax/hwdoc/沐曦通用GPU_mcProfiler使用手册_CN_V06.pdf
+  navigation: catalog/library/metax/hwdoc/generated/documents/mcprofiler-v06.md
+  topics:
+  - profiling
+  verification: not_verified_against_server
+- id: mcpytorch-v16
+  kind: vendor_document
+  title: 沐曦通用GPU_mcPyTorch用户指南
+  revision: V16
+  publication_date: '2026-09-15'
+  pages: 25
+  sha256: 165b88e24e4768497ef4587368037b4bbc99ab933eafc3e4baac43175c83cdb2
+  path: catalog/library/metax/hwdoc/沐曦通用GPU_mcPyTorch用户指南_CN_V16.pdf
+  navigation: catalog/library/metax/hwdoc/generated/documents/mcpytorch-v16.md
+  topics:
+  - inference
+  - environment
+  verification: not_verified_against_server
+- id: mctracer-v08
+  kind: vendor_document
+  title: 沐曦通用GPU_mcTracer使用手册
+  revision: V08
+  publication_date: '2026-03-27'
+  pages: 9
+  sha256: 63b792c27a24a5f89d2e599bd5f84791f0c31b815e30d341e4c4cfcc1c21a492
+  path: catalog/library/metax/hwdoc/沐曦通用GPU_mcTracer使用手册_CN_V08.pdf
+  navigation: catalog/library/metax/hwdoc/generated/documents/mctracer-v08.md
+  topics:
+  - profiling
+  verification: not_verified_against_server
+- id: mctriton-v08
+  kind: vendor_document
+  title: 沐曦通用GPU_mcTriton用户指南
+  revision: V08
+  publication_date: '2026-09-22'
+  pages: 12
+  sha256: 5486a806ac8e48e40514347bac7403c40aee53d59515a9bded39cc17a7daed59
+  path: catalog/library/metax/hwdoc/沐曦通用GPU_mcTriton用户指南_CN_V08.pdf
+  navigation: catalog/library/metax/hwdoc/generated/documents/mctriton-v08.md
+  topics:
+  - kernels
+  - environment
+  verification: not_verified_against_server
+- id: mxcc-v06
+  kind: vendor_document
+  title: 沐曦通用GPU_mxcc编译器用户指南
+  revision: V06
+  publication_date: '2026-03-27'
+  pages: 20
+  sha256: 6fceba6f92b1b4274a5c2dd106d76320947a0b4ef0cdaffd36af5497fdffb6dd
+  path: catalog/library/metax/hwdoc/沐曦通用GPU_mxcc编译器用户指南_CN_V06.pdf
+  navigation: catalog/library/metax/hwdoc/generated/documents/mxcc-v06.md
+  topics:
+  - development
+  - kernels
+  verification: not_verified_against_server
+- id: maca-cpp-v06
+  kind: vendor_document
+  title: 沐曦通用GPU_MXMACA C++编程指南
+  revision: V06
+  publication_date: '2026-03-27'
+  pages: 313
+  sha256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+  path: catalog/library/metax/hwdoc/沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+  navigation: catalog/library/metax/hwdoc/generated/documents/maca-cpp-v06.md
+  topics:
+  - kernels
+  - development
+  verification: not_verified_against_server
+- id: clangd-v03
+  kind: vendor_document
+  title: 沐曦通用GPU_MXMACA Clangd用户手册
+  revision: V03
+  publication_date: '2026-03-27'
+  pages: 23
+  sha256: f84564a4060d30251dbb164705b0aec56b25f11c02c1c748d5ce6187e44868ad
+  path: catalog/library/metax/hwdoc/沐曦通用GPU_MXMACA Clangd用户手册_CN_V03.pdf
+  navigation: catalog/library/metax/hwdoc/generated/documents/clangd-v03.md
+  topics:
+  - development
+  verification: not_verified_against_server
+- id: builtins-v01
+  kind: vendor_document
+  title: 沐曦通用GPU_MXMACA编译器内建函数编程指南
+  revision: V01
+  publication_date: '2026-08-03'
+  pages: 46
+  sha256: 80dfb3a83381e48e19968b432d4eb24d37c505bd711af14f74889277cffc3835
+  path: catalog/library/metax/hwdoc/沐曦通用GPU_MXMACA编译器内建函数编程指南_CN_V01.pdf
+  navigation: catalog/library/metax/hwdoc/generated/documents/builtins-v01.md
+  topics:
+  - kernels
+  verification: not_verified_against_server
+- id: mxvs-v26
+  kind: vendor_document
+  title: 沐曦通用GPU_mxvs测试工具套件使用手册
+  revision: V26
+  publication_date: '2026-10-30'
+  pages: 38
+  sha256: f14e664d429c6568ce5723a3a83c7a9164c2fcb33fd59137fb49c1128ab63ce2
+  path: catalog/library/metax/hwdoc/沐曦通用GPU_mxvs测试工具套件使用手册_CN_V26.pdf
+  navigation: catalog/library/metax/hwdoc/generated/documents/mxvs-v26.md
+  topics:
+  - environment
+  - profiling
+  - communication
+  verification: not_verified_against_server
+- id: runtime-api-v18
+  kind: vendor_document
+  title: 沐曦通用GPU_运行时API编程指南
+  revision: V18
+  publication_date: '2026-10-30'
+  pages: 79
+  sha256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+  path: catalog/library/metax/hwdoc/沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+  navigation: catalog/library/metax/hwdoc/generated/documents/runtime-api-v18.md
+  topics:
+  - environment
+  - kernels
+  - communication
+  verification: not_verified_against_server
+- id: regression-policy
+  title: regression-policy
+  path: catalog/library/metax/methods/regression-policy.md
+  kind: method
+  verification: reviewed_method_not_execution_result
+  sha256: 04930880851d3c370dd83e646e2b8dd9f4488bdc9d86c945091f1f1717b98f9e
+- id: operator-workflow
+  title: operator-workflow
+  path: catalog/library/metax/methods/operator-workflow.md
+  kind: method
+  verification: reviewed_method_not_execution_result
+  sha256: 56556f201ccefae494591b87ceaeee4769e5f84127fd64034c3ae6474875df84
+- id: humaneval-reproduction
+  title: humaneval-reproduction
+  path: catalog/library/metax/methods/humaneval.md
+  kind: method
+  verification: reviewed_method_not_execution_result
+  sha256: ed5ca46fa64c8377b769788b9b921dee1d6c98cfef913378f42e5de05ef10d9d
+- id: humaneval-baseline
+  title: humaneval-baseline
+  path: experiments/evidence/metax/glm53/baseline_ops/BASELINE_REPORT.md
+  kind: historical_report
+  verification: historical_scoped_evidence
+  sha256: 2c24358c1cd0a1db680d95d297cce6d01f448d1fdd719961a86cf3c9c97276fb
+- id: repeatability
+  title: repeatability
+  path: experiments/evidence/metax/glm53/repeatability_20261123/REPORT.md
+  kind: historical_report
+  verification: historical_scoped_evidence
+  sha256: 542cf4c88973f8297ae7f0c5a3070dda2882af77295beaf9ecec965f77335702
+- id: gemm-recheck
+  title: gemm-recheck
+  path: experiments/evidence/metax/glm53/reboot_recheck_20261123/REPORT.md
+  kind: historical_report
+  verification: historical_scoped_evidence
+  sha256: 689b5907b276645a79a90969cf134b7a34be55248a7980527346471b3bdc520f
+external_index:
+  path: catalog/library/metax/hwdoc/generated/knowledge.json
+  records: 284
+  source_counts:
+    ecosystem: 138
+    github: 130
+    practice: 16
+scope: Local supplied sources only. Historical results are not current-machine qualification.

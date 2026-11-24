@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 153
+PDF 页码标签: 146
+页脚页码候选: 146
+章节提示（书签推断）: mcblasCsyrkEx()
+质量标记: private_use_characters
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+此外，对于矩阵 A，
+op(A) =
+
+
+
+A if transa == M CBLAS_OP _N
+AT if transa == M CBLAS_OP _T
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+uplo input 指示存储的是矩阵 C 的上半部分还是下半部分，其对称部分未
+被引用，且是从存储的元素推断出来的
+trans input 非转置或转置运算 op(A)
+n input 矩阵 op(A) 和 C 的行数
+k input 矩阵 op(A) 的列数
+alpha 主机或设备 input 用于乘法的 <type> 标量
+A 设备 input 如果 trans==MCBLAS_OP_N ，<type> 数组维度为 lda x k
+， 其 中 lda>=max(1,n) ； 否 则， 维 度 为lda x n ， 其 中
+lda>=max(1,k)
+Atype input 枚举，指定矩阵 A 的数据类型
+lda input 用于存储矩阵 A 的二维数组的前导维度
+beta 主机或设备 input 用于乘法的 <type> 标量，如果 beta == 0 ，则 C 不必为有效
+输入
+C 设备 in/out <type> 数组，维度为 ldc x n，其中 ldc>=max(1,n) 。
+Ctype input 枚举，指定矩阵 C 的数据类型
+ldc input 用于存储矩阵 C 的二维数组的前导维度
+mcblasCsyrkEx 支持的矩阵类型组合如下所示：
+A C
+MACA_C_8I MACA_C_32F
+MACA_C_32F MACA_C_32F
+下面列出了此函数可能的返回值及其含义。
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 146

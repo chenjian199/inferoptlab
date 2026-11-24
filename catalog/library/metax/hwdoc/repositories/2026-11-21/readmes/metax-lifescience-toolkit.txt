@@ -1,0 +1,51 @@
+# MetaX LifeScience Toolkit
+
+**Turn any agent into a life science expert with MetaX LifeScience Toolkit skills.**
+
+Protein folding, molecular docking, generative chemistry, genomics analysis,
+protein design, and biomarker discovery — life science libraries, tools, and
+models packaged as ready-to-call agent skills for MetaX environments.
+
+Each skill gives a coding or scientific agent structured instructions, scripts,
+and references to select a tool, prepare inputs, run it, inspect outputs, and
+explain results — across both single tasks and multi-step scientific workflows.
+
+This repository includes material adapted from the
+[NVIDIA BioNeMo Agent Toolkit](https://github.com/NVIDIA-BioNeMo/bionemo-agent-toolkit),
+with changes for MetaX hardware and MIM service contracts. See [NOTICE](NOTICE)
+for upstream attribution and a summary of modifications.
+
+## Install
+Skills install with the [`skills` CLI](https://github.com/vercel-labs/skills):
+
+```bash
+# interactive — pick a skill + install destination
+npx skills add MetaX-MACA/metax-lifescience-toolkit
+
+# one skill, no prompts
+npx skills add MetaX-MACA/metax-lifescience-toolkit --skill boltz2-mim --yes
+
+# target a specific agent (repeatable)
+npx skills add MetaX-MACA/metax-lifescience-toolkit --skill boltz2-mim --agent claude-code
+npx skills add MetaX-MACA/metax-lifescience-toolkit --skill boltz2-mim --agent codex
+
+# browse the catalog without installing
+npx skills add MetaX-MACA/metax-lifescience-toolkit --list
+```
+
+## Skill Catalog
+
+| Product | Description | Skills |
+|---------|-------------|--------|
+| **Protein Binder Design** | End-to-end de novo binder design workflow using MIM services. | [`protein-binder-design`](workflows/generative_protein_binder_design/protein-binder-design) |
+| **Boltz-2** | Biomolecular structure prediction + binding affinity (MIM). | [`boltz2-mim`](mim-skills/boltz2-mim) |
+| **ProteinMPNN** | Inverse folding / sequence design for a target backbone (MIM). | [`proteinmpnn-mim`](mim-skills/proteinmpnn-mim) |
+| **RFdiffusion** | De novo protein backbone and binder design (MIM). | [`rfdiffusion-mim`](mim-skills/rfdiffusion-mim) |
+
+## License
+
+Unless otherwise specified in a file or directory:
+- **Source code** (scripts, tests, build tooling) is licensed under [Apache-2.0](LICENSE-APACHE-2.0)
+- **Skills and documentation** (SKILL.md, workflows, READMEs) is licensed under [CC-BY-4.0](LICENSE-CC-BY-4.0)
+
+See [LICENSE](LICENSE) for the full license statement. Individual skills may reference third-party data sources with their own terms; consult each skill's references and the [NOTICE](NOTICE) file.

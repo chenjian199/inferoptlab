@@ -1,0 +1,473 @@
+{
+  "schema_version": 1,
+  "observed_on": "2026-11-22",
+  "path_base": "Local original_path and local_references.path are relative to project root; snapshot paths are relative to this case directory.",
+  "evidence_snapshots": [
+    {
+      "snapshot": "evidence/deployment-summary.json",
+      "snapshot_sha256": "ac7b80ca8724a9dd741714206539a9656c98c0a1f6aff9b8786fc233a5adea8b",
+      "original_path": "experiments/evidence/metax/glm53/deploy032/deployment_state.json",
+      "original_sha256": "98a04afb970e7ff700b691cb355f09fbbf33910bf385e717645e23738b4a814c",
+      "selection": {
+        "top_level_fields": [
+          "updated_Asia_Shanghai",
+          "status",
+          "active_route",
+          "proxy",
+          "sources",
+          "host_driver",
+          "registry_diagnostics",
+          "core_private_requirements",
+          "check_scripts",
+          "preserved",
+          "transfer_failures",
+          "acceptance",
+          "baseline_image",
+          "baseline_replay",
+          "reproduction_assets",
+          "original_mim_image_available",
+          "independent_baseline_image_available"
+        ]
+      },
+      "observed_on": "2026-11-22"
+    },
+    {
+      "snapshot": "evidence/inference-summary.json",
+      "snapshot_sha256": "72b6d888302042754e4478dda28384f1da7016f482d8e9dd738cecf3ad1d8a26",
+      "original_path": "experiments/evidence/metax/glm53/deploy032/evidence/inference_smoke.json",
+      "original_sha256": "b868bc7e42d05efcadf98b5f7c3867651fc2a45cffdb0ea9156cc98867fcc34e",
+      "selection": {
+        "top_level_fields": [
+          "settings",
+          "sampling",
+          "vllm_file",
+          "runner_override",
+          "plugin_file",
+          "load_seconds",
+          "generate_seconds",
+          "answer_checks",
+          "passed"
+        ],
+        "worker_fields": [
+          "rank",
+          "device",
+          "use_v2_model_runner",
+          "vllm_file",
+          "plugin_file",
+          "versions",
+          "parameter_dtype_numel",
+          "resolved_indexer_dtypes",
+          "mla_int8_scales"
+        ],
+        "cases": "Copy token counts/finish reason; retain only text after last </think>; omit prompts and reasoning prefix; add descriptive names."
+      },
+      "observed_on": "2026-11-22"
+    },
+    {
+      "snapshot": "evidence/weight-summary.json",
+      "snapshot_sha256": "315ecc1ab16c7bf12b6111cff4cf95febf2d3465e82ee8a4ac611d77902ed163",
+      "original_path": "experiments/evidence/metax/glm53/audit_20261122/weight_verification.json",
+      "original_sha256": "6a9673d68ee55c3d0aa776228871150c23de1656653c6fedbc6cc94cf16a878a",
+      "selection": "Selected revision, counts, failures, complete; verified_count = len(verified).",
+      "observed_on": "2026-11-22"
+    },
+    {
+      "snapshot": "evidence/structure-summary.json",
+      "snapshot_sha256": "67003f9fe1601a3acf831aba318b10227e2db056d6da9ace9ea7895476fb9de6",
+      "original_path": "experiments/evidence/metax/glm53/audit_20261122/structure_verification.json",
+      "original_sha256": "4a34971c3832bea937c4ad14dd3633797f947a7e876c80be4de6c940fb7f506d",
+      "selection": "Selected structure/count/integrity fields; quantization details remain in original evidence.",
+      "observed_on": "2026-11-22"
+    },
+    {
+      "snapshot": "evidence/proxy_runtime.json",
+      "snapshot_sha256": "c926ec81c7e0d3da1271625bc263b02bcde41c08fd7ce7ce234ccdcef475b112",
+      "original_path": "experiments/evidence/metax/glm53/deploy032/evidence/proxy_runtime.json",
+      "original_sha256": "f662ed493fe9118731b478575842122a6fa1ca6044297ae21729a7427773d8ef",
+      "selection": "All fields of reviewed structured evidence; JSON reformatted only.",
+      "observed_on": "2026-11-22"
+    },
+    {
+      "snapshot": "evidence/glm_mla_scale_before_after.json",
+      "snapshot_sha256": "39f2209d912c045e214e276842f5ba34580883cf543058f396c8735a755bf6e3",
+      "original_path": "experiments/evidence/metax/glm53/deploy032/evidence/glm_mla_scale_before_after.json",
+      "original_sha256": "4125da66bcc90152eb36950e66a813641889d2492c8eb6c93c15dae890754d94",
+      "selection": "All fields of reviewed structured evidence; JSON reformatted only.",
+      "observed_on": "2026-11-22"
+    },
+    {
+      "snapshot": "evidence/glm_mla_scale_loader.json",
+      "snapshot_sha256": "91c92150dee23a680fdba3696b17b5a561dcf41a1d0de7960fc1aa441e6aaed0",
+      "original_path": "experiments/evidence/metax/glm53/deploy032/evidence/glm_mla_scale_loader.json",
+      "original_sha256": "72a637ae4db920a5d1c0fa3b9631365f7d0ffe500e4fef309910666d29b0b605",
+      "selection": "All fields of reviewed structured evidence; JSON reformatted only.",
+      "observed_on": "2026-11-22"
+    },
+    {
+      "snapshot": "evidence/moe_alignment_compat.json",
+      "snapshot_sha256": "ec6a3a706c7c0be65f0f655ee860acdb29b238fdd4d7348c0481874fca1f6d0c",
+      "original_path": "experiments/evidence/metax/glm53/deploy032/evidence/moe_alignment_compat.json",
+      "original_sha256": "9718b9792e50fcf5bf93f880a5ce8f6e0bf1dafb649ed0b7f1578d511b7a8993",
+      "selection": "All fields of reviewed structured evidence; JSON reformatted only.",
+      "observed_on": "2026-11-22"
+    },
+    {
+      "snapshot": "evidence/glm_indexer_int8.json",
+      "snapshot_sha256": "04472436a02eb34b720975307b6be051c97bef34b1746d7d42305d579606faba",
+      "original_path": "experiments/evidence/metax/glm53/deploy032/evidence/glm_indexer_int8.json",
+      "original_sha256": "d9d207fcbff1dc9fb1a8d73714e28131d48ac3f698fd354924943c2547f0248a",
+      "selection": "All fields of reviewed structured evidence; JSON reformatted only.",
+      "observed_on": "2026-11-22"
+    },
+    {
+      "snapshot": "evidence/frozen_baseline_check.json",
+      "snapshot_sha256": "720dd957c648a4ac76528d8bb3cd03c5e7e4f307628ae1021e238de4113b3a1e",
+      "original_path": "experiments/evidence/metax/glm53/deploy032/evidence/frozen_baseline_check.json",
+      "original_sha256": "affec14d360791dfbec33f5ffe07682a1199b378a34d29f84487d46aa2687614",
+      "selection": "All fields of reviewed structured evidence; JSON reformatted only.",
+      "observed_on": "2026-11-22"
+    },
+    {
+      "snapshot": "evidence/inference_scale_fixed_run.json",
+      "snapshot_sha256": "6bb3e9ca2bb2c37941376df19fbff4f15af713de65a4407ec53806067fe00988",
+      "original_path": "experiments/evidence/metax/glm53/deploy032/evidence/inference_scale_fixed_run.json",
+      "original_sha256": "dafa1e36018ed66482ede9b6b7f50539e2430fd81db0f55e7987c9398802661d",
+      "selection": "All fields of reviewed structured evidence; JSON reformatted only.",
+      "observed_on": "2026-11-22"
+    }
+  ],
+  "local_references": [
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/manage_proxy.py",
+      "sha256": "82b6d8c8a6635ec440820bd069e73366d0b7b7dd28900ad014734ab8c0018d36",
+      "bytes": 5832
+    },
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/fetch_mim_layers.py",
+      "sha256": "e8a7020c91255b5f3e160e2117ffae81e41176f4cb9820b63d6154454ae08d83",
+      "bytes": 6677
+    },
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/fetch_sdk.py",
+      "sha256": "78ed647c8a935c8dceef7f1ef255d61ef3d194905fbade31829db05eff2722c8",
+      "bytes": 3411
+    },
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/fetch_vendor_resume.py",
+      "sha256": "2599f616b96549b4f64b867fc18f7a2928f3b7f564a6e346afa541c63505775e",
+      "bytes": 3674
+    },
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/prepare_sources.sh",
+      "sha256": "170cbaa7feef41fbc9d955ab0b00e3b760d4c015b4cfcda828ec76175ea8b2c9",
+      "bytes": 938
+    },
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/stage_sdk.py",
+      "sha256": "756a0f4266d182416a369f35cc70e7ab815621f33eb73a26f075add25f592318",
+      "bytes": 1818
+    },
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/install_sdk.py",
+      "sha256": "dd7762dd84a79a7a8b22a6807d22d4fb5e6831f2cd1b0d9fccb473ee7974cdaa",
+      "bytes": 1605
+    },
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/install_native.py",
+      "sha256": "e80a6a26f1798179487c60e7143f655f794819beec6b3ddcd31333fb456d07f5",
+      "bytes": 2808
+    },
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/install_frameworks.py",
+      "sha256": "57b1c933c199c29e84f947c34e9f266de9449728a965d336406987b62059a6fc",
+      "bytes": 4107
+    },
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/inspect_frameworks.py",
+      "sha256": "88d7a20f569bbdd1defdb158730d7becf103d9101629c8a13c72eab4eeb20660",
+      "bytes": 2190
+    },
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/check_gpu8.py",
+      "sha256": "899107d7b87809e34021547912b12884ca9f2c4bb04d7c4dfb3491f82d4d38d0",
+      "bytes": 1388
+    },
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/create_bootstrap.sh",
+      "sha256": "444c764b04604092a11032bd74a0677b77264963a3cbbb9121d2e6cf7a579158",
+      "bytes": 1716
+    },
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/run_inference.sh",
+      "sha256": "84253f379c3d410a35b27deedfd29198260ec18a21e2520327ff4353d9f4f8bc",
+      "bytes": 875
+    },
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/infer_smoke.py",
+      "sha256": "1d7c9aa2b9a3f3fbfaf5df965ff58371d698007ef948e18be4bb3bb149a32c54",
+      "bytes": 4441
+    },
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/worker_provenance.py",
+      "sha256": "439b86e5b68ff5223b5521f737cb2f5f3a4ff5991040bedf06d3d3589cc8f0bb",
+      "bytes": 5832
+    },
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/test_moe_alignment_compat.py",
+      "sha256": "ccd81ee7a4d3e2db6721afac1edb8841e13f731e7f1772e94d081db35c24356c",
+      "bytes": 4242
+    },
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/test_glm_indexer_int8.py",
+      "sha256": "df8f4db104467312e9099803d3c7d776345d6b5c8b3cb8228d97ae0f223da0f8",
+      "bytes": 2361
+    },
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/test_glm_mla_scale_loader.py",
+      "sha256": "d99397f394d75ee76acd7e3d3c2b7c0c7861b30412a37e0eb4158172713962b1",
+      "bytes": 2247
+    },
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/test_cache_consistency.py",
+      "sha256": "a4e0f1bdeb94426148e2879ea56dc59713fc7acb439f3f1c0972c018fbb00209",
+      "bytes": 4273
+    },
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/test_int8_linear.py",
+      "sha256": "43a58b1bbab57bca4ac11a73632d42ec3d132b372aadceb667412863328aa0d5",
+      "bytes": 2196
+    },
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/test_sparse_mla.py",
+      "sha256": "24c32dca264c92cd22020a1c55d10990ffa06855d44c405971419ab93a9f65e6",
+      "bytes": 2286
+    },
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/test_kda_numerics.py",
+      "sha256": "ab00ebfd0a61ebbee0c5bd02e62e09442882a3735a41ddc4b0e65a57cae17291",
+      "bytes": 3613
+    },
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/test_moe_w8a8.py",
+      "sha256": "9e68f0f4c8278fa7638c0fbd1b3b473078c6568ea657d74029351198a7a885c1",
+      "bytes": 3564
+    },
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/freeze_baseline.py",
+      "sha256": "99da7c190e1b1f6618daec0a5da3508a0d3343037059d334b04abdc23e7cf273",
+      "bytes": 3547
+    },
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/validate_baseline_host.py",
+      "sha256": "2e2acdbe9d8c3f961365daad16e6e5dc634405477050fa0466343972c144ff7e",
+      "bytes": 1600
+    },
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/check_frozen_baseline.py",
+      "sha256": "58ddb784cbc7c0c4318b03bb86c12c22ebe510034a0dde5906445220c6cafad0",
+      "bytes": 1225
+    },
+    {
+      "kind": "source_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/moe_align_legacy_abi.py",
+      "sha256": "0a54d539f60406e94c5756dab11840304d7e4f407883006cfc55411f853a071e",
+      "bytes": 2083
+    },
+    {
+      "kind": "original_evidence_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/evidence/vllm-metax_deployment.patch",
+      "sha256": "8aecb4566881142b874036201e0d5efd73c0b42ede3cfd63e9fb87d37f5328e7",
+      "bytes": 5742
+    },
+    {
+      "kind": "original_evidence_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/evidence/deployment_source_state.json",
+      "sha256": "31c5237e082897f570e62c3902fb6173fc41fb8573d25a2a32185ee7ebc37475",
+      "bytes": 999
+    },
+    {
+      "kind": "original_evidence_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/evidence/environment_packages.json",
+      "sha256": "7bac638ea17ee9ba523a86995e7d89a03e532773492ff66d5cb46c3ec763a203",
+      "bytes": 17490
+    },
+    {
+      "kind": "original_evidence_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/evidence/framework_runtime.json",
+      "sha256": "08099f6f8241c6776a043521ba16bdcb5adbda10befd924f168b7519b3c9d95b",
+      "bytes": 1229
+    },
+    {
+      "kind": "original_evidence_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/evidence/native_wheel_manifest.json",
+      "sha256": "d890c886a9fb5310cdaa4cb9c29088053f266802c015878f1f96b21145db5fb7",
+      "bytes": 8720
+    },
+    {
+      "kind": "original_evidence_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/evidence/native_installed_versions.json",
+      "sha256": "6fb4858ea7b68e4cabd0aff91f24645ab7caecf77016fd9eb43a41f7cd753e11",
+      "bytes": 1189
+    },
+    {
+      "kind": "original_evidence_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/evidence/sdk_stage.json",
+      "sha256": "48f2f44dada3e75a240125219491908b671c8a457b0a4c1fa9e3778589b7eb1b",
+      "bytes": 24708
+    },
+    {
+      "kind": "original_evidence_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/evidence/sdk_install.json",
+      "sha256": "26dfd00c2c4ccd26ac1aa80e92b76a4dc1c0e9a102c371f2d81342e9cd5c19db",
+      "bytes": 273
+    },
+    {
+      "kind": "original_evidence_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/evidence/gpu8_run.json",
+      "sha256": "8a75cc092d1f654baba89a3cd9e560d1306281a16b689727838eb70968758f77",
+      "bytes": 256
+    },
+    {
+      "kind": "original_evidence_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/evidence/int8_linear.json",
+      "sha256": "03db2ed3dfc9805e11ccb981b181ea4e65780dfffc14f75500c2d50fe7c3660e",
+      "bytes": 569
+    },
+    {
+      "kind": "original_evidence_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/evidence/sparse_mla_numerics.json",
+      "sha256": "efd161f90625cb2787174bb3ec71f83397d8bac9ecd00eb69466fdb62d5bd958",
+      "bytes": 402
+    },
+    {
+      "kind": "original_evidence_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/evidence/kda_numerics.json",
+      "sha256": "d717552bb8e33ba08f947a312c5daf37f23074bd7928bfdb5b81181381b4ead4",
+      "bytes": 3357
+    },
+    {
+      "kind": "original_evidence_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/evidence/moe_w8a8_numerics.json",
+      "sha256": "ad036e4a219757925b73d64a7f9bf220b614abf87fb31f3b5702429e462dc7c8",
+      "bytes": 441
+    },
+    {
+      "kind": "original_evidence_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/evidence/inference_v1_illegal_memory_run.json",
+      "sha256": "0545e3b5012444edddcf115c0017a9872f4a1be841bc2d8946dc6fb8a15e8f55",
+      "bytes": 394
+    },
+    {
+      "kind": "original_evidence_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/evidence/gpu_recovery_after_v1.json",
+      "sha256": "262779c2b1a9058728cd935c9fdf7ab6853310042cb3cad301d7931b3b1764f1",
+      "bytes": 53
+    },
+    {
+      "kind": "original_evidence_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/evidence/initial_cache_consistency.json",
+      "sha256": "20b6f6f495b238d73c38f92201ac4fc5ad70d3c6501904f380c6b665cdbbf0c3",
+      "bytes": 5209
+    },
+    {
+      "kind": "original_evidence_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/evidence/inference_greedy_quality.json",
+      "sha256": "b9c3152966824b2135a8bf808bcd821bb78d066d66684c4542ffd71cc93a8d17",
+      "bytes": 32509
+    },
+    {
+      "kind": "original_evidence_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/evidence/inference_v2_official_quality.json",
+      "sha256": "f8c5614ba940445c69def26f2c21a19dfaa711686a8b9e035092ca5c476b02fc",
+      "bytes": 37618
+    },
+    {
+      "kind": "original_evidence_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/evidence/inference_v2_serial_stopped_run.json",
+      "sha256": "742cfdbe004ef1b28e8f7e396e98ad5f59b5bcc7ca31ba7ba875373e2c7b052f",
+      "bytes": 469
+    },
+    {
+      "kind": "original_evidence_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/evidence/frozen_baseline.json",
+      "sha256": "f2f11a4a76ea158a91820fbdfe2dcbd8db24a8673a861b035bd450e168e20318",
+      "bytes": 956
+    },
+    {
+      "kind": "original_evidence_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/evidence/frozen_baseline_check_run.json",
+      "sha256": "e3c7a54f8e8ea9c4431fbafca069146600574504196063f2bd23f3112e2a3bec",
+      "bytes": 878
+    },
+    {
+      "kind": "original_evidence_reference_only",
+      "path": "experiments/evidence/metax/glm53/deploy032/evidence/reproduction_assets.json",
+      "sha256": "5ed972cd47e2deac0aa55cbf7a4245fd8a37f3a84a4859bc29ff2e42c8709629",
+      "bytes": 1114
+    }
+  ],
+  "remote_assets": [
+    {
+      "kind": "docker_image",
+      "tag": "glm53-vllm032:verified-20261122",
+      "image_id": "sha256:9bbf20dbcaaf52b794b887f0311a6dcbff6d23bb0a78b72fb0f442f8aab0f285",
+      "availability": "Observed on target in prior deployment; not queried again during KB curation."
+    },
+    {
+      "kind": "source_archive",
+      "path": "/home/metax/glm53-vllm032/baseline/sources-20261122.tar.gz",
+      "sha256": "da769ed300e32876f2bd358a1c537a8618f7fdbc8f56830eacfec57f6d1ab592",
+      "availability": "Remote only; hash from deployment evidence; archive not copied to KB."
+    },
+    {
+      "kind": "scripts_archive",
+      "path": "/home/metax/glm53-vllm032/baseline/deployment-scripts-20261122.tar.gz",
+      "sha256": "d62bdbf93b61785422931fdde5b5cc4da960829645f729ddae38e094bc61d83f",
+      "availability": "Remote only; hash from deployment evidence; archive not copied to KB."
+    },
+    {
+      "kind": "proxy_manager",
+      "path": "/home/metax/glm53-vllm032/proxy/manage_proxy.py",
+      "local_source_reference": "glmf/deploy032/manage_proxy.py",
+      "availability": "Remote deployed path recorded; local source hash above is not a fresh remote hash verification."
+    }
+  ],
+  "patch_restoration": "Tracked deployment patch plus moe_align_legacy_abi.py, or matching complete source archive; diff alone omits new module.",
+  "exclusions": [
+    "credentials",
+    "subscription URLs",
+    "proxy private configuration",
+    "raw environment dumps",
+    "signed download URLs",
+    "model binaries",
+    "image blobs",
+    "unreviewed raw logs"
+  ],
+  "hash_policy": "Snapshots are immutable evidence copies/excerpts. Original-reference hashes identify captured bytes, not an assertion that mutable originals or remote assets remain unchanged."
+}

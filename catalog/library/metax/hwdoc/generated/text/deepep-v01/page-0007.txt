@@ -1,0 +1,33 @@
+文档: 沐曦通用GPU_DeepEP多机通信内存注册环境变量配置说明_CN_V01.pdf
+文档 ID: deepep-v01
+SHA256: 04ecd9ea7a268dc14c88f283869f64e17479a5da63dadef5cc4b93b07732fbf0
+PDF 页序号: 7
+PDF 页码标签: 3
+页脚页码候选: 3
+章节提示（书签推断）: 客户使用建议
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+DeepEP 多机通信内存注册环境变量配置说明
+23.10‑7.1.8.0‑2023 L TS U7、24.10‑4.1.4.0‑2024 L TS U4、24.10‑5.1.6.1‑2024 L TS U5 及以上版本。
+注 解: 对 于 Linux Kernel 版 本 ＜ 5.16 且 使 用 其 他 MOFED 版 本 的 环 境， 需 要 手 动 设 置
+MXSHMEM_IB_DISABLE_DMABUF=1，否则可能因 DMA‑BUF 不支持而导致测试失败。
+2.1.3 MXMACA SDK Release 版本 ≥ 3.10.1
+从 该 版 本 开 始，mxshmem 仅 根 据 Linux Kernel 版 本 选 择 内 存 注 册 方 式， 不 依 赖 MOFED 版 本 进
+行 判 断， 并 且 调 整 了 内 存 注 册 方 式 的 选 择 策 略， 自 适 应 Linux Kernel 的 能 力。 用 户 无 需 改 变
+MXSHMEM_IB_DISABLE_DMABUF 默认值。
+表 2.3 根据 Linux Kernel 版本选择内存注册方式
+Linux Kernel 版本 内存注册方式 环境变量配置
+≥ 5.16 DMA‑BUF (默认) 默认配置即可
+＜ 5.16 Peer Memory 默认配置即可，自动切换到 Peer Memory
+2.2 客户使用建议
+客户在运行 DeepEP Low Latency 测试前，建议按照以下顺序确认：
+1. 确认当前使用的 MXMACA SDK Release 版本。
+2. 确认服务器 Linux Kernel 版本。
+3. 当 MXMACA SDK Release 的版本为 3.8.3 ~ 3.10.0， Linux Kernel 的版本＜ 5.16 时， 还需确认 MOFED
+版本。
+4. 根据上述版本对应关系，确认内存注册方式：
+a. 当 MXMACA SDK Release 版 本 ＜ 3.10.1 时， 根 据 上 述 使 用 说 明 设 置
+MXSHMEM_IB_DISABLE_DMABUF 环境变量。
+b. 当 MXMACA SDK Release 版本 ≥ 3.10.1 时，使用 MXSHMEM_IB_DISABLE_DMABUF 缺省配置即
+可。
+2 配置说明 沐曦股份专有信息 OG‑26021‑020‑F5_V01 | 3

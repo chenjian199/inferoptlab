@@ -1,0 +1,40 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 26
+PDF 页码标签: 19
+页脚页码候选: 19
+章节提示（书签推断）: mcblasSetMathMode()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+2.2.20 mcblasSetAtomicsMode()
+mcblasStatus_t mcblasSetAtomicsMode(mcblasHandlet handle, mcblasAtomicsMode_t mode)
+有些例程，如 mcblas<t>symv 和 mcblas<t>hemv，具有备用实现（使用原子操作累加结果） 。这种实
+现通常要快得多，但每次运行产生的结果可能不完全相同。从数学上讲，这些不同结果的差异并不显著，
+但在调试时，这些差异可能是有害的。
+此函数可以允许或禁止 mcBLAS 库中所有具有备用实现的例程使用原子操作。如果在任何 mcBLAS 例
+程的文档中未明确说明，则意味着该例程没有使用原子操作的备用实现。当禁用原子模式时，若在同一
+硬件上使用相同的参数调用一个 mcBLAS 例程，该 mcBLAS 例程应在每次运行产生相同的结果。
+默认初始化 mcblasHandle_t 对象的默认原子模式为 MCBLAS_ATOMICS_NOT_ALLOWED。有关详细
+信息，请参见mcBLAS 数据类型。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 原子模式设置成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+2.2.21 mcblasGetAtomicsMode()
+mcblasStatus_t mcblasGetAtomicsMode(mcblasHandle_t handle, mcblasAtomicsMode_t 
+,→*mode)
+此函数查询特定 mcBLAS 上下文的原子模式。
+默认初始化 mcblasHandle_t 对象的默认原子模式为 MCBLAS_ATOMICS_NOT_ALLOWED。有关详细
+信息，请参见mcBLAS 数据类型。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 原子模式查询成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE 参数 mode 为空指针
+2.2.22 mcblasSetMathMode()
+mcblasStatus_t mcblasSetMathMode(mcblasHandle_t handle, mcblasMath_t mode)
+mcblasSetMathMode 函数支持选择计算精度模式，如 mcblasMath_t 定义。允许用户将计算精度模
+式设置为自己的逻辑组合 （MCBLAS_TENSOR_OP_MATH 除外） 。 例如，mcblasSetMathMode(handle,
+MCBLAS_DEFAULT_MATH | MCBLAS_MATH_DISALLOW_REDUCED_PRECISION_REDUCTION)。 请注
+意，默认的数学模式为 MCBLAS_DEFAULT_MATH。
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 19

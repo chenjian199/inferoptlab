@@ -1,0 +1,35 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 18
+PDF 页码标签: 9
+页脚页码候选: 9
+章节提示（书签推断）: 查询设备信息
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+(续上页)
+printf( "Multi-processor count: %d\n",
+prop.multiProcessorCount );
+printf( "Shared mem per MP: %ld\n", prop.sharedMemPerBlock );
+printf( "Registers per MP: %d\n", prop.regsPerBlock );
+printf( "Threads in wave: %d\n", prop.waveSize );
+printf( "Max threads per block: %d\n",
+prop.maxThreadsPerBlock );
+printf( "Max thread dimensions: (%d, %d, %d)\n",
+prop.maxThreadsDim[0], prop.maxThreadsDim[1],
+prop.maxThreadsDim[2] );
+printf( "Max grid dimensions: (%d, %d, %d)\n",
+prop.maxGridSize[0], prop.maxGridSize[1],
+prop.maxGridSize[2] );
+printf( "\n" );
+}
+}
+编译运行上述示例代码：
+#编 译
+$ mxcc test.maca -o test
+#运 行
+$ ./test
+结果如图 3.1 所示：
+图 3.1 设备信息查询的打印结果
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 9

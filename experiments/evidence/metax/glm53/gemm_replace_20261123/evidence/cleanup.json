@@ -1,0 +1,9 @@
+{
+  "container_id": "769fe761e7aef463eb001227a116e6de00b90ad3d1a9ce4ccb84296d6e92011d",
+  "running": false,
+  "preserved_exact": false,
+  "driver_changed_by_this_task": false,
+  "device_reset_or_reboot_by_this_task": false,
+  "preserved_normalized": true,
+  "comparison_note": "Raw equality false only because docker inspect reorders Mounts; identity, image, state, mount content are unchanged."
+}

@@ -1,0 +1,185 @@
+snapshot_sha256: ce44b23f5f438d8d5b770d41177ce5466cb74a37c70662f532803b5c37ac3e52
+trial:
+  id: trial-c2efeb16bf3a311c
+  deployment_ref:
+    id: qwen-metax-vllm-attached
+    version: 1.0.0
+  scenario_ref:
+    id: qwen-pipeline-short
+    version: 1.0.0
+  concurrency: 2
+  repetition: 1
+  comparison_sha256: 62feeabfb98befa307e89e21e4c8fcf9f059217448f832ce4184a62466602418
+deployment:
+  schema_version: 0.2.0
+  kind: DeploymentSpec
+  id: qwen-metax-vllm-attached
+  version: 1.0.0
+  title: Qwen3-0.6B vLLM attachment on C500 GPU0
+  provenance: []
+  issues: []
+  extensions: {}
+  model_ref:
+    id: metax-qwen3-06b
+    version: 1.0.0
+  hardware_ref:
+    id: metax-qwen-smoke-gpu0
+    version: 1.0.0
+  runtime_ref:
+    id: metax-vllm-qwen-smoke
+    version: 1.0.0
+  mode: aggregated
+  parallelism:
+    tp: 1
+    pp: 1
+    ep: 1
+    dp: 1
+  scheduling:
+    chunked_prefill_tokens: null
+    kv_page_tokens: null
+    max_running_requests: 4
+  serving:
+    management: external
+    url: http://127.0.0.1:18080
+    served_model: qwen3-0.6b
+    model_path: /models/Qwen3-0.6B
+    tokenizer_path: /models/Qwen3-0.6B
+    startup_timeout_s: 300
+    device_visibility_env: MACA_VISIBLE_DEVICES
+  devices:
+  - rank: 0
+    device_id: metax-gpu0-AENA2402001182
+    visible_index: 0
+  backend_options: {}
+case:
+  schema_version: 0.2.0
+  kind: TestCaseSpec
+  id: qwen-pipeline-short-case
+  version: 1.0.0
+  title: Qwen short pipeline case
+  provenance: []
+  issues: []
+  extensions: {}
+  purpose: diagnostic
+  model_ref:
+    id: metax-qwen3-06b
+    version: 1.0.0
+  workload_ref:
+    id: qwen-pipeline-short-workload
+    version: 1.0.0
+  protocol_ref:
+    id: qwen-pipeline-protocol
+    version: 1.0.0
+  sla_ref: null
+  required: true
+  source_case_label: Small-model pipeline qualification
+  declared_context:
+    input: '1024'
+    output: '32'
+  priority: null
+workload:
+  schema_version: 0.2.0
+  kind: WorkloadSpec
+  id: qwen-pipeline-short-workload
+  version: 1.0.0
+  title: Qwen pipeline short (not GLM acceptance)
+  provenance: []
+  issues: []
+  extensions: {}
+  input:
+    label: '1024'
+    tokens: 1024
+    k_multiplier: null
+    origin: test_override
+  output:
+    label: '32'
+    tokens: 32
+    k_multiplier: null
+    origin: test_override
+  requests:
+    content: random_independent
+    request_set_sha256: null
+    seed: 20261123
+    count: 4
+  generation:
+    ignore_eos: true
+    sampling: greedy
+    stop_policy: fixed_output_tokens
+  arrival:
+    mode: closed_loop
+    load_unit: concurrency
+    load_points:
+    - 1
+    - 2
+  cache:
+    prefix_reuse: disabled
+    target_hit_ratio: 0
+    preparation: disable_prefix_cache
+    reset_between_runs: true
+protocol:
+  schema_version: 0.2.0
+  kind: MeasurementProtocol
+  id: qwen-pipeline-protocol
+  version: 1.0.0
+  title: Qwen pipeline qualification protocol
+  provenance: []
+  issues: []
+  extensions: {}
+  scope: e2e
+  method: full_request
+  allowed_deployment_modes:
+  - aggregated
+  timing:
+    ttft_boundary: client_submit_to_first_content_token
+    tpot_boundary: first_to_last_token_over_n_minus_one
+    token_timestamps: unavailable
+    window: fixed_request_set
+    start: first_actual_send
+    finish: last_completion_or_timeout
+  execution:
+    warmup: Separate AIPerf process and disjoint warmup fixture; excluded from scoring.
+    warmup_request_count: 1
+    timeout_s: 120
+    repetitions: 1
+    profiler_during_scoring: false
+  accounting:
+    primary_population: all_planned_requests
+    failure_policy: retain_in_denominator
+    logical_request_deduplication: true
+  steps:
+  - Check model and cache configuration.
+  - Run excluded warmup fixture.
+  - Send fixed request set with closed-loop concurrency.
+  - Retain failures and drain until completion or timeout.
+dataset_manifest:
+  format_version: 1
+  workload_id: qwen-pipeline-short-workload
+  workload_sha256: 7d4c3a9b464588d4c89182c602f5e73f0655da1ad8e5d113218e617c029901d8
+  input_tokens: 1024
+  output_tokens: 32
+  seed: 20261123
+  tokenizer:
+    path: /models/Qwen3-0.6B
+    files:
+      config.json: a9597c105a570f7e1bd5b8b95b13553d383f4355901bd9a544df369e8cff91e8
+      merges.txt: b8e04af9c950e393054010dcef499c3f005e803e9b2da1a09b96a26c33266eb1
+      tokenizer.json: aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4
+      tokenizer_config.json: c27ef18dae7dccaee951f6066f71a1b35ca9ec4ff3168b097dbda7905a036324
+      vocab.json: ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910
+    sha256: de79d8c9a3f6cbe6181bdba73219e605b4e802c2b9b5b9b1c07e1c18aa2c792d
+  token_count_boundary: apply_chat_template(user, add_generation_prompt=True)
+  files:
+    requests.jsonl:
+      sha256: 7e6d678cc0b4c24a66d12fb2f95ca0a5fea843bd4103b99d2e3a99a63f8cccdd
+      count: 4
+      session_ids:
+      - qwen-pipeline-short-workload-profiling-000000
+      - qwen-pipeline-short-workload-profiling-000001
+      - qwen-pipeline-short-workload-profiling-000002
+      - qwen-pipeline-short-workload-profiling-000003
+    warmup.jsonl:
+      sha256: 12338c531bf0068645d6b24635c915930f35afa5a45ef4e49d0df0f06243e29c
+      count: 1
+      session_ids:
+      - qwen-pipeline-short-workload-warmup-000000
+batch_snapshot: ../resolved.yaml

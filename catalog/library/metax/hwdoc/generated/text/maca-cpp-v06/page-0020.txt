@@ -1,0 +1,53 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 20
+PDF 页码标签: 12
+页脚页码候选: 12
+章节提示（书签推断）: 同步函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+(续上页)
+// the last block will read the correct partial
+// sums computed by all other blocks.
+result[blockIdx.x] = partialSum;
+// Thread 0 makes sure that the incrementation
+// of the "count" variable is only performed after
+// the partial sum has been written to global memory.
+__threadfence();
+// Thread 0 signals that it is done.
+unsigned int value = atomicInc(&count, gridDim.x);
+// Thread 0 determines if its block is the last
+// block to be done.
+isLastBlockDone = (value == (gridDim.x - 1));
+}
+// Synchronize to make sure that each thread reads
+// the correct value of isLastBlockDone.
+__syncthreads();
+if (isLastBlockDone)
+{
+// The last block sums the partial sums
+// stored in result[0 .. gridDim.x-1]
+float totalSum = calculateTotalSum(result);
+if (threadIdx.x == 0)
+{
+// Thread 0 of last block stores the total sum
+// to global memory and resets the count
+// varialble, so that the next kernel call
+// works properly.
+result[0] = totalSum;
+count = 0;
+}
+}
+}
+2.7 同步函数
+void __syncthreads();
+一直等到 block 中的所有的 thread 到达这个点，并且这些 thread 进行的所有的在 __syncthreads() 之
+前的global与shared内存访问都被这个block中的所有的thread观测到。
+__syncthreads()是用来进行同block中的thread的协调沟通的。 当block中的一些thread访问shared
+或者global内存中的相同的地址的时候，对于这些内存访问有一些潜在的“读在写之后” ， “写在读之后”
+或者“写在写之后”的风险。这些数据风险可以通过在这些访问之间同步线程来规避。
+__syncthreads() 也能出现在条件语句的代码中，但是仅当条件在线程块上计算的结果相同时，否则代
+码的执行可能会挂起或产生意外的副作用。
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 12

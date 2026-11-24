@@ -1,0 +1,20 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 60
+PDF 页码标签: 48
+页脚页码候选: 48
+章节提示（书签推断）: 服务端输出性能数据解析
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+若在启动服务前设置 SHOW_PREFILL 环境变量，服务端会输出 prefill 阶段的性能数据，即 图 6.4 中
+step1 的性能数据；若不设置，则输出 100 整数倍及最后一个 step 的性能数据。
+重点性能参数包括：
+memory usage ：当前 step 显存使用情况
+running batch ：当前 step 正在推理的 batchsize
+max running batch ：从当前 step 回溯的历史最大推理 batchsize
+finished query count ：当前 step 已经结束生成的请求数量
+pipeline ：整体流程耗时，包含当前 step 耗时，平均耗时及总耗时
+model inference ：大模型推理的耗时，包含当前 step 耗时，平均耗时及总耗时
+6 MacaRT‑LLM 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 48

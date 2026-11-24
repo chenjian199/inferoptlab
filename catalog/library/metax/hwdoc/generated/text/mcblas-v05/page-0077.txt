@@ -1,0 +1,53 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 77
+PDF 页码标签: 70
+页脚页码候选: 70
+章节提示（书签推断）: mcblas<t>gemvStridedBatched()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+• 如果 k % 4==0，则确保 intptr_t(ptr) % 16 == 0
+下面列出了此函数可能的返回值及其含义。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE 参数 m,n,batchCount<0
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2.4.25 mcblas<t>gemvStridedBatched()
+mcblasStatus_t mcblasSgemvStridedBatched(mcblasHandle_t handle,
+mcblasOperation_t trans,
+int m, int n,
+const float *alpha,
+const float *A, int lda,
+mcblas_stride strideA,
+const float *x, int incx,
+mcblas_stride stridex,
+const float *beta,
+float *y, int incy,
+mcblas_stride stridey,
+int batchCount)
+mcblasStatus_t mcblasDgemvStridedBatched(mcblasHandle_t handle,
+mcblasOperation_t trans,
+int m, int n,
+const double *alpha,
+const double *A, int lda,
+mcblas_stride strideA,
+const double *x, int incx,
+mcblas_stride stridex,
+const double *beta,
+double *yarray[], int incy,
+mcblas_stride stridey,
+int batchCount)
+mcblasStatus_t mcblasCgemvStridedBatched(mcblasHandle_t handle,
+mcblasOperation_t trans,
+int m, int n,
+const mcComplex *alpha,
+const mcComplex *A, int lda,
+mcblas_stride strideA,
+const mcComplex *x, int incx,
+mcblas_stride stridex,
+const mcComplex *beta,
+(下页继续)
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 70

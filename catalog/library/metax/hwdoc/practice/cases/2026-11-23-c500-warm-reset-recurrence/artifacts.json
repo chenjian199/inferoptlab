@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "observed_on": "2026-11-23",
+  "evidence_snapshots": [
+    {
+      "snapshot": "evidence/verification_summary.json",
+      "snapshot_sha256": "2c49d00a423716c793cb2cdbcc296fdf6ad4ecf51b586fe0ca91e2bdd092e736",
+      "original_path": "experiments/evidence/metax/glm53/recovery_20261123/verification_summary.json",
+      "original_sha256": "2c49d00a423716c793cb2cdbcc296fdf6ad4ecf51b586fe0ca91e2bdd092e736",
+      "selection": "Reviewed final recurrence summary and5 selected new kernel events only; no raw driver initialization log, credentials or private configuration."
+    },
+    {
+      "snapshot": "evidence/recurrence_kernel.json",
+      "snapshot_sha256": "9ab4c07487c261d885f29e39f50fbd94a4dfea0350e5cb5f7193df43e0d8f2a4",
+      "original_path": "experiments/evidence/metax/glm53/recovery_20261123/evidence/recurrence_kernel.json",
+      "original_sha256": "9ab4c07487c261d885f29e39f50fbd94a4dfea0350e5cb5f7193df43e0d8f2a4",
+      "selection": "Reviewed final recurrence summary and5 selected new kernel events only; no raw driver initialization log, credentials or private configuration."
+    }
+  ],
+  "local_references": [
+    {
+      "path": "experiments/evidence/metax/glm53/recovery_20261123/REPORT.md",
+      "sha256": "7aa1f4ad0b89f0ae5965dc7bbeb8d39281c5f4a24ef7691bcdd37409a5f3656c"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/recovery_20261123/RECOVERY_PLAN.md",
+      "sha256": "effdca9b3cc933c4a2dfc67e04fb35f22fbddb0603b09ab72a1878735729fb1d"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/recovery_20261123/artifact_manifest.json",
+      "sha256": "1b2ba71195a7aa64feb6b42d2ae9691c8b1190f2a4236939035cbfa4e2162b97"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/recovery_20261123/archive_receipt.json",
+      "sha256": "49df8cb705405ed0617cbe143a377e0f65811e18af5b6b4f0de9fc40bcf14de1"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/recovery_20261123/warm_reset_once.py",
+      "sha256": "948aa8f5231ea04a500336ac6edb22c78cf8dd817e59e7024ce59a34ff561d9f"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/recovery_20261123/communication_check.py",
+      "sha256": "d3010632f70972ed24d012b67958549e5f1714e9971b647d60d3f246b45ead47"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/recovery_20261123/pilot/evidence/communication_process.json",
+      "sha256": "bf590333a90ce067e6bc89b854013a2f4d5950c646b797f28a4b5b6a73141ca0"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/recovery_20261123/pilot/inputs_sha256.json",
+      "sha256": "11364bb1bebec6b4e5b4bcf5554d68cd4cbd6067008e584e493eee65ee57c1b5"
+    }
+  ],
+  "remote_assets": [
+    {
+      "path": "/home/metax/glm53-recovery-20261123/archives/recovery_20261123_attempt1.tar.gz",
+      "sha256": "ac7a50624da3e84f37bcbf0cbc9f628856782bb21267c6a3798e4789d4e8f643",
+      "verification": "Local and remote archive bytes and33 member hashes checked 2026-11-23"
+    }
+  ],
+  "change_tracking": {
+    "git_available": false,
+    "scope": "New recovery directory only; prior65/135/69 manifests verified unchanged; new files in manifest, no fabricated git diff."
+  }
+}

@@ -1,0 +1,36 @@
+文档: 沐曦通用GPU_MCCL编程指南_CN_V08.pdf
+文档 ID: mccl-v08
+SHA256: 7a95ac3ce4f68b0fb11baabb7fa08794cd5f5081c9ec3e888eefaaa03ab8c8b2
+PDF 页序号: 39
+PDF 页码标签: 32
+页脚页码候选: 32
+章节提示（书签推断）: MXLOG_LEVEL
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MCCL 编程指南
+export MACA_VISIBLE_DEVICES=s0,s2,s5
+可选值：
+UUID/节点 ID/socket ID
+• 通过 mx-smi -L 命令获取所有 GPU 的 UUID
+• 通过 mx-smi 命令获取 GPU 节点 ID
+• 通过 grep -rn mgpu_id /sys/class/mxcd/mxcd/layout/nodes 命令查看 GPU socket ID
+默认值：空
+4.2.5.4 MACA_DEVICE_ORDER
+描述：服务器中有多个 GPU，在程序调用过程中可以按照期望的规则生成 GPU index，C500 支持自定
+义的多卡排序规则。
+可选值：
+• FASTEST_FIRST：根据设备计算能力从快到慢排序
+• PCI_BUS_ID：根据 PCI 总线 ID 升序排列设备
+默认值：FASTEST_FIRST
+4.2.5.5 MXLOG_LEVEL
+描述：设置 MXMACA UMD 的输出日志等级。
+可选值：
+• verbose：日志级别为 0，打印 verbose 日志
+• debug：日志级别为 1，打印 debug 日志
+• info：日志级别为 2，打印 info 日志
+• warn：日志级别为 3，打印 warning 日志
+• err：日志级别为 4，打印 error 日志
+• critical：日志级别为 5，打印 critical 日志
+• off：日志级别为 6，关闭日志打印
+默认值：release 版本是 err，debug 版本是 debug
+4 环境变量 沐曦股份专有信息 PG‑23004‑020‑F5_V08 | 32

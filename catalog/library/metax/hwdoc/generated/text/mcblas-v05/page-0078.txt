@@ -1,0 +1,60 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 78
+PDF 页码标签: 71
+页脚页码候选: 71
+章节提示（书签推断）: mcblas<t>gemvStridedBatched()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+(续上页)
+mcComplex *y, int incy,
+mcblas_stride stridey,
+int batchCount)
+mcblasStatus_t mcblasZgemvStridedBatched(mcblasHandle_t handle,
+mcblasOperation_t trans,
+int m, int n,
+const mcDoubleComplex *alpha,
+const mcDoubleComplex *A, int lda,
+mcblas_stride strideA,
+const mcDoubleComplex *x, int incx,
+mcblas_stride stridex,
+const mcDoubleComplex *beta,
+mcDoubleComplex *y, int incy,
+mcblas_stride stridey,
+int batchCount)
+mcblasStatus_t mcblasHSHgemvStridedBatched(mcblasHandle_t handle,
+mcblasOperation_t trans,
+int m, int n,
+const float *alpha,
+const mcblas_half *A, int lda,
+mcblas_stride strideA,
+const mcblas_half *x, int incx,
+mcblas_stride stridex,
+const float *beta,
+mcblas_half *y, int incy,
+mcblas_stride stridey,
+int batchCount)
+mcblasStatus_t mcblasHSSgemvStridedBatched(mcblasHandle_t handle,
+mcblasOperation_t trans,
+int m, int n,
+const float *alpha,
+const mcblas_half *A, int lda,
+mcblas_stride strideA,
+const mcblas_half *x, int incx,
+mcblas_stride stridex,
+const float *beta,
+float *y, int incy,
+mcblas_stride stridey,
+int batchCount)
+mcblasStatus_t mcblasTSTgemvStridedBatched(mcblasHandle_t handle,
+mcblasOperation_t trans,
+int m, int n,
+const float *alpha,
+const mc_bfloat16 *A, int lda,
+mcblas_stride strideA,
+const mc_bfloat16 *x, int incx,
+mcblas_stride stridex,
+(下页继续)
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 71

@@ -1,0 +1,35 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 25
+PDF 页码标签: 18
+页脚页码候选: 18
+章节提示（书签推断）: mcblasGetMatrixAsync()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_INVALID_VALUE 参数 incx, incy, elemSize<=0
+MCBLAS_STATUS_MAPPING_ERROR 访问 GPU 内存时出错
+2.2.18 mcblasSetMatrixAsync()
+mcblasStatus_t
+mcblasSetMatrixAsync(int rows, int cols, int elemSize, const void *A,
+int lda, void *B, int ldb, mcStream_t stream)
+此函数与 mcblasSetMatrix() 具有相同的功能，但数据传输是使用给定的 MXMACA 流参数异步完成
+的（相对于主机） 。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_INVALID_VALUE 参数 rows, cols<0 或 elemSize, lda, ldb<=0
+MCBLAS_STATUS_MAPPING_ERROR 访问 GPU 内存时出错
+2.2.19 mcblasGetMatrixAsync()
+mcblasStatus_t
+mcblasGetMatrixAsync(int rows, int cols, int elemSize, const void *A,
+int lda, void *B, int ldb, mcStream_t stream)
+此函数与 mcblasGetMatrix() 具有相同的功能，但数据传输是使用给定的 MXMACA 流参数异步完成
+的（相对于主机） 。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_INVALID_VALUE 参数 rows, cols<0 或 elemSize, lda, ldb<=0
+MCBLAS_STATUS_MAPPING_ERROR 访问 GPU 内存时出错
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 18

@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 19
+PDF 页码标签: 10
+页脚页码候选: 10
+章节提示（书签推断）: 选择运行设备
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+3.1.1.1 查询设备计算能力
+沐曦 GPU 设备的计算能力（Compute Capability）是标识 GPU 硬件代际和功能集的关键指标，它定义
+了 GPU 支持的指令集、核心数量、内存架构以及其他硬件特性。
+计算能力通常表示为 major.minor：
+• 主版本号（major） ：代表 GPU 的主要架构代际。较大的major 编号通常意味着一次重大的架构革新，
+引入了全新的特性和性能提升。例如：10.xx（MXC500 系列） ，15.xx（MXC600 系列）
+• 次版本号（minor） ：代表在同一主要架构下的增量改进或功能增强。它通常用于区分同一代架构中的
+不同变体。例如：MXC500 系列架构下有 10.00（C500） ，10.02（C550） ，10.20（N260）
+如图 3.1 所示， 查询设备信息打印的是Compute capability:10.2， 这个 GPU 的计算能力 （major.
+minor）为 10.2：
+• major（主版本）= 10：这表明它属于 MXC500 架构系列芯片家族，major 值是 10。
+• minor（次版本）= 2：这表明它是 MXC500 架构中的一个特定型号，minor 值是 02 （C550） 。
+要编译在此 GPU 上运行的程序，mxcc 编译器的 --offload-arch 选项可指定为 MXC500 架构的通用
+选项 xcore1000（将 minor 版本设为 00 ， 可在所有 major 版本相同的 GPU 上运行） ， 也可选用该 GPU
+型号专用选项 xcore1002 （同时指定 major 和 minor 版本，可能获得特定于硬件的性能优化） 。
+3.1.2 选择运行设备
+主机线程可以通过调用 mcSetDevice 随时设置要执行操作的设备。在当前设置的设备上进行设备内存
+分配和核函数启动，创建与当前设置的设备相关联的流和事件。如果未调用 mcSetDevice，则当前设
+备为设备 0。
+代码示例
+以下代码示例说明了设置当前设备如何影响内存分配和核函数执行：
+size_t size = 1024 * sizeof(float);
+mcSetDevice(0); // Set device 0 as current
+float* p0;
+mcMalloc(&p0, size); // Allocate memory on device 0
+MyKernel<<<1000, 128>>>(p0); // Launch kernel on device 0
+mcSetDevice(1); // Set device 1 as current
+float* p1;
+mcMalloc(&p1, size); // Allocate memory on device 1
+MyKernel<<<1000, 128>>>(p1); // Launch kernel on device 1
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 10

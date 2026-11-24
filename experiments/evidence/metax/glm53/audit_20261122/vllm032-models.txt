@@ -1,0 +1,114 @@
+# SPDX-License-Identifier: Apache-2.0
+# 2026 - Modified by MetaX Integrated Circuits (Shanghai) Co., Ltd. All Rights Reserved.
+
+from vllm import ModelRegistry
+
+
+def register_model():
+    ModelRegistry.register_model(
+        "CosyVoice2ForCausalLM",
+        "vllm_metax.models.cosyvoice2:CosyVoice2ForCausalLM",
+    )
+
+    ModelRegistry.register_model(
+        "DeepSeekMTPModel", "vllm_metax.models.deepseek_mtp:DeepSeekMTP"
+    )
+
+    ModelRegistry.register_model(
+        "DeepseekV2ForCausalLM", "vllm_metax.models.deepseek_v2:DeepseekV2ForCausalLM"
+    )
+
+    ModelRegistry.register_model(
+        "DeepseekV3ForCausalLM", "vllm_metax.models.deepseek_v2:DeepseekV3ForCausalLM"
+    )
+
+    ModelRegistry.register_model(
+        "DeepseekV32ForCausalLM", "vllm_metax.models.deepseek_v2:DeepseekV3ForCausalLM"
+    )
+
+    ModelRegistry.register_model(
+        "DeepseekV32MTPModel", "vllm_metax.models.deepseek_mtp:DeepSeekMTP"
+    )
+
+    ModelRegistry.register_model(
+        "GlmMoeDsaForCausalLM", "vllm_metax.models.deepseek_v2:GlmMoeDsaForCausalLM"
+    )
+
+    ModelRegistry.register_model(
+        "DeepseekV4ForCausalLM",
+        "vllm_metax.models.deepseek_v4:DeepseekV4ForCausalLM",
+    )
+
+    ModelRegistry.register_model(
+        "DeepSeekV4MTPModel", "vllm_metax.models.deepseek_v4:DeepSeekV4MTP"
+    )
+
+    ModelRegistry.register_model(
+        "DSparkDraftModel", "vllm_metax.models.deepseek_v4:DSparkDeepseekV4ForCausalLM"
+    )
+
+    ModelRegistry.register_model(
+        "Step3p5MTP", "vllm_metax.models.step3p5_mtp:Step3p5MTP"
+    )
+
+    ModelRegistry.register_model(
+        "Step3p5ForCausalLM", "vllm_metax.models.step3p5:Step3p5ForCausalLM"
+    )
+
+    ModelRegistry.register_model(
+        "Qwen4ExpForCausalLM", "vllm_metax.models.qwen4_exp:Qwen4ExpForCausalLM"
+    )
+
+    ModelRegistry.register_model(
+        "Qwen4ExpForConditionalGeneration",
+        "vllm_metax.models.qwen4_exp:Qwen4ExpForConditionalGeneration",
+    )
+
+    ModelRegistry.register_model(
+        "Qwen4ExpMTP", "vllm_metax.models.qwen4_exp:Qwen4ExpMTP"
+    )
+
+    ModelRegistry.register_model(
+        "DeepseekV41ForCausalLM",
+        "vllm_metax.models.deepseek_v41:DeepseekV41ForCausalLM",
+    )
+
+    ModelRegistry.register_model(
+        "DSparkDeepseekV4ForCausalLM",
+        "vllm_metax.models.deepseek_v41:DSparkDeepseekV4ForCausalLM",
+    )
+
+    ModelRegistry.register_model(
+        "DSparkV41DraftModel",
+        "vllm_metax.models.deepseek_v41:DSparkDeepseekV4ForCausalLM",
+    )
+
+    ModelRegistry.register_model(
+        "Glm5NextForCausalLM",
+        "vllm_metax.models.glm5next:Glm5NextForCausalLM",
+    )
+
+    ModelRegistry.register_model(
+        "Glm5NextForConditionalGeneration",
+        "vllm_metax.models.glm5next:Glm5NextForConditionalGeneration",
+    )
+
+    # NOTE(metax): Own the complete NVIDIA-derived MiniMax model and draft paths.
+    ModelRegistry.register_model(
+        "MiniMaxM3SparseForCausalLM",
+        "vllm_metax.models.minimax_m3:MiniMaxM3SparseForCausalLM",
+    )
+
+    ModelRegistry.register_model(
+        "MiniMaxM3SparseForConditionalGeneration",
+        "vllm_metax.models.minimax_m3:MiniMaxM3SparseForConditionalGeneration",
+    )
+
+    ModelRegistry.register_model(
+        "MiniMaxM3MTP", "vllm_metax.models.minimax_m3:MiniMaxM3MTP"
+    )
+
+    ModelRegistry.register_model(
+        "DSparkMiniMaxDraftModel",
+        "vllm_metax.models.minimax_m3:MiniMaxM3DSparkForCausalLM",
+    )

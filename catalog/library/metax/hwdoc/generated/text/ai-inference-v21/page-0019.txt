@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 19
+PDF 页码标签: 7
+页脚页码候选: 7
+章节提示（书签推断）: 绑定输入输出数据到固页内存上
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+3.2 绑定输入输出设备
+有多个模型且模型间存在数据拷贝时，绑定输入输出内存信息，可帮助减少模型之间不必要的输入输出
+数据拷贝。MacaRT 支持将模型的输入或输出绑定到：
+• 两种 Host 端的内存页面：可分页内存（Pageable Memory）和固页内存（Pinned Memory）
+• 一种 Device 端的内存信息：沐曦通用 GPU 显存（Video Memory）
+推荐使用固页内存存储模型输入输出数据，可以提高数据传输效率。
+3.2.1 绑定输入输出数据到可分页内存上
+具体操作步骤，参见 3.1 部署 ONNX 模型。
+3.2.2 绑定输入输出数据到固页内存上
+操作步骤
+1. 准备输入数据。假设提供的模型输入数据和数据长度是通过以下变量名称提供，并且输入数据处于
+固页内存上。
+void* input_data[inputNames.size()]; // input data ptr
+size_t input_data_len[inputNames.size()]; // input data len
+2. 创建 MemoryInfo，用于标识输入数据所在的设备信息。
+constexpr const char* MACA_PINNED_STR= "MacaPinned";
+Ort:MemoryInfo memoryInfo = Ort::MemoryInfo(MACA_PINNED_STR, 
+,→OrtAllocatorType::OrtDeviceAllocator,0, OrtMemType::OrtMemTypeCPUOutput);
+3. 创建输入 Tensors。假设模型的输入形状是固定的。
+std::vector<Ort::Value> inputTensors;
+for(size_t i=0; i<inputNames.size(); i++){
+// get input node data type
+Ort::TypeInfo inputTypeInfo = session.GetInputTypeInfo(i);
+auto inputTensorInfo = inputTypeInfo.GetTensorTypeAndShapeInfo();
+ONNXTensorElementDataType inputType = inputTensorInfo.GetElementType();
+// get input node data length
+std::vector<int64_t> inputDims=inputTensorInfo.GetShape();
+inputTensors.push_back(Ort::Value::CreateTensor(memoryInfo,input_data[i],
+,→input_data_len[i],inputDims.data(),inputDims.size(),inputType));
+}
+4. 执行以下命令，使用 IOBinding 来获取模型输出。
+3 MacaRT C++ API 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 7

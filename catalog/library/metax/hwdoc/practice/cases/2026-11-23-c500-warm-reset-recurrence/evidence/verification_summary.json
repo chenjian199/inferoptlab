@@ -1,0 +1,38 @@
+{
+  "status": "recovery_failed_recurrence_awaiting_reboot_decision",
+  "warm_reset_attempts": 1,
+  "warm_reset_rc": 0,
+  "host_rebooted": false,
+  "driver_changed": false,
+  "all8_initially_available": true,
+  "port4_initially_up_x16": true,
+  "recurrence_events": [
+    "2026-11-23T06:49:38+0000 63metax kernel: METAX.B5B00.D0.PCI.WARN metalk4 link changed: width x16 - > x4",
+    "2026-11-23T06:49:38+0000 63metax kernel: METAX.B5E00.D0.PCI.WARN metalk4 link changed: width x16 - > x4",
+    "2026-11-23T06:49:48+0000 63metax kernel: METAX.B5B00.D0.PCI.ERROR EID (0000:5b:00.0): 0x2119, metalk4 uncorrectable error, status 0x00100000, count 1",
+    "2026-11-23T06:49:48+0000 63metax kernel: METAX.B5B00.D0.PCI.ERROR metalk4 uncorrectable AER [20] Unsupported Request Error, count 1",
+    "2026-11-23T06:49:48+0000 63metax kernel: METAX.B5B00.D0.MON.INFO the active status of this card is changed, new status:0"
+  ],
+  "communication_exit_code": 124,
+  "collective_timeout_ranks": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "model_started": false,
+  "new_model_scores": null,
+  "old_environments_preserved": true,
+  "experiment_container_stopped": true,
+  "old_manifest_files_verified": [
+    65,
+    135,
+    69
+  ],
+  "cause": "unproven; sameGPU6/7 port4 path failed again",
+  "next_action": "Await user decision on cold power cycle with out-of-band support, or separately authorized ordinary OS reboot."
+}

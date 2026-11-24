@@ -1,0 +1,35 @@
+文档: 沐曦通用GPU_MCCL编程指南_CN_V08.pdf
+文档 ID: mccl-v08
+SHA256: 7a95ac3ce4f68b0fb11baabb7fa08794cd5f5081c9ec3e888eefaaa03ab8c8b2
+PDF 页序号: 31
+PDF 页码标签: 24
+页脚页码候选: 24
+章节提示（书签推断）: MCCL_P2P_NCHANNELS
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MCCL 编程指南
+4.2.2.13 MCCL_NET_DISABLE_INTRA
+描述：Intra‑node 通信时，当使用网卡通信速度高于 P2P 或 SHM 时，允许优先使用网卡。
+可选值：
+• 0：允许优先使用网卡
+• 1：不允许优先使用网卡
+默认值：1
+4.2.2.14 MCCL_PXN_DISABLE
+描述：禁止节点内通信使用 PXN，即通过 MetaXLink、中间 GPU 和非 local 网卡进行通信。
+可选值：
+• 0：非禁止
+• 1：禁止
+默认值：0
+4.2.2.15 MCCL_MIN_P2P_NCHANNELS
+描述：MCCL 可用在 P2P 通信的最小 Channel 数量。
+可选值：整数值
+默认值：1
+4.2.2.16 MCCL_MAX_P2P_NCHANNELS
+描述：MCCL 可用在 P2P 通信的最大 Channel 数量。
+可选值：整数值
+默认值：64
+4.2.2.17 MCCL_P2P_NCHANNELS
+描述：设置了 MCCL 在 P2P 通信时使用的 Channel 数量。
+可选值：整数值
+默认值：12
+4 环境变量 沐曦股份专有信息 PG‑23004‑020‑F5_V08 | 24

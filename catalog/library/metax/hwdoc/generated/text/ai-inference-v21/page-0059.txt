@@ -1,0 +1,26 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 59
+PDF 页码标签: 47
+页脚页码候选: 47
+章节提示（书签推断）: 服务端输出性能数据解析
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+6.3.4.3 Python 客户端部署
+安装 ppl.llm.serving_*_amd64.deb 后， 可在/opt/maca‑ai/ppl.llm.serving/samples/samples/ppl_
+server_client/python_client/路径下获取 Python 代码示例。工程文件目录如图 6.3 所示：
+• llm_pb2.py：与服务端交互时 grpc 依赖的 proto 定义文件。
+• llm_pb2_grpc.py：与服务端交互时 grpc 依赖的 proto 定义文件。
+• client.py：Python 客户端示例脚本。
+图 6.3 Python 客户端目录结构图
+参考 client.py 示例代码，根据业务需求定制相应的 Python 客户端即可。
+Python 客户端依赖 grpc，使用时需安装 grpcio、grpcio‑tools 两个依赖项。
+pip install grpcio
+pip install grpcio-tools
+6.3.4.4 服务端输出性能数据解析
+服务端完成部署，客户端成功发送请求，服务端完成请求的处理并将结果发送至客户端后，服务端会输
+出当前部署大模型的性能数据。示例如图 6.4 所示：
+图 6.4 服务端输出性能数据示例（llama‑7b）
+6 MacaRT‑LLM 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 47

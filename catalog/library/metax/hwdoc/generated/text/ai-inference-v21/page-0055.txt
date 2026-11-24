@@ -1,0 +1,49 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 55
+PDF 页码标签: 43
+页脚页码候选: 43
+章节提示（书签推断）: 本地模型部署性能测试
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+(续上页)
+--temperature $TEMPERATURE \
+--warmup-loops $WARMUP_LOOPS \
+--generation-len $GENERATION_LEN \
+--benchmark-loops $BENCHMARK_LOOPS \
+--input-file $INPUT_FILE \
+--batch-size $BATCH_SIZE
+done
+参数说明：
+MODEL_TYPE ：LLM 模型类型，当前仅支持 Llama
+MODEL_DIR ：6.3.1.6 导出为 ONNX 模型中导出的 ONNX 模型路径
+MODEL_PARAM_PATH ：6.3.1.6 导出为 ONNX 模型中导出 ONNX 模型的 params.json 文件路径
+TENSOR_PARALLEL_SIZE ：Tensor 并行大小，需要与 6.3.1.3 模型切分中模型切分数量保持一致，
+即导出模型为 2 卡并行，此处设置为 2；4 卡并行则设置为 4
+WARMUP_LOOPS ：warmup 执行次数，在正式测试前执行该次数的 warmup
+BENCHMARK_LOOPS ：性能测试执行次数
+INPUT_FILE_BASE ：模型输入文件基础文件名，默认为 tokens_input，测试输入的文件名称为
+${INPUT_FILE_BASE}_${INPUT_LEN}，即通过基础文件名和输入长度拼接。例如，输入长度为
+8 的输入文件名称为 tokens_input_8
+INPUT_LEN ：模型输入 token 长度
+GENERATION_LEN ：模型生成 token 长度
+BATCH_SIZE_LIST ：性能测试 batchsize 列表，测试会遍历该列表中所有设置
+输入文件为文本文件，每一行代表一条输入 token，各 token 之间用空格分隔，以 INPUT_LEN=8
+为例，该文件的构成如下。篇幅限制，这里只展示前 8 条输入 token。该文件的行数（lines_of_
+token） 必须大于等于测试设置的最大 batchsize， 否则该 batchsize 设置无效， 测试程序只能执行最
+大 batchsize = lines_of_token 的测试，详细可参考相关文件。
+1, 306, 4658, 278, 6593, 310, 2834, 338
+1, 306, 4658, 278, 6593, 310, 2834, 338
+1, 306, 4658, 278, 6593, 310, 2834, 338
+1, 306, 4658, 278, 6593, 310, 2834, 338
+1, 306, 4658, 278, 6593, 310, 2834, 338
+1, 306, 4658, 278, 6593, 310, 2834, 338
+1, 306, 4658, 278, 6593, 310, 2834, 338
+1, 306, 4658, 278, 6593, 310, 2834, 338
+2. 设置环境变量并运行测试脚本生成输出数据。
+export MACA_PATH=your_maca_path
+export PATH=${MACA_PATH}/bin:${PATH}
+(下页继续)
+6 MacaRT‑LLM 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 43

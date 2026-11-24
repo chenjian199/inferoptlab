@@ -1,0 +1,36 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 21
+PDF 页码标签: 14
+页脚页码候选: 14
+章节提示（书签推断）: mcblasGetStream()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+2.2.8 mcblasSetWorkspace()
+mcblasStatus_t
+mcblasSetWorkspace(mcblasHandle_t handle, void *workspace,
+size_t workspaceSizeInBytes)
+此函数将 mcBLAS 库工作空间设置为用户拥有的设备缓冲区， 该缓冲区将用于后续所有的 mcBLAS 库函
+数调用 （在当前设置的流上） 。 如果未设置 mcBLAS 库工作空间， 则所有内核都使用在 mcBLAS 上下文创
+建期间分配的默认工作空间池。 特别是， 此例程可用于更改内核启动之间的工作空间。 工作空间指针必须
+至少为 256 字节对齐，否则将返回 MCBLAS_STATUS_INVALID_VALUE 错误。mcblasSetStream()
+函数无条件地将 mcBLAS 库工作空间重置回默认的工作空间池。 workspaceSizeInBytes 太小可能
+会导致某些例程失败并返回 MCBLAS_STATUS_ALLOC_FAILED 错误，或导致较大的性能回归。工作空
+间需大于或等于 16KiB，以防止 MCBLAS_STATUS_ALLOC_FAILED 错误，而较大的工作空间可以为某
+些例程提供性能优势。建议用户提供的工作空间至少为 4MiB（以匹配 mcBLAS 的默认工作空间池） 。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 流设置成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE workspace 指针不满足至少 256 字节对齐
+2.2.9 mcblasGetStream()
+mcblasStatus_t
+mcblasGetStream(mcblasHandle_t handle, mcStream_t *streamId)
+此函数获取用于后续所有 mcBLAS 库函数调用的 mcBLAS 库流。如果未设置 mcBLAS 库流，则所有内
+核都使用默认的 NULL 流。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 流返回成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE streamId == NULL
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 14

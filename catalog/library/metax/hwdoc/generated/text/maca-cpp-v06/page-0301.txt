@@ -1,0 +1,45 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 301
+PDF 页码标签: 293
+页脚页码候选: 293
+章节提示（书签推断）: Thread Block Group
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+因此，建议您预先为隐式组创建一个句柄（尽可能早，在任何分支发生之前）并在整个内核中使用这个
+句柄。
+3.3.1.1 Thread Block Group
+大家对于这样的 thread block 定义的 thread group 已经非常了解了。Cooperative Group 扩展引入一
+个新的数据类型，thread_block，来显示地表示kernel中的这一概念。
+class thread_block;
+// 如下方式构造：
+thread_block g = this_thread_block();
+// Public 成员函数：
+static void sync(); // 同步组内的线程
+static unsigned int thread_rank(); // 在[0, num_threads) 区间内为调用线程排序
+static dim3 group_index(); // 在启动的 grid中当前 block的3-D index
+static dim3 thread_index(); // 在启动的 block中当前 thread的3-D index
+static dim3 dim_threads(); // 以units为单位的启动的 block的尺寸
+static unsigned int num_threads(); // 当前 group中总的线程数
+// 传统成员函数（别名）：
+static unsigned int size(); // 当前 group中总的线程数 (num_threads的别名 )
+static dim3 group_dim(); // 启动的 block的尺寸 (dim_threads的别名 )
+例子：
+/// 从global内存加载数据到 shared内存
+__global__ void kernel(int *globalInput) {
+__shared__ int x;
+thread_block g = this_thread_block();
+// 选一个 leader
+if (g.thread_rank() == 0) {
+// 一次从 global中加载所有 thread需要的数据到 shared
+x = (*globalInput);
+}
+// 在加载数据到 shared内存完毕之后，如果 block中所有的线程需要使用这个数据，你需
+g.sync(); // 等价于 __syncthreads();
+}
+// 注意： group中所有的线程都必须参与集体操作，否则行为是未定义的。
+// thread_block 数据类型是从更加 generic的类型 thread_group派生出来的， thread_group
+// 可以用来表示更广泛的 group
+3 CooperativeGroups 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 293

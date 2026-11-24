@@ -15,7 +15,7 @@ class OptimizationTests(unittest.TestCase):
     def setUpClass(cls):
         cls.catalog = Catalog()
         cls.catalog.load()
-        cls.source = ROOT / "runs/analysis/qwen-metax-v2/analysis.yaml"
+        cls.source = ROOT / "experiments/runs/analysis/qwen-metax-v2/analysis.yaml"
 
     def test_qwen_evidence_gaps_do_not_become_executable_tasks(self):
         result = prepare(self.catalog, self.source)
@@ -29,7 +29,7 @@ class OptimizationTests(unittest.TestCase):
         self.assertEqual(source["tasks"][0]["scope"], result["tasks"][0]["scope"])
 
     def test_glm_remains_without_baseline(self):
-        result = prepare(self.catalog, ROOT / "runs/analysis/glm53-w8a8-v1/analysis.yaml")
+        result = prepare(self.catalog, ROOT / "experiments/runs/analysis/glm53-w8a8-v1/analysis.yaml")
         self.assertTrue(all(t["status"] == "awaiting_baseline" for t in result["tasks"]))
         self.assertTrue(any("exceed" in item for item in result["preflight_issues"]))
 

@@ -1,0 +1,39 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 32
+PDF 页码标签: 20
+页脚页码候选: 20
+章节提示（书签推断）: TensorFlow（CheckPoint）模型转ONNX模型
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+参数说明：
+model_path ：Caffe 模型路径（文件夹，需包含.prototxt 和.caffemodel）
+model_type ：模型类型（此处固定为 caffe）
+output ：目标模型的路径
+5.1.3.2 TensorFlow（H5）模型转 ONNX 模型
+操作步骤
+1. 执行以下命令，将 TensorFlow H5 格式的模型转为 ONNX 模型。
+python -m maca_converter --model_path ./test.h5 --model_type tf-h5 --output ./
+,→output.onnx
+参数说明：
+model_path ：H5 模型路径
+model_type ：模型类型（此处固定为 tf‑h5）
+output ：目标模型的路径
+5.1.3.3 TensorFlow（SavedModel）模型转 ONNX 模型
+操作步骤
+1. 执行以下命令，将 TensorFlow SavedModel 格式的模型转为 ONNX 模型。
+python -m maca_converter --model_path ./tfsm --model_type tf-sm --output ./
+,→output.onnx
+参数说明：
+model_path ：SavedModel 模型路径（文件夹，需包含 assets/saved_model.pb/variables）
+model_type ：模型类型（此处固定为 tf‑sm）
+output ：目标模型的路径
+5.1.3.4 TensorFlow（CheckPoint）模型转 ONNX 模型
+操作步骤
+1. 执行以下命令，将 TensorFlow CheckPoint 格式的模型转为 ONNX 模型。
+python -m maca_converter --model_path ./ckpt/test.meta --model_type tf-ckpt --
+,→output ./output.onnx --inputs x:0,y:0 --outputs op_to_store:0 – -inputs_as_
+,→nchw x:0,y:0
+5 MacaRT 工具链 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 20

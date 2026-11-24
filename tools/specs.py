@@ -25,6 +25,15 @@ if str(ROOT) not in sys.path:
 if __name__ == "__main__":
     sys.modules.setdefault("tools.specs", sys.modules[__name__])
 SCHEMA_FILES = {
+    "OptimizationTask": "optimization-task.json",
+    "MechanismCard": "mechanism-card.json",
+    "AccuracyPlan": "accuracy.json",
+    "OperatorCase": "operator-case.json",
+    "BreakdownPlan": "breakdown.json",
+    "BenchmarkOfflineReport": "benchmark-offline-report.json",
+    "KnowledgeCollection": "knowledge-collection.json",
+    "ExperimentRecord": "experiment-record.json",
+    "BaselineRecord": "baseline-record.json",
     "SourceDocument": "source.json",
     "ModelSpec": "model.json",
     "HardwareSpec": "hardware.json",
@@ -33,7 +42,7 @@ SCHEMA_FILES = {
     "MeasurementProtocol": "measurement-protocol.json",
     "SLAProfile": "sla.json",
     "TestCaseSpec": "test-case.json",
-    "StudySpec": "study-v0.2.json",
+    "StudySpec": "study.json",
     "ReportedMeasurements": "reported-measurements.json",
     "RecipeTemplate": "template.json",
     "ResolvedStudy": "snapshot.json",
@@ -55,6 +64,7 @@ SCHEMA_FILES = {
     "OptimizationHandoff": "optimization-handoff.json",
 }
 REFERENCE_KINDS = {
+    "operator_case_refs": "OperatorCase",
     "source_ref": "SourceDocument", "model_ref": "ModelSpec",
     "model_refs": "ModelSpec", "hardware_ref": "HardwareSpec",
     "hardware_refs": "HardwareSpec", "device_profile_ref": "HardwareSpec",
@@ -111,6 +121,7 @@ UniqueKeyLoader.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, 
 
 
 def read(path: Path) -> dict:
+    path = Path(path)
     try:
         document = yaml.load(path.read_text(encoding="utf-8"), Loader=UniqueKeyLoader)
     except (OSError, yaml.YAMLError) as exc:
@@ -179,11 +190,7 @@ class Catalog:
     def structural_errors(self, document: dict) -> list[str]:
         kind = document.get("kind")
         version = document.get("schema_version")
-        if version == "0.1":
-            filename = {"StudySpec": "legacy/study-v0.1.json", "OptimizationTask": "optimization-task.json",
-                        "MechanismCard": "mechanism-card.json"}.get(kind)
-        else:
-            filename = SCHEMA_FILES.get(kind)
+        filename = SCHEMA_FILES.get(kind) if version == "0.2.0" else None
         if filename is None:
             return [f"unsupported kind/version: {kind}/{version}"]
         validator = Draft202012Validator(self.schemas[filename], registry=self.registry)
@@ -201,16 +208,13 @@ class Catalog:
     def load(self) -> None:
         self.documents.clear()
         self.paths.clear()
-        roots = [self.root / "schemas" / "recipes"]
-        roots += [self.root / "benchmark" / name for name in ("recipes", "scenarios", "plans")]
-        roots += [self.root / "tools" / "hardware" / "plans"]
-        roots += [self.root / module / 'plans' for module in ('diagnosis','analysis')]
+        roots = [self.root / "recipes"]
         for path in sorted(p for directory in roots for p in directory.rglob("*.yaml")):
             document = read(path)
             errors = self.structural_errors(document)
             if errors:
                 raise SpecError(f"{path}:\n" + "\n".join(errors))
-            if document['kind'] in {'ResolvedStudy', 'ResolvedBenchmark', 'MeasurementBundle', 'RecipeTemplate', 'DiagnosisReport', 'AnalysisReport', 'TraceCapture', 'TraceSummary', 'OptimizationHandoff'}:
+            if document['kind'] in {'ResolvedStudy', 'ResolvedBenchmark', 'MeasurementBundle', 'RecipeTemplate', 'DiagnosisReport', 'AnalysisReport', 'TraceCapture', 'TraceSummary', 'OptimizationHandoff', 'ExperimentRecord', 'BaselineRecord', 'BenchmarkOfflineReport', 'KnowledgeCollection'}:
                 raise SpecError(f"{path}: snapshots, results and templates do not belong in recipe directories")
             identity = key(document)
             if identity in self.documents:
@@ -225,6 +229,18 @@ class Catalog:
             raise SpecError(f"unresolved reference: {ref}") from exc
 
     def semantic_errors(self, doc: dict, verify_sources: bool = False) -> list[str]:
+        if doc['kind'] in {'OptimizationTask','MechanismCard'}:
+            return []
+        if doc['kind'] in {'AccuracyPlan','BreakdownPlan','OperatorCase','BenchmarkOfflineReport'}:
+            from benchmark.common.offline import semantic_errors
+            return semantic_errors(self,doc,verify_sources)
+        if doc['kind']=='KnowledgeCollection':
+            return []
+        if doc['kind'] in {'ExperimentRecord','BaselineRecord'}:
+            from tools.experiments import check
+            try:check(self,doc)
+            except (SpecError,OSError) as exc:return [str(exc)]
+            return []
         if doc['kind'] in {'AnalysisMethod','DiagnosisPlan','DiagnosisReport','AnalysisPlan','AnalysisReport','TraceCapture','TraceSummary','OptimizationHandoff'}:
             from diagnosis.contracts import semantic_errors
             return semantic_errors(self,doc,verify_sources)
@@ -233,7 +249,7 @@ class Catalog:
             return semantic_errors(doc)
         if doc["kind"] in {"DeploymentSpec", "BenchmarkScenario", "BenchmarkPlan", "ResolvedBenchmark", "MeasurementBundle"}:
             # Lazy import keeps the offline catalog independent of optional GPU packages.
-            from benchmark.planner import semantic_errors
+            from benchmark.load.planner import semantic_errors
             return semantic_errors(self, doc, verify_sources)
         if doc["kind"] == "ResolvedStudy":
             return self.snapshot_errors(doc, verify_sources)
@@ -288,6 +304,15 @@ class Catalog:
                         errors.append(f"joint SLO must reference per_request constraints: {cid}")
         elif kind == "WorkloadSpec":
             arrival = doc["arrival"]
+            if len(arrival['load_points'])!=len(set(arrival['load_points'])):
+                errors.append('load points must be unique')
+            if doc['requests'].get('count_multiplier') is not None and (arrival['mode']!='closed_loop' or arrival['load_unit']!='concurrency'):
+                errors.append('count_multiplier requires closed_loop concurrency')
+            if doc['requests'].get('request_set_sha256_by_concurrency') is not None:
+                if doc['requests'].get('count_multiplier') is None:
+                    errors.append('per-concurrency hashes require count_multiplier')
+                if set(doc['requests']['request_set_sha256_by_concurrency'])!={str(int(c)) for c in arrival['load_points']}:
+                    errors.append('per-concurrency hashes must cover exactly the declared load points')
             if arrival["mode"] in {"closed_loop", "burst"} and arrival["load_unit"] not in {"concurrency", "per_dp_batch", "unspecified"}:
                 errors.append("closed-loop/burst load must use concurrency, not requests/s")
             if arrival["mode"] == "open_loop" and arrival["load_unit"] != "requests/s":
@@ -482,8 +507,13 @@ class Catalog:
             elif kind == "WorkloadSpec":
                 for name in ("input", "output"):
                     require(doc[name]["tokens"], "/"+name+"/tokens")
-                require(doc["requests"]["request_set_sha256"], "/requests/request_set_sha256")
-                require(doc["requests"]["count"], "/requests/count")
+                if doc['requests'].get('count_multiplier') is not None:
+                    hashes=doc['requests'].get('request_set_sha256_by_concurrency',{})
+                    for c in doc['arrival']['load_points']:
+                        require(hashes.get(str(int(c))), '/requests/request_set_sha256_by_concurrency/'+str(int(c)))
+                else:
+                    require(doc["requests"]["request_set_sha256"], "/requests/request_set_sha256")
+                require(doc["requests"].get("count_multiplier") or doc["requests"]["count"], "/requests/count or count_multiplier")
                 require(doc["arrival"]["load_points"], "/arrival/load_points")
                 for name, value in doc["generation"].items():
                     require(value, "/generation/"+name)
@@ -616,7 +646,7 @@ def main(argv=None) -> int:
                 current = catalog.structural_errors(doc)
                 if not current and doc.get("schema_version") == "0.2.0" and doc["kind"] != "RecipeTemplate":
                     current += catalog.semantic_errors(doc, args.sources)
-                    if doc["kind"] not in {"ResolvedStudy", "ResolvedBenchmark", "MeasurementBundle", "DiagnosisReport", "AnalysisReport", "TraceSummary", "OptimizationHandoff"}:
+                    if doc["kind"] not in {"ResolvedStudy", "ResolvedBenchmark", "MeasurementBundle", "DiagnosisReport", "AnalysisReport", "TraceSummary", "OptimizationHandoff", "ExperimentRecord", "BaselineRecord", "BenchmarkOfflineReport", "KnowledgeCollection", "OptimizationTask", "MechanismCard"}:
                         try:
                             closure = catalog.closure(doc)
                             if args.path and args.sources:

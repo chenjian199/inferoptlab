@@ -1,0 +1,32 @@
+{
+  "ipmitool": null,
+  "local_ipmi_devices": [
+    "/dev/ipmi0"
+  ],
+  "restart_policies": {
+    "dcc": {
+      "Name": "unless-stopped",
+      "MaximumRetryCount": 0
+    },
+    "glm53-vllm032": {
+      "Name": "no",
+      "MaximumRetryCount": 0
+    },
+    "glm53-heval-v1": {
+      "Name": "no",
+      "MaximumRetryCount": 0
+    },
+    "glm53-repeat-v1": {
+      "Name": "no",
+      "MaximumRetryCount": 0
+    },
+    "glm53-gemm-v1": {
+      "Name": "no",
+      "MaximumRetryCount": 0
+    },
+    "glm53-gemm-recovery-v1": {
+      "Name": "no",
+      "MaximumRetryCount": 0
+    }
+  }
+}

@@ -1,0 +1,43 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 90
+PDF 页码标签: 78
+页脚页码候选: 78
+章节提示（书签推断）: 配置任务信息
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+14.5 模型评测步骤
+14.5.1 启动容器镜像
+从 发 布 的 软 件 包 中 获 取 ModelZoo.LLm.SGLang 容 器 镜 像 并 启 动。 此 容 器 镜 像 包 含 Model‑
+Zoo.LLm.SGLang 模型评测所需的运行时软件栈。容器镜像的使用，参见《沐曦通用 GPU 用户指
+南》中“容器相关场景支持”章节。容器镜像启动时需要挂载用户的模型目录和数据集目录。
+14.5.2 配置机器信息
+进入主节点容器内部，modelzoo 目录在 /workspace/ModelZoo.LLM.Inference。
+修改 /workspace/ModelZoo.LLM.Inference/models/machines.json 使用的节点信息。此处
+DeepSeek‑R1‑W8A8 使用的双机，只需要添加两个节点的信息。
+"machine_info": [
+{
+"ip": "192.168.0.1",
+"ifname": "*****",
+"ib_hcas": "*****"
+},
+{
+"ip": "192.168.0.2",
+"ifname": "*****",
+"ib_hcas": "*****"
+}
+],
+需要注意的是，此处配置的机器的数量需要与任务执行所需的机器的数量一致。否则，多余配置的机器
+也需要作为从节点启动。
+14.5.3 配置任务信息
+以 DeepSeek‑R1‑W8A8 为 例， 测 试 的 任 务 是 性 能 测 试， 那 么 修 改/workspace/ModelZoo.LLM.
+Inference/models/DeepSeek-R1-W8A8/config.json。配置里面默认带的是本版本最佳性能参
+数，需要用户手动改 model_path，mtp model_path，ShareGPT_V3_unfiltered_cleaned_split.json
+（如有使用）的路径为镜像内部可以访问的路径。
+如果想测试其他参数组合，可以在 launch_server 里面添加，会自动组合生成测试结果，且 json 支持添
+加多个任务；需要注意的是，如果测试其他组合出现 out of memory，需自行调小 mem‑frac 的配置，
+查看当前使用 mem‑frac 的大小方法：如果参数中有设置就是设置的值，如果参数中没设置，就在服务
+启动日志中搜索 mem_fraction_static 即可。
+14 ModelZoo.LLM.SGLang 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 78

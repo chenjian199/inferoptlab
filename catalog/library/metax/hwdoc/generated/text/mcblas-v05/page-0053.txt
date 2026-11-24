@@ -1,0 +1,37 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 53
+PDF 页码标签: 46
+页脚页码候选: 46
+章节提示（书签推断）: mcblas<t>syr()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+下面列出了此函数可能的返回值及其含义。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE 参数 n<0 或 incx,incy=0
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2.4.9 mcblas<t>syr()
+mcblasStatus_t mcblasSsyr(mcblasHandle_t handle, mcblasFillMode_t uplo,
+int n, const float *alpha,
+const float *x, int incx,
+float *A, int lda)
+mcblasStatus_t mcblasDsyr(mcblasHandle_t handle, mcblasFillMode_t uplo,
+int n, const double *alpha,
+const double *x, int incx,
+double *A, int lda)
+mcblasStatus_t mcblasCsyr(mcblasHandle_t handle, mcblasFillMode_t uplo,
+int n, const mcComplex *alpha,
+const mcComplex *x, int incx,
+mcComplex *A, int lda)
+mcblasStatus_t mcblasZsyr(mcblasHandle_t handle, mcblasFillMode_t uplo,
+int n, const mcDoubleComplex *alpha,
+const mcDoubleComplex *x, int incx,
+mcDoubleComplex *A, int lda)
+此函数执行对称秩一校正
+A = αxxT + A
+其中 A 是以列主格式存储的 n × n 对称矩阵，x 是向量，α 是标量。
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 46

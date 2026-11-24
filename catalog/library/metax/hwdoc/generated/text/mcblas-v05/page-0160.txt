@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 160
+PDF 页码标签: 153
+页脚页码候选: 153
+章节提示（书签推断）: mcblasNrm2Ex()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE
+• n < 0 或 k < 0
+• uplo != MCBLAS_FILL_MODE_UPPER,
+MCBLAS_FILL_MODE_LOWER
+• trans != MCBLAS_OP_N, MCBLAS_OP_C,
+MCBLAS_OP_T
+• 如果 trans == MCBLAS_OP_N ，lda < max(1,
+n) ；否则 lda < max(1, k)
+• ldc < max(1, n)
+• 不支持 Atype 或 Ctype
+MCBLAS_STATUS_NOT_SUPPORTED 不支持参数 Atype 和 Ctype 的组合
+MCBLAS_STATUS_ARCH_MISMATCH 当前函数功能在本设备上不支持
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2.6.19 mcblasNrm2Ex()
+mcblasStatus_t mcblasNrm2Ex(mcblasHandle_t handle,
+int n,
+const void *x,
+macaDataType xType,
+int incx,
+void *result,
+macaDataType resultType,
+macaDataType executionType)
+此函数是 mcblas<t>nrm2 的 API 泛化，可在其中独立指定输入数据，输出数据和计算类型。
+该函数计算向量 x 的欧几里德范数（Euclidean norm） 。代码中使用多相模型累积来避免中间结果下溢
+和溢出，其结果相当于精确运算中的
+√∑n
+i=1 (x[j] × x[j])，其中 j = 1 + ( i − 1) ∗ incx。请注意，最后一
+个公式反映了基于 1 的索引，该索引用于与 Fortran 兼容。
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 153

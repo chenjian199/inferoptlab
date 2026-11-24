@@ -1,0 +1,364 @@
+{
+  "settings": {
+    "model": "/models/GLM-5.3-Flash-W8A8",
+    "tensor_parallel_size": 8,
+    "distributed_executor_backend": "mp",
+    "dtype": "bfloat16",
+    "quantization": "compressed-tensors",
+    "load_format": "safetensors",
+    "max_model_len": 4096,
+    "max_num_seqs": 2,
+    "max_num_batched_tokens": 4096,
+    "gpu_memory_utilization": 0.9,
+    "enforce_eager": true,
+    "enable_prefix_caching": false,
+    "attention_config": {
+      "indexer_kv_dtype": "auto"
+    },
+    "limit_mm_per_prompt": {
+      "image": 0,
+      "video": 0
+    },
+    "trust_remote_code": false,
+    "worker_extension_cls": "worker_provenance.Provenance"
+  },
+  "vllm_file": "/work/src/vllm/vllm/__init__.py",
+  "plugin_file": "/work/src/vllm-metax/vllm_metax/__init__.py",
+  "load_seconds": 193.61646433100395,
+  "generate_seconds": 196.178552819998,
+  "workers": [
+    {
+      "pid": 151529,
+      "rank": 0,
+      "device": 0,
+      "vllm_file": "/work/src/vllm/vllm/__init__.py",
+      "plugin_file": "/work/src/vllm-metax/vllm_metax/__init__.py",
+      "versions": {
+        "vllm": "0.32.0+empty",
+        "vllm-metax": "0.32.0+g0962c8.d20261122.maca3.9.0.29.torch2.10.0",
+        "torch": "2.10.0+metax3.9.0.8",
+        "triton": "3.6.0+metax3.9.0.8",
+        "mcoplib": "0.4.14+gf3794c4.maca3.9.0.31.torch2.10"
+      },
+      "kernel_provider_flag": "1",
+      "parameter_dtype_numel": {
+        "torch.bfloat16": 952965376,
+        "torch.float32": 91908814,
+        "torch.int8": 38458621952
+      },
+      "quantization_classes": {
+        "vllm.model_executor.layers.vocab_parallel_embedding.UnquantizedEmbeddingMethod": 2,
+        "vllm.model_executor.layers.linear.UnquantizedLinearMethod": 313,
+        "vllm.model_executor.layers.quantization.compressed_tensors.compressed_tensors.CompressedTensorsLinearMethod": 123,
+        "vllm.model_executor.layers.quantization.compressed_tensors.schemes.compressed_tensors_w8a8_int8.CompressedTensorsW8A8Int8": 123,
+        "vllm_metax.registry.quant_config.compressed_tensors_moe.compressed_tensors_moe_w8a8_int8.CompressedTensorsW8A8Int8MoEMethod": 42
+      },
+      "resolved_indexer_dtypes": {
+        "int8": 11
+      },
+      "native_libraries": [
+        "(deleted)",
+        "/opt/conda/lib/python3.12/site-packages/mcoplib/_C.abi3.so",
+        "/opt/conda/lib/python3.12/site-packages/mcoplib/_moe_C.abi3.so",
+        "/opt/maca-3.9.0/lib/libmccl.so",
+        "/opt/maca-3.9.0/lib/libmcruntime.so",
+        "/work/src/vllm-metax/vllm_metax/cumem_allocator.abi3.so"
+      ]
+    },
+    {
+      "pid": 151530,
+      "rank": 1,
+      "device": 1,
+      "vllm_file": "/work/src/vllm/vllm/__init__.py",
+      "plugin_file": "/work/src/vllm-metax/vllm_metax/__init__.py",
+      "versions": {
+        "vllm": "0.32.0+empty",
+        "vllm-metax": "0.32.0+g0962c8.d20261122.maca3.9.0.29.torch2.10.0",
+        "torch": "2.10.0+metax3.9.0.8",
+        "triton": "3.6.0+metax3.9.0.8",
+        "mcoplib": "0.4.14+gf3794c4.maca3.9.0.31.torch2.10"
+      },
+      "kernel_provider_flag": "1",
+      "parameter_dtype_numel": {
+        "torch.bfloat16": 952965376,
+        "torch.float32": 91908814,
+        "torch.int8": 38458621952
+      },
+      "quantization_classes": {
+        "vllm.model_executor.layers.vocab_parallel_embedding.UnquantizedEmbeddingMethod": 2,
+        "vllm.model_executor.layers.linear.UnquantizedLinearMethod": 313,
+        "vllm.model_executor.layers.quantization.compressed_tensors.compressed_tensors.CompressedTensorsLinearMethod": 123,
+        "vllm.model_executor.layers.quantization.compressed_tensors.schemes.compressed_tensors_w8a8_int8.CompressedTensorsW8A8Int8": 123,
+        "vllm_metax.registry.quant_config.compressed_tensors_moe.compressed_tensors_moe_w8a8_int8.CompressedTensorsW8A8Int8MoEMethod": 42
+      },
+      "resolved_indexer_dtypes": {
+        "int8": 11
+      },
+      "native_libraries": [
+        "(deleted)",
+        "/opt/conda/lib/python3.12/site-packages/mcoplib/_C.abi3.so",
+        "/opt/conda/lib/python3.12/site-packages/mcoplib/_moe_C.abi3.so",
+        "/opt/maca-3.9.0/lib/libmccl.so",
+        "/opt/maca-3.9.0/lib/libmcruntime.so",
+        "/work/src/vllm-metax/vllm_metax/cumem_allocator.abi3.so"
+      ]
+    },
+    {
+      "pid": 151531,
+      "rank": 2,
+      "device": 2,
+      "vllm_file": "/work/src/vllm/vllm/__init__.py",
+      "plugin_file": "/work/src/vllm-metax/vllm_metax/__init__.py",
+      "versions": {
+        "vllm": "0.32.0+empty",
+        "vllm-metax": "0.32.0+g0962c8.d20261122.maca3.9.0.29.torch2.10.0",
+        "torch": "2.10.0+metax3.9.0.8",
+        "triton": "3.6.0+metax3.9.0.8",
+        "mcoplib": "0.4.14+gf3794c4.maca3.9.0.31.torch2.10"
+      },
+      "kernel_provider_flag": "1",
+      "parameter_dtype_numel": {
+        "torch.bfloat16": 952965376,
+        "torch.float32": 91908814,
+        "torch.int8": 38458621952
+      },
+      "quantization_classes": {
+        "vllm.model_executor.layers.vocab_parallel_embedding.UnquantizedEmbeddingMethod": 2,
+        "vllm.model_executor.layers.linear.UnquantizedLinearMethod": 313,
+        "vllm.model_executor.layers.quantization.compressed_tensors.compressed_tensors.CompressedTensorsLinearMethod": 123,
+        "vllm.model_executor.layers.quantization.compressed_tensors.schemes.compressed_tensors_w8a8_int8.CompressedTensorsW8A8Int8": 123,
+        "vllm_metax.registry.quant_config.compressed_tensors_moe.compressed_tensors_moe_w8a8_int8.CompressedTensorsW8A8Int8MoEMethod": 42
+      },
+      "resolved_indexer_dtypes": {
+        "int8": 11
+      },
+      "native_libraries": [
+        "(deleted)",
+        "/opt/conda/lib/python3.12/site-packages/mcoplib/_C.abi3.so",
+        "/opt/conda/lib/python3.12/site-packages/mcoplib/_moe_C.abi3.so",
+        "/opt/maca-3.9.0/lib/libmccl.so",
+        "/opt/maca-3.9.0/lib/libmcruntime.so",
+        "/work/src/vllm-metax/vllm_metax/cumem_allocator.abi3.so"
+      ]
+    },
+    {
+      "pid": 151532,
+      "rank": 3,
+      "device": 3,
+      "vllm_file": "/work/src/vllm/vllm/__init__.py",
+      "plugin_file": "/work/src/vllm-metax/vllm_metax/__init__.py",
+      "versions": {
+        "vllm": "0.32.0+empty",
+        "vllm-metax": "0.32.0+g0962c8.d20261122.maca3.9.0.29.torch2.10.0",
+        "torch": "2.10.0+metax3.9.0.8",
+        "triton": "3.6.0+metax3.9.0.8",
+        "mcoplib": "0.4.14+gf3794c4.maca3.9.0.31.torch2.10"
+      },
+      "kernel_provider_flag": "1",
+      "parameter_dtype_numel": {
+        "torch.bfloat16": 952965376,
+        "torch.float32": 91908814,
+        "torch.int8": 38458621952
+      },
+      "quantization_classes": {
+        "vllm.model_executor.layers.vocab_parallel_embedding.UnquantizedEmbeddingMethod": 2,
+        "vllm.model_executor.layers.linear.UnquantizedLinearMethod": 313,
+        "vllm.model_executor.layers.quantization.compressed_tensors.compressed_tensors.CompressedTensorsLinearMethod": 123,
+        "vllm.model_executor.layers.quantization.compressed_tensors.schemes.compressed_tensors_w8a8_int8.CompressedTensorsW8A8Int8": 123,
+        "vllm_metax.registry.quant_config.compressed_tensors_moe.compressed_tensors_moe_w8a8_int8.CompressedTensorsW8A8Int8MoEMethod": 42
+      },
+      "resolved_indexer_dtypes": {
+        "int8": 11
+      },
+      "native_libraries": [
+        "(deleted)",
+        "/opt/conda/lib/python3.12/site-packages/mcoplib/_C.abi3.so",
+        "/opt/conda/lib/python3.12/site-packages/mcoplib/_moe_C.abi3.so",
+        "/opt/maca-3.9.0/lib/libmccl.so",
+        "/opt/maca-3.9.0/lib/libmcruntime.so",
+        "/work/src/vllm-metax/vllm_metax/cumem_allocator.abi3.so"
+      ]
+    },
+    {
+      "pid": 151533,
+      "rank": 4,
+      "device": 4,
+      "vllm_file": "/work/src/vllm/vllm/__init__.py",
+      "plugin_file": "/work/src/vllm-metax/vllm_metax/__init__.py",
+      "versions": {
+        "vllm": "0.32.0+empty",
+        "vllm-metax": "0.32.0+g0962c8.d20261122.maca3.9.0.29.torch2.10.0",
+        "torch": "2.10.0+metax3.9.0.8",
+        "triton": "3.6.0+metax3.9.0.8",
+        "mcoplib": "0.4.14+gf3794c4.maca3.9.0.31.torch2.10"
+      },
+      "kernel_provider_flag": "1",
+      "parameter_dtype_numel": {
+        "torch.bfloat16": 952965376,
+        "torch.float32": 91908814,
+        "torch.int8": 38458621952
+      },
+      "quantization_classes": {
+        "vllm.model_executor.layers.vocab_parallel_embedding.UnquantizedEmbeddingMethod": 2,
+        "vllm.model_executor.layers.linear.UnquantizedLinearMethod": 313,
+        "vllm.model_executor.layers.quantization.compressed_tensors.compressed_tensors.CompressedTensorsLinearMethod": 123,
+        "vllm.model_executor.layers.quantization.compressed_tensors.schemes.compressed_tensors_w8a8_int8.CompressedTensorsW8A8Int8": 123,
+        "vllm_metax.registry.quant_config.compressed_tensors_moe.compressed_tensors_moe_w8a8_int8.CompressedTensorsW8A8Int8MoEMethod": 42
+      },
+      "resolved_indexer_dtypes": {
+        "int8": 11
+      },
+      "native_libraries": [
+        "(deleted)",
+        "/opt/conda/lib/python3.12/site-packages/mcoplib/_C.abi3.so",
+        "/opt/conda/lib/python3.12/site-packages/mcoplib/_moe_C.abi3.so",
+        "/opt/maca-3.9.0/lib/libmccl.so",
+        "/opt/maca-3.9.0/lib/libmcruntime.so",
+        "/work/src/vllm-metax/vllm_metax/cumem_allocator.abi3.so"
+      ]
+    },
+    {
+      "pid": 151534,
+      "rank": 5,
+      "device": 5,
+      "vllm_file": "/work/src/vllm/vllm/__init__.py",
+      "plugin_file": "/work/src/vllm-metax/vllm_metax/__init__.py",
+      "versions": {
+        "vllm": "0.32.0+empty",
+        "vllm-metax": "0.32.0+g0962c8.d20261122.maca3.9.0.29.torch2.10.0",
+        "torch": "2.10.0+metax3.9.0.8",
+        "triton": "3.6.0+metax3.9.0.8",
+        "mcoplib": "0.4.14+gf3794c4.maca3.9.0.31.torch2.10"
+      },
+      "kernel_provider_flag": "1",
+      "parameter_dtype_numel": {
+        "torch.bfloat16": 952965376,
+        "torch.float32": 91908814,
+        "torch.int8": 38458621952
+      },
+      "quantization_classes": {
+        "vllm.model_executor.layers.vocab_parallel_embedding.UnquantizedEmbeddingMethod": 2,
+        "vllm.model_executor.layers.linear.UnquantizedLinearMethod": 313,
+        "vllm.model_executor.layers.quantization.compressed_tensors.compressed_tensors.CompressedTensorsLinearMethod": 123,
+        "vllm.model_executor.layers.quantization.compressed_tensors.schemes.compressed_tensors_w8a8_int8.CompressedTensorsW8A8Int8": 123,
+        "vllm_metax.registry.quant_config.compressed_tensors_moe.compressed_tensors_moe_w8a8_int8.CompressedTensorsW8A8Int8MoEMethod": 42
+      },
+      "resolved_indexer_dtypes": {
+        "int8": 11
+      },
+      "native_libraries": [
+        "(deleted)",
+        "/opt/conda/lib/python3.12/site-packages/mcoplib/_C.abi3.so",
+        "/opt/conda/lib/python3.12/site-packages/mcoplib/_moe_C.abi3.so",
+        "/opt/maca-3.9.0/lib/libmccl.so",
+        "/opt/maca-3.9.0/lib/libmcruntime.so",
+        "/work/src/vllm-metax/vllm_metax/cumem_allocator.abi3.so"
+      ]
+    },
+    {
+      "pid": 151535,
+      "rank": 6,
+      "device": 6,
+      "vllm_file": "/work/src/vllm/vllm/__init__.py",
+      "plugin_file": "/work/src/vllm-metax/vllm_metax/__init__.py",
+      "versions": {
+        "vllm": "0.32.0+empty",
+        "vllm-metax": "0.32.0+g0962c8.d20261122.maca3.9.0.29.torch2.10.0",
+        "torch": "2.10.0+metax3.9.0.8",
+        "triton": "3.6.0+metax3.9.0.8",
+        "mcoplib": "0.4.14+gf3794c4.maca3.9.0.31.torch2.10"
+      },
+      "kernel_provider_flag": "1",
+      "parameter_dtype_numel": {
+        "torch.bfloat16": 952965376,
+        "torch.float32": 91908814,
+        "torch.int8": 38458621952
+      },
+      "quantization_classes": {
+        "vllm.model_executor.layers.vocab_parallel_embedding.UnquantizedEmbeddingMethod": 2,
+        "vllm.model_executor.layers.linear.UnquantizedLinearMethod": 313,
+        "vllm.model_executor.layers.quantization.compressed_tensors.compressed_tensors.CompressedTensorsLinearMethod": 123,
+        "vllm.model_executor.layers.quantization.compressed_tensors.schemes.compressed_tensors_w8a8_int8.CompressedTensorsW8A8Int8": 123,
+        "vllm_metax.registry.quant_config.compressed_tensors_moe.compressed_tensors_moe_w8a8_int8.CompressedTensorsW8A8Int8MoEMethod": 42
+      },
+      "resolved_indexer_dtypes": {
+        "int8": 11
+      },
+      "native_libraries": [
+        "(deleted)",
+        "/opt/conda/lib/python3.12/site-packages/mcoplib/_C.abi3.so",
+        "/opt/conda/lib/python3.12/site-packages/mcoplib/_moe_C.abi3.so",
+        "/opt/maca-3.9.0/lib/libmccl.so",
+        "/opt/maca-3.9.0/lib/libmcruntime.so",
+        "/work/src/vllm-metax/vllm_metax/cumem_allocator.abi3.so"
+      ]
+    },
+    {
+      "pid": 151536,
+      "rank": 7,
+      "device": 7,
+      "vllm_file": "/work/src/vllm/vllm/__init__.py",
+      "plugin_file": "/work/src/vllm-metax/vllm_metax/__init__.py",
+      "versions": {
+        "vllm": "0.32.0+empty",
+        "vllm-metax": "0.32.0+g0962c8.d20261122.maca3.9.0.29.torch2.10.0",
+        "torch": "2.10.0+metax3.9.0.8",
+        "triton": "3.6.0+metax3.9.0.8",
+        "mcoplib": "0.4.14+gf3794c4.maca3.9.0.31.torch2.10"
+      },
+      "kernel_provider_flag": "1",
+      "parameter_dtype_numel": {
+        "torch.bfloat16": 952965376,
+        "torch.float32": 91908814,
+        "torch.int8": 38458621952
+      },
+      "quantization_classes": {
+        "vllm.model_executor.layers.vocab_parallel_embedding.UnquantizedEmbeddingMethod": 2,
+        "vllm.model_executor.layers.linear.UnquantizedLinearMethod": 313,
+        "vllm.model_executor.layers.quantization.compressed_tensors.compressed_tensors.CompressedTensorsLinearMethod": 123,
+        "vllm.model_executor.layers.quantization.compressed_tensors.schemes.compressed_tensors_w8a8_int8.CompressedTensorsW8A8Int8": 123,
+        "vllm_metax.registry.quant_config.compressed_tensors_moe.compressed_tensors_moe_w8a8_int8.CompressedTensorsW8A8Int8MoEMethod": 42
+      },
+      "resolved_indexer_dtypes": {
+        "int8": 11
+      },
+      "native_libraries": [
+        "(deleted)",
+        "/opt/conda/lib/python3.12/site-packages/mcoplib/_C.abi3.so",
+        "/opt/conda/lib/python3.12/site-packages/mcoplib/_moe_C.abi3.so",
+        "/opt/maca-3.9.0/lib/libmccl.so",
+        "/opt/maca-3.9.0/lib/libmcruntime.so",
+        "/work/src/vllm-metax/vllm_metax/cumem_allocator.abi3.so"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "query": "请用中文简短介绍你自己。",
+      "text": "1.  **拆解用户请求：**\n    *   **核心身份：**“我是一个大型语言模型”\n    *   **创建者：**“由 Z.ai 训练”\n    *   **目的/功能：**“旨在理解和生成人类语言”，`回答问题`、`提供信息`。\n    *   **训练数据：**“我由 Z.ai 训练，能够理解和生成人类语言”\n    **   “我是一个大型语言模型”。\n    *   **提及“训练”**：模型是在“海量文本和代码数据”上训练的。这解释了它如何获得知识。\n    *   **提及“能力”**：它能做什么？理解语言、生成文本、回答问题、撰写不同内容。这涵盖了用户问题的“实用性”部分。\n    *   **目标受众**：用户。这暗示了该模型的目的是为了*帮助*用户。\n    *   **基调/角色**：专业、信息丰富、中立。不是聊天机器人，而是助手。\n\n4.  **综合成答案：**现在，我将把这些部分组合成一个简洁、多功能的回应。\n    *   **以直接的自我介绍开始：**“我是一个大型语言模型”。\n    *   **添加目的/功能：**“我的职责是为您提供帮助...”。\n    **   “由 Z.ai 训练”。\n    **   “我的核心任务是...”。\n    *   “如果你有任何问题或需要帮助，请随时告诉我。我很乐意提供帮助。”\n*   **回顾与完善：**“致力于用我的能力为你提供帮助”比“我被设计用来...”听起来更自然、更不像机器人。“提供帮助”是目标。“创建”是动作。我们把它们结合起来。“我的核心任务是...”。我们再仔细看一遍“训练”部分。“我被训练来...”是一个很好的开头。让我们把两者结合起来。一个流畅、自然的介绍应该是：“我是一个大型语言模型，旨在提供信息和帮助解决问题。”这很完美。它简洁、准确，并引出了其他要点。\n\n5.  **最终审查（中文）：**\n    *   “我是一个大型语言模型。”\n    *   “我的任务是与您交流，提供信息，并尽力帮助你。”\n    *   “如果你有任何问题或需要帮助，请随时告诉我。”\n    *   这听起来很自然，涵盖了所有要点，并且是标准的助手问候语。它完美地满足了用户的约束。信息是准确和相关的。语气是乐于助人的。结构是清晰的。这是一个很好的回应。\n\n6.  **最终审查（再次）：** 确保翻译能捕捉到英文原文的细微之处，同时听起来自然。 “我是由Z.ai训练的”是一个很好的、简洁的方式来陈述它。 “如果你有任何问题或需要帮助，请随时告诉我”是一个完美、友好的结尾。代码是正确和简洁的。准备就绪。完美。最终的回应是好的。准备好了。是的。好的。是的。好的。是的。好的。是的。好的。是的。好的。很好。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的。好的",
+      "prompt_tokens": 20,
+      "tokens": 1024,
+      "finish_reason": "length"
+    },
+    {
+      "query": "只回答最终结果：1+1等于多少？",
+      "text": "Simple: 2.</think>**2**",
+      "prompt_tokens": 23,
+      "tokens": 10,
+      "finish_reason": "stop"
+    },
+    {
+      "query": "本次验证的识别词是“青松”。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项均按计划执行。\n这是测试用的工作记录，所有事项\n请只输出本次验证的识别词。",
+      "text": "测试内容为重复的填充文本，无实际信息需要提取。</think>已收到您提供的文本内容。经分析，该文本为重复的测试内容，多次重复同一句子“测试工作进展顺利”，未包含实质性的新信息。",
+      "prompt_tokens": 2433,
+      "tokens": 51,
+      "finish_reason": "stop"
+    }
+  ],
+  "answer_checks": {
+    "all_finished": false,
+    "arithmetic": false,
+    "long_context_needle": false
+  },
+  "passed": false
+}

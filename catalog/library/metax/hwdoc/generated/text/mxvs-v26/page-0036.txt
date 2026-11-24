@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_mxvs测试工具套件使用手册_CN_V26.pdf
+文档 ID: mxvs-v26
+SHA256: f14e664d429c6568ce5723a3a83c7a9164c2fcb33fd59137fb49c1128ab63ce2
+PDF 页序号: 36
+PDF 页码标签: 26
+页脚页码候选: 26
+章节提示（书签推断）: 跨机MetaXLink带宽测试
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mxvs 测试工具套件使用手册
+13.2 跨机 MetaXLink 带宽测试
+跨机 MetaXLink 带宽测试需要在远端服务器先启动 OM Server。
+Server 命令
+/opt/maca/bin/mxvs om server
+Server 命令参数
+表 13.2 跨机 MetaXLink 带宽测试 Server 命令参数
+参数 必填 描述
+-P, --mxvs-port 否 Server 用于测试请求转发的服务端口，默认为 9601。
+-p, --mem-port 否 Server 用于测试内存分配的服务端口，默认为 9600。
+Client 命令
+/opt/maca/bin/mxvs om client --dst-addr <DST_ADDR>--src-devices <DEVICE_ID> --dst-
+,→devices <DEVICE_ID> -w <0|1|2>
+Client 命令参数
+表 13.3 跨机 MetaXLink 带宽测试 Client 命令参数
+参数 必填 描述
+--src-devices 是 测试起点 PCIe 设备编号，支持单个设备测试或多个设备同
+时测试。测试设备间需为 MetaXLink 连接。
+--dst-devices 是 测试终点 PCIe 设备编号，支持单个设备测试或多个设备同
+时测试。测试设备间需为 MetaXLink 连接。
+--data-sizes 否 指定测试的基准数据流，支持单个基准数据流测试或多
+个基准数据流同时进行测试。可选单位有 KB、MB，示例：
+--data-sizes 1KB,1MB,1024MB 。默认选择 128MB 的
+基准，最大支持 1024MB。
+-l, --loop 否 指定 SDMA copy 次数，默认为 1，若值为 N，则测试结果取
+N 次平均值。
+-c, --continually 否 持续监控速率开关，仅支持单一的 data size 值。
+--check 否 开启结果校验，检查数据一致性。
+--dst-addr 是 指定目的服务器 IP 地址。
+--src-addr 否 非本机进行测试时需指定，默认为本机测试。
+下页继续
+13 光模块验收测试工具（仅适用 C500X）沐曦股份专有信息 OG‑23023‑020‑F5_V26 | 26

@@ -1,0 +1,314 @@
+{
+  "status": "passed",
+  "scores": {
+    "baseline32": {
+      "tasks": 32,
+      "passed": 30,
+      "pass_at_1": 0.9375,
+      "truncated": 0
+    },
+    "candidate32": {
+      "tasks": 32,
+      "passed": 31,
+      "pass_at_1": 0.96875,
+      "truncated": 0
+    },
+    "rollback4": {
+      "tasks": 4,
+      "passed": 4,
+      "pass_at_1": 1.0,
+      "truncated": 0
+    }
+  },
+  "paired_pass_regressions": [],
+  "paired_pass_improvements": [
+    "HumanEval/37"
+  ],
+  "candidate_token_exact": 24,
+  "paired": [
+    {
+      "task_id": "HumanEval/16",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": true,
+      "baseline_tokens": 9,
+      "candidate_tokens": 9
+    },
+    {
+      "task_id": "HumanEval/131",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": true,
+      "baseline_tokens": 54,
+      "candidate_tokens": 54
+    },
+    {
+      "task_id": "HumanEval/103",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": true,
+      "baseline_tokens": 31,
+      "candidate_tokens": 31
+    },
+    {
+      "task_id": "HumanEval/54",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": true,
+      "baseline_tokens": 13,
+      "candidate_tokens": 13
+    },
+    {
+      "task_id": "HumanEval/144",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": false,
+      "baseline_tokens": 42,
+      "candidate_tokens": 50
+    },
+    {
+      "task_id": "HumanEval/115",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": true,
+      "baseline_tokens": 18,
+      "candidate_tokens": 18
+    },
+    {
+      "task_id": "HumanEval/123",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": true,
+      "baseline_tokens": 72,
+      "candidate_tokens": 72
+    },
+    {
+      "task_id": "HumanEval/162",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": true,
+      "baseline_tokens": 29,
+      "candidate_tokens": 29
+    },
+    {
+      "task_id": "HumanEval/156",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": true,
+      "baseline_tokens": 121,
+      "candidate_tokens": 121
+    },
+    {
+      "task_id": "HumanEval/94",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": false,
+      "baseline_tokens": 96,
+      "candidate_tokens": 96
+    },
+    {
+      "task_id": "HumanEval/48",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": true,
+      "baseline_tokens": 10,
+      "candidate_tokens": 10
+    },
+    {
+      "task_id": "HumanEval/56",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": true,
+      "baseline_tokens": 52,
+      "candidate_tokens": 52
+    },
+    {
+      "task_id": "HumanEval/160",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": true,
+      "baseline_tokens": 39,
+      "candidate_tokens": 39
+    },
+    {
+      "task_id": "HumanEval/6",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": false,
+      "baseline_tokens": 76,
+      "candidate_tokens": 72
+    },
+    {
+      "task_id": "HumanEval/117",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": false,
+      "baseline_tokens": 58,
+      "candidate_tokens": 54
+    },
+    {
+      "task_id": "HumanEval/12",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": true,
+      "baseline_tokens": 19,
+      "candidate_tokens": 19
+    },
+    {
+      "task_id": "HumanEval/59",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": true,
+      "baseline_tokens": 62,
+      "candidate_tokens": 62
+    },
+    {
+      "task_id": "HumanEval/30",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": true,
+      "baseline_tokens": 16,
+      "candidate_tokens": 16
+    },
+    {
+      "task_id": "HumanEval/10",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": false,
+      "baseline_tokens": 54,
+      "candidate_tokens": 38
+    },
+    {
+      "task_id": "HumanEval/82",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": true,
+      "baseline_tokens": 55,
+      "candidate_tokens": 55
+    },
+    {
+      "task_id": "HumanEval/35",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": true,
+      "baseline_tokens": 29,
+      "candidate_tokens": 29
+    },
+    {
+      "task_id": "HumanEval/104",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": true,
+      "baseline_tokens": 30,
+      "candidate_tokens": 30
+    },
+    {
+      "task_id": "HumanEval/89",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": true,
+      "baseline_tokens": 30,
+      "candidate_tokens": 30
+    },
+    {
+      "task_id": "HumanEval/110",
+      "baseline_pass": false,
+      "candidate_pass": false,
+      "tokens_exact": true,
+      "baseline_tokens": 59,
+      "candidate_tokens": 59
+    },
+    {
+      "task_id": "HumanEval/15",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": true,
+      "baseline_tokens": 19,
+      "candidate_tokens": 19
+    },
+    {
+      "task_id": "HumanEval/40",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": false,
+      "baseline_tokens": 60,
+      "candidate_tokens": 67
+    },
+    {
+      "task_id": "HumanEval/148",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": true,
+      "baseline_tokens": 132,
+      "candidate_tokens": 132
+    },
+    {
+      "task_id": "HumanEval/72",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": false,
+      "baseline_tokens": 27,
+      "candidate_tokens": 24
+    },
+    {
+      "task_id": "HumanEval/157",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": true,
+      "baseline_tokens": 30,
+      "candidate_tokens": 30
+    },
+    {
+      "task_id": "HumanEval/13",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": true,
+      "baseline_tokens": 20,
+      "candidate_tokens": 20
+    },
+    {
+      "task_id": "HumanEval/37",
+      "baseline_pass": false,
+      "candidate_pass": true,
+      "tokens_exact": false,
+      "baseline_tokens": 28,
+      "candidate_tokens": 54
+    },
+    {
+      "task_id": "HumanEval/127",
+      "baseline_pass": true,
+      "candidate_pass": true,
+      "tokens_exact": true,
+      "baseline_tokens": 88,
+      "candidate_tokens": 88
+    }
+  ],
+  "rollback": [
+    {
+      "task_id": "HumanEval/16",
+      "tokens_exact": true,
+      "pass_equal": true
+    },
+    {
+      "task_id": "HumanEval/131",
+      "tokens_exact": true,
+      "pass_equal": true
+    },
+    {
+      "task_id": "HumanEval/103",
+      "tokens_exact": true,
+      "pass_equal": true
+    },
+    {
+      "task_id": "HumanEval/54",
+      "tokens_exact": true,
+      "pass_equal": true
+    }
+  ],
+  "ranks_replaced": 8,
+  "candidate_calls_total": 11936,
+  "fallback": 0,
+  "max_bf16_ulp": 1.0,
+  "max_abs": 0.0009765625,
+  "scope": "Single engine paired32/32/4, one dense layer acrossTP8; not full164/multi-process release/performance acceptance."
+}

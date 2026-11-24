@@ -1,0 +1,33 @@
+{
+  "scripts_archive": "/home/metax/glm53-vllm032/baseline/deployment-scripts-20261122.tar.gz",
+  "sha256": "d62bdbf93b61785422931fdde5b5cc4da960829645f729ddae38e094bc61d83f",
+  "files": [
+    "create_bootstrap.sh",
+    "run_inference.sh",
+    "infer_smoke.py",
+    "worker_provenance.py",
+    "freeze_baseline.py",
+    "check_frozen_baseline.py",
+    "check_gpu8.py",
+    "test_glm_mla_scale_loader.py",
+    "test_glm_indexer_int8.py",
+    "test_moe_alignment_compat.py",
+    "test_moe_w8a8.py",
+    "test_int8_linear.py",
+    "test_sparse_mla.py",
+    "test_kda_numerics.py",
+    "validate_baseline_host.py"
+  ],
+  "runtime_configuration": {
+    "runner": "V2",
+    "max_model_len": 4096,
+    "max_num_seqs": 1,
+    "async_scheduling": false,
+    "enforce_eager": true
+  },
+  "inference_command": [
+    "bash",
+    "/home/metax/glm53-vllm032/scripts/run_inference.sh"
+  ],
+  "recreate_using_cached_baseline": "On a fresh container deployment, set GLM53_IMAGE=glm53-vllm032:verified-20261122 when running create_bootstrap.sh; restore matching source and scripts archives to the recorded bind-mount paths first."
+}

@@ -1,0 +1,5 @@
+{
+  "reason": "First short prompt reached the 1024-token cap in single-request synchronous mode. Stopped remaining generation to run focused native-kernel numerical checks. This is not an acceptance pass.",
+  "signal": "SIGINT",
+  "exit": 0
+}

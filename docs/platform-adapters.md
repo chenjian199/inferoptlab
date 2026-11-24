@@ -1,6 +1,6 @@
 # 平台适配器与能力协商
 
-> 项目：InferOptLab · 契约版本：`schema_version: "0.1"`。本文规定未来实现的接口和行为。当前仓库为设计蓝图；出现的 NVIDIA、Ascend、MetaX、HYGON、SGLang、vLLM 或 KDA 名称均不表示已经实现或验证相应适配器。
+> 项目：InferOptLab · 契约版本：`schema_version: "0.2.0"`。本文规定未来实现的接口和行为。当前仓库为设计蓝图；出现的 NVIDIA、Ascend、MetaX、HYGON、SGLang、vLLM 或 KDA 名称均不表示已经实现或验证相应适配器。
 
 ## 1. 按能力组织适配，不按厂商名称推断功能
 

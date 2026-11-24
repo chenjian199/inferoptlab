@@ -1,0 +1,102 @@
+Python bindings to the MetaX Management Library
+================================================
+
+Provides a Python interface to GPU management and monitoring functions.
+
+This is a wrapper around the MXSML library.
+
+Note that this file can be run with 'python -m doctest -v README.txt'
+although the results are system dependent
+
+Installation
+------------
+
+    pip install .
+
+Usage
+-----
+
+```python
+>>> from pymxsml import *
+
+>>> mxSmlInit()
+>>> device_count = mxSmlGetDeviceCount()
+>>> for i in range(device_count):
+...     device_info = mxSmlGetDeviceInfo(i)
+...     print("Device", i, ":", device_info.deviceName)
+...
+Device 0 : MXC500
+```
+
+Functions
+---------
+Python methods wrap MXSML functions, implemented in a C shared library.
+Each function's use is the same with the following exceptions:
+
+- Instead of returning error codes, failing error codes are raised as
+  Python exceptions.
+
+    ```python
+    >>> try:
+    ...     mxSmlGetDeviceCount()
+    ... except MXSMLError as error:
+    ...     print(error)
+    ...
+    Load dynamic library failed
+    ```
+
+- C structs are converted into Python classes.
+
+    ```c
+    mxSmlReturn_t mxSmlGetMemoryInfo(unsigned int deviceId, mxSmlMemoryInfo_t *memory);
+    typedef struct MxSmlMemoryInfo {
+        long visVramTotal;
+        long visVramUse;
+        long vramTotal;
+        long vramUse;
+        long xttTotal;
+        long xttUse;
+    } mxSmlMemoryInfo_t;
+    ```
+
+    ```python
+    >>> info = mxSmlGetMemoryInfo(0)
+    >>> print "vis_vram use:", info.visVramUse
+    vis_vram use: 7574336
+    >>> print "vram use:", info.vramUse
+    vram use: 7574336
+    >>> print "xtt use:", info.xttUse
+    xtt use: 190692
+    ```
+
+- Python handles string buffer creation.
+
+    ```c
+    mxSmlReturn_t mxSmlGetMacaVersion(char* version, unsigned int* size);
+    ```
+
+    ```python
+    >>> version = mxSmlGetMacaVersion()
+    ```
+
+Virtualization
+---------
+
+- Get PF device index and info.
+
+    ```python
+    >>> device_count = mxSmlGetPfDeviceCount()
+    >>> for i in range(device_count):
+    ...     pf_idx = i + 100
+    ...     device_info = mxSmlGetPfDeviceCount(pf_idx)
+    ...     print("Device", pf_idx, ":", device_info.deviceName)
+    ...
+    Device 100 : MXC500
+    ```
+
+For usage information see the MXSML documentation.
+
+Variables
+---------
+
+All meaningful MXSML constants and enums are exposed in Python.

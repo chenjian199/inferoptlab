@@ -1,0 +1,10 @@
+{
+  "harness/worker_provenance.py": "439b86e5b68ff5223b5521f737cb2f5f3a4ff5991040bedf06d3d3589cc8f0bb",
+  "harness/code_adapter.py": "9112a71b1917f32020b31c88810944d388664a7f7b386a26eab61a933f2973ea",
+  "harness/run_probe.py": "6a01d3a57b7af7fb51e0bba45a274a5b23bf73ff3890aeafabc53840ee4a951c",
+  "harness/launch.py": "e58585b5fd914d1bb1e5de1799596345aa5c9040628f275a966450d66df3eeef",
+  "harness/evaluate_humaneval.py": "4c663febe4381f4920fe7324728615165ab494280e9b9d68ad9a1d290c063280",
+  "configs/plan.json": "5fbc2be6fafb4f24c9f8ce612991ce65d055bc6fca1f0416a0bb44139c182f6a",
+  "data/prompt_manifest.json": "9511992c6111410171e161e556e397a7e33af3b464bc7320658e323c3cec30cb",
+  "scoring/scoring.jsonl": "9329d3a61b18b3263af9ef771996844e95b1fd7138d2f704f48ce384031029f4"
+}

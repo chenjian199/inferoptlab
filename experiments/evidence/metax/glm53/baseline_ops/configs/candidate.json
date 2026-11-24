@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "status": "disabled",
+  "implementation": "baseline",
+  "candidate_enabled": false,
+  "operator_id": null,
+  "candidate_source_sha256": null,
+  "integration_revision": null,
+  "supported_contract": null,
+  "fallback": "baseline",
+  "require_per_rank_provenance": true
+}

@@ -1,0 +1,36 @@
+文档: 沐曦通用GPU_MCCL编程指南_CN_V08.pdf
+文档 ID: mccl-v08
+SHA256: 7a95ac3ce4f68b0fb11baabb7fa08794cd5f5081c9ec3e888eefaaa03ab8c8b2
+PDF 页序号: 14
+PDF 页码标签: 7
+页脚页码候选: 7
+章节提示（书签推断）: mcclReduce
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MCCL 编程指南
+3.2 集合通讯
+所有 rank 都必须参与集合通讯，即每一种操作必须被所有 rank 调用，否则其它 rank 将等待。
+3.2.1 mcclAllReduce
+mcclResult_t mcclAllReduce(const void* sendbuff, void* recvbuff, size_t count, 
+,→mcclDataType_t datatype, mcclRedOp_t op, mcclComm_t comm, mcStream_t stream);
+在所有 rank 上都执行归约计算， 最终所有 rank 将得到相同的结果， 并保存在recvbuff 中。sendbuff
+为输入源，count 为数据的个数，datatype 为数据类型，op 为操作类型，comm 为通信器对象，stream
+为 MXMACA 的 stream。
+3.2.2 mcclBroadcast
+mcclResult_t mcclBroadcast(const void* sendbuff, void* recvbuff, size_t count, 
+,→mcclDataType_t datatype, int root, mcclComm_t comm, mcStream_t stream);
+mcclResult_t mcclBcast(void* buff, size_t count, mcclDataType_t datatype, int root,
+,→ mcclComm_t comm, mcStream_t stream);
+mcclBroadcast 可将 sendbuff 中的数据复制到所有 rank 的 recvbuff 中 （包括发送者的recvbuff
+） 。count 为数据的个数，datatype 为数据类型，root 为发送者的 rank 编号， comm 为通信器对象，
+stream 为 MXMACA 的 stream，对于接收者，sendbuff 可为空。
+mcclBcast 与 mcclBroadcast 相 同， 若 发 送 者 的 sendbuff 与 recvbuff 相 同， 则 可 以 用
+mcclBcast 代替 mcclBroadcast 。
+3.2.3 mcclReduce
+mcclResult_t mcclReduce(const void* sendbuff, void* recvbuff, size_t count, 
+,→mcclDataType_t datatype, mcclRedOp_t op, int root, mcclComm_t comm, mcStream_t 
+,→stream);
+在 rank 为 root 的 通 讯 器 上 执 行 归 约 计 算， 结 果 保 存 在root 的 recvbuff 中。 对 于 其 它 rank，
+recvbuff 可为空。对于发送方，root 为发送的目标 rank。root 为执行归约的通讯器 rank 号，comm
+为通信器对象，stream 为 MXMACA 的 stream。
+3 编程模型 沐曦股份专有信息 PG‑23004‑020‑F5_V08 | 7

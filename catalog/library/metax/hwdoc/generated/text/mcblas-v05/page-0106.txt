@@ -1,0 +1,36 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 106
+PDF 页码标签: 99
+页脚页码候选: 99
+章节提示（书签推断）: mcblas<t>trsmBatched()
+质量标记: private_use_characters
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+(续上页)
+const mcDoubleComplex *alpha,
+const mcDoubleComplex *const A[],
+int lda,
+mcDoubleComplex *const B[],
+int ldb,
+int batchCount);
+该函数使用以下公式求解三角线性方程组数组
+
+
+
+op(A[i])X[i] = αB[i] if side == M CBLAS_SIDE _LEF T
+X[i]op(A[i]) = αB[i] if side == M CBLAS_SIDE _RIGHT
+其中 A[i] 是以 lower 或 upper 模式存储的三角矩阵（无论是否有主对角线） ，X[i] 和 B[i] 为 m × n 矩阵，
+α 是标量。此外，对于矩阵 A，
+op(A[i]) =
+
+
+
+A[i] if transa == M CBLAS_OP _N
+AT [i] if transa == M CBLAS_OP _T
+AH [i] if transa == M CBLAS_OP _C
+结束时 X[i] 覆盖右侧 B[i]。此函数中不包括奇异性或接近奇异性的测试。
+此函数适用于任何大小，但主要用于较小的矩阵，其中启动开销（launch overhead）是一个重要因素。
+对于较大的矩阵，可能需要在一组 MXMACA 流中调用 batchCount 乘以正则 mcblas<t>trsm。
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 99

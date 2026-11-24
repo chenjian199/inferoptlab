@@ -1,0 +1,7 @@
+{
+  "archive_sha256": "da769ed300e32876f2bd358a1c537a8618f7fdbc8f56830eacfec57f6d1ab592",
+  "regular_files_checked": 9334,
+  "symlinks_checked": 8,
+  "mismatches": [],
+  "scope": "All archived regular files and symlinks compared against read-only mounted baseline source. Extra runtime files not covered."
+}

@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 178
+PDF 页码标签: 170
+页脚页码候选: 170
+章节提示（书签推断）: 双精度数学函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+• 如果成功，返回参数的无偏指数。
+• ilogb(0)返回INT_MIN。
+• ilogb(NaN)返回INT_MIN。
+• 如果x是∞或者确切值比INT_MAX大，ilogb(x)返回INT_MAX。
+• 如果确切值比INT_MIN小，ilogb(x)返回INT_MIN
+• 注意，上面的操作不涉及FP_ILOGB0、FP_ILOGBNAN。
+函数描述
+• 计算参数x的无偏整数指数。
+__device__ bool isfinite (double a)
+确认参数是否是有穷的。
+返回值
+• 当且仅当a是一个有穷值的时候返回true。
+函数描述
+• 确认参数a是否是有穷的。
+__device__ bool isinf (double a)
+确认参数是否是无穷的。
+返回值
+• 当且仅当a是一个无穷值的时候返回true。
+函数描述
+• 确认参数a是否是无穷的。
+__device__ bool isnan (double a)
+确认参数是否是NaN。
+返回值
+• 当且仅当a是一个NaN的时候返回true。
+函数描述
+• 确认参数a是否是NaN。
+__device__ double j0 (double x)
+计算输入参数的第一类0阶贝塞尔函数的值。
+返回值
+• 输入参数的第一类0阶贝塞尔函数的值。
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 170

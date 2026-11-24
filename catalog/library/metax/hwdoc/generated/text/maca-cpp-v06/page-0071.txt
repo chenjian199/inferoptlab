@@ -1,0 +1,40 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 71
+PDF 页码标签: 63
+页脚页码候选: 63
+章节提示（书签推断）: 半精度转换与数据移动函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+参数
+ptr
+• 内存位置
+value
+• 要被存储的值
+__device__ void __stcs (const __half *ptr, const __half value)
+参数
+ptr
+• 内存位置
+value
+• 要被存储的值
+__device__ void __stcs (const __half2 *ptr, const __half2 value)
+参数
+ptr
+• 内存位置
+value
+• 要被存储的值
+__device__ void __stwb (const __half *ptr, const __half value)
+参数
+ptr
+• 内存位置
+value
+• 要被存储的值
+__device__ void __stwb (const __half2 *ptr, const __half2 value)
+参数
+ptr
+• 内存位置
+value
+• 要被存储的值
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 63

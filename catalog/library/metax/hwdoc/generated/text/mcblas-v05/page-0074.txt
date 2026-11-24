@@ -1,0 +1,52 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 74
+PDF 页码标签: 67
+页脚页码候选: 67
+章节提示（书签推断）: mcblas<t>gemvBatched()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE • n < 0
+• incx = 0 或 incy = 0
+• uplo != MCBLAS_FILL_MODE_UPPER,
+MCBLAS_FILL_MODE_LOWER
+• alpha = NULL
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2.4.24 mcblas<t>gemvBatched()
+mcblasStatus_t mcblasSgemvBatched(mcblasHandle_t handle, mcblasOperation_t trans,
+int m, int n,
+const float *alpha,
+const float *Aarray[], int lda,
+const float *xarray[], int incx,
+const float *beta,
+float *yarray[], int incy,
+int batchCount)
+mcblasStatus_t mcblasDgemvBatched(mcblasHandle_t handle, mcblasOperation_t trans,
+int m, int n,
+const double *alpha,
+const double *Aarray[], int lda,
+const double *xarray[], int incx,
+const double *beta,
+double *yarray[], int incy,
+int batchCount)
+mcblasStatus_t mcblasCgemvBatched(mcblasHandle_t handle, mcblasOperation_t trans,
+int m, int n,
+const mcComplex *alpha,
+const mcComplex *Aarray[], int lda,
+const mcComplex *xarray[], int incx,
+const mcComplex *beta,
+mcComplex *yarray[], int incy,
+int batchCount)
+mcblasStatus_t mcblasZgemvBatched(mcblasHandle_t handle, mcblasOperation_t trans,
+int m, int n,
+const mcDoubleComplex *alpha,
+const mcDoubleComplex *Aarray[], int lda,
+const mcDoubleComplex *xarray[], int incx,
+const mcDoubleComplex *beta,
+(下页继续)
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 67

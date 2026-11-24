@@ -1,0 +1,37 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 25
+PDF 页码标签: 17
+页脚页码候选: 17
+章节提示（书签推断）: 半精度（half）算术函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+• half，只读入参
+返回值
+• half，返回a的取反值
+函数描述
+• 对a取反值，并返回结果。
+__device__ __half __hsub (const __half a, const __half b)
+参数
+a
+• half，只读入参
+b
+• half，只读入参
+返回值
+• half，a减b的差
+函数描述
+• 计算a减b的差。把求到的结果向最近偶数舍入后，返回结果。
+__device__ __half __hsub_sat (const __half a, const __half b)
+参数
+a
+• half，只读入参
+b
+• half，只读入参
+返回值
+• half，返回a减b的差
+函数描述
+• 计算 a 减 b 的差。把求到的结果向最近偶数舍入后，把结果限制在区间 [0.0, 1.0] 中，NaN 的结果刷
+新为+0.0，并返回结果。
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 17

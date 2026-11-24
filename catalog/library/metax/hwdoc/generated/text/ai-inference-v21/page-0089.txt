@@ -1,0 +1,44 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 89
+PDF 页码标签: 77
+页脚页码候选: 77
+章节提示（书签推断）: 修改模型配置文件
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+参数，比如由 TP 切分改为 DP 切分，当前默认的环境变量可能不是最优，可以尝试使用 specific_
+scenario_envs，DP 多场景切分推荐使用该组环境变量。
+14.4.4 修改模型配置文件
+进入模型目录 (以 DeepSeek‑R1‑W8A8 为例)：
+cd /workspace/ModelZoo.LLM.Inference/sgl/code/models/DeepSeek-R1-W8A8/config.json
+所有内置的模型 config.json 文件包含的都是当前版本的最佳性能参数，您只需要修改模型路径和机器
+等信息即可。通过参数可以配置测试任务为性能测试任务、精度测试任务或两者兼有。具体参数，参
+见表 14.3。
+"benchmark_cmds": {
+"random": {
+"command_base": "python3 -m sglang.bench_serving --backend sglang --dataset-
+,→name random --random-range-ratio 1.0 --dataset-path /models/ShareGPT_V3_
+,→unfiltered_cleaned_split.json",
+"input_output_len": ["3072/1024"],
+"max_concurrency": ["1", "16", "32", "64", "128"],
+"num_prompt_times": 5
+}
+},
+表 14.3 性能测试参数说明
+参数名称 说明
+type 测试类型， 支持 perf， ceval， mmlu， 默认为 perf
+input_output_len 输入 token 长度/输出 token 长度
+num_prompt 并发请求数，为列表
+max_concurrency 最大并发数，为列表。如果不设置该参数，则并
+发数和 num_prompt 相等。该参数必须和 num_
+prompt_times 一起使用，且不需要配置 num_
+prompt 参数
+num_prompt_times 发送的请求数是最大并发数的多少倍，如果是单
+个数字， 则会以 max_concurrency 里面的所有并
+发数乘上这个倍数作为 num_prompts。如果是
+个列表， 则会将这个列表与 max_concurrency 列
+表对应，只有存在对应关系的 max_concurrency
+会乘上这个列表的值作为 num_prompts
+14 ModelZoo.LLM.SGLang 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 77

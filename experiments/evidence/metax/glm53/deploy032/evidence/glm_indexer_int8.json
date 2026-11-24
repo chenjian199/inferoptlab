@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "m": 1,
+      "n": 128,
+      "heads": 64,
+      "clean": true,
+      "max_abs_error": 0.00048828125
+    },
+    {
+      "m": 1,
+      "n": 128,
+      "heads": 64,
+      "clean": false,
+      "max_abs_error": 0.00048828125
+    },
+    {
+      "m": 17,
+      "n": 257,
+      "heads": 32,
+      "clean": true,
+      "max_abs_error": 0.000244140625
+    },
+    {
+      "m": 17,
+      "n": 257,
+      "heads": 32,
+      "clean": false,
+      "max_abs_error": 0.000244140625
+    },
+    {
+      "m": 65,
+      "n": 513,
+      "heads": 64,
+      "clean": true,
+      "max_abs_error": 0.000732421875
+    },
+    {
+      "m": 65,
+      "n": 513,
+      "heads": 64,
+      "clean": false,
+      "max_abs_error": 0.000732421875
+    }
+  ],
+  "rtol": 0.0001,
+  "atol": 0.005,
+  "reference": "CPU FP32 dot, per-key scaling, ReLU, weighted head sum and causal bounds"
+}

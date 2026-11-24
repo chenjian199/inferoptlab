@@ -1,0 +1,37 @@
+文档: 沐曦通用GPU_MXMACA编译器内建函数编程指南_CN_V01.pdf
+文档 ID: builtins-v01
+SHA256: 80dfb3a83381e48e19968b432d4eb24d37c505bd711af14f74889277cffc3835
+PDF 页序号: 18
+PDF 页码标签: 12
+页脚页码候选: 12
+章节提示（书签推断）: __builtin_mxc_barrier_ex
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® 编译器内建函数编程指南
+(续上页)
+data[0] = val;
+}
+3.1.8 __builtin_mxc_arrive_bsmcnt
+功能描述
+共享内存栅栏。当共享内存访问操作队列中未完成的操作数量达到或低于目标值时，代码才可以继续向
+后执行。
+接口声明
+void __builtin_mxc_arrive_bsmcnt(unsigned bsmcnt);
+参数
+表 3.7 __builtin_mxc_arrive_bsmcnt 参数说明
+名称 描述
+bsmcnt 全局内存队列中剩余未完成数量的目标值。有效值范围：0~15
+代码示例
+__global__ void test_builtin_mxc_arrive_bsmcnt(int *data) {
+__shared__ int ptr[];
+int val = ptr[0];
+__builtin_mxc_arrive_bsmcnt(0);
+data[0] = val;
+}
+3.1.9 __builtin_mxc_barrier_ex
+功能描述
+指令屏障。block 内所有线程到执行到该位置后才可以继续向后执行。
+接口声明
+void __builtin_mxc_barrier_ex(int flag);
+参数
+3 接口介绍 沐曦股份专有信息 OG‑26013‑000‑F5_V01 | 12

@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "independent_plain_processes": 3,
+  "diagnostic_captures": 108,
+  "baseline_verification": {
+    "status": "passed",
+    "archive_files_checked": 65,
+    "results": {
+      "smoke32": {
+        "tasks": 32,
+        "passed": 31,
+        "pass_at_1": 0.96875
+      },
+      "full164": {
+        "tasks": 164,
+        "passed": 153,
+        "pass_at_1": 0.9329268292682927
+      }
+    },
+    "scope": "Offline integrity and completeness; no inference or candidate code execution."
+  },
+  "artifact_files_checked": 135,
+  "boundary": "Local metadata and evidence integrity. Full tensor bytes remain on remote host; their hashes are recorded, not reread by this verifier."
+}

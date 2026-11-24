@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+/datasets/raw/*
+!/datasets/raw/.gitkeep
+/datasets/prepared/*
+!/datasets/prepared/.gitkeep
+/runs/*
+/archives/*
+!/runs/README.md
+!/runs/_template/
+!/runs/_template/**

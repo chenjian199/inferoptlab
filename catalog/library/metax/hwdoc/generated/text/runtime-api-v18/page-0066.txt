@@ -1,0 +1,43 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 66
+PDF 页码标签: 57
+页脚页码候选: 57
+章节提示（书签推断）: 代码托管（Binary Cache）
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+(续上页)
+float *C_h=nullptr;
+mcMalloc((void**)&A_d,numSize*sizeof(float));
+mcMalloc((void**)&B_d,numSize*sizeof(float));
+mcMalloc((void**)&C_d,numSize*sizeof(float));
+A_h=(float*)malloc(numSize*sizeof(float));
+B_h=(float*)malloc(numSize*sizeof(float));
+C_h=(float*)malloc(numSize*sizeof(float));
+for(int i=0;i<numSize;i++)
+{
+A_h[i]=3;
+B_h[i]=4;
+C_h[i]=0;
+}
+mcMemcpy(A_d,A_h,numSize*sizeof(float),mcMemcpyHostToDevice);
+mcMemcpy(B_d,B_h,numSize*sizeof(float),mcMemcpyHostToDevice);
+vectorADD<<<dim3(blocks),dim3(threadsPerBlock)>>>(A_d,B_d,C_d,numSize);
+mcMemcpy(C_h,C_d,numSize*sizeof(float),mcMemcpyDeviceToHost);
+mcFree(A_d);
+mcFree(B_d);
+mcFree(C_d);
+free(A_h);
+free(B_h);
+free(C_h);
+return 0;
+}
+此示例每个 block 的线程数量大于 512，会触发重编译动作，因此也会触发 binary cache 功能，编译运
+行。然后执行以下命令：
+cd ~/.metax/shadercache/
+ls -l
+结果如图 4.6 所示，可以看到编译运行生成的 cache 文件，命名规则和 4.2 运行时编译和动态加载 描述
+一致。
+4 编译和调试 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 57

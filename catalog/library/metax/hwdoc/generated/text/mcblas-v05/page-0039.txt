@@ -1,0 +1,65 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 39
+PDF 页码标签: 32
+页脚页码候选: 32
+章节提示（书签推断）: mcblas<t>rotmg()
+质量标记: private_use_characters
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+2.3.11 mcblas<t>rotmg()
+mcblasStatus_t mcblasSrotmg(mcblasHandle_t handle, float *d1, float *d2,
+float *x1, const float *y1, float *param)
+mcblasStatus_t mcblasDrotmg(mcblasHandle_t handle, double *d1, double *d2,
+double *x1, const double *y1, double *param)
+该函数构建 modified Givens 变换
+H =
+
+h11 h12
+h21 h22
+
+
+用以将一个 2 × 1 向量
+(√
+d1 ∗ x1,
+√
+d2 ∗ y1
+)T
+的第二项归零。flag=param[0] 为矩阵 H 的项定义以下
+预定义值。
+flag=-1.0 flag= 0.0 flag= 1.0 flag=-2.0
+h11 h12
+h21 h22
+
+
+
+1.0 h12
+h21 1.0
+
+
+
+ h11 1.0
+−1.0 h22
+
+
+
+1.0 0.0
+0.0 1.0
+
+
+请注意，flag 所隐含的值‑1.0、0.0、1.0 不存储在参数中。
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+d1 主机或设备 in/out 退出时覆盖的 <type> 标量
+d2 主机或设备 in/out 退出时覆盖的 <type> 标量
+x1 主机或设备 in/out 退出时覆盖的 <type> 标量
+y1 主机或设备 input <type> 标量
+param 主机或设备 output 包 含 5 个 元 素 的 <type> 向 量， 其 中 param[0] 和
+param[1-4] 包含标志和矩阵 H
+下面列出了此函数可能的返回值及其含义。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 32

@@ -1,0 +1,682 @@
+[
+  {
+    "rank": 0,
+    "calls": 1492,
+    "replaced": 1492,
+    "fallback": 0,
+    "shape_counts": {
+      "103,3072,4096": 2,
+      "1,3072,4096": 1460,
+      "104,3072,4096": 2,
+      "173,3072,4096": 2,
+      "188,3072,4096": 1,
+      "356,3072,4096": 1,
+      "264,3072,4096": 1,
+      "111,3072,4096": 1,
+      "135,3072,4096": 2,
+      "324,3072,4096": 1,
+      "125,3072,4096": 1,
+      "240,3072,4096": 1,
+      "145,3072,4096": 1,
+      "214,3072,4096": 1,
+      "96,3072,4096": 1,
+      "146,3072,4096": 1,
+      "172,3072,4096": 1,
+      "114,3072,4096": 1,
+      "115,3072,4096": 1,
+      "136,3072,4096": 1,
+      "143,3072,4096": 1,
+      "230,3072,4096": 1,
+      "101,3072,4096": 1,
+      "192,3072,4096": 1,
+      "244,3072,4096": 1,
+      "263,3072,4096": 1,
+      "141,3072,4096": 1,
+      "156,3072,4096": 1,
+      "287,3072,4096": 1
+    },
+    "max_abs": 0.0009765625,
+    "max_bf16_ulp": 1.0,
+    "changed_elements": 106,
+    "elements": 21482496,
+    "reference_checks": [
+      {
+        "mode": "prefill",
+        "path": "/experiment/evidence/real_inputs/rank0_prefill.pt",
+        "int32_exact": true,
+        "fp32": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 32
+        },
+        "fp64": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 32
+        }
+      },
+      {
+        "mode": "decode",
+        "path": "/experiment/evidence/real_inputs/rank0_decode.pt",
+        "int32_exact": true,
+        "fp32": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 8
+        },
+        "fp64": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 8
+        }
+      }
+    ]
+  },
+  {
+    "rank": 1,
+    "calls": 1492,
+    "replaced": 1492,
+    "fallback": 0,
+    "shape_counts": {
+      "103,3072,4096": 2,
+      "1,3072,4096": 1460,
+      "104,3072,4096": 2,
+      "173,3072,4096": 2,
+      "188,3072,4096": 1,
+      "356,3072,4096": 1,
+      "264,3072,4096": 1,
+      "111,3072,4096": 1,
+      "135,3072,4096": 2,
+      "324,3072,4096": 1,
+      "125,3072,4096": 1,
+      "240,3072,4096": 1,
+      "145,3072,4096": 1,
+      "214,3072,4096": 1,
+      "96,3072,4096": 1,
+      "146,3072,4096": 1,
+      "172,3072,4096": 1,
+      "114,3072,4096": 1,
+      "115,3072,4096": 1,
+      "136,3072,4096": 1,
+      "143,3072,4096": 1,
+      "230,3072,4096": 1,
+      "101,3072,4096": 1,
+      "192,3072,4096": 1,
+      "244,3072,4096": 1,
+      "263,3072,4096": 1,
+      "141,3072,4096": 1,
+      "156,3072,4096": 1,
+      "287,3072,4096": 1
+    },
+    "max_abs": 0.0009765625,
+    "max_bf16_ulp": 1.0,
+    "changed_elements": 117,
+    "elements": 21482496,
+    "reference_checks": [
+      {
+        "mode": "prefill",
+        "path": "/experiment/evidence/real_inputs/rank1_prefill.pt",
+        "int32_exact": true,
+        "fp32": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 32
+        },
+        "fp64": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 32
+        }
+      },
+      {
+        "mode": "decode",
+        "path": "/experiment/evidence/real_inputs/rank1_decode.pt",
+        "int32_exact": true,
+        "fp32": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 8
+        },
+        "fp64": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 8
+        }
+      }
+    ]
+  },
+  {
+    "rank": 2,
+    "calls": 1492,
+    "replaced": 1492,
+    "fallback": 0,
+    "shape_counts": {
+      "103,3072,4096": 2,
+      "1,3072,4096": 1460,
+      "104,3072,4096": 2,
+      "173,3072,4096": 2,
+      "188,3072,4096": 1,
+      "356,3072,4096": 1,
+      "264,3072,4096": 1,
+      "111,3072,4096": 1,
+      "135,3072,4096": 2,
+      "324,3072,4096": 1,
+      "125,3072,4096": 1,
+      "240,3072,4096": 1,
+      "145,3072,4096": 1,
+      "214,3072,4096": 1,
+      "96,3072,4096": 1,
+      "146,3072,4096": 1,
+      "172,3072,4096": 1,
+      "114,3072,4096": 1,
+      "115,3072,4096": 1,
+      "136,3072,4096": 1,
+      "143,3072,4096": 1,
+      "230,3072,4096": 1,
+      "101,3072,4096": 1,
+      "192,3072,4096": 1,
+      "244,3072,4096": 1,
+      "263,3072,4096": 1,
+      "141,3072,4096": 1,
+      "156,3072,4096": 1,
+      "287,3072,4096": 1
+    },
+    "max_abs": 0.0009765625,
+    "max_bf16_ulp": 1.0,
+    "changed_elements": 102,
+    "elements": 21482496,
+    "reference_checks": [
+      {
+        "mode": "prefill",
+        "path": "/experiment/evidence/real_inputs/rank2_prefill.pt",
+        "int32_exact": true,
+        "fp32": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 32
+        },
+        "fp64": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 32
+        }
+      },
+      {
+        "mode": "decode",
+        "path": "/experiment/evidence/real_inputs/rank2_decode.pt",
+        "int32_exact": true,
+        "fp32": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 8
+        },
+        "fp64": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 8
+        }
+      }
+    ]
+  },
+  {
+    "rank": 3,
+    "calls": 1492,
+    "replaced": 1492,
+    "fallback": 0,
+    "shape_counts": {
+      "103,3072,4096": 2,
+      "1,3072,4096": 1460,
+      "104,3072,4096": 2,
+      "173,3072,4096": 2,
+      "188,3072,4096": 1,
+      "356,3072,4096": 1,
+      "264,3072,4096": 1,
+      "111,3072,4096": 1,
+      "135,3072,4096": 2,
+      "324,3072,4096": 1,
+      "125,3072,4096": 1,
+      "240,3072,4096": 1,
+      "145,3072,4096": 1,
+      "214,3072,4096": 1,
+      "96,3072,4096": 1,
+      "146,3072,4096": 1,
+      "172,3072,4096": 1,
+      "114,3072,4096": 1,
+      "115,3072,4096": 1,
+      "136,3072,4096": 1,
+      "143,3072,4096": 1,
+      "230,3072,4096": 1,
+      "101,3072,4096": 1,
+      "192,3072,4096": 1,
+      "244,3072,4096": 1,
+      "263,3072,4096": 1,
+      "141,3072,4096": 1,
+      "156,3072,4096": 1,
+      "287,3072,4096": 1
+    },
+    "max_abs": 0.0009765625,
+    "max_bf16_ulp": 1.0,
+    "changed_elements": 111,
+    "elements": 21482496,
+    "reference_checks": [
+      {
+        "mode": "prefill",
+        "path": "/experiment/evidence/real_inputs/rank3_prefill.pt",
+        "int32_exact": true,
+        "fp32": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 32
+        },
+        "fp64": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 32
+        }
+      },
+      {
+        "mode": "decode",
+        "path": "/experiment/evidence/real_inputs/rank3_decode.pt",
+        "int32_exact": true,
+        "fp32": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 8
+        },
+        "fp64": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 8
+        }
+      }
+    ]
+  },
+  {
+    "rank": 4,
+    "calls": 1492,
+    "replaced": 1492,
+    "fallback": 0,
+    "shape_counts": {
+      "103,3072,4096": 2,
+      "1,3072,4096": 1460,
+      "104,3072,4096": 2,
+      "173,3072,4096": 2,
+      "188,3072,4096": 1,
+      "356,3072,4096": 1,
+      "264,3072,4096": 1,
+      "111,3072,4096": 1,
+      "135,3072,4096": 2,
+      "324,3072,4096": 1,
+      "125,3072,4096": 1,
+      "240,3072,4096": 1,
+      "145,3072,4096": 1,
+      "214,3072,4096": 1,
+      "96,3072,4096": 1,
+      "146,3072,4096": 1,
+      "172,3072,4096": 1,
+      "114,3072,4096": 1,
+      "115,3072,4096": 1,
+      "136,3072,4096": 1,
+      "143,3072,4096": 1,
+      "230,3072,4096": 1,
+      "101,3072,4096": 1,
+      "192,3072,4096": 1,
+      "244,3072,4096": 1,
+      "263,3072,4096": 1,
+      "141,3072,4096": 1,
+      "156,3072,4096": 1,
+      "287,3072,4096": 1
+    },
+    "max_abs": 0.0009765625,
+    "max_bf16_ulp": 1.0,
+    "changed_elements": 95,
+    "elements": 21482496,
+    "reference_checks": [
+      {
+        "mode": "prefill",
+        "path": "/experiment/evidence/real_inputs/rank4_prefill.pt",
+        "int32_exact": true,
+        "fp32": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 32
+        },
+        "fp64": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 32
+        }
+      },
+      {
+        "mode": "decode",
+        "path": "/experiment/evidence/real_inputs/rank4_decode.pt",
+        "int32_exact": true,
+        "fp32": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 8
+        },
+        "fp64": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 8
+        }
+      }
+    ]
+  },
+  {
+    "rank": 5,
+    "calls": 1492,
+    "replaced": 1492,
+    "fallback": 0,
+    "shape_counts": {
+      "103,3072,4096": 2,
+      "1,3072,4096": 1460,
+      "104,3072,4096": 2,
+      "173,3072,4096": 2,
+      "188,3072,4096": 1,
+      "356,3072,4096": 1,
+      "264,3072,4096": 1,
+      "111,3072,4096": 1,
+      "135,3072,4096": 2,
+      "324,3072,4096": 1,
+      "125,3072,4096": 1,
+      "240,3072,4096": 1,
+      "145,3072,4096": 1,
+      "214,3072,4096": 1,
+      "96,3072,4096": 1,
+      "146,3072,4096": 1,
+      "172,3072,4096": 1,
+      "114,3072,4096": 1,
+      "115,3072,4096": 1,
+      "136,3072,4096": 1,
+      "143,3072,4096": 1,
+      "230,3072,4096": 1,
+      "101,3072,4096": 1,
+      "192,3072,4096": 1,
+      "244,3072,4096": 1,
+      "263,3072,4096": 1,
+      "141,3072,4096": 1,
+      "156,3072,4096": 1,
+      "287,3072,4096": 1
+    },
+    "max_abs": 0.0009765625,
+    "max_bf16_ulp": 1.0,
+    "changed_elements": 99,
+    "elements": 21482496,
+    "reference_checks": [
+      {
+        "mode": "prefill",
+        "path": "/experiment/evidence/real_inputs/rank5_prefill.pt",
+        "int32_exact": true,
+        "fp32": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 32
+        },
+        "fp64": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 32
+        }
+      },
+      {
+        "mode": "decode",
+        "path": "/experiment/evidence/real_inputs/rank5_decode.pt",
+        "int32_exact": true,
+        "fp32": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 8
+        },
+        "fp64": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 8
+        }
+      }
+    ]
+  },
+  {
+    "rank": 6,
+    "calls": 1492,
+    "replaced": 1492,
+    "fallback": 0,
+    "shape_counts": {
+      "103,3072,4096": 2,
+      "1,3072,4096": 1460,
+      "104,3072,4096": 2,
+      "173,3072,4096": 2,
+      "188,3072,4096": 1,
+      "356,3072,4096": 1,
+      "264,3072,4096": 1,
+      "111,3072,4096": 1,
+      "135,3072,4096": 2,
+      "324,3072,4096": 1,
+      "125,3072,4096": 1,
+      "240,3072,4096": 1,
+      "145,3072,4096": 1,
+      "214,3072,4096": 1,
+      "96,3072,4096": 1,
+      "146,3072,4096": 1,
+      "172,3072,4096": 1,
+      "114,3072,4096": 1,
+      "115,3072,4096": 1,
+      "136,3072,4096": 1,
+      "143,3072,4096": 1,
+      "230,3072,4096": 1,
+      "101,3072,4096": 1,
+      "192,3072,4096": 1,
+      "244,3072,4096": 1,
+      "263,3072,4096": 1,
+      "141,3072,4096": 1,
+      "156,3072,4096": 1,
+      "287,3072,4096": 1
+    },
+    "max_abs": 0.0009765625,
+    "max_bf16_ulp": 1.0,
+    "changed_elements": 88,
+    "elements": 21482496,
+    "reference_checks": [
+      {
+        "mode": "prefill",
+        "path": "/experiment/evidence/real_inputs/rank6_prefill.pt",
+        "int32_exact": true,
+        "fp32": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 32
+        },
+        "fp64": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 32
+        }
+      },
+      {
+        "mode": "decode",
+        "path": "/experiment/evidence/real_inputs/rank6_decode.pt",
+        "int32_exact": true,
+        "fp32": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 8
+        },
+        "fp64": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 8
+        }
+      }
+    ]
+  },
+  {
+    "rank": 7,
+    "calls": 1492,
+    "replaced": 1492,
+    "fallback": 0,
+    "shape_counts": {
+      "103,3072,4096": 2,
+      "1,3072,4096": 1460,
+      "104,3072,4096": 2,
+      "173,3072,4096": 2,
+      "188,3072,4096": 1,
+      "356,3072,4096": 1,
+      "264,3072,4096": 1,
+      "111,3072,4096": 1,
+      "135,3072,4096": 2,
+      "324,3072,4096": 1,
+      "125,3072,4096": 1,
+      "240,3072,4096": 1,
+      "145,3072,4096": 1,
+      "214,3072,4096": 1,
+      "96,3072,4096": 1,
+      "146,3072,4096": 1,
+      "172,3072,4096": 1,
+      "114,3072,4096": 1,
+      "115,3072,4096": 1,
+      "136,3072,4096": 1,
+      "143,3072,4096": 1,
+      "230,3072,4096": 1,
+      "101,3072,4096": 1,
+      "192,3072,4096": 1,
+      "244,3072,4096": 1,
+      "263,3072,4096": 1,
+      "141,3072,4096": 1,
+      "156,3072,4096": 1,
+      "287,3072,4096": 1
+    },
+    "max_abs": 0.0009765625,
+    "max_bf16_ulp": 1.0,
+    "changed_elements": 103,
+    "elements": 21482496,
+    "reference_checks": [
+      {
+        "mode": "prefill",
+        "path": "/experiment/evidence/real_inputs/rank7_prefill.pt",
+        "int32_exact": true,
+        "fp32": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 32
+        },
+        "fp64": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 32
+        }
+      },
+      {
+        "mode": "decode",
+        "path": "/experiment/evidence/real_inputs/rank7_decode.pt",
+        "int32_exact": true,
+        "fp32": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 8
+        },
+        "fp64": {
+          "finite": true,
+          "exact": true,
+          "max_abs": 0.0,
+          "max_bf16_ulp": 0.0,
+          "changed": 0,
+          "elements": 8
+        }
+      }
+    ]
+  }
+]

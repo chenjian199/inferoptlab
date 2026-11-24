@@ -1,0 +1,49 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 35
+PDF 页码标签: 26
+页脚页码候选: 26
+章节提示（书签推断）: 创建和共享IPC内存池
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+3.5.7 IPC 内存池
+在具有内存池的进程之间共享内存有两个阶段。进程首先需要设置内存池的共享访问权限，然后共享来
+自该内存池的特定分配。第一阶段用于建立并实施安全性，第二阶段协调每个进程中使用的虚拟地址以
+及映射在导入进程中何时需要有效。
+3.5.7.1 创建和共享 IPC 内存池
+共 享 对 IPC 内 存 池 的 访 问 涉 及 检 索 IPC 内 存 池 的 操 作 系 统 本 机 句 柄 （使 用 API
+mcMemPoolExportToShareableHandle）， 使 用 常 规 的 操 作 系 统 本 机 IPC 机 制 将 句 柄 转 移 到 导
+入进程，并创建导入的 IPC 内存池（使用 mcMemPoolImportFromShareableHandle API） 。要使
+mcMemPoolExportToShareableHandle 成功， 必须使用在内存池属性结构中指定的请求句柄类型创
+建内存池。在设备上创建一个可导出的内存池，并在不同的进程之间共享该内存池，其详细过程参见以
+下代码片段。
+// in exporting process
+// create an exportable IPC capable pool on device 0
+mcMemPoolProps poolProps = { };
+poolProps.allocType = mcMemAllocationTypePinned;
+poolProps.location.id = 0;
+poolProps.location.type = mcMemLocationTypeDevice;
+// Setting handleTypes to a non zero value will make the pool exportable (IPC  
+,→capable)
+poolProps.handleTypes = mcDevAttrHandleTypePosixFileDescriptor;
+mcMemPoolCreate(&memPool, &poolProps));
+// FD based handles are integer types
+int fdHandle = 0;
+// Retrieve an OS native handle to the pool.
+// Note that a pointer to the handle memory is passed in here.
+mcMemPoolExportToShareableHandle(&fdHandle,
+memPool,
+mcDevAttrHandleTypePosixFileDescriptor,
+0);
+// The handle must be sent to the importing process with the appropriate
+// OS specific APIs.
+// in importing process
+int fdHandle;
+// The handle needs to be retrieved from the exporting process with the
+// appropriate OS specific APIs.
+// Create an imported pool from the shareable handle.
+// Note that the handle is passed by value here.
+(下页继续)
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 26

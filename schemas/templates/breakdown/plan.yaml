@@ -1,0 +1,93 @@
+schema_version: 0.2.0
+kind: RecipeTemplate
+id: template-breakdown-plan
+version: 1.0.0
+title: breakdown preparation plan template
+provenance: []
+issues: []
+extensions: {}
+target_kind: BreakdownPlan
+parameters:
+  id:
+    type: string
+    description: See the target schema for id
+  version:
+    type: string
+    description: See the target schema for version
+  title:
+    type: string
+    description: See the target schema for title
+  provenance:
+    type: array
+    description: See the target schema for provenance
+  issues:
+    type: array
+    description: See the target schema for issues
+  extensions:
+    type: object
+    description: See the target schema for extensions
+  model_ref:
+    type: object
+    description: See the target schema for model_ref
+  hardware_ref:
+    type: object
+    description: See the target schema for hardware_ref
+  runtime_ref:
+    type: object
+    description: See the target schema for runtime_ref
+  method_sources:
+    type: array
+    description: See the target schema for method_sources
+  stages:
+    type: array
+    description: See the target schema for stages
+  operator_targets:
+    type: array
+    description: See the target schema for operator_targets
+  capture:
+    type: object
+    description: See the target schema for capture
+  replay:
+    type: object
+    description: See the target schema for replay
+  timing:
+    type: object
+    description: See the target schema for timing
+  operator_case_refs:
+    type: array
+    description: Versioned operator replay contracts
+body:
+  kind: BreakdownPlan
+  schema_version: 0.2.0
+  id:
+    $param: id
+  version:
+    $param: version
+  title:
+    $param: title
+  provenance:
+    $param: provenance
+  issues:
+    $param: issues
+  extensions:
+    $param: extensions
+  model_ref:
+    $param: model_ref
+  hardware_ref:
+    $param: hardware_ref
+  runtime_ref:
+    $param: runtime_ref
+  method_sources:
+    $param: method_sources
+  stages:
+    $param: stages
+  operator_targets:
+    $param: operator_targets
+  capture:
+    $param: capture
+  replay:
+    $param: replay
+  timing:
+    $param: timing
+  operator_case_refs:
+    $param: operator_case_refs

@@ -1,0 +1,50 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 127
+PDF 页码标签: 120
+页脚页码候选: 120
+章节提示（书签推断）: mcblas<t>matinvBatched()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+下面列出了此函数可能的返回值及其含义。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE
+• n < 0 , lda < 0 , ldc < 0 或 batchSize < 0
+• lda < n 或 ldb < n
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2.6.6 mcblas<t>matinvBatched()
+mcblasStatus_t mcblasSmatinvBatched(mcblasHandle_t handle,
+int n,
+const float *const A[],
+int lda,
+float *const Ainv[],
+int lda_inv,
+int *info,
+int batchSize);
+mcblasStatus_t mcblasDmatinvBatched(mcblasHandle_t handle,
+int n,
+const double *const A[],
+int lda,
+double *const Ainv[],
+int lda_inv,
+int *info,
+int batchSize);
+mcblasStatus_t mcblasCmatinvBatched(mcblasHandle_t handle,
+int n,
+const mcComplex *const A[],
+int lda,
+mcComplex *const Ainv[],
+int lda_inv,
+int *info,
+int batchSize);
+mcblasStatus_t mcblasZmatinvBatched(mcblasHandle_t handle,
+int n,
+const mcDoubleComplex *const A[],
+int lda,
+mcDoubleComplex *const Ainv[],
+(下页继续)
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 120

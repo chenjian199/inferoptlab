@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 98
+PDF 页码标签: 90
+页脚页码候选: 90
+章节提示（书签推断）: Bfloat16比较函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+__device__ maca_bfloat16 __hmin(const maca_bfloat16 a, const maca_bfloat16 b)
+参数
+a
+• maca_bfloat16，只读入参
+b
+• maca_bfloat16，只读入参
+返回值
+• bool，值等于a和b中更小的那一个
+函数描述
+• 获取两个maca_bfloat16中值更小的那一个。
+• NaN视为大于任何数。
+• 对于0的判定，+0.0>‑0.0。
+__device__ maca_bfloat16 __hmin_nan(const maca_bfloat16 a, const maca_bfloat16 b)
+参数
+a
+• maca_bfloat16，只读入参
+b
+• maca_bfloat16，只读入参
+返回值
+• bool，值等于a和b中更小的那一个
+函数描述
+• 获取两个maca_bfloat16中值更小的那一个。
+• NaN视为小于任何数。
+• 对于0的判定，+0.0>‑0.0。
+__device__ bool __hne(const maca_bfloat16 a, const maca_bfloat16 b)
+参数
+a
+• maca_bfloat16，只读入参
+b
+• maca_bfloat16，只读入参
+返回值
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 90

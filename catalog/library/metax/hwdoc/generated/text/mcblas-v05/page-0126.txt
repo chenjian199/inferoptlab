@@ -1,0 +1,48 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 126
+PDF 页码标签: 119
+页脚页码候选: 119
+章节提示（书签推断）: mcblas<t>getriBatched()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+(PivotArray+i) 指向的向量将包含主元序列。
+LU 分解之后，mcblas<t>getriBatched 使用正向和反向三角求解器（triangular solver）来完成 A[i]
+矩阵反转，i = 0，…，batchSize-1。矩阵反转为异地操作，因此 Carray[i] 的内存空间不能与 Array[i]
+的内存空间重叠。
+通常，mcblas<t>getrfBatched 中的所有参数都会传递到 mcblas<t>getriBatched 中。例如，
+//第1 步 ： 执 行 就 地LU分 解 ， P*A = L*U
+// Aarray[i] 是n*n矩 阵A[i]
+mcblasDgetrfBatched(handle, n, Aarray, lda, PivotArray, infoArray, 
+,→batchSize);
+// 查 看 infoArray[i]以 确 认 A[i]分 解 是 否 成 功 。
+// Array[i] 包 含A[i] LU 分 解
+//第2 步 ： 执 行 异 地 反 转 ，Carray[i] = inv(A[i])
+mcblasDgetriBatched(handle, n, Aarray, lda, PivotArray, Carray, ldc, 
+,→infoArray, batchSize);
+// 查 看 infoArray[i]以 确 认 A[i]反 转 是 否 成 功 。
+用户可以从 mcblas<t>getrfBatched 或 mcblas<t>getriBatched 中检查奇异性。
+此函数用于较小的矩阵，其中启动开销是一个重要因素。
+如果对 mcblas<t>getrfBatched 执行非主元反转， 则 mcblas<t>getriBatched 的PivotArray 应为 nil。
+mcblas<t>getriBatched 支持任意维度。
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+n input Aarray[i] 的行数和列数
+Aarray 设备 input 指向 <type> 数组的指针数组，每个数组维度为 n x n，其中
+lda >=max(1,n)
+lda input 用于存储矩阵 Aarray[i] 的二维数组的前导维度
+PivotArray 设备 output 大小为 n x batchSize 的数组，包含以线性方式存储的
+Aarray[i] 每个因式分解的旋转序列。如果 PivotArray 为零，
+则禁用旋转
+Carray 设备 output 指向 <type> 数组的指针数组，每个数组维度为 n x n，其中
+ldc >=max(1,n) 。矩阵 Carray[i] 不应重叠；否则，将出现未
+定义的行为。
+ldc input 用于存储矩阵 Carray[i] 的二维数组的前导维度
+infoArray 设备 output 大小为 batchSize 的数组，info(=infoArray[i]) 包含 A 的因
+式分解信息。
+如果 info=0，执行成功。
+如果 info = k，U(k,k) 为 0。U 恰好是奇异的，且反转失败。
+batchSize input A 中包含的指针数
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 119

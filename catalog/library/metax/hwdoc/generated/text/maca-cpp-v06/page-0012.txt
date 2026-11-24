@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 12
+PDF 页码标签: 4
+页脚页码候选: 4
+章节提示（书签推断）: __shared__
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+2.2.1 __device__
+__device__内存空间标识符声明一个存储在device上的变量。
+在2.2.2__constant__，2.2.3__shared__和2.2.4__managed__中描述的内存空间标识符最多有一个
+可以与 __device__ 一起使用，来进一步表示变量所属的内存空间。如果没有任何一个这样的额外内存
+空间标识符出现，则该device变量：
+• 存储于global内存空间。
+• 拥有创建它的MXMACA ® 上下文的相同的生命周期。
+• 每个设备上都有独自的对象。
+• 可以被grid中所有的thread访问。
+2.2.2 __constant__
+__constant__内存空间标识符，可选择与__device__一起使用，该constant变量：
+• 存储于constant内存空间。
+• 拥有与创建它的MXMACA上下文相同的生命周期。
+• 每个设备上都有独立的对象。
+• 可以被grid中所有的thread访问。
+2.2.3 __shared__
+__shared__内存空间标识符，可选择与__device__一起使用，该shared变量：
+• 存储于一个block的shared内存空间。
+• 与该block共享生命周期。
+• 每个block中都有一个独立的对象。
+• 只能被所处的block线程访问。
+• 没有固定的地址。
+当在shared内存声明一个external数组，比如：
+extern __shared__ float shared[];
+数组的大小在launchtime决定，参见 2.31执行配置。所有以这种方式声明的变量，在内存中有同样的
+起始地址，因此数组中的变量分布必须通过偏移量显式管理。例如：
+short array0[128];
+float array1[64];
+int array2[256];
+在动态分配的shared内存中，可以使用如下方式声明、初始化这些数组：
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 4

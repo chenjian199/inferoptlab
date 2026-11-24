@@ -1,0 +1,254 @@
+{
+  "vllm": {
+    "head": "5df63a7203cdb9328d824a27b682e77c7b9928be",
+    "status": ""
+  },
+  "vllm-metax": {
+    "head": "0962c8735ffe4795800030680311410848512b82",
+    "status": ""
+  },
+  "dcc": {
+    "Id": "3c856edd12bc08ba2fb33219093ad3986b26c9524a68523e29da0a0f1e4ac9fa",
+    "Created": "2026-11-11T08:14:38.49251392Z",
+    "Path": "/bin/bash",
+    "Args": [],
+    "State": {
+      "Status": "running",
+      "Running": true,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 4394,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-11-21T11:29:35.179813591Z",
+      "FinishedAt": "2026-11-20T08:54:17.628831588Z"
+    },
+    "Image": "sha256:96bbee871d4ea038b123276eacd65f77825b093b9255157938e0b1628e121f0b",
+    "ResolvConfPath": "/var/lib/docker/containers/3c856edd12bc08ba2fb33219093ad3986b26c9524a68523e29da0a0f1e4ac9fa/resolv.conf",
+    "HostnamePath": "/var/lib/docker/containers/3c856edd12bc08ba2fb33219093ad3986b26c9524a68523e29da0a0f1e4ac9fa/hostname",
+    "HostsPath": "/var/lib/docker/containers/3c856edd12bc08ba2fb33219093ad3986b26c9524a68523e29da0a0f1e4ac9fa/hosts",
+    "LogPath": "/var/lib/docker/containers/3c856edd12bc08ba2fb33219093ad3986b26c9524a68523e29da0a0f1e4ac9fa/3c856edd12bc08ba2fb33219093ad3986b26c9524a68523e29da0a0f1e4ac9fa-json.log",
+    "Name": "/dcc",
+    "RestartCount": 0,
+    "Driver": "overlayfs",
+    "Platform": "linux",
+    "MountLabel": "",
+    "ProcessLabel": "",
+    "AppArmorProfile": "docker-default",
+    "ExecIDs": null,
+    "HostConfig": {
+      "Binds": [
+        "/home/metax/DCC_workspace:/workspace",
+        "/NFS_62/Models/:/models"
+      ],
+      "ContainerIDFile": "",
+      "LogConfig": {
+        "Type": "json-file",
+        "Config": {}
+      },
+      "NetworkMode": "host",
+      "PortBindings": {},
+      "RestartPolicy": {
+        "Name": "unless-stopped",
+        "MaximumRetryCount": 0
+      },
+      "AutoRemove": false,
+      "VolumeDriver": "",
+      "VolumesFrom": null,
+      "ConsoleSize": [
+        48,
+        97
+      ],
+      "CapAdd": null,
+      "CapDrop": null,
+      "CgroupnsMode": "private",
+      "Dns": [],
+      "DnsOptions": [],
+      "DnsSearch": [],
+      "ExtraHosts": null,
+      "GroupAdd": [
+        "video"
+      ],
+      "IpcMode": "host",
+      "Cgroup": "",
+      "Links": null,
+      "OomScoreAdj": 0,
+      "PidMode": "",
+      "Privileged": false,
+      "PublishAllPorts": false,
+      "ReadonlyRootfs": false,
+      "SecurityOpt": [
+        "label=disable"
+      ],
+      "UTSMode": "",
+      "UsernsMode": "",
+      "ShmSize": 107374182400,
+      "Runtime": "runc",
+      "Isolation": "",
+      "CpuShares": 0,
+      "Memory": 0,
+      "NanoCpus": 0,
+      "CgroupParent": "",
+      "BlkioWeight": 0,
+      "BlkioWeightDevice": [],
+      "BlkioDeviceReadBps": [],
+      "BlkioDeviceWriteBps": [],
+      "BlkioDeviceReadIOps": [],
+      "BlkioDeviceWriteIOps": [],
+      "CpuPeriod": 0,
+      "CpuQuota": 0,
+      "CpuRealtimePeriod": 0,
+      "CpuRealtimeRuntime": 0,
+      "CpusetCpus": "",
+      "CpusetMems": "",
+      "Devices": [
+        {
+          "PathOnHost": "/dev/mxcd",
+          "PathInContainer": "/dev/mxcd",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/dri",
+          "PathInContainer": "/dev/dri",
+          "CgroupPermissions": "rwm"
+        }
+      ],
+      "DeviceCgroupRules": null,
+      "DeviceRequests": null,
+      "MemoryReservation": 0,
+      "MemorySwap": 0,
+      "MemorySwappiness": null,
+      "OomKillDisable": null,
+      "PidsLimit": null,
+      "Ulimits": [
+        {
+          "Name": "memlock",
+          "Hard": -1,
+          "Soft": -1
+        }
+      ],
+      "CpuCount": 0,
+      "CpuPercent": 0,
+      "IOMaximumIOps": 0,
+      "IOMaximumBandwidth": 0,
+      "MaskedPaths": [
+        "/proc/acpi",
+        "/proc/asound",
+        "/proc/interrupts",
+        "/proc/kcore",
+        "/proc/keys",
+        "/proc/latency_stats",
+        "/proc/sched_debug",
+        "/proc/scsi",
+        "/proc/timer_list",
+        "/proc/timer_stats",
+        "/sys/devices/virtual/powercap",
+        "/sys/firmware"
+      ],
+      "ReadonlyPaths": [
+        "/proc/bus",
+        "/proc/fs",
+        "/proc/irq",
+        "/proc/sys",
+        "/proc/sysrq-trigger"
+      ]
+    },
+    "Storage": {
+      "RootFS": {
+        "Snapshot": {
+          "Name": "overlayfs"
+        }
+      }
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/NFS_62/Models",
+        "Destination": "/models",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/DCC_workspace",
+        "Destination": "/workspace",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ],
+    "Config": {
+      "Hostname": "63metax",
+      "Domainname": "",
+      "User": "",
+      "AttachStdin": false,
+      "AttachStdout": false,
+      "AttachStderr": false,
+      "Tty": true,
+      "OpenStdin": true,
+      "StdinOnce": false,
+      "Env": [
+        "PATH=/opt/conda/bin:/opt/conda/condabin:/opt/maca/bin:/opt/maca/mxgpu_llvm/bin:/opt/maca/ompi/bin:/opt/maca/ucx/bin:/opt/mxdriver/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "LIBRARY_PATH=/opt/mxdriver/lib:",
+        "LD_LIBRARY_PATH=/opt/maca/mxshmem/lib:/opt/maca/mxshmem/lib:/opt/maca/mxshmem/lib:/opt/maca/mxshmem/lib:/opt/maca/lib:/opt/maca/mxshmem/lib:/opt/maca/ompi/lib:/opt/maca/ucx/lib:/opt/mxdriver/lib:",
+        "MACA_PATH=/opt/maca",
+        "MACA_CLANG_PATH=/opt/maca/mxgpu_llvm/bin",
+        "DEBIAN_FRONTEND=noninteractive",
+        "TORCH_ALLOW_TF32_CUBLAS_OVERRIDE=1",
+        "TZ=Asia/Shanghai",
+        "CUCC_PATH=/opt/maca/tools/cu-bridge",
+        "CUDA_PATH=/opt/maca/tools/cu-bridge"
+      ],
+      "Cmd": [
+        "/bin/bash"
+      ],
+      "Image": "cr.metax-tech.com/public-ai-release/maca/vllm-metax:0.28.0-maca.ai3.8.2.401-torch2.10-py312-ubuntu22.04-amd64",
+      "Volumes": null,
+      "WorkingDir": "/workspace",
+      "Entrypoint": null,
+      "Labels": {
+        "com.metax.driver.version": "3.8.2.25",
+        "com.metax.sdk.version": "3.8.2.6",
+        "com.metax.torch.version": "2.10+3.8.2.2",
+        "org.opencontainers.image.ref.name": "ubuntu",
+        "org.opencontainers.image.version": "22.04"
+      }
+    },
+    "NetworkSettings": {
+      "SandboxID": "2ececdb6b6fb78d20e7c9d98223d9900a5662eba785a92a0926a6ec602b889cc",
+      "SandboxKey": "/var/run/docker/netns/default",
+      "Ports": {},
+      "Networks": {
+        "host": {
+          "IPAMConfig": null,
+          "Links": null,
+          "Aliases": null,
+          "DriverOpts": null,
+          "GwPriority": 0,
+          "NetworkID": "6efbae29f4d3fef97ddc69b4fc0f52be3240e325adf823afa3930c36af659afb",
+          "EndpointID": "0bd7df5e947f7070994eb7dedc1b47ad68c056e8ea388d6864e4389308520278",
+          "Gateway": "",
+          "IPAddress": "",
+          "MacAddress": "",
+          "IPPrefixLen": 0,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "DNSNames": null
+        }
+      }
+    },
+    "ImageManifestDescriptor": {
+      "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+      "digest": "sha256:96bbee871d4ea038b123276eacd65f77825b093b9255157938e0b1628e121f0b",
+      "size": 5555,
+      "platform": {
+        "architecture": "amd64",
+        "os": "linux"
+      }
+    }
+  }
+}

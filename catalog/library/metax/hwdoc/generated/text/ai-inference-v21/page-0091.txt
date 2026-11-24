@@ -1,0 +1,33 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 91
+PDF 页码标签: 79
+页脚页码候选: 79
+章节提示（书签推断）: 执行模型评测
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+14.5.4 执行模型评测
+进入容器后进入 code 目录
+cd /workspace/ModelZoo.LLM.Inference/code
+python3 -m src.master --output-path ../outputs/ --tasks-config ../models/DeepSeek-
+,→R1-W8A8/config.json --machine-config ../models/machines.json --port 20005 --
+,→local-ip 192.168.1.2 #主 节 点
+python3 -m src.slave --local-ip 192.168.1.10 --port 20005 #从 节 点
+对 machines.json 文件中除主节点以外的“所有”从节点执行（无论从节点在此任务中有没有使用到） 。
+以上面配置机器信息为例，对 IP 地址为 192.168.0.2 的设备执行即可。port 可自定义但需要保持主从一
+致。其中必选参数:–local‑ip。该参数代表当前节点的 IP 地址，与 machines.json 中配置的从节点 IP 地
+址保持一致。 可选参数:–port。 该参数代表从节点监听的端口时，必须和主节点一致，默认是 20000；在
+主节点执行，port 可自定义（保持主从一致） ，可不配置，默认 20000。
+参数说明:
+• machine‑config: 本次测试需要的机器信息。
+• output‑path: 结果输出的根目录，最好是外部挂载到容器的目录，防止容器删了结果丢失。
+• tasks‑config: 指定测试的配置文件或者目录，可以指定多个配置。
+• image‑tag: 镜像标签，用于结果区分，默认为空。
+• specify‑test: 从测试的配置文件中筛选出特定的任务类型执行，支持 perf,mmlu,ceval，默认是全部
+执行，可选择多个。
+• port: socket 的端口号，默认 20000。
+• timeout: 测试的超时时间，单位是秒，默认 1200 秒。
+• local‑ip: 当前节点的 IP 地址，与 machines.json 中配置的主节点 IP 地址保持一致。
+14 ModelZoo.LLM.SGLang 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 79

@@ -1,0 +1,73 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 68
+PDF 页码标签: 59
+页脚页码候选: 59
+章节提示（书签推断）: 环境变量
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+注解: 将 MACA_CACHE_DISABLE 的值改为 0 或者不设置即可重新启用 binary cache 功能。
+4.4 环境变量
+沐曦通用 GPU 支持在程序启动前通过环境变量对运行行为进行精细化管控，覆盖设备枚举与属性控制、
+编译控制、常用执行控制、模块加载及基础调试等典型场景。支持的环境变量参见表 4.1。
+表 4.1 常用环境变量
+变量名称 可设置值 缺省值 描述
+设备枚举和属性控制
+MACA_
+VISIBLE_
+DEVICES
+GPU
+UUID、
+Device
+Node ID
+无 控制 MXMACA 应用程序能够识别哪些 GPU 设备，以及
+这些设备以何种顺序被枚举。
+可 以 指 定 GPU UUID， 例 如：
+export MACA_VISIBLE_DEVICES=
+GPU-ad2367dd-a40e-6b86-6fc3-c44a2cc92c7e
+也 可 以 指 定 设 备 节 点 ID， 例 如： export MACA_
+VISIBLE_DEVICES=0,2
+MACA_
+DEVICE_
+ORDER
+FASTEST_
+FIRST
+或 PCI_
+BUS_ID
+FASTEST_
+FIRST
+控制 MXMACA 对可用设备进行枚举的顺序。
+FASTEST_FIRST：根据设备计算能力从快到慢排序。
+PCI_BUS_ID：根据 PCI 总线 ID 升序排列设备。
+编译控制
+MACA_CACHE_
+DISABLE
+0‑1 0 控制磁盘上的即时编译（JIT）缓存的行为。
+如果设置为 1，则禁用 binary cache。
+设置为 0 或不设置时，启用 binary cache。
+MACA_CACHE_
+PATH
+filepath 指定磁盘上的即时编译（JIT）文件存储位置。
+当未设置时，cache 文件存储在默认目录下：$HOME/.
+metax/shadercache/。
+MACA_CACHE_
+MAXSIZE
+0‑
+4294967296
+268435456 指定即时编译（JIT）能缓存的单个 cache 文件的最大
+size。
+当生成的 cache 文件超过这个值时，则不进行缓存。
+当不设置时，默认为 268435456（256 MB） 。如果设置
+超过 4294967296（4 GB） ，则只按 4 GB 生效。
+常用执行控制
+MACA_
+LAUNCH_
+BLOCKING
+0‑1 0 指定是否启用异步核函数启动功能，值可以设置为：
+0：Stream 上启动核函数表现为异步。
+1：Stream 上启动核函数表现为同步。
+模块加载（Module Loading）
+下页继续
+4 编译和调试 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 59

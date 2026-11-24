@@ -1,0 +1,53 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 42
+PDF 页码标签: 35
+页脚页码候选: 35
+章节提示（书签推断）: mcblas<t>gbmv()
+质量标记: private_use_characters
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+2.4 mcBLAS Level‑2 函数
+本章中，我们将介绍执行矩阵‑向量操作的 Level‑2 基本线性代数子程序（BLAS2）函数。
+2.4.1 mcblas<t>gbmv()
+mcblasStatus_t mcblasSgbmv(mcblasHandle_t handle, mcblasOperation_t trans,
+int m, int n, int kl, int ku,
+const float *alpha,
+const float *A, int lda,
+const float *x, int incx,
+const float *beta,
+float *y, int incy)
+mcblasStatus_t mcblasDgbmv(mcblasHandle_t handle, mcblasOperation_t trans,
+int m, int n, int kl, int ku,
+const double *alpha,
+const double *A, int lda,
+const double *x, int incx,
+const double *beta,
+double *y, int incy)
+mcblasStatus_t mcblasCgbmv(mcblasHandle_t handle, mcblasOperation_t trans,
+int m, int n, int kl, int ku,
+const mcComplex *alpha,
+const mcComplex *A, int lda,
+const mcComplex *x, int incx,
+const mcComplex *beta,
+mcComplex *y, int incy)
+mcblasStatus_t mcblasZgbmv(mcblasHandle_t handle, mcblasOperation_t trans,
+int m, int n, int kl, int ku,
+const mcDoubleComplex *alpha,
+const mcDoubleComplex *A, int lda,
+const mcDoubleComplex *x, int incx,
+const mcDoubleComplex *beta,
+mcDoubleComplex *y, int incy)
+该函数执行带状矩阵（banded matrix）‑向量乘法
+y = α op(A)x + βy
+其中 A 是具有次对角线 kl 和超对角线 ku 的带状矩阵，x 和 y 是向量，α 和 β 是标量。 此外， 对于矩阵A，
+op(A) =
+
+
+
+A if transa == M CBLAS_OP _N
+AT if transa == M CBLAS_OP _T
+AH if transa == M CBLAS_OP _C
+带状矩阵 A 按列存储，主对角线存储在行 ku + 1 中（从第一个位置开始） ，第一个超对角线存储在行ku
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 35

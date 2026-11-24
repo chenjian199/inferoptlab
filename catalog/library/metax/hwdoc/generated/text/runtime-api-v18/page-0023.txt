@@ -1,0 +1,46 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 23
+PDF 页码标签: 14
+页脚页码候选: 14
+章节提示（书签推断）: 事件管理函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+3.3.2 事件
+事件一般用作流中的标记，作为流内特定的同步点。可以使用事件来执行以下两个基本任务：
+• 流同步
+• 监控流中操作的执行进度
+3.3.2.1 代码示例
+使用事件进行核函数执行时间查询，代码如下所示：
+// create two events
+mcEvent_t start, stop;
+mcEventCreate(&start);
+mcEventCreate(&stop);
+// record start event on the default stream
+mcEventRecord(start);
+// execte kernel
+kernel<<<grid, block>>>(arguments);
+// record stop event on the default stream
+mcEventRecord(stop);
+// wait until the stop event completes
+mcEventSynchronize(stop);
+// calculate the elapsed time between two events
+float time;
+mcEventElapsedTime(&time, start, stop);
+// clean up the two events
+mcEventDestroy(start);
+mcEventDestroy(stop);
+3.3.2.2 事件管理函数
+沐曦通用 GPU 提供的事件管理运行时 API 函数见 表 3.2，支持创建、销毁事件，查询事件状态，记录事
+件和同步等操作。
+表 3.2 沐曦通用 GPU 事件管理函数
+功能 运行时 API 函数
+事件的创建与销毁 mcEventCreate
+mcEventCreateWithFlags
+mcEventDestroy
+事件的记录 mcEventRecord
+mcEventRecordWithFlags
+下页继续
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 14

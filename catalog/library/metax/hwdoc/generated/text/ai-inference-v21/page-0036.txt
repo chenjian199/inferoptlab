@@ -1,0 +1,39 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 36
+PDF 页码标签: 24
+页脚页码候选: 24
+章节提示（书签推断）: ONNX简化
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+model_class_name ：模型中定义的类别名称
+model_weights_file ：模型权重文件的路径
+input_shape ：模型的输入形状
+5.1.3.12 PaddlePaddle 模型转 ONNX 模型（输入仅包含权重，模型在 paddle.vision 中定义）
+操作步骤
+1. 执行以下命令，将 PaddlePaddle 模型转为 ONNX 模型（输入仅包含权重，模型在 paddle.vision 中
+定义） 。
+python -m maca_converter --model_path ./xxx --model_type paddle --output ./
+,→paddle.onnx --model_class_name paddle.vision.models.LeNet --model_weights_file 
+,→./final.pdparams --input_shape [1,1,28,28]
+参数说明：
+model_path ：PaddlePaddle 模型路径（此处可任意指定，因为这种场景下只有权重文件，没有模
+型）
+model_type ：模型类型（此处固定为 paddle）
+output ：目标模型的路径
+model_class_name ：模型中定义的类别名称
+model_weights_file ：模型权重文件的路径
+input_shape ：模型的输入形状
+5.1.3.13 动态 Batch 转换
+操作步骤
+1. 执行以下命令，将 BatchSize 非动态的模型转换为动态模型。
+python -m maca_converter --model_path ./caffe_model --model_type caffe --output .
+,→/output.onnx --dynamic_batch 1
+5.1.3.14 ONNX 简化
+操作步骤
+1. 执行以下命令，对输入的模型进行常规优化（如常量折叠，Conv+BN 融合等） 。
+python -m maca_converter --model_path ./test.onnx --model_type onnx --output ./
+,→output.onnx
+5 MacaRT 工具链 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 24

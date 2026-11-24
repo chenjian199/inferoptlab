@@ -1,0 +1,35 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 61
+PDF 页码标签: 52
+页脚页码候选: 52
+章节提示（书签推断）: CMake编译和示例
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+图 4.2 Makefile 编译和示例
+4.1.1.1 CMake 编译和示例
+继续以图 4.1 所示的项目结构为例， 如果用 cmake 工具来构建项目， 则需在main.cpp 同级目录下创建
+CMakeLists.txt文件，可以按照如下方式编写 CMakeLists.txt文件：
+# Specify the minimum CMake version required
+cmake_minimum_required(VERSION 3.0)
+# Set the project name
+project(my_program)
+# Set the path to the compiler
+set(MXCC_PATH $ENV{MACA_PATH})
+set(CMAKE_CXX_COMPILER ${MXCC_PATH}/mxgpu_llvm/bin/mxcc)
+# Set the compiler flags
+set(MXCC_COMPILE_FLAGS -x maca)
+add_compile_options(${MXCC_COMPILE_FLAGS})
+# Add source files
+File(GLOB SRCS src/*.cpp main.cpp)
+add_executable(my_program ${SRCS})
+# Set the include paths
+target_include_directories(my_program PRIVATE include)
+同理，cmake 之前也需要正确设置环境变量，以缺省安装位置（/opt/maca）为例：
+export MACA_PATH=/opt/maca
+export LD_LIBRARY_PATH=${MACA_PATH}/lib:${LD_LIBRARY_PATH}
+如图 4.3 所示，在 CMakeLists.txt同级目录下创建 build 文件夹，进入 build 目录执行 cmake 命令，
+再执行 make 命令，即可得到可执行程序 my_program。
+4 编译和调试 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 52

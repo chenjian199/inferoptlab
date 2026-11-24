@@ -1,0 +1,51 @@
+文档: 沐曦通用GPU_MXMACA编译器内建函数编程指南_CN_V01.pdf
+文档 ID: builtins-v01
+SHA256: 80dfb3a83381e48e19968b432d4eb24d37c505bd711af14f74889277cffc3835
+PDF 页序号: 9
+PDF 页码标签: 3
+页脚页码候选: 3
+章节提示（书签推断）: __builtin_mxc_ldg_*_predicator
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® 编译器内建函数编程指南
+3 接口介绍
+3.1 访存函数
+3.1.1 __builtin_mxc_ldg_*_predicator
+功能描述
+从全局内存中加载数据。相比普通加载操作，该操作的活跃线程掩码 exec_mask 来自于函数参数中两
+个数值的比较结果。
+接口声明
+u1u8 __builtin_mxc_ldg_b8_predicator(void *global_addr, int offset, bool ret0_en, 
+,→bool saddr_flag, bool pred_neg, bool is_async, unsigned cmp_operand1, unsigned 
+,→cmp_operand2, int cmp_flag);
+v1u16 __builtin_mxc_ldg_b16_predicator(void *global_addr, int offset, bool ret0_en,
+,→ bool saddr_flag, bool pred_neg, bool is_async, unsigned cmp_operand1, unsigned 
+,→cmp_operand2, int cmp_flag);
+v1u32 __builtin_mxc_ldg_b32_predicator(void *global_addr, int offset, bool ret0_en,
+,→ bool saddr_flag, bool pred_neg, bool is_async, unsigned cmp_operand1, unsigned 
+,→cmp_operand2, int cmp_flag);
+v2i16 __builtin_mxc_ldg_b32_predicator_v2s(void *global_addr, int offset, bool 
+,→ret0_en, bool saddr_flag, bool pred_neg, bool is_async, unsigned cmp_operand1, 
+,→unsigned cmp_operand2, int cmp_flag);
+v2i16 __builtin_mxc_ldg_b32_predicator_v2h(void *global_addr, int offset, bool 
+,→ret0_en, bool saddr_flag, bool pred_neg, bool is_async, unsigned cmp_operand1, 
+,→unsigned cmp_operand2, int cmp_flag);
+v4i8 __builtin_mxc_ldg_b32_predicator_v4c(void *global_addr, int offset, bool ret0_
+,→en, bool saddr_flag, bool pred_neg, bool is_async, unsigned cmp_operand1, 
+,→unsigned cmp_operand2, int cmp_flag);
+v2u32 __builtin_mxc_ldg_b64_predicator(void *global_addr, int offset, bool ret0_en,
+,→ bool saddr_flag, bool pred_neg, bool is_async, unsigned cmp_operand1, unsigned 
+,→cmp_operand2, int cmp_flag);
+v4i16 __builtin_mxc_ldg_b64_predicator_v4s(void *global_addr, int offset, bool 
+,→ret0_en, bool saddr_flag, bool pred_neg, bool is_async, unsigned cmp_operand1, 
+,→unsigned cmp_operand2, int cmp_flag);
+v4f16 __builtin_mxc_ldg_b64_predicator_v4h(void *global_addr, int offset, bool 
+,→ret0_en, bool saddr_flag, bool pred_neg, bool is_async, unsigned cmp_operand1, 
+,→unsigned cmp_operand2, int cmp_flag);
+v8i8 __builtin_mxc_ldg_b64_predicator_v8c(void *global_addr, int offset, bool ret0_
+,→en, bool saddr_flag, bool pred_neg, bool is_async, unsigned cmp_operand1, 
+,→unsigned cmp_operand2, int cmp_flag);
+v4u32 __builtin_mxc_ldg_b128_predicator(void *global_addr, int offset, bool ret0_
+,→en, bool saddr_flag, bool pred_neg, bool is_async, unsigned cmp_operand1, 
+(下页继续)
+3 接口介绍 沐曦股份专有信息 OG‑26013‑000‑F5_V01 | 3

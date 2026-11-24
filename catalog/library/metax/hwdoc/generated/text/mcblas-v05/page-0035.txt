@@ -1,0 +1,51 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 35
+PDF 页码标签: 28
+页脚页码候选: 28
+章节提示（书签推断）: mcblas<t>rot()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+和溢出，其结果相当于精确运算中的
+√∑n
+i=1 (x[j] × x[j])，其中 j = 1 + ( i − 1) ∗ incx。请注意，最后一
+个公式反映了基于 1 的索引，该索引用于与 Fortran 兼容。
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+n input 向量 x 中的元素数
+x 设备 input 包含 n 个元素的 <type> 向量
+incx input x 中连续元素之间的步幅
+result 主机或设备 output 结果范数，如果 n,incx<=0 ，则为 0.0
+下面列出了此函数可能的返回值及其含义。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_ALLOC_FAILED 无法分配归约缓冲区
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2.3.8 mcblas<t>rot()
+mcblasStatus_t mcblasSrot(mcblasHandle_t handle, int n,
+float *x, int incx,
+float *y, int incy,
+const float *c, const float *s)
+mcblasStatus_t mcblasDrot(mcblasHandle_t handle, int n,
+double *x, int incx,
+double *y, int incy,
+const double *c, const double *s)
+mcblasStatus_t mcblasCrot(mcblasHandle_t handle, int n,
+mcComplex *x, int incx,
+mcComplex *y, int incy,
+const float *c, const mcComplex *s)
+mcblasStatus_t mcblasCsrot(mcblasHandle_t handle, int n,
+mcComplex *x, int incx,
+mcComplex *y, int incy,
+const float *c, const float *s)
+mcblasStatus_t mcblasZrot(mcblasHandle_t handle, int n,
+mcDoubleComplex *x, int incx,
+mcDoubleComplex *y, int incy,
+const double *c, const mcDoubleComplex *s)
+mcblasStatus_t mcblasZdrot(mcblasHandle_t handle, int n,
+mcDoubleComplex *x, int incx,
+(下页继续)
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 28

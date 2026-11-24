@@ -1,0 +1,50 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 136
+PDF 页码标签: 129
+页脚页码候选: 129
+章节提示（书签推断）: mcblas<t>gemmEx()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+2.6.11 mcblas<t>gemmEx()
+mcblasStatus_t mcblasSgemmEx(mcblasHandle_t handle,
+mcblasOperation_t transa,
+mcblasOperation_t transb,
+int m,
+int n,
+int k,
+const float *alpha,
+const void *A,
+macaDataType_t Atype,
+int lda,
+const void *B,
+macaDataType_t Btype,
+int ldb,
+const float *beta,
+void *C,
+macaDataType_t Ctype,
+int ldc)
+mcblasStatus_t mcblasCgemmEx(mcblasHandle_t handle,
+mcblasOperation_t transa,
+mcblasOperation_t transb,
+int m,
+int n,
+int k,
+const mcComplex *alpha,
+const void *A,
+macaDataType_t Atype,
+int lda,
+const void *B,
+macaDataType_t Btype,
+int ldb,
+const mcComplex *beta,
+void *C,
+macaDataType_t Ctype,
+int ldc)
+此函数是 mcblas<t>gemm. 的扩展。在此函数中，输入矩阵和输出矩阵可以具有较低的精度，但计算
+仍然以 <t> 类型完成。 例如，mcblasSgemmEx 的 float 类型，mcblasCgemmEx 的 mcComplex 类型。
+C = αop(A)op(B) + βC
+其中 α 和 β 是标量，A、B、C 是以列主格式存储的矩阵，维度分别为 op(A) m × k、op(B) k × n 和 C
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 129

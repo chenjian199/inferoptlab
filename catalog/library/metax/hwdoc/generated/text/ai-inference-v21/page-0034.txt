@@ -1,0 +1,40 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 34
+PDF 页码标签: 22
+页脚页码候选: 22
+章节提示（书签推断）: PyTorch模型转ONNX模型（输入仅包含权重，且模型定义在Torchvision中）
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+model_def_file ：模型定义文件（必须和执行命令的路径在同一目录下）
+model_class_name ：模型中定义的类名
+input_shape ：模型的输入形状
+5.1.3.7 PyTorch 模型转 ONNX 模型（输入仅包含权重）
+操作步骤
+1. 执行以下命令，将 PyTorch 模型转为 ONNX 模型（输入仅包含权重） 。
+python -m maca_converter --model_path ./xxx --model_type pytorch --output ./unet.
+,→onnx --model_def_file ./unet.py --model_class_name Net --model_weights_file ./
+,→9_epoch_0.56322173.pth --input_shape [64,3,32,32]
+参数说明：
+model_path ：PyTorch 模型路径（此处可任意指定，因为这种场景下只有权重文件，没有模型）
+model_type ：模型类型（此处固定为 pytorch）
+output ：目标模型的路径
+model_def_file ：模型定义文件（必须和执行命令的路径在同一目录下）
+model_class_name ：模型中定义的类别名称
+model_weights_file ：模型权重文件的路径
+input_shape ：模型的输入形状
+5.1.3.8 PyTorch 模型转 ONNX 模型（输入仅包含权重，且模型定义在 Torchvision 中）
+操作步骤
+1. 执行以下命令，将 PyTorch 模型转为 ONNX 模型（输入仅包含权重，且模型定义在 Torchvision 中） 。
+python -m maca_converter --model_path ./xxx --model_type pytorch --output ./
+,→output.onnx --model_class_name torchvision.models.resnet50 --model_weights_
+,→file ./0.9696.pth --input_shape [16,3,256,256]
+参数说明：
+model_path ：PyTorch 模型路径（此处可任意指定，因为这种场景下只有权重文件，没有模型）
+model_type ：模型类型（此处固定为 pytorch）
+output ：目标模型的路径
+model_class_name ：模型中定义的类别名称
+input_shape ：模型的输入形状
+5 MacaRT 工具链 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 22

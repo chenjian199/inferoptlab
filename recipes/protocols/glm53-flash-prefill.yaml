@@ -1,0 +1,33 @@
+schema_version: 0.2.0
+kind: MeasurementProtocol
+id: glm53-flash-prefill-protocol
+version: 1.0.0
+title: GLM Flash prefill
+provenance: []
+issues: []
+extensions: {}
+scope: prefill
+method: prefill_one_token
+allowed_deployment_modes:
+- aggregated
+timing:
+  ttft_boundary: client_submit_to_first_content_token
+  tpot_boundary: not_applicable
+  token_timestamps: unavailable
+  window: fixed_request_set
+  start: first_actual_send
+  finish: last_completion_or_timeout
+execution:
+  warmup: Separate AIPerf process and disjoint warmup fixture; excluded from scoring.
+  warmup_request_count: 4
+  timeout_s: 600
+  repetitions: 3
+  profiler_during_scoring: false
+accounting:
+  primary_population: all_planned_requests
+  failure_policy: retain_in_denominator
+  logical_request_deduplication: true
+steps:
+- 独立预热并核对环境。
+- P 禁用前缀复用；D 重置缓存、填充完全相同输入、再重放。
+- 按并发倍率发请求，逐请求保留实际 token、缓存计数和失败。

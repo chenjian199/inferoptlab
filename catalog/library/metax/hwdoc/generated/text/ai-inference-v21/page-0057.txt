@@ -1,0 +1,46 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 57
+PDF 页码标签: 45
+页脚页码候选: 45
+章节提示（书签推断）: 服务端部署
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+操作步骤（以 llama‑7b 为例）
+1. 创建 llama_7b_config.json，主要内容如下：
+{
+"model_type": "llama",
+"model_dir": "/path/to/model/dir",
+"model_param_path": "/path/to/model/dir/params.json",
+"tokenizer_path": "/path/to/tokenizer/tokenizer.model",
+"tensor_parallel_size": 1,
+"top_p": 0.0,
+"top_k": 1,
+"quant_method": "none",
+"max_tokens_scale": 0.6,
+"max_tokens_per_request": 4096,
+"max_running_batch": 1024,
+"max_tokens_per_step": 8192,
+"host": "0.0.0.0",
+"port": 23333
+}
+参数说明：
+model_type ： LLM 模型类型， 可参考/opt/maca‑ai/ppl.llm.serving/samples/samples/ppl_
+server_client/model_config 中已支持模型的配置示例进行配置
+model_dir ：6.3.1.6 导出为 ONNX 模型中导出的 ONNX 模型路径
+model_param_path ：6.3.1.6 导出为 ONNX 模型中导出 ONNX 模型的 params.json 文件路径
+tokenizer_path ：tokenizer 模型路径
+tensor_parallel_size ：Tensor 并行大小，需要与 6.3.1.3 模型切分中模型切分数量保持一致，
+即导出模型为 2 卡并行，此处设置为 2；4 卡并行则设置为 4
+max_tokens_scale ：设置范围 [0.1, 0.9]，该参数会影响服务端对显存的使用。简单地说，代表模
+型加载完成后，额外占用剩余显存的比例，受制于当前显存碎片化管理不够完善，随着请求次数增
+加，显存会出现溢出，建议设置一个较小的值。若测试大 batchsize，建议设置大一些（0.9） ，否则
+由于预分配显存不够，无法按照设定的 batchsize 执行大模型推理，但此时请求的次数要比较少，否
+则也会出现显存溢出
+max_tokens_per_request ：单次请求的最大 token 数，建议设置 4096
+max_running_batch ：执行推理最大 batchsize
+max_tokens_per_step ：单个 step 处理最大 token 数
+2. 设置环境变量并运行服务端程序，启动 llama_7b 服务。
+6 MacaRT‑LLM 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 45

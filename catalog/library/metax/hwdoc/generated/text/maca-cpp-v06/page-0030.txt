@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 30
+PDF 页码标签: 22
+页脚页码候选: 22
+章节提示（书签推断）: half比较函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+参数
+a
+• half2，只读入参
+b
+• half2，只读入参
+返回值
+• half2，a减b的差
+函数描述
+• 以向最近偶数舍入模式计算a减b的差。
+__device__ __half2 __hsub2_sat (const __half2 a, const __half2 b)
+参数
+a
+• half2，只读入参
+b
+• half2，只读入参
+返回值
+• half2，返回a减b的差
+函数描述
+• 以向最近偶数舍入模式计算a减b的差。把结果限制在区间[0.0,1.0]上。
+2.8.3 half 比较函数
+__device__ bool __heq (const __half a, const __half b)
+参数
+a
+• half，只读入参
+b
+• half，只读入参
+返回值
+• bool，检测a和b是否相等
+函数描述
+• 比较a和b。如果相等，返回true；否则，返回false。
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 22

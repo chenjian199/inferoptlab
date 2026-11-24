@@ -33,7 +33,7 @@ class InspectedRecipesTests(unittest.TestCase):
                      'metax-deepseek-v4.1-flash-w8a8'):
             doc = self.recipe(name)
             source = self.catalog.get(doc['provenance'][0]['source_ref'])
-            raw = json.loads((ROOT / source['path']).read_text(encoding='utf-8'))
+            raw = json.loads(((ROOT / source['path']).resolve()).read_text(encoding='utf-8'))
             config = raw['files']['config.json']['content']
             text = config.get('text_config', config)
             self.assertEqual(text['num_hidden_layers'], doc['architecture']['text']['num_hidden_layers'])
@@ -89,7 +89,7 @@ class InspectedRecipesTests(unittest.TestCase):
         self.assertIn('hardware health', '\n'.join(self.catalog.readiness_issues([hardware])))
 
     def test_executed_probe_artifact_is_exact(self):
-        root = ROOT / 'schemas/evidence/metax/20261123'
+        root = ROOT / 'experiments/evidence/metax/20261123'
         raw = json.loads((root / 'calibration-v3.json').read_text(encoding='utf-8'))
         self.assertEqual(raw['probe_sha256'], hashlib.sha256((root / 'calibration-v3.probe.py').read_bytes()).hexdigest())
         self.assertEqual('measured', raw['status'])

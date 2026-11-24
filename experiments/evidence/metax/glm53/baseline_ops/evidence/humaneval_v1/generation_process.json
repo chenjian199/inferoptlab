@@ -1,0 +1,17 @@
+{
+  "command": [
+    "docker",
+    "exec",
+    "glm53-heval-v1",
+    "python3",
+    "-u",
+    "/experiment/harness/generate_humaneval.py",
+    "--label",
+    "20261123_humaneval_v1"
+  ],
+  "status": "complete",
+  "started_epoch": 1795364456.8192446,
+  "pid": 262604,
+  "exit_code": 0,
+  "elapsed_seconds": 2447.431709051132
+}

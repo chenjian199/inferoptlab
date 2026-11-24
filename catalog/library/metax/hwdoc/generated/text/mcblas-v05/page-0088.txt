@@ -1,0 +1,50 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 88
+PDF 页码标签: 81
+页脚页码候选: 81
+章节提示（书签推断）: mcblas<t>gemmStridedBatched()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+否则，建议符合以下规则：
+• 如果 k%4==0，则确保 intptr_t(ptr) % 16 == 0
+下面列出了此函数可能的返回值及其含义。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE • m, n, k, batchCount < 0
+• transa, transb != MCBLAS_OP_N,
+MCBLAS_OP_C, MCBLAS_OP_T
+• 如果 transa == MCBLAS_OP_N ，lda < max(1,
+m) ；否则 lda < max(1, k)
+• 如果 transb == MCBLAS_OP_N ，ldb < max(1,
+k) ；否则 ldb < max(1, n)
+• ldc < max(1, m)
+MCBLAS_STATUS_ARCH_MISMATCH 不支持该设备
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2.5.4 mcblas<t>gemmStridedBatched()
+mcblasStatus_t mcblasHgemmStridedBatched(mcblasHandle_t handle,
+mcblasOperation_t transa,
+mcblasOperation_t transb,
+int m, int n, int k,
+const mcblas_half *alpha,
+const mcblas_half *A, int lda,
+mcblas_stride strideA,
+const mcblas_half *B, int ldb,
+mcblas_stride strideB,
+const mcblas_half *beta,
+mcblas_half *C, int ldc,
+mcblas_stride strideC,
+int batchCount)
+mcblasStatus_t mcblasSgemmStridedBatched(mcblasHandle_t handle,
+mcblasOperation_t transa,
+mcblasOperation_t transb,
+int m, int n, int k,
+const float *alpha,
+const float *A, int lda,
+mcblas_stride strideA,
+const float *B, int ldb,
+(下页继续)
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 81

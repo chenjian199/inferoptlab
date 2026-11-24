@@ -1,0 +1,26 @@
+FlashInfer kernels are disabled: flashinfer-cubin is not installed and nvcc (CUDA_HOME, CUDA_PATH, PATH or /usr/local/cuda) or ninja (PATH) is missing. Set CUDA_HOME to a CUDA toolkit and put ninja on PATH, or run `vllm download-kernels`.
+Version info:Mcoplib_Version = '0.4.14'
+Build_Maca_Version = '3.9.0.31'
+Build_Torch_Version = '2.10.0+metax3.9.0.8'
+Min_Compatibility_Maca_Version = '3.7.0'
+GIT_BRANCH = 'HEAD'
+GIT_COMMIT = 'f3794c4'
+Vllm Op Version = 0.29.0
+SGlang Op Version  = 0.5.19 
+
+INFO mcoplib version: None
+
+INFO: Torch version compatibility check passed: build=2.10.0+metax3.9.0.8, runtime=2.10.0+metax3.9.0.8.
+
+INFO: Release major.minor matching,  successful:3.9. 
+
+INFO: MACA minimum compatibility check passed: 3.9.0 >= 3.7.0.
+
+{"length": 1, "kind": "chunk", "output": {"max_abs": 0.00017713569104671478, "relative_l2": 0.003540273057296872, "finite": true}, "state": {"max_abs": 0.0032317936420440674, "relative_l2": 0.0028418991714715958, "finite": true}, "state_transposed": {"max_abs": 0.620712161064148, "relative_l2": 1.4079118967056274, "finite": true}}
+{"length": 1, "kind": "recurrent", "source_length": 1, "output": {"max_abs": 6.0187652707099915e-05, "relative_l2": 0.0016453613061457872, "finite": true}, "state": {"max_abs": 5.960464477539063e-08, "relative_l2": 6.253812756540356e-08, "finite": true}}
+{"length": 20, "kind": "chunk", "output": {"max_abs": 0.00020048394799232483, "relative_l2": 0.003656818065792322, "finite": true}, "state": {"max_abs": 0.0027106404304504395, "relative_l2": 0.0026925234124064445, "finite": true}, "state_transposed": {"max_abs": 0.7120665907859802, "relative_l2": 1.4114160537719727, "finite": true}}
+{"length": 1, "kind": "recurrent", "source_length": 20, "output": {"max_abs": 3.956817090511322e-05, "relative_l2": 0.0016955985920503736, "finite": true}, "state": {"max_abs": 1.1920928955078125e-07, "relative_l2": 1.02387907929824e-07, "finite": true}}
+{"length": 65, "kind": "chunk", "output": {"max_abs": 0.0003064684569835663, "relative_l2": 0.003955499269068241, "finite": true}, "state": {"max_abs": 0.003340780735015869, "relative_l2": 0.002621402032673359, "finite": true}, "state_transposed": {"max_abs": 0.7370336055755615, "relative_l2": 1.4000244140625, "finite": true}}
+{"length": 1, "kind": "recurrent", "source_length": 65, "output": {"max_abs": 9.159743785858154e-05, "relative_l2": 0.0017538081156089902, "finite": true}, "state": {"max_abs": 5.960464477539063e-08, "relative_l2": 7.492943865372581e-08, "finite": true}}
+{"length": 129, "kind": "chunk", "output": {"max_abs": 0.00027442723512649536, "relative_l2": 0.00390130328014493, "finite": true}, "state": {"max_abs": 0.0038506388664245605, "relative_l2": 0.0028052954003214836, "finite": true}, "state_transposed": {"max_abs": 0.750257134437561, "relative_l2": 1.4084433317184448, "finite": true}}
+{"length": 1, "kind": "recurrent", "source_length": 129, "output": {"max_abs": 2.8539448976516724e-05, "relative_l2": 0.001615393441170454, "finite": true}, "state": {"max_abs": 5.960464477539063e-08, "relative_l2": 7.296787885024969e-08, "finite": true}}

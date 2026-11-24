@@ -1,0 +1,47 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 58
+PDF 页码标签: 51
+页脚页码候选: 51
+章节提示（书签推断）: mcblas<t>tpmv()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+== MCBLAS_FILL_MODE_UPPER，三角带状矩阵 A 按列存储，矩阵的主对角线存储在行 k+1 ，第一个
+超对角线在行 k 中（从第二个位置开始） ，第二个超对角线在行k-1 中（从第三个位置开始）等。因此通
+常，元素 A(i, j) 存储在 A(1+k+i-j,j)，其中 j = 1, . . . , n，i ∈ [max(1, j − k, j)]。此外，数组 A 中的
+元素，在概念上与带状矩阵中的元素不对应（左上角 k × k 三角） ，也不会被引用。
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+uplo input 指示存储的是矩阵 A 的上半部分还是下半部分，另外半部分未
+被引用，且是从存储的元素推断出来的
+trans input 非转置或共轭转置运算 op(A)
+diag input 指示矩阵 A 主对角线上的元素是否是统一的且不应被访问
+n input 矩阵 A 的行数和列数
+k input 矩阵 A 的次对角线和超对角线
+A 设备 input <type> 数组，维度为 lda x n ，其中 lda>=k+1
+lda input 用于存储矩阵 A 的二维数组的前导维度
+x 设备 in/out 包含 n 个元素的 <type> 向量
+incx input x 中连续元素之间的步幅
+下面列出了此函数可能的返回值及其含义。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE 参数 n,k<0 或 incx=0
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2.4.13 mcblas<t>tpmv()
+mcblasStatus_t mcblasStpmv(mcblasHandle_t handle, mcblasFillMode_t uplo,
+mcblasOperation_t trans, mcblasDiagType_t diag,
+int n, const float *AP,
+float *x, int incx)
+mcblasStatus_t mcblasDtpmv(mcblasHandle_t handle, mcblasFillMode_t uplo,
+mcblasOperation_t trans, mcblasDiagType_t diag,
+int n, const double *AP,
+double *x, int incx)
+mcblasStatus_t mcblasCtpmv(mcblasHandle_t handle, mcblasFillMode_t uplo,
+mcblasOperation_t trans, mcblasDiagType_t diag,
+int n, const mcComplex *AP,
+mcComplex *x, int incx)
+(下页继续)
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 51

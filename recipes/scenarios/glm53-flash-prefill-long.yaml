@@ -1,0 +1,12 @@
+schema_version: 0.2.0
+kind: BenchmarkScenario
+id: glm53-flash-prefill-long
+version: 1.0.0
+title: glm53-flash-prefill-long
+provenance: []
+issues: []
+extensions: {}
+case_ref:
+  id: glm53-flash-prefill-long-case
+  version: 1.0.0
+dataset_dir: experiments/datasets/glm53-flash-prefill-long

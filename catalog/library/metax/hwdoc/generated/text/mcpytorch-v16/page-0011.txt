@@ -1,0 +1,37 @@
+文档: 沐曦通用GPU_mcPyTorch用户指南_CN_V16.pdf
+文档 ID: mcpytorch-v16
+SHA256: 165b88e24e4768497ef4587368037b4bbc99ab933eafc3e4baac43175c83cdb2
+PDF 页序号: 11
+PDF 页码标签: 5
+页脚页码候选: 5
+章节提示（书签推断）: Convolution Layers
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcPyTorch 用户指南
+3 功能支持
+mcPyTorch 以兼容 PyTorch 的原生使用方式为设计目标。大部分情况下，用户可以参考 官方文档获得
+mcPyTorch 的使用方式。
+本章参照 PyTorch 官方文档内容，介绍 mcPyTorch 各模块使用的兼容性和注意事项。其中：
+• 支持：支持并兼容原生用法
+• 部分支持：部分支持原生用法，或 API 行为和原生用法有区别
+3.1 torch
+支持
+3.2 torch.nn
+支持
+3.2.1 Convolution Layers
+支持：
+• nn.Conv1d
+• nn.Conv2d
+• nn.Conv3d
+• nn.ConvTranspose1d
+• nn.ConvTranspose2d
+• nn.ConvTranspose3d
+• nn.LazyConv1d
+• nn.LazyConv2d
+• nn.LazyConv3d
+• nn.LazyConvTranspose1d
+• nn.LazyConvTranspose2d
+• nn.LazyConvTranspose3d
+• nn.Unfold
+• nn.Fold
+3 功能支持 沐曦股份专有信息 OG‑23031‑020‑F5_V16 | 5

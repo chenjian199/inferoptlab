@@ -1,0 +1,57 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 74
+PDF 页码标签: 65
+页脚页码候选: 65
+章节提示（书签推断）: 主机代码调试信息
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+表 4.2 – 续上页
+变量名称 可设置值 缺省值 描述
+MACA_EXT_
+STREAM_
+CREATE_
+TIMEOUT
+0‑3600 0 MXMACA SDK 创建 stream 的超时设置。
+0： 关闭 SDK 创建 stream 的超时设置 （一直尝试直到获
+得 stream 所需硬件资源） ；
+>0：若创建 stream 的时间超过设定值（单位：秒） ，则
+打印日志输出相关信息。
+MACA_EXT_
+SAVE_GRAPH_
+DOT_FILE
+0‑1 0 设置 MXMACA 程序执行时是否保存 Graph dot 文件。
+0：不保存 Graph dot 文件；
+1：保存 Graph dot 文件。
+MACA_EXT_
+API_TRACE_
+CONFIG
+0‑0x0102 0 设置 mcTracer API 的跟踪粒度。
+BIT[15:8] 设置 mcTracer Graph API 的跟踪粒度。
+0： （节点级别）将收集节点活动，但 Graph 不会被作为
+一个整体跟踪。这可能会引起显著的运行时开销；
+1： （Graph 级别）Graph 将作为一个整体被跟踪，不会
+收集节点活动。这可以将开销减少到最小。
+BIT[7:0] 设置 mcTracer classic API 跟踪行为模式。
+0：不配置，使用默认模式，即模式 1；
+1：使用尽量保证时间线准确性的模式；
+2：使用对应用程序行为影响最小的模式。
+4.5 主机代码调试信息
+沐曦通用 GPU 支持通过环境变量 MXLOG_LEVEL 设置 MXMACA 驱动软件的日志输出等级，可选等级如
+下：
+• off：关闭日志输出
+• error：仅打印 error 级别日志
+• warning：输出 warning 及 error 级别日志
+• info：输出 information、warning 及 error 级别日志
+• debug：输出全部日志
+沐曦通用 GPU 上编程，既支持直接使用原生的 printf 自行设计和管理，也可以借助 MXMACA 驱动软件
+的日志管理方案，mcanalyzer 动态库，提供 mcLog API，如图 4.7 所示：
+• 使用 mcLog API 之前， 需要 include 它的头文件，mxlog.h 位于 MXMACA 软件包成功安装后 include
+目录的子目录 mxlog；
+• 根据应用程序对于日志等级的定义，选用相应的 mcLog API：LOGE/LOGW/LOGI/LOGD/LOGV；
+• 使用 mxcc 编译时，需要指定 -lmcanalyzer 编译选项；
+• 使用环境变量 MXLOG_LEVEL，可以设置日志输出最低等级。如果该环境变量未设置，MXMACA 会使
+用一个缺省的日志输出最低等级，一般是 error 或者 info。
+4 编译和调试 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 65

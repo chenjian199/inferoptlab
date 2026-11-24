@@ -1,0 +1,50 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 121
+PDF 页码标签: 114
+页脚页码候选: 114
+章节提示（书签推断）: mcblas<t>getrfBatched()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+Aarray 是一个指向矩阵的指针数组，以列主格式存储，维度为 nxn，前导维度为 lda。
+通过以下公式，该函数对每个 Aarray[i] 执行 LU 分解，i = 0，…，batchSize-1
+P*Aarray[i] = L*U
+其中 P 是一个置换矩阵，表示进行行交换的部分主元法（partial pivoting） 。L 是具有单位对角元素的下
+三角矩阵，U 是上三角矩阵。
+P 为置换矩阵 Pj 的积，j = 1,2,...,n，即 P = P1 * P2 * P3 * .... * Pn。Pj 为置换矩阵，
+在执行 Pj*x 时交换向量 x 的两行。通过以下 matlab 代码，Pj 可由 PivotArray[i] 的 j 元素构造
+//在Matlab 中 ， PivotArray[i]为base-1数 组 。
+//在C 中 ，PivotArray[i] 为base-0数 组 。
+Pj = eye(n);
+swap Pj(j,:) and Pj(PivotArray[i][j] ,:)
+将 L 和 U 写回原始矩阵 A，丢弃 L 的对角元素。L 和 U 可以通过以下 matlab 代码构造：
+// A是getrf 后 的nxn矩 阵 。
+L = eye(n);
+for j = 1:n
+L(j+1:n,j) = A(j+1:n,j)
+end
+U = zeros(n);
+for i = 1:n
+U(i,i:n) = A(i,i:n)
+end
+如果 A(=Aarray[i]) 为奇异矩阵，仍然可使用 getrf，并且info(=infoArray[i]) 的值表示无法进
+行 LU 分解的第一行索引。如果 info 为 k，则 U(k,k) 为零。方程 P*A=L*U 仍然有效，但需要不同的
+matlab 代码进行 L 和 U 重建，如下所示：
+// A是getrf 后 的nxn矩 阵 。
+// info为k ， 即 U(k,k)为 零 。
+L = eye(n);
+for j = 1:k-1
+L(j+1:n,j) = A(j+1:n,j)
+end
+U = zeros(n);
+for i = 1:k-1
+U(i,i:n) = A(i,i:n)
+end
+for i = k:n
+U(i,k:n) = A(i,k:n)
+end
+此函数用于较小的矩阵，其中启动开销是一个重要因素。
+如果 PivotArray 为 nil，则 mcblas<t>getrfBatched 支持非主元（non‑pivot）LU 分解。
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 114

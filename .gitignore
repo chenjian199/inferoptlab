@@ -11,6 +11,13 @@ dist/
 !.env.example
 artifacts/
 runs/
+!experiments/evidence/**/runs/
+experiments/runs/
+experiments/datasets/*
+!experiments/datasets/humaneval/
+experiments/records/
+experiments/baselines/
+experiments/index.json
 /models/
 data/private/
 *.sqlite

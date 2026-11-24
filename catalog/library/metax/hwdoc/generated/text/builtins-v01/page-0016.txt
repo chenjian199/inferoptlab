@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_MXMACA编译器内建函数编程指南_CN_V01.pdf
+文档 ID: builtins-v01
+SHA256: 80dfb3a83381e48e19968b432d4eb24d37c505bd711af14f74889277cffc3835
+PDF 页序号: 16
+PDF 页码标签: 10
+页脚页码候选: 10
+章节提示（书签推断）: __builtin_mxc_arrive
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® 编译器内建函数编程指南
+(续上页)
+__device__ void test_builtin_mxc_ldg_b32_bsm(int *ptr) {
+extern __shared__ int shared_ptr[];
+__builtin_mxc_ldg_b32_bsm(shared_ptr, ptr, 0, -1, false, false, false, false);
+__syncthreads();
+// then load data from shared_ptr
+}
+3.1.5 __builtin_mxc_load_shared_trans_*
+架构支持限制
+offload arch 需要大于等于 xcore1500。例如–offload‑arch=xcore1500、 –offload‑arch=xcore1520 等。
+功能描述
+从共享内存中加载特定 shape 的矩阵并进行转置操作。
+接口声明
+int64_t __builtin_mxc_load_shared_trans_4x16(__shared__ int64_t *shared_ptr);
+int64_t __builtin_mxc_load_shared_trans_4x16_i64(__shared__ int64_t *shared_ptr);
+v4i16 __builtin_mxc_load_shared_trans_4x16_v4i16(__shared__ v4i16 *shared_ptr);
+int64_t __builtin_mxc_load_shared_trans_8x16(__shared__ int64_t *shared_ptr);
+int64_t __builtin_mxc_load_shared_trans_8x16_i64(__shared__ int64_t *shared_ptr);
+v8i8 __builtin_mxc_load_shared_trans_8x16_v8i8(__shared__ v8i8 *shared_ptr);
+代码示例
+__device__ int64_t test_load_shared_trans(__shared__ int64_t *shared_ptr) {
+int64_t val = __builtin_mxc_load_shared_trans_4x16(shared_ptr);
+return val;
+}
+3.1.6 __builtin_mxc_arrive
+功能描述
+内存栅栏，支持全局内存和共享内存的处理。当访存操作队列中未完成的操作数量达到或低于目标值时，
+代码才可以继续向后执行。
+接口声明
+void __builtin_mxc_arrive(unsigned flag);
+参数
+3 接口介绍 沐曦股份专有信息 OG‑26013‑000‑F5_V01 | 10

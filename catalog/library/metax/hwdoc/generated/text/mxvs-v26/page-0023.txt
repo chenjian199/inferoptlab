@@ -1,0 +1,35 @@
+文档: 沐曦通用GPU_mxvs测试工具套件使用手册_CN_V26.pdf
+文档 ID: mxvs-v26
+SHA256: f14e664d429c6568ce5723a3a83c7a9164c2fcb33fd59137fb49c1128ab63ce2
+PDF 页序号: 23
+PDF 页码标签: 13
+页脚页码候选: 13
+章节提示（书签推断）: MetaXLink带宽测试
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mxvs 测试工具套件使用手册
+8.2 MetaXLink 带宽测试
+命令
+/opt/maca/bin/mxvs metaxlink benchmark --devices <SRC_DEVICE>
+命令参数
+表 8.2 MetaXLink 带宽测试命令参数
+参数 必填 描述
+--devices 否 带宽测试对象 PCIe 设备编号，支持单个设备测试或多个设备同
+时测试。如果需要指定所有设备，可用 all 作为参数值，默认选
+择所有 PCIe 显卡设备。
+--mode 否 指定 D2D 带宽测试时，数据拷贝的模式：
+• ingress：源设备从目的设备拷贝数据
+• egress：源设备向目的设备拷贝数据
+默认选择 egress。
+-s, --data-sizes 否 指 定 测 试 的 基 准 数 据 流， 支 持 单 个 基 准 数 据 流 测 试 或 多 个
+基 准 数 据 流 同 时 进 行 测 试。 可 选 单 位 有 KB、MB、GB， 示 例：
+--data-sizes 1KB,1MB,1GB 。默认选择 1GB 的基准数据流
+进行测试。
+--bref 否 仅显示测试结果，不显示 MetaX GPU 基本信息。
+--json 否 将结果以 JSON 格式输出到文本中，可指定输出的文件名，如
+--json result.json
+--monitor-log 否 在测试期间若有内核错误可打印显示。
+--detail 否 显示详细 GPU 测试结果，默认仅显示整板测试结果。
+输出结果
+图 8.2 MetaXLink 带宽测试示例图
+8 MetaXLink 验收测试工具 沐曦股份专有信息 OG‑23023‑020‑F5_V26 | 13

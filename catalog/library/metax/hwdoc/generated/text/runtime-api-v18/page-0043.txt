@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 43
+PDF 页码标签: 34
+页脚页码候选: 34
+章节提示（书签推断）: 常量内存
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+(续上页)
+__global__ void parent_launch(int *data) {
+data[threadIdx.x] = threadIdx.x;
+__syncthreads();
+child_launch<<< 1, 1 >>>(data, threadIdx.x);
+mcDeviceSynchronize();
+data[threadIdx.x] = data[threadIdx.x]+1;
+}
+另外，如果是如下代码，则因为不同子网格之间的竞争导致产生无法预测的结果：
+__global__ void child_launch(int *data) {
+data[threadIdx.x] = data[threadIdx.x]+1;
+}
+__global__ void parent_launch(int *data) {
+data[threadIdx.x] = threadIdx.x;
+__syncthreads();
+child_launch<<< 1, 1 >>>(data);
+mcDeviceSynchronize();
+data[threadIdx.x] = data[threadIdx.x]+1;
+}
+void host_launch(int *data) {
+parent_launch<<< 1, 256 >>>(data);
+}
+3.7.2.3 零拷贝内存
+零拷贝系统内存与全局内存具有相同的一致性和一致性保证。核函数可以不分配或释放零拷贝内存，但
+可以使用从主机程序传入的指向零拷贝的指针。
+3.7.2.4 常量内存
+常量是不可变的，即使在父级和子级启动之间，也不能从设备中修改。也就是说，在启动之前，必须从
+主机设置所有 __constant__ 变量的值。常量内存由所有子核函数从其各自的父核函数自动继承。
+从核函数线程中获取常量内存对象的地址，与所有 MXMACA 程序具有相同的语义。并且将指针从父级传
+递到子级或从子级传递到父级是天然受支持的。
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 34

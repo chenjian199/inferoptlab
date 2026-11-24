@@ -1,0 +1,18 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 16
+PDF 页码标签: 4
+页脚页码候选: 4
+章节提示（书签推断）: 使用MacaRT容器镜像
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+python /opt/maca-ai/onnxruntime-maca/sample/python/maca_test.py -m /opt/maca-ai/
+,→onnxruntime-maca/sample/test_add
+注解: MacaRT Python 主要依赖 numpy、protobuf 等，在使用 pip 进行安装时会自动安装
+MacaRT Python 的依赖包。
+2.3 使用 MacaRT 容器镜像
+从发布的软件包中获取 onnxruntime 容器镜像并启动。onnxruntime 容器镜像包含 MacaRT 及工具
+链。容器镜像的使用，参见《沐曦通用 GPU 用户指南》中“容器相关场景支持”章节。
+2 环境依赖及 MacaRT 安装 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 4

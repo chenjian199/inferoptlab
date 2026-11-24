@@ -1,0 +1,28 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 149
+PDF 页码标签: 142
+页脚页码候选: 142
+章节提示（书签推断）: mcblasGemmStridedBatchedEx()
+质量标记: private_use_characters
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+C + i ∗ strideC = αop(A + i ∗ strideA)op(B + i ∗ strideB) + β(C + i ∗ strideC ),
+for i ∈ [0, batchCount − 1]
+其中 α 和 β 是标量，A、B、C 是指针数组，指向以列主格式存储的矩阵，维度分别为 op (A[i]) m × k，
+op(B[i]) k × n 和 C[i] m × n。此外，对于矩阵 A，
+op(A) =
+
+
+
+A if transa == M CBLAS_OP _N
+AT if transa == M CBLAS_OP _T
+AH if transa == M CBLAS_OP _C
+对于矩阵 B[i]，op(B[i]) 的定义类似。
+注解: C[i] 矩阵不能重叠，即单个 gemm 操作必须独立计算；否则，会导致未定义行为。在某些
+problem size 上， 可能需要在不同的 MXMACA 流中多次调用mcblas<t>gemm， 而不是使用此 API。
+在下表中， 我们使用A[i], B[i], C[i] 分别表示批处理的第 i 个实例中 A、 B、 C 矩阵， 隐式假设它们
+分别是相对于 A[i-1], B[i-1], C[i-1] 的元素数量的偏移 strideA, strideB, strideC。偏
+移的单位是元素数量，不能为零。
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 142

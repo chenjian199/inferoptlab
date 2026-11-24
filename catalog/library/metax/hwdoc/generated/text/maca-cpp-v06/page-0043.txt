@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 43
+PDF 页码标签: 35
+页脚页码候选: 35
+章节提示（书签推断）: half2比较函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+参数
+a
+• half2，只读入参
+b
+• half2，只读入参
+返回值
+• half2，检测关系是否正确：a大于b
+函数描述
+• 比较a和b。如果a大于b，返回<1.0,1.0>；否则，返回<0.0,0.0>。
+• 如果输入值为NaN，返回<0.0,0.0>。
+__device__ __half2 __hgtu2 (const __half2 a, const __half2 b)
+参数
+a
+• half2，只读入参
+b
+• half2，只读入参
+返回值
+• half2，无序比较，检测关系是否正确：a大于b
+函数描述
+• 比较a和b。如果a大于b，返回<1.0,1.0>；否则，返回<0.0,0.0>。
+• 如果输入值为NaN，返回<1.0,1.0>。
+__device__ __half2 __hisnan2 (const __half2 a)
+参数
+a
+• half2，只读入参
+返回值
+• half2，a中的各个half值是否为NaN
+函数描述
+• 返回half2。如果入参中的某个half值为NaN，将返回值中对应的位置设为1.0；否则，设置为0.0。
+__device__ __half2 __hle2 (const __half2 a, const __half2 b)
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 35

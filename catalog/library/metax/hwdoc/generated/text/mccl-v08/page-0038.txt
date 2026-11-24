@@ -1,0 +1,39 @@
+文档: 沐曦通用GPU_MCCL编程指南_CN_V08.pdf
+文档 ID: mccl-v08
+SHA256: 7a95ac3ce4f68b0fb11baabb7fa08794cd5f5081c9ec3e888eefaaa03ab8c8b2
+PDF 页序号: 38
+PDF 页码标签: 31
+页脚页码候选: 31
+章节提示（书签推断）: MACA_VISIBLE_DEVICES
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MCCL 编程指南
+4.2.5 UMD 相关
+4.2.5.1 MACA_EXT_CPU_THREAD_POLICY
+描述：指定 UMD 中 Host 侧等待事件或流之间同步的 CPU 行为。
+可选值：
+• 0：默认标准模式，阻塞等待计算任务完成
+• 1：该进程抢占 CPU 进行等待相对温和
+• 2：该进程抢占 CPU 进行等待比较激进
+• 3：该进程抢占 CPU 进行等待最激进
+• ‑1：该进程等待时尽量让出 CPU，可以有效降低在使用大量流场景下的 CPU 负载
+默认值：0
+4.2.5.2 MACA_LAUNCH_BLOCKING
+描述：Host 和 Device 是并发执行的，在同一时间上各自完成不同的任务，许多操作在 Host 和 Device
+之间异步完成。该变量强制消除异步行为，强制同步执行，有助于分析和定位问题。
+可选值：
+• 0：异步并发执行 kernel（计算任务）
+• 1：强制同步执行 kernel
+• 2：强制同步执行 kernel，kernel 之间增加 sleep 方便区分不同的 kernel
+默认值：0
+4.2.5.3 MACA_VISIBLE_DEVICES
+描述： 服务器中有多个 GPU， 可以选择特定 GPU 对应用程序的可见性及运行顺序。 可以指定 GPU UUID，
+GPU 设备节点 ID 或者 GPU 的 socket ID（socket ID 当前仅限 Dragonfly 服务器） ，例如：
+• 指定 GPU UUID：
+export MACA_VISIBLE_DEVICES=GPU-ad23670d-a40e-6b86-6fc3-c44a2cc92c7e
+• 指定 GPU 设备节点 ID：
+export MACA_VISIBLE_DEVICES=0,2
+• 指定 GPU 的 socket id，前缀为 S 或 s：
+export MACA_VISIBLE_DEVICES=S0,S2,S5
+或者
+4 环境变量 沐曦股份专有信息 PG‑23004‑020‑F5_V08 | 31

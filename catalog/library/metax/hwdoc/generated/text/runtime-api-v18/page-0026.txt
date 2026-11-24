@@ -1,0 +1,33 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 26
+PDF 页码标签: 17
+页脚页码候选: 17
+章节提示（书签推断）: 用户细粒度并行同步
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+3.4 同步
+MXMACA 提供了一些同步原语用于完成 GPU 与 CPU 之间以及 GPU 内部的同步，主要包含以下三种同
+步机制：
+• 系统级同步：完成 CPU 和 GPU 之间的同步
+• 线程块级/线程束级同步：完成一个线程块/线程束内所有线程之间的同步
+• 用户细粒度并行同步：用户以其他粒度来定义和同步线程组
+3.4.1 系统级同步
+MXMACA 为系统级同步提供了多个 API，可以执行不同粒度的同步操作：
+• mcError_t mcDeviceSynchronize(void)
+• mcError_t mcStreamSynchronize(mcStream_t stream)
+• mcError_t mcEventSynchronize(mcEvent_t event)
+3.4.2 线程块级/线程束级同步
+MXMACA 为线程块级同步提供了一些内置同步函数，可以完成线程块内或者线程束内的同步，典型的同
+步函数有：
+• void __sync_threads()
+• void __sync_wave(unsigned mask=0xffffffff)
+3.4.3 用户细粒度并行同步
+但是一些高效的并行算法往往需要线程协作（threads cooperate）以及共享数据（share data）来完成
+集体计算 （collective computations） 。 要共享数据， 线程间必然会涉及同步， 而共享的粒度因算法而异，
+因此线程间的同步应尽量足够灵活，比如开发者可以显式地指定线程间同步，这样就可以确保程序的安
+全性、可维护性和模块化设计。基于该思想，MXMACA 编程模型支持了协作组（Cooperative Groups）
+的概念，以允许核函数动态组织线程组来满足这些需求，如图 3.3 所示。
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 17

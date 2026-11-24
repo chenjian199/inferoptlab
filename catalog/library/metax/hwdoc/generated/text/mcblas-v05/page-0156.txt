@@ -1,0 +1,46 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 156
+PDF 页码标签: 149
+页脚页码候选: 149
+章节提示（书签推断）: mcblasCherkEx()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE
+• n < 0 或 k < 0
+• uplo != MCBLAS_FILL_MODE_UPPER,
+MCBLAS_FILL_MODE_LOWER
+• trans != MCBLAS_OP_N, MCBLAS_OP_C,
+MCBLAS_OP_T
+• 如果 trans == MCBLAS_OP_N ，lda < max(1,
+n) ；否则 lda < max(1, k)
+• ldc < max(1, n)
+• 不支持 Atype 或 Ctype
+MCBLAS_STATUS_NOT_SUPPORTED 不支持参数 Atype 和 Ctype 的组合
+MCBLAS_STATUS_ARCH_MISMATCH 当前函数功能在本设备上不支持
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2.6.17 mcblasCherkEx()
+mcblasStatus_t mcblasCherkEx(mcblasHandle_t handle,
+mcblasFillMode_t uplo,
+mcblasOperation_t trans,
+int n,
+int k,
+const float *alpha,
+const void *A,
+macaDataType Atype,
+int lda,
+const float *beta,
+mcComplex *C,
+macaDataType Ctype,
+int ldc)
+此 函 数 是 mcblasCherk 的 扩 展， 其 输 入 矩 阵 和 输 出 矩 阵 可 以 具 有 较 低 的 精 度， 但 计 算 仍 然 以
+mcComplex 类型完成。
+此函数执行厄米秩‑ k 校正
+C = αop(A)op(A)H + βC
+其中 α 和 β 是标量，C 是以 lower 或 upper 模式存储的厄米矩阵，A 是一个维度为 op(A) n × k 的矩阵。
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 149

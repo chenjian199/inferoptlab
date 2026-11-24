@@ -1,0 +1,51 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 75
+PDF 页码标签: 68
+页脚页码候选: 68
+章节提示（书签推断）: mcblas<t>gemvBatched()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+(续上页)
+mcDoubleComplex *yarray[], int incy,
+int batchCount)
+mcblasStatus_t mcblasHSHgemvBatched(mcblasHandle_t handle, mcblasOperation_t trans,
+int m, int n,
+const float *alpha,
+const mcblas_half *Aarray[], int lda,
+const mcblas_half *xarray[], int incx,
+const float *beta,
+mcblas_half *yarray[], int incy,
+int batchCount)
+mcblasStatus_t mcblasHSSgemvBatched(mcblasHandle_t handle, mcblasOperation_t trans,
+int m, int n,
+const float *alpha,
+const mcblas_half *Aarray[], int lda,
+const mcblas_half *xarray[], int incx,
+const float *beta,
+float *yarray[], int incy,
+int batchCount)
+mcblasStatus_t mcblasTSTgemvBatched(mcblasHandle_t handle, mcblasOperation_t trans,
+int m, int n,
+const float *alpha,
+const mcblas_bfloat16 *Aarray[], int lda,
+const mcblas_bfloat16 *xarray[], int incx,
+const float *beta,
+mcblas_bfloat16 *yarray[], int incy,
+int batchCount)
+mcblasStatus_t mcblasTSSgemvBatched(mcblasHandle_t handle, mcblasOperation_t trans,
+int m, int n,
+const float *alpha,
+const mcblas_bfloat16 *Aarray[], int lda,
+const mcblas_bfloat16 *xarray[], int incx,
+const float *beta,
+float *yarray[], int incy,
+int batchCount)
+该函数对一批矩阵和向量执行矩阵‑向量乘法。该批是“均匀”的，即所有实例对于各自的 A 矩阵，x 和
+y 向量具有相同的维度（m，n） ，前导维度（lda） ，增量（incx，incy）和转置（trans） 。批处理的每个
+实例的输入矩阵和向量的地址以及输出向量的地址都是从调用者传递给函数的指针数组中读取的。
+y[i] = αop(A[i])x[i] + βy[i], f or i ∈ [0, batchCount − 1]
+其中 α 和 β 是标量，并且 A 是一个指针数组，指向矩阵 A[i] （以列主格式存储，维度为 m × n ） ，x 和 y
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 68

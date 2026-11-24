@@ -1,6 +1,6 @@
 """Shared stage contracts, kept independent of GPU and profiler packages."""
 from tools.specs import SpecError, digest, references
-from benchmark.io import inside
+from benchmark.common.io import inside
 
 
 RESULTS={'DiagnosisReport','AnalysisReport','TraceSummary','OptimizationHandoff'}

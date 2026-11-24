@@ -240,6 +240,96 @@
     },
     "schema_version": {
       "const": "0.2.0"
+    },
+    "cache_replay": {
+      "type": "object",
+      "required": [
+        "status",
+        "measurement_scope",
+        "strict_device_decode",
+        "target_hit_ratio",
+        "max_uncached_tokens_per_request",
+        "requests",
+        "issues",
+        "raw_sha256"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "passed",
+            "invalid"
+          ]
+        },
+        "measurement_scope": {
+          "const": "cached_request_decode"
+        },
+        "strict_device_decode": {
+          "const": false
+        },
+        "target_hit_ratio": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "max_uncached_tokens_per_request": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "requests": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "prompt_tokens": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "cached_tokens": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "uncached_tokens": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "hit_ratio": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "required": [
+              "id",
+              "prompt_tokens",
+              "cached_tokens",
+              "uncached_tokens",
+              "hit_ratio"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "raw_sha256": {
+          "anyOf": [
+            {
+              "$ref": "common.json#/$defs/sha256"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
     }
   },
   "required": [

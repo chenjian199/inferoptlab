@@ -1,0 +1,10 @@
+{
+  "v1": "failed before weights: missing TP metadata group",
+  "v2": "failed before weights: missing VllmConfig context",
+  "v3": "PASSED all24 cases and wrote result before container stop; preliminary stale-rendezvous hypothesis was incorrect, retracted",
+  "v3_source": "evidence/isolated_layer_probe.v3.py",
+  "v3_manifest": "evidence/isolated_inputs_v3.json",
+  "v4": "Repeated attempt stopped at existing capture assertion; no overwrite. Current maintained probe differs only by unique rendezvous path. No second full result claimed.",
+  "result": "isolated_layer_result.json",
+  "captures": "real_inputs/rankisolated_slice{0..7}_{prefill,decode}.pt"
+}

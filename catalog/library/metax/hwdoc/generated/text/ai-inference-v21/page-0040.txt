@@ -1,0 +1,37 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 40
+PDF 页码标签: 28
+页脚页码候选: 28
+章节提示（书签推断）: MacaQuantizer
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+• 参数 -t 指定模型类型，此处固定为 common；
+• 参数 -b 指定每次比较的中间节点的个数，可不指定，默认为 5（此处需要分批比较的原因是中间结果
+的参数量可能会比较大，如果直接全部比较会占用大量显存，如指定‑1，则一次进行全量比较） 。
+全量模式下，会首先进行最后一层的比较，如果结果一致，则认为模型推理无异常，不会进行中间节点
+的比较。
+指定模式
+执行以下命令，在指定模式下进行常规模型推理。
+python -m maca_precision -i ./test.onnx -c snr -t common -m Conv_0,Relu_1
+参数 -m 指定需要比较的中间节点的名称，多个名称以逗号分隔。
+指定模式下，无论最终的结果是否一致，都会进行指定的中间节点的比较。
+5.2.2.2 量化模型（经过 MacaQuantizer 量化后的模型）
+量化模型的操作与常规模型基本一致，也分为全量模式和指定模式。指定模式下的节点，只能为量化节
+点。
+唯一不同的是，-t 参数需要指定为 quantize。
+例如：
+python -m maca_precision – i ./test.onnx – t quantize -b 3
+或
+python -m maca_precision – i ./test.onnx – t quantize – m PPQ_Operation_152,PPQ_
+,→Operation_160
+5.3 MacaQuantizer
+MacaQuantizer 是一个高效的神经网络量化工具，通过自定义的量化算子库、网络执行器、神经网络调
+度器、量化计算图等设计，即便在网络极度复杂的情况下，依然能够得到正确的网络量化结果。量化过
+程中会通过读取配置参数文件，自动搜索最优的量化方案，同时量化中严格控制硬件模拟误差，保证硬
+件推理时的精度。
+目前 MacaQuantizer 使用 ONNX（opset 11~13）模型文件作为输入，覆盖常用的 80 余种 ONNX 算子
+类型。如果是 PyTorch，TensorFlow 等其他模型，可使用 MacaConverter 将模型转换为 ONNX 模型。
+5 MacaRT 工具链 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 28

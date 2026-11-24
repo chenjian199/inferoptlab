@@ -1,0 +1,11 @@
+{
+  "tag": "glm53-vllm032:verified-20261122",
+  "image_id": "sha256:9bbf20dbcaaf52b794b887f0311a6dcbff6d23bb0a78b72fb0f442f8aab0f285",
+  "size_bytes": 39076948537,
+  "source_archive": "/home/metax/glm53-vllm032/baseline/sources-20261122.tar.gz",
+  "source_archive_sha256": "da769ed300e32876f2bd358a1c537a8618f7fdbc8f56830eacfec57f6d1ab592",
+  "note": "Local dependency image. Editable source and compiled plugin allocator are in the matching source archive; weights, scripts, evidence and source remain bind mounts. No model weights or proxy subscription are included.",
+  "dcc_id": "3c856edd12bc08ba2fb33219093ad3986b26c9524a68523e29da0a0f1e4ac9fa",
+  "dcc_image_id": "sha256:96bbee871d4ea038b123276eacd65f77825b093b9255157938e0b1628e121f0b",
+  "finalization_note": "Docker 29 commit succeeded; a deprecation warning on stdout broke the original image-ID parsing. Recovered by inspecting the exact tag and verifying its ID and source/validation labels."
+}

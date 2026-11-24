@@ -1,0 +1,13 @@
+{
+  "purpose": "Fresh-process historical runner control after D2; original import/tokenizer/preflight flow, no get_default_sampling_params call; same frozen prompts and original sampling.",
+  "files": {
+    "harness/run_legacy_control.py": "4cd4c34e0b4a4125a16e2551ef5573e7ea848a792ce3b88654e521761eb65ac7",
+    "harness/check_frozen_baseline.py": "58ddb784cbc7c0c4318b03bb86c12c22ebe510034a0dde5906445220c6cafad0",
+    "harness/launch_legacy_control.py": "aa7af614a4c802504a418d1bda131fe938ca3b82384499dc76723b227bac1bf2",
+    "configs/protocol-v1.json": "6980927eb545bf7aba8413a260b8a26317f2e116c7144b3534d40a2b80dcad87",
+    "data/prompts.jsonl": "bc70f2aeea0a39fd373f00da89cf3efbd18c8e95ac5fe73c24ee40eb6b45d3bb",
+    "data/selection.json": "b00b3992a58de8b5475b6e9984202d1c2987e78ccb1a15db4fbfc6320e215b51",
+    "evidence/legacy_control.diff": "0fb39e360c46f76f97b5cd8383f4608d4ebdc1b839049dde816dd6f4ba6302aa",
+    "harness/analyze_tensors.py": "aedda737fa3b3e2ce0bab8237312dcfb1de450c7e33145b834ef3b7285161d8f"
+  }
+}

@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 225
+PDF 页码标签: 217
+页脚页码候选: 217
+章节提示（书签推断）: 类型转换intrinsic
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+计算两个64位无符号整数乘积的最高有效64位。
+返回值
+• 返回乘积x*y的最高有效64位。
+函数描述
+• 计算128位乘积x*y的最高有效64位，其中x和y是64位无符号整数。
+__device__ unsigned int __umulhi (unsigned int x, unsigned int y)
+计算两个32位无符号整数乘积的最高有效32位。
+返回值
+• 返回乘积x*y的最高有效32位。
+函数描述
+• 计算64位乘积x*y的最高有效32位，其中x和y是32位无符号整数。
+__device__ unsigned int __urhadd (unsigned int, unsigned int)
+计算无符号输入参数的四舍五入平均值，避免加法中间结果溢出。
+返回值
+• 返回一个无符号整数值，表示两个输入的无符号舍入平均值。
+函数描述
+• 用 (x + y) >> 1计算有符号整数输入的参数x和y的平均值，避免加法中间结果溢出。
+__device__ unsigned int __usad (unsigned int x, unsigned int y, unsigned int z)
+计算 |x - y| + z，绝对差之和。
+返回值
+• 返回 |x - y| + z。
+函数描述
+• 计算 |x - y| + z，一个 32 位的第三个参数与第一个参数 x，第二个参数 y 的绝对值之差的和的整
+数。输入的x，y与z是32位的无符号整数。
+2.8.21 类型转换 intrinsic
+这一节描述仅在设备上支持的类型转换intrinsic函数。不需要在程序中包含任何头文件就可以使用这些
+函数。
+__device__ float __double2float_rd (double x)
+把一个double用向下舍入模式转换成一个float。
+返回值
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 217

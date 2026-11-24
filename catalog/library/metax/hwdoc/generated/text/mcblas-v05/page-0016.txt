@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 16
+PDF 页码标签: 9
+页脚页码候选: 9
+章节提示（书签推断）: mcblasGemmAlgo_t
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+值 含义
+MCBLAS_SIDE_LEFT 矩阵位于方程的左侧
+MCBLAS_SIDE_RIGHT 矩阵位于方程的右侧
+2.1.13 mcblasPointerMode_t
+mcblasPointerMode_t 类型表明是否在主机或设备上通过引用传递标量值。需要指出的是，如果函
+数调用中存在多个标量值，则它们都必须符合相同的单指针模式（single pointer mode） 。可以分别使
+用 mcblasSetPointerMode() 和 mcblasGetPointerMode() 例程对指针模式进行设置和检索。
+值 含义
+MCBLAS_POINTER_MODE_HOST 在主机上通过引用传递标量
+MCBLAS_POINTER_MODE_DEVICE 在设备上通过引用传递标量
+2.1.14 mcblasAtomicsMode_t
+该 类 型 表 明 是 否 可 以 使 用 mcBLAS 例 程 的 采 用 了 原 子 操 作 的 备 用 实 现。 可 以 分 别 使 用
+mcblasSetAtomicsMode() 和 mcblasGetAtomicsMode() 例程对原子模式进行设置和查询。
+值 含义
+MCBLAS_ATOMICS_NOT_ALLOWED 不允许使用原子操作
+MCBLAS_ATOMICS_ALLOWED 允许使用原子操作
+2.1.15 mcblasGemmAlgo_t
+mcblasGemmAlgo_t 是一个枚举类型， 用于指定 GPU 上矩阵‑矩阵乘的算法。 mcBLAS 具有以下算法选
+项：
+值 含义
+MCBLAS_GEMM_DEFAULT 应用启发式算法选择 GEMM 算法。
+MCBLAS_GEMM_ALGO0 ‑
+MCBLAS_GEMM_ALGO23
+显式选择算法 [0,23]。
+MCBLAS_GEMM_DEFAULT_TENSOR_OP 应用启发式算法选择 GEMM 算法，同时允许使用精度降低
+的 MCBLAS_COMPUTE_32F_FAST_16F 内核（向后兼容） 。
+MCBLAS_GEMM_ALGO0_TENSOR_OP ‑
+MCBLAS_GEMM_ALGO15_TENSOR_OP
+显式选择一个 Tensor Core GEMM 算法 [0,15]。允许使用精
+度降低的 MCBLAS_COMPUTE_32F_FAST_16F 内核（向后
+兼容） 。
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 9

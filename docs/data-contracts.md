@@ -1,6 +1,6 @@
 # 数据契约与任务对象
 
-本文件保留完整平台执行期契约的 `0.1` 设计约定。规约语言已实现为 **v0.2.0**；第一版 [benchmark](../benchmark/README.md) 补充 Deployment、测试计划/矩阵/快照及 MeasurementBundle，Run 以独立制品目录和状态文件记录。字段和可运行工具以 [schemas/README.md](../schemas/README.md) 为准。完整 Candidate 血缘、分布式调度与独立质量验收仍待实现。
+本文件描述完整平台执行期契约。规约语言已实现为 **v0.2.0**；第一版 [benchmark](../benchmark/README.md) 补充 Deployment、测试计划/矩阵/快照及 MeasurementBundle，Run 以独立制品目录和状态文件记录。字段和可运行工具以 [schemas/README.md](../schemas/README.md) 为准。完整 Candidate 血缘、分布式调度与独立质量验收仍待实现。
 
 ## 1. 四个层级必须区分
 

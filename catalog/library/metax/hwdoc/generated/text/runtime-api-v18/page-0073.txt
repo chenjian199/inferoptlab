@@ -1,0 +1,69 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 73
+PDF 页码标签: 64
+页脚页码候选: 64
+章节提示（书签推断）: 环境变量
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+表 4.2 – 续上页
+变量名称 可设置值 缺省值 描述
+MACA_EXT_
+MPS_MODE
+0‑2 0 MPS（多进程服务）模式。
+设置为 1 时，多 个进程可以同时使用共享的 GPU 硬
+件 queue，通过一个或多个共享的 GPU 硬件 queue 向
+GPU 提交工作。
+设置为 0 时，一个进程对申请到的 GPU 硬件 queue 进
+行独占使用。其它进程可以通过其它可用的 GPU 硬件
+queue 同时向 GPU 提交工作。
+设置为 2 时， 类似 0 值模式， 但会延迟 GPU 硬件 queue
+的申请直到对应流上真正有业务开始。
+内核态环境变量
+pri_mem_sz 0‑36 4 设置的 private memory size， 内核态环境变量， 对服务
+器上的所有用户进程生效。在 insmod ko 时，使用：
+insmod metax.ko pri_mem_sz= XX
+（XX 为需要设置的 private memory size，单位为 KB）
+高阶调试控制
+MXLOG_
+CONSOLE
+on，off on 控制日志是否输出到控制台。
+设置成 on，日志输出到控制台，同时日志会写入日志文
+件, 缺省日志文件路径在 $HOME/mxlog/umd/。
+设置成 off， 日志不输出到控制台。 但关闭后日志仍会写
+入日志文件。
+关闭用途说明：避免大量日志打印影响终端操作性能，
+提升命令行交互体验。
+MACA_EXT_
+MEMORY_
+TRACE_
+CONFIG
+0‑2 0 控制 MXMACA SDK 的 Memory Tracing 功能。
+设置为 0 时，关闭 Memory Tracing 功能。
+设置为 1 时，打开 APP 的 Memory Tracing 功能。
+设置为 2 时，打开 SDK 的 Memory Tracing 功能。
+MACA_EXT_
+KERNEL_
+TIMEOUT_
+CONFIG
+0‑60000 0 GPU 硬件监控核函数执行时间，超时后自动触发 GPU
+Trap 并输出 Ring‑Buffer 的 Mini‑Dump， 用于辅助定位
+故障点。
+设置为 0 时，关闭核函数超时检测机制；
+设置为 1‑60000 时，开启核函数超时检测，若执行时间
+超过设定值（单位：毫秒） ，则触发 GPU Trap 并输出
+Ring‑Buffer 的 Mini‑Dump。
+MACA_EXT_
+MONITOR_
+HANG_
+TIMEOUT
+0‑3600 0 MXMACA SDK 监控核函数执行时间和 DMA 拷贝执行时
+间，超时后自动打印 EID 和输出相关日志信息，用于辅
+助分析原因、影响和修复建议。
+0：关闭 SDK 超时监控机制；
+>0：开启 SDK 超时监控, 若执行时间超过设定值（单位：
+秒） ，则打印 EID 和输出相关日志信息。
+下页继续
+4 编译和调试 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 64

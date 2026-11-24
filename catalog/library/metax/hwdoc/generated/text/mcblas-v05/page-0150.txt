@@ -1,0 +1,49 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 150
+PDF 页码标签: 143
+页脚页码候选: 143
+章节提示（书签推断）: mcblasGemmStridedBatchedEx()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+transa input 非转置或共轭转置运算 op([i])
+transb input 非转置或共轭转置运算 op(B[i])
+m input 矩阵 op(A[i]) 和 C[i] 的行数
+n input 矩阵 op(B[i]) 和 C[i] 的列数
+k input op(A[i]) 的列数和 op(B[i]) 的行数
+alpha 主机或设备 input computeType 和 Ctype 对应类型的 A *B 的缩放因子，
+详情请参见下表
+A 设备 input 指向批处理第一个实例对应的 <Atype> 矩阵 A 的指
+针，如果 transa==MCBLAS_OP_N ，维度为 lda x
+k ，其中 lda>=max(1,m) ；否则，维度为 lda x m
+，其中 lda>=max(1,k)
+Atype input 枚举，指定矩阵 A 的数据类型
+lda input 用于存储矩阵 A[i] 的二维数组的前导维度
+strideA input long long int 类型的值，该值给出 A[i] 和 A[i+1]
+之间的元素数偏移量
+B 设备 input 指向批处理第一个实例对应的 <Btype> 矩阵 B 的指
+针，如果 transb==MCBLAS_OP_N ，维度为 ldb x
+n ，其中 ldb>=max(1,k) ；否则，维度为 ldb x k
+，其中 ldb>=max(1,n)
+Btype input 枚举，指定矩阵 B 的数据类型
+ldb input 用于存储矩阵 B[i] 的二维数组的前导维度
+strideB input long long int 类型的值，该值给出 B[i] 和 B[i+1]
+之间的元素数偏移量
+beta 主机或设备 input computeType 和 Ctype 对应类型的 C 的缩放因子， 详
+情请参见下表。如果 beta == 0，C[i] 不必为有效
+输入
+C 设备 in/out 指向批处理第一个实例对应的 <Ctype> 矩阵 C 的指
+针， 维度为ldc x n ， 其中ldc>=max(1,m) 。 矩阵
+C[i] 不应重叠；否则，将出现未定义的行为。
+Ctype input 枚举，指定矩阵 C 的数据类型
+ldc input 用于存储矩阵 C[i] 的二维数组的前导维度
+strideC input long long int 类型的值，该值给出 C[i] 和 C[i+1]
+之间的元素数偏移量
+batchCount input 批处理中要执行的 GEMM 数量
+computeType input 指定计算类型的枚举
+algo input 指定算法的枚举
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 143

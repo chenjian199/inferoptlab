@@ -1,0 +1,21 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 57
+PDF 页码标签: 48
+页脚页码候选: 48
+章节提示（书签推断）: MPS多进程服务使用限制
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+3.9.1.2 MPS 多进程服务使用限制
+MPS 多进程服务仅支持 Linux 平台，需要系统支持统一虚拟寻址（UVA） 。沐曦通用 GPU 均支持 UVA 且
+默认开启。
+• 如果 Linux 内核没有启用 CONFIG_DRM_SCHED， 则MACA_EXT_MPS_MODE 仅支持 0（独占模式） 。 即
+使用户配置该环境变量为 1（共享模式） ，MXMACA 驱动仍将采用独占模式。
+• 如果 Linux 内核支持 DRM_SCHED，但是 metax.ko 加载过程出现 unknown symbol drm_sched_
+xxx 的字样，是由于系统缺少一些组件导致，需要安装 linux‑modules‑extra。
+目前不支持 DRM_SCHED 的 Linux 内核有：
+• ucloud RHEL7 5.10.0‑19‑el7.ucloud.x86_64
+• alios7 4.19.91‑007.ali4000.alios7.x86_64
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 48

@@ -1,0 +1,34 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 92
+PDF 页码标签: 80
+页脚页码候选: 80
+章节提示（书签推断）: 术语/缩略语
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+15 附录
+15.1 术语/缩略语
+术语/缩略语 全称 说明
+Batch 全部样本里的一批数据
+BFC Best‑Fit with Coalescing 一种内存管理策略
+CpuEP CPU Execution Provider 以 CPU 作为 ONNX Runtime 的后端进行模
+型推理
+LLM Large Language Model 大语言模型
+MacaConverter 沐曦研发，将训练的模型转换为 ONNX 模型
+的工具
+MacaEP MXMACA Execution Provider 以沐曦通用 GPU 作为 ONNX Runtime 的后
+端进行模型推理
+MacaPrecision 沐曦研发，精度对比工具
+MacaQuantizer 沐曦研发，模型量化工具
+MacaRT MXMACA Runtime 沐曦研发，沐曦通用 GPU 的推理引擎
+ModelZoo 模型库
+ONNX Open Neural Network Exchange 开放神经网络交换，表示深度学习模型的开
+放格式，可将训练好的模型存储为此格式
+ONNX Runtime 一个开源的跨平台推理框架
+OpenPPL‑LLM OpenPPL 推出的大语言模型（LLM）推理引
+擎
+PMX PPL Model Exchage OpenPPL 模型转换工具
+Tensor 张量，是一种特殊的数据结构
+15 附录 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 80

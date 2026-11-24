@@ -1,0 +1,36 @@
+文档: 沐曦通用GPU_mcPyTorch用户指南_CN_V16.pdf
+文档 ID: mcpytorch-v16
+SHA256: 165b88e24e4768497ef4587368037b4bbc99ab933eafc3e4baac43175c83cdb2
+PDF 页序号: 17
+PDF 页码标签: 11
+页脚页码候选: 11
+章节提示（书签推断）: Jiterator (beta)
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcPyTorch 用户指南
+• memory_summary
+• memory_snapshot
+• memory_allocated
+• max_memory_allocated
+• reset_max_memory_allocated
+• memory_reserved
+• max_memory_reserved
+• set_per_process_memory_fraction
+• memory_cached
+• max_memory_cached
+• reset_max_memory_cached
+• reset_peak_memory_stats
+• caching_allocator_alloc
+• caching_allocator_delete
+• get_allocator_backend
+• change_current_allocator
+3.10.6 Tools Extension
+支持：
+• nvtx.mark
+• nvtx.range_push
+• nvtx.range_pop
+3.10.7 Jiterator (beta)
+不支持：
+• jiterator._create_jit_fn
+• jiterator._create_multi_output_jit_fn
+3 功能支持 沐曦股份专有信息 OG‑23031‑020‑F5_V16 | 11

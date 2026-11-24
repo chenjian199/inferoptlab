@@ -1,0 +1,34 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 267
+PDF 页码标签: 259
+页脚页码候选: 259
+章节提示（书签推断）: __cvta_generic_to_global()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+2.14.2.3 atomicXor()
+int atomicXor(int* address, int val);
+unsigned int atomicXor(unsigned int* address, unsigned int val);
+unsigned long long int atomicXor(unsigned long long int* address,
+unsigned long long int val);
+atomicXor函数读取global或者shared内存（address）的原始数据（old） ，计算算式“old^val”后
+将结果写入address地址中，并返回old数据。该函数保证对应的（system，device，block中的一种）
+原子性。
+2.15 地址空间谓词函数
+在这一节中描述的函数当参数是一个空指针的时候行为未定义。
+2.15.1 __isGlobal()
+__device__ unsigned int __isGlobal(const void *ptr);
+如果ptr包含global内存空间中对象的通用地址，则返回1；否则返回0。
+2.15.2 __isShared()
+__device__ unsigned int __isShared(const void *ptr);
+如果ptr包含shared内存空间中对象的通用地址，则返回1；否则返回0。
+2.15.3 __isLocal()
+__device__ unsigned int __isLocal(const void *ptr);
+如果ptr包含local内存空间中对象的通用地址，则返回1；否则返回0。
+2.16 地址空间转换函数
+2.16.1 __cvta_generic_to_global()
+__device__ size_t __cvta_generic_to_global(const void *ptr);
+返回对通用地址指针ptr转换到global内存地址空间的地址的值。
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 259

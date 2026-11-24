@@ -1,0 +1,33 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 82
+PDF 页码标签: 70
+页脚页码候选: 70
+章节提示（书签推断）: 设置环境变量
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+13 MacaRT‑SGLang
+13.1 MacaRT‑SGLang 介绍
+MacaRT‑SGLang 是在沐曦通用 GPU 上适配官方 SGLang 的推理工具，基于 MXMACA 后端对 SGLang
+方法进行了兼容适配和 Kernel 优化。使用 MacaRT‑SGLang 在沐曦通用 GPU 上进行大模型推理，其方
+法和功能与官方 SGLang 兼容。当前兼容版本为 SGLang 0.4.3，PyTorch 要求为 2.4。
+13.2 MacaRT‑SGLang 功能
+支 持 的 模 型 包 括：DeepSeek‑R1‑BF16、DeepSeek‑R1‑W8A8 和 DeepSeek‑R1‑Distill‑Qwen‑1.5B。
+DeepSeek‑R1‑W8A8 模型是采用 compress‑tensor 的 W8A8‑INT8 量化方式量化而来。
+13.3 MacaRT‑SGLang 使用流程
+本章节介绍 MacaRT‑SGLang 的使用步骤，主要分为在线推理、吞吐测试和精度测试。
+13.3.1 环境准备
+使用 MacaRT‑SGLang 进行推理需要准备好环境。目前仅提供镜像方式。
+13.3.1.1 使用 SGLang 镜像
+从发布的软件包中获取 SGLang 镜像并启动，参见《沐曦通用 GPU 用户指南》中“容器相关场景支持”
+章节。
+docker pull mxcr.io/ai-release/maca/sglang:0.5.10-maca.ai3.7.1.11-torch2.8-py310-
+,→ubuntu22.04-amd64
+13.3.1.2 设置环境变量
+单机场景下，仅需在一台机器的容器内执行操作；多机场景时，需在所有容器中分别执行一次。
+export MACA_SMALL_PAGESIZE_ENABLE=1
+多机场景下，还需设置以下环境变量：
+export GLOO_SOCKET_IFNAME=网 口 名
+13 MacaRT‑SGLang 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 70

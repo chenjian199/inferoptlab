@@ -1,0 +1,38 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 138
+PDF 页码标签: 131
+页脚页码候选: 131
+章节提示（书签推断）: mcblas<t>gemmEx()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+C A/B
+MACA_R_16BF MACA_R_16BF
+MACA_R_16F MACA_R_16F
+MACA_R_32F MACA_R_8I
+MACA_R_16BF
+MACA_R_16F
+MACA_R_32F
+mcblasCgemmEx 支持的矩阵类型组合如下所示：
+C A/B
+MACA_C_32F MACA_C_8I
+MACA_C_32F
+下面列出了此函数可能的返回值及其含义。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_ARCH_MISMATCH 当前函数功能在本设备上不支持
+MCBLAS_STATUS_NOT_SUPPORTED 不支持参数 Atype, Btype 和 Ctype 的组合
+MCBLAS_STATUS_INVALID_VALUE
+• m < 0 ，n < 0 或 k < 0
+• transa 或 transb != MCBLAS_OP_N,
+MCBLAS_OP_C, MCBLAS_OP_T
+• 如 果 transa == MCBLAS_OP_N ，lda <
+max(1, m) ；否则 lda < max(1, k)
+• 如 果 transb == MCBLAS_OP_N ，ldb <
+max(1, k) ；否则 ldb < max(1, n)
+• ldc < max(1, m)
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 131

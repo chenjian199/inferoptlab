@@ -1,0 +1,94 @@
+{
+  "dcc": {
+    "Id": "3c856edd12bc08ba2fb33219093ad3986b26c9524a68523e29da0a0f1e4ac9fa",
+    "Image": "sha256:96bbee871d4ea038b123276eacd65f77825b093b9255157938e0b1628e121f0b",
+    "Created": "2026-11-11T08:14:38.49251392Z",
+    "State": {
+      "Status": "running",
+      "Running": true,
+      "Paused": false,
+      "StartedAt": "2026-11-21T11:29:35.179813591Z",
+      "Restarting": false
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/NFS_62/Models",
+        "Destination": "/models",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/DCC_workspace",
+        "Destination": "/workspace",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ]
+  },
+  "glm53-vllm032": {
+    "Id": "0e8b1b7c41e0b3ea72bb1a48c9e465c4671d5b53a9ca890c55a4f4b2ee9477b4",
+    "Image": "sha256:96bbee871d4ea038b123276eacd65f77825b093b9255157938e0b1628e121f0b",
+    "Created": "2026-11-22T08:36:25.381318044Z",
+    "State": {
+      "Status": "running",
+      "Running": true,
+      "Paused": false,
+      "StartedAt": "2026-11-22T08:36:25.479864317Z",
+      "Restarting": false
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/NFS_62/Models/GLM_Series/GLM-5.3-Flash-W8A8",
+        "Destination": "/models/GLM-5.3-Flash-W8A8",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-vllm032/src",
+        "Destination": "/work/src",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-vllm032/scripts",
+        "Destination": "/work/scripts",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-vllm032/evidence",
+        "Destination": "/work/evidence",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-vllm032/downloads",
+        "Destination": "/install",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-vllm032/wheelhouse",
+        "Destination": "/wheelhouse",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ]
+  }
+}

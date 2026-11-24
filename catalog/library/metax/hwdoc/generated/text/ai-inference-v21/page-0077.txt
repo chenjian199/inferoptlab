@@ -1,0 +1,47 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 77
+PDF 页码标签: 65
+页脚页码候选: 65
+章节提示（书签推断）: 静态推理性能测试
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+10.3.2 离线推理
+离线推理代码示例如下：
+import lmdeploy
+from lmdeploy import PytorchEngineConfig
+if __name__ == "__main__":
+pipe = lmdeploy.pipeline("internlm/internlm2-chat-7b",
+backend_config = PytorchEngineConfig(tp=1,
+cache_max_entry_count=0.8, device_type="maca", block_
+,→size=16))
+question = ["Shanghai is", "Please introduce China", "How are you?"]
+response = pipe(question, request_output_len=256, do_preprocess=False)
+for idx, r in enumerate(response):
+print(f"Q: {question[idx]}")
+print(f"A: {r.text}")
+print()
+API 基本用法请参考官方文档。
+10.3.3 静态推理性能测试
+因为 profile_generation.py 目前不支持传入 device_type，需要手动修改代码如下：
+--- a/benchmark/profile_generation.py
++++ b/benchmark/profile_generation.py
+@@ -430,6 +430,7 @@ def main():
+eager_mode=args.eager_mode,
+enable_prefix_caching=args.enable_prefix_caching,
+dtype=args.dtype,
++ device_type='maca',
+)
+测试代码：
+python profile_generation.py /models/llm/Internlm2-chat-7b --backend pytorch -c 1 -
+,→pt 256 -ct 128 --tp 1 --cache-block-seq-len 16 --dtype float16
+• python profile_generation.py ：脚本在 lmdeploy/benchmark。
+• /models/llm/Internlm2-chat-7b ：模型文件路径。
+• --backend pytorch ：指定使用的后端为 PyTorch。
+• -c 1 ：并发数为 1。
+• -pt 256 ：输入长度为 256。
+• -ct 128 ：输出长度为 128。
+• --tp 1 ：设置张量并行的大小为 1。
+10 MacaRT‑LMDeploy 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 65

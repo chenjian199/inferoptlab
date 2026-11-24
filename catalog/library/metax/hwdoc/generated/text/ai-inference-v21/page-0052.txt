@@ -1,0 +1,53 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 52
+PDF 页码标签: 40
+页脚页码候选: 40
+章节提示（书签推断）: 本地模型部署精度验证
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+6.3.2 本地模型部署精度验证
+大多数情况下，大模型会依托服务端部署提供服务端接口供客户端调用，但在服务化部署前，需要依托
+本地模型部署进行推理验证，以确认模型精度是否符合预期。本章节介绍模型本地部署及精度验证的方
+法。
+本地部署精度验证依赖工具如下：
+pplnn_llm： 本 地 部 署 可 执 行 文 件， 安 装 ppl.llm.serving_*_amd64.deb 后 在/opt/maca‑
+ai/ppl.llm.serving/bin/下获取。
+操作步骤
+1. 创建一个测试 bash 脚本 benchmark.sh，内容如下：
+if [ -n "$MPI_LOCALRANKID" ]; then
+MPI_LOCALRANKID=$MPI_LOCALRANKID
+elif [ -n "$OMPI_COMM_WORLD_RANK" ]; then
+MPI_LOCALRANKID=$OMPI_COMM_WORLD_RANK
+elif [ -n "$PMI_RANK" ]; then
+MPI_LOCALRANKID=$PMI_RANK
+else
+echo "[WARNING] MPI_LOCALRANKID not found, set to 0"
+MPI_LOCALRANKID=0
+fi
+DEVICE_ID=$MPI_LOCALRANKID
+STEP=$1
+if [ ! -n "$STEP" ]; then
+STEP=0
+fi
+MODEL_PATH="/path/to/exported/model/model_slice_${MPI_LOCALRANKID}/model.onnx"
+OUTPUT_DIR="/path/to/output_dir/rank_${MPI_LOCALRANKID}" # we should make the  
+,→rank_* directories first
+TEST_DATA_DIR="/path/to/dumped/tensor/data/rank_${MPI_LOCALRANKID}"
+# we should rearrange the input tensors if the model exporting parameters has  
+,→been changed.
+TOKEN_IDS=`ls ${TEST_DATA_DIR}/step${STEP}_token_ids-*`
+ATTN_MASK=`ls ${TEST_DATA_DIR}/step${STEP}_attn_mask-*`
+SEQSTARTS=`ls ${TEST_DATA_DIR}/step${STEP}_seqstarts-*`
+KVSTARTS=`ls ${TEST_DATA_DIR}/step${STEP}_kvstarts-*`
+CACHESTARTS=`ls ${TEST_DATA_DIR}/step${STEP}_cachestarts-*`
+DECODING_BATCHES=`ls ${TEST_DATA_DIR}/step${STEP}_decoding_batches-*`
+START_POS=`ls ${TEST_DATA_DIR}/step${STEP}_start_pos-*`
+AX_SEQLEN=`ls ${TEST_DATA_DIR}/step${STEP}_max_seqlen-*`
+MAX_KVLEN=`ls ${TEST_DATA_DIR}/step${STEP}_max_kvlen-*`
+KV_CAHCE=`ls ${TEST_DATA_DIR}/step${STEP}_kv_cache-*`
+KV_SCALE=`ls ${TEST_DATA_DIR}/step${STEP}_kv_scale-*`
+(下页继续)
+6 MacaRT‑LLM 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 40

@@ -1,0 +1,51 @@
+{
+  "status": "complete",
+  "tasks": 164,
+  "passed": 164,
+  "pass_at_1": 1.0,
+  "failures_by_type": {
+    "passed": 164
+  },
+  "truncated": 0,
+  "adapter_version": "humaneval-chat-code-v1",
+  "evaluator_sha256": "1229b80254e0510c3934491080551111395c6af954eb1da53284567513325fd1",
+  "adapter_sha256": "9112a71b1917f32020b31c88810944d388664a7f7b386a26eab61a933f2973ea",
+  "sandbox_image": "sha256:96bbee871d4ea038b123276eacd65f77825b093b9255157938e0b1628e121f0b",
+  "canonical": true,
+  "scope": "Original HumanEval tests; one generation per task; local chat-adapted protocol. No HumanEval+ tests.",
+  "selftests": [
+    {
+      "name": "assertion",
+      "expected": "test_failure",
+      "result": "test_failure",
+      "child_exit": 1,
+      "seconds": 0.4669710460002534,
+      "ok": true
+    },
+    {
+      "name": "infinite_loop",
+      "expected": "test_failure",
+      "result": "test_failure",
+      "child_exit": -9,
+      "seconds": 8.456141684990143,
+      "ok": true
+    },
+    {
+      "name": "premature_exit",
+      "expected": "test_failure",
+      "result": "test_failure",
+      "child_exit": 0,
+      "seconds": 0.5218556289910339,
+      "ok": true
+    },
+    {
+      "name": "isolation",
+      "expected": "passed",
+      "result": "passed",
+      "child_exit": 42,
+      "seconds": 0.4889988429931691,
+      "ok": true
+    }
+  ],
+  "selftests_passed": true
+}

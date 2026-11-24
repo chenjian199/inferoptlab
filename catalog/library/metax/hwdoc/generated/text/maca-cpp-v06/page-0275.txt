@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 275
+PDF 页码标签: 267
+页脚页码候选: 267
+章节提示（书签推断）: __builtin_mxc_barrier
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+参数
+参数名 说明
+bsmcnt bsm_cnt（共享内存计数） ，最多15个未完成操作
+示例
+__global__ void test_builtin_mxc_arrive_bsmcnt(int *data) {
+extern __shared__ int ptr[];
+int val = ptr[0];
+__builtin_mxc_arrive_bsmcnt(0);
+data[0] = val;
+}
+2.18.11 __builtin_mxc_barrier
+描述
+屏障与同步：等待共享内存中所有写入完成。根据程序访问时间点自动插入内存栅栏。这是一个较为宽
+松的屏障，建议优先使用 __syncthreads。
+语法
+void __builtin_mxc_barrier();
+示例
+__global__ void test_swap_warp_data(int *data) {
+__shared__ int sharedData[128];
+int id = threadIdx.x + blockIdx.x * blockDim.x;
+int warpId = id / 64;
+int laneId = threadIdx.x % 64;
+sharedData[id] = data[id];
+__builtin_mxc_barrier(); // 第一次同步，保证 sharedData 写入完毕
+int targetWarpId = warpId ^ 1;
+int targetId = targetWarpId * 64 + laneId;
+int val = sharedData[targetId];
+__builtin_mxc_barrier(); // 第二次同步，保证数据交换后再写回
+data[id] = val;
+}
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 267

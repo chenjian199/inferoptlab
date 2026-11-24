@@ -1,0 +1,56 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 123
+PDF 页码标签: 116
+页脚页码候选: 116
+章节提示（书签推断）: mcblas<t>getrsBatched()
+质量标记: private_use_characters
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+(续上页)
+int batchSize);
+mcblasStatus_t mcblasDgetrsBatched(mcblasHandle_t handle,
+mcblasOperation_t trans,
+int n,
+int nrhs,
+const double *const Aarray[],
+int lda,
+const int *devIpiv,
+double *const Barray[],
+int ldb,
+int *info,
+int batchSize);
+mcblasStatus_t mcblasCgetrsBatched(mcblasHandle_t handle,
+mcblasOperation_t trans,
+int n,
+int nrhs,
+const mcComplex *const Aarray[],
+int lda,
+const int *devIpiv,
+mcComplex *const Barray[],
+int ldb,
+int *info,
+int batchSize);
+mcblasStatus_t mcblasZgetrsBatched(mcblasHandle_t handle,
+mcblasOperation_t trans,
+int n,
+int nrhs,
+const mcDoubleComplex *const Aarray[],
+int lda,
+const int *devIpiv,
+mcDoubleComplex *const Barray[],
+int ldb,
+int *info,
+int batchSize);
+该函数求解一组线性方程组，方程组格式如下：
+op(A[i])X[i] = αB[i]
+其中 A[i] 是一个已经过主元 LU 分解的矩阵，X[i] 和 B[i] 是 n × nrhs 矩阵。此外，对于矩阵 A，
+op(A[i]) =
+
+
+
+A[i] if transa == M CBLAS_OP _N
+AT [i] if transa == M CBLAS_OP _T
+AH [i] if transa == M CBLAS_OP _C
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 116

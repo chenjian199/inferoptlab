@@ -1,0 +1,48 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 310
+PDF 页码标签: 302
+页脚页码候选: 302
+章节提示（书签推断）: Grid 同步
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+3.6 Grid 同步
+在介绍CooperativeGroups之前，MXMACA编程模型只允许在内核完成边界处的threadblock之间进
+行同步。内核边界带来了一种隐含的状态无效，以及潜在的性能影响。
+举个例子，在具体的应用场景，应用有很多的小内核，每一个内核表示一个流水进程中的一个状态。对
+于当前的 MXMACA 编程模型这些内核的存在是必要的，以保证运行在一个确定的流水线状态的 thread
+block 在下一个流水线状态之前输出了下一个流水线状态可能需要的数据。在这样的场景下，提供全
+局 thread block 同步的能力将会允许应用重构以拥有当给定阶段完成时能在设备上同步的持久 thread
+block。
+想要一个内核的整个grid同步，你只需要简单的使用 grid.sync()函数：
+grid_group grid = this_grid();
+grid.sync();
+而且在启动内核的时候，使用 MXMACA 运行时启动 APImcLaunchCooperativeKernel 替代 «<…»>
+执行配置语法是必要的。
+例子：
+要保证 GPU 上的 thread block 的共同驻留，启动的 block 的数量需要仔细思考。比如像下面的尽可能
+多的启动SM可以启动的threadblock：
+int device = 0;
+mcDeviceProp deviceProp;
+mcGetDeviceProperties(&deviceProp, dev);
+mcLaunchCooperativeKernel((void*)my_kernel, deviceProp.multiProcessorCount,
+numThreads, args);
+或者，你可以通过使用占用计算器计算每个 SM 可以同时容纳多少 block 来最大限度地提高暴露的并行
+性，如下所示：
+/// 下面的代码将会启动一个在默认 stream上的最大限度占用 GPU的内核
+int numBlocksPerSm = 0;
+// my_kernel启动的线程数量
+int numThreads = 128;
+mcDeviceProp deviceProp;
+mcGetDeviceProperties(&deviceProp, dev);
+mcOccupancyMaxActiveBlocksPerMultiProcessor(&numBlocksPerSm,
+my_kernel, numThreads, 0);
+// 启动
+void* kernelArgs[] = { /* 添加内核参数 */ };
+dim3 dimBlock(numThreads, 1, 1);
+dim3 dimGrid(deviceProp.multiProcessorCount * numBlocksPerSm, 1, 1);
+mcLaunchCooperativeKernel((void*)my_kernel, dimGrid, dimBlock, kernelArgs);
+推荐通过查询设备的 mcDevAttrCooperativeLaunch属性来先确认设备支持cooperativelaunch：
+3 CooperativeGroups 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 302

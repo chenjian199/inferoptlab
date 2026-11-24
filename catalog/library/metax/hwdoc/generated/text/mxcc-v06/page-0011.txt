@@ -1,0 +1,39 @@
+文档: 沐曦通用GPU_mxcc编译器用户指南_CN_V06.pdf
+文档 ID: mxcc-v06
+SHA256: 6fceba6f92b1b4274a5c2dd106d76320947a0b4ef0cdaffd36af5497fdffb6dd
+PDF 页序号: 11
+PDF 页码标签: 6
+页脚页码候选: 6
+章节提示（书签推断）: 指定编译阶段的选项
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mxcc 编译器用户指南
+4.2 指定编译阶段的选项
+--lib (-lib)
+如有必要，将所有输入文件编译为目标文件，并将结果添加到指定的库输出文件中。
+默认输出文件名为 a.a。
+--dlink-obj (-dlink-obj)
+将输入文件编译为 dlink 阶段目标文件。仅和 -fgpu-rdc 一起使用。
+--dlink-asm (-dlink-asm)
+将输入文件编译为 dlink 阶段 asm 文件。仅和 -fgpu-rdc 一起使用。
+--compile (-c)
+将每个 .c 、.cc 、.cpp 、.cxx 和 .maca 输入文件编译为目标文件。
+源文件扩展名替换为 .o 以创建默认输出文件名。
+--fatbin (-fatbin)
+将所有 .maca 输入文件编译为仅限设备的 .mcfb 文件。
+mxcc 使用此选项丢弃每个 .maca 输入文件的主机代码。
+源文件扩展名替换为 .mcfb 以创建默认输出文件名。
+--device-obj (-device-obj)
+将所有 .maca 输入文件编译为仅限设备的目标文件。
+mxcc 使用此选项丢弃每个 .maca 输入文件的主机代码。
+源文件扩展名替换为 .o 以创建默认输出文件名。
+--device-bin (-device-bin)
+将输入文件编译为仅限设备的二进制文件。
+--preprocess (-E)
+预处理所有 .c 、.cc 、.cpp 、.cxx 和 .maca 输入文件。主机和设备代码均受处理并捆绑在一个输出文
+件中。
+默认在 stdout 中生成输出。
+--generate-dependencies (-M)
+生成一个依赖文件，该文件可以包含在 .c 、.cc 、.cpp 、.cxx 和 .maca 输入文件的 Makefile 中。
+默认在 stdout 中生成输出。
+4 支持的选项 沐曦股份专有信息 OG‑23026‑020‑F5_V06 | 6

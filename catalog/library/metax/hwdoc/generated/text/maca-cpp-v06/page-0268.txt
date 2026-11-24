@@ -1,0 +1,29 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 268
+PDF 页码标签: 260
+页脚页码候选: 260
+章节提示（书签推断）: __cvta_constant_to_generic()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+2.16.2 __cvta_generic_to_shared()
+__device__ size_t __cvta_generic_to_shared(const void *ptr);
+返回对通用地址指针ptr转换到shared内存地址空间的地址的值。
+2.16.3 __cvta_generic_to_constant()
+__device__ size_t __cvta_generic_to_constant(const void *ptr);
+返回对通用地址指针ptr转换到constant内存地址空间的地址的值。
+2.16.4 __cvta_generic_to_local()
+__device__ size_t __cvta_generic_to_local(const void *ptr);
+返回对通用地址指针ptr转换到local内存地址空间的地址的值。
+2.16.5 __cvta_global_to_generic()
+__device__ size_t __cvta_global_to_generic(size_t rawbits);
+返回对值rawbits转换所得的global内存的通用地址指针。
+2.16.6 __cvta_shared_to_generic()
+__device__ size_t __cvta_shared_to_generic(size_t rawbits);
+返回对值rawbits转换所得的shared内存的通用地址指针。
+2.16.7 __cvta_constant_to_generic()
+__device__ size_t __cvta_constant_to_generic(size_t rawbits);
+返回对值rawbits转换所得的constant内存的通用地址指针。
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 260

@@ -1,0 +1,36 @@
+文档: 沐曦通用GPU_mxcc编译器用户指南_CN_V06.pdf
+文档 ID: mxcc-v06
+SHA256: 6fceba6f92b1b4274a5c2dd106d76320947a0b4ef0cdaffd36af5497fdffb6dd
+PDF 页序号: 14
+PDF 页码标签: 9
+页脚页码候选: 9
+章节提示（书签推断）: 指导编译器驱动程序的选项
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mxcc 编译器用户指南
+4.4 传递特定阶段选项的选项
+--compiler-options options,... (-Xcompiler)
+直接向编译器/预处理器指定选项，包括设备侧和主机侧。
+--linker-options option (-Xlinker)
+直接向主机链接器指定选项。每个选项需要一个 -Xlinker。
+-Wl,options,...
+直接向主机链接器指定选项。可以同时输入多个选项。
+--archive-options option (-Xarchive)
+直接向库管理器指定选项。
+--device-linker-options option (-Xmaca-device-linker)
+直接向设备链接器指定选项。
+4.5 指导编译器驱动程序的选项
+--clean-targets (-clean)
+删除同一 mxcc 命令在没有使用此选项时生成的所有非临时文件。
+--run-args arguments,... (-run-args)
+当可执行文件与 -run 一起使用时，指定可执行文件的命令行参数。
+--dependency-target-name target (-MT)
+指定生成依赖文件（参见 4.2 指定编译阶段的选项 中 -M）时，生成的规则目标名称。
+--maca-device-only (-maca-device-only)
+指示本次编译只执行 MXMACA 编译流程中的设备编译过程。
+--maca-host-only (-maca-host-only)
+指示本次编译只执行 MXMACA 编译流程中的主机编译过程。对非 MXMACA 的编译无影响。
+--maca-link (-maca-link)
+指示中间文件（ir 文件，目标文件等）按照 MXMACA 编译流程进行处理。这些中间文件需要同时包含主
+机和设备内容。
+4 支持的选项 沐曦股份专有信息 OG‑23026‑020‑F5_V06 | 9

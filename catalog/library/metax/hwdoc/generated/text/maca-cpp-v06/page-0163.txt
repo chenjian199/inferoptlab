@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 163
+PDF 页码标签: 155
+页脚页码候选: 155
+章节提示（书签推断）: 单精度数学函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+• powf(x,‑∞)对于|x|<1返回+∞。
+• powf(x,‑∞)对于|x|>1返回+0。
+• powf(x,+∞)对于|x|<1返回+0。
+• powf(x,+∞)对于|x|>1返回+∞。
+• powf(‑∞,y)对于y是一个小于0的奇数返回‑0。
+• powf(‑∞,y)对于y<0且不是奇数返回+0。
+• powf(‑∞,y)对于y是一个大于0的奇数返回‑∞。
+• powf(‑∞,y)对于y>0且不是奇数返回+∞。
+• powf(+∞,y)对于y<0返回+0。
+• powf(+∞,y)对于y>0返回+∞。
+函数描述
+计算x的值为y的幂。
+__device__ float rcbrtf (float x)
+计算倒数立方根函数。
+返回值
+• rcbrt(±0)返回±∞
+• rcbrt(±∞)返回±0
+函数描述
+计算x的倒数立方根函数。
+__device__ float remainderf (float x, float y)
+计算单精度浮点余数。
+返回值
+• remainderf(x,0)返回NaN。
+• remainderf(±∞,y)返回NaN。
+• remainderf(x,±∞)对于有穷x返回x。
+函数描述
+计算非零y的x除以y的单精度浮点余数r，因此r=x‑ny。n的值是最接近x/y的整数。
+__device__ float remquof (float x, float y, int *quo)
+计算单精度浮点余数和部分商。
+返回值
+• 返回余数。
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 155

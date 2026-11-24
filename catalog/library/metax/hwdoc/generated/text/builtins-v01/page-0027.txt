@@ -1,0 +1,45 @@
+文档: 沐曦通用GPU_MXMACA编译器内建函数编程指南_CN_V01.pdf
+文档 ID: builtins-v01
+SHA256: 80dfb3a83381e48e19968b432d4eb24d37c505bd711af14f74889277cffc3835
+PDF 页序号: 27
+PDF 页码标签: 21
+页脚页码候选: 21
+章节提示（书签推断）: __builtin_mxc_update_shfl
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® 编译器内建函数编程指南
+• Row Shift Right
+在一个 row 内的 16 个线程间进行右移。
+for n in (1..64)
+If((n&0xf) >= mode[3:0]) {
+dest.thread[n] = src.thread[n-mode[3:0]];
+} else {
+if BC == 0:
+dest.thread[n] = 0
+else:
+do nothing
+}
+• Row Mirror
+在一个 row 内的 16 个线程间进行镜像变换。
+for n in (1..64)
+dest.thread[n] = src.thread[(n^0xf)].
+代码示例
+__device__ int test_mxc_mov_shfl(int val) {
+// Reverse every 16 threads.
+return __builtin_mxc_mov_shfl(val, 0x140, 0xf, 0xf, false);
+}
+3.4.2 __builtin_mxc_update_shfl
+功能描述
+功能与 __builtin_mxc_mov_shfl 类似，不同之处在于 __builtin_mxc_update_shfl 在线程索引计算结
+果越界时可以指定返回值。
+接口声明
+int __builtin_mxc_update_shlf(int old_val, int src, int mode, int rmsk, int bmsk, 
+,→int bc);
+参数
+表 3.14 __builtin_mxc_update_shfl 参数说明
+名称 描述
+dest 返回值
+old_val 线程索引计算结果越界且 BC 为 1 时的返回值
+src 输入数据
+下页继续
+3 接口介绍 沐曦股份专有信息 OG‑26013‑000‑F5_V01 | 21

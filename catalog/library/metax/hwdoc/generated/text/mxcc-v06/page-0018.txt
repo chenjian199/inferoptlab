@@ -1,0 +1,31 @@
+文档: 沐曦通用GPU_mxcc编译器用户指南_CN_V06.pdf
+文档 ID: mxcc-v06
+SHA256: 6fceba6f92b1b4274a5c2dd106d76320947a0b4ef0cdaffd36af5497fdffb6dd
+PDF 页序号: 18
+PDF 页码标签: 13
+页脚页码候选: 13
+章节提示（书签推断）: 编译设备函数定义在其他文件中的源文件
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mxcc 编译器用户指南
+5 示例
+5.1 编译包含设备和主机函数的源文件
+假设源文件是 a.maca，MXMACA 安装在根目录下。命令如下：
+$ mxcc a.maca -o a.out
+5.2 编译 C/C++ 源文件
+假设源文件是 a.c 和 b.cpp，MXMACA 安装在根目录下。命令如下：
+$ mxcc a.c -o a.out
+$ mxcc b.cpp -o b.out
+5.3 编译并单独链接
+源文件可以先编译成目标文件，然后相互链接。目标文件也可以通过其他链接器进行链接。请注意，如
+果使用 mxcc 作为链接器，则不应在命令中添加 -x maca 。
+假设源文件是 a.maca 和 b.maca，MXMACA 安装在根目录下。命令如下：
+$ mxcc -c a.maca -o a.o
+$ mxcc -c b.maca -o b.o
+$ mxcc a.o b.o -o a.out
+5.4 编译设备函数定义在其他文件中的源文件
+支持使用定义在另一个文件中的设备函数。在这种情况下，需要 -fgpu-rdc。
+假设源文件是 a.maca 和 b.maca， 且a.maca 可能会使用定义在 b.maca 中的函数。 MXMACA 安装在
+根目录下。命令如下：
+$ mxcc -fgpu-rdc a.maca b.maca -o a.out
+5 示例 沐曦股份专有信息 OG‑23026‑020‑F5_V06 | 13

@@ -1,0 +1,22 @@
+文档: 沐曦通用GPU_mxvs测试工具套件使用手册_CN_V26.pdf
+文档 ID: mxvs-v26
+SHA256: f14e664d429c6568ce5723a3a83c7a9164c2fcb33fd59137fb49c1128ab63ce2
+PDF 页序号: 22
+PDF 页码标签: 12
+页脚页码候选: 12
+章节提示（书签推断）: MetaXLink实时带宽查询
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mxvs 测试工具套件使用手册
+8 MetaXLink 验收测试工具
+8.1 MetaXLink 实时带宽查询
+/opt/maca/bin/mxvs metaxlink bandwidth --devices <DEVICE_ID>
+命令参数
+表 8.1 MetaXLink 实时带宽查询命令参数
+参数 必填 描述
+-d, --devices 否 测试对象 PCIe 设备编号，支持单个设备查询或多个设备同时查
+询。默认选择所有 PCIe 显卡设备。
+-c, --continuous 否 持续监控带宽开关。
+输出结果
+图 8.1 MetaXLink 实时带宽查询示例图
+8 MetaXLink 验收测试工具 沐曦股份专有信息 OG‑23023‑020‑F5_V26 | 12

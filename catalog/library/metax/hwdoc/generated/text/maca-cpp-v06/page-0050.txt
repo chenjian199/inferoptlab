@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 50
+PDF 页码标签: 42
+页脚页码候选: 42
+章节提示（书签推断）: 半精度转换与数据移动函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+参数
+a
+• float，只读入参
+b
+• float，只读入参
+返回值
+• half2，将a和b转换成半精度类型后，组成half2类型并输出
+函数描述
+• 以向最近偶数舍入模式将float类型的参数a和b，转换成半精度类型，组成half2类型并输出。
+__host__ __device__ float2 __half22float2 (const __half2 a)
+参数
+a
+• half2，只读入参
+返回值
+• float2，转换为float2类型的a
+函数描述
+• 将half2类型的参数a，转换成float2类型后，输出。
+__host__ __device__ float __half2float (const __half a)
+参数
+a
+• half，只读入参
+返回值
+• float，转换为float类型的a
+函数描述
+• 将half类型的参数a，转换成float类型后，输出。
+__device__ __half2 __half2half2 (const __half a)
+参数
+a
+• half，只读入参
+返回值
+• half2，用half类型的组成的half2
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 42

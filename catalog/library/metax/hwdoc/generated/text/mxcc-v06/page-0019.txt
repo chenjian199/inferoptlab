@@ -1,0 +1,29 @@
+文档: 沐曦通用GPU_mxcc编译器用户指南_CN_V06.pdf
+文档 ID: mxcc-v06
+SHA256: 6fceba6f92b1b4274a5c2dd106d76320947a0b4ef0cdaffd36af5497fdffb6dd
+PDF 页序号: 19
+PDF 页码标签: 14
+页脚页码候选: 14
+章节提示（书签推断）: 编译设备和主机函数有自定义设备库的源文件
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mxcc 编译器用户指南
+5.5 编译设备函数定义在其他文件中的源文件并单独链接
+支持使用定义在另一个文件中的设备函数。在这种情况下，需要 -fgpu-rdc。链接命令中还需要
+-maca-link。
+假设源文件是 a.maca 和 b.maca， 且a.maca 可能会使用定义在 b.maca 中的函数。 MXMACA 安装在
+根目录下。命令如下：
+$ mxcc -fgpu-rdc -c a.maca -o a.o
+$ mxcc -fgpu-rdc -c b.maca -o b.o
+$ mxcc -fgpu-rdc --maca-link a.o b.o -o a.out
+5.6 编译设备和主机函数有自定义设备库的源文件
+假设源文件是 a.maca，自定义设备库是 self.bc。MXMACA 安装在根目录下。
+1. 创建一个文件夹，并把 self.bc 放进去。
+2. 将安装在 /opt/maca/lib 的设备库 maca_kernellib.bc 和 maca_mathlib.bc 复制到文件夹中。
+命令如下：
+$ mkdir selfdir
+$ cp /opt/maca/lib/maca_kernellib.bc /opt/maca/lib/maca_mathlib.bc selfdir
+$ mxcc a.maca -o a.out --maca-device-lib-path ./selfdir --maca-device-lib=maca_
+,→kernellib.bc
+--maca-device-lib=maca_mathlib.bc --maca-device-lib=self.bc
+5 示例 沐曦股份专有信息 OG‑23026‑020‑F5_V06 | 14

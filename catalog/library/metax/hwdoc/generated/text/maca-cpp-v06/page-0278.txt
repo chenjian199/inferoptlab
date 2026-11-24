@@ -1,0 +1,43 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 278
+PDF 页码标签: 270
+页脚页码候选: 270
+章节提示（书签推断）: __builtin_mxc_stg_*_predicator
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+(续上页)
+B32 val = __builtin_mxc_ldg_b32_predicator(ptr,
+0, // offset
+false, // ret0_en
+false, // saddr_flag
+false, // pred_neg
+false, // is_async
+a, b, // cmp_op1, cmp_op2
+MACA_ICMP_EQ);
+return val;
+}
+2.18.14 __builtin_mxc_stg_*_predicator
+描述
+使用 predicator作为活跃掩码，将数据写入全局内存。仅当 predicator为真时，对应线程执行存
+储操作。predicator通过下式计算：
+predicator = cmp_flag cmp_op1 cmp_op2
+语法
+void __builtin_mxc_stg_b32_predicator(void *global_addr, int offset,
+unsigned data, bool saddr_flag,
+bool pred_neg, bool is_async,
+int cmp_op1, int cmp_op2, int cmp_flag);
+void __builtin_mxc_stg_b64_predicator(void *global_addr, int offset,
+unsigned long long data, bool saddr_flag,
+bool pred_neg, bool is_async,
+int cmp_op1, int cmp_op2, int cmp_flag);
+void __builtin_mxc_stg_b128_predicator(void *global_addr, int offset,
+V4U32 data, // 128-bit  
+,→数据
+bool saddr_flag, bool pred_neg,
+bool is_async,
+int cmp_op1, int cmp_op2, int cmp_flag);
+参数
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 270

@@ -1,0 +1,14 @@
+{
+  "status": "local_and_remote_verified",
+  "archive": "H:/workspace/C500\u6a21\u578b\u4f18\u5316/glmf/gemm_replace_20261123/archives/gemm_replace_20261123_v1.tar.gz",
+  "sha256": "1b38a1479062103c78be3f415feab28d2bf1e6319bcbffc3c04f89f630bacd5e",
+  "bytes": 722563,
+  "hashed_files": 69,
+  "remote_verified": true,
+  "remote_verification": {
+    "status": "passed",
+    "archive": "/home/metax/glm53-gemm-20261123/archives/gemm_replace_20261123_v1.tar.gz",
+    "sha256": "1b38a1479062103c78be3f415feab28d2bf1e6319bcbffc3c04f89f630bacd5e",
+    "verified_files": 69
+  }
+}

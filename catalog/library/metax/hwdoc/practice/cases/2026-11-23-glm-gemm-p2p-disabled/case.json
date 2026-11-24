@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "observed_on": "2026-11-23",
+  "verification": "tp8_single_layer_pilot_passed_p2p_disabled_hardware_unresolved",
+  "driver": "3.10.14",
+  "hardware_repaired": false,
+  "original32_passed": 30,
+  "candidate32_passed": 31,
+  "rollback4_passed": 4,
+  "candidate_token_exact": 24,
+  "rollback_token_exact": 4,
+  "paired_pass_regressions": 0,
+  "ranks_replaced": 8,
+  "candidate_calls": 11936,
+  "fallback": 0,
+  "max_bf16_ulp": 1,
+  "full164_verified": false,
+  "performance_verified": false,
+  "independent_engine_repetitions": false,
+  "original_environments_preserved": true
+}

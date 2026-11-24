@@ -1,0 +1,918 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-11-24T03:53:03.829702+00:00",
+  "extractor": {
+    "name": "pypdf",
+    "version": "6.13.2"
+  },
+  "document_count": 16,
+  "page_count": 899,
+  "topics": [
+    {
+      "id": "environment",
+      "title": "环境检查与安装",
+      "purpose": "核对硬件、驱动、SDK、框架依赖和设备选择，建立服务器环境记录。",
+      "keywords": [
+        "环境",
+        "安装",
+        "验证",
+        "适用产品",
+        "设备信息",
+        "工作状态",
+        "工具部署",
+        "前置",
+        "版本"
+      ]
+    },
+    {
+      "id": "inference",
+      "title": "模型运行与推理",
+      "purpose": "查找框架安装、功能支持、模型转换、精度和推理配置。",
+      "keywords": [
+        "环境",
+        "安装",
+        "推理",
+        "模型",
+        "量化",
+        "精度",
+        "功能支持",
+        "环境变量"
+      ]
+    },
+    {
+      "id": "profiling",
+      "title": "性能分析与基准测试",
+      "purpose": "定位跟踪采集、性能指标和测试工具入口；运行测试前确认其影响。",
+      "keywords": [
+        "使用",
+        "前置",
+        "度量",
+        "分析",
+        "Viewer",
+        "带宽",
+        "算力",
+        "压力",
+        "日志"
+      ]
+    },
+    {
+      "id": "communication",
+      "title": "多卡与多机通信",
+      "purpose": "查找卡序、并行维度、集合通信、互连与多机内存注册说明；区分单机和多机场景。",
+      "keywords": [
+        "并行",
+        "输出",
+        "示例",
+        "配置",
+        "版本",
+        "客户使用建议",
+        "通信",
+        "通讯",
+        "环境变量",
+        "PCIe",
+        "P2P",
+        "多设备"
+      ]
+    },
+    {
+      "id": "kernels",
+      "title": "算子与 GPU 编程",
+      "purpose": "查找 Triton、C++、运行时和内建函数的编程与优化入口。",
+      "keywords": [
+        "功能支持",
+        "编程",
+        "内存",
+        "核函数",
+        "语言扩展",
+        "接口",
+        "数据布局",
+        "使用",
+        "访存",
+        "同步"
+      ]
+    },
+    {
+      "id": "development",
+      "title": "编译与开发工具",
+      "purpose": "查找编译选项、语言支持、编辑器配置和工程集成。",
+      "keywords": [
+        "安装",
+        "配置",
+        "选项",
+        "使用",
+        "支持",
+        "工程",
+        "编译"
+      ]
+    },
+    {
+      "id": "libraries",
+      "title": "数学库与接口参考",
+      "purpose": "查找矩阵运算、数据类型、库安装和 API 示例。",
+      "keywords": [
+        "安装",
+        "API",
+        "数据",
+        "Hello",
+        "Eigen",
+        "gemm",
+        "模块"
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "id": "mceigen-v03",
+      "family": "mceigen",
+      "filename": "曦云系列_通用计算GPU_mcEigen用户指南_CN_V03.pdf",
+      "title": "曦云系列_通用计算GPU_mcEigen用户指南",
+      "document_revision": "V03",
+      "document_code": "OG-23030-020-F5_V03",
+      "publication_date": "2024-03-15",
+      "sha256": "a99c752735a07ef038d743a050c3739dd167d2614b3f2619b77ba833c87947ec",
+      "bytes": 1531698,
+      "page_count": 9,
+      "topics": [
+        "libraries",
+        "development"
+      ],
+      "has_explicit_page_labels": true,
+      "outline_count": 6,
+      "outline_path": "generated/outlines/mceigen-v03.json",
+      "navigation_path": "generated/documents/mceigen-v03.md",
+      "applicability_status": "not_explicitly_identified",
+      "applicability_evidence": [],
+      "software_compatibility_status": "not_verified_against_server",
+      "software_requirements_evidence": [
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 5,
+          "page_label": "1",
+          "text_path": "generated/text/mceigen-v03/page-0005.txt"
+        }
+      ],
+      "pages_with_quality_flags": 1,
+      "extracted_characters": 5983,
+      "cover_text": "曦云® 系列通用计算 GPU\nmcEigen 用户指南\nOG‑23030‑020‑F5_V03 2024‑03‑15\n"
+    },
+    {
+      "id": "ai-inference-v21",
+      "family": "ai-inference",
+      "filename": "沐曦通用GPU_AI推理用户手册_CN_V21.pdf",
+      "title": "沐曦通用GPU_AI推理用户手册",
+      "document_revision": "V21",
+      "document_code": "OG-23025-020-F5_V21",
+      "publication_date": "2026-07-06",
+      "sha256": "dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d",
+      "bytes": 2601210,
+      "page_count": 92,
+      "topics": [
+        "inference"
+      ],
+      "has_explicit_page_labels": true,
+      "outline_count": 177,
+      "outline_path": "generated/outlines/ai-inference-v21.json",
+      "navigation_path": "generated/documents/ai-inference-v21.md",
+      "applicability_status": "source_evidence_found",
+      "applicability_evidence": [
+        {
+          "kind": "product_scope",
+          "pdf_page": 14,
+          "page_label": "2",
+          "text_path": "generated/text/ai-inference-v21/page-0014.txt",
+          "excerpt": "本文档适用于沐曦 MXC500 系列产品：曦云 ® C500、C500X、C550、C550‑PL、C588，曦思® N260，曦\n索 ® X206；以及 MXC600 系列产品：曦云 ® C600，曦思 ® N300，曦索 ® X301、X302。",
+          "status": "extracted_source_requires_context_review"
+        }
+      ],
+      "software_compatibility_status": "not_verified_against_server",
+      "software_requirements_evidence": [
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 15,
+          "page_label": "3",
+          "text_path": "generated/text/ai-inference-v21/page-0015.txt"
+        },
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 25,
+          "page_label": "13",
+          "text_path": "generated/text/ai-inference-v21/page-0025.txt"
+        },
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 30,
+          "page_label": "18",
+          "text_path": "generated/text/ai-inference-v21/page-0030.txt"
+        },
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 37,
+          "page_label": "25",
+          "text_path": "generated/text/ai-inference-v21/page-0037.txt"
+        },
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 39,
+          "page_label": "27",
+          "text_path": "generated/text/ai-inference-v21/page-0039.txt"
+        },
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 41,
+          "page_label": "29",
+          "text_path": "generated/text/ai-inference-v21/page-0041.txt"
+        },
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 46,
+          "page_label": "34",
+          "text_path": "generated/text/ai-inference-v21/page-0046.txt"
+        },
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 52,
+          "page_label": "40",
+          "text_path": "generated/text/ai-inference-v21/page-0052.txt"
+        },
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 54,
+          "page_label": "42",
+          "text_path": "generated/text/ai-inference-v21/page-0054.txt"
+        },
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 56,
+          "page_label": "44",
+          "text_path": "generated/text/ai-inference-v21/page-0056.txt"
+        },
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 58,
+          "page_label": "46",
+          "text_path": "generated/text/ai-inference-v21/page-0058.txt"
+        },
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 59,
+          "page_label": "47",
+          "text_path": "generated/text/ai-inference-v21/page-0059.txt"
+        },
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 62,
+          "page_label": "50",
+          "text_path": "generated/text/ai-inference-v21/page-0062.txt"
+        },
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 63,
+          "page_label": "51",
+          "text_path": "generated/text/ai-inference-v21/page-0063.txt"
+        },
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 66,
+          "page_label": "54",
+          "text_path": "generated/text/ai-inference-v21/page-0066.txt"
+        },
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 67,
+          "page_label": "55",
+          "text_path": "generated/text/ai-inference-v21/page-0067.txt"
+        },
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 75,
+          "page_label": "63",
+          "text_path": "generated/text/ai-inference-v21/page-0075.txt"
+        },
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 76,
+          "page_label": "64",
+          "text_path": "generated/text/ai-inference-v21/page-0076.txt"
+        },
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 82,
+          "page_label": "70",
+          "text_path": "generated/text/ai-inference-v21/page-0082.txt"
+        },
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 87,
+          "page_label": "75",
+          "text_path": "generated/text/ai-inference-v21/page-0087.txt"
+        }
+      ],
+      "pages_with_quality_flags": 0,
+      "extracted_characters": 98842,
+      "cover_text": "沐曦通用 GPU 与 MXMACA® 软件栈\nAI 推理用户手册\nOG‑23025‑020‑F5_V21 2026‑07‑06\n"
+    },
+    {
+      "id": "deepep-v01",
+      "family": "deepep",
+      "filename": "沐曦通用GPU_DeepEP多机通信内存注册环境变量配置说明_CN_V01.pdf",
+      "title": "沐曦通用GPU_DeepEP多机通信内存注册环境变量配置说明",
+      "document_revision": "V01",
+      "document_code": "OG-26021-020-F5_V01",
+      "publication_date": "2026-11-13",
+      "sha256": "04ecd9ea7a268dc14c88f283869f64e17479a5da63dadef5cc4b93b07732fbf0",
+      "bytes": 1449280,
+      "page_count": 7,
+      "topics": [
+        "communication"
+      ],
+      "has_explicit_page_labels": true,
+      "outline_count": 9,
+      "outline_path": "generated/outlines/deepep-v01.json",
+      "navigation_path": "generated/documents/deepep-v01.md",
+      "applicability_status": "source_evidence_found",
+      "applicability_evidence": [
+        {
+          "kind": "product_scope",
+          "pdf_page": 5,
+          "page_label": "1",
+          "text_path": "generated/text/deepep-v01/page-0005.txt",
+          "excerpt": "本文档适用于沐曦 MXC500 系列产品：曦云 ® C500、C500X、C550、C550‑PL、C588，曦思® N260，曦\n索 ® X206；以及 MXC600 系列产品：曦云 ® C600，曦思 ® N300，曦索 ® X301、X302。",
+          "status": "extracted_source_requires_context_review"
+        }
+      ],
+      "software_compatibility_status": "not_verified_against_server",
+      "software_requirements_evidence": [
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 6,
+          "page_label": "2",
+          "text_path": "generated/text/deepep-v01/page-0006.txt"
+        },
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 7,
+          "page_label": "3",
+          "text_path": "generated/text/deepep-v01/page-0007.txt"
+        }
+      ],
+      "pages_with_quality_flags": 0,
+      "extracted_characters": 3624,
+      "cover_text": "沐曦通用 GPU 与 MXMACA® 软件栈\nDeepEP 多机通信内存注册环境变量配置说明\nOG‑26021‑020‑F5_V01 2026‑11‑13\n"
+    },
+    {
+      "id": "device-order-v01",
+      "family": "device-order",
+      "filename": "沐曦通用GPU_MACA_VISIBLE_DEVICES配置工具介绍_CN_V01.pdf",
+      "title": "沐曦通用GPU_MACA_VISIBLE_DEVICES配置工具介绍",
+      "document_revision": "V01",
+      "document_code": "OG-26020-020-F5_V01",
+      "publication_date": "2026-11-13",
+      "sha256": "a46029cb1594ee57eaac6881937f14279ad0bf0810183c06108cce1e7b407356",
+      "bytes": 1454188,
+      "page_count": 7,
+      "topics": [
+        "communication",
+        "environment"
+      ],
+      "has_explicit_page_labels": true,
+      "outline_count": 7,
+      "outline_path": "generated/outlines/device-order-v01.json",
+      "navigation_path": "generated/documents/device-order-v01.md",
+      "applicability_status": "source_evidence_found",
+      "applicability_evidence": [
+        {
+          "kind": "product_scope",
+          "pdf_page": 5,
+          "page_label": "1",
+          "text_path": "generated/text/device-order-v01/page-0005.txt",
+          "excerpt": "本文档适用于沐曦 MXC500 系列产品：曦云 ® C500、C500X、C550、C550‑PL、C588，曦思® N260，曦\n索 ® X206；以及 MXC600 系列产品：曦云 ® C600，曦思 ® N300，曦索 ® X301、X302。",
+          "status": "extracted_source_requires_context_review"
+        }
+      ],
+      "software_compatibility_status": "not_verified_against_server",
+      "software_requirements_evidence": [
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 6,
+          "page_label": "2",
+          "text_path": "generated/text/device-order-v01/page-0006.txt"
+        }
+      ],
+      "pages_with_quality_flags": 0,
+      "extracted_characters": 3640,
+      "cover_text": "沐曦通用 GPU 与 MXMACA® 软件栈\nMACA_VISIBLE_DEVICES 配置工具介绍\nOG‑26020‑020‑F5_V01 2026‑11‑13\n"
+    },
+    {
+      "id": "mcblas-v05",
+      "family": "mcblas",
+      "filename": "沐曦通用GPU_mcBLAS API参考_CN_V05.pdf",
+      "title": "沐曦通用GPU_mcBLAS API参考",
+      "document_revision": "V05",
+      "document_code": "RD-23012-020-F5_V05",
+      "publication_date": "2026-03-27",
+      "sha256": "89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13",
+      "bytes": 2142063,
+      "page_count": 167,
+      "topics": [
+        "libraries",
+        "kernels"
+      ],
+      "has_explicit_page_labels": true,
+      "outline_count": 133,
+      "outline_path": "generated/outlines/mcblas-v05.json",
+      "navigation_path": "generated/documents/mcblas-v05.md",
+      "applicability_status": "source_evidence_found",
+      "applicability_evidence": [
+        {
+          "kind": "product_scope",
+          "pdf_page": 8,
+          "page_label": "1",
+          "text_path": "generated/text/mcblas-v05/page-0008.txt",
+          "excerpt": "本文档适用于沐曦 MXC500 系列产品：曦云 ® C500、C500X、C550、C550‑PL、C588，曦思® N260，曦\n索 ® X206；以及 MXC600 系列产品：曦云 ® C600，曦思 ® N300，曦索 ® X301、X302。",
+          "status": "extracted_source_requires_context_review"
+        }
+      ],
+      "software_compatibility_status": "not_verified_against_server",
+      "software_requirements_evidence": [
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 8,
+          "page_label": "1",
+          "text_path": "generated/text/mcblas-v05/page-0008.txt"
+        }
+      ],
+      "pages_with_quality_flags": 43,
+      "extracted_characters": 190206,
+      "cover_text": "沐曦通用 GPU 与 MXMACA® 软件栈\nmcBLAS API 参考\nRD‑23012‑020‑F5_V05 2026‑03‑27\n"
+    },
+    {
+      "id": "mccl-v08",
+      "family": "mccl",
+      "filename": "沐曦通用GPU_MCCL编程指南_CN_V08.pdf",
+      "title": "沐曦通用GPU_MCCL编程指南",
+      "document_revision": "V08",
+      "document_code": "PG-23004-020-F5_V08",
+      "publication_date": "2026-06-26",
+      "sha256": "7a95ac3ce4f68b0fb11baabb7fa08794cd5f5081c9ec3e888eefaaa03ab8c8b2",
+      "bytes": 1779681,
+      "page_count": 42,
+      "topics": [
+        "communication"
+      ],
+      "has_explicit_page_labels": true,
+      "outline_count": 126,
+      "outline_path": "generated/outlines/mccl-v08.json",
+      "navigation_path": "generated/documents/mccl-v08.md",
+      "applicability_status": "source_evidence_found",
+      "applicability_evidence": [
+        {
+          "kind": "product_scope",
+          "pdf_page": 8,
+          "page_label": "1",
+          "text_path": "generated/text/mccl-v08/page-0008.txt",
+          "excerpt": "本文档适用于沐曦 MXC500 系列产品：曦云 ® C500、C500X、C550、C550‑PL、C588，曦索® X206；以\n及 MXC600 系列产品：曦云 ® C600，曦思 ® N300，曦索 ® X301、X302。",
+          "status": "extracted_source_requires_context_review"
+        }
+      ],
+      "software_compatibility_status": "not_verified_against_server",
+      "software_requirements_evidence": [],
+      "pages_with_quality_flags": 0,
+      "extracted_characters": 38588,
+      "cover_text": "沐曦通用 GPU 与 MXMACA® 软件栈\nMCCL 编程指南\nPG‑23004‑020‑F5_V08 2026‑06‑26\n"
+    },
+    {
+      "id": "mcprofiler-v06",
+      "family": "mcprofiler",
+      "filename": "沐曦通用GPU_mcProfiler使用手册_CN_V06.pdf",
+      "title": "沐曦通用GPU_mcProfiler使用手册",
+      "document_revision": "V06",
+      "document_code": "OG-24005-020-F5_V06",
+      "publication_date": "2026-03-27",
+      "sha256": "22c9fa76c4f27e328b151bad16f105b11d81df4fc501075baec5794c29b5c66e",
+      "bytes": 2076391,
+      "page_count": 10,
+      "topics": [
+        "profiling"
+      ],
+      "has_explicit_page_labels": true,
+      "outline_count": 10,
+      "outline_path": "generated/outlines/mcprofiler-v06.json",
+      "navigation_path": "generated/documents/mcprofiler-v06.md",
+      "applicability_status": "source_evidence_found",
+      "applicability_evidence": [
+        {
+          "kind": "product_scope",
+          "pdf_page": 6,
+          "page_label": "1",
+          "text_path": "generated/text/mcprofiler-v06/page-0006.txt",
+          "excerpt": "本文档适用于沐曦 MXC500 系列产品：曦云 ® C500、C500X、C550、C550‑PL、C588，曦思® N260，曦\n索 ® X206；以及 MXC600 系列产品：曦云 ® C600，曦思 ® N300，曦索 ® X301、X302。",
+          "status": "extracted_source_requires_context_review"
+        }
+      ],
+      "software_compatibility_status": "not_verified_against_server",
+      "software_requirements_evidence": [
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 6,
+          "page_label": "1",
+          "text_path": "generated/text/mcprofiler-v06/page-0006.txt"
+        },
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 7,
+          "page_label": "2",
+          "text_path": "generated/text/mcprofiler-v06/page-0007.txt"
+        }
+      ],
+      "pages_with_quality_flags": 0,
+      "extracted_characters": 4086,
+      "cover_text": "沐曦通用 GPU 与 MXMACA® 软件栈\nmcProfiler 使用手册\nOG‑24005‑020‑F5_V06 2026‑03‑27\n"
+    },
+    {
+      "id": "mcpytorch-v16",
+      "family": "mcpytorch",
+      "filename": "沐曦通用GPU_mcPyTorch用户指南_CN_V16.pdf",
+      "title": "沐曦通用GPU_mcPyTorch用户指南",
+      "document_revision": "V16",
+      "document_code": "OG-23031-020-F5_V16",
+      "publication_date": "2026-09-15",
+      "sha256": "165b88e24e4768497ef4587368037b4bbc99ab933eafc3e4baac43175c83cdb2",
+      "bytes": 1545029,
+      "page_count": 25,
+      "topics": [
+        "inference",
+        "environment"
+      ],
+      "has_explicit_page_labels": true,
+      "outline_count": 71,
+      "outline_path": "generated/outlines/mcpytorch-v16.json",
+      "navigation_path": "generated/documents/mcpytorch-v16.md",
+      "applicability_status": "source_evidence_found",
+      "applicability_evidence": [
+        {
+          "kind": "product_scope",
+          "pdf_page": 7,
+          "page_label": "1",
+          "text_path": "generated/text/mcpytorch-v16/page-0007.txt",
+          "excerpt": "本文档适用于沐曦 MXC500 系列产品：曦云 ® C500、C500X、C550、C550‑PL、C588，曦思® N260，曦\n索 ® X206；以及 MXC600 系列产品：曦云 ® C600，曦思 ® N300，曦索 ® X301、X302。",
+          "status": "extracted_source_requires_context_review"
+        }
+      ],
+      "software_compatibility_status": "not_verified_against_server",
+      "software_requirements_evidence": [
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 7,
+          "page_label": "1",
+          "text_path": "generated/text/mcpytorch-v16/page-0007.txt"
+        },
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 8,
+          "page_label": "2",
+          "text_path": "generated/text/mcpytorch-v16/page-0008.txt"
+        },
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 9,
+          "page_label": "3",
+          "text_path": "generated/text/mcpytorch-v16/page-0009.txt"
+        }
+      ],
+      "pages_with_quality_flags": 0,
+      "extracted_characters": 18231,
+      "cover_text": "沐曦通用 GPU 与 MXMACA® 软件栈\nmcPyTorch 用户指南\nOG‑23031‑020‑F5_V16 2026‑09‑15\n"
+    },
+    {
+      "id": "mctracer-v08",
+      "family": "mctracer",
+      "filename": "沐曦通用GPU_mcTracer使用手册_CN_V08.pdf",
+      "title": "沐曦通用GPU_mcTracer使用手册",
+      "document_revision": "V08",
+      "document_code": "OG-24004-020-F5_V08",
+      "publication_date": "2026-03-27",
+      "sha256": "63b792c27a24a5f89d2e599bd5f84791f0c31b815e30d341e4c4cfcc1c21a492",
+      "bytes": 1600147,
+      "page_count": 9,
+      "topics": [
+        "profiling"
+      ],
+      "has_explicit_page_labels": true,
+      "outline_count": 10,
+      "outline_path": "generated/outlines/mctracer-v08.json",
+      "navigation_path": "generated/documents/mctracer-v08.md",
+      "applicability_status": "source_evidence_found",
+      "applicability_evidence": [
+        {
+          "kind": "product_scope",
+          "pdf_page": 6,
+          "page_label": "1",
+          "text_path": "generated/text/mctracer-v08/page-0006.txt",
+          "excerpt": "本文档适用于沐曦 MXC500 系列产品：曦云 ® C500、C500X、C550、C550‑PL、C588，曦思® N260，曦\n索 ® X206；以及 MXC600 系列产品：曦云 ® C600，曦思 ® N300，曦索 ® X301、X302。",
+          "status": "extracted_source_requires_context_review"
+        }
+      ],
+      "software_compatibility_status": "not_verified_against_server",
+      "software_requirements_evidence": [
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 7,
+          "page_label": "2",
+          "text_path": "generated/text/mctracer-v08/page-0007.txt"
+        },
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 9,
+          "page_label": "4",
+          "text_path": "generated/text/mctracer-v08/page-0009.txt"
+        }
+      ],
+      "pages_with_quality_flags": 0,
+      "extracted_characters": 3882,
+      "cover_text": "沐曦通用 GPU 与 MXMACA® 软件栈\nmcTracer使用手册\nOG‑24004‑020‑F5_V08 2026‑03‑27\n"
+    },
+    {
+      "id": "mctriton-v08",
+      "family": "mctriton",
+      "filename": "沐曦通用GPU_mcTriton用户指南_CN_V08.pdf",
+      "title": "沐曦通用GPU_mcTriton用户指南",
+      "document_revision": "V08",
+      "document_code": "OG-25009-020-F5_V08",
+      "publication_date": "2026-09-22",
+      "sha256": "5486a806ac8e48e40514347bac7403c40aee53d59515a9bded39cc17a7daed59",
+      "bytes": 1506204,
+      "page_count": 12,
+      "topics": [
+        "kernels",
+        "environment"
+      ],
+      "has_explicit_page_labels": true,
+      "outline_count": 17,
+      "outline_path": "generated/outlines/mctriton-v08.json",
+      "navigation_path": "generated/documents/mctriton-v08.md",
+      "applicability_status": "source_evidence_found",
+      "applicability_evidence": [
+        {
+          "kind": "product_scope",
+          "pdf_page": 5,
+          "page_label": "1",
+          "text_path": "generated/text/mctriton-v08/page-0005.txt",
+          "excerpt": "本文档适用于沐曦 MXC500 系列产品：曦云 ® C500、C500X、C550、C550‑PL、C588，曦思® N260，曦\n索 ® X206；以及 MXC600 系列产品：曦云 ® C600，曦思 ® N300，曦索 ® X301、X302。",
+          "status": "extracted_source_requires_context_review"
+        }
+      ],
+      "software_compatibility_status": "not_verified_against_server",
+      "software_requirements_evidence": [
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 5,
+          "page_label": "1",
+          "text_path": "generated/text/mctriton-v08/page-0005.txt"
+        },
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 6,
+          "page_label": "2",
+          "text_path": "generated/text/mctriton-v08/page-0006.txt"
+        }
+      ],
+      "pages_with_quality_flags": 0,
+      "extracted_characters": 7354,
+      "cover_text": "沐曦通用 GPU 与 MXMACA® 软件栈\nmcTriton 用户指南\nOG‑25009‑020‑F5_V08 2026‑09‑22\n"
+    },
+    {
+      "id": "mxcc-v06",
+      "family": "mxcc",
+      "filename": "沐曦通用GPU_mxcc编译器用户指南_CN_V06.pdf",
+      "title": "沐曦通用GPU_mxcc编译器用户指南",
+      "document_revision": "V06",
+      "document_code": "OG-23026-020-F5_V06",
+      "publication_date": "2026-03-27",
+      "sha256": "6fceba6f92b1b4274a5c2dd106d76320947a0b4ef0cdaffd36af5497fdffb6dd",
+      "bytes": 1528961,
+      "page_count": 20,
+      "topics": [
+        "development",
+        "kernels"
+      ],
+      "has_explicit_page_labels": true,
+      "outline_count": 23,
+      "outline_path": "generated/outlines/mxcc-v06.json",
+      "navigation_path": "generated/documents/mxcc-v06.md",
+      "applicability_status": "source_evidence_found",
+      "applicability_evidence": [
+        {
+          "kind": "product_scope",
+          "pdf_page": 6,
+          "page_label": "1",
+          "text_path": "generated/text/mxcc-v06/page-0006.txt",
+          "excerpt": "本文档适用于沐曦 MXC500 系列产品：曦云 ® C500、C500X、C550、C550‑PL、C588，曦思® N260，曦\n索 ® X206；以及 MXC600 系列产品：曦云 ® C600，曦思 ® N300，曦索 ® X301、X302。",
+          "status": "extracted_source_requires_context_review"
+        }
+      ],
+      "software_compatibility_status": "not_verified_against_server",
+      "software_requirements_evidence": [
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 9,
+          "page_label": "4",
+          "text_path": "generated/text/mxcc-v06/page-0009.txt"
+        }
+      ],
+      "pages_with_quality_flags": 0,
+      "extracted_characters": 11668,
+      "cover_text": "沐曦通用 GPU 与 MXMACA® 软件栈\nmxcc 编译器用户指南\nOG‑23026‑020‑F5_V06 2026‑03‑27\n"
+    },
+    {
+      "id": "maca-cpp-v06",
+      "family": "maca-cpp",
+      "filename": "沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf",
+      "title": "沐曦通用GPU_MXMACA C++编程指南",
+      "document_revision": "V06",
+      "document_code": "PG-23006-020-F5_V06",
+      "publication_date": "2026-03-27",
+      "sha256": "030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f",
+      "bytes": 2323891,
+      "page_count": 313,
+      "topics": [
+        "kernels",
+        "development"
+      ],
+      "has_explicit_page_labels": true,
+      "outline_count": 184,
+      "outline_path": "generated/outlines/maca-cpp-v06.json",
+      "navigation_path": "generated/documents/maca-cpp-v06.md",
+      "applicability_status": "source_evidence_found",
+      "applicability_evidence": [
+        {
+          "kind": "product_scope",
+          "pdf_page": 9,
+          "page_label": "1",
+          "text_path": "generated/text/maca-cpp-v06/page-0009.txt",
+          "excerpt": "本文档适用于沐曦MXC500系列产品：曦云 ® C500、C500X、C550、C550‑PL、C588，曦思® N260，曦\n索 ® X206；以及MXC600系列产品：曦云 ® C600，曦思 ® N300，曦索 ® X301、X302。",
+          "status": "extracted_source_requires_context_review"
+        }
+      ],
+      "software_compatibility_status": "not_verified_against_server",
+      "software_requirements_evidence": [],
+      "pages_with_quality_flags": 0,
+      "extracted_characters": 251828,
+      "cover_text": "沐曦通用 GPU 与 MXMACA® 软件栈\nMXMACA® C++ 编程指南\nPG‑23006‑020‑F5_V06 2026‑03‑27\n"
+    },
+    {
+      "id": "clangd-v03",
+      "family": "clangd",
+      "filename": "沐曦通用GPU_MXMACA Clangd用户手册_CN_V03.pdf",
+      "title": "沐曦通用GPU_MXMACA Clangd用户手册",
+      "document_revision": "V03",
+      "document_code": "OG-24072-020-F5_V03",
+      "publication_date": "2026-03-27",
+      "sha256": "f84564a4060d30251dbb164705b0aec56b25f11c02c1c748d5ce6187e44868ad",
+      "bytes": 6979025,
+      "page_count": 23,
+      "topics": [
+        "development"
+      ],
+      "has_explicit_page_labels": true,
+      "outline_count": 30,
+      "outline_path": "generated/outlines/clangd-v03.json",
+      "navigation_path": "generated/documents/clangd-v03.md",
+      "applicability_status": "source_evidence_found",
+      "applicability_evidence": [
+        {
+          "kind": "product_scope",
+          "pdf_page": 7,
+          "page_label": "2",
+          "text_path": "generated/text/clangd-v03/page-0007.txt",
+          "excerpt": "本文档适用于沐曦 MXC500 系列产品：曦云 ® C500、C500X、C550、C550‑PL、C588，曦思® N260；以\n及 MXC600 系列产品：曦云 ® C600，曦思 ® N300。",
+          "status": "extracted_source_requires_context_review"
+        }
+      ],
+      "software_compatibility_status": "not_verified_against_server",
+      "software_requirements_evidence": [
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 7,
+          "page_label": "2",
+          "text_path": "generated/text/clangd-v03/page-0007.txt"
+        },
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 8,
+          "page_label": "3",
+          "text_path": "generated/text/clangd-v03/page-0008.txt"
+        }
+      ],
+      "pages_with_quality_flags": 0,
+      "extracted_characters": 13329,
+      "cover_text": "沐曦通用 GPU 与 MXMACA® 软件栈\nMXMACA® Clangd 用户手册\nOG‑24072‑020‑F5_V03 2026‑03‑27\n"
+    },
+    {
+      "id": "builtins-v01",
+      "family": "builtins",
+      "filename": "沐曦通用GPU_MXMACA编译器内建函数编程指南_CN_V01.pdf",
+      "title": "沐曦通用GPU_MXMACA编译器内建函数编程指南",
+      "document_revision": "V01",
+      "document_code": "OG-26013-000-F5_V01",
+      "publication_date": "2026-08-03",
+      "sha256": "80dfb3a83381e48e19968b432d4eb24d37c505bd711af14f74889277cffc3835",
+      "bytes": 1634455,
+      "page_count": 46,
+      "topics": [
+        "kernels"
+      ],
+      "has_explicit_page_labels": true,
+      "outline_count": 61,
+      "outline_path": "generated/outlines/builtins-v01.json",
+      "navigation_path": "generated/documents/builtins-v01.md",
+      "applicability_status": "not_explicitly_identified",
+      "applicability_evidence": [],
+      "software_compatibility_status": "not_verified_against_server",
+      "software_requirements_evidence": [],
+      "pages_with_quality_flags": 0,
+      "extracted_characters": 52118,
+      "cover_text": "沐曦通用 GPU 与 MXMACA® 软件栈\nMXMACA® 编译器内建函数编程指南\nOG‑26013‑000‑F5_V01 2026‑08‑03\n"
+    },
+    {
+      "id": "mxvs-v26",
+      "family": "mxvs",
+      "filename": "沐曦通用GPU_mxvs测试工具套件使用手册_CN_V26.pdf",
+      "title": "沐曦通用GPU_mxvs测试工具套件使用手册",
+      "document_revision": "V26",
+      "document_code": "OG-23023-020-F5_V26",
+      "publication_date": "2026-10-30",
+      "sha256": "f14e664d429c6568ce5723a3a83c7a9164c2fcb33fd59137fb49c1128ab63ce2",
+      "bytes": 3276844,
+      "page_count": 38,
+      "topics": [
+        "environment",
+        "profiling",
+        "communication"
+      ],
+      "has_explicit_page_labels": true,
+      "outline_count": 34,
+      "outline_path": "generated/outlines/mxvs-v26.json",
+      "navigation_path": "generated/documents/mxvs-v26.md",
+      "applicability_status": "source_evidence_found",
+      "applicability_evidence": [
+        {
+          "kind": "product_scope",
+          "pdf_page": 11,
+          "page_label": "1",
+          "text_path": "generated/text/mxvs-v26/page-0011.txt",
+          "excerpt": "本文档适用于沐曦 MXC500 系列产品：曦云 ® C500、C500X、C550、C550‑PL、C588，曦思® N260，曦\n索 ® X206；以及 MXC600 系列产品：曦云 ® C600，曦思 ® N300，曦索 ® X301、X302。",
+          "status": "extracted_source_requires_context_review"
+        }
+      ],
+      "software_compatibility_status": "not_verified_against_server",
+      "software_requirements_evidence": [
+        {
+          "kind": "software_requirements_candidate",
+          "pdf_page": 12,
+          "page_label": "2",
+          "text_path": "generated/text/mxvs-v26/page-0012.txt"
+        }
+      ],
+      "pages_with_quality_flags": 0,
+      "extracted_characters": 24611,
+      "cover_text": "沐曦通用 GPU 与 MXMACA® 软件栈\nmxvs 测试工具套件使用手册\nOG‑23023‑020‑F5_V26 2026‑10‑30\n"
+    },
+    {
+      "id": "runtime-api-v18",
+      "family": "runtime-api",
+      "filename": "沐曦通用GPU_运行时API编程指南_CN_V18.pdf",
+      "title": "沐曦通用GPU_运行时API编程指南",
+      "document_revision": "V18",
+      "document_code": "PG-23003-020-F5_V18",
+      "publication_date": "2026-10-30",
+      "sha256": "fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0",
+      "bytes": 5147742,
+      "page_count": 79,
+      "topics": [
+        "environment",
+        "kernels",
+        "communication"
+      ],
+      "has_explicit_page_labels": true,
+      "outline_count": 108,
+      "outline_path": "generated/outlines/runtime-api-v18.json",
+      "navigation_path": "generated/documents/runtime-api-v18.md",
+      "applicability_status": "source_evidence_found",
+      "applicability_evidence": [
+        {
+          "kind": "product_scope",
+          "pdf_page": 10,
+          "page_label": "1",
+          "text_path": "generated/text/runtime-api-v18/page-0010.txt",
+          "excerpt": "本文档适用于沐曦 MXC500 系列产品：曦云 ® C500、C500X、C550、C550‑PL、C588，曦思® N260，曦\n索 ® X206；以及 MXC600 系列产品：曦云 ® C600，曦思 ® N300，曦索 ® X301、X302。",
+          "status": "extracted_source_requires_context_review"
+        }
+      ],
+      "software_compatibility_status": "not_verified_against_server",
+      "software_requirements_evidence": [],
+      "pages_with_quality_flags": 0,
+      "extracted_characters": 82383,
+      "cover_text": "沐曦通用 GPU 与 MXMACA® 软件栈\n运行时 API 编程指南\nPG‑23003‑020‑F5_V18 2026‑10‑30\n"
+    }
+  ]
+}

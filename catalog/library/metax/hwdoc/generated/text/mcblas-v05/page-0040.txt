@@ -1,0 +1,43 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 40
+PDF 页码标签: 33
+页脚页码候选: 33
+章节提示（书签推断）: mcblas<t>scal()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+2.3.12 mcblas<t>scal()
+mcblasStatus_t mcblasSscal(mcblasHandle_t handle, int n,
+const float *alpha,
+float *x, int incx)
+mcblasStatus_t mcblasDscal(mcblasHandle_t handle, int n,
+const double *alpha,
+double *x, int incx)
+mcblasStatus_t mcblasCscal(mcblasHandle_t handle, int n,
+const mcComplex *alpha,
+mcComplex *x, int incx)
+mcblasStatus_t mcblasCsscal(mcblasHandle_t handle, int n,
+const float *alpha,
+mcComplex *x, int incx)
+mcblasStatus_t mcblasZscal(mcblasHandle_t handle, int n,
+const mcDoubleComplex *alpha,
+mcDoubleComplex *x, int incx)
+mcblasStatus_t mcblasZdscal(mcblasHandle_t handle, int n,
+const double *alpha,
+mcDoubleComplex *x, int incx)
+该函数按标量 α 缩放向量 x， 并用结果覆盖该向量。 因此， 执行的操作为x[j] = α×x[j]， 其中i = 1, . . . , n，
+j = 1 + ( i − 1) ∗ incx。请注意，最后两个公式反映了基于 1 的索引，该索引用于与 Fortran 兼容。
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+alpha 主机或设备 input 用于乘法的 <type> 标量
+n input 向量 x 中的元素数
+x 设备 in/out 包含 n 个元素的 <type> 向量
+incx input x 中连续元素之间的步幅
+下面列出了此函数可能的返回值及其含义。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 33

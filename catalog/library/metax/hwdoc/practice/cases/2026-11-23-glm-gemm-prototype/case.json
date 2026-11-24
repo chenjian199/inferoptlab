@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "observed_on": "2026-11-23",
+  "verification": "local_kernel_and_isolated_vllm_layer_passed_full_model_blocked",
+  "host_driver": "3.10.14",
+  "prior_baseline_driver": "3.8.30",
+  "unit_cases_passed": 56,
+  "isolated_cases_passed": 24,
+  "isolated_device": 0,
+  "actual_checkpoint_partitions": 8,
+  "activations": "synthetic",
+  "full_model": "blocked before candidate injection; no scoring",
+  "unverified": [
+    "full TP8 model replacement",
+    "HumanEval candidate correctness",
+    "performance",
+    "cause of GPU6 fault"
+  ],
+  "preserved": "Frozen baseline, repeatability and prior4 containers; experimental container stopped."
+}

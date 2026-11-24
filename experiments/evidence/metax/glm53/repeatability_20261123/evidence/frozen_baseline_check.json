@@ -1,0 +1,18 @@
+{
+  "versions": {
+    "torch": "2.10.0+metax3.9.0.8",
+    "triton": "3.6.0+metax3.9.0.8",
+    "vllm": "0.32.0+empty",
+    "vllm-metax": "0.32.0+g0962c8.d20261122.maca3.9.0.29.torch2.10.0",
+    "mcoplib": "0.4.14+gf3794c4.maca3.9.0.31.torch2.10",
+    "transformers": "5.17.0",
+    "compressed-tensors": "0.17.0"
+  },
+  "vllm_file": "/work/src/vllm/vllm/__init__.py",
+  "plugin_file": "/work/src/vllm-metax/vllm_metax/__init__.py",
+  "platform": "MxsmlMacaPlatform",
+  "device_count": 8,
+  "pip_check_exit": 0,
+  "pip_check": "No broken requirements found.\nWARNING: The directory '/experiment/cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.\n",
+  "passed": true
+}

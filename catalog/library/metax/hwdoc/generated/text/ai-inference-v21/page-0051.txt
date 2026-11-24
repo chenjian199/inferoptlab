@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 51
+PDF 页码标签: 39
+页脚页码候选: 39
+章节提示（书签推断）: 导出为ONNX模型
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+表 6.5 MacaPMX 支持的大模型及对应 ONNX 导出函数
+LLM Model Export.py 导入代码
+Llama 全系/其它类 Llama 大模
+型
+from macaPMX.model_zoo.llama.huggingface import run_
+export
+chatglm2_6B/chatglm3_6B from macaPMX.model_zoo.chatglm2.huggingface import
+run_export
+internlm_7B from macaPMX.model_zoo.internlm.huggingface import
+run_export
+BaiChuan2_7B from macaPMX.model_zoo.baichuan.huggingface import
+export_7B
+Mixtral8x7B from macaPMX.model_zoo.mixtral.huggingface import
+run_export
+QWen 系列模型 from macaPMX.model_zoo.qwen.huggingface import run_
+export
+注解: BaiChuan2_7B 对应的 ONNX 导出函数与其余模型不同，需要同步修改第 5 行中的函数
+名。
+2. 执行以下命令，将 PMX 模型导出为 ONNX 模型。
+OMP_NUM_THREADS=1 torchrun --nproc_per_node $num_gpu Export.py --ckpt_dir <llama_
+,→dir> --tokenizer_path <llama_tokenizer_dir>/tokenizer.model --fused_qkv 1 --
+,→fused_kvcache 1 --auto_causal 1 --quantized_cache 1 --dynamic_batching 1 --
+,→export_path <export_dir> --cache_layout 3
+参数说明：
+num_gpu ：模型推理需要的 GPU 数量
+ckpt_dir ：PMX 模型路径
+tokenizer_path ：tokenizer 模型路径；chatglm 系列模型不支持此参数，无需设置。
+export_path ：导出 ONNX 模型目标路径
+cache_layout ：cacheAttention 中 cache 存储 layout，当前仅支持 0 和 3。0：layout 为 [MaxT ,
+L, 2, H, Dh]；3：layout 为 [L, 2, H, MaxT , Dh]。建议设置为 3，性能更佳。
+其余参数与命令中保持一致即可。
+6 MacaRT‑LLM 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 39

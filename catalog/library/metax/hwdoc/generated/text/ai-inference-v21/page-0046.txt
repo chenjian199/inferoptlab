@@ -1,0 +1,37 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 46
+PDF 页码标签: 34
+页脚页码候选: 34
+章节提示（书签推断）: 安装
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+6.3 MacaRT‑LLM 使用流程
+本章节介绍 MacaRT‑LLM 的使用步骤，主要分为模型转换、本地模型部署验证及服务化部署三个部分。
+6.3.1 模型转换
+使用 MacaPMX 进行模型转换，MacaPMX 与 PPL.PMX 完全适配，为每个 OP 提供了一组标准的操作符
+规范文档和相应的函数 Python API，使用户可以轻松地在 Python 中使用 PMX 自定义的 OP 构建需要的
+模型。
+目前， MacaPMX 主要负责 LLM 模型结构的表达。 除了 PPL.PMX 提供的开箱即用的 LLM model zoo， 用
+户还可使用 MacaPMX 提供的模型转换工具（从不同社区的模型到 PMX 模型） 、Tensor 并行分割工具和
+PMX 模型合并工具。
+6.3.1.1 安装
+MacaPMX 以 wheel 安装包的形式对外发布，建议在 Conda 环境中安装（建议 Python 版本 3.8） 。
+操作步骤
+1. 下载解压相应发行版的 ppl.llm.serving 发布包 （例如：maca‑ppl.llm.serving‑py38‑2.33.0.11‑
+linux‑x86_64.tar .xz）后，在解压路径/wheel 下找到 macapmx 对应的 Python 安装包。
+2. 执行以下命令，安装 MacaPMX。
+conda create -n maca_test python=3.8
+source activate maca_test
+pip install macapmx-*-py3-none-any.whl
+wheel 包的依赖库主要有：
+• onnx
+• torch
+• fire
+• sentencepiece
+• safetensors
+其中，torch 应为安装相应的沐曦通用 GPU 软件发布包后得到的版本，其余依赖库会在安装 MacaPMX
+时自动安装。
+6 MacaRT‑LLM 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 34

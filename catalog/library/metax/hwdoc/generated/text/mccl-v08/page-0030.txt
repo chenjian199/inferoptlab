@@ -1,0 +1,36 @@
+文档: 沐曦通用GPU_MCCL编程指南_CN_V08.pdf
+文档 ID: mccl-v08
+SHA256: 7a95ac3ce4f68b0fb11baabb7fa08794cd5f5081c9ec3e888eefaaa03ab8c8b2
+PDF 页序号: 30
+PDF 页码标签: 23
+页脚页码候选: 23
+章节提示（书签推断）: MCCL_RING_TP8_MODE
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MCCL 编程指南
+注解: 旧的变量 MCCL_MIN_NRINGS 仍然可以作为别名使用。 如果设置了MCCL_MIN_NCHANNELS，
+将覆盖 MCCL_MIN_NRINGS。
+可选值： 整数值。 当 Channel 数为‑2 时， 最终结果会配置为默认值。 当 Channel 数小于 0 且不等于‑2 时，
+会配置为 0。 当 Channel 数大于MAXCHANNELS（同构拓扑 MAXCHANNELS=64， 异构MAXCHANNELS=32）
+时，会配置为 MAXCHANNELS。
+默认值：2
+4.2.2.11 MCCL_MAX_NCHANNELS
+描述：限定了 MCCL 可以使用的 Channel 数量。 减少 Channel 数量会减少通信库使用的 block 数量， 相
+应的会影响 GPU 的计算资源。
+注解: 旧的 MCCL_MAX_NRINGS 仍然可以作为别名使用。如果设置了 MCCL_MAX_NCHANNELS，将
+覆盖 MCCL_MAX_NRINGS。
+可选值：大于等于 1 的整数值。当 Channel 数为‑2 时，最终结果会配置为默认值。当 Channel 数小于
+0 且 不 等 于‑2 时， 会 配 置 为 0。 当 Channel 数 大 于MAXCHANNELS （同 构 拓 扑MAXCHANNELS=64，
+异 构 MAXCHANNELS=32） 时， 会 配 置 为 MAXCHANNELS。 当 MCCL_MIN_NCHANNELS 设 置 的 值 比
+MCCL_MAX_NCHANNELS 设置的大，最终结果会取两者最大值。
+默认值：32
+4.2.2.12 MCCL_RING_TP8_MODE
+描述：设定当前为 Dragonfly TP8 拓扑模式，并指定预设的通信环路。
+可选值：
+• 0：不适用预设通信环路
+• 1：使用 8 opt 环路
+• 2：使用 8 opt 环路和 3 PCIe 环路
+• 3：使用 16 opt 和 6 RC 和 8 RoCE 环路
+• 4：使用 16 opt 环路和 6 RC 环路
+默认值：0
+4 环境变量 沐曦股份专有信息 PG‑23004‑020‑F5_V08 | 23

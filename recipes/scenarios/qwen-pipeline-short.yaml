@@ -1,0 +1,12 @@
+schema_version: 0.2.0
+kind: BenchmarkScenario
+id: qwen-pipeline-short
+version: 1.0.0
+title: Qwen short scenario
+provenance: []
+issues: []
+extensions: {}
+case_ref:
+  id: qwen-pipeline-short-case
+  version: 1.0.0
+dataset_dir: experiments/datasets/qwen-pipeline-short

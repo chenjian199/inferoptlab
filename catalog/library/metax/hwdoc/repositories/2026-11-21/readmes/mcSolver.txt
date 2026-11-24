@@ -1,0 +1,26 @@
+# mcSolver
+mcSolver is Metax GPU accelerated library for decompositions and linear system solutions.
+
+## Build
+### 1. Prerequisites
+mcSolver depends on fmt(version=7.1.3).
+
+Set the following environment variables before building.
+```bash
+export MACA_PATH=/opt/maca
+export MACA_CLANG_PATH=${MACA_PATH}/mxgpu_llvm/bin
+export PATH=${MACA_PATH}/mxgpu_llvm/bin:${MACA_PATH}/bin:$PATH
+export LD_LIBRARY_PATH=${MACA_PATH}/lib:$LD_LIBRARY_PATH
+export fmt_DIR=your_fmt_install_dir
+```
+
+### 2. Build using cmake
+
+CMakeLists and Makefile is provided, we can build mcSolver by following steps:
+
+```bash
+make
+```
+
+The include and lib will be installed on ${PROJECT_ROOT}/build/release/mcsolver-install
+

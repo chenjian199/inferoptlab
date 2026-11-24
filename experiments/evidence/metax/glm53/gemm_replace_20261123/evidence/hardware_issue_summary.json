@@ -1,0 +1,44 @@
+{
+  "observed_on": "2026-11-23",
+  "driver": "3.10.14",
+  "prior_baseline_driver": "3.8.30",
+  "kernel_events": [
+    "Nov 23 04:49:41 63metax kernel: METAX.B5B00.D0.PCI.WARN metalk4 link changed: width x16 - > x4",
+    "Nov 23 04:49:41 63metax kernel: METAX.B5E00.D0.PCI.WARN metalk4 link changed: width x16 - > x4",
+    "Nov 23 04:53:58 63metax kernel: METAX.B5B00.D0.PCI.ERROR EID (0000:5b:00.0): 0x2119, metalk4 uncorrectable error, status 0x00100000, count 1",
+    "Nov 23 04:53:58 63metax kernel: METAX.B5B00.D0.PCI.ERROR metalk4 uncorrectable AER [20] Unsupported Request Error, count 1",
+    "Nov 23 04:53:58 63metax kernel: METAX.B5B00.D0.MON.INFO the active status of this card is changed, new status:0"
+  ],
+  "scope": "Selected diagnostic evidence only; root cause not proven. Full model failed before candidate injection.",
+  "acs_parameter": {
+    "path": "/sys/module/metax/parameters/pci_acs_redir_disable",
+    "value": "N"
+  },
+  "timing": {
+    "device_tests.json": 1795409407.3696244,
+    "model_process.json": 1795409859.0409338,
+    "communication_stall.json": 1795409857.116856
+  },
+  "event_timezone": "UTC in raw kernel lines; Asia/Shanghai = UTC+8",
+  "final_state": "GPU6 Not Available; all other7 Available; no GPU process after stopping only experiment container",
+  "communication_probe": "MCCL_P2P_DISABLE=1 in diagnostic exec only; rank6 queue creation ioctl failure and SIGSEGV before collective.",
+  "no_causal_claim": "Driver differs from prior baseline, but cause of device error is unproven. No driver change/reset/reboot by this experiment.",
+  "remote_originals": [
+    {
+      "path": "/home/metax/glm53-gemm-20261123/evidence/kernel_messages.txt",
+      "sha256": "bc95ab2140a7757d0e2eb1cf39238abeb60d262daa4745d538b7108ba09db764"
+    },
+    {
+      "path": "/home/metax/glm53-gemm-20261123/evidence/model.log",
+      "sha256": "0be1dd4765c1a54445d9aba39fd429169d4826e5fda7e43cdab767e2ac014c4b"
+    },
+    {
+      "path": "/home/metax/glm53-gemm-20261123/evidence/gpu_final.txt",
+      "sha256": "0e72bf1bf27bcde0792a2ddecad2f144d3e63360dd5fb0a1a1e5047268bcce3b"
+    },
+    {
+      "path": "/home/metax/glm53-gemm-20261123/evidence/communication_probe.log",
+      "sha256": "5d9ed1ccf229bfec7214f02e6459d6402820515853678f9990ddf1db3e504a50"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 282
+PDF 页码标签: 274
+页脚页码候选: 274
+章节提示（书签推断）: 描述
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+2.22 Warp Shuffle 函数
+__shfl_sync、__shfl_up_sync、__shfl_down_sync和 __shfl_xor_sync实现在warp中的
+线程之间的变量相互交换。
+2.22.1 提要
+T __shfl_sync(unsigned long mask, T var, int srcLane, int width=warpSize);
+T __shfl_up_sync(unsigned long mask, T var, unsigned int delta, int 
+,→width=warpSize);
+T __shfl_down_sync(unsigned long mask, T var, unsigned int delta, int 
+,→width=warpSize);
+T __shfl_xor_sync(unsigned long mask, T var, int laneMask, int width=warpSize);
+T可以是int、unsignedint、long、unsignedlong、longlong、unsignedlonglong、float、double、
+half或者half2。
+2.22.2 描述
+__shfl_sync()接口允许不通过shared内存实现warp中的线程之间的变量交换。warp中所有active线
+程（mask指示的线程）同时进行交换，每个线程根据类型移动4个或8个字节。
+warp中的thread被称为lane，可以有一个在0~warpSize‑1之间的索引。支持四种源lane寻址模式：
+__shfl_sync()
+直接从索引的lane拷贝。
+__shfl_up_sync()
+从调用线程的lane索引相对减少差值之后的laneID对应的lane处拷贝。
+__shfl_down_sync()
+从调用线程的lane索引相对增加差值之后的laneID对应的lane处拷贝。
+__shfl_xor_sync()
+基于自己laneID的异或操作获得的laneID对应的lane处拷贝。
+线程只能从另一个 active 的参与__shfl_sync() 命令的线程处读取数据，如果目标线程是 inactive
+的，那么检索到的值是未定义的。
+所有的 __shfl_sync() intrinsic 都有一个可选择添加的参数 width , 它将会改变这些 intrinsic 的行
+为。width的值必须是2的正整数次幂，如果不是或者比warpSize大，结果将是未定义的。
+__shfl_sync()返回 srcLane指定 ID 的线程的var变量的值。如果 width 比 warpSize 小，那么每
+一个warp的子group将作为一个独立的实体，拥有一个逻辑的从0开始的laneID系统。如果 srcLane
+超过了[0:width‑1]，返回的结果对应的将由srcLanemodwidth指定的线程的var的值决定。
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 274

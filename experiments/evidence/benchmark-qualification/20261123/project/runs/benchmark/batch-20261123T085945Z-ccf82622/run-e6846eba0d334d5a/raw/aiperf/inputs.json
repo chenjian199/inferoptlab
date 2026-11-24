@@ -1,0 +1,92 @@
+{
+  "data": [
+    {
+      "session_id": "qwen-pipeline-smoke-workload-profiling-000000",
+      "payloads": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": " yellow field red stone city blue field green stone red blue music light river city light ocean cloud forest yellow blue city yellow water stone field ocean river morning yellow music green field red music book garden city garden cloud river cloud green red book light yellow field morning garden garden cloud stone morning forest music red morning stone music book river light river water garden cloud book morning light field cloud stone garden cloud paper morning music apple city blue blue cloud green paper paper stone paper music light morning light city cloud green yellow ocean silver silver green silver silver blue music garden blue cloud river cloud cloud silver silver cloud blue water apple red garden red blue"
+            }
+          ],
+          "model": "qwen3-0.6b",
+          "stream": true,
+          "max_tokens": 16,
+          "min_tokens": 16,
+          "ignore_eos": true,
+          "temperature": 0,
+          "stream_options": {
+            "include_usage": true
+          }
+        }
+      ]
+    },
+    {
+      "session_id": "qwen-pipeline-smoke-workload-profiling-000001",
+      "payloads": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": " forest music yellow yellow forest river red green city forest forest water light yellow yellow silver river forest light field music field water morning green silver book light cloud cloud green morning morning book paper light green water blue stone forest river stone red field red green book book water garden music field field stone book apple apple ocean river cloud silver apple apple paper stone yellow book red water music light green yellow green yellow morning city red river stone morning red green silver cloud garden forest field ocean water book morning field blue stone blue ocean city light blue book green green blue light book music field city silver light red cloud ocean city yellow city forest city"
+            }
+          ],
+          "model": "qwen3-0.6b",
+          "stream": true,
+          "max_tokens": 16,
+          "min_tokens": 16,
+          "ignore_eos": true,
+          "temperature": 0,
+          "stream_options": {
+            "include_usage": true
+          }
+        }
+      ]
+    },
+    {
+      "session_id": "qwen-pipeline-smoke-workload-profiling-000002",
+      "payloads": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": " paper morning morning city red field paper garden yellow morning stone blue city forest garden light green stone apple apple morning green water river apple paper forest ocean apple yellow paper ocean green city field yellow light city garden water stone blue green apple stone paper silver light green forest light blue forest stone blue book apple music silver water forest red cloud garden water green paper blue yellow blue light stone music cloud apple forest ocean paper green forest morning paper cloud yellow silver forest apple field blue cloud red stone apple river book morning stone city paper silver stone paper yellow river apple green paper garden forest paper morning yellow morning apple forest music river cloud music forest"
+            }
+          ],
+          "model": "qwen3-0.6b",
+          "stream": true,
+          "max_tokens": 16,
+          "min_tokens": 16,
+          "ignore_eos": true,
+          "temperature": 0,
+          "stream_options": {
+            "include_usage": true
+          }
+        }
+      ]
+    },
+    {
+      "session_id": "qwen-pipeline-smoke-workload-profiling-000003",
+      "payloads": [
+        {
+          "messages": [
+            {
+              "role": "user",
+              "content": " city city garden stone music garden apple garden red city field music light red book ocean water book green green water book apple water city garden ocean cloud stone field forest apple apple garden garden water red red stone garden river light field silver blue blue water stone blue red forest blue blue cloud field garden red light blue music forest river blue green water music yellow forest yellow book apple forest music green blue book field green yellow garden water light apple blue morning red silver light forest blue music field book silver book city water stone field music ocean music forest silver yellow water morning silver green paper water book paper apple water stone river morning apple water"
+            }
+          ],
+          "model": "qwen3-0.6b",
+          "stream": true,
+          "max_tokens": 16,
+          "min_tokens": 16,
+          "ignore_eos": true,
+          "temperature": 0,
+          "stream_options": {
+            "include_usage": true
+          }
+        }
+      ]
+    }
+  ]
+}

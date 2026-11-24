@@ -1,0 +1,39 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 270
+PDF 页码标签: 262
+页脚页码候选: 262
+章节提示（书签推断）: __builtin_expect()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+让编译器假设 (char *)exp - offset至少是按照align字节对齐的，并且返回参数指针。
+例子：
+void *res = __builtin_assume_aligned(ptr, 32, 8); // 编译器可以假设 "(char *)res - 8
+,→"是按照最少 32字节对齐的
+2.18.2 __builtin_assume()
+void __builtin_assume(bool exp)
+让编译器假设这个布尔参数值是true。如果参数的值在运行时不是true，那么此行为不明确。
+例子：
+__device__ int get(int *ptr, int idx) {
+__builtin_assume(idx <= 2);
+return ptr[idx];
+}
+2.18.3 __assume()
+void __assume(bool exp)
+让编译器假设这个布尔参数值是true，如果在运行时这个参数的值不是true，那么该行为不明确。
+例子：
+__device__ int get(int *ptr, int idx) {
+__assume(idx <= 2);
+return ptr[idx];
+}
+2.18.4 __builtin_expect()
+long __builtin_expect (long exp, long c)
+指示编译器期望为 exp == c，并且返回exp的值。通常用于向编译器指示分支预测信息。
+例子：
+// 指示编译器 "var == 0
+,→"有很大可能性是对的，因此这个 if代码块的 body在运行时很可能会执行
+if (__builtin_expect (var, 0))
+doit ();
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 262

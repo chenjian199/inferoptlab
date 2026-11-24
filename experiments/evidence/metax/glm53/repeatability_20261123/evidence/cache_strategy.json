@@ -1,0 +1,4 @@
+{
+  "strategy": "Copied readable prior compilation cache files; prior cache untouched. One root-only vllm/modelinfos JSON not copied and will regenerate in independent cache. No persistent prefix KV cache.",
+  "files": 2259
+}

@@ -1,0 +1,39 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 84
+PDF 页码标签: 72
+页脚页码候选: 72
+章节提示（书签推断）: C-Eval精度测试
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+13.3.3 吞吐测试
+python3 -m sglang.bench_serving --backend sglang --dataset-name random m --random-
+,→input-len ${input-len} --random-output-len ${output-len} --random-range-ratio 1.
+,→0 --dataset-path ./dataset/ShareGPT_V3_unfiltered_cleaned_split.json --num-
+,→prompt ${batch_size}
+• ${input-len} 表示输入长度
+• ${output-len} 表示输出长度
+• ${batch_size} 指定输入批次数量
+13.3.4 精度测试
+13.3.4.1 MMLU 精度测试
+如果使用 MMLU 数据集进行精度测试， 需要准备 data 数据。 下载data.tar文件， 解压并拷贝至dataset
+路径。
+此外，如果机器无法访问外网，还需要下载 cl100k_base.tiktoken文件，放入容器内任意位置。
+1. 安装依赖。
+pip install blobfile
+export TIKTOKEN_CACHE_DIR=${path}
+${path} 表示 cl100k_base.tiktoken文件所在的路径，不需要包含文件名。
+2. 执行 bench_sglang.py 进行精度测试，使用的测试命令行如下：
+python code/bench_sglang.py --nsub 10 --data_dir ./dataset/data
+--nsub 指定测试问题的数量，最多为 60。如不指定，默认是 60。
+13.3.4.2 C‑Eval 精度测试
+1. 安装依赖。
+pip install eval-type-backport
+2. 执行 run_ceval_client.py 进行精度测试，使用的测试命令行如下：
+python code/run_ceval_client.py --model ${Model_path} --test_jsonl ./dataset/
+,→ceval_val_cmcc.jsonl --batch_size 64
+• -model ${Model_path} 为 model 所在的路径。
+• --test_jsonl ./dataset/ceval_val_cmcc.json1 为 C‑Eval 数据集的路径。
+13 MacaRT‑SGLang 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 72

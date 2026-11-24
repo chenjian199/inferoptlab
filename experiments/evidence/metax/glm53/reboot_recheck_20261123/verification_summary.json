@@ -1,0 +1,120 @@
+{
+  "observed_on": "2026-11-23",
+  "status": "pilot_passed_hardware_link_unresolved",
+  "transport": "MCCL_P2P_DISABLE=1, disable_custom_all_reduce=True; experiment only",
+  "driver": "3.10.14",
+  "model_comparison": {
+    "status": "passed",
+    "scores": {
+      "baseline32": {
+        "tasks": 32,
+        "passed": 30,
+        "pass_at_1": 0.9375,
+        "truncated": 0
+      },
+      "candidate32": {
+        "tasks": 32,
+        "passed": 31,
+        "pass_at_1": 0.96875,
+        "truncated": 0
+      },
+      "rollback4": {
+        "tasks": 4,
+        "passed": 4,
+        "pass_at_1": 1.0,
+        "truncated": 0
+      }
+    },
+    "paired_pass_regressions": [],
+    "paired_pass_improvements": [
+      "HumanEval/37"
+    ],
+    "candidate_token_exact": 24,
+    "ranks_replaced": 8,
+    "candidate_calls_total": 11936,
+    "fallback": 0,
+    "max_bf16_ulp": 1.0,
+    "max_abs": 0.0009765625,
+    "scope": "Single engine paired32/32/4, one dense layer acrossTP8; not full164/multi-process release/performance acceptance."
+  },
+  "rollback_token_exact": 4,
+  "hardware_repaired": false,
+  "final_all8_available": true,
+  "gpu6_port4": "down/x4, CE2/UE0 unchanged",
+  "new_selected_kernel_events": [],
+  "original_environments_preserved": true,
+  "verification": {
+    "evidence_integrity": "passed",
+    "pilot_correctness_gate": "passed",
+    "preserved_old_experiments": true,
+    "prior_recovery_files_checked": 33,
+    "boundary": "P2P-disabled single-engine32/32/4 pilot only; does not certify MetaXLink, default transport, full164, multiple engines or performance."
+  },
+  "source_archive_files_checked": 9334,
+  "captures": [
+    {
+      "path": "pilot/evidence/real_inputs/rank0_decode.pt",
+      "sha256": "f95ba37f58c2cd5eee92fb23e735ab7e8f1134b9335109d056631480ee6ec825"
+    },
+    {
+      "path": "pilot/evidence/real_inputs/rank0_prefill.pt",
+      "sha256": "8202c9fde586efce227fb0182c71d456fc3b6133f8bce4e1a99bbc319603e32e"
+    },
+    {
+      "path": "pilot/evidence/real_inputs/rank1_decode.pt",
+      "sha256": "439c3b234d5bfbf287feedc9813ff4412fa648c5f375a29029d12f20cee3328b"
+    },
+    {
+      "path": "pilot/evidence/real_inputs/rank1_prefill.pt",
+      "sha256": "c4650ee1f9a7995196277f01b00eb50783a72d2693cbeef8efee48f86f661334"
+    },
+    {
+      "path": "pilot/evidence/real_inputs/rank2_decode.pt",
+      "sha256": "108adb65b462a605696f5df50e08f160d653651ea8d0044a8c67f92c436e369a"
+    },
+    {
+      "path": "pilot/evidence/real_inputs/rank2_prefill.pt",
+      "sha256": "3ee47e52bd6a626412be59d53a82ab1755038130c4a874264140a7f0f0c1d519"
+    },
+    {
+      "path": "pilot/evidence/real_inputs/rank3_decode.pt",
+      "sha256": "e097c2024c167282aa6c9bf674382f3a120af1e4dbe3878233bbeb20d279b304"
+    },
+    {
+      "path": "pilot/evidence/real_inputs/rank3_prefill.pt",
+      "sha256": "5e8c61dc2f70f561dcaa892ef3cbc9fc6926c356f0047044a55de9d4d3f89369"
+    },
+    {
+      "path": "pilot/evidence/real_inputs/rank4_decode.pt",
+      "sha256": "52a5f42cd37b744b03564310b0e34db01ee02edd8aff118ef1b954ab9aaff808"
+    },
+    {
+      "path": "pilot/evidence/real_inputs/rank4_prefill.pt",
+      "sha256": "47e527b64ecc8eeb4d27e101bb3f150c1ec7255ab8b6eec328c405f0489fe545"
+    },
+    {
+      "path": "pilot/evidence/real_inputs/rank5_decode.pt",
+      "sha256": "ab1791446af68dd8a8513a8d2f18dba7cb0776cbaa509f6f563196e55a0a1f41"
+    },
+    {
+      "path": "pilot/evidence/real_inputs/rank5_prefill.pt",
+      "sha256": "cc8023d36c13a159d9044657e8c5cbf162d055ffb918e839516be1d4f9e91750"
+    },
+    {
+      "path": "pilot/evidence/real_inputs/rank6_decode.pt",
+      "sha256": "c9fc6905b18357fb4c3d8ee6cb8cec6960d7aa718eacbe3c12a12793eb721760"
+    },
+    {
+      "path": "pilot/evidence/real_inputs/rank6_prefill.pt",
+      "sha256": "dd52c74bc9027bd2fef7a9f3c8e0269bee8db796c32bca5745fd7d82d2d27f1e"
+    },
+    {
+      "path": "pilot/evidence/real_inputs/rank7_decode.pt",
+      "sha256": "6b140e7f73ad4906e56818496f6a181b870cbeb1edc2bc7b3f0e4a39beb34bef"
+    },
+    {
+      "path": "pilot/evidence/real_inputs/rank7_prefill.pt",
+      "sha256": "fee758fe773a67e2610f3adcc1471b2383389a45d5b1fdf896933aef3b73f6e0"
+    }
+  ]
+}

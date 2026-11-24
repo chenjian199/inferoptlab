@@ -1,0 +1,26 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 54
+PDF 页码标签: 45
+页脚页码候选: 45
+章节提示（书签推断）: 图编程的调试接口
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+3.8.4.1 图编程的调试接口
+图编程调试接口提供了一种快速方便的方法，可以调用以下调试接口获取任务图的基本信息，对任务图
+中的每个图节点或节点间的依赖进行调试：
+• 函数 mcGraphGetNodes
+• 函数 mcGraphGetEdges
+• 函数 mcGraphHostNodeGetParams
+• 函数 mcGraphKernelNodeGetParams
+此外，图编程调试接口也可以通过创建整个图形的全面概述和 DOT 图，把程序任务图进行可视化展开和
+检查。通过调用 mcGraphDebugDotPrint API 可以构建任何未实例化图的详细视图，演示拓扑结构、
+节点几何结构、属性配置和参数值。给定一个 MXMACA 任务图，它输出一个 DOT 图，其中 DOT 是一种
+图描述语言。该图的详细视图使您更容易识别明显的配置问题，并能够创建易于理解的错误报告，供其
+他人用于分析和调试问题。通过将问题隔离到特定节点，将此 API 与调试器相结合增加了实用性。
+mcGraphDebugDotPrint(mcGraph_t hGraph, const char *path, unsigned int flags);
+例如通过调用 mcGraphDebugDotPrint API 输出调试信息后，vectorAdd 任务图可以转换成如图 3.5
+所示的 DOT 图。
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 45

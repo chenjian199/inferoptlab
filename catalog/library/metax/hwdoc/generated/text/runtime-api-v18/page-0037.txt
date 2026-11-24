@@ -1,0 +1,48 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 37
+PDF 页码标签: 28
+页脚页码候选: 28
+章节提示（书签推断）: 从导出的IPC内存池创建和共享分配
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+(续上页)
+shmem->ptrData = exportData;
+shmem->readyIpcEventHandle = readyIpcEventHandle;
+// signal consumers data is ready
+// Importing an allocation
+mcMemPoolPtrExportData *importData = &shmem->prtData;
+mcEvent_t readyIpcEvent;
+mcIpcEventHandle_t *readyIpcEventHandle = &shmem->readyIpcEventHandle;
+// Need to retrieve the IPC event handle and the export data from the
+// exporting process using any mechanism. Here we are using shmem and just
+// need synchronization to make sure the shared memory is filled in.
+mcIpcOpenEventHandle(&readyIpcEvent, readyIpcEventHandle);
+// import the allocation. The operation does not block on the allocation being  
+,→ready.
+mcMemPoolImportPointer(&ptr, importedMemPool, importData);
+// Wait for the prior stream operations in the allocating stream to complete before
+// using the allocation in the importing process.
+mcStreamWaitEvent(stream, readyIpcEvent);
+kernel<<<..., stream>>>(ptr, ...);
+释放分配时，需要先在导入进程中释放分配，然后在导出进程中释放分配。以下代码片段演示了在导入
+和导出进程中的 mcFreeAsync 操作之间使用 MXMACA IPC 事件提供所需的同步。导入进程中对分配的
+访问显然受到导入进程侧释放操作的限制。值得注意的是， mcFree 可用于释放两个进程中的分配，并
+且可以使用其他流同步 API 代替 MXMACA IPC 事件。
+// The free must happen in importing process before the exporting process
+kernel<<<..., stream>>>(ptr, ...);
+// Last access in importing process
+mcFreeAsync(ptr, stream);
+// Access not allowed in the importing process after the free
+mcIpcEventRecord(finishedIpcEvent, stream);
+// Exporting process
+// The exporting process needs to coordinate its free with the stream order
+// of the importing process ’s free.
+mcStreamWaitEvent(stream, finishedIpcEvent);
+kernel<<<..., stream>>>(ptrInExportingProcess, ...);
+// The free in the importing process doesn ’t stop the exporting process
+// from using the allocation.
+mcFreeAsync(ptrInExportingProcess,stream);
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 28

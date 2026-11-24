@@ -1,0 +1,266 @@
+{
+  "dcc": {
+    "Id": "3c856edd12bc08ba2fb33219093ad3986b26c9524a68523e29da0a0f1e4ac9fa",
+    "Image": "sha256:96bbee871d4ea038b123276eacd65f77825b093b9255157938e0b1628e121f0b",
+    "Created": "2026-11-11T08:14:38.49251392Z",
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/NFS_62/Models",
+        "Destination": "/models",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/DCC_workspace",
+        "Destination": "/workspace",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ],
+    "State": {
+      "Running": false,
+      "Paused": false,
+      "StartedAt": "2026-11-21T11:29:35.179813591Z",
+      "FinishedAt": "2026-11-23T03:41:49.249742544Z",
+      "Restarting": false
+    }
+  },
+  "glm53-vllm032": {
+    "Id": "0e8b1b7c41e0b3ea72bb1a48c9e465c4671d5b53a9ca890c55a4f4b2ee9477b4",
+    "Image": "sha256:96bbee871d4ea038b123276eacd65f77825b093b9255157938e0b1628e121f0b",
+    "Created": "2026-11-22T08:36:25.381318044Z",
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-vllm032/evidence",
+        "Destination": "/work/evidence",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-vllm032/scripts",
+        "Destination": "/work/scripts",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-vllm032/src",
+        "Destination": "/work/src",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-vllm032/downloads",
+        "Destination": "/install",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/NFS_62/Models/GLM_Series/GLM-5.3-Flash-W8A8",
+        "Destination": "/models/GLM-5.3-Flash-W8A8",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-vllm032/wheelhouse",
+        "Destination": "/wheelhouse",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ],
+    "State": {
+      "Running": false,
+      "Paused": false,
+      "StartedAt": "2026-11-22T08:36:25.479864317Z",
+      "FinishedAt": "2026-11-23T04:18:54.844440968Z",
+      "Restarting": false
+    }
+  },
+  "glm53-heval-v1": {
+    "Id": "e0d11ad7b9442ba58c519eaeac6af9ad4b47b3c0231ccbbabf4a8116d02b7343",
+    "Image": "sha256:9bbf20dbcaaf52b794b887f0311a6dcbff6d23bb0a78b72fb0f442f8aab0f285",
+    "Created": "2026-11-22T16:20:18.820729854Z",
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-baseline-ops/configs",
+        "Destination": "/experiment/configs",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-baseline-ops/data",
+        "Destination": "/experiment/data",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-baseline-ops/evidence",
+        "Destination": "/experiment/evidence",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-baseline-ops/harness",
+        "Destination": "/experiment/harness",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-baseline-ops/runs",
+        "Destination": "/experiment/runs",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-baseline-ops/cache",
+        "Destination": "/experiment/cache",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/NFS_62/Models/GLM_Series/GLM-5.3-Flash-W8A8",
+        "Destination": "/models/GLM-5.3-Flash-W8A8",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-baseline-ops/evidence",
+        "Destination": "/work/evidence",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-baseline-ops/src",
+        "Destination": "/work/src",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      }
+    ],
+    "State": {
+      "Running": false,
+      "Paused": false,
+      "StartedAt": "2026-11-22T16:20:18.871467455Z",
+      "FinishedAt": "2026-11-22T17:03:35.138747416Z",
+      "Restarting": false
+    }
+  },
+  "glm53-repeat-v1": {
+    "Id": "e02d1b6b99df48c1999a509a36ca01b2a764b65c4e6bcc0237d002a521b96450",
+    "Image": "sha256:9bbf20dbcaaf52b794b887f0311a6dcbff6d23bb0a78b72fb0f442f8aab0f285",
+    "Created": "2026-11-23T02:32:56.768186328Z",
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-repeatability-20261123/data",
+        "Destination": "/experiment/data",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-repeatability-20261123/runs",
+        "Destination": "/experiment/runs",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-baseline-ops/src",
+        "Destination": "/work/src",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-repeatability-20261123/evidence",
+        "Destination": "/experiment/evidence",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-repeatability-20261123/harness",
+        "Destination": "/experiment/harness",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/NFS_62/Models/GLM_Series/GLM-5.3-Flash-W8A8",
+        "Destination": "/models/GLM-5.3-Flash-W8A8",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-repeatability-20261123/evidence",
+        "Destination": "/work/evidence",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-repeatability-20261123/cache",
+        "Destination": "/experiment/cache",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-repeatability-20261123/configs",
+        "Destination": "/experiment/configs",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      }
+    ],
+    "State": {
+      "Running": false,
+      "Paused": false,
+      "StartedAt": "2026-11-23T02:32:56.817408587Z",
+      "FinishedAt": "2026-11-23T03:35:44.704213648Z",
+      "Restarting": false
+    }
+  }
+}

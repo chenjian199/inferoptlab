@@ -1,0 +1,23 @@
+{
+  "command": [
+    "flock",
+    "-n",
+    "/home/metax/.glm53-c500-tp8.lock",
+    "docker",
+    "exec",
+    "-e",
+    "GEMM_COMM_INIT=file:///experiment/evidence/comm_c981d8ac67c142b18295eeaf720f4cf0",
+    "-e",
+    "MCCL_DEBUG=INFO",
+    "glm53-gemm-reboot-v1",
+    "timeout",
+    "--kill-after=10s",
+    "120s",
+    "python3",
+    "-u",
+    "/experiment/harness/communication_check.py"
+  ],
+  "exit_code": 0,
+  "started_epoch": 1795417623.052697,
+  "ended_epoch": 1795417670.1904342
+}

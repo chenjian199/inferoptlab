@@ -1,0 +1,27 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 45
+PDF 页码标签: 33
+页脚页码候选: 33
+章节提示（书签推断）: MacaRT-LLM功能
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+6 MacaRT‑LLM
+6.1 MacaRT‑LLM 介绍
+MacaRT‑LLM 是在沐曦通用 GPU 上进行大模型部署和执行的推理引擎，是在 MXMACA 后端适配了
+OpenPPL‑LLM。 使用 MacaRT‑LLM 在沐曦通用 GPU 上进行大模型推理， 其方法和功能与 OpenPPL‑LLM
+完全兼容。
+OpenPPL‑LLM 进行大模型推理的整体流程，如图 6.1 所示，可以分为以下部分：
+1. LLM 模型转换，使用 MacaPMX 将 LLM 原始模型转换成 OpenPPL‑LLM 支持的 ONNX 模型。
+2. 在 PPL.NN.LLM 上对模型图进行处理，包括图优化、图拆分、图编译等。
+3. 适配 PPL.LLM Serving，支持 LLM 云端服务。
+4. PPL.LLM Kernel Library 通过 MXMACA Driver 在沐曦通用 GPU 上执行模型。
+图 6.1 OpenPPL‑LLM 大模型推理流程图
+6.2 MacaRT‑LLM 功能
+MacaRT‑LLM 完全适配了 OpenPPL‑LLM，包含了以下功能和特性：
+• 完全适配 PPL.PMX，提供 MacaPMX 支持多种主流大模型进行模型转换。
+• 完全适配 PPL.NN.LLM，支持多个主流大模型的推理和模型切分多卡并行推理。
+• 完全适配 PPL.LLM.Serving，支持大模型服务化部署。
+6 MacaRT‑LLM 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 33

@@ -1,0 +1,23 @@
+文档: 沐曦通用GPU_MCCL编程指南_CN_V08.pdf
+文档 ID: mccl-v08
+SHA256: 7a95ac3ce4f68b0fb11baabb7fa08794cd5f5081c9ec3e888eefaaa03ab8c8b2
+PDF 页序号: 41
+PDF 页码标签: 34
+页脚页码候选: 34
+章节提示（书签推断）: P2P_MODE
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MCCL 编程指南
+4.2.6.2 MCCL_OPTIMIZATION_A2A
+描述：MCCL test 中用于控制是否开启 All to All 优化，该优化通过调用 mcclAllToAll 实现。
+可选值：
+• 0：不开启优化
+• 1：开启优化
+默认值：0
+4.2.6.3 P2P_MODE
+描述：Transferbench 中用于控制 P2P 是单向或者双向测试。
+可选值：
+• 0：只进行单向 P2P 测试
+• 1：分别进行单向和双向测试
+默认值：0
+4 环境变量 沐曦股份专有信息 PG‑23004‑020‑F5_V08 | 34

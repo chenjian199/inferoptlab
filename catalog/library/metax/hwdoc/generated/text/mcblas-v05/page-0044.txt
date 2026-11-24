@@ -1,0 +1,50 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 44
+PDF 页码标签: 37
+页脚页码候选: 37
+章节提示（书签推断）: mcblas<t>gemv()
+质量标记: private_use_characters
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+2.4.2 mcblas<t>gemv()
+mcblasStatus_t mcblasSgemv(mcblasHandle_t handle, mcblasOperation_t trans,
+int m, int n,
+const float *alpha,
+const float *A, int lda,
+const float *x, int incx,
+const float *beta,
+float *y, int incy)
+mcblasStatus_t mcblasDgemv(mcblasHandle_t handle, mcblasOperation_t trans,
+int m, int n,
+const double *alpha,
+const double *A, int lda,
+const double *x, int incx,
+const double *beta,
+double *y, int incy)
+mcblasStatus_t mcblasCgemv(mcblasHandle_t handle, mcblasOperation_t trans,
+int m, int n,
+const mcComplex *alpha,
+const mcComplex *A, int lda,
+const mcComplex *x, int incx,
+const mcComplex *beta,
+mcComplex *y, int incy)
+mcblasStatus_t mcblasZgemv(mcblasHandle_t handle, mcblasOperation_t trans,
+int m, int n,
+const mcDoubleComplex *alpha,
+const mcDoubleComplex *A, int lda,
+const mcDoubleComplex *x, int incx,
+const mcDoubleComplex *beta,
+mcDoubleComplex *y, int incy)
+该函数执行矩阵‑向量乘法
+y = α op(A)x + β y
+其中 A 是以列主格式存储的 m × n 矩阵，x 和 y 是向量，α 和 β 是标量。此外，对于矩阵 A，
+op(A) =
+
+
+
+A if trans == M CBLAS_OP _N
+AT if trans == M CBLAS_OP _T
+AH if trans == M CBLAS_OP _C
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 37

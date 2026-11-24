@@ -1,0 +1,8 @@
+{
+  "status": "awaiting_reboot_choice_after_recurrence",
+  "warm_reset_attempts": 1,
+  "recovered": false,
+  "model_started": false,
+  "pending_question": "BMC cold boot / separately authorized normal OS reboot / no reboot",
+  "existing_environments_preserved": true
+}

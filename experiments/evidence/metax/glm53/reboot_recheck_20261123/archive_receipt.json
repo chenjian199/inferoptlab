@@ -1,0 +1,14 @@
+{
+  "status": "local_and_remote_verified",
+  "archive": "glmf/reboot_recheck_20261123/archives/reboot_recheck_20261123_v1.tar.gz",
+  "bytes": 753433,
+  "sha256": "aa39f47681518226bfa665d35d9046d51222afb9c0c2ff5c980c1faf4696360a",
+  "hashed_files": 89,
+  "remote_verified": true,
+  "remote_verification": {
+    "status": "passed",
+    "archive": "/home/metax/glm53-reboot-recheck-20261123/archives/reboot_recheck_20261123_v1.tar.gz",
+    "sha256": "aa39f47681518226bfa665d35d9046d51222afb9c0c2ff5c980c1faf4696360a",
+    "verified_files": 89
+  }
+}

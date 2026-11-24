@@ -1,0 +1,49 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 120
+PDF 页码标签: 113
+页脚页码候选: 113
+章节提示（书签推断）: mcblas<t>getrfBatched()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE
+• m < 0 或 n < 0
+• mode != MCBLAS_SIDE_LEFT,
+MCBLAS_SIDE_RIGHT
+• lda < max(1, m) 或 “ ldc < max(1, m)
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2.6.3 mcblas<t>getrfBatched()
+mcblasStatus_t mcblasSgetrfBatched(mcblasHandle_t handle,
+int n,
+float *const Aarray[],
+int lda,
+int *PivotArray,
+int *infoArray,
+int batchSize);
+mcblasStatus_t mcblasDgetrfBatched(mcblasHandle_t handle,
+int n,
+double *const Aarray[],
+int lda,
+int *PivotArray,
+int *infoArray,
+int batchSize);
+mcblasStatus_t mcblasCgetrfBatched(mcblasHandle_t handle,
+int n,
+mcComplex *const Aarray[],
+int lda,
+int *PivotArray,
+int *infoArray,
+int batchSize);
+mcblasStatus_t mcblasZgetrfBatched(mcblasHandle_t handle,
+int n,
+mcDoubleComplex *const Aarray[],
+int lda,
+int *PivotArray,
+int *infoArray,
+int batchSize);
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 113

@@ -1,0 +1,23 @@
+{
+  "status": "pass_functional",
+  "stable_pass_regressions": [],
+  "worsened_variable_tasks": [],
+  "baseline_counts": [
+    31,
+    31,
+    31
+  ],
+  "candidate_counts": [
+    31,
+    31,
+    31
+  ],
+  "aggregate_worse": false,
+  "stable_pass_count": 31,
+  "variable_count": 0,
+  "interpretation": "Engineering screen from three runs, not a statistical non-inferiority proof. Numeric/operator gates remain mandatory.",
+  "purpose": "Same-data self-check of functional gate only; no candidate evaluated",
+  "scope": "smoke32",
+  "release_gate": false,
+  "gate_sha256": "b5cccaa1ac5226c27613ca015b5ae51cd7f1cafb0909bfb4d0a3e128b3f628fa"
+}

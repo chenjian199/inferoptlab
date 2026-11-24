@@ -1,0 +1,40 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 28
+PDF 页码标签: 19
+页脚页码候选: 19
+章节提示（书签推断）: 线程组集体操作
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+3.4.3.1 协作组 API
+协作组 API 用于定义和同步 MXMACA 程序中的线程组，要使用协作组，请包含其头文件。
+#include <cooperative_groups.h>
+协作组类型和接口是在 cooperative_groups C++ 命名空间中定义的，所以可以用 cooperative_
+groups:: 作为所有名称和函数的前缀，或者用 using 指令加载命名空间或其类型。
+using namespace cooperative_groups; // or...
+using cooperative_groups::thread_group; // etc.
+通常也会定义一个别名，本文后面的示例中会用到如下命名空间别名。
+namespace cg = cooperative_groups;
+包含任何块内协作组功能的代码可以使用 mxcc 正常方式编译。
+协作组中的基本类型是 thread_group，它是一组线程的句柄。该句柄只能由它所代表的组的成员访问。
+线程组公开一个简单的接口。可以使用函数 size 获取线程组的大小（线程总数） ：
+unsigned size();
+要在组中查找调用线程（介于 0 和 size()-1 之间）的索引，请使用以下 thread_rank 方法：
+unsigned thread_rank();
+最后，您可以使用函数 is_valid 检查分组的有效性：
+bool is_valid();
+3.4.3.2 线程组集体操作
+线程组提供了在组中所有线程之间执行集体操作（collective operations）的能力。集体操作是需要在
+一组指定的线程之间进行同步或通信的操作。由于需要同步，每个被标识为参与集体操作的线程都必须
+对该集体操作进行匹配调用。最简单的集体操作就是一个屏障，不传输任何数据，只是同步组中的线程。
+MXMACA 程序员可以通过调用函数 sync 或调用函数 cooperative_groups::sync 来同步组，此时
+组内的所有线程之间将会进行一个同步，如 图 3.3 所示。这个就类似函数 _synthreads 以一个 block
+为单位进行同步；函数 __syncwave 以一个 wave 为单位进行同步；而线程组同步函数 g.sync 以指定
+的线程组为单位进行同步。
+g.sync(); // synchronize group g
+cg::synchronize(g); // an equivalent way to synchronize g
+接下来讨论如何在 MXMACA 程序中创建线程组。协作组引入了一种新的数据类型 thread_block，按
+照如下方法初始化得到的 thread_block 实例是 MXMACA 线程块中线程组的句柄。
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 19

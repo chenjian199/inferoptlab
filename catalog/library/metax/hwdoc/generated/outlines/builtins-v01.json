@@ -1,0 +1,307 @@
+[
+  {
+    "title": "概述",
+    "pdf_page": 7,
+    "depth": 1
+  },
+  {
+    "title": "类型定义",
+    "pdf_page": 8,
+    "depth": 1
+  },
+  {
+    "title": "接口介绍",
+    "pdf_page": 9,
+    "depth": 1
+  },
+  {
+    "title": "访存函数",
+    "pdf_page": 9,
+    "depth": 2
+  },
+  {
+    "title": "__builtin_mxc_ldg_*_predicator",
+    "pdf_page": 9,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_stg_*_predicator",
+    "pdf_page": 11,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_ldg_*_predicator_ret",
+    "pdf_page": 13,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_ldg_*_bsm",
+    "pdf_page": 15,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_load_shared_trans_*",
+    "pdf_page": 16,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_arrive",
+    "pdf_page": 16,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_arrive_gvmcnt",
+    "pdf_page": 17,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_arrive_bsmcnt",
+    "pdf_page": 18,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_barrier_ex",
+    "pdf_page": 18,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_barrier_and_wait*",
+    "pdf_page": 19,
+    "depth": 3
+  },
+  {
+    "title": "比较函数",
+    "pdf_page": 21,
+    "depth": 2
+  },
+  {
+    "title": "__builtin_mxc_uicmp*",
+    "pdf_page": 21,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_sicmp*",
+    "pdf_page": 22,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_fcmp*",
+    "pdf_page": 22,
+    "depth": 3
+  },
+  {
+    "title": "类型转换函数",
+    "pdf_page": 23,
+    "depth": 2
+  },
+  {
+    "title": "__builtin_mxc_cvt_f32totf32",
+    "pdf_page": 23,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_cvt_pk_f32tou8",
+    "pdf_page": 24,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_b*_cast_to_f32",
+    "pdf_page": 24,
+    "depth": 3
+  },
+  {
+    "title": "混洗函数",
+    "pdf_page": 25,
+    "depth": 2
+  },
+  {
+    "title": "__builtin_mxc_mov_shfl",
+    "pdf_page": 25,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_update_shfl",
+    "pdf_page": 27,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_bsm_bpermute",
+    "pdf_page": 28,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_bsm_permute",
+    "pdf_page": 29,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_byte_perm",
+    "pdf_page": 30,
+    "depth": 3
+  },
+  {
+    "title": "浮点乘加函数",
+    "pdf_page": 31,
+    "depth": 2
+  },
+  {
+    "title": "__builtin_mxc_pk_fma_f32",
+    "pdf_page": 31,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_pk_fma_bf16",
+    "pdf_page": 31,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_pk_fma_f16",
+    "pdf_page": 32,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_fma_bf16",
+    "pdf_page": 32,
+    "depth": 3
+  },
+  {
+    "title": "矩阵乘加函数",
+    "pdf_page": 32,
+    "depth": 2
+  },
+  {
+    "title": "__builtin_mxc_mma_16x16x16f16",
+    "pdf_page": 32,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_mma_16x16x4f32",
+    "pdf_page": 33,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_mma_16x16x16i8",
+    "pdf_page": 34,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_mma_16x16x32i8",
+    "pdf_page": 35,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_mma_16x16x16bf16",
+    "pdf_page": 35,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_mma_16x16x4f64",
+    "pdf_page": 36,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_mma_16x16x8tf32",
+    "pdf_page": 37,
+    "depth": 3
+  },
+  {
+    "title": "常用计算函数",
+    "pdf_page": 37,
+    "depth": 2
+  },
+  {
+    "title": "__builtin_mxc_mad_wide_i32/u32",
+    "pdf_page": 37,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_pk_mul_f32",
+    "pdf_page": 38,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_pk_add_f32",
+    "pdf_page": 38,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_ubfe",
+    "pdf_page": 39,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_sbfe",
+    "pdf_page": 40,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_alignbit",
+    "pdf_page": 40,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_cos*",
+    "pdf_page": 41,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_sin*",
+    "pdf_page": 41,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_rcp*",
+    "pdf_page": 42,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_sqrt*",
+    "pdf_page": 42,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_rsq*",
+    "pdf_page": 42,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_log_clampf",
+    "pdf_page": 43,
+    "depth": 3
+  },
+  {
+    "title": "其他",
+    "pdf_page": 43,
+    "depth": 2
+  },
+  {
+    "title": "__builtin_mxc_get_time",
+    "pdf_page": 43,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_read_xmsk",
+    "pdf_page": 44,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_readfirstlane",
+    "pdf_page": 44,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_readlane",
+    "pdf_page": 44,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_writelane",
+    "pdf_page": 45,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_nop",
+    "pdf_page": 46,
+    "depth": 3
+  }
+]

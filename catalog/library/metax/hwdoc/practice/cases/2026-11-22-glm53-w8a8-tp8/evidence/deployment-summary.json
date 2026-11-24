@@ -1,0 +1,176 @@
+{
+  "updated_Asia_Shanghai": "2026-11-22T19:49:52.905610+08:00",
+  "status": "complete_tp8_w8a8_passed_baseline_frozen_and_replay_checked",
+  "active_route": {
+    "container": "glm53-vllm032",
+    "container_id": "0e8b1b7c41e0b3ea72bb1a48c9e465c4671d5b53a9ca890c55a4f4b2ee9477b4",
+    "bootstrap_image_id": "sha256:96bbee871d4ea038b123276eacd65f77825b093b9255157938e0b1628e121f0b",
+    "bootstrap_os": "Ubuntu 22.04",
+    "sdk_archive": "maca-sdk-3.9.0.29-deb-x86_64.tar.xz",
+    "sdk_bytes": 6392534772,
+    "official_sdk_minimum_driver": ">=3.7.0",
+    "runtime_compatibility": "Passed 8/8 C500 BF16 matmul, MCCL collectives, and real-weight GLM W8A8 TP8 generation on SDK 3.9.0.29 / driver 3.8.30. Validated configuration: V2 runner, eager, synchronous scheduling, max_num_seqs=1, max_model_len=4096.",
+    "note": "Independent container from the cached immutable 0.28 image; upgrade only its user-space SDK and Python dependencies. This is not the unavailable original MIM image, whose SDK is 3.9.0.31.",
+    "sdk_sha256": "6737f26cec90fda2916c11615805bcd5fe9f0c9a1f267818bb9cebdec73a3bc4",
+    "native_wheels_repository_sha256_verified": 27
+  },
+  "proxy": {
+    "implementation": "Mihomo v1.19.34",
+    "subscription_configured": true,
+    "authenticated_loopback_only": true,
+    "global_or_docker_proxy_changed": false
+  },
+  "sources": {
+    "metax": {
+      "ref": "v0.32.0-dev",
+      "commit": "0962c8735ffe4795800030680311410848512b82",
+      "path": "/home/metax/glm53-vllm032/src/vllm-metax",
+      "prepared": true,
+      "deployment_patch": "evidence/vllm-metax_deployment.patch plus moe_align_legacy_abi.py; see deployment_source_state.json for hashes"
+    },
+    "upstream": {
+      "ref": "v0.32.0",
+      "commit": "5df63a7203cdb9328d824a27b682e77c7b9928be",
+      "path": "/home/metax/glm53-vllm032/src/vllm",
+      "prepared": true,
+      "clean": true
+    }
+  },
+  "host_driver": "3.8.30",
+  "registry_diagnostics": {
+    "original_cli": "expired registry bearer token",
+    "fresh_anonymous_token": "token issued but repository pull unauthorized",
+    "configured_credentials": "authentication HTTP 401",
+    "host_shell_proxy": "127.0.0.1:7890 unavailable; per-command proxy variables cleared for subsequent probes",
+    "credentials_saved_in_this_project": false,
+    "mim_authentication": "verified HTTP 200 with existing server credential",
+    "mim_manifest": "verified HTTP 200"
+  },
+  "core_private_requirements": {
+    "torch": "2.10.0+metax3.9.0.8",
+    "triton": "3.6.0+metax3.9.0.8",
+    "mcoplib_available": "0.4.14+gf3794c4.maca3.9.0.31.torch2.10",
+    "python": "3.12",
+    "USE_PRECOMPILED_KERNEL": "1",
+    "VLLM_TARGET_DEVICE_build_only": "empty",
+    "transformers_actual": "5.17.0",
+    "recommended_sampling": {
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "source": "https://huggingface.co/zai-org/GLM-5.3-Flash/blob/main/generation_config.json"
+    }
+  },
+  "check_scripts": {
+    "check_gpu8.py": "passed 8/8 ranks, process exit 0",
+    "infer_smoke.py": "Passed all three real-weight TP8 requests: Chinese introduction, arithmetic 2, and needle 青松 from 2433 prompt tokens. All ended normally. Eight workers each validated 33 MLA INT8 scales as finite and positive.",
+    "test_moe_alignment_compat.py": "Passed 24 GPU/CPU-reference alignment cases and exact BF16 MoE sum; unsupported scatter output rejected.",
+    "test_glm_indexer_int8.py": "Six GPU/CPU reference scorer cases passed; maximum absolute error 0.000732421875.",
+    "test_int8_linear.py": "Passed independent CPU-reference checks; evidence/int8_linear.json",
+    "test_sparse_mla.py": "Passed independent CPU-reference checks; evidence/sparse_mla_numerics.json",
+    "test_kda_numerics.py": "Passed independent CPU-reference checks; evidence/kda_numerics.json",
+    "test_moe_w8a8.py": "Passed independent CPU-reference checks; evidence/moe_w8a8_numerics.json",
+    "test_glm_mla_scale_loader.py": "12 cases passed: INT8 weight/scale ownership and existing FP8-to-BF16 fallback under both scale names and input orders."
+  },
+  "preserved": [
+    "dcc container",
+    "existing framework checkouts",
+    "host driver and SDK",
+    "canonical model files"
+  ],
+  "transfer_failures": [
+    {
+      "attempt": "docker pull",
+      "error": "read tcp: connection timed out"
+    },
+    {
+      "attempt": "Docker API retry",
+      "error": "short read: expected 6889748145 bytes but got 1092165632: unexpected EOF"
+    }
+  ],
+  "acceptance": {
+    "passed": true,
+    "runner": "V2",
+    "max_model_len": 4096,
+    "max_num_seqs": 1,
+    "async_scheduling": false,
+    "enforce_eager": true,
+    "prompt_tokens": [
+      20,
+      23,
+      2433
+    ],
+    "output_tokens": [
+      272,
+      3,
+      20
+    ],
+    "all_finish_reason": "stop",
+    "report": "evidence/inference_smoke.json",
+    "run": "evidence/inference_scale_fixed_run.json",
+    "scope": "Functional text-generation smoke acceptance, not performance, concurrency, multimodal or million-token context qualification."
+  },
+  "baseline_image": {
+    "tag": "glm53-vllm032:verified-20261122",
+    "image_id": "sha256:9bbf20dbcaaf52b794b887f0311a6dcbff6d23bb0a78b72fb0f442f8aab0f285",
+    "size_bytes": 39076948537,
+    "source_archive": "/home/metax/glm53-vllm032/baseline/sources-20261122.tar.gz",
+    "source_archive_sha256": "da769ed300e32876f2bd358a1c537a8618f7fdbc8f56830eacfec57f6d1ab592",
+    "note": "Local dependency image. Editable source and compiled plugin allocator are in the matching source archive; weights, scripts, evidence and source remain bind mounts. No model weights or proxy subscription are included.",
+    "dcc_id": "3c856edd12bc08ba2fb33219093ad3986b26c9524a68523e29da0a0f1e4ac9fa",
+    "dcc_image_id": "sha256:96bbee871d4ea038b123276eacd65f77825b093b9255157938e0b1628e121f0b",
+    "finalization_note": "Docker 29 commit succeeded; a deprecation warning on stdout broke the original image-ID parsing. Recovered by inspecting the exact tag and verifying its ID and source/validation labels."
+  },
+  "baseline_replay": {
+    "versions": {
+      "torch": "2.10.0+metax3.9.0.8",
+      "triton": "3.6.0+metax3.9.0.8",
+      "vllm": "0.32.0+empty",
+      "vllm-metax": "0.32.0+g0962c8.d20261122.maca3.9.0.29.torch2.10.0",
+      "mcoplib": "0.4.14+gf3794c4.maca3.9.0.31.torch2.10",
+      "transformers": "5.17.0",
+      "compressed-tensors": "0.17.0"
+    },
+    "vllm_file": "/work/src/vllm/vllm/__init__.py",
+    "plugin_file": "/work/src/vllm-metax/vllm_metax/__init__.py",
+    "platform": "MxsmlMacaPlatform",
+    "device_count": 8,
+    "pip_check_exit": 0,
+    "pip_check": "No broken requirements found.\n",
+    "passed": true
+  },
+  "reproduction_assets": {
+    "scripts_archive": "/home/metax/glm53-vllm032/baseline/deployment-scripts-20261122.tar.gz",
+    "sha256": "d62bdbf93b61785422931fdde5b5cc4da960829645f729ddae38e094bc61d83f",
+    "files": [
+      "create_bootstrap.sh",
+      "run_inference.sh",
+      "infer_smoke.py",
+      "worker_provenance.py",
+      "freeze_baseline.py",
+      "check_frozen_baseline.py",
+      "check_gpu8.py",
+      "test_glm_mla_scale_loader.py",
+      "test_glm_indexer_int8.py",
+      "test_moe_alignment_compat.py",
+      "test_moe_w8a8.py",
+      "test_int8_linear.py",
+      "test_sparse_mla.py",
+      "test_kda_numerics.py",
+      "validate_baseline_host.py"
+    ],
+    "runtime_configuration": {
+      "runner": "V2",
+      "max_model_len": 4096,
+      "max_num_seqs": 1,
+      "async_scheduling": false,
+      "enforce_eager": true
+    },
+    "inference_command": [
+      "bash",
+      "/home/metax/glm53-vllm032/scripts/run_inference.sh"
+    ],
+    "recreate_using_cached_baseline": "On a fresh container deployment, set GLM53_IMAGE=glm53-vllm032:verified-20261122 when running create_bootstrap.sh; restore matching source and scripts archives to the recorded bind-mount paths first."
+  },
+  "original_mim_image_available": false,
+  "independent_baseline_image_available": true
+}

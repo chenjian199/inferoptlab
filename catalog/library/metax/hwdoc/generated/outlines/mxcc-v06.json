@@ -1,0 +1,117 @@
+[
+  {
+    "title": "概述",
+    "pdf_page": 6,
+    "depth": 1
+  },
+  {
+    "title": "适用产品",
+    "pdf_page": 6,
+    "depth": 2
+  },
+  {
+    "title": "mxcc的使用",
+    "pdf_page": 7,
+    "depth": 1
+  },
+  {
+    "title": "支持的输入文件类型",
+    "pdf_page": 7,
+    "depth": 2
+  },
+  {
+    "title": "使用前准备",
+    "pdf_page": 8,
+    "depth": 1
+  },
+  {
+    "title": "支持的选项",
+    "pdf_page": 9,
+    "depth": 1
+  },
+  {
+    "title": "File和Path说明",
+    "pdf_page": 9,
+    "depth": 2
+  },
+  {
+    "title": "指定编译阶段的选项",
+    "pdf_page": 11,
+    "depth": 2
+  },
+  {
+    "title": "指定编译器/链接器行为的选项",
+    "pdf_page": 12,
+    "depth": 2
+  },
+  {
+    "title": "传递特定阶段选项的选项",
+    "pdf_page": 14,
+    "depth": 2
+  },
+  {
+    "title": "指导编译器驱动程序的选项",
+    "pdf_page": 14,
+    "depth": 2
+  },
+  {
+    "title": "调整GPU代码生成的选项",
+    "pdf_page": 15,
+    "depth": 2
+  },
+  {
+    "title": "通用工具选项",
+    "pdf_page": 16,
+    "depth": 2
+  },
+  {
+    "title": "设备链接器选项",
+    "pdf_page": 16,
+    "depth": 2
+  },
+  {
+    "title": "示例",
+    "pdf_page": 18,
+    "depth": 1
+  },
+  {
+    "title": "编译包含设备和主机函数的源文件",
+    "pdf_page": 18,
+    "depth": 2
+  },
+  {
+    "title": "编译C/C++源文件",
+    "pdf_page": 18,
+    "depth": 2
+  },
+  {
+    "title": "编译并单独链接",
+    "pdf_page": 18,
+    "depth": 2
+  },
+  {
+    "title": "编译设备函数定义在其他文件中的源文件",
+    "pdf_page": 18,
+    "depth": 2
+  },
+  {
+    "title": "编译设备函数定义在其他文件中的源文件并单独链接",
+    "pdf_page": 19,
+    "depth": 2
+  },
+  {
+    "title": "编译设备和主机函数有自定义设备库的源文件",
+    "pdf_page": 19,
+    "depth": 2
+  },
+  {
+    "title": "附录",
+    "pdf_page": 20,
+    "depth": 1
+  },
+  {
+    "title": "术语/缩略语",
+    "pdf_page": 20,
+    "depth": 2
+  }
+]

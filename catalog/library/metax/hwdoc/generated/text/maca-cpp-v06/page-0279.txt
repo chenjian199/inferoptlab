@@ -1,0 +1,44 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 279
+PDF 页码标签: 271
+页脚页码候选: 271
+章节提示（书签推断）: Warp Vote函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+参数名 说明
+global_addr 全局内存地址
+offset 全局内存偏移
+data 待写入数据（位宽与内置函数名一致）
+saddr_flag 选择使用 sreg作为地址
+pred_neg 反转比较结果生成的活跃掩码
+is_async 异步加载，需在后续手动进行同步
+cmp_op1 比较指令的第一个操作数
+cmp_op2 比较指令的第二个操作数
+cmp_flag 比较方式，可取值为 MACA_ICMP_EQ | NE | UGT | UGE | ULT | ULE |
+SGT | SGE | SLT | SLE，与 cmp_op1和 cmp_op2共同决定 predicator
+示例
+__global__ void test_builtin_mxc_stg_b32_predicator(void *ptr,
+unsigned val,
+int a, int b)
+{
+__builtin_mxc_stg_b32_predicator(ptr,
+0, // offset
+val,
+false, // saddr_flag
+false, // pred_neg
+false, // is_async
+a, b, // cmp_op1, cmp_op2
+MACA_ICMP_EQ);
+}
+2.19 Warp Vote 函数
+int __all_sync(unsigned mask, int predicate);
+int __any_sync(unsigned mask, int predicate);
+unsigned __ballot_sync(unsigned mask, int predicate);
+unsigned long __activemask();
+warp vote 函数对一个 warp 里指定 (unmasked) 的 threads 执行一个 reduction‑and‑broadcast 操作。
+这些函数从该 warp中的每一个 thread 都获取整数predicate作为输入，并将该值与 0 比较。比较的
+结果在warp的活动线程中结合（reduced） ，最后根据以下指定方法将返回值广播至参与的线程：
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 271

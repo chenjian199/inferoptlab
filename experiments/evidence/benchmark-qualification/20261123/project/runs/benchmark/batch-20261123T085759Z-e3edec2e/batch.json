@@ -1,0 +1,49 @@
+{
+  "id": "batch-20261123T085759Z-e3edec2e",
+  "status": "completed_with_errors",
+  "created_at": "2026-11-23T08:57:59.951449+00:00",
+  "plan_sha256": "da4f6d9301a8c95fc11d1d9d77b8c37749af90140943381acfb8ded785691c86",
+  "runs": [
+    {
+      "trial_id": "trial-521099736823c5e5",
+      "deployment": "qwen-metax-vllm-attached",
+      "scenario": "qwen-pipeline-smoke",
+      "concurrency": 1,
+      "repetition": 1,
+      "status": "failed",
+      "directory": "run-17e9e2b3474a4130",
+      "comparison_sha256": "cff0a3f04ccf1f2d1238c68c193afb1bbde099c837a56ecad175f42a2d72940d"
+    },
+    {
+      "trial_id": "trial-3440bc71491ecb5b",
+      "deployment": "qwen-metax-vllm-attached",
+      "scenario": "qwen-pipeline-short",
+      "concurrency": 1,
+      "repetition": 1,
+      "status": "failed",
+      "directory": "run-fd6b675c431249a5",
+      "comparison_sha256": "716e0da5f2ca5c0b6a3cbf3bff2f92b2a57eaaf16224c7a821a167955c7ea218"
+    },
+    {
+      "trial_id": "trial-c2efeb16bf3a311c",
+      "deployment": "qwen-metax-vllm-attached",
+      "scenario": "qwen-pipeline-short",
+      "concurrency": 2,
+      "repetition": 1,
+      "status": "failed",
+      "directory": "run-e08866944fbc4a05",
+      "comparison_sha256": "267cf4c8e20ca4aaf5b89873ede7b79e706dac8936fe0002b0813cbc7b4c77c0"
+    },
+    {
+      "trial_id": "trial-a43e577c6ef5cf28",
+      "deployment": "qwen-metax-vllm-attached",
+      "scenario": "qwen-pipeline-long",
+      "concurrency": 1,
+      "repetition": 1,
+      "status": "failed",
+      "directory": "run-a1aa036d3c0540d9",
+      "comparison_sha256": "ebe0e7987dd6681e2081f94ddf030115ca42c75f29ff031b23105c2a977b1413"
+    }
+  ],
+  "finished_at": "2026-11-23T08:58:13.791309+00:00"
+}

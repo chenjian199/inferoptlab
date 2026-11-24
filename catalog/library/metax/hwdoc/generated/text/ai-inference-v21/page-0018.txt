@@ -1,0 +1,45 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 18
+PDF 页码标签: 6
+页脚页码候选: 6
+章节提示（书签推断）: 获取模型输出Tensors
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+(续上页)
+}
+for ( size_t i=0; i< session.GetOutputCount(); i++){
+outputNames.push_back(session.GetOutputName(i , allocator));
+}
+3.1.3 构建模型输入 Tensors
+操作步骤
+1. 准备输入数据。假设提供的模型输入数据和数据长度是通过以下变量名称提供，并且输入数据处于
+可分页内存上。
+void* input_data[inputNames.size()]; // input data ptr
+size_t input_data_len[inputNames.size()]; // input data len
+2. 创建 MemoryInfo，用于标识输入数据所在的设备信息。
+Ort::MemoryInfo memoryInfo = 
+,→Ort::MemoryInfo::CreateCpu(OrtAllocatorType::OrtArenaAllocator,
+,→OrtMemType::OrtMemTypeDefault);
+3. 创建输入 Tensors。假设模型的输入形状是固定的。
+std::vector<Ort::Value> inputTensors;
+for(size_t i=0; i<inputNames.size(); i++){
+// get input node data type
+Ort::TypeInfo inputTypeInfo = session.GetInputTypeInfo(i);
+auto inputTensorInfo = inputTypeInfo.GetTensorTypeAndShapeInfo();
+ONNXTensorElementDataType inputType = inputTensorInfo.GetElementType();
+// get input node data length
+std::vector<int64_t> inputDims=inputTensorInfo.GetShape();
+inputTensors.push_back(Ort::Value::CreateTensor(memoryInfo,input_data[i],
+,→input_data_len[i],inputDims.data(),inputDims.size(),inputType));
+}
+3.1.4 获取模型输出 Tensors
+操作步骤
+1. 执行以下命令，通过同步执行的方式，获取模型的输出 Tensors。在不指定设备信息的情况下，输出
+Tensors 中的数据默认位于可分页内存上。
+auto ouput = session.Run(Ort::RunOptions{nullptr},inputNames.data(), 
+,→inputTensors.data(),inputNames.size(), ouputNames.data(), outputNames.size());
+mcStreamSynchronize(stream);
+3 MacaRT C++ API 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 6

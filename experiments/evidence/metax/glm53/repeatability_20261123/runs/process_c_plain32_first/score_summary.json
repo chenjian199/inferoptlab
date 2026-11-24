@@ -1,0 +1,17 @@
+{
+  "status": "complete",
+  "tasks": 32,
+  "passed": 31,
+  "pass_at_1": 0.96875,
+  "failures_by_type": {
+    "parse_failure": 1,
+    "passed": 31
+  },
+  "truncated": 0,
+  "adapter_version": "humaneval-chat-code-v1",
+  "evaluator_sha256": "4c663febe4381f4920fe7324728615165ab494280e9b9d68ad9a1d290c063280",
+  "adapter_sha256": "9112a71b1917f32020b31c88810944d388664a7f7b386a26eab61a933f2973ea",
+  "sandbox_image": "sha256:96bbee871d4ea038b123276eacd65f77825b093b9255157938e0b1628e121f0b",
+  "canonical": false,
+  "scope": "Original HumanEval tests; one generation per task; local chat-adapted protocol. No HumanEval+ tests."
+}

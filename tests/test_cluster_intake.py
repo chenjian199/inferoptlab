@@ -6,18 +6,18 @@ from types import SimpleNamespace
 
 from tools.specs import Catalog, ROOT, SpecError, read
 from tools.hardware.metax import parse
-from benchmark.adapters import for_runtime, vllm
-from benchmark.dataset import token_count
-from benchmark.adapters import metax
+from benchmark.load.adapters import for_runtime, vllm
+from benchmark.load.dataset import token_count
+from benchmark.load.adapters import metax
 
 
 class ClusterIntakeTests(unittest.TestCase):
     def test_metax_live_binding_uses_serial_bdf_and_driver(self):
-        raw=read(ROOT/'schemas/evidence/metax-hardware-baseline/1.0.0/metax/result.json')['inventory']
-        hardware=read(ROOT/'schemas/recipes/hardware/metax-qwen-smoke-gpu0.yaml')
-        dep=read(ROOT/'benchmark/recipes/qwen3-06b/metax/vllm/qwen-metax-vllm-attached.yaml')
+        raw=read(ROOT/'experiments/evidence/metax-hardware-baseline/1.0.0/metax/result.json')['inventory']
+        hardware=read(ROOT/'recipes/hardware/metax-qwen-smoke-gpu0.yaml')
+        dep=read(ROOT/'recipes/deployments/qwen3-06b/metax/vllm/qwen-metax-vllm-attached.yaml')
         commands=raw['commands']
-        with patch('benchmark.adapters.metax.subprocess.run',side_effect=[SimpleNamespace(**{k:commands[n][k] for k in ('returncode','stdout','stderr')}) for n in ('gpu','hwinfo')]):
+        with patch('benchmark.load.adapters.metax.subprocess.run',side_effect=[SimpleNamespace(**{k:commands[n][k] for k in ('returncode','stdout','stderr')}) for n in ('gpu','hwinfo')]):
             probe=metax.inventory()
         self.assertEqual('observed',probe['status'])
         self.assertEqual([],metax.binding_issues(probe,dep['devices'],hardware))
@@ -31,7 +31,7 @@ class ClusterIntakeTests(unittest.TestCase):
         self.assertEqual(4,token_count(Tokenizer(),'apple'))
 
     def test_new_driver_missing_reservation_is_unknown(self):
-        raw=read(ROOT/'schemas/evidence/metax-four-node-inventory/1.0.0/metax-60/result.json')['inventory']
+        raw=read(ROOT/'experiments/evidence/metax-four-node-inventory/1.0.0/metax-60/result.json')['inventory']
         parsed=parse(raw)
         self.assertEqual(8,len(parsed['devices']))
         self.assertTrue(all(d['observed']['driver_reserved_bytes'] is None for d in parsed['devices']))
@@ -56,7 +56,7 @@ class ClusterIntakeTests(unittest.TestCase):
                 self.assertEqual([],catalog.semantic_errors(doc,verify_sources=True))
 
     def test_vllm_requires_observed_config(self):
-        dep=read(ROOT/'benchmark/recipes/qwen3-06b/metax/vllm/qwen-metax-vllm-attached.yaml')
+        dep=read(ROOT/'recipes/deployments/qwen3-06b/metax/vllm/qwen-metax-vllm-attached.yaml')
         self.assertIs(vllm,for_runtime(dict(engine='vllm-metax')))
         self.assertTrue(vllm.verify_server(dep,None,1024))
         info={'vllm_config':{'parallel_config':{'tensor_parallel_size':1,'pipeline_parallel_size':1,'data_parallel_size':1,'enable_expert_parallel':False},

@@ -1,0 +1,20 @@
+文档: 沐曦通用GPU_mxcc编译器用户指南_CN_V06.pdf
+文档 ID: mxcc-v06
+SHA256: 6fceba6f92b1b4274a5c2dd106d76320947a0b4ef0cdaffd36af5497fdffb6dd
+PDF 页序号: 20
+PDF 页码标签: 15
+页脚页码候选: 15
+章节提示（书签推断）: 术语/缩略语
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mxcc 编译器用户指南
+6 附录
+6.1 术语/缩略语
+术语/缩略语 全称 描述
+mxcc MXMACA C/C++ Compiler 用于沐曦 GPU 的编译器
+MXMACA MetaX Advanced Compute Architec‑
+ture
+沐曦推出的 GPU 软件栈，包含了沐曦 GPU
+的底层驱动、编译器、数学库及整套软件工
+具套件
+6 附录 沐曦股份专有信息 OG‑23026‑020‑F5_V06 | 15

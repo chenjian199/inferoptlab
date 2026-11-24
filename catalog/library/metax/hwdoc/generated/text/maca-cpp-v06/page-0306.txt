@@ -1,0 +1,47 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 306
+PDF 页码标签: 298
+页脚页码候选: 298
+章节提示（书签推断）: tiled_partition
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+Discovery Pattern
+开发者通常需要与当前active的线程集合共事。没有对存在的线程进行假设，而是开发人员使用碰巧存
+在的线程。可以通过下面的“聚合warp中线程之间的原子增量”的例子看出来：
+{
+unsigned int writemask = __activemask();
+unsigned int total = __popc(writemask);
+unsigned int prefix = __popc(writemask & __lanemask_lt());
+// 发现 laneID最小的 active thread
+int elected_lane = __ffs(writemask) - 1;
+int base_offset = 0;
+if (prefix == 0) {
+base_offset = atomicAdd(p, total);
+}
+base_offset = __shfl_sync(writemask, base_offset, elected_lane);
+int thread_offset = prefix + base_offset;
+return thread_offset;
+}
+使用CooperativeGroups重新写这个功能如下：
+{
+using cg = namespace cooperative_groups;
+cg::coalesced_group g = cg::coalesced_threads();
+int prev;
+if (g.thread_rank() == 0) {
+prev = atomicAdd(p, g.num_threads());
+}
+prev = g.thread_rank() + g.shfl(prev, 0);
+return prev;
+}
+3.4 组分割
+3.4.1 tiled_partition
+template <unsigned int Size, typename ParentT>
+thread_block_tile<Size, ParentT> tiled_partition(const ParentT& g);
+thread_group tiled_partition(const thread_group& parent, unsigned int tilesz);
+tiled_partition 方法是一组分割父组到一个一维的，行优先的，子分组的平铺。将一共创建
+(size(parent) / tilesz)个子分组，因此父组的size必须是可以被Size整除的数字。允许的父组
+的类型是 thread_block或者 thread_block_tile。
+3 CooperativeGroups 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 298

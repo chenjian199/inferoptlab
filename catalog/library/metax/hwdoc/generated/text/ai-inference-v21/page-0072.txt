@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 72
+PDF 页码标签: 60
+页脚页码候选: 60
+章节提示（书签推断）: 模型获取
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+(续上页)
+├── face_recognition（ 人 脸 识 别 类 ）
+├── landmark （ 关 键 点 检 测 类 ）
+├── multimodal（ 多 模 态 类 ）
+├── NLP_Transformer（ 自 然 语 言 处 理 类 ）
+├── OCR（ 字 符 识 别 类 ）
+├── segmentation（ 语 义 分 割 类 ）
+├── stable_diffusion（ 图 生 成 类 ）
+└── video_enhancement（ 超 分 辨 率 类 ）
+9.4 源码、模型和数据集
+9.4.1 源码镜像获取
+可通过沐曦软件中心获取 MacaRT‑ModelZoo 源代码的镜像和模型。
+操作步骤
+1. 进入软件中心，点击 Docker 的子页面。
+2. 选择沐曦通用 GPU 的型号、发布版本号。
+3. 点击 AI 查看 MACARTAI 相关的 Docker 镜像。
+4. 软件包类型选择 modelzoo.cnn.inference，架构类型选择 amd64 或 arm64，操作系统类型选择
+CentOS 或 Ubuntu 等。
+通过上述操作选择 MacaRT‑ModelZoo 源代码的镜像，点击 docker 命令复制，获取此 Docker 镜像的
+拉取命令，可通过此命令在沐曦软件中心服务器上拉取此镜像。
+进入容器，可在/workspace/modelzoo/MACA_AI_CNN 目录查看 MacaRT‑ModelZoo 源代码，此容
+器除了包含 MacaRT‑ModelZoo 源码，还包含完整的 MacaRT‑ModelZoo 运行时软件栈，可大大减少用
+户在搭建运行环境所耗费的时间。容器镜像的使用，参见《沐曦通用 GPU 用户指南》中“容器相关场景
+支持”章节。
+9.4.2 模型获取
+MacaRT‑ModelZoo 可评测的模型会陆续更新到 沐曦软件中心，进入软件中心后点击 Model 的子页面，
+可根据模型类别和模型名称，点击下载得到模型。
+用户也可以使用公开模型或私有模型进行评测，如果被测评的模型预处理、后处理和指标评估与这一类
+别中其他的不一致，则需要修改 MacaRT‑ModelZoo 代码和配置文件对其支持。此外，模型评测的成功
+与否还取决于 MacaRT 对模型的支持能力，遇到不支持的算子可以联系沐曦技术支持工程师在 MacaRT
+上增加算子，也可以添加 MacaRT 自定义算子，操作步骤参见 3.5 自定义算子。
+9 MacaRT‑ModelZoo 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 60

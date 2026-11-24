@@ -1,0 +1,50 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 18
+PDF 页码标签: 10
+页脚页码候选: 10
+章节提示（书签推断）: Memory Fence函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+__device__ int X = 1, Y = 2;
+__device__ void writeXY()
+{
+X = 10;
+Y = 20;
+}
+__device__ void readXY()
+{
+int B = Y;
+int A = X;
+}
+这两个线程分别读、写相同的内存地址。由于任何数据竞争都是不确定的行为，并且是没有定义的语义，
+所以A与B的结果可以是任何值。
+Memory Fence 函数可以强制保证内存访问的顺序一致性。Memory Fence 函数在强制排序的范围上有
+所不同，但它们独立于访问的内存空间（shared 内存、global 内存、page‑locked host 内存以及 peer
+device的内存） 。
+void __threadfence_block();
+必要条件：
+• 调用线程在调用 __threadfence_block()之前的内存写操作行为，都会被 block 内所有已经调用
+了 __threadfence_block()的线程观察到。
+• 调 用 线 程 在 调 用 __threadfence_block() 之 前 的 所 有 内 存 读 操 作， 会 在 调 用
+__threadfence_block()后的内存读操作之前执行，从而保证了有序性。
+void __threadfence();
+行为与 __threadfence_block()类似。确保调用线程在调用 __threadfence()之后，在其他线程
+调用 __threadfence()之前，对内存不会进行写操作。注意，为了保证这个顺序正确，观察线程必须
+真正的观察内存，并且不应该对其进行缓存。
+void __threadfence_system();
+行为与 __threadfence_block()类似。确保调用线程在调用__threadfence_system()之前，对
+内存的写操作，能被调用 __threadfence_system() 后的 device 侧线程、host 侧线程以及 peer
+device线程，在调用线程写内存操作之前所观察到。
+在之前的代码实例中，可以参照如下代码增加对应的fence函数：
+__device__ int X = 1, Y = 2;
+__device__ void writeXY()
+{
+X = 10;
+__threadfence();
+Y = 20;
+}
+(下页继续)
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 10

@@ -1,0 +1,88 @@
+{
+  "glm53-repeat-v1": {
+    "Id": "e02d1b6b99df48c1999a509a36ca01b2a764b65c4e6bcc0237d002a521b96450",
+    "Image": "sha256:9bbf20dbcaaf52b794b887f0311a6dcbff6d23bb0a78b72fb0f442f8aab0f285",
+    "Created": "2026-11-23T02:32:56.768186328Z",
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/NFS_62/Models/GLM_Series/GLM-5.3-Flash-W8A8",
+        "Destination": "/models/GLM-5.3-Flash-W8A8",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-repeatability-20261123/harness",
+        "Destination": "/experiment/harness",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-repeatability-20261123/data",
+        "Destination": "/experiment/data",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-repeatability-20261123/evidence",
+        "Destination": "/experiment/evidence",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-baseline-ops/src",
+        "Destination": "/work/src",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-repeatability-20261123/configs",
+        "Destination": "/experiment/configs",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-repeatability-20261123/evidence",
+        "Destination": "/work/evidence",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-repeatability-20261123/runs",
+        "Destination": "/experiment/runs",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/metax/glm53-repeatability-20261123/cache",
+        "Destination": "/experiment/cache",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ],
+    "State": {
+      "Running": false,
+      "Paused": false,
+      "StartedAt": "2026-11-23T02:32:56.817408587Z",
+      "FinishedAt": "2026-11-23T03:35:44.704213648Z",
+      "Restarting": false
+    }
+  }
+}

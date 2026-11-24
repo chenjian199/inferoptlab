@@ -1,0 +1,47 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 116
+PDF 页码标签: 109
+页脚页码候选: 109
+章节提示（书签推断）: mcblas<t>geam()
+质量标记: private_use_characters
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+(续上页)
+mcblasOperation_t transa, mcblasOperation_t transb,
+int m, int n,
+const mcComplex *alpha,
+const mcComplex *A, int lda,
+const mcComplex *beta ,
+const mcComplex *B, int ldb,
+mcComplex *C, int ldc)
+mcblasStatus_t mcblasZgeam(mcblasHandle_t handle,
+mcblasOperation_t transa, mcblasOperation_t transb,
+int m, int n,
+const mcDoubleComplex *alpha,
+const mcDoubleComplex *A, int lda,
+const mcDoubleComplex *beta,
+const mcDoubleComplex *B, int ldb,
+mcDoubleComplex *C, int ldc)
+该函数执行矩阵‑矩阵加法/转置
+C = αop(A) + βop(B)
+其中 α 和 β 是标量，A、B、C 是以列主格式存储的矩阵，维度分别为 op(A) m × n、op(B) m × n 和 C
+m × n。此外，对于矩阵 A，
+op(A) =
+
+
+
+A if transa == M CBLAS_OP _N
+AT if transa == M CBLAS_OP _T
+AH if transa == M CBLAS_OP _C
+对于矩阵 B，op(B) 的定义类似。如果 C 与 A 或 B 不重叠，则该操作为异地操作。
+就地模式支持以下两种操作：
+C = α*C + βop(B)
+C = αop(A) + β*C
+对于就地模式， 如果C = A， 则ldc = lda，transa = MCBLAS_OP_N。 如果C = B， 则ldc = ldb，
+transb = MCBLAS_OP_N。如果不满足上述要求，则返回 MCBLAS_STATUS_INVALID_VALUE。
+该操作包括以下特殊情况：
+用户可以通过设置 *alpha=*beta=0 将矩阵 C 重置为零。
+用户可以通过设置 *alpha=1 and *beta=0 对矩阵 A 进行转置。
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 109

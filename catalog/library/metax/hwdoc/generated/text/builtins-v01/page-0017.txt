@@ -1,0 +1,46 @@
+文档: 沐曦通用GPU_MXMACA编译器内建函数编程指南_CN_V01.pdf
+文档 ID: builtins-v01
+SHA256: 80dfb3a83381e48e19968b432d4eb24d37c505bd711af14f74889277cffc3835
+PDF 页序号: 17
+PDF 页码标签: 11
+页脚页码候选: 11
+章节提示（书签推断）: __builtin_mxc_arrive_gvmcnt
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® 编译器内建函数编程指南
+表 3.5 __builtin_mxc_arrive 参数说明
+名称 描述
+flag flag 中不同 bit 的含义如下：
+flag[5:0] = gvm_cnt，全局内存队列剩余未完成数量的目标值
+flag[6] = gvm_cnt_enable，为 1 时使能全局内存栅栏
+flag[10:7] = bsm_cnt ，共享内存队列剩余未完成数量的目标值
+flag[12] = bsm_cnt_enable ，为 1 时使能共享内存栅栏
+当 flag 为 0 时，表示必须等待前面所有全局内存和共享内存操作执行完成。
+代码示例
+__global__ void test_builtin_mxc_arrive_global(int *ptr, int *data) {
+int val = ptr[0];
+__builtin_mxc_arrive(64); // (1 << 6)
+data[0] = val;
+}
+__global__ void test_builtin_mxc_arrive_shared(int *data) {
+extern __shared__ int shared_ptr[];
+int shared_val = shared_ptr[threadIdx.x];
+__builtin_mxc_arrive(4096); // (1 << 12);
+data[0] = shared_val;
+}
+3.1.7 __builtin_mxc_arrive_gvmcnt
+功能描述
+全局内存栅栏。当全局内存访问操作队列中未完成的操作数量达到或低于目标值时，代码才可以继续向
+后执行。
+接口声明
+void __builtin_mxc_arrive_gvmcnt(unsigned gvmcnt);
+参数
+表 3.6 __builtin_mxc_arrive_gvmcnt 参数说明
+名称 描述
+gvmcnt 全局内存队列中剩余未完成数量的目标值。有效值范围：0~63
+代码示例
+__global__ void test_builtin_mxc_arrive_gvmcnt(int *ptr, int *data) {
+int val = ptr[0];
+__builtin_mxc_arrive_gvmcnt(0);
+(下页继续)
+3 接口介绍 沐曦股份专有信息 OG‑26013‑000‑F5_V01 | 11

@@ -1,0 +1,33 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 17
+PDF 页码标签: 9
+页脚页码候选: 9
+章节提示（书签推断）: Memory Fence函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+2.4.2 dim3
+这个类型是一个基于 uint3 的整数向量类型，它的用途是来指定维度的。在定义一个 dim3 类型的变量
+时，任何未指定的组成部分都会被默认初始化为1。
+2.5 内置变量
+内置变量指定grid与block的维度以及block与thread的索引。它们的有效域只在device的函数中。
+2.5.1 gridDim
+这个变量是一个内置的dim3类型变量（参考 2.4.2dim3） ，其包含grid的维度信息。
+2.5.2 blockIdx
+这个变量是一个内置的uint3类型变量（参考 2.4.1char，short，int，long，longlong，float，double） ，
+其包含grid中的block索引。
+2.5.3 blockDim
+这个变量是一个内置的dim3类型变量（参考 2.4.2dim3） ，其包含block的维度信息。
+2.5.4 threadIdx
+这个变量是一个内置的uint3类型变量（参考 2.4.1char，short，int，long，longlong，float，double） ，
+其包含block中的thread索引。
+2.5.5 warpSize
+这个变量是一个内置的int类型变量，其包含threads的warp大小。
+2.6 Memory Fence 函数
+MXMACA 编程模型假定 device 是一个弱有序的内存模型，即不同的 MXMACA 线程把数据写入 shared
+内存、global内存、page‑lockedhost内存或者peerdevice内存的顺序并不一致。当没有同步操作时，
+两个thread同时读或者写一个相同内存地址是未知的行为。
+在下面的例子中，线程1执行writeXY()，而线程2执行readXY()。
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 9

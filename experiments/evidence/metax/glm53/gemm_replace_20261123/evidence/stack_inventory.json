@@ -1,0 +1,153 @@
+{
+  "versions": {
+    "torch": "2.10.0+metax3.9.0.8",
+    "triton": "3.6.0+metax3.9.0.8",
+    "mcoplib": "0.4.14+gf3794c4.maca3.9.0.31.torch2.10",
+    "vllm": "0.32.0+empty",
+    "vllm-metax": "0.32.0+g0962c8.d20261122.maca3.9.0.29.torch2.10.0"
+  },
+  "torch_file": "/opt/conda/lib/python3.12/site-packages/torch/__init__.py",
+  "triton_file": "/opt/conda/lib/python3.12/site-packages/triton/__init__.py",
+  "mcoplib_file": "/opt/conda/lib/python3.12/site-packages/mcoplib/__init__.py",
+  "device_count": 8,
+  "files": [
+    {
+      "path": "/opt/maca/lib/mcblas_xcore1500.mcfb",
+      "resolved": "/opt/maca-3.9.0/lib/mcblas_xcore1500.mcfb",
+      "is_dir": false
+    },
+    {
+      "path": "/opt/maca/lib/mcblas_xcore1000.mcfb",
+      "resolved": "/opt/maca-3.9.0/lib/mcblas_xcore1000.mcfb",
+      "is_dir": false
+    },
+    {
+      "path": "/opt/maca/lib/libmcblas.so",
+      "resolved": "/opt/maca-3.9.0/lib/libmcblas.so",
+      "is_dir": false
+    },
+    {
+      "path": "/opt/maca/lib/libmcblasLt_static.a",
+      "resolved": "/opt/maca-3.9.0/lib/libmcblasLt_static.a",
+      "is_dir": false
+    },
+    {
+      "path": "/opt/maca/lib/mcblas_xcore1600.mcfb",
+      "resolved": "/opt/maca-3.9.0/lib/mcblas_xcore1600.mcfb",
+      "is_dir": false
+    },
+    {
+      "path": "/opt/maca/lib/libmcblasLt.so",
+      "resolved": "/opt/maca-3.9.0/lib/libmcblasLt.so",
+      "is_dir": false
+    },
+    {
+      "path": "/opt/maca/lib/mcblas_xcore1501.mcfb",
+      "resolved": "/opt/maca-3.9.0/lib/mcblas_xcore1501.mcfb",
+      "is_dir": false
+    },
+    {
+      "path": "/opt/maca/lib/mcblas_xcore1008.mcfb",
+      "resolved": "/opt/maca-3.9.0/lib/mcblas_xcore1008.mcfb",
+      "is_dir": false
+    },
+    {
+      "path": "/opt/maca/lib/mcblas_xcore1089.mcfb",
+      "resolved": "/opt/maca-3.9.0/lib/mcblas_xcore1089.mcfb",
+      "is_dir": false
+    },
+    {
+      "path": "/opt/maca/lib/libmcblas_static.a",
+      "resolved": "/opt/maca-3.9.0/lib/libmcblas_static.a",
+      "is_dir": false
+    },
+    {
+      "path": "/opt/maca/lib/mctlassEx_xcore1600.mcfb",
+      "resolved": "/opt/maca-3.9.0/lib/mctlassEx_xcore1600.mcfb",
+      "is_dir": false
+    },
+    {
+      "path": "/opt/maca/lib/mctlassEx_xcore1500.mcfb",
+      "resolved": "/opt/maca-3.9.0/lib/mctlassEx_xcore1500.mcfb",
+      "is_dir": false
+    },
+    {
+      "path": "/opt/maca/lib/mctlassEx_xcore1000.mcfb",
+      "resolved": "/opt/maca-3.9.0/lib/mctlassEx_xcore1000.mcfb",
+      "is_dir": false
+    },
+    {
+      "path": "/opt/maca/lib/libmctlassEx.so",
+      "resolved": "/opt/maca-3.9.0/lib/libmctlassEx.so",
+      "is_dir": false
+    },
+    {
+      "path": "/opt/maca/include/mcblas",
+      "resolved": "/opt/maca-3.9.0/include/mcblas",
+      "is_dir": true
+    },
+    {
+      "path": "/opt/maca/include/mctlass",
+      "resolved": "/opt/maca-3.9.0/include/mctlass",
+      "is_dir": true
+    },
+    {
+      "path": "/opt/maca/include/mctlassEx",
+      "resolved": "/opt/maca-3.9.0/include/mctlassEx",
+      "is_dir": true
+    },
+    {
+      "path": "/opt/maca/mxgpu_llvm/bin/mxcc",
+      "resolved": "/opt/maca-3.9.0/mxgpu_llvm/bin/mxcc",
+      "is_dir": false
+    },
+    {
+      "path": "/opt/conda/lib/python3.12/site-packages/mctlassEx",
+      "resolved": "/opt/conda/lib/python3.12/site-packages/mctlassEx",
+      "is_dir": true
+    },
+    {
+      "path": "/opt/conda/lib/python3.12/site-packages/mctlassEx-0.1.1+metax3.9.0.8torch2.10.dist-info",
+      "resolved": "/opt/conda/lib/python3.12/site-packages/mctlassEx-0.1.1+metax3.9.0.8torch2.10.dist-info",
+      "is_dir": true
+    }
+  ],
+  "ops": [
+    {
+      "path": "/opt/conda/lib/python3.12/site-packages/mcoplib/sgl_grouped_gemm_cuda.cpython-312-x86_64-linux-gnu.so",
+      "bytes": 15748784,
+      "sha256": "5afabfee2c422400bfae1833f05af921a9ce04717f566684f5382095f6002c5e"
+    },
+    {
+      "path": "/opt/conda/lib/python3.12/site-packages/mcoplib/triton_moe_quant_group_gemm_combine.py",
+      "bytes": 9858,
+      "sha256": "09c192742d316a7af87b40ccf6c98371a02f0d052b5a7a7a50634ef813abcf16"
+    },
+    {
+      "path": "/opt/conda/lib/python3.12/site-packages/mcoplib/triton_silu_mul_fp8_quant_deep_gemm.py",
+      "bytes": 17217,
+      "sha256": "40267a5651023acb3d4a852616e6bf256abfe02d8e201b7779025353c813df0f"
+    },
+    {
+      "path": "/opt/conda/lib/python3.12/site-packages/mcoplib/triton_quant_group_gemm_reduce_sum.py",
+      "bytes": 3591,
+      "sha256": "4427133a610ffb3565bee92393e8342d782e0c98c145cd3cb565975f492c97e5"
+    }
+  ],
+  "loaded_libraries": [
+    "/opt/conda/lib/python3.12/site-packages/mcoplib/_C.abi3.so",
+    "/opt/conda/lib/python3.12/site-packages/mcoplib/_moe_C.abi3.so",
+    "/opt/conda/lib/python3.12/site-packages/mctlassEx/__mctlassExIn__.cpython-312-x86_64-linux-gnu.so",
+    "/opt/conda/lib/python3.12/site-packages/mctlassEx/mctlassExIn.cpython-312-x86_64-linux-gnu.so",
+    "/opt/maca-3.9.0/lib/libmcblas.so",
+    "/opt/maca-3.9.0/lib/libmcblasLt.so",
+    "/opt/maca-3.9.0/lib/libmctlassEx.so",
+    "/opt/maca-3.9.0/lib/mctlassEx_xcore1000.mcfb"
+  ],
+  "dispatch": "name: vllm::mctlassEx_w8a8_scaled_mm_azp\nschema: vllm::mctlassEx_w8a8_scaled_mm_azp(ScalarType out_dtype, Tensor a, Tensor b, Tensor scale_a, Tensor scale_b, Tensor? bias=None, Tensor? azp_adj=None, Tensor? azp=None) -> Tensor\ndebug: registered at /work/src/vllm/vllm/utils/torch_utils.py:1065\nalias analysis kind: FROM_SCHEMA\nCUDA: registered at /work/src/vllm/vllm/utils/torch_utils.py:1065 :: (none) [ boxed ]\nMeta: registered at /work/src/vllm/vllm/utils/torch_utils.py:1065 :: (none) [ boxed ]\n",
+  "compiler": {
+    "path": "/opt/maca/mxgpu_llvm/bin/mxcc",
+    "exit_code": 0,
+    "output": "mxcc version 1.0.0 (568b911cc9)\nTarget: x86_64-unknown-linux-gnu\nThread model: posix\nInstalledDir: /opt/maca-3.9.0/mxgpu_llvm/bin\n"
+  }
+}

@@ -1,0 +1,48 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 163
+PDF 页码标签: 156
+页脚页码候选: 156
+章节提示（书签推断）: mcblasDotEx()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_NOT_SUPPORTED 不支持参数 xtype, yType 和 executionType 的组
+合
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+MCBLAS_STATUS_INVALID_VALUE 不 支 持 参 数 alphaType , xType , yType 或
+executionType
+2.6.21 mcblasDotEx()
+mcblasStatus_t mcblasDotEx(mcblasHandle_t handle,
+int n,
+const void *x,
+macaDataType xType,
+int incx,
+const void *y,
+macaDataType yType,
+int incy,
+void *result,
+macaDataType resultType,
+macaDataType executionType);
+mcblasStatus_t mcblasDotcEx(mcblasHandle_t handle,
+int n,
+const void *x,
+macaDataType xType,
+int incx,
+const void *y,
+macaDataType yType,
+int incy,
+void *result,
+macaDataType resultType,
+macaDataType executionType);
+这些函数是 mcblas<t>dot 和 mcblas<t>dotc 的 API 泛化，可在其中独立指定输入数据，输出数据
+和计算类型。
+注解: mcblas<t>dotc 是共轭点积，mcblas<t>dotu 是未共轭点积。
+该函数计算向量 x 和 y 的点积 （dot product） 。 因此， 结果为∑n
+i=1 (x[k] × y[j])， 其中k = 1+( i − 1)∗incx，
+j = 1 + (i − 1) ∗ incy。请注意，在第一个方程中，如果函数名称以字符“c”结尾，则应使用 x 向量元素
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 156

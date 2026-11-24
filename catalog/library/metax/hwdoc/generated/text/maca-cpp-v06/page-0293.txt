@@ -1,0 +1,43 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 293
+PDF 页码标签: 285
+页脚页码候选: 285
+章节提示（书签推断）: 动态Global内存操作
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+(续上页)
+helloMXMACA<<<1, 5>>>(1.2345f);
+return 0;
+}
+将会输出：
+Hello thread 0, f=1.2345
+Hello thread 1, f=1.2345
+Hello thread 2, f=1.2345
+Hello thread 3, f=1.2345
+Hello thread 4, f=1.2345
+注意每个线程均会执行 printf 命令（这里不考虑有条件分支的场景） ，因此输出行与 grid 中启动的线程
+一样多。当printf函数作用与条件分支（假设条件变量与threadIdx.x相关）中，则各线程可能执行不同
+的打印。
+如下代码：
+#include <stdio.h>
+__global__ void helloMXMACA(float f)
+{
+if (threadIdx.x == 0)
+printf("Hello thread %d, f=%f\n", threadIdx.x, f) ;
+}
+int main()
+{
+helloMXMACA<<<1, 5>>>(1.2345f);
+return 0;
+}
+将会输出:
+Hello thread 0, f=1.2345
+if()语句限制了仅有线程0将调用printf，因此只能看到一行输出。
+2.30 动态 Global 内存操作
+__device__ void* malloc(size_t size);
+__device__ void free( void * ptr);
+从global内存中动态的申请和释放buffer。
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 285

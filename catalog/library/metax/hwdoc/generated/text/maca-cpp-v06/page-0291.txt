@@ -1,0 +1,32 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 291
+PDF 页码标签: 283
+页脚页码候选: 283
+章节提示（书签推断）: Breakpoint函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+(续上页)
+// 等待使用 shared内存计算完成
+block.sync();
+}
+}
+2.26 Assert 函数
+断言函数，在设备侧函数中调用该函数以阻止致命的错误。
+void assert(int expression);
+当 expression 等于 0 时，阻止当前 kernel 执行。并且每个设备侧线程（expression 为 0 时）会按如下
+格式打印stderr：
+<filename>:<line number>:<function>:
+block: [blockIdx.x, blockIdx.y, blockIdx.z],
+thread: [threadIdx.x, threadIdx.y, threadIdx.z],
+Assertion <expression> failed.
+2.27 Trap 函数
+可在任意设备线程中调用 __trap()以触发trap动作。
+void __trap();
+终止kernel的执行并在host侧引发中断。
+2.28 Breakpoint 函数
+在任意设备线程中调用 __brkpt()来停止当前kernel的执行。
+void __brkpt();
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 283

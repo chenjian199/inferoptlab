@@ -1,0 +1,53 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 99
+PDF 页码标签: 92
+页脚页码候选: 92
+章节提示（书签推断）: mcblas<t>syrkx()
+质量标记: private_use_characters
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+(续上页)
+const mcComplex *beta,
+mcComplex *C, int ldc)
+mcblasStatus_t mcblasZsyrkx(mcblasHandle_t handle,
+mcblasFillMode_t uplo, mcblasOperation_t trans,
+int n, int k,
+const mcDoubleComplex *alpha,
+const mcDoubleComplex *A, int lda,
+const mcDoubleComplex *B, int ldb,
+const mcDoubleComplex *beta,
+mcDoubleComplex *C, int ldc)
+此函数执行对称秩‑ k 更新的变体 C = αop(A)op(B)T + βC ， 其中α 和 β 是标量，C 是以 lower 或 upper
+模式存储的对称矩阵，A 和 B 是维度分别为 op(A) n × k 和 op(B) n × k 的矩阵。 此外， 对于矩阵A 和 B，
+op(A) and op (B) =
+
+
+
+A and B if trans == M CBLAS_OP _N
+AT and B T if trans == M CBLAS_OP _T
+当矩阵 B 能保证结果是对称矩阵时，可以使用此例程。一个常见的例子是矩阵 B 是矩阵 A 的缩放形式：
+这相当于 B 是矩阵 A 和一个对角矩阵（diagonal matrix）的乘积。有效计算正则矩阵（regular matrix）
+与对角矩阵的乘积，请参见mcblas<t>dgmm()。
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+uplo input 指示存储的是矩阵 C 的上半部分还是下半部分，其对称部分未
+被引用，且是从存储的元素推断出来的
+trans input 非转置或转置运算 op(A)
+n input 矩阵 op(A)、op(B) 和 C 的行数
+k input 矩阵 op(A) 和 op(B) 的列数
+alpha 主机或设备 input 用于乘法的 <type> 标量
+A 设备 input 如果 transa == MCBLAS_OP_N ， <type> 数组维度为lda x
+k ，其中 lda>=max(1,n) ；否则，维度为 lda x n ，其中
+lda>=max(1,k)
+lda input 用于存储矩阵 A 的二维数组的前导维度
+B 设备 input 如果 transb == MCBLAS_OP_N ， <type> 数组维度为ldb x
+k ，其中 ldb>=max(1,n) ；否则，维度为 ldb x n ，其中
+ldb>=max(1,k)
+ldb input 用于存储矩阵 B 的二维数组的前导维度
+beta 主机或设备 input 用于乘法的 <type> 标量，如果 beta == 0 ，则 C 不必为有效
+输入
+C 设备 in/out <type> 数组，维度为 ldc x n ，其中 ldc>=max(1,n)
+ldc input 用于存储矩阵 C 的二维数组的前导维度
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 92

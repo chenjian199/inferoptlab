@@ -1,0 +1,37 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 287
+PDF 页码标签: 279
+页脚页码候选: 279
+章节提示（书签推断）: 元素类型和矩阵形状
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+2.24.3 双精度类型
+使用该类型对应的函数时必须使用 double类型的 fragment。
+2.24.4 元素类型和矩阵形状
+下表是矩阵乘加运算支持的 matrix_a、matrix_b和 accumulator的组合：
+Matrix A Matrix B Accumulator Matrix Size (m‑n‑k)
+__half __half float 16x16x16
+__half __half float 32x8x16
+__half __half float 8x32x16
+__half __half __half 16x16x16
+__half __half __half 32x8x16
+__half __half __half 8x32x16
+unsignedchar unsignedchar int 16x16x16
+unsignedchar unsignedchar int 32x8x16
+unsignedchar unsignedchar int 8x32x16
+signedchar signedchar int 16x16x16
+signedchar signedchar int 32x8x16
+signedchar signedchar int 8x32x16
+其他浮点类型支持：
+Matrix A Matrix B Accumulator Matrix Size (m‑n‑k)
+maca_bfloat16 maca_bfloat16 float 16x16x16
+maca_bfloat16 maca_bfloat16 float 32x8x16
+maca_bfloat16 maca_bfloat16 float 8x32x16
+precision::tf32 precision::tf32 float 16x16x8
+双精度类型支持：
+Matrix A Matrix B Accumulator Matrix Size (m‑n‑k)
+double double double 8x8x4
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 279

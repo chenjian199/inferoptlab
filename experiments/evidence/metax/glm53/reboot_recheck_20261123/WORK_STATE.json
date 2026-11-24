@@ -1,0 +1,17 @@
+{
+  "status": "pilot_complete_hardware_link_unresolved",
+  "model_pilot": "32/32/4 complete; no paired regression; rollback exact",
+  "container": "glm53-gemm-reboot-v1",
+  "container_stopped": true,
+  "pending_outside_pilot": [
+    "hardware link maintenance before defaultP2P/performance",
+    "full164 and independent engines before release"
+  ],
+  "preserved": [
+    "original6 containers",
+    "baseline65files",
+    "repeatability135files",
+    "gemm69files",
+    "recovery33files"
+  ]
+}

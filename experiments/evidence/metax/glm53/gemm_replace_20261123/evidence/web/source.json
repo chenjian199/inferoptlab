@@ -1,0 +1,10 @@
+{
+  "observed_on": "2026-11-23",
+  "source_url": "https://raw.githubusercontent.com/MetaX-MACA/mcTlass/2.20.2/README_MX.md",
+  "branch": "2.20.2",
+  "commit": null,
+  "original_readme_lines": "4-9 (1-based)",
+  "selection": "Plain-text excerpt of web tool response; Markdown emphasis/quotes and spacing normalized. Not the raw complete README.",
+  "excerpt_sha256": "7408c00f52ae6317a046632a4baa1575ef32de2e715a0cb9f19d827a878e91a9",
+  "boundary": "Mutable branch; no claim that public mcTlass corresponds to installed mctlassEx binary or that this branch was built."
+}

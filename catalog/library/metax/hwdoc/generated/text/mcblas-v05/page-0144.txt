@@ -1,0 +1,43 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 144
+PDF 页码标签: 137
+页脚页码候选: 137
+章节提示（书签推断）: mcblasGemmBatchedEx()
+质量标记: private_use_characters
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+用更新的函数签名进行编译。
+C[i] = αop(A[i])op(B[i]) + βC [i], for i ∈ [0, batchCount − 1]
+其中 α 和 β 是标量，A、B、C 是指针数组，指向以列主格式存储的矩阵，维度分别为 op (A[i]) m × k，
+op(B[i]) k × n 和 C[i] m × n。此外，对于矩阵 A，
+op(A) =
+
+
+
+A if transa == M CBLAS_OP _N
+AT if transa == M CBLAS_OP _T
+AH if transa == M CBLAS_OP _C
+对于矩阵 B[i]，op(B[i]) 的定义类似。
+注解: C[i] 矩阵不能重叠，即单个 gemm 操作必须独立计算；否则，会导致未定义行为。在某些
+problem size 上， 可能需要在不同的 MXMACA 流中多次调用mcblas<t>gemm， 而不是使用此 API。
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+transa input 非转置或共轭转置运算 op([i])
+transb input 非转置或共轭转置运算 op(B[i])
+m input 矩阵 op(A[i]) 和 C[i] 的行数
+n input 矩阵 op(B[i]) 和 C[i] 的列数
+k input op(A[i]) 的列数和 op(B[i]) 的行数
+alpha 主机或设备 input computeType 和 Ctype 对应类型的 A *B 的缩放因子，
+详情请参见下表
+Aarray 设备 input 指 向 <Atype> 数 组 的 指 针 数 组。 如 果 transa
+== MCBLAS_OP_N ， 数 组 维 度 为lda x k ， 其 中
+lda>=max(1,m) ；否则，维度为 lda x m ，其中
+lda>=max(1,k)。
+所有指针都必须满足特定的对齐条件。详情参见以下
+内容
+Atype input 枚举，指定矩阵 Aarray 的数据类型
+lda input 用于存储矩阵 A[i] 的二维数组的前导维度
+下页继续
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 137

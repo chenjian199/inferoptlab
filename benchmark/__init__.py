@@ -1,1 +1,1 @@
-"""Reproducible, AIPerf-based online benchmarks (no GPU imports at import time)."""
+"""Independent load, accuracy and breakdown workflows; no eager GPU imports."""

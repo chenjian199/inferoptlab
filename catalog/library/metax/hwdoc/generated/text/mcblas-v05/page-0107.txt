@@ -1,0 +1,34 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 107
+PDF 页码标签: 100
+页脚页码候选: 100
+章节提示（书签推断）: mcblas<t>trsmBatched()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+side input 指示矩阵 A[i] 在 X[i] 的左边还是右边
+uplo input 指示存储的是矩阵 A[i] 的上半部分还是下半部分，另
+外半部分未被引用，且是从存储的元素推断出来的
+trans input 非转置或共轭转置运算 op(A[i])
+diag input 指示矩阵 A[i] 主对角线上的元素是否是统一的且不应
+被访问
+m input 矩阵 B[i] 的行数，矩阵 A[i] 的大小也相应调整
+n input 矩阵 B[i] 的列数，矩阵 A[i] 的大小也相应调整
+alpha 主机或设备 input 用于乘法的 <type> 标量， 如果alpha == 0， 则A[i]
+未被引用，且 B[i] 不必为有效输入
+A 设备 input 指 向 <type> 数 组 的 指 针 数 组。 如 果 side ==
+MCBLAS_SIDE_LEFT ，数组维度为 lda x m ，其中
+lda>=max(1,m) ； 否 则， 维 度 为lda x n ， 其 中
+lda>=max(1,n)
+lda input 用于存储矩阵 A[i] 的二维数组的前导维度
+B 设备 in/out 指向 <type> 数组的指针数组，维度为 ldb x n ，其
+中 ldb>=max(1,m) 。 矩阵B[i] 不应重叠；否则，将
+出现未定义的行为
+ldb input 用于存储矩阵 B[i] 的二维数组的前导维度
+batchCount input A 和 B 中包含的指针数
+下面列出了此函数可能的返回值及其含义。
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 100

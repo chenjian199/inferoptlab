@@ -1,0 +1,15 @@
+文档: 沐曦通用GPU_mxcc编译器用户指南_CN_V06.pdf
+文档 ID: mxcc-v06
+SHA256: 6fceba6f92b1b4274a5c2dd106d76320947a0b4ef0cdaffd36af5497fdffb6dd
+PDF 页序号: 17
+PDF 页码标签: 12
+页脚页码候选: 12
+章节提示（书签推断）: 设备链接器选项
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mxcc 编译器用户指南
+--verbose (-verbose)
+启用详细模式，打印代码生成统计信息。
+--warning-as-error (-Werror)
+将所有警告改为错误。
+4 支持的选项 沐曦股份专有信息 OG‑23026‑020‑F5_V06 | 12

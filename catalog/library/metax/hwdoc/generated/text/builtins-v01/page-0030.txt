@@ -1,0 +1,46 @@
+文档: 沐曦通用GPU_MXMACA编译器内建函数编程指南_CN_V01.pdf
+文档 ID: builtins-v01
+SHA256: 80dfb3a83381e48e19968b432d4eb24d37c505bd711af14f74889277cffc3835
+PDF 页序号: 30
+PDF 页码标签: 24
+页脚页码候选: 24
+章节提示（书签推断）: __builtin_mxc_byte_perm
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® 编译器内建函数编程指南
+__device__ int test_mxc_bsm_permute(int index, int data) {
+// index[0:63] = {256, 254, ... 4,0}
+// It will reverse the data of threads 0 to 63.
+return __builtin_mxc_bsm_permute(index, data);
+}
+3.4.5 __builtin_mxc_byte_perm
+功能描述
+线程内两个 32bit 数据的字节混洗，返回一个新的 32bit 数据
+接口声明
+unsigned int __builtin_mxc_byte_perm(unsigned int s0, unsigned int s1, unsigned 
+,→perm);
+参数
+表 3.17 __builtin_mxc_byte_perm 参数说明
+名称 描述
+dest dest[31:24] = byte_permute({s0,s1}, perm[31:24])
+dest[23:16] = byte_permute({s0,s1}, perm[23:16])
+dest[15:8] = byte_permute({s0,s1}, perm[15:8])
+dest[7:0] = = byte_permute({s0,s1}, perm[7:0])
+s0 参与混洗的高 32bit 数据
+s1 参与混洗的低 32bit 数据
+perm 混洗规则，用法见算法描述
+算法
+uint8_t byte_permute(uint8_t in[8], uint8_t sel) {
+if(sel>=13) then return 0xff;
+elseif(sel==12) then return 0x00;
+elseif(sel==11) then return in[7][7] * 0xff;
+elseif(sel==10) then return in[5][7] * 0xff;
+elseif(sel==9) then return in[3][7] * 0xff;
+elseif(sel==8) then return in[1][7] * 0xff;
+else then return in[sel];
+}
+dest[31:24] = byte_permute({s0,s1}, perm[31:24]);
+dest[23:16] = byte_permute({s0,s1}, perm[23:16]);
+dest[15:8] = byte_permute({s0,s1}, perm[15:8]);
+dest[7:0] = byte_permute({s0,s1}, perm[7:0]);
+3 接口介绍 沐曦股份专有信息 OG‑26013‑000‑F5_V01 | 24

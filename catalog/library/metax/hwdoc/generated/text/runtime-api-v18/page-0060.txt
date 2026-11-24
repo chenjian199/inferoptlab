@@ -1,0 +1,36 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 60
+PDF 页码标签: 51
+页脚页码候选: 51
+章节提示（书签推断）: Makefile编译和示例
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+(续上页)
+MXCC = $(MACA_PATH)/mxgpu_llvm/bin/mxcc
+# Compiler flags
+MXCCFLAGS = -x maca
+# Source files
+SRCS= main.cpp src/a.cpp src/b.cpp
+# Object files
+OBJS = $(SRCS:.cpp=.o)
+# Executable
+EXEC = my_program
+# Default target
+all: $(EXEC)
+# Link object files to create executable
+$(EXEC): $(OBJS)
+$(MXCC) $(OBJS) -o $(EXEC)
+%.o: %.cpp
+$(MXCC) $(MXCCFLAGS) -c $< -o $@ -I include
+# clean up object files and executable
+clean:
+rm -f $(OBJS) $(EXEC)
+值得注意的是，执行 make 命令之前，需要正确设置环境变量，以缺省安装位置（/opt/maca）为例：
+export MACA_PATH=/opt/maca
+export LD_LIBRARY_PATH=${MACA_PATH}/lib:${LD_LIBRARY_PATH}
+然后在 Makefile 同级目录下执行 make 命令，如图 4.2 所示，就能得到可执行程序 my_program。该
+工程中，源文件 a.cpp 例举了一种利用核函数实现向量加法的典型用法。
+4 编译和调试 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 51

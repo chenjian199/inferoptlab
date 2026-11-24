@@ -1,0 +1,63 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 38
+PDF 页码标签: 31
+页脚页码候选: 31
+章节提示（书签推断）: mcblas<t>rotm()
+质量标记: private_use_characters
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+2.3.10 mcblas<t>rotm()
+mcblasStatus_t mcblasSrotm(mcblasHandle_t handle, int n, float *x, int incx,
+float *y, int incy, const float* param)
+mcblasStatus_t mcblasDrotm(mcblasHandle_t handle, int n, double *x, int incx,
+double *y, int incy, const double* param)
+该函数将 modified Givens 变换
+H =
+
+h11 h12
+h21 h22
+
+
+应用到向量 x 和 y 中。
+因此，结果为 x[k] = h11 × x[k] + h12 × y[j] 和 y[j] = h21 × x[k] + h22 × y[j]，其中 k = 1 + (i − 1) ∗ incx，
+j = 1 + ( i − 1) ∗ incy。请注意，最后两个公式反映了基于 1 的索引，该索引用于与 Fortran 兼容。矩阵
+H 的 h11、h12、h21、h22‘元素，分别存储在‘‘param[1]‘、param[2]、param[3]、param[4] 中。
+flag=param[0] 为矩阵 H 的项定义以下预定义值。
+flag=-1.0 flag= 0.0 flag= 1.0 flag=-2.0
+h11 h12
+h21 h22
+
+
+
+1.0 h12
+h21 1.0
+
+
+
+ h11 1.0
+−1.0 h22
+
+
+
+1.0 0.0
+0.0 1.0
+
+
+请注意，flag 所隐含的值‑1.0、0.0、1.0 不存储在参数中。
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+n input 向量 x 和 y 中的元素数
+x 设备 in/out 包含 n 个元素的 <type> 向量
+incx input x 中连续元素之间的步幅
+y 设备 in/out 包含 n 个元素的 <type> 向量
+incy input y 中连续元素之间的步幅
+param 主机或设备 input 包 含 5 个 元 素 的 <type> 向 量， 其 中 param[0] 和
+param[1-4] 包含标志和矩阵 H
+下面列出了此函数可能的返回值及其含义。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 31

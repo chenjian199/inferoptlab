@@ -1,0 +1,35 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 78
+PDF 页码标签: 69
+页脚页码候选: 69
+章节提示（书签推断）: 使用GPU Trap Handler
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+将程序做如下修改即可解决该问题：
+#include<mc_runtime.h>
+typedef struct
+{
+float f;
+double d;
+}test_type_mem_violation;
+__global__ void trigger_memory_violation(test_type_mem_violation *dst)
+{
+atomicAdd(&dst->f,1.23);
+atomicAdd(&dst->d,20);
+dst->f=9.8765;
+}
+int main()
+{
+test_type_mem_violation hd={0};
+test_type_mem_violation *ddd;
+mcMalloc((void**)&ddd,sizeof(test_type_mem_violation));
+mcMemcpy(ddd,&hd,sizeof(test_type_mem_violation),mcMemcpyHostToDevice);
+trigger_memory_violation<<<dim3(1),dim3(1)>>>(ddd);
+mcMemcpy(&hd,ddd,sizeof(test_type_mem_violation),mcMemcpyDeviceToHost);
+mcFree(ddd);
+return 0;
+}
+4 编译和调试 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 69

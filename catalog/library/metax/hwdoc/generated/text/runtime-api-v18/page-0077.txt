@@ -1,0 +1,45 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 77
+PDF 页码标签: 68
+页脚页码候选: 68
+章节提示（书签推断）: 使用GPU Trap Handler
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+使用 GPU trap handler，示例代码如下所示：
+#include<mc_runtime.h>
+typedef struct
+{
+alignas(4)float f;
+double d;
+}__attribute__((packed)) test_type_mem_violation;
+__global__ void trigger_memory_violation(test_type_mem_violation *dst)
+{
+atomicAdd(&dst->f,1.23);
+atomicAdd(&dst->d,20);
+dst->f=9.8765;
+}
+int main()
+{
+test_type_mem_violation hd={0};
+test_type_mem_violation *ddd;
+mcMalloc((void**)&ddd,sizeof(test_type_mem_violation));
+mcMemcpy(ddd,&hd,sizeof(test_type_mem_violation),mcMemcpyHostToDevice);
+trigger_memory_violation<<<dim3(1),dim3(1)>>>(ddd);
+mcMemcpy(&hd,ddd,sizeof(test_type_mem_violation),mcMemcpyDeviceToHost);
+mcFree(ddd);
+return 0;
+}
+如果运行以上代码将会得到如图 4.10 所示的错误信息：
+图 4.10 trap 错误信息
+重点关注红框内给出信息， MCR 层给出提示信息[MCR][E]mx_device.cpp:1729:Memory violation
+exception happened in the shader , mcruntime api will be disabled并设置了 g_final_error，
+对应异常类型来看：核函数触发了异常类型 3—Memory violation，对照触发异常条件可以知道，我
+们的核函数代码可能存在访问内存的偏移量小于 0，越界或数据未按要求对齐。
+检查代码可发现：由于在结构体 test_type_mem_violation 中 alignas(4) 对 float 进行强制对齐
+以及对结构体进行了 attribute((packed))，所以结构体 test_type_mem_violation 的 size 为
+double:8 加上 float:4 等于 12，由于 64‑bit 的 atomic 操作要求数据按照 8 字节对齐，故这里的结
+构体没有按照要求对齐，所以引发了 trap。
+4 编译和调试 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 68

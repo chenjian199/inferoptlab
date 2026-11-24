@@ -1,0 +1,16 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-metax-gemm-hardware-issue-summary
+version: 1.0.0
+title: 63metax 采集记录：gemm-hardware_issue_summary.json
+provenance: []
+issues: []
+extensions: {}
+path: experiments/evidence/metax/20261123/imported/gemm-hardware_issue_summary.json
+sha256: 7c8ca75dbcfa39e0bfcda97146525d55ca6f429d03040790ed6c473e4a902990
+media_type: application/json
+role: machine_inventory
+authority: machine_collected
+coverage:
+  status: complete_visible
+  description: 通过 SSH 从 63metax 采集或归档的记录；覆盖范围以原文件实际字段为准，未记录的状态不作推断。

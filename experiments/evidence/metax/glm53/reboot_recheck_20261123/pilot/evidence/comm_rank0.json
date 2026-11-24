@@ -1,0 +1,1 @@
+{"rank": 0, "local_matmul_exact": true, "all_reduce_lengths": [1, 16, 1024], "expected_sum": 36, "passed": true}

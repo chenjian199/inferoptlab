@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 198
+PDF 页码标签: 190
+页脚页码候选: 190
+章节提示（书签推断）: 整数型度数学函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+• 执行整数类型提升后，返回a和b中的最大值。
+__device__ unsigned int max (const int a, const unsigned int b)
+参数
+a
+• int
+b
+• unsignedint
+返回值
+• unsignedint
+函数描述
+• 执行整数类型提升后，返回a和b中的最大值。
+__device__ unsigned int max (const unsigned int a, const unsigned int b)
+参数
+a
+• unsignedint
+b
+• unsignedint
+返回值
+• unsignedint
+函数描述
+• 返回a和b中的最大值。
+__device__ int max (const int a, const int b)
+参数
+a
+• int
+b
+• int
+返回值
+• int
+函数描述
+• 返回a和b中的最大值。
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 190

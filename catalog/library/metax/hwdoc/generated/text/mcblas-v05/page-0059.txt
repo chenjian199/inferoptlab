@@ -1,0 +1,45 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 59
+PDF 页码标签: 52
+页脚页码候选: 52
+章节提示（书签推断）: mcblas<t>tpmv()
+质量标记: private_use_characters
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+(续上页)
+mcblasStatus_t mcblasZtpmv(mcblasHandle_t handle, mcblasFillMode_t uplo,
+mcblasOperation_t trans, mcblasDiagType_t diag,
+int n, const mcDoubleComplex *AP,
+mcDoubleComplex *x, int incx)
+该函数执行三角压缩矩阵‑向量乘法
+x = op(A)x
+其中 A 是以压缩格式存储的三角矩阵，x 是向量。此外，对于矩阵 A，
+op(A) =
+
+
+
+A if trans == M CBLAS_OP _N
+AT if trans == M CBLAS_OP _T
+AH if trans == M CBLAS_OP _C
+如果 uplo == MCBLAS_FILL_MODE_LOWER，三角矩阵 A 下三角部分中的元素逐列压缩在一起，元素
+之间没有间隙， 以便将元素A(i, j) 存储在 AP[i+((2*n-j+1)*j)/2]， 其中j = 1, . . . , n，i ≥ j。 因此，
+压缩格式只需要 n(n+1)
+2 个元素进行存储。
+如果 uplo == MCBLAS_FILL_MODE_UPPER，三角矩阵 A 上三角部分中的元素逐列压缩在一起，元素
+之间没有间隙，以便将元素 A(i, j) 存储在 AP[i+(j*(j+1))/2]，其中 A(i, j)，i ≤ j。 因此，压缩格式
+只需要 n(n+1)
+2 个元素进行存储。
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+uplo input 指示存储的是矩阵 A 的上半部分还是下半部分，另外半部分未
+被引用，且是从存储的元素推断出来的
+trans input 非转置或共轭转置运算 op(A)
+diag input 指示矩阵 A 主对角线上的元素是否是统一的且不应被访问
+n input 矩阵 A 的行数和列数
+AP 设备 input 以压缩格式存储 A 的 <type> 数组
+x 设备 in/out 包含 n 个元素的 <type> 向量
+incx input x 中连续元素之间的步幅
+下面列出了此函数可能的返回值及其含义。
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 52

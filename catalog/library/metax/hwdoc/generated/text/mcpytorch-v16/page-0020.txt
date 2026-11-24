@@ -1,0 +1,27 @@
+文档: 沐曦通用GPU_mcPyTorch用户指南_CN_V16.pdf
+文档 ID: mcpytorch-v16
+SHA256: 165b88e24e4768497ef4587368037b4bbc99ab933eafc3e4baac43175c83cdb2
+PDF 页序号: 20
+PDF 页码标签: 14
+页脚页码候选: 14
+章节提示（书签推断）: torch.onnx
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcPyTorch 用户指南
+3.15 torch.fft
+支持
+3.16 torch.fx
+支持
+3.17 torch.jit
+支持
+3.18 torch.linalg
+支持
+3.19 torch.package
+支持
+3.20 torch.profiler
+支持
+3.21 torch.nn.init
+支持
+3.22 torch.onnx
+支持
+3 功能支持 沐曦股份专有信息 OG‑23031‑020‑F5_V16 | 14

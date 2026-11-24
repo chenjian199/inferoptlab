@@ -1,0 +1,307 @@
+{
+  "archive": "/install/maca-sdk-3.9.0.29-deb-x86_64.tar.xz",
+  "xz_integrity": "pass",
+  "sdk": "/opt/glm53-sdk-stage/maca-sdk-3.9.0.29",
+  "packages": [
+    {
+      "file": "commonlib_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca macainfo lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: commonlib_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 770\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "cu-bridge_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: {}\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: cu-bridge_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 19009\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "maca_sdk_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDepends: mxgpu_llvm_3.9.0 (= 3.9.0.29), mctracer-3.9.0 (= 3.9.0.29), cu-bridge_3.9.0 (= 3.9.0.29), mcanalyzer_3.9.0 (= 3.9.0.29), macafy_3.9.0 (= 3.9.0.29), commonlib_3.9.0 (= 3.9.0.29), mxkw_3.9.0 (= 3.9.0.29), mxcompute_3.9.0 (= 3.9.0.29), mxvpu_3.9.0 (= 3.9.0.29), macainfo_3.9.0 (= 3.9.0.29), mccompiler_3.9.0 (= 3.9.0.29), mcruntime_3.9.0 (= 3.9.0.29), mchotspot_3.9.0 (= 3.9.0.29), mcpti_3.9.0 (= 3.9.0.29), mcmathlib_3.9.0 (= 3.9.0.29), mckernellib_3.9.0 (= 3.9.0.29), mctoolext_3.9.0 (= 3.9.0.29), sample_3.9.0 (= 3.9.0.29), mcsanitizer_3.9.0 (= 3.9.0.29), mcsanitizer-public_3.9.0 (= 3.9.0.29), mxucx-3.9.0 (= 3.9.0.29), mxompi-3.9.0 (= 3.9.0.29), mccl_3.9.0 (= 3.9.0.29), mxshmem_3.9.0 (= 3.9.0.29), mxccl_plugin_3.9.0 (= 3.9.0.29), mccltests-3.9.0 (= 3.9.0.29), mxcommlib_tools_3.9.0 (= 3.9.0.29), mcfile_3.9.0 (= 3.9.0.29), mcimage_3.9.0 (= 3.9.0.29), mcjpeg_3.9.0 (= 3.9.0.29), mxffmpeg-3.9.0 (= 3.9.0.29), mxffmpeg-dev-3.9.0 (= 3.9.0.29), mcrand_3.9.0 (= 3.9.0.29), mcblas_3.9.0 (= 3.9.0.29), mcblaslt_3.9.0 (= 3.9.0.29), mcdnn_3.9.0 (= 3.9.0.29), mcfft_3.9.0 (= 3.9.0.29), mcsparse_3.9.0 (= 3.9.0.29), mcthrust_3.9.0 (= 3.9.0.29), mcsolver_3.9.0 (= 3.9.0.29), mctlass_3.9.0 (= 3.9.0.29), mcsolverit_3.9.0 (= 3.9.0.29), mcflashattn_3.9.0 (= 3.9.0.29), mcflashinfer_3.9.0 (= 3.9.0.29), mxreport-3.9.0 (= 3.9.0.29), mxexporter-3.9.0 (= 3.9.0.29), mxdiagease-3.9.0 (= 3.9.0.29), mxsml-devel-3.9.0 (= 3.9.0.29), mxvs-3.9.0 (= 3.9.0.29), mxgdrcopy-3.9.0 (= 3.9.0.29), mxmaca-install-3.9.0 (= 3.9.0.29), maca_sdk_pkg_config_3.9.0 (= 3.9.0.29)\nDescription: MACA SDK  meta-package; Meta-package containing all the available SDK packages related to native MACA development. Locked at SDK version .\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: maca_sdk_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 8\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "maca_sdk_latest_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDepends: maca_sdk_3.9.0 (>= 3.9.0.29)\nDescription: MACA meta-package containing all the available SDK packages related to native MACA development, This meta package will install the MACA SDK version , and allows you to upgrade to the next release.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: maca_sdk\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 10\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "maca_sdk_pkg_config_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca_sdk_pkg_config package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: maca_sdk_pkg_config_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 17\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "macafy_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: {}\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: macafy_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 2136\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "macainfo_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca macainfo lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: macainfo_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 61\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mcanalyzer_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mcanalyzer lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mcanalyzer_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 6805\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mcblasLt_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mcblasLt lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mcblaslt_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 3824529\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mcblas_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mcblas lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mcblas_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 140301\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mccl_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mccl lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mccl_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 888439\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mccltests_3.9.0.29.amd64.deb",
+      "metadata": "Package: mccltests-3.9.0\nVersion: 3.9.0.29\nArchitecture: amd64\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nDescription: mccl tests used to test mccl performance.\nHomepage: https://developer.metax-tech.com\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mccompiler_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mccompiler lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mccompiler_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 29319\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mcdnnLt_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mcdnnLt lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mcdnnlt_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 71847\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mcdnn_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mcdnn lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mcdnn_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 408999\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mcfft_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mcfft lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mcfft_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 1069524\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mcfile_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mcfile lib package, GPU Direct Storage.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mcfile_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 491\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mcflashattn_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mcflashattn lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mcflashattn_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 1443203\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mcflashinfer_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mcflashinfer lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mcflashinfer_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 1343\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mcgpufort_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: MACA mcgpufort meta-package; This package contains a VS Code extension that can help you edit MACA code more efficiently.\nHomepage: https://www.metax-tech.com\nMaintainer: mxmaca@metax-tech.com\nPackage: mcgpufort_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 1553\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mchotspot_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mchotspot lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mchotspot_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 6050\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mcimage_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mcimage lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mcimage_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 220403\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mcjpeg_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mcjpeg lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mcjpeg_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 5247\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mckernellib_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mckernellib lib package\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mckernellib_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 74804\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mcmathlib_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mcmathlib lib package\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mcmathlib_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 2977\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mcmpp_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mcmpp lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mcmpp_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 1808065\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mcpti_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mcpti lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mcpti_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 5568\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mcrand_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mcrand lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mcrand_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 202193\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mcruntime_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mcruntime lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mcruntime_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 82050\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mcsanitizer-public_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mcsanitizer-public lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mcsanitizer-public_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 162\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mcsanitizer_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: mcsanitizer tools package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mcsanitizer_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 281\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mcsolver_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mcsolver lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mcsolver_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 83222\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mcsolverit_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mcsolverit lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mcsolverit_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 167273\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mcsparse_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mcsparse lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mcsparse_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 89552\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mcthrust_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mcthrust lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mcthrust_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 7946\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mctlassEx_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mctlassEx lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mctlassex_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 395615\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mctlass_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mctlass lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mctlass_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 12220\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mctoolext_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mctoolext lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mctoolext_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 35590\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mctracer_3.9.0.29.amd64.deb",
+      "metadata": "Package: mctracer-3.9.0\nVersion: 3.9.0.29\nArchitecture: amd64\nMaintainer: MetaX Developers <support-sw@metax-tech.com>\nHomepage: https://developer.metax-tech.com\nDescription: Tool kit for MACA\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mxccl_plugin_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: Maca Collective Communication Lib plugin which is compatible with NCCL 21605.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mxccl_plugin_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 334436\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mxcommlib_tools_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mxcommlib_tools lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mxcommlib_tools_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 14937\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mxcompute_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mxcompute lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mxcompute_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 36027\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mxdiagease_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: Metax one click diagnosis package contain the tool:mx-diagease which can diagnose pcie,metaxlink,memory,power,Gpu Stress and monitor power supply and power consumption data.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mxdiagease-3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 5783\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mxexporter_3.9.0.29.amd64.deb",
+      "metadata": "Package: mxexporter-3.9.0\nVersion: 3.9.0.29\nArchitecture: amd64\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nDescription: MetaX Data Exporter deb package\nHomepage: https://developer.metax-tech.com\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mxffmpeg-dev_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDepends:\nDescription: ffmpeg development package.\n  This package contains the headers, pkgconfig for the ffmpeg package\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mxffmpeg-dev-3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mxffmpeg_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDepends:\nDescription: FFmpeg for MXC500 platforms.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mxffmpeg-3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mxfortran_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: MACA mxfortran meta-package; This package contains a VS Code extension that can help you edit MACA code more efficiently.\nHomepage: https://www.metax-tech.com\nMaintainer: mxmaca@metax-tech.com\nPackage: mxfortran_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 243889\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mxgdrcopy_3.9.0.29.amd64.deb",
+      "metadata": "Package: mxgdrcopy-3.9.0\nVersion: 3.9.0.29\nSection: utils\nArchitecture: amd64\nDepends:\nSuggests: gcc-multilib\nInstalled-Size:\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nDescription: maca mxgdrcopy lib package.\nHomepage: https://developer.metax-tech.com\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mxgpu_llvm_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: MACA compiler meta-package; This package contains all the available compiler components.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mxgpu_llvm_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 1691848\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mxkw_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDepends: libnuma1\nDescription: maca mxkw lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mxkw_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 3414\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mxmaca-install_3.9.0.29.amd64.deb",
+      "metadata": "Package: mxmaca-install-3.9.0\nVersion: 3.9.0.29\nArchitecture: amd64\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nDescription: a auxiliary maca package.\nHomepage: https://developer.metax-tech.com\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mxompi_3.9.0.29.amd64.deb",
+      "metadata": "Package: mxompi-3.9.0\nVersion: 3.9.0.29\nSection: utils\nArchitecture: amd64\nDepends: libssl1.1 | libssl3\nSuggests: gcc-multilib\nInstalled-Size:\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nDescription: maca mxompi lib package.\nHomepage: https://developer.metax-tech.com\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mxreport_3.9.0.29.amd64.deb",
+      "metadata": "Package: mxreport-3.9.0\nVersion: 3.9.0.29\nArchitecture: amd64\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nDescription: mxreport deb package\nHomepage: https://developer.metax-tech.com\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mxshmem_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mxshmem lib package.\nHomepage: https://www.metax-tech.com\nMaintainer: mxmaca@metax-tech.com\nPackage: mxshmem_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 112974\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mxsml-devel_3.9.0.29.amd64.deb",
+      "metadata": "Package: mxsml-devel-3.9.0\nVersion: 3.9.0.29\nArchitecture: amd64\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nDescription: MetaX system management library for development\nHomepage: https://developer.metax-tech.com\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mxucx_3.9.0.29.amd64.deb",
+      "metadata": "Package: mxucx-3.9.0\nVersion: 3.9.0.29\nSection: utils\nArchitecture: amd64\nDepends:\nSuggests: gcc-multilib\nInstalled-Size:\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nDescription: maca mxucx lib package.\nHomepage: https://developer.metax-tech.com\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mxvpu_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca mxvpu lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: mxvpu_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 20752\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "mxvs_3.9.0.29.amd64.deb",
+      "metadata": "Package: mxvs-3.9.0\nVersion: 3.9.0.29\nArchitecture: amd64\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nDescription: mxvs deb package\n",
+      "system_actions": {}
+    },
+    {
+      "file": "sample_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: maca sample lib package.\nHomepage: https://developer.metax-tech.com\nMaintainer: Metax Developers <support-sw@metax-tech.com>\nPackage: sample_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 865\n\n",
+      "system_actions": {}
+    },
+    {
+      "file": "vscode-clangd_3.9.0.29.amd64.deb",
+      "metadata": "Architecture: amd64\nDescription: MACA vscode-clangd meta-package; This package contains a VS Code extension that can help you edit MACA code more efficiently.\nHomepage: https://www.metax-tech.com\nMaintainer: mxmaca@metax-tech.com\nPackage: vscode-clangd_3.9.0\nPriority: optional\nSection: devel\nVersion: 3.9.0.29\nInstalled-Size: 639\n\n",
+      "system_actions": {}
+    }
+  ]
+}

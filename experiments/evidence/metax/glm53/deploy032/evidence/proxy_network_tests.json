@@ -1,0 +1,35 @@
+{
+  "results": [
+    {
+      "node_id": "ec4fdb0ef5",
+      "bytes": 8388608,
+      "MiB_s": 1.094,
+      "error": null
+    },
+    {
+      "node_id": "11b8ee1396",
+      "bytes": 8388608,
+      "MiB_s": 1.388,
+      "error": null
+    },
+    {
+      "node_id": "dde46665ca",
+      "bytes": 8388608,
+      "MiB_s": 1.372,
+      "error": null
+    },
+    {
+      "node_id": "ed405608ea",
+      "bytes": 3342336,
+      "MiB_s": 0.174,
+      "error": null
+    },
+    {
+      "node_id": "f8c91a1af6",
+      "bytes": 4194304,
+      "MiB_s": 0.22,
+      "error": null
+    }
+  ],
+  "best_MiB_s": 1.3880845021158672
+}

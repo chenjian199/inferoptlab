@@ -1,0 +1,51 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 129
+PDF 页码标签: 122
+页脚页码候选: 122
+章节提示（书签推断）: mcblas<t>geqrfBatched()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+2.6.7 mcblas<t>geqrfBatched()
+mcblasStatus_t mcblasSgeqrfBatched(mcblasHandle_t handle,
+int m,
+int n,
+float *const Aarray[],
+int lda,
+float *const TauArray[],
+int *info,
+int batchSize);
+mcblasStatus_t mcblasDgeqrfBatched(mcblasHandle_t handle,
+int m,
+int n,
+double *const Aarray[],
+int lda,
+double *const TauArray[],
+int *info,
+int batchSize);
+mcblasStatus_t mcblasCgeqrfBatched(mcblasHandle_t handle,
+int m,
+int n,
+mcComplex *const Aarray[],
+int lda,
+mcComplex *const TauArray[],
+int *info,
+int batchSize);
+mcblasStatus_t mcblasZgeqrfBatched(mcblasHandle_t handle,
+int m,
+int n,
+mcDoubleComplex *const Aarray[],
+int lda,
+mcDoubleComplex *const TauArray[],
+int *info,
+int batchSize);
+Aarray 是一个指向矩阵的指针数组，以列主格式存储，维度为 m x n，前导维度为 lda。TauArray
+是一个指针数组，指向维度至少为 max (1, min(m, n) 的向量。
+该 函 数 使 用 豪 斯 霍 尔 德 （Householder） 反 射 对 每 个Aarray[i] 执 行 QR 分 解， i = 0, ...,
+batchSize-1。 每 个 Q[i] 矩 阵 表 示 初 等 反 射 算 子 （elementary reflector） 的 积， 并 存 储 在 每 个
+Aarray[i] 的下半部分，如下所示：
+Q[j] = H[j][1] H[j][2] . . . H[j](k), where k = min(m,n).
+每个 H[j][i] 的形式为
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 122

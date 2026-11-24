@@ -1,0 +1,485 @@
+{
+  "schema_version": 1,
+  "records": [
+    {
+      "id": "mim-auth-and-download",
+      "kind": "runbook",
+      "title": "MIM 登录与镜像下载排障",
+      "path": "practice/runbooks/mim-auth-and-download.md",
+      "observed_on": "2026-11-22",
+      "components": [
+        "mim"
+      ],
+      "topics": [
+        "environment"
+      ],
+      "verification": "case_derived_guidance",
+      "applicability": "2026-11-22 目标 registry：鉴权与 manifest 200；原 MIM 镜像未完整下载；Range 行为只针对所测端点。",
+      "coverage_path": "practice/cases/2026-11-22-glm53-w8a8-tp8/case.json",
+      "evidence": [
+        {
+          "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/evidence/deployment-summary.json",
+          "sha256": "ac7b80ca8724a9dd741714206539a9656c98c0a1f6aff9b8786fc233a5adea8b"
+        }
+      ]
+    },
+    {
+      "id": "mihomo-download-proxy",
+      "kind": "runbook",
+      "title": "Mihomo 下载代理的配置与验证",
+      "path": "practice/runbooks/mihomo-download-proxy.md",
+      "observed_on": "2026-11-22",
+      "components": [
+        "mihomo"
+      ],
+      "topics": [
+        "environment"
+      ],
+      "verification": "case_derived_guidance",
+      "applicability": "Mihomo v1.19.34，认证回环监听；未改全局/Docker 代理；原镜像传输仍未完成。",
+      "coverage_path": "practice/cases/2026-11-22-glm53-w8a8-tp8/case.json",
+      "evidence": [
+        {
+          "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/evidence/proxy_runtime.json",
+          "sha256": "c926ec81c7e0d3da1271625bc263b02bcde41c08fd7ce7ce234ccdcef475b112"
+        },
+        {
+          "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/evidence/deployment-summary.json",
+          "sha256": "ac7b80ca8724a9dd741714206539a9656c98c0a1f6aff9b8786fc233a5adea8b"
+        }
+      ]
+    },
+    {
+      "id": "isolated-metax-environment",
+      "kind": "runbook",
+      "title": "MetaX 独立推理环境的构建与溯源",
+      "path": "practice/runbooks/isolated-metax-environment.md",
+      "observed_on": "2026-11-22",
+      "components": [
+        "vllm-metax",
+        "maca",
+        "mcpytorch",
+        "mctriton"
+      ],
+      "topics": [
+        "environment",
+        "inference"
+      ],
+      "verification": "case_derived_guidance",
+      "applicability": "8卡 C500，驱动 3.8.30 / SDK 3.9.0.29；MetaX 0962c873 加局部修复 / vLLM 5df63a72；TP8、V2、eager、同步、4K、单序列；不代表全框架验收。",
+      "coverage_path": "practice/cases/2026-11-22-glm53-w8a8-tp8/case.json",
+      "evidence": [
+        {
+          "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/evidence/deployment-summary.json",
+          "sha256": "ac7b80ca8724a9dd741714206539a9656c98c0a1f6aff9b8786fc233a5adea8b"
+        },
+        {
+          "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/evidence/frozen_baseline_check.json",
+          "sha256": "720dd957c648a4ac76528d8bb3cd03c5e7e4f307628ae1021e238de4113b3a1e"
+        }
+      ]
+    },
+    {
+      "id": "inference-validation-and-freeze",
+      "kind": "runbook",
+      "title": "推理验收与基线冻结",
+      "path": "practice/runbooks/inference-validation-and-freeze.md",
+      "observed_on": "2026-11-22",
+      "components": [
+        "vllm-metax",
+        "vllm"
+      ],
+      "topics": [
+        "inference",
+        "environment"
+      ],
+      "verification": "case_derived_guidance",
+      "applicability": "8卡 C500，驱动 3.8.30 / SDK 3.9.0.29；MetaX 0962c873 加局部修复 / vLLM 5df63a72；TP8、V2、eager、同步、4K、单序列；不代表全框架验收。 新容器仅验证导入、设备发现和依赖。",
+      "coverage_path": "practice/cases/2026-11-22-glm53-w8a8-tp8/case.json",
+      "evidence": [
+        {
+          "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/evidence/inference-summary.json",
+          "sha256": "72b6d888302042754e4478dda28384f1da7016f482d8e9dd738cecf3ad1d8a26"
+        },
+        {
+          "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/evidence/frozen_baseline_check.json",
+          "sha256": "720dd957c648a4ac76528d8bb3cd03c5e7e4f307628ae1021e238de4113b3a1e"
+        }
+      ]
+    },
+    {
+      "id": "glm53-w8a8-tp8-20261122",
+      "kind": "case",
+      "title": "2026-11-22 GLM-5.3-Flash-W8A8 八卡部署",
+      "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/README.md",
+      "observed_on": "2026-11-22",
+      "components": [
+        "vllm-metax",
+        "vllm",
+        "mim",
+        "mihomo"
+      ],
+      "topics": [
+        "environment",
+        "inference"
+      ],
+      "verification": "historical_case_with_scoped_evidence",
+      "applicability": "8卡 C500，驱动 3.8.30 / SDK 3.9.0.29；MetaX 0962c873 加局部修复 / vLLM 5df63a72；TP8、V2、eager、同步、4K、单序列；不代表全框架验收。",
+      "coverage_path": "practice/cases/2026-11-22-glm53-w8a8-tp8/case.json",
+      "evidence": [
+        {
+          "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/evidence/deployment-summary.json",
+          "sha256": "ac7b80ca8724a9dd741714206539a9656c98c0a1f6aff9b8786fc233a5adea8b"
+        },
+        {
+          "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/evidence/inference-summary.json",
+          "sha256": "72b6d888302042754e4478dda28384f1da7016f482d8e9dd738cecf3ad1d8a26"
+        },
+        {
+          "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/evidence/weight-summary.json",
+          "sha256": "315ecc1ab16c7bf12b6111cff4cf95febf2d3465e82ee8a4ac611d77902ed163"
+        },
+        {
+          "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/evidence/structure-summary.json",
+          "sha256": "67003f9fe1601a3acf831aba318b10227e2db056d6da9ace9ea7895476fb9de6"
+        },
+        {
+          "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/evidence/frozen_baseline_check.json",
+          "sha256": "720dd957c648a4ac76528d8bb3cd03c5e7e4f307628ae1021e238de4113b3a1e"
+        }
+      ]
+    },
+    {
+      "id": "glm53-mim-transfer-20261122",
+      "kind": "issue",
+      "title": "MIM 鉴权成功后大层下载仍失败",
+      "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/issues.md",
+      "observed_on": "2026-11-22",
+      "components": [
+        "mim"
+      ],
+      "topics": [
+        "environment"
+      ],
+      "verification": "historical_case_with_scoped_evidence",
+      "applicability": "鉴权/manifest 通过；原镜像不可用；未定位到具体网络设备根因。",
+      "coverage_path": "practice/cases/2026-11-22-glm53-w8a8-tp8/case.json",
+      "evidence": [
+        {
+          "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/evidence/deployment-summary.json",
+          "sha256": "ac7b80ca8724a9dd741714206539a9656c98c0a1f6aff9b8786fc233a5adea8b"
+        }
+      ],
+      "section": "## MIM 鉴权成功后大层下载仍失败"
+    },
+    {
+      "id": "glm53-moe-abi-20261122",
+      "kind": "issue",
+      "title": "MoE alignment 的 7 与 8 参数 ABI",
+      "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/issues.md",
+      "observed_on": "2026-11-22",
+      "components": [
+        "vllm-metax",
+        "vllm",
+        "mcoplib"
+      ],
+      "topics": [
+        "inference",
+        "kernels"
+      ],
+      "verification": "historical_case_with_scoped_evidence",
+      "applicability": "8卡 C500，驱动 3.8.30 / SDK 3.9.0.29；MetaX 0962c873 加局部修复 / vLLM 5df63a72；TP8、V2、eager、同步、4K、单序列；不代表全框架验收。 仅精确匹配的旧 7 参数 schema；拒绝非 None scatter。",
+      "coverage_path": "practice/cases/2026-11-22-glm53-w8a8-tp8/case.json",
+      "evidence": [
+        {
+          "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/evidence/moe_alignment_compat.json",
+          "sha256": "ec6a3a706c7c0be65f0f655ee860acdb29b238fdd4d7348c0481874fca1f6d0c"
+        }
+      ],
+      "section": "## MoE alignment 的 7 与 8 参数 ABI"
+    },
+    {
+      "id": "glm53-indexer-int8-20261122",
+      "kind": "issue",
+      "title": "INT8 sparse indexer 的 Tensor 契约",
+      "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/issues.md",
+      "observed_on": "2026-11-22",
+      "components": [
+        "vllm-metax",
+        "mcoplib"
+      ],
+      "topics": [
+        "inference",
+        "kernels"
+      ],
+      "verification": "historical_case_with_scoped_evidence",
+      "applicability": "8卡 C500，驱动 3.8.30 / SDK 3.9.0.29；MetaX 0962c873 加局部修复 / vLLM 5df63a72；TP8、V2、eager、同步、4K、单序列；不代表全框架验收。 INT8 Q Tensor 契约；其他 dtype 未做全覆盖验收。",
+      "coverage_path": "practice/cases/2026-11-22-glm53-w8a8-tp8/case.json",
+      "evidence": [
+        {
+          "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/evidence/glm_indexer_int8.json",
+          "sha256": "04472436a02eb34b720975307b6be051c97bef34b1746d7d42305d579606faba"
+        }
+      ],
+      "section": "## INT8 sparse indexer 的 Tensor 契约"
+    },
+    {
+      "id": "glm53-mla-scale-20261122",
+      "kind": "issue",
+      "title": "FP8 兼容加载器吞掉 INT8 scale",
+      "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/issues.md",
+      "observed_on": "2026-11-22",
+      "components": [
+        "vllm-metax"
+      ],
+      "topics": [
+        "inference",
+        "kernels"
+      ],
+      "verification": "historical_case_with_scoped_evidence",
+      "applicability": "8卡 C500，驱动 3.8.30 / SDK 3.9.0.29；MetaX 0962c873 加局部修复 / vLLM 5df63a72；TP8、V2、eager、同步、4K、单序列；不代表全框架验收。 scale 所有权与 12 个 loader 用例；未覆盖所有 checkpoint。",
+      "coverage_path": "practice/cases/2026-11-22-glm53-w8a8-tp8/case.json",
+      "evidence": [
+        {
+          "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/evidence/glm_mla_scale_before_after.json",
+          "sha256": "39f2209d912c045e214e276842f5ba34580883cf543058f396c8735a755bf6e3"
+        },
+        {
+          "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/evidence/glm_mla_scale_loader.json",
+          "sha256": "91c92150dee23a680fdba3696b17b5a561dcf41a1d0de7960fc1aa441e6aaed0"
+        },
+        {
+          "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/evidence/inference-summary.json",
+          "sha256": "72b6d888302042754e4478dda28384f1da7016f482d8e9dd738cecf3ad1d8a26"
+        }
+      ],
+      "section": "## FP8 兼容加载器吞掉 INT8 scale"
+    },
+    {
+      "id": "glm53-v1-unresolved-20261122",
+      "kind": "issue",
+      "title": "V1 非法显存访问的未闭环状态",
+      "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/issues.md",
+      "observed_on": "2026-11-22",
+      "components": [
+        "vllm-metax",
+        "vllm"
+      ],
+      "topics": [
+        "inference",
+        "kernels"
+      ],
+      "verification": "historical_case_with_scoped_evidence",
+      "applicability": "历史 V1 非法显存访问；最终 scale 修复后未重测 V1，根因未闭环。",
+      "coverage_path": "practice/cases/2026-11-22-glm53-w8a8-tp8/case.json",
+      "evidence": [
+        {
+          "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/evidence/deployment-summary.json",
+          "sha256": "ac7b80ca8724a9dd741714206539a9656c98c0a1f6aff9b8786fc233a5adea8b"
+        }
+      ],
+      "section": "## V1 非法显存访问的未闭环状态"
+    },
+    {
+      "id": "glm53-freeze-parser-20261122",
+      "kind": "issue",
+      "title": "冻结成功但 image ID 解析失败",
+      "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/issues.md",
+      "observed_on": "2026-11-22",
+      "components": [
+        "vllm-metax"
+      ],
+      "topics": [
+        "environment"
+      ],
+      "verification": "historical_case_with_scoped_evidence",
+      "applicability": "Docker 29 警告混入 stdout；commit 成功；新容器没有重跑完整模型。",
+      "coverage_path": "practice/cases/2026-11-22-glm53-w8a8-tp8/case.json",
+      "evidence": [
+        {
+          "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/evidence/deployment-summary.json",
+          "sha256": "ac7b80ca8724a9dd741714206539a9656c98c0a1f6aff9b8786fc233a5adea8b"
+        },
+        {
+          "path": "practice/cases/2026-11-22-glm53-w8a8-tp8/evidence/frozen_baseline_check.json",
+          "sha256": "720dd957c648a4ac76528d8bb3cd03c5e7e4f307628ae1021e238de4113b3a1e"
+        }
+      ],
+      "section": "## 冻结成功但 image ID 解析失败"
+    },
+    {
+      "id": "glm-greedy-historical-divergence-20261123",
+      "kind": "issue",
+      "title": "GLM历史9题greedy分叉尚未复现",
+      "path": "practice/cases/2026-11-23-glm-greedy-repeatability/issues.md",
+      "section": "## 历史9题greedy分叉尚未复现",
+      "observed_on": "2026-11-23",
+      "components": [
+        "vllm-metax",
+        "mctriton",
+        "mcoplib"
+      ],
+      "topics": [
+        "inference",
+        "kernels"
+      ],
+      "verification": "open_root_cause_not_reproduced",
+      "applicability": "C500 TP8/V2/eager; vLLM5df63a72, MetaX0962c873加冻结修复;四个plain独立进程32题稳定，非全局确定性保证。",
+      "coverage_path": "practice/cases/2026-11-23-glm-greedy-repeatability/case.json",
+      "evidence": [
+        {
+          "path": "practice/cases/2026-11-23-glm-greedy-repeatability/evidence/repeatability_summary.json",
+          "sha256": "3706bc1fae0f92637178027d5948532e0be79b07ae715314471abe1976b2fa40"
+        },
+        {
+          "path": "practice/cases/2026-11-23-glm-greedy-repeatability/evidence/tensor_summary.json",
+          "sha256": "c85c10d687103407adf6193aa09f335dea4c7ff8bebe7bf001743ce7869f4972"
+        },
+        {
+          "path": "practice/cases/2026-11-23-glm-greedy-repeatability/evidence/legacy_comparison.json",
+          "sha256": "ee3c2bcb6f5e816aa7fc7776660a0f14007c3af85e9d4763be020173b439a4f8"
+        }
+      ]
+    },
+    {
+      "observed_on": "2026-11-23",
+      "topics": [
+        "inference",
+        "kernels"
+      ],
+      "verification": "scoped_server_validation_model_blocked",
+      "applicability": "C500 driver3.10.14/image9bbf20db; vLLM5df63a72, MetaX0962c873 plus frozen fixes; actual checkpoint/synthetic activations onGPU0, no fullTP8 success.",
+      "coverage_path": "practice/cases/2026-11-23-glm-gemm-prototype/case.json",
+      "evidence": [
+        {
+          "path": "practice/cases/2026-11-23-glm-gemm-prototype/evidence/verification_summary.json",
+          "sha256": "94027d6c0da7fbcf78249cec09ed2de0d543e196448e0d9c1c2b59b15e91b063"
+        },
+        {
+          "path": "practice/cases/2026-11-23-glm-gemm-prototype/evidence/isolated_layer_result.json",
+          "sha256": "c1cf6553fdcc9d6b09db5055fccee2665876967dd47f66a09fb7e4a1c58d0629"
+        },
+        {
+          "path": "practice/cases/2026-11-23-glm-gemm-prototype/evidence/hardware_issue_summary.json",
+          "sha256": "7c8ca75dbcfa39e0bfcda97146525d55ca6f429d03040790ed6c473e4a902990"
+        }
+      ],
+      "id": "glm-gemm-prototype-20261123",
+      "kind": "case",
+      "title": "GLM INT8 GEMM原型与vLLM量化层替换",
+      "path": "practice/cases/2026-11-23-glm-gemm-prototype/case.md",
+      "components": [
+        "vllm-metax",
+        "mctriton",
+        "mcblas",
+        "maca-cpp",
+        "mxcc",
+        "mcoplib",
+        "repo-mctlass"
+      ]
+    },
+    {
+      "observed_on": "2026-11-23",
+      "topics": [
+        "inference",
+        "kernels"
+      ],
+      "verification": "scoped_server_validation_model_blocked",
+      "applicability": "C500 driver3.10.14/image9bbf20db; vLLM5df63a72, MetaX0962c873 plus frozen fixes; actual checkpoint/synthetic activations onGPU0, no fullTP8 success.",
+      "coverage_path": "practice/cases/2026-11-23-glm-gemm-prototype/case.json",
+      "evidence": [
+        {
+          "path": "practice/cases/2026-11-23-glm-gemm-prototype/evidence/verification_summary.json",
+          "sha256": "94027d6c0da7fbcf78249cec09ed2de0d543e196448e0d9c1c2b59b15e91b063"
+        },
+        {
+          "path": "practice/cases/2026-11-23-glm-gemm-prototype/evidence/isolated_layer_result.json",
+          "sha256": "c1cf6553fdcc9d6b09db5055fccee2665876967dd47f66a09fb7e4a1c58d0629"
+        },
+        {
+          "path": "practice/cases/2026-11-23-glm-gemm-prototype/evidence/hardware_issue_summary.json",
+          "sha256": "7c8ca75dbcfa39e0bfcda97146525d55ca6f429d03040790ed6c473e4a902990"
+        }
+      ],
+      "id": "glm-gemm-gpu6-fault-20261123",
+      "kind": "issue",
+      "title": "GPU6不可用阻断八卡GEMM模型验证",
+      "path": "practice/cases/2026-11-23-glm-gemm-prototype/issues.md",
+      "section": "## GPU6不可用阻断八卡模型验证",
+      "components": [
+        "vllm-metax",
+        "mccl"
+      ]
+    },
+    {
+      "id": "c500-warm-reset-recurrence-20261123",
+      "kind": "case",
+      "title": "C500卡6热复位后MetaXLink错误复发",
+      "path": "practice/cases/2026-11-23-c500-warm-reset-recurrence/case.md",
+      "observed_on": "2026-11-23",
+      "components": [
+        "driver",
+        "mccl",
+        "vllm-metax"
+      ],
+      "topics": [
+        "environment",
+        "communication"
+      ],
+      "verification": "warm_reset_transient_recovery_then_recurrence",
+      "applicability": "H3C R5330 G7/C500 driver3.10.14; single authorized warm reset; sameport4 error recurred in first1element all-reduce; no model inference.",
+      "coverage_path": "practice/cases/2026-11-23-c500-warm-reset-recurrence/case.json",
+      "evidence": [
+        {
+          "path": "practice/cases/2026-11-23-c500-warm-reset-recurrence/evidence/verification_summary.json",
+          "sha256": "2c49d00a423716c793cb2cdbcc296fdf6ad4ecf51b586fe0ca91e2bdd092e736"
+        },
+        {
+          "path": "practice/cases/2026-11-23-c500-warm-reset-recurrence/evidence/recurrence_kernel.json",
+          "sha256": "9ab4c07487c261d885f29e39f50fbd94a4dfea0350e5cb5f7193df43e0d8f2a4"
+        }
+      ]
+    },
+    {
+      "id": "glm-gemm-p2p-disabled-20261123",
+      "kind": "case",
+      "title": "重启后禁用P2P完成八卡GLM GEMM单层32/32/4对照",
+      "path": "practice/cases/2026-11-23-glm-gemm-p2p-disabled/case.md",
+      "observed_on": "2026-11-23",
+      "components": [
+        "vllm-metax",
+        "mctriton",
+        "mccl",
+        "mcoplib",
+        "driver"
+      ],
+      "topics": [
+        "inference",
+        "kernels",
+        "communication",
+        "environment"
+      ],
+      "verification": "tp8_single_layer_pilot_passed_p2p_disabled_hardware_unresolved",
+      "applicability": "C500 driver3.10.14, frozen vLLM/MetaX sources and image9bbf20db; P2P disabled, single engine, single dense layer; hardware unresolved.",
+      "coverage_path": "practice/cases/2026-11-23-glm-gemm-p2p-disabled/case.json",
+      "evidence": [
+        {
+          "path": "practice/cases/2026-11-23-glm-gemm-p2p-disabled/evidence/verification_summary.json",
+          "sha256": "0983a6d0bb235624488272d8ded19e1084cb6af5d333f7c0db2c8e0634159571"
+        },
+        {
+          "path": "practice/cases/2026-11-23-glm-gemm-p2p-disabled/evidence/comparison_summary.json",
+          "sha256": "2392bc05a5089b943d58a3b425c532626a480658f258fcffe7723b4bd06ada84"
+        },
+        {
+          "path": "practice/cases/2026-11-23-glm-gemm-p2p-disabled/evidence/hardware_summary.json",
+          "sha256": "14ee5470301ff0bb8346b6e732104ecd309f80c4fa8c58a5c6847aeb5b6ee4f2"
+        },
+        {
+          "path": "practice/cases/2026-11-23-glm-gemm-p2p-disabled/evidence/transport_summary.json",
+          "sha256": "4f97c491893b1f2f85077865fa48fd43c60da3ce84281f6d4d1e899161925ba8"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+文档: 沐曦通用GPU_mcPyTorch用户指南_CN_V16.pdf
+文档 ID: mcpytorch-v16
+SHA256: 165b88e24e4768497ef4587368037b4bbc99ab933eafc3e4baac43175c83cdb2
+PDF 页序号: 9
+PDF 页码标签: 3
+页脚页码候选: 3
+章节提示（书签推断）: 如何卸载
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcPyTorch 用户指南
+python -m pip install torchvision -*.whl
+4. （可选）安装 mcTorchaudio：
+python -m pip install torchaudio -*.whl
+5. （可选）安装 mcApex：
+python -m pip install apex -*.whl
+6. （可选）安装 mcTriton：
+python -m pip install triton -*.whl
+2.1.3 验证安装
+操作步骤
+1. 运行前设置环境变量：
+export MACA_PATH=/opt/maca/
+export LD_LIBRARY_PATH=${MACA_PATH}/lib:${MACA_PATH}/mxgpu_llvm/lib:${MACA_PATH}/
+,→ompi/lib:${LD_LIBRARY_PATH}
+export MACA_CLANG_PATH=${MACA_PATH}/mxgpu_llvm/bin
+如果使用 PyTorch Extension 功能，需要额外设置以下环境变量：
+export CUDA_PATH=/opt/maca/tools/cu-bridge/
+export CUCC_PATH=/opt/maca/tools/cu-bridge/
+export PATH=${CUCC_PATH}/tools:${CUCC_PATH}/bin:${PATH}
+2. 执行以下命令：
+python -c "import torch; print(torch.ones(2).cuda())"
+会得到如下打印输出，即表明安装成功：
+tensor([1., 1.], device='cuda:0')
+2.1.4 如何卸载
+卸载方式同标准 whl 包。
+操作步骤
+1. 卸载 mcPyTorch：
+2 快速安装 沐曦股份专有信息 OG‑23031‑020‑F5_V16 | 3

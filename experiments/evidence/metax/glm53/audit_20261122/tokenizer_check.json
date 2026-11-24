@@ -1,0 +1,9 @@
+{
+  "config_class": "Glm5NextConfig",
+  "tokenizer_class": "TokenizersBackend",
+  "encoded_token_count": 5,
+  "roundtrip": "你好，C500。",
+  "chat_template_token_count": 13,
+  "success": true,
+  "chat_template_return_type": "BatchEncoding"
+}

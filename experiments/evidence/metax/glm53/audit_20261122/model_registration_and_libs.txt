@@ -1,0 +1,47 @@
+ROOT /opt/conda/lib/python3.12/site-packages/vllm_metax
+ROOT /workspace/vLLM-metax/vllm_metax
+ROOT /workspace/glm/vLLM-metax/vllm_metax
+/workspace/glm/vLLM-metax/vllm_metax/models/__init__.py [(7, 'def register_model():'), (8, '    ModelRegistry.register_model('), (13, '    ModelRegistry.register_model('), (17, '    ModelRegistry.register_model('), (21, '    ModelRegistry.register_model('), (25, '    ModelRegistry.register_model('), (29, '    ModelRegistry.register_model('), (33, '    ModelRegistry.register_model('), (37, '    ModelRegistry.register_model('), (42, '    ModelRegistry.register_model('), (46, '    ModelRegistry.register_model('), (50, '    ModelRegistry.register_model('), (54, '    ModelRegistry.register_model('), (58, '    ModelRegistry.register_model('), (62, '    ModelRegistry.register_model(')]
+/workspace/glm/vLLM-metax/vllm_metax/models/glm5next/__init__.py [(3, 'from .common.model import Glm5NextForCausalLM, Glm5NextForConditionalGeneration'), (4, '# from .mtp import Glm5NextMTP'), (7, '    "MacaGlm5NextForCausalLM",'), (8, '    "MacaGlm5NextForConditionalGeneration",'), (9, '    # "Glm5NextMTP",')]
+/workspace/glm/vLLM-metax/vllm_metax/models/glm5next/common/mtp.py [(29, 'from vllm.models.glm5next.nvidia.ops.fused_eh_norm import fused_eh_norm'), (34, '    Glm5NextDecoderLayer,'), (35, '    Glm5NextMLAAttention,'), (36, '    Glm5NextMoE,'), (45, 'class Glm5NextMultiTokenPredictorLayer(nn.Module):'), (82, '        self.mtp_block = Glm5NextDecoderLayer('), (110, '        # Fuse the residual add and final RMSNorm. Glm5NextMoE already performs'), (120, 'class Glm5NextMultiTokenPredictor(nn.Module):'), (128, '                str(idx): Glm5NextMultiTokenPredictorLayer('), (148, '            assert isinstance(self_attn, Glm5NextMLAAttention)'), (217, 'class Glm5NextMTP(nn.Module, DeepseekV2MixtureOfExperts):'), (222, '        self.model = Glm5NextMultiTokenPredictor('), (227, '            self.model.layers.values(), Glm5NextMoE, "mtp_block.mlp"'), (238, '            if isinstance(mlp, Glm5NextMoE):'), (333, '            # Multimodal (Glm5NextForConditionalGeneration) checkpoints prefix')]
+/workspace/glm/vLLM-metax/vllm_metax/models/glm5next/common/model.py [(10, 'from transformers import Glm5NextTextConfig'), (80, '    init_vllm_registered_model,'), (95, 'from .attention import Glm5NextMLAAttention'), (96, 'from .kda import Glm5NextLinearAttention'), (98, '    Glm5NextMultiModalProcessor,'), (99, '    Glm5NextProcessingInfo,'), (100, '    Glm5NextVisionTransformer,'), (107, 'checkpoint nor `Glm5NextTextConfig` carries."""'), (111, 'checkpoint nor `Glm5NextTextConfig` carries."""'), (115, 'checkpoint nor `Glm5NextTextConfig` carries."""'), (127, 'def _is_moe(config: Glm5NextTextConfig) -> bool:'), (131, 'def _is_kda_layer(config: Glm5NextTextConfig, layer_idx: int) -> bool:'), (140, 'def _is_linear_attn(config: Glm5NextTextConfig) -> bool:'), (145, 'def _validate_supported_config(config: Glm5NextTextConfig) -> None:'), (157, 'class Glm5NextMLP(nn.Module):')]
+/workspace/glm/vLLM-metax/vllm_metax/models/glm5next/common/__init__.py []
+/workspace/glm/vLLM-metax/vllm_metax/models/glm5next/metax/__init__.py []
+/workspace/glm/vLLM-metax/vllm_metax/models/glm5next/metax/ops/__init__.py []
+/workspace/glm/vLLM-metax/vllm_metax/models/glm5next/metax/ops/third_party/__init__.py []
+/workspace/glm/vLLM-metax/vllm_metax/models/glm5next/metax/ops/third_party/kda/__init__.py []
+LOADED NATIVE LIBS
+Version info:Mcoplib_Version = '0.4.13'
+Build_Maca_Version = '3.8.2.6'
+Build_Torch_Version = '2.10.0+metax3.8.2.2'
+Min_Compatibility_Maca_Version = '3.7.0'
+GIT_BRANCH = 'HEAD'
+GIT_COMMIT = 'cdc10b7'
+Vllm Op Version = 0.28.0
+SGlang Op Version  = 0.5.17 
+
+INFO mcoplib version: None
+
+INFO: Torch version compatibility check passed: build=2.10.0+metax3.8.2.2, runtime=2.10.0+metax3.8.2.2.
+
+INFO: Release major.minor matching,  successful:3.8. 
+
+INFO: MACA minimum compatibility check passed: 3.8.2 >= 3.7.0.
+
+INFO 11-22 09:15:42 [__init__.py:52] Available plugins for group vllm.platform_plugins:
+INFO 11-22 09:15:42 [__init__.py:54] - metax -> vllm_metax:register
+INFO 11-22 09:15:42 [__init__.py:57] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 11-22 09:15:42 [__init__.py:254] Platform plugin metax is activated
+INFO 11-22 09:15:42 [envs.py:136] vllm-metax would try to sets VLLM_USE_FLASHINFER_SAMPLER default to False. Reason: controlled by VLLM_METAX_USE_FLASHINFER_SAMPLER; disabled by default
+INFO 11-22 09:15:42 [envs.py:136] vllm-metax would try to sets VLLM_ENGINE_READY_TIMEOUT_S default to 7200. Reason: set timeout to 7200s for model loading
+INFO 11-22 09:15:42 [envs.py:136] vllm-metax would try to sets VLLM_FLOAT32_MATMUL_PRECISION default to high. Reason: set float32 matmul precision to high for better performance on Maca platform
+INFO 11-22 09:15:42 [envs.py:136] vllm-metax would try to sets VLLM_USE_V2_MODEL_RUNNER default to False. Reason: v2 model runner is still under development and not fully tested on Maca platform, disable it by default
+INFO 11-22 09:15:42 [envs.py:136] vllm-metax would try to sets VLLM_USE_DEEP_GEMM_E8M0 default to False. Reason: USE_DEEP_GEMM_E8M0 default to false on Maca platform
+INFO 11-22 09:15:42 [envs.py:136] vllm-metax would try to sets VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS default to False. Reason: disable CUDA graph memory estimate in the KV cache budget on Maca platform
+[
+  "/opt/conda/lib/python3.12/site-packages/mcoplib/_C.abi3.so",
+  "/opt/conda/lib/python3.12/site-packages/mcoplib/_moe_C.abi3.so",
+  "/opt/maca-3.8.2/lib/libmccl.so",
+  "/opt/maca-3.8.2/lib/libmcruntime.so",
+  "/opt/maca-3.8.2/lib/libmctlassEx.so"
+]

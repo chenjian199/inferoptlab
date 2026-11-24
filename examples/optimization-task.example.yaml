@@ -1,5 +1,4 @@
-# 设计模板；REPLACE_* 必须在执行前解析。数值仅为结构示例，不是性能推荐。
-schema_version: '0.1'
+schema_version: 0.2.0
 kind: OptimizationTask
 task_id: task-kernel-001
 study_id: demo-e2e-001

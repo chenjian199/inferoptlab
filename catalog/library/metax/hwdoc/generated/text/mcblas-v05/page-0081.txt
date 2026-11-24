@@ -1,0 +1,54 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 81
+PDF 页码标签: 74
+页脚页码候选: 74
+章节提示（书签推断）: mcblas<t>gemm()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+2.5 mcBLAS Level‑3 函数
+本章中，我们将介绍执行矩阵‑矩阵操作的 Level‑3 基本线性代数子程序（BLAS3）函数。
+2.5.1 mcblas<t>gemm()
+mcblasStatus_t mcblasSgemm(mcblasHandle_t handle,
+mcblasOperation_t transa, mcblasOperation_t transb,
+int m, int n, int k,
+const float *alpha,
+const float *A, int lda,
+const float *B, int ldb,
+const float *beta,
+float *C, int ldc)
+mcblasStatus_t mcblasDgemm(mcblasHandle_t handle,
+mcblasOperation_t transa, mcblasOperation_t transb,
+int m, int n, int k,
+const double *alpha,
+const double *A, int lda,
+const double *B, int ldb,
+const double *beta,
+double *C, int ldc)
+mcblasStatus_t mcblasCgemm(mcblasHandle_t handle,
+mcblasOperation_t transa, mcblasOperation_t transb,
+int m, int n, int k,
+const mcComplex *alpha,
+const mcComplex *A, int lda,
+const mcComplex *B, int ldb,
+const mcComplex *beta,
+mcComplex *C, int ldc)
+mcblasStatus_t mcblasZgemm(mcblasHandle_t handle,
+mcblasOperation_t transa, mcblasOperation_t transb,
+int m, int n, int k,
+const mcDoubleComplex *alpha,
+const mcDoubleComplex *A, int lda,
+const mcDoubleComplex *B, int ldb,
+const mcDoubleComplex *beta,
+mcDoubleComplex *C, int ldc)
+mcblasStatus_t mcblasHgemm(mcblasHandle_t handle,
+mcblasOperation_t transa, mcblasOperation_t transb,
+int m, int n, int k,
+const mcblas_half *alpha,
+const mcblas_half *A, int lda,
+const mcblas_half *B, int ldb,
+const mcblas_half *beta,
+mcblas_half *C, int ldc)
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 74

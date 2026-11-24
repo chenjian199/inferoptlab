@@ -1,0 +1,30 @@
+文档: 沐曦通用GPU_MCCL编程指南_CN_V08.pdf
+文档 ID: mccl-v08
+SHA256: 7a95ac3ce4f68b0fb11baabb7fa08794cd5f5081c9ec3e888eefaaa03ab8c8b2
+PDF 页序号: 22
+PDF 页码标签: 15
+页脚页码候选: 15
+章节提示（书签推断）: 虚拟化场景
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MCCL 编程指南
+4.1.3 Arm 服务器
+• Cascade 拓扑（天固服务器） ：
+export MACA_VISIBLE_DEVICES=0,1,6,7,2,3,4,5
+• Balance topo 单机内使用网卡做 8 卡通信：
+export MCCL_SHM_DISABLE=1
+• 通过 NUMA 节点绑定核心的方式来提高性能，需要以下变量：
+export MCCL_IGNORE_CPU_AFFINITY=1
+4.1.4 异构集群
+• 沐曦和其他厂商 GPU 构建异构集群：
+export MCCL_EXT_CCL_ENABLE=1
+• 指定异构插件：
+export MCCL_HC_PLUGIN=${your_plugin_dynamic_library_path}
+4.1.5 虚拟化场景
+• 关闭 PCIe。开启虚拟机需要开启 ACS，会导致 PCIe P2P 性能变差：
+export MCCL_PCIE_BUFFER_MODE=0
+• 强制 UMD 使用 polling 模式，降低小数据量的通信时延。CPU 性能强的情况下，可以设置为 3：
+export MACA_EXT_CPU_THREAD_POLICY=2
+• 来指定特定拓扑信息：
+export MCCL_TOPO_FILE=path/topo.xml
+4 环境变量 沐曦股份专有信息 PG‑23004‑020‑F5_V08 | 15

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "status": "unfrozen_requires_B0_repeats",
+  "correctness": {
+    "task_level_regression_policy": null,
+    "allowed_pass_at_1_drop_percentage_points": null,
+    "logits_tolerances": null,
+    "operator_tolerances_by_dtype_shape": null
+  },
+  "performance": {
+    "maximum_regression_fraction_by_workload": null,
+    "minimum_meaningful_gain_fraction": null
+  },
+  "null_policy": "Do not approve acceptance with unset thresholds. Freeze using B0 noise and requirements before candidate comparison."
+}

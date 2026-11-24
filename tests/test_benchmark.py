@@ -8,14 +8,15 @@ from pathlib import Path
 from unittest.mock import patch
 
 from tools.specs import Catalog, ROOT, SpecError, digest, read
-from benchmark import dataset, process
-from benchmark.adapters import aiperf, sglang
-from benchmark.cli import analyze
-from benchmark.io import json_write, jsonl_write
-from benchmark.metrics.evaluate import evaluate
-from benchmark.metrics.normalize import normalize
-from benchmark.planner import resolve, snapshot_errors, execution_issues
-from benchmark.runner import _execute, lease
+from benchmark.load import dataset
+from benchmark.common import process
+from benchmark.load.adapters import aiperf, sglang
+from benchmark.load.cli import analyze
+from benchmark.common.io import json_write, jsonl_write, inside
+from benchmark.load.metrics.evaluate import evaluate
+from benchmark.load.metrics.normalize import normalize
+from benchmark.load.planner import resolve, snapshot_errors, execution_issues
+from benchmark.load.runner import _execute, lease
 
 
 def ref(name):
@@ -34,8 +35,8 @@ class TokenizerFixture:
     """One word = one token, plus five template tokens. Test fixture only."""
     def encode(self,text,add_special_tokens=False):
         return list(range(len(text.split())))
-    def apply_chat_template(self,messages,tokenize=True,add_generation_prompt=True):
-        return [0]*5+self.encode(messages[0]['content'])
+    def apply_chat_template(self,messages,tokenize=True,add_generation_prompt=True,return_dict=True):
+        return {'input_ids':[0]*5+self.encode(messages[0]['content'])}
 
 
 class BenchmarkTests(unittest.TestCase):
@@ -128,7 +129,7 @@ class BenchmarkTests(unittest.TestCase):
         target=self.directory/'data'
         manifest=dataset.prepare(workload,protocol,tokenizer,target,tokenizer=TokenizerFixture())
         self.assertEqual(manifest['files']['requests.jsonl']['count'],4)
-        with patch('benchmark.dataset.load_tokenizer',return_value=TokenizerFixture()):
+        with patch('benchmark.load.dataset.load_tokenizer',return_value=TokenizerFixture()):
             self.assertEqual(dataset.verify(workload,protocol,tokenizer,target),manifest)
         with (target/'requests.jsonl').open('a') as stream:
             stream.write('{}\n')
@@ -236,7 +237,7 @@ class BenchmarkTests(unittest.TestCase):
             with self.assertRaisesRegex(SpecError,'lease exists'):
                 with lease(self.directory):
                     pass
-        self.assertFalse((self.directory/'runs/benchmark/.execution.lock').exists())
+        self.assertFalse((self.directory/'experiments/runs/benchmark/.execution.lock').exists())
 
     def test_pipeline_archives_results_and_offline_reanalysis(self):
         self._pipeline(False)
@@ -256,7 +257,7 @@ class BenchmarkTests(unittest.TestCase):
         workload=self.get('workload-benchmark-smoke')
         protocol=self.get('benchmark-smoke-protocol')
         protocol['execution']['repetitions']=2
-        fixture=self.directory/self.get('benchmark-smoke')['dataset_dir']
+        fixture=inside(self.directory,self.get('benchmark-smoke')['dataset_dir'])
         dataset.prepare(workload,protocol,tokenizer,fixture,tokenizer=TokenizerFixture())
         plan=self.get('benchmark-smoke-plan')
         snapshot=resolve(self.catalog,plan)
@@ -270,7 +271,7 @@ class BenchmarkTests(unittest.TestCase):
             log_path.write_text('SYNTHETIC AIPerf subprocess fixture; not measured GPU evidence')
             return dict(returncode=7 if fail else 0,timed_out=False,elapsed_s=.1)
         observed=dict(server_args=dict(tp_size=8,pp_size=1,ep_size=8,dp_size=1,disable_radix_cache=True,stream_interval=1,context_length=4096))
-        with patch('benchmark.dataset.load_tokenizer',return_value=TokenizerFixture()),patch('benchmark.adapters.aiperf.run',side_effect=invoke),patch('benchmark.adapters.sglang.wait_ready'),patch('benchmark.adapters.sglang.smoke'),patch('benchmark.adapters.sglang.inspect_server',return_value=(observed,[])),patch('benchmark.runner.environment',return_value=dict(device_probe=dict(status='unavailable'))):
+        with patch('benchmark.load.dataset.load_tokenizer',return_value=TokenizerFixture()),patch('benchmark.load.adapters.aiperf.run',side_effect=invoke),patch('benchmark.load.adapters.sglang.wait_ready'),patch('benchmark.load.adapters.sglang.smoke'),patch('benchmark.load.adapters.sglang.inspect_server',return_value=(observed,[])),patch('benchmark.load.runner.environment',return_value=dict(device_probe=dict(status='unavailable'))):
             directory,state=_execute(self.catalog,snapshot,plan,'fixture-aiperf',self.directory/'results')
         self.assertEqual(state['status'],'completed_with_errors')
         self.assertEqual(len(state['runs']),2)

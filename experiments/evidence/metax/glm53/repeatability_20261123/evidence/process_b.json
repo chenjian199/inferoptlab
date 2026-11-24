@@ -1,0 +1,17 @@
+{
+  "status": "complete",
+  "command": [
+    "docker",
+    "exec",
+    "glm53-repeat-v1",
+    "python3",
+    "-u",
+    "/experiment/harness/run_probe.py",
+    "--process",
+    "b"
+  ],
+  "started_epoch": 1795401968.7364075,
+  "pid": 420244,
+  "exit_code": 0,
+  "elapsed_seconds": 749.2340707778931
+}

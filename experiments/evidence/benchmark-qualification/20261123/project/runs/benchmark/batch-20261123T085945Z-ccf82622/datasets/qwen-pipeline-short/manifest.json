@@ -1,0 +1,39 @@
+{
+  "format_version": 1,
+  "workload_id": "qwen-pipeline-short-workload",
+  "workload_sha256": "7d4c3a9b464588d4c89182c602f5e73f0655da1ad8e5d113218e617c029901d8",
+  "input_tokens": 1024,
+  "output_tokens": 32,
+  "seed": 20261123,
+  "tokenizer": {
+    "path": "/models/Qwen3-0.6B",
+    "files": {
+      "config.json": "a9597c105a570f7e1bd5b8b95b13553d383f4355901bd9a544df369e8cff91e8",
+      "merges.txt": "b8e04af9c950e393054010dcef499c3f005e803e9b2da1a09b96a26c33266eb1",
+      "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+      "tokenizer_config.json": "c27ef18dae7dccaee951f6066f71a1b35ca9ec4ff3168b097dbda7905a036324",
+      "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    },
+    "sha256": "de79d8c9a3f6cbe6181bdba73219e605b4e802c2b9b5b9b1c07e1c18aa2c792d"
+  },
+  "token_count_boundary": "apply_chat_template(user, add_generation_prompt=True)",
+  "files": {
+    "requests.jsonl": {
+      "sha256": "7e6d678cc0b4c24a66d12fb2f95ca0a5fea843bd4103b99d2e3a99a63f8cccdd",
+      "count": 4,
+      "session_ids": [
+        "qwen-pipeline-short-workload-profiling-000000",
+        "qwen-pipeline-short-workload-profiling-000001",
+        "qwen-pipeline-short-workload-profiling-000002",
+        "qwen-pipeline-short-workload-profiling-000003"
+      ]
+    },
+    "warmup.jsonl": {
+      "sha256": "12338c531bf0068645d6b24635c915930f35afa5a45ef4e49d0df0f06243e29c",
+      "count": 1,
+      "session_ids": [
+        "qwen-pipeline-short-workload-warmup-000000"
+      ]
+    }
+  }
+}

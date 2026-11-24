@@ -1,0 +1,37 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 21
+PDF 页码标签: 9
+页脚页码候选: 9
+章节提示（书签推断）: 动态Batch推理
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+(续上页)
+ioBinding.BindOutput(outputNames[i],memoryInfo);
+}
+session.Run(Ort::RunOptions{nullptr},ioBinding);
+auto outputs=ioBinding.GetOutputValues();
+3.3 动态 Batch 推理
+MacaRT 支持 ONNX Runtime 的动态 Batch 推理功能， 在指定推理后端为 MacaEP 时， 使用BatchSize
+值为‑1 的模型。
+推理原理
+推理原理如图 3.1 所示，其中 input_i_j 代表第 i 组 Batch 数据，模型的第 j 个输入，M 为模型结构需要
+的输入个数，N 为输入的 Batch 数目，K 为模型结构的输出个数。input_i 包含了 input_0_i 到 input_
+N_i 的所有输入数据。
+图 3.1 动态 Batch 推理原理图
+操作步骤
+1. 准备输入数据。假设提供的模型输入数据和数据长度是通过以下变量名称提供，input_data 包含了
+Batch 为 N 的输入数据，且输入数据位于可分页内存上。
+void* input_data[inputNames.size()];
+size_t input_data_len[inputNames.size()];
+2. 创建 MemoryInfo，用于标识输入数据所在的设备信息。
+Ort::MemoryInfo memoryInfo =Ort::MemoryInfo::CreateCpu(
+OrtAllocatorType::OrtArenaAllocator, OrtMemType::OrtMemTypeDefault);
+3. 创建输入 Tensors。
+std::vector<Ort::Value> inputTensors;
+for(size_t i=0; i<inputNames.size(); i++){
+// get input node data type
+(下页继续)
+3 MacaRT C++ API 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 9

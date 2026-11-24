@@ -1,0 +1,82 @@
+{
+  "environment": {
+    "MCCL_P2P_DISABLE": "1",
+    "VLLM_USE_V2_MODEL_RUNNER": "1",
+    "MACA_VISIBLE_DEVICES": "0,1,2,3,4,5,6,7",
+    "USE_PRECOMPILED_KERNEL": "1"
+  },
+  "boot_id": "02e79f83-9188-4b9a-bb4e-bed78f9e1a5e",
+  "image": "sha256:9bbf20dbcaaf52b794b887f0311a6dcbff6d23bb0a78b72fb0f442f8aab0f285",
+  "container_id": "4974f8b08298ff038514916a057cabc39408c70dc6d930b6530746c8ab377c38",
+  "model_plan": {
+    "settings": {
+      "model": "/models/GLM-5.3-Flash-W8A8",
+      "tensor_parallel_size": 8,
+      "distributed_executor_backend": "mp",
+      "dtype": "bfloat16",
+      "quantization": "compressed-tensors",
+      "load_format": "safetensors",
+      "max_model_len": 4096,
+      "max_num_seqs": 1,
+      "max_num_batched_tokens": 4096,
+      "gpu_memory_utilization": 0.9,
+      "enforce_eager": true,
+      "enable_prefix_caching": false,
+      "async_scheduling": false,
+      "attention_config": {
+        "indexer_kv_dtype": "auto"
+      },
+      "limit_mm_per_prompt": {
+        "image": 0,
+        "video": 0
+      },
+      "trust_remote_code": false,
+      "worker_extension_cls": "replacement_worker.Replacement",
+      "disable_custom_all_reduce": true
+    },
+    "sampling": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "seed": 0,
+      "max_tokens": 1024,
+      "ignore_eos": false
+    },
+    "task_ids": [
+      "HumanEval/16",
+      "HumanEval/131",
+      "HumanEval/103",
+      "HumanEval/54",
+      "HumanEval/144",
+      "HumanEval/115",
+      "HumanEval/123",
+      "HumanEval/162",
+      "HumanEval/156",
+      "HumanEval/94",
+      "HumanEval/48",
+      "HumanEval/56",
+      "HumanEval/160",
+      "HumanEval/6",
+      "HumanEval/117",
+      "HumanEval/12",
+      "HumanEval/59",
+      "HumanEval/30",
+      "HumanEval/10",
+      "HumanEval/82",
+      "HumanEval/35",
+      "HumanEval/104",
+      "HumanEval/89",
+      "HumanEval/110",
+      "HumanEval/15",
+      "HumanEval/40",
+      "HumanEval/148",
+      "HumanEval/72",
+      "HumanEval/157",
+      "HumanEval/13",
+      "HumanEval/37",
+      "HumanEval/127"
+    ],
+    "scope": "One-layer feasibility pilot, baseline32 then candidate32 with original GEMM shadow validation, then rollback4. Not performance or full release acceptance.",
+    "transport_scope": "MCCL_P2P_DISABLE=1 and custom all-reduce disabled, experiment only; hardware link remains faulty. Compare original/candidate/rollback under same fallback transport."
+  },
+  "warning": "Hardware port4 remains degraded; fallback transport experiment only."
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "observed_on": "2026-11-23",
+  "verification": "warm_reset_transient_recovery_then_recurrence",
+  "server": "H3C R5330 G7",
+  "driver": "3.10.14",
+  "warm_reset_attempts": 1,
+  "host_rebooted": false,
+  "recovery_success": false,
+  "communication_exit_code": 124,
+  "model_started": false,
+  "root_cause": "not proven",
+  "next_action": "Requires separate user decision on reboot; no automatic reboot or driver changes."
+}

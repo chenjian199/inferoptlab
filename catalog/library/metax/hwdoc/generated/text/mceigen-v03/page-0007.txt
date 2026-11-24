@@ -1,0 +1,51 @@
+文档: 曦云系列_通用计算GPU_mcEigen用户指南_CN_V03.pdf
+文档 ID: mceigen-v03
+SHA256: a99c752735a07ef038d743a050c3739dd167d2614b3f2619b77ba833c87947ec
+PDF 页序号: 7
+PDF 页码标签: 3
+页脚页码候选: 未识别
+章节提示（书签推断）: 工程项目中使用mcEigen
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcEigen 用户指南
+(续上页)
+return 0;
+}
+假设上面的示例包含在名为 myEigenApp.cpp 的文件中，您可以在 Linux 上使用以下命令进行编译：
+export MACA_PATH=/opt/maca
+export MACA_CLANG_PATH=${MACA_PATH}/mxgpu_llvm/bin
+export LD_LIBRARY_PATH=${MACA_PATH}/lib:${LD_LIBRARY_PATH}
+${MACA_CLANG_PATH}/mxcc -x maca myEigenApp.cpp -o myEigenApp -I ${MACA_
+,→PATH}/include/eigen3
+这里的 /opt/maca 路径为 MXMACA 工具包的默认安装路径。如果安装时选择了其它路径，则将
+MACA_PATH 设置为该路径。
+1.3 工程项目中使用 mcEigen
+以下是一个 CMakeLists.txt 的简单示例，用于编译上面的 myEigenApp.cpp。
+# CMakeLists.txt
+cmake_minimum_required(VERSION 3.16)
+project(example)
+# maca toolkits path
+set(MACA_PATH $ENV{MACA_PATH})
+set(CMAKE_C_COMPILER ${MACA_PATH}/mxgpu_llvm/bin/mxcc)
+set(CMAKE_CXX_COMPILER ${MACA_PATH}/mxgpu_llvm/bin/mxcc)
+# eigen path in maca toolkits
+set(eigen_src_dir ${MACA_PATH}/include/eigen3)
+set(example_target myEigenApp)
+set(example_src myEigenApp.cpp)
+add_compile_options( -x maca -fPIC
+-DEIGEN_USE_GPU
+-DEIGEN_USE_MACA
+--maca-device-lib-path=${MACA_PATH}/lib
+--maca-device-lib=maca_mathlib.bc
+--maca-device-lib=maca_kernellib.bc
+--maca-host-lib-path=${MACA_PATH}/lib
+--maca-host-lib=maca_mathlib_host.bc
+)
+add_executable(${example_target} "${example_src}")
+target_include_directories(${example_target} PRIVATE ${eigen_src_dir})
+把 myEigenApp.cpp 和 CMakeLists.txt 放在同一目录下，然后执行命令：
+export MACA_PATH=/opt/maca
+mkdir build
+cmake -B build .
+cmake --build build -j
+OG‑23030‑020‑F5_V03 沐曦专有信息 3

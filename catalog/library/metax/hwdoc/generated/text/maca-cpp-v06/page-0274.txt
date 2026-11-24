@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 274
+PDF 页码标签: 266
+页脚页码候选: 266
+章节提示（书签推断）: __builtin_mxc_arrive_bsmcnt
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+__global__ void test_builtin_mxc_arrive_global(int *ptr, int *data) {
+int val = ptr[0];
+__builtin_mxc_arrive(64); // (1 << 6)
+data[0] = val;
+}
+__global__ void test_builtin_mxc_arrive_shared(int *data) {
+extern __shared__ int shared_ptr[];
+int val = shared_ptr[0];
+__builtin_mxc_arrive(4096); // (1 << 12)
+data[0] = val;
+}
+2.18.9 __builtin_mxc_arrive_gvmcnt
+描述
+仅针对全局内存的内存栅栏：等待未完成的全局内存指令计数降至指定值及以下。
+语法
+void __builtin_mxc_arrive_gvmcnt(unsigned gvmcnt);
+参数
+参数名 说明
+gvmcnt gvm_cnt（全局内存计数） ，最多63个未完成操作
+示例
+__global__ void test_builtin_mxc_arrive_gvmcnt(int *ptr, int *data) {
+int val = ptr[0];
+__builtin_mxc_arrive_gvmcnt(0);
+data[0] = val;
+}
+2.18.10 __builtin_mxc_arrive_bsmcnt
+描述
+仅针对共享内存的内存栅栏：等待未完成的共享内存指令计数降至指定值及以下。
+语法
+void __builtin_mxc_arrive_bsmcnt(unsigned bsmcnt);
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 266

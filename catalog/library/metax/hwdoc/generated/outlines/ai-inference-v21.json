@@ -1,0 +1,887 @@
+[
+  {
+    "title": "概述",
+    "pdf_page": 13,
+    "depth": 1
+  },
+  {
+    "title": "MacaRT介绍",
+    "pdf_page": 13,
+    "depth": 2
+  },
+  {
+    "title": "MacaRT功能",
+    "pdf_page": 14,
+    "depth": 2
+  },
+  {
+    "title": "适用产品",
+    "pdf_page": 14,
+    "depth": 2
+  },
+  {
+    "title": "环境依赖及MacaRT安装",
+    "pdf_page": 15,
+    "depth": 1
+  },
+  {
+    "title": "环境依赖",
+    "pdf_page": 15,
+    "depth": 2
+  },
+  {
+    "title": "安装MacaRT",
+    "pdf_page": 15,
+    "depth": 2
+  },
+  {
+    "title": "MacaRT C++",
+    "pdf_page": 15,
+    "depth": 3
+  },
+  {
+    "title": "MacaRT Python",
+    "pdf_page": 15,
+    "depth": 3
+  },
+  {
+    "title": "使用MacaRT容器镜像",
+    "pdf_page": 16,
+    "depth": 2
+  },
+  {
+    "title": "MacaRT C++ API",
+    "pdf_page": 17,
+    "depth": 1
+  },
+  {
+    "title": "部署ONNX模型",
+    "pdf_page": 17,
+    "depth": 2
+  },
+  {
+    "title": "创建Session",
+    "pdf_page": 17,
+    "depth": 3
+  },
+  {
+    "title": "获取模型图的输入输出信息",
+    "pdf_page": 17,
+    "depth": 3
+  },
+  {
+    "title": "构建模型输入Tensors",
+    "pdf_page": 18,
+    "depth": 3
+  },
+  {
+    "title": "获取模型输出Tensors",
+    "pdf_page": 18,
+    "depth": 3
+  },
+  {
+    "title": "绑定输入输出设备",
+    "pdf_page": 19,
+    "depth": 2
+  },
+  {
+    "title": "绑定输入输出数据到可分页内存上",
+    "pdf_page": 19,
+    "depth": 3
+  },
+  {
+    "title": "绑定输入输出数据到固页内存上",
+    "pdf_page": 19,
+    "depth": 3
+  },
+  {
+    "title": "绑定输入输出数据到显存上",
+    "pdf_page": 20,
+    "depth": 3
+  },
+  {
+    "title": "动态Batch推理",
+    "pdf_page": 21,
+    "depth": 2
+  },
+  {
+    "title": "提升沐曦通用GPU推理性能",
+    "pdf_page": 22,
+    "depth": 2
+  },
+  {
+    "title": "设备ID",
+    "pdf_page": 23,
+    "depth": 3
+  },
+  {
+    "title": "MacaRT显存管理",
+    "pdf_page": 23,
+    "depth": 3
+  },
+  {
+    "title": "自定义算子",
+    "pdf_page": 23,
+    "depth": 2
+  },
+  {
+    "title": "Domain的定义",
+    "pdf_page": 24,
+    "depth": 3
+  },
+  {
+    "title": "Kernel输入输出的数据排布",
+    "pdf_page": 24,
+    "depth": 3
+  },
+  {
+    "title": "MacaRT Python API",
+    "pdf_page": 25,
+    "depth": 1
+  },
+  {
+    "title": "部署ONNX模型",
+    "pdf_page": 25,
+    "depth": 2
+  },
+  {
+    "title": "创建Session",
+    "pdf_page": 25,
+    "depth": 3
+  },
+  {
+    "title": "获取模型图的输入输出信息",
+    "pdf_page": 25,
+    "depth": 3
+  },
+  {
+    "title": "构建模型输入字典",
+    "pdf_page": 25,
+    "depth": 3
+  },
+  {
+    "title": "获取模型输出",
+    "pdf_page": 26,
+    "depth": 3
+  },
+  {
+    "title": "绑定输入输出设备",
+    "pdf_page": 26,
+    "depth": 2
+  },
+  {
+    "title": "绑定输入输出数据到可分页内存上",
+    "pdf_page": 26,
+    "depth": 3
+  },
+  {
+    "title": "绑定输入输出数据到固页内存上",
+    "pdf_page": 26,
+    "depth": 3
+  },
+  {
+    "title": "绑定输入输出数据到显存上",
+    "pdf_page": 27,
+    "depth": 3
+  },
+  {
+    "title": "动态Batch推理",
+    "pdf_page": 27,
+    "depth": 2
+  },
+  {
+    "title": "提升沐曦通用GPU推理性能",
+    "pdf_page": 28,
+    "depth": 2
+  },
+  {
+    "title": "设备ID设置",
+    "pdf_page": 28,
+    "depth": 3
+  },
+  {
+    "title": "MacaRT工具链",
+    "pdf_page": 29,
+    "depth": 1
+  },
+  {
+    "title": "MacaConverter",
+    "pdf_page": 29,
+    "depth": 2
+  },
+  {
+    "title": "安装",
+    "pdf_page": 30,
+    "depth": 3
+  },
+  {
+    "title": "功能列表",
+    "pdf_page": 31,
+    "depth": 3
+  },
+  {
+    "title": "使用说明",
+    "pdf_page": 31,
+    "depth": 3
+  },
+  {
+    "title": "Caffe模型转ONNX模型",
+    "pdf_page": 31,
+    "depth": 4
+  },
+  {
+    "title": "TensorFlow（H5）模型转ONNX模型",
+    "pdf_page": 32,
+    "depth": 4
+  },
+  {
+    "title": "TensorFlow（SavedModel）模型转ONNX模型",
+    "pdf_page": 32,
+    "depth": 4
+  },
+  {
+    "title": "TensorFlow（CheckPoint）模型转ONNX模型",
+    "pdf_page": 32,
+    "depth": 4
+  },
+  {
+    "title": "TensorFlow（pb）模型转ONNX模型",
+    "pdf_page": 33,
+    "depth": 4
+  },
+  {
+    "title": "PyTorch模型转ONNX模型（输入包含模型定义和权重）",
+    "pdf_page": 33,
+    "depth": 4
+  },
+  {
+    "title": "PyTorch模型转ONNX模型（输入仅包含权重）",
+    "pdf_page": 34,
+    "depth": 4
+  },
+  {
+    "title": "PyTorch模型转ONNX模型（输入仅包含权重，且模型定义在Torchvision中）",
+    "pdf_page": 34,
+    "depth": 4
+  },
+  {
+    "title": "Darknet模型转ONNX模型",
+    "pdf_page": 35,
+    "depth": 4
+  },
+  {
+    "title": "PaddlePaddle模型转ONNX模型（输入包含权重和定义）",
+    "pdf_page": 35,
+    "depth": 4
+  },
+  {
+    "title": "PaddlePaddle模型转ONNX模型（输入仅包含权重）",
+    "pdf_page": 35,
+    "depth": 4
+  },
+  {
+    "title": "PaddlePaddle模型转ONNX模型（输入仅包含权重，模型在paddle.vision中定义）",
+    "pdf_page": 36,
+    "depth": 4
+  },
+  {
+    "title": "动态Batch转换",
+    "pdf_page": 36,
+    "depth": 4
+  },
+  {
+    "title": "ONNX简化",
+    "pdf_page": 36,
+    "depth": 4
+  },
+  {
+    "title": "FP32转FP16",
+    "pdf_page": 37,
+    "depth": 4
+  },
+  {
+    "title": "子图提取",
+    "pdf_page": 37,
+    "depth": 4
+  },
+  {
+    "title": "op_set版本转换",
+    "pdf_page": 37,
+    "depth": 4
+  },
+  {
+    "title": "Pad融合",
+    "pdf_page": 37,
+    "depth": 4
+  },
+  {
+    "title": "Float32转Uint8（仅针对模型的input数据，非所有算子）",
+    "pdf_page": 38,
+    "depth": 4
+  },
+  {
+    "title": "MatMul+Add融合为Gemm",
+    "pdf_page": 38,
+    "depth": 4
+  },
+  {
+    "title": "MHA融合",
+    "pdf_page": 38,
+    "depth": 4
+  },
+  {
+    "title": "MacaPrecision",
+    "pdf_page": 38,
+    "depth": 2
+  },
+  {
+    "title": "安装",
+    "pdf_page": 39,
+    "depth": 3
+  },
+  {
+    "title": "使用说明",
+    "pdf_page": 39,
+    "depth": 3
+  },
+  {
+    "title": "常规模型（FP32/FP16）",
+    "pdf_page": 39,
+    "depth": 4
+  },
+  {
+    "title": "全量模式",
+    "pdf_page": 39,
+    "depth": 5
+  },
+  {
+    "title": "指定模式",
+    "pdf_page": 40,
+    "depth": 5
+  },
+  {
+    "title": "量化模型（经过MacaQuantizer量化后的模型）",
+    "pdf_page": 40,
+    "depth": 4
+  },
+  {
+    "title": "MacaQuantizer",
+    "pdf_page": 40,
+    "depth": 2
+  },
+  {
+    "title": "安装",
+    "pdf_page": 41,
+    "depth": 3
+  },
+  {
+    "title": "使用说明",
+    "pdf_page": 41,
+    "depth": 3
+  },
+  {
+    "title": "预处理说明",
+    "pdf_page": 43,
+    "depth": 4
+  },
+  {
+    "title": "dataset.txt文本格式说明",
+    "pdf_page": 43,
+    "depth": 4
+  },
+  {
+    "title": "注意事项",
+    "pdf_page": 44,
+    "depth": 3
+  },
+  {
+    "title": "MacaRT-LLM",
+    "pdf_page": 45,
+    "depth": 1
+  },
+  {
+    "title": "MacaRT-LLM介绍",
+    "pdf_page": 45,
+    "depth": 2
+  },
+  {
+    "title": "MacaRT-LLM功能",
+    "pdf_page": 45,
+    "depth": 2
+  },
+  {
+    "title": "MacaRT-LLM使用流程",
+    "pdf_page": 46,
+    "depth": 2
+  },
+  {
+    "title": "模型转换",
+    "pdf_page": 46,
+    "depth": 3
+  },
+  {
+    "title": "安装",
+    "pdf_page": 46,
+    "depth": 4
+  },
+  {
+    "title": "转换为PMX模型",
+    "pdf_page": 47,
+    "depth": 4
+  },
+  {
+    "title": "模型切分",
+    "pdf_page": 48,
+    "depth": 4
+  },
+  {
+    "title": "模型合并（可选）",
+    "pdf_page": 48,
+    "depth": 4
+  },
+  {
+    "title": "PMX模型测试",
+    "pdf_page": 49,
+    "depth": 4
+  },
+  {
+    "title": "导出为ONNX模型",
+    "pdf_page": 50,
+    "depth": 4
+  },
+  {
+    "title": "本地模型部署精度验证",
+    "pdf_page": 52,
+    "depth": 3
+  },
+  {
+    "title": "本地模型部署性能测试",
+    "pdf_page": 54,
+    "depth": 3
+  },
+  {
+    "title": "服务化部署",
+    "pdf_page": 56,
+    "depth": 3
+  },
+  {
+    "title": "服务端部署",
+    "pdf_page": 56,
+    "depth": 4
+  },
+  {
+    "title": "C++客户端部署",
+    "pdf_page": 58,
+    "depth": 4
+  },
+  {
+    "title": "Python客户端部署",
+    "pdf_page": 59,
+    "depth": 4
+  },
+  {
+    "title": "服务端输出性能数据解析",
+    "pdf_page": 59,
+    "depth": 4
+  },
+  {
+    "title": "MacaRT-vLLM",
+    "pdf_page": 61,
+    "depth": 1
+  },
+  {
+    "title": "MacaRT-vLLM介绍",
+    "pdf_page": 61,
+    "depth": 2
+  },
+  {
+    "title": "MacaRT-vLLM功能与局限性",
+    "pdf_page": 61,
+    "depth": 2
+  },
+  {
+    "title": "MacaRT-vLLM使用流程",
+    "pdf_page": 62,
+    "depth": 2
+  },
+  {
+    "title": "环境准备",
+    "pdf_page": 62,
+    "depth": 3
+  },
+  {
+    "title": "使用vLLM镜像",
+    "pdf_page": 62,
+    "depth": 4
+  },
+  {
+    "title": "安装wheel包",
+    "pdf_page": 62,
+    "depth": 4
+  },
+  {
+    "title": "配置环境变量",
+    "pdf_page": 63,
+    "depth": 4
+  },
+  {
+    "title": "离线推理",
+    "pdf_page": 63,
+    "depth": 3
+  },
+  {
+    "title": "吞吐测试",
+    "pdf_page": 64,
+    "depth": 3
+  },
+  {
+    "title": "Server服务",
+    "pdf_page": 64,
+    "depth": 3
+  },
+  {
+    "title": "MacaRT-vLLM-metax",
+    "pdf_page": 65,
+    "depth": 1
+  },
+  {
+    "title": "MacaRT-vLLM-metax介绍",
+    "pdf_page": 65,
+    "depth": 2
+  },
+  {
+    "title": "分支说明",
+    "pdf_page": 65,
+    "depth": 3
+  },
+  {
+    "title": "MacaRT-vLLM-metax功能与局限性",
+    "pdf_page": 65,
+    "depth": 2
+  },
+  {
+    "title": "MacaRT-vLLM-metax使用流程",
+    "pdf_page": 66,
+    "depth": 2
+  },
+  {
+    "title": "环境准备",
+    "pdf_page": 66,
+    "depth": 3
+  },
+  {
+    "title": "使用vLLM镜像",
+    "pdf_page": 66,
+    "depth": 4
+  },
+  {
+    "title": "安装wheel包",
+    "pdf_page": 67,
+    "depth": 4
+  },
+  {
+    "title": "源代码构建教程",
+    "pdf_page": 67,
+    "depth": 4
+  },
+  {
+    "title": "设置环境变量",
+    "pdf_page": 67,
+    "depth": 4
+  },
+  {
+    "title": "构建vLLM",
+    "pdf_page": 68,
+    "depth": 4
+  },
+  {
+    "title": "构建vLLM-metax",
+    "pdf_page": 68,
+    "depth": 4
+  },
+  {
+    "title": "离线推理",
+    "pdf_page": 68,
+    "depth": 3
+  },
+  {
+    "title": "吞吐测试",
+    "pdf_page": 69,
+    "depth": 3
+  },
+  {
+    "title": "Server服务",
+    "pdf_page": 70,
+    "depth": 3
+  },
+  {
+    "title": "MacaRT-ModelZoo",
+    "pdf_page": 71,
+    "depth": 1
+  },
+  {
+    "title": "MacaRT-ModelZoo介绍",
+    "pdf_page": 71,
+    "depth": 2
+  },
+  {
+    "title": "模型评测条件",
+    "pdf_page": 71,
+    "depth": 2
+  },
+  {
+    "title": "代码目录结构及说明",
+    "pdf_page": 71,
+    "depth": 2
+  },
+  {
+    "title": "源码、模型和数据集",
+    "pdf_page": 72,
+    "depth": 2
+  },
+  {
+    "title": "源码镜像获取",
+    "pdf_page": 72,
+    "depth": 3
+  },
+  {
+    "title": "模型获取",
+    "pdf_page": 72,
+    "depth": 3
+  },
+  {
+    "title": "数据集获取",
+    "pdf_page": 73,
+    "depth": 3
+  },
+  {
+    "title": "模型评测步骤",
+    "pdf_page": 73,
+    "depth": 2
+  },
+  {
+    "title": "启动容器镜像",
+    "pdf_page": 73,
+    "depth": 3
+  },
+  {
+    "title": "建立数据集的关联",
+    "pdf_page": 73,
+    "depth": 3
+  },
+  {
+    "title": "执行模型评测",
+    "pdf_page": 73,
+    "depth": 3
+  },
+  {
+    "title": "MacaRT-LMDeploy",
+    "pdf_page": 75,
+    "depth": 1
+  },
+  {
+    "title": "MacaRT-LMDeploy介绍",
+    "pdf_page": 75,
+    "depth": 2
+  },
+  {
+    "title": "MacaRT-LMDeploy功能与局限性",
+    "pdf_page": 75,
+    "depth": 2
+  },
+  {
+    "title": "MacaRT-LMDeploy使用流程",
+    "pdf_page": 75,
+    "depth": 2
+  },
+  {
+    "title": "环境准备",
+    "pdf_page": 75,
+    "depth": 3
+  },
+  {
+    "title": "获取vLLM镜像",
+    "pdf_page": 76,
+    "depth": 4
+  },
+  {
+    "title": "安装dlinfer",
+    "pdf_page": 76,
+    "depth": 4
+  },
+  {
+    "title": "安装LMDeploy",
+    "pdf_page": 76,
+    "depth": 4
+  },
+  {
+    "title": "离线推理",
+    "pdf_page": 77,
+    "depth": 3
+  },
+  {
+    "title": "静态推理性能测试",
+    "pdf_page": 77,
+    "depth": 3
+  },
+  {
+    "title": "Server服务动态推理性能测试",
+    "pdf_page": 78,
+    "depth": 3
+  },
+  {
+    "title": "Diffusers",
+    "pdf_page": 80,
+    "depth": 1
+  },
+  {
+    "title": "Transformers",
+    "pdf_page": 81,
+    "depth": 1
+  },
+  {
+    "title": "MacaRT-SGLang",
+    "pdf_page": 82,
+    "depth": 1
+  },
+  {
+    "title": "MacaRT-SGLang介绍",
+    "pdf_page": 82,
+    "depth": 2
+  },
+  {
+    "title": "MacaRT-SGLang功能",
+    "pdf_page": 82,
+    "depth": 2
+  },
+  {
+    "title": "MacaRT-SGLang使用流程",
+    "pdf_page": 82,
+    "depth": 2
+  },
+  {
+    "title": "环境准备",
+    "pdf_page": 82,
+    "depth": 3
+  },
+  {
+    "title": "使用SGLang镜像",
+    "pdf_page": 82,
+    "depth": 4
+  },
+  {
+    "title": "设置环境变量",
+    "pdf_page": 82,
+    "depth": 4
+  },
+  {
+    "title": "启动Server",
+    "pdf_page": 83,
+    "depth": 4
+  },
+  {
+    "title": "在线推理",
+    "pdf_page": 83,
+    "depth": 3
+  },
+  {
+    "title": "吞吐测试",
+    "pdf_page": 84,
+    "depth": 3
+  },
+  {
+    "title": "精度测试",
+    "pdf_page": 84,
+    "depth": 3
+  },
+  {
+    "title": "MMLU精度测试",
+    "pdf_page": 84,
+    "depth": 4
+  },
+  {
+    "title": "C-Eval精度测试",
+    "pdf_page": 84,
+    "depth": 4
+  },
+  {
+    "title": "ModelZoo.LLM.SGLang",
+    "pdf_page": 86,
+    "depth": 1
+  },
+  {
+    "title": "ModelZoo.LLM.SGLang介绍",
+    "pdf_page": 86,
+    "depth": 2
+  },
+  {
+    "title": "模型评测条件",
+    "pdf_page": 86,
+    "depth": 2
+  },
+  {
+    "title": "代码目录结构及说明",
+    "pdf_page": 86,
+    "depth": 2
+  },
+  {
+    "title": "源码、模型和环境准备",
+    "pdf_page": 87,
+    "depth": 2
+  },
+  {
+    "title": "源码镜像获取",
+    "pdf_page": 87,
+    "depth": 3
+  },
+  {
+    "title": "模型获取",
+    "pdf_page": 88,
+    "depth": 3
+  },
+  {
+    "title": "服务器信息配置",
+    "pdf_page": 88,
+    "depth": 3
+  },
+  {
+    "title": "修改模型配置文件",
+    "pdf_page": 89,
+    "depth": 3
+  },
+  {
+    "title": "模型评测步骤",
+    "pdf_page": 90,
+    "depth": 2
+  },
+  {
+    "title": "启动容器镜像",
+    "pdf_page": 90,
+    "depth": 3
+  },
+  {
+    "title": "配置机器信息",
+    "pdf_page": 90,
+    "depth": 3
+  },
+  {
+    "title": "配置任务信息",
+    "pdf_page": 90,
+    "depth": 3
+  },
+  {
+    "title": "执行模型评测",
+    "pdf_page": 91,
+    "depth": 3
+  },
+  {
+    "title": "附录",
+    "pdf_page": 92,
+    "depth": 1
+  },
+  {
+    "title": "术语/缩略语",
+    "pdf_page": 92,
+    "depth": 2
+  }
+]

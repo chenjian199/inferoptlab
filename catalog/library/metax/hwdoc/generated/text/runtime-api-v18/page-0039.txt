@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 39
+PDF 页码标签: 30
+页脚页码候选: 30
+章节提示（书签推断）: 点对点访问
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+• 任何由主机线程启动的核函数都会在该设备上执行
+可以在以下情况中同时使用多 GPU：
+• 在一个节点的单 CPU 线程上
+• 在一个节点的多 CPU 线程上
+• 在一个节点的多 CPU 进程上
+• 在多个节点的多 CPU 进程上
+以下代码展示了如何执行核函数以及在单一的主机线程中进行内存拷贝，使用循环遍历设备：
+for (int i = 0; i < nGpus; i++) {
+// set the current device
+mcSetDevice(i);
+// execute kernel on current device
+Kernel <<<grid, block>>>(...);
+// asynchronously transfer data between the host and current device
+mcMemcpyAsync(...);
+}
+3.6.2 点对点通信
+3.6.2.1 点对点访问
+点对点访问允许各 GPU 连接到同一个 PCIe 根节点上，使一个 GPU 设备直接引用存储在其他 GPU 设备
+内存上的数据。对于透明的核函数，引用的数据将通过 PCIe 总线传输到请求的线程上。因为不是所有的
+GPU 都支持点对点访问，所以需要使用以下函数显式地检查设备是否支持点对点访问：
+mcError_t mcDeviceCanAccessPeer(int* canAccessPeer, int device, int peerDevice);
+如果设备 device 能够直接访问对等设备 peerDevice 的全局内存，那么函数变量 canAccessPeer
+返回值为整型 1，否则返回 0。
+在两个设备间，必须使用以下函数显式地启用点对点内存访问：
+mcError_t mcDeviceEnableAccessPeer(int peerDevice, unsigned int flag);
+这个函数允许从当前设备到 peerDevice 进行点对点访问。保留 flag 参数以备将来使用，目前必须将
+其设置为 0。一旦成功，该对等设备的内存将立即由当前设备进行访问。
+这个函数授权的访问是单向的，即这个函数允许从当前设备到 peerDevice 的访问，但不允许从
+peerDevice 到当前设备的访问。如果希望对等设备能直接访问当前设备的内存，则需要另一个方向单
+独的匹配调用。
+点对点访问保持启用状态，直到使用以下函数显式地禁用：
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 30

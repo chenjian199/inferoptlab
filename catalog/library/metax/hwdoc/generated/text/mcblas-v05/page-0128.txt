@@ -1,0 +1,45 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 128
+PDF 页码标签: 121
+页脚页码候选: 121
+章节提示（书签推断）: mcblas<t>matinvBatched()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+(续上页)
+int lda_inv,
+int *info,
+int batchSize);
+A 和 Ainv 是指向矩阵的指针数组，以列主格式存储，维度为 n*n，前导维度分别为 lda 和 lda_inv。
+该函数执行 A[i] 矩阵反转，i = 0，…，batchSize-1。
+此 函 数 是 mcblas<t>getrfBatched 加 mcblas<t>getriBatched 的 快 捷 方 式。 但 如 果 n
+大 于 32， 则 此 函 数 无 效。 如 果 此 函 数 无 效， 用 户 必 须 使 用 mcblas<t>getrfBatched 和
+mcblas<t>getriBatched。
+如果 A[i] 是奇异矩阵，则 info[i] 报告奇异性，与 mcblas<t>getrfBatched 相同。
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+n input A[i] 的行数和列数
+A 设备 input 指向 <type> 数组的指针数组，每个数组维度为 n x n，其中
+lda >=max(1,n)
+lda input 用于存储矩阵 A[i] 的二维数组的前导维度
+Ainv 设备 output 指向 <type> 数组的指针数组，每个数组维度为 n x n，其中
+lda >=max(1,n) 。矩阵 Ainv[i] 不应重叠；否则，将出现未定
+义的行为。
+lda_inv input 用于存储矩阵 Ainv[i] 的二维数组的前导维度
+info 设备 output 大小为 batchSize 的数组，info[i] 包含 A[i] 的反转信息。
+如果 info=0，执行成功。
+如果 info = k，U(k,k) 为 0。U 恰好是奇异的，且反转失败。
+batchSize input A 中包含的指针数
+下面列出了此函数可能的返回值及其含义。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE
+• n < 0 , lda < 0 , lda_inv < 0 或 batchSize
+< 0
+• lda < n 或 lda_inv < n
+• n > 32
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 121

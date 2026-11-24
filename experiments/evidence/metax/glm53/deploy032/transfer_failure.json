@@ -1,0 +1,155 @@
+{
+  "checked_epoch": 1795315603.138147,
+  "pull": {
+    "started": 1795314550.3228524,
+    "layers": {
+      "vllm0.29.0-maca.ai3.9.0.9-torch2.10-py312-ubuntu24.04-amd64-mim4.0.1": {
+        "status": "Pulling from mim-pub/vllm/model-free"
+      },
+      "0e985a07fbdf": {
+        "status": "Already exists",
+        "hidecounts": true
+      },
+      "a21e3d78e706": {
+        "status": "Downloading",
+        "current": 1092165632,
+        "total": 6889748145
+      },
+      "4f4fb700ef54": {
+        "status": "Already exists",
+        "hidecounts": true
+      },
+      "b5a1a1d5abe7": {
+        "status": "Already exists",
+        "hidecounts": true
+      },
+      "5189d672058e": {
+        "status": "Already exists",
+        "hidecounts": true
+      },
+      "48e415cf0835": {
+        "status": "Already exists",
+        "hidecounts": true
+      },
+      "df9088a52fba": {
+        "status": "Already exists",
+        "hidecounts": true
+      },
+      "81b6c8e57088": {
+        "status": "Already exists",
+        "hidecounts": true
+      },
+      "b07c48fa72bd": {
+        "status": "Already exists",
+        "hidecounts": true
+      },
+      "69009d94255a": {
+        "status": "Download complete",
+        "hidecounts": true
+      },
+      "ce61a272ad57": {
+        "status": "Already exists",
+        "hidecounts": true
+      },
+      "c7edf13dd9a9": {
+        "status": "Already exists",
+        "hidecounts": true
+      },
+      "bc15d88f7c8e": {
+        "status": "Already exists",
+        "hidecounts": true
+      },
+      "f354f8ca704b": {
+        "status": "Already exists",
+        "hidecounts": true
+      },
+      "11bc8783e30e": {
+        "status": "Download complete",
+        "hidecounts": true
+      },
+      "d36bfcd0efb5": {
+        "status": "Already exists",
+        "hidecounts": true
+      },
+      "9ae9525e9e3f": {
+        "status": "Already exists",
+        "hidecounts": true
+      },
+      "038bbf47eddd": {
+        "status": "Already exists",
+        "hidecounts": true
+      },
+      "b4321612884e": {
+        "status": "Already exists",
+        "hidecounts": true
+      },
+      "63e1c987012e": {
+        "status": "Downloading",
+        "current": 596639744,
+        "total": 625044085
+      },
+      "d5c9604ebf3b": {
+        "status": "Already exists",
+        "hidecounts": true
+      },
+      "0d0c0386441f": {
+        "status": "Downloading",
+        "current": 772800512,
+        "total": 5247635668
+      },
+      "15da21cec639": {
+        "status": "Already exists",
+        "hidecounts": true
+      },
+      "36cb57f0f1e8": {
+        "status": "Already exists",
+        "hidecounts": true
+      },
+      "22d7e0cde7ee": {
+        "status": "Already exists",
+        "hidecounts": true
+      },
+      "c762c8e304d4": {
+        "status": "Already exists",
+        "hidecounts": true
+      },
+      "19c890bf6fb2": {
+        "status": "Already exists",
+        "hidecounts": true
+      },
+      "f73bb4fe3ba4": {
+        "status": "Already exists",
+        "hidecounts": true
+      },
+      "396c3a120952": {
+        "status": "Already exists",
+        "hidecounts": true
+      },
+      "4812f7dca76f": {
+        "status": "Already exists",
+        "hidecounts": true
+      }
+    },
+    "complete": false,
+    "updated": 1795315569.0623553,
+    "error": "short read: expected 6889748145 bytes but got 1092165632: unexpected EOF"
+  },
+  "image_available": false,
+  "dcc": {
+    "id": "3c856edd12bc08ba2fb33219093ad3986b26c9524a68523e29da0a0f1e4ac9fa",
+    "image": "sha256:96bbee871d4ea038b123276eacd65f77825b093b9255157938e0b1628e121f0b",
+    "running": true,
+    "started": "2026-11-21T11:29:35.179813591Z",
+    "restart_count": 0
+  },
+  "sources": {
+    "vllm": {
+      "commit": "5df63a7203cdb9328d824a27b682e77c7b9928be",
+      "status": ""
+    },
+    "vllm-metax": {
+      "commit": "0962c8735ffe4795800030680311410848512b82",
+      "status": ""
+    }
+  }
+}

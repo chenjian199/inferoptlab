@@ -1,0 +1,39 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 193
+PDF 页码标签: 185
+页脚页码候选: 185
+章节提示（书签推断）: 整数型度数学函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+__device__ double yn (int n, double x)
+为输入参数计算第二类n阶贝塞尔函数的值。
+返回值
+• 返回计算的第二类n阶贝塞尔函数的值。
+• yn(0)返回‑∞。
+• yn(x)对于x<0返回NaN。
+• yn(+∞)返回+0。
+• yn(NaN)返回NaN。
+函数描述
+计算输入参数x的第二类n阶贝塞尔函数的值，Y n(x)。
+2.8.17 整数型度数学函数
+__device__ int abs (int a)
+参数
+a
+• int
+返回值
+• int
+函数描述
+• 计算a的绝对值。
+__device__ long int labs (long int a)
+参数
+a
+• longint
+返回值
+• longint
+函数描述
+• 计算a的绝对值。
+__device__ long long int llabs (long long int a)
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 185

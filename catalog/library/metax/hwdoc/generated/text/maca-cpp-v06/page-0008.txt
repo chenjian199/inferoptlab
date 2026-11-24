@@ -1,0 +1,33 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 8
+PDF 页码标签: vi
+页脚页码候选: 未识别
+章节提示（书签推断）: 前置页或无书签
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+更新记录
+版本 日期 更新说明
+V06 2026‑03‑27 更新文档适用范围
+V05 2025‑09‑15 更新以下章节：
+2.18编译器内置函数
+新增以下章节：
+2.18.6__builtin_mxc_byte_perm
+2.18.7__builtin_mxc_load_global_async
+2.18.8__builtin_mxc_arrive
+2.18.9__builtin_mxc_arrive_gvmcnt
+2.18.10__builtin_mxc_arrive_bsmcnt
+2.18.11__builtin_mxc_barrier
+2.18.12__builtin_mxc_barrier_inst
+2.18.13__builtin_mxc_ldg_*_predicator
+2.18.14__builtin_mxc_stg_*_predicator
+V04 2025‑03‑21 更新以下章节：
+2.22.1提要
+2.22.2描述
+2.32LaunchBounds（启动边界）
+V03 2024‑03‑15 新增曦云 ® 系列GPU产品信息
+V02 2023‑12‑29 修正部分描述和格式
+V01 2023‑10‑16 首次发布
+PG‑23006‑020‑F5_V06 沐曦股份专有信息 vi

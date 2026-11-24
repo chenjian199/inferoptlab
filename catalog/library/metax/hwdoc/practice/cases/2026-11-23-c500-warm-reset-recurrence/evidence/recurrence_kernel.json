@@ -1,0 +1,12 @@
+{
+  "query_since_utc": "2026-11-23 06:47:00 UTC",
+  "returncode": 0,
+  "events": [
+    "2026-11-23T06:49:38+0000 63metax kernel: METAX.B5B00.D0.PCI.WARN metalk4 link changed: width x16 - > x4",
+    "2026-11-23T06:49:38+0000 63metax kernel: METAX.B5E00.D0.PCI.WARN metalk4 link changed: width x16 - > x4",
+    "2026-11-23T06:49:48+0000 63metax kernel: METAX.B5B00.D0.PCI.ERROR EID (0000:5b:00.0): 0x2119, metalk4 uncorrectable error, status 0x00100000, count 1",
+    "2026-11-23T06:49:48+0000 63metax kernel: METAX.B5B00.D0.PCI.ERROR metalk4 uncorrectable AER [20] Unsupported Request Error, count 1",
+    "2026-11-23T06:49:48+0000 63metax kernel: METAX.B5B00.D0.MON.INFO the active status of this card is changed, new status:0"
+  ],
+  "selection": "Kernel lines restricted to MetaXLink/AER/status after reset inspection, serial fields excluded."
+}

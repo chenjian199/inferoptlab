@@ -1,0 +1,43 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 245
+PDF 页码标签: 237
+页脚页码候选: 237
+章节提示（书签推断）: SIMD intrinsic
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+__device__ unsigned int __vcmpges4 (unsigned int a, unsigned int b)
+计算每字节有符号比较：a >= b ? 0xff : 0。
+返回值
+• 返回计算结果。
+函数描述
+• 把 4 字节参数分离成 4 个部分，每个部分 1 个字节组成。对每个对应的部分，如果 part_a >=
+part_b，局部结果为 0xff；否则为 0x00。比如 __vcmpges4(0x1234aba5, 0x1234aba6)返
+回 0xffffff00。
+__device__ unsigned int __vcmpgeu2 (unsigned int a, unsigned int b)
+计算每半字无符号比较：a >= b ? 0xffff : 0。
+返回值
+• 返回计算结果。
+函数描述
+• 把 4 字节参数分离成 2 个部分，每个部分有 2 个字节组成。对每个对应的部分，如果 part_a >=
+part_b， 局部结果为0xffff； 否则为0x0000。 比如__vcmpgeu2(0x1234aba5, 0x1234aba6)
+返回 0xffff0000。
+__device__ unsigned int __vcmpgeu4 (unsigned int a, unsigned int b)
+计算每字节无符号比较：a >= b ? 0xff : 0。
+返回值
+• 返回计算结果。
+函数描述
+• 把 4 字节参数分离成 4 个部分，每个部分 1 个字节组成。对每个对应的部分，如果 part_a >=
+part_b，局部结果为 0xff；否则为 0x00。比如 __vcmpgeu4(0x1234aba5, 0x1234aba6)返
+回 0xffffff00。
+__device__ unsigned int __vcmpgts2 (unsigned int a, unsigned int b)
+计算每半字有符号比较：a > b ? 0xffff : 0。
+返回值
+• 返回计算结果。
+函数描述
+• 把 4 字节参数分离成 2 个部分，每个部分有 2 个字节组成。对每个对应的部分，如果 part_a >=
+part_b， 局部结果为0xffff； 否则为0x0000。 比如__vcmpgts2(0x1234aba5, 0x1234aba6)
+返回 0x00000000。
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 237

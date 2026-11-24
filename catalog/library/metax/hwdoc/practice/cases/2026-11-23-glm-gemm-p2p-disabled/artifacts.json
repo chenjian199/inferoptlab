@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "observed_on": "2026-11-23",
+  "evidence_snapshots": [
+    {
+      "snapshot": "evidence/verification_summary.json",
+      "snapshot_sha256": "0983a6d0bb235624488272d8ded19e1084cb6af5d333f7c0db2c8e0634159571",
+      "original_path": "experiments/evidence/metax/glm53/reboot_recheck_20261123/verification_summary.json",
+      "original_sha256": "0983a6d0bb235624488272d8ded19e1084cb6af5d333f7c0db2c8e0634159571",
+      "selection": "Manually reviewed result, per-task comparison or selected hardware/transport evidence; excludes generated programs, raw logs, private configuration and credentials."
+    },
+    {
+      "snapshot": "evidence/comparison_summary.json",
+      "snapshot_sha256": "2392bc05a5089b943d58a3b425c532626a480658f258fcffe7723b4bd06ada84",
+      "original_path": "experiments/evidence/metax/glm53/reboot_recheck_20261123/pilot/comparison_summary.json",
+      "original_sha256": "2392bc05a5089b943d58a3b425c532626a480658f258fcffe7723b4bd06ada84",
+      "selection": "Manually reviewed result, per-task comparison or selected hardware/transport evidence; excludes generated programs, raw logs, private configuration and credentials."
+    },
+    {
+      "snapshot": "evidence/hardware_summary.json",
+      "snapshot_sha256": "14ee5470301ff0bb8346b6e732104ecd309f80c4fa8c58a5c6847aeb5b6ee4f2",
+      "original_path": "experiments/evidence/metax/glm53/reboot_recheck_20261123/evidence/hardware_summary.json",
+      "original_sha256": "14ee5470301ff0bb8346b6e732104ecd309f80c4fa8c58a5c6847aeb5b6ee4f2",
+      "selection": "Manually reviewed result, per-task comparison or selected hardware/transport evidence; excludes generated programs, raw logs, private configuration and credentials."
+    },
+    {
+      "snapshot": "evidence/transport_summary.json",
+      "snapshot_sha256": "4f97c491893b1f2f85077865fa48fd43c60da3ce84281f6d4d1e899161925ba8",
+      "original_path": "experiments/evidence/metax/glm53/reboot_recheck_20261123/pilot/evidence/transport_summary.json",
+      "original_sha256": "4f97c491893b1f2f85077865fa48fd43c60da3ce84281f6d4d1e899161925ba8",
+      "selection": "Manually reviewed result, per-task comparison or selected hardware/transport evidence; excludes generated programs, raw logs, private configuration and credentials."
+    }
+  ],
+  "local_references": [
+    {
+      "path": "experiments/evidence/metax/glm53/reboot_recheck_20261123/REPORT.md",
+      "sha256": "689b5907b276645a79a90969cf134b7a34be55248a7980527346471b3bdc520f"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/reboot_recheck_20261123/WORK_STATE.json",
+      "sha256": "7084542a88dd01dac19884c826ded66f0fd2dc0080ab4fc5130050c1f02908cd"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/reboot_recheck_20261123/artifact_manifest.json",
+      "sha256": "affde69d463f8b2e0c944ed14bbc3cad22d71d7368ca82b780982eecae7e56b4"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/reboot_recheck_20261123/archive_receipt.json",
+      "sha256": "7ce65e3b9b65cb8a68b36bd0857cc258515c54fcef28de4554ce87a92fe2e737"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/reboot_recheck_20261123/verify_results.py",
+      "sha256": "16bbe8001c3be0b89e13354b6ea8cfbbeb124a268fa0f68d86e5f5051799f935"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/reboot_recheck_20261123/analyze_pilot.py",
+      "sha256": "9733fc76f47015df83ba792292cbd777cb2046a7ed4ef72a566e29ce57203e17"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/reboot_recheck_20261123/pilot/inputs_sha256.json",
+      "sha256": "7b953808525ee3441613fae4f744945dd5f1c3ef9081372d8694541e6b2d64d2"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/reboot_recheck_20261123/pilot/configs/model-plan.json",
+      "sha256": "c7fbb7b1976d85467beaf5b20bbc4ad82e88ace54b6d1527b9593984b5c209ab"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/reboot_recheck_20261123/pilot/harness/replacement_worker.py",
+      "sha256": "a133e45c913e939458e55ec898e2de1cf525110d7dae836ba97f4a868a290d51"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/reboot_recheck_20261123/pilot/harness/gemm_kernel.py",
+      "sha256": "df5a0abe332a2d7521d2b682734f7f375fcaf5faad10b9446685173ff4773f84"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/reboot_recheck_20261123/pilot/evidence/source_archive_check.json",
+      "sha256": "91a10505ebb87b9a69ca31ccefc98117bb292decc4430f3d82c9e98a198f867d"
+    }
+  ],
+  "remote_assets": [
+    {
+      "path": "/home/metax/glm53-reboot-recheck-20261123/archives/reboot_recheck_20261123_v1.tar.gz",
+      "sha256": "aa39f47681518226bfa665d35d9046d51222afb9c0c2ff5c980c1faf4696360a",
+      "verification": "Local and remote archive bytes and 89 member hashes checked 2026-11-23"
+    }
+  ],
+  "change_tracking": {
+    "git_available": false,
+    "scope": "New experiment directory and new knowledge case; prior experiments unchanged by manifest verification. No fabricated Git diff."
+  }
+}

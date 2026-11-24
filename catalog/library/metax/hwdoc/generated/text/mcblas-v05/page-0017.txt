@@ -1,0 +1,47 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 17
+PDF 页码标签: 10
+页脚页码候选: 10
+章节提示（书签推断）: mcblasComputeType_t
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+2.1.16 mcblasMath_t
+mcblasMath_t 枚举类型用于在 mcblasSetMathMode() 中选择计算精度模式，如下定义。
+值 含义
+MCBLAS_DEFAULT_MATH 默认且性能最高的模式，使用的计算和中间结果存储精度
+至少与请求的尾数和指数位数相同。 将尽可能使用 Tensor
+Core。
+MCBLAS_PEDANTIC_MATH 该模式对所有计算阶段使用规定的精度和标准化算法，主
+要用于数值稳健性研究、测试和调试。该模式的性能可能
+不如其他模式。
+MCBLAS_TF32_TENSOR_OP_MATH 使用 TF32 Tensor Core 实现单精度例程加速。
+MCBLAS_MATH_DISALLOW_REDUCED_
+PRECISION_REDUCTION
+在输出类型精度小于计算类型精度的混合精度例程中，强
+制矩阵乘法期间的任意缩减使用累加器类型（即计算类
+型） ， 而不是输出类型。 这是一个标志， 通过按位或 （bitwise
+or）运算，可以与其他任意值一起设置。
+MCBLAS_TENSOR_OP_MATH 允 许 库 尽 可 能 使 用 Tensor Core 操 作。 对
+于 单 精 度 GEMM 例 程，mcBLAS 将 使 用
+MCBLAS_COMPUTE_32F_FAST_16F 计算类型。
+2.1.17 mcblasComputeType_t
+mcblasComputeType_t 枚举类型用于在 mcblasGemmEx 和 mcblasLtMatmul 中（包括所有批处理
+变量和跨步批处理变量） ，选择计算精度模式，如下定义。
+值 含义
+MCBLAS_COMPUTE_16F 默认且性能最高的模式， 16‑bit 半精度浮点以及所有计算和中
+间结果存储精度至少为 16‑bit 半精度。将尽可能使用 Tensor
+Core。
+MCBLAS_COMPUTE_16F_PEDANTIC 该模式对所有计算阶段使用 16‑bit 半精度浮点标准化算法，
+主要用于数值稳健性研究、测试和调试。该模式的性能可能
+不如其他模式，因为它禁用了 Tensor Core。
+MCBLAS_COMPUTE_32F 默认的 32‑bit 单精度浮点，使用至少 32‑bit 的计算和中间结
+果存储精度。
+MCBLAS_COMPUTE_32F_PEDANTIC 对所有计算阶段使用 32‑bit 单精度浮点运算，并禁用算法优
+化，如高斯复杂度归约（3M） 。
+MCBLAS_COMPUTE_32F_FAST_16F 允许库对 32‑bit 输入和输出矩阵使用具有自动下变频 （down‑
+conversion）功能的 Tensor Core 和 16‑bit 半精度计算。
+下页继续
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 10

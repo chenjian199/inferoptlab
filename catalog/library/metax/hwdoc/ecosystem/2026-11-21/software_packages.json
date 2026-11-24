@@ -1,0 +1,541 @@
+{
+  "observed_on": "2026-11-21",
+  "entries": [
+    {
+      "category": "Driver",
+      "group": "基础环境",
+      "name": "Driver",
+      "source_url": "https://developer.metax-tech.com/softnova/download?package_kind=Driver&dimension=metax&deliver_type=分层包",
+      "observed_section": "category_entry; SDK detail separately filtered to MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "SDK",
+      "group": "基础环境",
+      "name": "SDK",
+      "source_url": "https://developer.metax-tech.com/softnova/sdk?package_kind=SDK&dimension=metax&deliver_type=分层包",
+      "observed_section": "category_entry; SDK detail separately filtered to MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "SDK",
+      "group": "基础环境",
+      "name": "SDK-Python",
+      "source_url": "https://developer.metax-tech.com/softnova/sdk?package_kind=SDK&dimension=metax&deliver_type=分层包",
+      "observed_section": "category_entry; SDK detail separately filtered to MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "SDK",
+      "group": "基础环境",
+      "name": "MXRDMA",
+      "source_url": "https://developer.metax-tech.com/softnova/sdk?package_kind=SDK&dimension=metax&deliver_type=分层包",
+      "observed_section": "category_entry; SDK detail separately filtered to MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "训练框架",
+      "name": "ColossalAI",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "训练框架",
+      "name": "DeepSpeed",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "训练框架",
+      "name": "Diffusers.Training",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "训练框架",
+      "name": "InternLM",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "训练框架",
+      "name": "Megatron LM",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "训练框架",
+      "name": "Paddle【2.6.0版本及以下】",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "训练框架",
+      "name": "Paddle【3.3.0版本及以上】",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "训练框架",
+      "name": "Pytorch",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "训练框架",
+      "name": "TensorFlow2",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "训练框架",
+      "name": "XTuner",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "训练框架",
+      "name": "Verl",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "训练框架",
+      "name": "ms-swift",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "训练框架",
+      "name": "JAX",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "训练框架",
+      "name": "DiffSynth-Studio",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "训练框架",
+      "name": "Slime",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "推理框架",
+      "name": "ONNXRuntime",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "推理框架",
+      "name": "Triton-Inference-Server",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "推理框架",
+      "name": "vLLM【0.10.0版本及以下】",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "推理框架",
+      "name": "vLLM【0.10.2版本及以上】",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "推理框架",
+      "name": "SGLANG",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "推理框架",
+      "name": "IREE",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "工具库",
+      "name": "BitsAndBytes",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "工具库",
+      "name": "CV-CUDA",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "工具库",
+      "name": "MMCV",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "工具库",
+      "name": "Ray【2.46.0版本及以下】",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "工具库",
+      "name": "Ray【2.48.0版本及以上】",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "工具库",
+      "name": "mcoplib",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "工具库",
+      "name": "transformerengine",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "工具库",
+      "name": "mooncake",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "工具库",
+      "name": "LMCache",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "工具库",
+      "name": "DeepGEMM",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "工具库",
+      "name": "liger-kernel",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "ModelZoo",
+      "name": "Modelzoo.CNN.Inference",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "ModelZoo",
+      "name": "Modelzoo.llm.SGLang",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "ModelZoo",
+      "name": "Modelzoo.CNN.Training",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "ModelZoo",
+      "name": "Modelzoo.LLM.Diffusers",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "ModelZoo",
+      "name": "Modelzoo.LLM.Transformers",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI",
+      "group": "ModelZoo",
+      "name": "Modelzoo.LLM.vLLM",
+      "source_url": "https://developer.metax-tech.com/softnova/ai-download?package_kind=AI&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI4S",
+      "group": "基础库",
+      "name": "PhysicsNeMo",
+      "source_url": "https://developer.metax-tech.com/softnova/ai4science?package_kind=AI4S&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI4S",
+      "group": "基础库",
+      "name": "PyG",
+      "source_url": "https://developer.metax-tech.com/softnova/ai4science?package_kind=AI4S&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "AI4S",
+      "group": "基础库",
+      "name": "Warp",
+      "source_url": "https://developer.metax-tech.com/softnova/ai4science?package_kind=AI4S&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "Tools",
+      "group": "科学计算加速工具包",
+      "name": "mcpy",
+      "source_url": "https://developer.metax-tech.com/softnova/tools?package_kind=Tools&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "Tools",
+      "group": "科学计算加速工具包",
+      "name": "mcdf",
+      "source_url": "https://developer.metax-tech.com/softnova/tools?package_kind=Tools&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "Tools",
+      "group": "科学计算加速工具包",
+      "name": "mcfaiss",
+      "source_url": "https://developer.metax-tech.com/softnova/tools?package_kind=Tools&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "Tools",
+      "group": "科学计算加速工具包",
+      "name": "mcvs",
+      "source_url": "https://developer.metax-tech.com/softnova/tools?package_kind=Tools&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "Tools",
+      "group": "GPU集群管理工具",
+      "name": "mxdcm",
+      "source_url": "https://developer.metax-tech.com/softnova/tools?package_kind=Tools&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "Tools",
+      "group": "云平台工具",
+      "name": "device-plugin-source",
+      "source_url": "https://developer.metax-tech.com/softnova/tools?package_kind=Tools&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "Tools",
+      "group": "云平台工具",
+      "name": "dlrover",
+      "source_url": "https://developer.metax-tech.com/softnova/tools?package_kind=Tools&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "Tools",
+      "group": "云平台工具",
+      "name": "kubectl-plugins",
+      "source_url": "https://developer.metax-tech.com/softnova/tools?package_kind=Tools&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "Tools",
+      "group": "云平台工具",
+      "name": "metax-arena",
+      "source_url": "https://developer.metax-tech.com/softnova/tools?package_kind=Tools&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "Tools",
+      "group": "云平台工具",
+      "name": "metax-docker",
+      "source_url": "https://developer.metax-tech.com/softnova/tools?package_kind=Tools&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "Tools",
+      "group": "云平台工具",
+      "name": "metax-gpu-k8s",
+      "source_url": "https://developer.metax-tech.com/softnova/tools?package_kind=Tools&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "Tools",
+      "group": "云平台工具",
+      "name": "metax-gpu-k8s-package-base",
+      "source_url": "https://developer.metax-tech.com/softnova/tools?package_kind=Tools&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "Tools",
+      "group": "云平台工具",
+      "name": "metax-gpu-openshift",
+      "source_url": "https://developer.metax-tech.com/softnova/tools?package_kind=Tools&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "Tools",
+      "group": "云平台工具",
+      "name": "metax-gpu-scheduler",
+      "source_url": "https://developer.metax-tech.com/softnova/tools?package_kind=Tools&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "Tools",
+      "group": "云平台工具",
+      "name": "metax-k8s-driver-image",
+      "source_url": "https://developer.metax-tech.com/softnova/tools?package_kind=Tools&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "Tools",
+      "group": "云平台工具",
+      "name": "mx-exporter",
+      "source_url": "https://developer.metax-tech.com/softnova/tools?package_kind=Tools&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "Tools",
+      "group": "云平台工具",
+      "name": "mxkind",
+      "source_url": "https://developer.metax-tech.com/softnova/tools?package_kind=Tools&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "Tools",
+      "group": "云平台工具",
+      "name": "volcano",
+      "source_url": "https://developer.metax-tech.com/softnova/tools?package_kind=Tools&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "Tools",
+      "group": "Perf工具",
+      "name": "linux-perf-kit",
+      "source_url": "https://developer.metax-tech.com/softnova/tools?package_kind=Tools&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "Tools",
+      "group": "Perf工具",
+      "name": "mac-perf-kit",
+      "source_url": "https://developer.metax-tech.com/softnova/tools?package_kind=Tools&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "Tools",
+      "group": "Perf工具",
+      "name": "win-perf-kit",
+      "source_url": "https://developer.metax-tech.com/softnova/tools?package_kind=Tools&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    },
+    {
+      "category": "DSL",
+      "group": "编译器",
+      "name": "TileLang",
+      "source_url": "https://developer.metax-tech.com/softnova/dsl?package_kind=dsl&dimension=metax&deliver_type=分层包",
+      "observed_section": "MXC500",
+      "verification": "directory_entry_observed; individual package versions not exhaustively opened"
+    }
+  ]
+}

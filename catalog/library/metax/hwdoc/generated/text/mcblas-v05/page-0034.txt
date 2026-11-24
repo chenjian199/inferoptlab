@@ -1,0 +1,46 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 34
+PDF 页码标签: 27
+页脚页码候选: 27
+章节提示（书签推断）: mcblas<t>nrm2()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+(续上页)
+const mcDoubleComplex *y, int incy,
+mcDoubleComplex *result)
+mcblasStatus_t mcblasZdotc(mcblasHandle_t handle, int n,
+const mcDoubleComplex *x, int incx,
+const mcDoubleComplex *y, int incy,
+mcDoubleComplex *result)
+该函数计算向量 x 和 y 的点积 （dot product） 。 因此， 结果为∑n
+i=1 (x[k] × y[j])， 其中k = 1+( i − 1)∗incx，
+j = 1 + (i − 1) ∗ incy。请注意，在第一个方程中，如果函数名称以字符“c”结尾，则应使用 x 向量元素
+的共轭。最后两个公式反映了基于 1 的索引，该索引用于与 Fortran 兼容。
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+n input 向量 x 和 y 中的元素数
+x 设备 input 包含 n 个元素的 <type> 向量
+incx input x 中连续元素之间的步幅
+y 设备 input 包含 n 个元素的 <type> 向量
+incy input y 中连续元素之间的步幅
+result 主机或设备 output 结果点积，如果 n<=0 ，则为 0.0
+下面列出了此函数可能的返回值及其含义。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_ALLOC_FAILED 无法分配归约缓冲区
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2.3.7 mcblas<t>nrm2()
+mcblasStatus_t mcblasSnrm2(mcblasHandle_t handle, int n,
+const float *x, int incx, float *result)
+mcblasStatus_t mcblasDnrm2(mcblasHandle_t handle, int n,
+const double *x, int incx, double *result)
+mcblasStatus_t mcblasScnrm2(mcblasHandle_t handle, int n,
+const mcComplex *x, int incx, float *result)
+mcblasStatus_t mcblasDznrm2(mcblasHandle_t handle, int n,
+const mcDoubleComplex *x, int incx, double *result)
+该函数计算向量 x 的欧几里德范数（Euclidean norm） 。代码中使用多相模型累积来避免中间结果下溢
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 27

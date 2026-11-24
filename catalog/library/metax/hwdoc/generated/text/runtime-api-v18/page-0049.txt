@@ -1,0 +1,30 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 49
+PDF 页码标签: 40
+页脚页码候选: 40
+章节提示（书签推断）: 显式图编程接口
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+反之亦然。
+表 3.5 内存分配功能和限制因素
+mcMalloc() on Host mcMalloc() on Device
+mcFree() on Host Supported Not Supported
+mcFree() on Device Not Supported Supported
+Allocation limit Free device memory mcLimitMallocHeapSize
+3.7.8.2 API 错误和启动失败
+与 MXMACA 主机端运行时一样，任何函数都可能返回错误代码，错误代码的类型为 mcError_t。
+MXMACA 设备运行时暂不支持通过调用函数 mcGetLastError 检索每个线程的错误值。
+与主机端启动类似，设备端启动可能因多种原因（无效参数等）而失败。但启动后没有错误并不意味着
+子核函数成功完成。目前有部分情况出现错误会报 trap 进行提示。
+3.8 图编程接口
+3.8.1 显式图编程接口
+沐曦通用 GPU 支持图编程接口，我们以 VectorAdd 这个计算任务为例，它的任务图如图 3.4 所示。
+图 3.4 VectorAdd 任务图
+如下代码所示，使用显式图编程接口创建 VectorAdd 任务图：
+// Create a graph with graph API - it starts out empty
+mcGraph_t graph;
+(下页继续)
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 40

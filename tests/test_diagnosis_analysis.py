@@ -7,19 +7,19 @@ import tempfile
 import unittest
 
 from tools.specs import Catalog, ROOT, SpecError, read, digest, instantiate
-from benchmark.io import file_hash
+from benchmark.common.io import file_hash, inside
 from diagnosis.contracts import validate
 from diagnosis.evidence import sealed_files
 from diagnosis.engine import diagnose,compare
 from analysis.planner import plan_tasks
-from analysis.trace import summarize,union_duration
+from benchmark.breakdown.trace import summarize,union_duration
 
 
 class DiagnosisAnalysisTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.catalog=Catalog();cls.catalog.load()
-        cls.plan=read(ROOT/'diagnosis/plans/qwen-metax.yaml')
+        cls.plan=read(ROOT/'recipes/plans/diagnosis/qwen-metax.yaml')
         cls.report=diagnose(cls.catalog,cls.plan)
 
     def test_real_archive_is_descriptive_not_causal(self):
@@ -58,13 +58,13 @@ class DiagnosisAnalysisTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             c=copy.copy(self.catalog);c.root=Path(temp)
             shutil.copytree(ROOT/'schemas/definitions',c.root/'schemas/definitions')
-            archive=Path('schemas/evidence/benchmark-qualification/20261123')
+            archive=Path('experiments/evidence/benchmark-qualification/20261123')
             shutil.copytree(ROOT/archive,c.root/archive)
-            p=copy.deepcopy(self.plan);batch=c.root/p['batches'][0]['directory']
+            p=copy.deepcopy(self.plan);batch=inside(c.root,p['batches'][0]['directory'])
             b=read(batch/'batch.json');row=b['runs'][0];row['status']='failed'
             run=batch/row['directory']/'run.json';r=read(run);r.update(status='failed',error='controlled fixture failure')
             run.write_text(json.dumps(r),encoding='utf-8');(batch/'batch.json').write_text(json.dumps(b),encoding='utf-8')
-            m=c.root/p['batches'][0]['manifest'];manifest=read(m)
+            m=inside(c.root,p['batches'][0]['manifest']);manifest=read(m)
             for path in (run,batch/'batch.json'):manifest[path.relative_to(m.parent).as_posix()]=file_hash(path)
             m.write_text(json.dumps(manifest),encoding='utf-8');p['batches'][0]['manifest_sha256']=file_hash(m)
             result=diagnose(c,p)
@@ -73,7 +73,7 @@ class DiagnosisAnalysisTests(unittest.TestCase):
             self.assertEqual(4,len(result['runs']))
 
     def test_analysis_requires_matching_report_and_never_launches(self):
-        plan=read(ROOT/'analysis/plans/qwen-metax.yaml')
+        plan=read(ROOT/'recipes/plans/analysis/qwen-metax.yaml')
         with self.assertRaisesRegex(SpecError,'required'):plan_tasks(self.catalog,plan)
         with tempfile.TemporaryDirectory() as temp:
             p=Path(temp)/'report.json';p.write_text(json.dumps(self.report),encoding='utf-8')
@@ -88,7 +88,7 @@ class DiagnosisAnalysisTests(unittest.TestCase):
             with self.assertRaisesRegex(SpecError,'fingerprint'):plan_tasks(self.catalog,plan,p)
 
     def test_glm_capacity_budget_and_missing_baseline(self):
-        plan=read(ROOT/'analysis/plans/glm53-w8a8-c500.yaml');out=plan_tasks(self.catalog,plan)
+        plan=read(ROOT/'recipes/plans/analysis/glm53-w8a8-c500.yaml');out=plan_tasks(self.catalog,plan)
         self.assertTrue(any('exceed allocated physical VRAM' in x for x in out['preflight_issues']))
         self.assertTrue(all(t['status']=='awaiting_baseline' for t in out['tasks']))
         self.assertEqual(11*120*3*3*8,out['proposed_gpu_seconds'])
@@ -100,13 +100,13 @@ class DiagnosisAnalysisTests(unittest.TestCase):
     def test_overlap_and_rank_boundaries(self):
         self.assertEqual(80,union_duration([(0,60),(40,80)]))
         self.assertEqual(80,union_duration([(0,80),(10,20)]))
-        result=summarize(self.catalog,ROOT/'analysis/examples/overlap.yaml')
+        result=summarize(self.catalog,ROOT/'examples/traces/overlap.yaml')
         self.assertEqual([80,90],[x['observed_event_union_ns'] for x in result['lanes']])
         self.assertEqual('synthetic',result['evidence_kind'])
         self.assertIsNone(result['critical_path'])
 
     def test_trace_rejects_clock_mismatch(self):
-        trace=read(ROOT/'analysis/examples/overlap.yaml');trace['events'][0]['clock_domain']='unsynchronized-node'
+        trace=read(ROOT/'examples/traces/overlap.yaml');trace['events'][0]['clock_domain']='unsynchronized-node'
         with self.assertRaisesRegex(SpecError,'clock-domain'):validate(self.catalog,trace)
 
     def test_templates_expand_to_strict_contracts(self):

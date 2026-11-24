@@ -1,0 +1,47 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 87
+PDF 页码标签: 80
+页脚页码候选: 80
+章节提示（书签推断）: mcblas<t>gemmBatched()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+注解: C[i] 矩阵不能重叠，即单个 gemm 操作必须独立计算；否则，会导致未定义行为。
+在某些 problem size 上，可能需要在不同的 MXMACA 流中多次调用 mcblas<t>gemm ，而不是使用此
+API。
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+transa input 非转置或共轭转置运算 op(A[i])
+transb input 非转置或共轭转置运算 op(B[i])
+m input 矩阵 op(A[i]) 和 C[i] 的行数
+n input 矩阵 op(B[i]) 和 C[i] 的列数
+k input op(A[i]) 的列数和 op(B[i]) 的行数
+alpha 主机或设备 input 用于乘法的 <type> 标量
+Aarray 设备 input 指 向 <type> 数 组 的 指 针 数 组， 如 果 transa
+== MCBLAS_OP_N， 数 组 维 度 为 lda x k ， 其 中
+lda>=max(1,m) ；否则，数组维度为 lda x m ，其
+中 lda>=max(1,k) 。
+所有指针都必须满足特定的对齐条件。详情参见以下
+内容
+lda input 用于存储矩阵 A[i] 的二维数组的前导维度
+Barray 设备 input 指 向 <type> 数 组 的 指 针 数 组， 如 果 transb
+== MCBLAS_OP_N， 数 组 维 度 为 lda x n ， 其 中
+lda>=max(1,k) ；否则，数组维度为 lda x k ，其
+中 lda>=max(1,n) 。
+所有指针都必须满足特定的对齐条件。详情参见以下
+内容
+ldb input 用于存储矩阵 B[i] 的二维数组的前导维度
+beta 主机或 input 用于乘法的 <type> 标量，如果 beta == 0 ，则 C 不
+必为有效输入
+Carray 设备 in/out 指向 <type> 数组的指针数组。维度为 ldc x n ，其
+中 ldc>=max(1,m) 。 矩阵C[i] 不应重叠；否则，将
+出现未定义的行为。
+所有指针都必须满足特定的对齐条件。详情参见以下
+内容
+ldc input 用于存储矩阵 C[i] 的二维数组的前导维度
+batchCount input Aarray、Barray 和 Carray 中包含的指针数
+如果使用 mcblasSgemmBatched() 时，数学模式启用快速数学模式，则 GPU 内存中的指针（而非指
+针数组）必须正确对齐，以避免未对齐的内存访问错误。理想情况下，所有指针都至少对齐 16 个字节。
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 80

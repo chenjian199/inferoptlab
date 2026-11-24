@@ -1,0 +1,14 @@
+{
+  "command": [
+    "python3",
+    "-u",
+    "/home/metax/glm53-baseline-ops/harness/evaluate_humaneval.py",
+    "--run",
+    "/home/metax/glm53-baseline-ops/runs/20261123_humaneval_v1_full164"
+  ],
+  "status": "complete",
+  "started_epoch": 1795366905.0839586,
+  "pid": 386821,
+  "exit_code": 0,
+  "elapsed_seconds": 30.09690761566162
+}

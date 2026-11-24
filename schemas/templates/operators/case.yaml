@@ -1,0 +1,100 @@
+schema_version: 0.2.0
+version: 1.0.0
+provenance: []
+issues: []
+extensions: {}
+kind: RecipeTemplate
+id: template-operators-case
+title: Historical INT8 projection replay contract template
+target_kind: OperatorCase
+parameters:
+  version:
+    type: string
+    description: See OperatorCase for version
+  provenance:
+    type: array
+    description: See OperatorCase for provenance
+  issues:
+    type: array
+    description: See OperatorCase for issues
+  extensions:
+    type: object
+    description: See OperatorCase for extensions
+  model_ref:
+    type: object
+    description: See OperatorCase for model_ref
+  hardware_ref:
+    type: object
+    description: See OperatorCase for hardware_ref
+  runtime_ref:
+    type: object
+    description: See OperatorCase for runtime_ref
+  id:
+    type: string
+    description: See OperatorCase for id
+  title:
+    type: string
+    description: See OperatorCase for title
+  method_sources:
+    type: array
+    description: See OperatorCase for method_sources
+  module_path:
+    type: string
+    description: See OperatorCase for module_path
+  baseline_implementation:
+    type: string
+    description: See OperatorCase for baseline_implementation
+  execution_scope:
+    type: string
+    description: See OperatorCase for execution_scope
+  tensor_contract:
+    type: object
+    description: See OperatorCase for tensor_contract
+  numeric_budget:
+    type:
+    - object
+    - 'null'
+    description: See OperatorCase for numeric_budget
+  fixture_artifacts:
+    type: array
+    description: See OperatorCase for fixture_artifacts
+  baseline_self_replay:
+    type: string
+    description: See OperatorCase for baseline_self_replay
+body:
+  kind: OperatorCase
+  schema_version: 0.2.0
+  version:
+    $param: version
+  provenance:
+    $param: provenance
+  issues:
+    $param: issues
+  extensions:
+    $param: extensions
+  model_ref:
+    $param: model_ref
+  hardware_ref:
+    $param: hardware_ref
+  runtime_ref:
+    $param: runtime_ref
+  id:
+    $param: id
+  title:
+    $param: title
+  method_sources:
+    $param: method_sources
+  module_path:
+    $param: module_path
+  baseline_implementation:
+    $param: baseline_implementation
+  execution_scope:
+    $param: execution_scope
+  tensor_contract:
+    $param: tensor_contract
+  numeric_budget:
+    $param: numeric_budget
+  fixture_artifacts:
+    $param: fixture_artifacts
+  baseline_self_replay:
+    $param: baseline_self_replay

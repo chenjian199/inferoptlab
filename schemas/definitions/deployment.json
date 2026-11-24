@@ -231,6 +231,10 @@
           "boolean"
         ]
       }
+    },
+    "prefix_cache": {
+      "type": "boolean",
+      "default": false
     }
   },
   "required": [

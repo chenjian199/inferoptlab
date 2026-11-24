@@ -1,0 +1,48 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 119
+PDF 页码标签: 112
+页脚页码候选: 112
+章节提示（书签推断）: mcblas<t>dgmm()
+质量标记: private_use_characters
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+该函数执行矩阵‑矩阵乘法
+C =
+
+
+
+A × diag(X) if mode == M CBLAS_SIDE _RIGHT
+diag(X) × A if mode == M CBLAS_SIDE _LEF T
+其中 A 和 C 是以列主格式存储的矩阵，维度为 m × n。若 mode == MCBLAS_SIDE_RIGHT，则 X 是
+大小为 n 的向量；若 mode == MCBLAS_SIDE_LEFT，则是大小为 m 的向量。X 是从步幅（stride）为
+incx 的一维数组 x 中获取的。 incx 的绝对值为步幅，incx 的符号是步幅的方向。如果 incx 是正的，
+则从第一个元素开始正向读取数组 x。否则，从最后一个元素开始反向读取数组 x。X 的公式为
+X[j] =
+
+
+
+x[j × incx] if incx ≥ 0
+x[(χ − 1) × |incx| − j × |incx|] if incx < 0
+其中，如果 mode == MCBLAS_SIDE_LEFT，则 χ = m；如果 mode == MCBLAS_SIDE_RIGHT，则
+χ = n。示例 1：如果用户要执行 diag(diag(B)) × A，则 incx = ldb + 1，其中 ldb 是矩阵 B 的前导维度，
+可以是行主格式或列主格式。 示例 2： 如果用户要执行α × A， 则有两个选项， mcblasgeam （*beta=0，
+transa == MCBLAS_OP_N）或 mcblasdgmm（incx=0，x[0]=alpha） 。该操作为异地操作。仅当
+lda = ldc 时，可使用就地操作。
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+mode input 如 果 mode ==MCBLAS_SIDE_left ， 则 左 乘； 如 果 mode
+==MCBLAS_SID E_right ，则右乘
+m input 矩阵 A 和 C 的行数
+n input 矩阵 A 和 C 的列数
+A 设备 in/out <type> 数组，维度为 lda x n 其中 lda>=max(1,m)
+lda input 用于存储矩阵 A 的二维数组的前导维度
+x 设备 input 如果 mode == MCBLAS_SIDE_LEFT ，一维 <type> 数组大小
+为 |inc| × m ；如果 mode == MCBLAS_SIDE_RIGHT，大小为
+|inc| × n
+incx input 每个一维数组 x 的步幅
+C 设备 in/out <type> 数组，维度为 ldc x n 其中 ldc>=max(1,m)
+ldc input 用于存储矩阵 C 的二维数组的前导维度
+下面列出了此函数可能的返回值及其含义。
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 112

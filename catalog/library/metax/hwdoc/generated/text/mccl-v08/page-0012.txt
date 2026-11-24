@@ -1,0 +1,30 @@
+文档: 沐曦通用GPU_MCCL编程指南_CN_V08.pdf
+文档 ID: mccl-v08
+SHA256: 7a95ac3ce4f68b0fb11baabb7fa08794cd5f5081c9ec3e888eefaaa03ab8c8b2
+PDF 页序号: 12
+PDF 页码标签: 5
+页脚页码候选: 5
+章节提示（书签推断）: mcclCommMcDevice
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MCCL 编程指南
+3.1.5 mcclCommDestroy
+mcclResult_t mcclCommDestroy(mcclComm_t comm);
+销毁通讯器，结束集合通讯，用于正常通讯流程的退出。
+3.1.6 mcclCommAbort
+mcclResult_t mcclCommAbort(mcclComm_t comm);
+中止通讯器，结束集合通讯，常用于从致命异常（如网络故障、节点故障或进程故障）中恢复通讯。当
+异常出现时，调用此 API，然后创建新的通信器重新通讯。
+3.1.7 mcclGetErrorString
+const char* mcclGetErrorString(mcclResult_t result);
+获取返回值的字符串。
+3.1.8 mcclCommGetAsyncError
+mcclResult_t mcclCommGetAsyncError(mcclComm_t comm, mcclResult_t* asyncError);
+获取异步操作的返回值。
+3.1.9 mcclCommCount
+mcclResult_t mcclCommCount(const mcclComm_t comm, int* count);
+获取通讯器数量。
+3.1.10 mcclCommMcDevice
+mcclResult_t mcclCommMcDevice(const mcclComm_t comm, int* device);
+获取当前通讯器所使用的 device。
+3 编程模型 沐曦股份专有信息 PG‑23004‑020‑F5_V08 | 5

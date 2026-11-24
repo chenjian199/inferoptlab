@@ -1,0 +1,10 @@
+{
+  "revision": 2,
+  "change": "Before diagnostic starts, add layer child hooks to localize first drift. Original diagnostic worker v1 retained; plain-repeat scripts unchanged.",
+  "files": {
+    "harness/diagnostic_worker.py": "3566eae4c6c01e37daf9056417f460127645b7a04783977b0912fa7b4cf37cb3",
+    "harness/run_diagnostic.py": "45dfc2e1af0e6bddd0bc7b16410b11de7a93934b0101b3111e494d1d298480d1",
+    "harness/launch_diagnostic.py": "86969c14397967e90ad0c6e30f6d9a8e2cbca05276386700bc003cd9a8f7c3ec",
+    "data/divergence_probes.json": "fef2580ccdea2d34f9f1f15a32c12671ae2c9eb6d19316cb990d8cdc93d3b368"
+  }
+}

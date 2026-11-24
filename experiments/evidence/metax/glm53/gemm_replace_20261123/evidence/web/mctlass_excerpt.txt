@@ -1,0 +1,6 @@
+MCTLASS is a collection of C++ template abstractions for implementing
+high-performance matrix-multiplication (GEMM) and related computations at all levels
+and scales within MACA. It incorporates strategies for hierarchical decomposition and
+data movement similar to those used to implement mcBLAS and mcDNN. MCTLASS decomposes
+these moving parts into reusable, modular software components abstracted by C++ template
+classes.

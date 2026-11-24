@@ -1,0 +1,46 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 42
+PDF 页码标签: 33
+页脚页码候选: 33
+章节提示（书签推断）: 全局内存
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+(续上页)
+extern __device__ mcError_t mcLaunchDevice(void *func, void *params,
+dim3 gridDim,
+dim3 blockDim,
+unsigned int sharedMemSize = 0,
+mcStream_t stream = 0);
+extern __device__ mcError_t mcLaunchDeviceV2(void *params,
+mcStream_t stream = 0);
+void host_launch(int *data) {
+parent_launch<<< 1, 256 >>>(data);
+}
+3.7.2 内存管理
+父网格和子网格共享相同的全局和常量内存存储，但具有不同的私有和共享内存。
+3.7.2.1 内存声明和使用
+使用设备运行时，在文件作用域中使用 __device__ 或 __constant__ 内存空间说明符所声明的内存，
+其行为一致。无论核函数最初是由主机还是设备运行时启动的，所有核函数都可以读取或写入设备变量。
+同样，module 中所有核函数将具有相同的内存视图。
+在 MXMACA C++ 中，可以将共享内存声明为具有静态大小的文件作用域变量或函数作用域变量，或者声
+明为外部变量，其大小由核函数的调用者在运行时通过启动配置参数确定。这两种类型的声明在设备运
+行时下都有效。
+设备端的符号（即标有 __device__ 的变量）可以简单地通过 & 操作符从核函数中引用，因为所有全局
+设备变量都在核函数的可见地址空间中。这也适用于 __constant__ 符号，尽管在这种情况下指针将
+引用只读数据。
+鉴于设备端符号可以直接引用，那些引用符号的 MXMACA 运行时 API（例如， mcMemcpyToSymbol 或
+mcGetSymbolAddress ）是冗余的，因此设备运行时不支持。请注意，即使在子核函数启动之前，也
+不能在运行的核函数中更改常量数据，因为 __constant__ 空间在设备端是只读的。
+3.7.2.2 全局内存
+父网格和子网格具有对全局内存的一致访问，子网格和父网格之间的一致性保证较弱。当子网格的内存
+视图与父线程完全一致时，在子网格的执行过程中只有两个时间点：父线程调用子网格时或者子网格结
+束时。
+如下所示，在父 kernel 结束后 data[threadIdx.x] = threadIdx.x + 2：
+__global__ void child_launch(int *data, int tid) {
+data[tid] = data[tid]+1;
+}
+(下页继续)
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 33

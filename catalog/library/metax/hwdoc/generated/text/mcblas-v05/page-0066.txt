@@ -1,0 +1,44 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 66
+PDF 页码标签: 59
+页脚页码候选: 59
+章节提示（书签推断）: mcblas<t>hbmv()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE • n < 0
+• incx = 0 或 incy = 0
+• uplo != MCBLAS_FILL_MODE_LOWER,
+MCBLAS_FILL_MODE_UPPER
+• lda < n
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2.4.18 mcblas<t>hbmv()
+mcblasStatus_t mcblasChbmv(mcblasHandle_t handle, mcblasFillMode_t uplo,
+int n, int k, const mcComplex *alpha,
+const mcComplex *A, int lda,
+const mcComplex *x, int incx,
+const mcComplex *beta,
+mcComplex *y, int incy)
+mcblasStatus_t mcblasZhbmv(mcblasHandle_t handle, mcblasFillMode_t uplo,
+int n, int k, const mcDoubleComplex *alpha,
+const mcDoubleComplex *A, int lda,
+const mcDoubleComplex *x, int incx,
+const mcDoubleComplex *beta,
+mcDoubleComplex *y, int incy)
+该函数执行厄米带状矩阵‑向量乘法
+y = αAx + βy
+其中 A 是具有 k 次对角线和超对角线的 n × n 厄米带状矩阵，x 和 y 是向量，α 和 β 是标量。
+如果 uplo == MCBLAS_FILL_MODE_LOWER，厄米带状矩阵 A 按列存储，矩阵的主对角线存储在第 1
+行，第一个次对角线在第 2 行中（从第一个位置开始） ，第二个次对角线在第3 行中（从第一个位置开
+始）等。因此通常，元素 A(i, j) 存储在 A(1+i-j,j)，其中 j = 1, . . . , n，i ∈ [j, min(m, j + k)]。此外，
+数组 A 中的元素，在概念上与带状矩阵中的元素不对应（右下 k × k 三角） ，也不会被引用。
+如果 uplo == MCBLAS_FILL_MODE_UPPER，厄米带状矩阵 A 按列存储，矩阵的主对角线存储在行
+k+1 ，第一个超对角线在行 k 中（从第二个位置开始） ，第二个超对角线在行k-1 中（从第三个位置开
+始）等。因此通常，元素 A(i, j) 存储在 A(1+k+i-j,j)，其中 j = 1 , . . . , n，i ∈ [max(1, j − k), j]。此
+外，数组 A 中的元素，在概念上与带状矩阵中的元素不对应（左上角 k × k 三角） ，也不会被引用。
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 59

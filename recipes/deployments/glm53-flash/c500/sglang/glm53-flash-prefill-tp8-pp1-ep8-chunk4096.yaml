@@ -1,0 +1,67 @@
+schema_version: 0.2.0
+kind: DeploymentSpec
+id: glm53-flash-prefill-tp8-pp1-ep8-chunk4096
+version: 1.0.0
+title: glm53-flash-prefill-tp8-pp1-ep8-chunk4096 (unqualified candidate)
+provenance: []
+issues:
+- code: candidate-not-qualified
+  path: /parallelism
+  status: unverified
+  blocking: true
+  reason: 候选布局与参数，不代表该模型/镜像已支持；执行前确认空闲设备和框架能力。
+extensions: {}
+model_ref:
+  id: cluster-glm53-flash-w8a8
+  version: 1.0.0
+hardware_ref:
+  id: metax-four-node-inventory-metax-60-host
+  version: 1.0.0
+runtime_ref:
+  id: glm53-flash-c500-sglang-candidate
+  version: 1.0.0
+mode: aggregated
+prefix_cache: false
+parallelism:
+  tp: 8
+  pp: 1
+  ep: 8
+  dp: 1
+scheduling:
+  chunked_prefill_tokens: 4096
+  kv_page_tokens: null
+  max_running_requests: 128
+serving:
+  management: sglang
+  url: http://127.0.0.1:18081
+  served_model: glm53-flash
+  model_path: /mnt/ufs1/models/models/metax-tech/GLM-5.3-Flash-W8A8
+  tokenizer_path: /mnt/ufs1/models/models/metax-tech/GLM-5.3-Flash-W8A8
+  startup_timeout_s: 1800
+  device_visibility_env: MACA_VISIBLE_DEVICES
+devices:
+- rank: 0
+  visible_index: 0
+  device_id: metax-60-gpu0-AENA2510000410
+- rank: 1
+  visible_index: 1
+  device_id: metax-60-gpu1-AENA2510000103
+- rank: 2
+  visible_index: 2
+  device_id: metax-60-gpu2-AENA2510001585
+- rank: 3
+  visible_index: 3
+  device_id: metax-60-gpu3-AENA2510001584
+- rank: 4
+  visible_index: 4
+  device_id: metax-60-gpu4-AENA2510000186
+- rank: 5
+  visible_index: 5
+  device_id: metax-60-gpu5-AENA2510000055
+- rank: 6
+  visible_index: 6
+  device_id: metax-60-gpu6-AENA2510002038
+- rank: 7
+  visible_index: 7
+  device_id: metax-60-gpu7-AENA2510000303
+backend_options: {}

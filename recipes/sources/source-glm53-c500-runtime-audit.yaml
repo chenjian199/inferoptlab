@@ -1,0 +1,16 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-glm53-c500-runtime-audit
+version: 1.0.0
+title: MetaX 60 镜像与模型清单审计
+provenance: []
+issues: []
+extensions: {}
+path: experiments/evidence/cluster-runtime-intake/20261123/metax-60/runtime.json
+sha256: 1dbc3444276262d0bd9303f8bcba879284a9869a015c21c445daaa6238a063c6
+media_type: application/json
+role: machine_inventory
+authority: machine_collected
+coverage:
+  status: partial
+  description: Image package inventory only; GLM loading/cache capability not qualified.

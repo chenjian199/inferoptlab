@@ -1,0 +1,50 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 303
+PDF 页码标签: 295
+页脚页码候选: 295
+章节提示（书签推断）: Thread Block Tile
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+3.3.2 显式组
+3.3.2.1 Thread Block Tile
+一个模板化版本的 tiled group, 模板参数用来指定 tile 的 size，这样在编译时知道 size，才有可能实现
+更优化的执行。
+template <unsigned int Size, typename ParentT = void>
+class thread_block_tile;
+// 如下构造方式
+template <unsigned int Size, typename ParentT>
+_CG_QUALIFIER thread_block_tile<Size, ParentT> tiled_partition(const ParentT &g)
+Size必须是2的幂，并且不大于64。
+ParentT是分割出这个子group的父类型。它是自动推断的，但是存储这个信息的void值将会在group
+句柄中存储，而不是这个类型中。
+// Public 成员函数
+void sync() const; // 同步 group内的线程
+unsigned long long num_threads() const; // group 中线程总数
+unsigned long long thread_rank() const; // 调用线程在 [0, num_threads) 上的排序
+unsigned long long meta_group_size() const; // 返回 parent group 分割创建的组的数量
+unsigned long long meta_group_rank() const; // 
+,→从父 group划分的 tiles集合中的组的线性秩
+// （由 meta_group_size限定）
+T shfl_up(T var, int delta) const; // 参考 Warp Shuffle Functions
+T shfl_down(T var, int delta) const; // 参考 Warp Shuffle Functions
+T shfl_xor(T var, int delta) const; // 参考 Warp Shuffle Functions
+T any(int predicate) const; // 参考 Warp Vote Functions
+T all(int predicate) const; //参考 Warp Vote Functions
+T ballot(int predicate) const; // 参考 Warp Vote Functions
+T match_any(T val) const; // 参考 Warp Match Functions
+T match_all(T val, int &pred) const; // 参考 Warp Match Functions
+// 传统成员函数（别名）
+unsigned long long size() const; // 当前 group中总的线程数 (num_threads的别名 )
+在 C++11 及更高版本标准机型编译时，shfl, shfl_up, shfl_down 与 shfl_xor 这些函数接收任意类型的
+对象。意味着只要满足以下条件，就可以shuffle非整数型的类型：
+• 具有可复制性：比如，is_trivially_copyable<T>::value==true
+• sizeof(T)<=32
+例子：
+// 下面的代码将会创建两组 tiled groups, size 分别是 32 和 4：
+// 后者将源代码编码在类型中，而前者将其存储在句柄中
+thread_block block = this_thread_block();
+(下页继续)
+3 CooperativeGroups 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 295

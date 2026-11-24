@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 307
+PDF 页码标签: 299
+页脚页码候选: 299
+章节提示（书签推断）: binary_partition
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+实现可能导致调用的thread一直等到所有的父组的成员调用了这个操作，之后才恢复执行。功能限制于
+本地的硬件条件，1/2/4/8/16/32/64，并且cooperative_groups::size(parent)必须比参数Size
+大。
+例子：
+/// 下面的代码将会创建一个 32-thread tile
+thread_block block = this_thread_block();
+thread_block_tile<32> tile32 = tiled_partition<32>(block);
+我们也可以把这些组分割成更小的组，每个组的size是4：
+auto tile4 = tiled_partition<4>(tile32);
+// 或使用一个通用的组
+// thread_group tile4 = tiled_partition(tile32, 4);
+假设我们要包含下面的代码行：
+if (tile4.thread_rank() == 0) printf("Hello from tile4 rank 0\n");
+那么这个表达将会被block中每第四个线程打印。
+3.4.2 labeled_partition
+coalesced_group labeled_partition(const coalesced_group& g, int label);
+template <unsigned int Size>
+coalesced_group labeled_partition(const thread_block_tile<Size>& g, int label);
+labeled_partition方法是一个分割父组到一个一维的子分组（组内线程都是coalesced）的操作集
+合。实现将会评估条件label然后把有同样label值的线程放到相同的组。
+实现可能导致调用的thread一直等到所有的父组的成员调用了这个操作，之后才恢复执行。
+注解: 这个功能仍然在测试中以后可能会有轻微改动。
+3.4.3 binary_partition
+coalesced_group binary_partition(const coalesced_group& g, bool pred);
+template<unsigned int Size>
+coalesced_group binary_partition(const thread_block_tile<Size>& g, bool pred);
+binary_partition()方法是一个分割父组到一个一维的子分组 （组内线程都是coalesced） 的操作集
+合。实现将会评估条件pred然后把有同样pred值的线程放到相同的组。它是 labeled_partition()
+的一种特殊形式，label只能为0或1。
+实现可能导致调用的thread一直等到所有的父组的成员调用了这个操作，之后才恢复执行。
+3 CooperativeGroups 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 299

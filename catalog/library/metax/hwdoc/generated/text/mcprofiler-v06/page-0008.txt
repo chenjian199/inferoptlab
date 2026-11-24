@@ -1,0 +1,29 @@
+文档: 沐曦通用GPU_mcProfiler使用手册_CN_V06.pdf
+文档 ID: mcprofiler-v06
+SHA256: 22c9fa76c4f27e328b151bad16f105b11d81df4fc501075baec5794c29b5c66e
+PDF 页序号: 8
+PDF 页码标签: 3
+页脚页码候选: 3
+章节提示（书签推断）: 创建度量任务
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcProfiler 使用手册
+2.2.2 创建度量任务
+图 2.1 采样任务创建
+1. 如图 2.1 所示，点击左上角的 +Exec Perf 图标，创建任务。
+2. 在该视图下，用户可以选择需要度量的各项指标，待度量任务的各项设置等。
+其中：
+• 各项指标为多选项， 默认全选， 用于选择用户所需的度量指标。 需要注意， 度量指标越多， mcProfiler
+需要采集和分析的时间越长。
+• Environment Variables 为环境变量设置，用于设置目标程序运行时的 MACA_PATH、动态链接
+库路径等。
+• Command Line 为目标程序的执行命令，支持多条 bash 语句，用分号（;）隔开。
+• Case Name 为 perf 任务名称，用于区分任务标识，自定义填写可重复。
+• Remote IP 为远程执行的节点，即 MXMACA 平台 IP 地址。
+• Remote Port 为 MXMACA 节点的 SSH 端口号。
+• Remote User 为远程执行节点登录时的用户名。
+• Remote Password 为远程执行节点登录时的密码。
+• Run in host/docker 开关用于选择目标任务是否是在容器环境中执行，默认为宿主机环境中执
+行。
+• Container Name or ID 当目标任务执行在容器环境中时必填，需要填写目标容器名或 ID。
+2 mcProfiler 沐曦股份专有信息 OG‑24005‑020‑F5_V06 | 3

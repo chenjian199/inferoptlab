@@ -1,0 +1,178 @@
+{
+  "date": "2026-11-23",
+  "scope": "Checkpoint before reboot decision; no model execution. Full driver initialization record excluded from tar, retained locally/remotely by hash.",
+  "files": [
+    {
+      "path": "analyze_pilot.py",
+      "sha256": "9733fc76f47015df83ba792292cbd777cb2046a7ed4ef72a566e29ce57203e17",
+      "bytes": 3976
+    },
+    {
+      "path": "communication_check.py",
+      "sha256": "d3010632f70972ed24d012b67958549e5f1714e9971b647d60d3f246b45ead47",
+      "bytes": 1436
+    },
+    {
+      "path": "evidence/after_recurrence.json",
+      "sha256": "2e6109f6c94c5a59b2cb4c8a1809b4f2c4d2a7366235b1c093bd6e4dfe0dd358",
+      "bytes": 8675
+    },
+    {
+      "path": "evidence/preflight.json",
+      "sha256": "a7c5587ac6c46fb757d9d5f645b117977b99b95e6a091e35cc5aaf6ebd23cc94",
+      "bytes": 31059
+    },
+    {
+      "path": "evidence/preserved_after.json",
+      "sha256": "1036c79277fd322882d04703390797d64d9a4e50d9492721f602f50e44c99eb5",
+      "bytes": 10835
+    },
+    {
+      "path": "evidence/prior_integrity_check.json",
+      "sha256": "ffe5b105f6b74ae805e1280a6b3bba70b27247980fdae4df09d87e97c993d3ee",
+      "bytes": 103
+    },
+    {
+      "path": "evidence/reboot_preparation.json",
+      "sha256": "fdc026d3213eccf7cfed31d367a3b722eedafaac4fc989b2997f2ba009618225",
+      "bytes": 586
+    },
+    {
+      "path": "evidence/recovery_summary.json",
+      "sha256": "c8de49f79bce888748a0e873aab66d365ee26dc541cc8c9a56cdb203f7a1243c",
+      "bytes": 829
+    },
+    {
+      "path": "evidence/recurrence_kernel.json",
+      "sha256": "9ab4c07487c261d885f29e39f50fbd94a4dfea0350e5cb5f7193df43e0d8f2a4",
+      "bytes": 858
+    },
+    {
+      "path": "evidence/stop_failed_check.json",
+      "sha256": "15e97a757e9b8ed2d40b24d558001920f8ea7b53ccc2c012fa44ec5858f69a4c",
+      "bytes": 232
+    },
+    {
+      "path": "pilot/configs/contract-v1.json",
+      "sha256": "724a3c1ddb1cbbb5b8e9c5b9a9fb4d8ee41b289f7b8b438a3566e2af58f9f743",
+      "bytes": 1072
+    },
+    {
+      "path": "pilot/configs/model-plan.json",
+      "sha256": "3184459847fe121b5e31fa99822151b31c6874aaa7816f109e5f5fd2f157dd31",
+      "bytes": 1722
+    },
+    {
+      "path": "pilot/container_plan.json",
+      "sha256": "c82505e8958c6c0b0538faa483cac2adddc81190b8aa10bf765b3adea2e08ef1",
+      "bytes": 2558
+    },
+    {
+      "path": "pilot/data/prompt_manifest.json",
+      "sha256": "9511992c6111410171e161e556e397a7e33af3b464bc7320658e323c3cec30cb",
+      "bytes": 505951
+    },
+    {
+      "path": "pilot/evidence/communication.log",
+      "sha256": "8bbeb453980ad6253ca3d8a62794d196ccfc7c7df2561a34ace777355413cf46",
+      "bytes": 46064
+    },
+    {
+      "path": "pilot/evidence/communication_process.json",
+      "sha256": "bf590333a90ce067e6bc89b854013a2f4d5950c646b797f28a4b5b6a73141ca0",
+      "bytes": 420
+    },
+    {
+      "path": "pilot/evidence/create_container.json",
+      "sha256": "dc4fd20ca87f75e1ea8913c17cd6fe668a53c4c3fe4f007d15e99646f363707d",
+      "bytes": 2588
+    },
+    {
+      "path": "pilot/harness/code_adapter.py",
+      "sha256": "9112a71b1917f32020b31c88810944d388664a7f7b386a26eab61a933f2973ea",
+      "bytes": 1232
+    },
+    {
+      "path": "pilot/harness/communication_check.py",
+      "sha256": "d3010632f70972ed24d012b67958549e5f1714e9971b647d60d3f246b45ead47",
+      "bytes": 1436
+    },
+    {
+      "path": "pilot/harness/evaluate_humaneval.py",
+      "sha256": "cb9b4972821f67faa83015466aeb7b1c4be2cb5e37428f5c6ad1d4c3a09a051a",
+      "bytes": 7838
+    },
+    {
+      "path": "pilot/harness/gemm_kernel.py",
+      "sha256": "df5a0abe332a2d7521d2b682734f7f375fcaf5faad10b9446685173ff4773f84",
+      "bytes": 2812
+    },
+    {
+      "path": "pilot/harness/launch_model.py",
+      "sha256": "1e0483f2a391eb5bfbc942a2f95f1d53aeaf97484b69df6670be8328c1625fac",
+      "bytes": 1482
+    },
+    {
+      "path": "pilot/harness/replacement_worker.py",
+      "sha256": "a133e45c913e939458e55ec898e2de1cf525110d7dae836ba97f4a868a290d51",
+      "bytes": 5237
+    },
+    {
+      "path": "pilot/harness/run_model.py",
+      "sha256": "c8e2c186e737b3f10fc2e4527811879e998f7b1e4df96da8cc6c3cf1a8bb711f",
+      "bytes": 3561
+    },
+    {
+      "path": "pilot/harness/worker_provenance.py",
+      "sha256": "439b86e5b68ff5223b5521f737cb2f5f3a4ff5991040bedf06d3d3589cc8f0bb",
+      "bytes": 5832
+    },
+    {
+      "path": "pilot/inputs_sha256.json",
+      "sha256": "11364bb1bebec6b4e5b4bcf5554d68cd4cbd6067008e584e493eee65ee57c1b5",
+      "bytes": 1104
+    },
+    {
+      "path": "pilot/source_manifest.json",
+      "sha256": "178b3dd086bb105ce183471cf26af6d43488ba7a6843aaac568df93772dba964",
+      "bytes": 3423
+    },
+    {
+      "path": "preflight.py",
+      "sha256": "5e6577dae4de54b40f4b439f13f521b2654ef2724e0df9f768dfa69c0ec5830d",
+      "bytes": 2070
+    },
+    {
+      "path": "RECOVERY_PLAN.md",
+      "sha256": "effdca9b3cc933c4a2dfc67e04fb35f22fbddb0603b09ab72a1878735729fb1d",
+      "bytes": 3471
+    },
+    {
+      "path": "REPORT.md",
+      "sha256": "7aa1f4ad0b89f0ae5965dc7bbeb8d39281c5f4a24ef7691bcdd37409a5f3656c",
+      "bytes": 4758
+    },
+    {
+      "path": "verification_summary.json",
+      "sha256": "2c49d00a423716c793cb2cdbcc296fdf6ad4ecf51b586fe0ca91e2bdd092e736",
+      "bytes": 1466
+    },
+    {
+      "path": "warm_reset_once.py",
+      "sha256": "948aa8f5231ea04a500336ac6edb22c78cf8dd817e59e7024ce59a34ff561d9f",
+      "bytes": 3722
+    },
+    {
+      "path": "WORK_STATE.json",
+      "sha256": "55c8f1129661db0f6408542d077a5d6bee60d327cd4e568c5a10deca2c1a2939",
+      "bytes": 275
+    }
+  ],
+  "excluded_originals": [
+    {
+      "path": "evidence/warm_reset_result.json",
+      "sha256": "b5771a842913f42feb0a48840aeb46b2ce3c4c17f04428e41e7927f42943726e",
+      "reason": "Full selected driver initialization events; use reviewed recovery_summary and recurrence evidence."
+    }
+  ]
+}

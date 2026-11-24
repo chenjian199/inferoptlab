@@ -1,0 +1,14 @@
+{
+  "status": "local_and_remote_verified",
+  "archive": "glmf\\repeatability_20261123\\archives\\repeatability_20261123_v1.tar.gz",
+  "bytes": 819911,
+  "sha256": "891073b7176a87d91b1126855bc2cb3693d40e8b1ed0d6b201d59842778bdea6",
+  "hashed_files": 135,
+  "remote_verified": true,
+  "remote_verification": {
+    "status": "passed",
+    "archive": "/home/metax/glm53-repeatability-20261123/archives/repeatability_20261123_v1.tar.gz",
+    "sha256": "891073b7176a87d91b1126855bc2cb3693d40e8b1ed0d6b201d59842778bdea6",
+    "verified_files": 135
+  }
+}

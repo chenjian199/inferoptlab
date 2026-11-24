@@ -1,0 +1,40 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 30
+PDF 页码标签: 23
+页脚页码候选: 23
+章节提示（书签推断）: mcblasI<t>amin()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_ALLOC_FAILED 无法分配归约缓冲区
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2.3.2 mcblasI<t>amin()
+mcblasStatus_t mcblasIsamin(mcblasHandle_t handle, int n,
+const float *x, int incx, int *result)
+mcblasStatus_t mcblasIdamin(mcblasHandle_t handle, int n,
+const double *x, int incx, int *result)
+mcblasStatus_t mcblasIcamin(mcblasHandle_t handle, int n,
+const mcComplex *x, int incx, int *result)
+mcblasStatus_t mcblasIzamin(mcblasHandle_t handle, int n,
+const mcDoubleComplex *x, int incx, int *result)
+该函数查找最小量值元素的 （最小） 索引。 因此， 结果为第一个i， 使得在i = 1, . . . , n和 j = 1+( i − 1)∗incx
+时 |Im (x[j])|+|Re (x[j])| 最小。请注意，最后一个公式反映了基于 1 的索引，该索引用于与 Fortran 兼
+容。
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+n input 向量 x 中的元素数
+x 设备 input 带元素的 <type> 向量
+incx input x 中连续元素之间的步幅
+result 主机或设备 output 结果索引，如果 n,incx<=0 ，则为 0
+下面列出了此函数可能的返回值及其含义。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_ALLOC_FAILED 无法分配归约缓冲区
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 23

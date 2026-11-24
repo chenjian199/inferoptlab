@@ -1,0 +1,38 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 24
+PDF 页码标签: 17
+页脚页码候选: 17
+章节提示（书签推断）: mcblasGetVectorAsync()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+2.2.15 mcblasGetMatrix()
+mcblasStatus_t
+mcblasGetMatrix(int rows, int cols, int elemSize,
+const void *A, int lda, void *B, int ldb)
+此函数将 GPU 内存空间 A 矩阵中包含 rows x cols 个元素的分块复制到主机内存空间中的 B 矩阵。 假
+定每个元素存储都需要 elemSize 个字节，并且两个矩阵都以列主格式存储，源矩阵 A 和目标矩阵 B 的
+前导维度分别在 lda 和 ldb 中给出。前导维度表明已分配矩阵的行数，即使只使用其子矩阵。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_INVALID_VALUE 参数 rows, cols<0 或 elemSize, lda, ldb<=0
+MCBLAS_STATUS_MAPPING_ERROR 访问 GPU 内存时出错
+2.2.16 mcblasSetVectorAsync()
+mcblasStatus_t
+mcblasSetVectorAsync(int n, int elemSize, const void *hostPtr, int incx,
+void *devicePtr, int incy, mcStream_t stream)
+此函数与 mcblasSetVector() 具有相同的功能，但数据传输是使用给定的 MXMACA 流参数异步完成
+的（相对于主机） 。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_INVALID_VALUE 参数 incx, incy, elemSize<=0
+MCBLAS_STATUS_MAPPING_ERROR 访问 GPU 内存时出错
+2.2.17 mcblasGetVectorAsync()
+mcblasStatus_t
+mcblasGetVectorAsync(int n, int elemSize, const void *devicePtr, int incx,
+void *hostPtr, int incy, mcStream_t stream)
+此函数与 mcblasGetVector() 具有相同的功能，但数据传输是使用给定的 MXMACA 流参数异步完成
+的（相对于主机） 。
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 17

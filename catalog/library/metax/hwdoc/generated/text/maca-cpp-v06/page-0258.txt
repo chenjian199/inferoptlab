@@ -1,0 +1,43 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 258
+PDF 页码标签: 250
+页脚页码候选: 250
+章节提示（书签推断）: SIMD intrinsic
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+计算每字节减法。
+返回值
+• 返回计算结果。
+函数描述
+• 把 4 字节参数分离成 4 个部分，每个部分 1 个字节组成。对每个对应的部分，做减法操作，局部结果
+最后组成最终结果并以 unsigned int返回。
+__device__ unsigned int __vsubss2 (unsigned int a, unsigned int b)
+计算每半字的无符号或有符号减法，取无符号整数范围内饱和值。
+返回值
+• 返回计算结果。
+函数描述
+• 把 4 字节参数分成 2 个部分，每部分由 2 个字节组成。对每个对应的部分，做有符号饱和减法，每部
+分的结果组成最终结果以 unsigned int返回。
+__device__ unsigned int __vsubss4 (unsigned int a, unsigned int b)
+计算有符号的每字节饱和减法。
+返回值
+• 返回计算结果。
+函数描述
+• 把 4 字节参数分成 4 个部分，每部分由 1 个字节组成。对每个对应的部分，做有符号饱和减法，每部
+分的结果组成最终结果以 unsigned int返回。
+__device__ unsigned int __vsubus2 (unsigned int a, unsigned int b)
+计算无符号的每半字饱和减法。
+返回值
+• 返回计算结果。
+函数描述
+• 把 4 字节参数分成 2 个部分，每部分由 2 个字节组成。对每个对应的部分，做无符号饱和减法，每部
+分的结果组成最终结果以 unsigned int返回。
+__device__ unsigned int __vsubus4 (unsigned int a, unsigned int b)
+计算无符号的每字节饱和减法。
+返回值
+• 返回计算结果。
+函数描述
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 250

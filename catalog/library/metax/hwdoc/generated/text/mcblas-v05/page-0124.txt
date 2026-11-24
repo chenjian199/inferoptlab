@@ -1,0 +1,43 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 124
+PDF 页码标签: 117
+页脚页码候选: 117
+章节提示（书签推断）: mcblas<t>getrsBatched()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+此函数用于较小的矩阵，其中启动开销是一个重要因素。
+如果 devIpiv 为 nil，则 mcblas<t>getrsBatched 支持非主元 LU 分解。
+mcblas<t>getrsBatched 支持任意维度。
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+trans input 非转置或共轭运算 op(A)
+n input Aarray[i] 的行数和列数
+nrhs input Barray[i] 的列数
+Aarray 设备 input 指向 <type> 数组的指针数组，每个数组维度为 n x n，其中
+lda >=max(1,n)
+lda input 用于存储矩阵 Aarray[i] 的二维数组的前导维度
+devIpiv 设备 input 大小为 n x batchSize 的数组，包含以线性方式存储的
+Aarray[i] 每个因式分解的旋转序列。如果 devIpiv 为零，则
+忽略所有 Aarray[i] 的旋转
+Barray 设备 in/out 指向 <type> 数组的指针数组，每个数组维度为 n x nrhs，其
+中 ldb >=max(1,n) 。矩阵 Barray[i] 不应重叠；否则，将出现
+未定义的行为。
+ldb input 用于存储矩阵 Barray[i] 的二维数组的前导维度
+info 主机 output 如果 info=0，执行成功。
+如果 info = ‑j，第 j 个参数具有非法值。
+batchSize input A 中包含的指针数
+下面列出了此函数可能的返回值及其含义。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE
+• n < 0 或 nrhs < 0
+• trans != MCBLAS_OP_N, MCBLAS_OP_C,
+MCBLAS_OP_T
+• lda < max(1, n)
+• ldb < max(1, n)
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 117

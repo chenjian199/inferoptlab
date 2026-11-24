@@ -1,0 +1,88 @@
+{
+  "schema_version": "0.2.0",
+  "kind": "MeasurementBundle",
+  "run_id": "run-e08866944fbc4a05",
+  "comparison_sha256": "267cf4c8e20ca4aaf5b89873ede7b79e706dac8936fe0002b0813cbc7b4c77c0",
+  "evidence_kind": "measured",
+  "validity": "incomplete",
+  "issues": [
+    "4 planned requests have no terminal record",
+    "complete measurement duration unavailable; throughput/goodput not inferred from process wall time",
+    "per-request AIPerf export is missing",
+    "AIPerf aggregate export is missing",
+    "warmup failed or exceeded deadline"
+  ],
+  "counts": {
+    "planned": 4,
+    "observed": 0,
+    "succeeded": 0,
+    "failed": 4,
+    "missing": 4
+  },
+  "duration_s": null,
+  "statistics": {
+    "ttft": {
+      "count": 0,
+      "mean": null,
+      "min": null,
+      "max": null,
+      "p50": null,
+      "p90": null,
+      "p95": null,
+      "p99": null
+    },
+    "tpot": {
+      "count": 0,
+      "mean": null,
+      "min": null,
+      "max": null,
+      "p50": null,
+      "p90": null,
+      "p95": null,
+      "p99": null
+    },
+    "e2e_latency": {
+      "count": 0,
+      "mean": null,
+      "min": null,
+      "max": null,
+      "p50": null,
+      "p90": null,
+      "p95": null,
+      "p99": null
+    },
+    "input_tokens": {
+      "count": 0,
+      "mean": null,
+      "min": null,
+      "max": null,
+      "p50": null,
+      "p90": null,
+      "p95": null,
+      "p99": null
+    },
+    "output_tokens": {
+      "count": 0,
+      "mean": null,
+      "min": null,
+      "max": null,
+      "p50": null,
+      "p90": null,
+      "p95": null,
+      "p99": null
+    }
+  },
+  "rates": {
+    "success_rate": 0.0,
+    "request_throughput": null,
+    "input_token_throughput": null,
+    "output_token_throughput": null
+  },
+  "semantics": {
+    "latency_population": "successful_requests",
+    "rate_window": "first AIPerf request_start_ns to last request_end_ns, including recorded failures/timeouts",
+    "percentile_method": "linear interpolation at (n-1)*q",
+    "tpot": "client (request_latency - TTFT)/(actual output tokens - 1); requires single-token streaming; not a token-level ITL distribution"
+  },
+  "raw_sha256": null
+}

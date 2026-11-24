@@ -1,0 +1,42 @@
+[
+  {
+    "rank": 0,
+    "installed": true,
+    "target": "language_model.model.layers.0.mlp.gate_up_proj"
+  },
+  {
+    "rank": 1,
+    "installed": true,
+    "target": "language_model.model.layers.0.mlp.gate_up_proj"
+  },
+  {
+    "rank": 2,
+    "installed": true,
+    "target": "language_model.model.layers.0.mlp.gate_up_proj"
+  },
+  {
+    "rank": 3,
+    "installed": true,
+    "target": "language_model.model.layers.0.mlp.gate_up_proj"
+  },
+  {
+    "rank": 4,
+    "installed": true,
+    "target": "language_model.model.layers.0.mlp.gate_up_proj"
+  },
+  {
+    "rank": 5,
+    "installed": true,
+    "target": "language_model.model.layers.0.mlp.gate_up_proj"
+  },
+  {
+    "rank": 6,
+    "installed": true,
+    "target": "language_model.model.layers.0.mlp.gate_up_proj"
+  },
+  {
+    "rank": 7,
+    "installed": true,
+    "target": "language_model.model.layers.0.mlp.gate_up_proj"
+  }
+]

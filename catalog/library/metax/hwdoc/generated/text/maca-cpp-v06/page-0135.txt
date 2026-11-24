@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 135
+PDF 页码标签: 127
+页脚页码候选: 127
+章节提示（书签推断）: Bfloat16精度转换与数据移动函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+• maca_bfloat162*，指针
+value
+• maca_bfloat162，要存储到ptr指向的内存中的值
+__device__ void __stwt (const maca_bfloat16 *ptr, const maca_bfloat16 value)
+参数
+ptr
+• maca_bfloat16*，指针
+value
+• maca_bfloat16，要存储到ptr指向的内存中的值
+__device__ void __stwt (const maca_bfloat162 *ptr, const maca_bfloat162 value)
+参数
+ptr
+• maca_bfloat162*，指针
+value
+• maca_bfloat162，要存储到ptr指向的内存中的值
+__device__ maca_bfloat16 __uint2bfloat16_rd (const unsigned int i)
+参数
+i
+• unsignedint，只读入参
+返回值
+• maca_bfloat16，值由i转换得到
+函数描述
+• 以向下舍入模式将无符号的32位整数转换为maca_bfloat16。
+__host__ __device__ maca_bfloat16 __uint2bfloat16_rn (const unsigned int i)
+参数
+i
+• unsignedint，只读入参
+返回值
+• maca_bfloat16，值由i转换得到
+函数描述
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 127

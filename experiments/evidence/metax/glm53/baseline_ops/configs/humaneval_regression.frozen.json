@@ -1,0 +1,147 @@
+{
+  "status": "frozen_before_full164",
+  "frozen_at": "2026-11-23T00:34:45.257064+08:00",
+  "protocol_sha256": "6980927eb545bf7aba8413a260b8a26317f2e116c7144b3534d40a2b80dcad87",
+  "generation_config": {
+    "schema_version": 1,
+    "status": "draft_requires_pilot",
+    "dataset_id": "openai/openai_humaneval",
+    "split": "test",
+    "expected_tasks": 164,
+    "dataset_manifest": "datasets/humaneval/manifest.json",
+    "task_selection": "all",
+    "samples_per_task": 1,
+    "report_label": "local_chat_adapted_humaneval_pass_at_1",
+    "sampling": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "seed": 0,
+      "max_tokens": 1024,
+      "ignore_eos": false
+    },
+    "chat_template": {
+      "reasoning_effort": "low",
+      "template_sha256": null,
+      "tokenizer_manifest_sha256": null,
+      "adapter_revision": null,
+      "code_extractor_revision": null
+    },
+    "prompt_protocol": {
+      "mode": "chat_request_completion_of_original_prefix",
+      "allowed_dataset_fields": [
+        "task_id",
+        "prompt"
+      ],
+      "excluded_from_generation": [
+        "canonical_solution",
+        "test",
+        "entry_point"
+      ],
+      "instruction_draft": "Complete the Python function from the following prefix. Output only the missing continuation, preserving indentation. Do not repeat the prefix or include explanations.",
+      "test_conditioned_repair": false,
+      "regenerate_on_test_failure": false
+    },
+    "runtime": {
+      "baseline_reference": "configs/d0_environment.json",
+      "runner": "V2",
+      "tensor_parallel_size": 8,
+      "max_model_len": 4096,
+      "max_num_seqs": 1,
+      "async_scheduling": false,
+      "enforce_eager": true,
+      "enable_prefix_caching": false
+    },
+    "context_policy": "Validate prompt_tokens + max_tokens <= 4096 for every task; no silent truncation or dropping. Freeze any pilot changes before B0/candidate comparison.",
+    "scoring": {
+      "metric": "pass@1",
+      "denominator": 164,
+      "missing_task_policy": "mark_run_incomplete",
+      "model_failure_categories": [
+        "parse_failure",
+        "syntax_error",
+        "test_failure",
+        "program_timeout"
+      ],
+      "infrastructure_failure_policy": "incomplete_not_a_valid_full_score",
+      "evaluator_commit": null,
+      "test_suite": "original_humaneval",
+      "execution_timeout_seconds": null,
+      "sandbox": {
+        "status": "not_implemented",
+        "cpu_only": true,
+        "network": false,
+        "mount_model": false,
+        "mount_docker_socket": false,
+        "mount_secrets": false,
+        "non_root_required": true,
+        "resource_limits_must_be_frozen": true
+      },
+      "diagnostic_flags": [
+        "truncated_output"
+      ],
+      "truncation_scoring": "Record separately; functional pass/fail is determined from the actual submitted code and tests."
+    },
+    "smoke": {
+      "count": 32,
+      "selection": "sort task_ids by ascending SHA256 of UTF-8 (salt + task_id); tie-break by task_id; take first 32",
+      "salt": "glm53-humaneval-smoke-v1:",
+      "task_ids": null,
+      "label": "custom_humaneval_smoke32_not_full_score"
+    },
+    "freeze_requirements": [
+      "data revision and hashes fixed",
+      "canonical solutions and negative cases verify scorer",
+      "code extraction validated",
+      "output budget and timeout calibrated",
+      "token counts fit context",
+      "B0 repeatability measured",
+      "protocol status changed to frozen explicitly"
+    ]
+  },
+  "dataset_revision": "7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544",
+  "dataset_manifest_sha256": "821fc881f4b6fda21916e6c048b09e61e838e91ae8e75b48b7ea033825228b95",
+  "prompt_manifest_sha256": "9511992c6111410171e161e556e397a7e33af3b464bc7320658e323c3cec30cb",
+  "chat_template_sha256": "58f88a9ff33e084ed5cb935b6bab1eea2d3a783b57cb63e3796351bb33291aa8",
+  "tokenizer_files": {
+    "tokenizer.json": "19e773648cb4e65de8660ea6365e10acca112d42a854923df93db4a6f333a82d",
+    "chat_template.jinja": "58f88a9ff33e084ed5cb935b6bab1eea2d3a783b57cb63e3796351bb33291aa8",
+    "tokenizer_config.json": "77af7d4769cd62c107b90495cac9b0ba81573c86486821bfba2980c04285ec7a"
+  },
+  "generation_input_sha256": "bc70f2aeea0a39fd373f00da89cf3efbd18c8e95ac5fe73c24ee40eb6b45d3bb",
+  "scoring_input_sha256": "9329d3a61b18b3263af9ef771996844e95b1fd7138d2f704f48ce384031029f4",
+  "harness_sha256": {
+    "test_code_adapter.py": "5b2f0d4ced269369b4d0acd5bec428359236d6fcbf9dd2dca82efb3dbd816f8b",
+    "run_generation_host.py": "194409cdc5de7cb6b3283c6bcfa3215cade40e6c6cbbc2a9bdf5ecb22f3a2fbc",
+    "worker_provenance.py": "439b86e5b68ff5223b5521f737cb2f5f3a4ff5991040bedf06d3d3589cc8f0bb",
+    "code_adapter.py": "9112a71b1917f32020b31c88810944d388664a7f7b386a26eab61a933f2973ea",
+    "generate_humaneval.py": "b4cd43eea883d52b516c6593bdd23559949f055ee9802b3de30246c056ce6f81",
+    "check_frozen_baseline.py": "58ddb784cbc7c0c4318b03bb86c12c22ebe510034a0dde5906445220c6cafad0",
+    "evaluate_humaneval.py": "1229b80254e0510c3934491080551111395c6af954eb1da53284567513325fd1",
+    "prepare_dataset.py": "cad5a728d03cfba9d1e9ea3cb29b3e3f70a085cbeb13c0bef3da5fb7c48f7796"
+  },
+  "scoring": {
+    "image_id": "sha256:96bbee871d4ea038b123276eacd65f77825b093b9255157938e0b1628e121f0b",
+    "cpu_limit_seconds": 8,
+    "wall_timeout_seconds": 10,
+    "outer_container_timeout_seconds": 45,
+    "memory_bytes": 536870912,
+    "pids_limit": 32,
+    "cpus": 1,
+    "user": "65534:65534",
+    "network": "none",
+    "read_only_root": true,
+    "capabilities": "all dropped",
+    "no_new_privileges": true,
+    "default_docker_seccomp_verified": true,
+    "python_mode": "-I -S (standard library only)",
+    "generation_retries_for_test_failure": 0,
+    "adapter_version": "humaneval-chat-code-v1"
+  },
+  "pilot": {
+    "tasks": 32,
+    "passed": 31,
+    "parse_failure_task": "HumanEval/37",
+    "policy": "Missing indentation counted as model formatting failure, not repaired."
+  },
+  "repeatability_pending": "Full164 overlaps pilot32 in same engine; independent-process repeatability not claimed."
+}

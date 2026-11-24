@@ -1,0 +1,86 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 37
+PDF 页码标签: 30
+页脚页码候选: 30
+章节提示（书签推断）: mcblas<t>rotg()
+质量标记: private_use_characters
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+(续上页)
+mcblasStatus_t mcblasZrotg(mcblasHandle_t handle,
+mcDoubleComplex *a, mcDoubleComplex *b,
+double *c, mcDoubleComplex *s)
+该函数创建吉文斯旋转矩阵
+G =
+
+ c s
+−s c
+
+
+用以将一个 2 × 1 向量 (a, b)T 的第二项归零。然后，对于实数，我们可以写为
+
+ c s
+−s c
+
+
+
+a
+b
+
+ =
+
+r
+0
+
+
+其中 c2 + s2 = 1，r = a2 + b2 。参数 a 和 b 将分别用 r 和 z 覆盖。z 的值使得 c 和 s 可以使用以下规则进
+行恢复：
+(c, s) =
+
+
+
+(√
+1 − z2, z
+)
+if |z|< 1
+(0.0, 1.0) if |z|= 1
+(
+1/z,
+√
+1 − z2)
+if |z|> 1
+对于复数，我们可以写为
+
+ c s
+−¯s c
+
+
+
+a
+b
+
+ =
+
+r
+0
+
+
+其中 c2 + (¯s × s) = 1 ，r = a
+|a| × ∥ (a, b)T ∥2，当 a ̸= 0 且 r = b 或 a = 0 时，∥ (a, b)T ∥2=
+√
+|a|2+|b|2 。
+最后，使用 r 覆盖 a 参数。
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+a 主机或设备 in/out 用 r 覆盖的 <type> 标量
+b 主机或设备 in/out 用 z 覆盖的 <type> 标量
+c 主机或设备 output 旋转矩阵的余弦元素
+s 主机或设备 output 旋转矩阵的正弦元素
+下面列出了此函数可能的返回值及其含义。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 30

@@ -1,0 +1,49 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 277
+PDF 页码标签: 269
+页脚页码候选: 269
+章节提示（书签推断）: __builtin_mxc_ldg_*_predicator
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+(续上页)
+bool saddr_flag, bool pred_neg,
+bool is_async,
+unsigned cmp_op1, unsigned cmp_
+,→op2,
+int cmp_flag);
+unsigned long long __builtin_mxc_ldg_b64_predicator(const void *global_addr,
+size_t offset, bool ret0_en,
+bool saddr_flag, bool pred_neg,
+bool is_async,
+unsigned cmp_op1, unsigned cmp_
+,→op2,
+int cmp_flag);
+V4U32 __builtin_mxc_ldg_b128_predicator(const void *global_addr,
+size_t offset, bool ret0_en,
+bool saddr_flag, bool pred_
+,→neg,
+bool is_async,
+unsigned cmp_op1, unsigned 
+,→cmp_op2,
+int cmp_flag);
+参数
+参数名 说明
+return_value 从内存加载返回的值
+global_addr 全局内存地址
+offset 全局内存偏移
+ret0_en 置1时返回值恒为0，忽略加载
+saddr_flag 选择使用 sreg作为地址
+pred_neg 取反使能位
+is_async 异步加载使能，禁用时为同步
+cmp_op1 比较指令的第一个操作数
+cmp_op2 比较指令的第二个操作数
+cmp_flag 比较类型，取值为 MACA_ICMP_EQ | NE | UGT | UGE | ULT | ULE |
+SGT | SGE | SLT | SLE，与 cmp_op1和 cmp_op2共同决定 predicator
+示例
+using B32 = __NATIVE_VECTOR__(1, unsigned int);
+__device__ B32 test_builtin_mxc_ldg_b32_predicator(int *ptr, int a, int b) {
+(下页继续)
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 269

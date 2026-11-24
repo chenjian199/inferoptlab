@@ -1,0 +1,40 @@
+文档: 沐曦通用GPU_mxcc编译器用户指南_CN_V06.pdf
+文档 ID: mxcc-v06
+SHA256: 6fceba6f92b1b4274a5c2dd106d76320947a0b4ef0cdaffd36af5497fdffb6dd
+PDF 页序号: 10
+PDF 页码标签: 5
+页脚页码候选: 5
+章节提示（书签推断）: File和Path说明
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mxcc 编译器用户指南
+--generate-dependency-targets (-MP)
+为每个依赖添加一个空目标。此选项将伪目标添加到依赖生成步骤，以避免在删除旧依赖时出现
+Makefile 错误。输入文件不会作为伪目标。
+--archiver-binary executable (-arbin)
+指定用 –lib 创建静态库的归档工具路径。
+--maca-path path (-maca-path)
+指定运行时头文件和库所在目录，位于 MXMACA 安装路径下，如 [installation_path]/opt/maca。
+--maca-host-lib-path path (-maca-host-lib-path)
+指定 MXMACA 主机库的查找路径，即外部 MXMACA 主机库文件所在路径。MXMACA 提供的主机库位于
+[installation_path]/opt/maca/lib。
+--maca-host-lib file (-maca-host-lib)
+指定外部 MXMACA 主机库文件。MXMACA 发布包中提供了一个主机库：maca_mathlib_host.bc，由
+mxcc 自动引入。
+--maca-device-lib-path path (-maca-device-lib-path)
+指定 MXMACA 设备库查找路径，即外部 MXMACA 设备库文件所在路径。MXMACA 提供的设备库位于
+[installation_path]/opt/maca/lib。
+--maca-device-lib file (-maca-device-lib)
+指 定 外 部 MXMACA 设 备 库 文 件。MXMACA 发 布 包 中 提 供 了 两 个 设 备 库：maca_kernellib.bc 和
+maca_mathlib.bc，由 mxcc 自动引入。
+--maca-host-input file (-maca-host-input)
+指示文件 file 为仅含有 host 代码或内容的文件。注意此类文件只能参与 MXMACA 编译流程中的主机
+编译过程。这个文件不需要再通过 -maca-link 指示。
+--maca-device-input file (-maca-device-input)
+指示文件 file 为仅含有 device 代码或内容的文件。注意此类文件只能参与 MXMACA 编译流程中的设
+备编译过程。这个文件不需要再通过 -maca-link 指示。
+--input-is-host (-input-is-host)
+将所有输入文件视为仅含有 host 代码或内容的文件，其他同 -maca-host-input。
+--input-is-device (-input-is-device)
+将所有输入文件视为仅含有 device 代码或内容的文件，其他同 -maca-device-input。
+4 支持的选项 沐曦股份专有信息 OG‑23026‑020‑F5_V06 | 5

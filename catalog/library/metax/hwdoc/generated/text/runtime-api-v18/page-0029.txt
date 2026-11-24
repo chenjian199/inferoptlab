@@ -1,0 +1,47 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 29
+PDF 页码标签: 20
+页脚页码候选: 20
+章节提示（书签推断）: 协作组示例
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+thread_block block = this_thread_block();
+与其它 MXMACA 程序一样， 执行该行的每个线程都有自己的变量块实例。 MXMACA 内置变量blockIdx
+值相同的线程属于同一个线程块组。同步一个 thread_block 组和 __syncthreads 作用一样，下面
+几行代码都是做同步操作，只是同步的颗粒度不一样。
+__syncthreads();
+block.sync();
+cg::synchronize(block);
+this_thread_block().sync();
+cg::synchronize(this_thread_block());
+thread_block 数据类型使用以下特定于块的方法扩展了 thread_group 接口，这些分别相当于
+MXMACA 常规线程块里的 blockIdx 和 threadIdx。
+dim3 group_index(); // 3-dimensional block index within the grid
+dim3 thread_index(); // 3-dimensional thread index within the block
+3.4.3.3 协作组示例
+下面将介绍一个简单的核函数，使用函数 reduce_sum 来计算输入数组中所有值的总和。
+1. 首 先 调 用 函 数 thread_sum 并 行 计 算 许 多 部 分 和， 其 中 每 个 线 程 跨 过 数 组blockDim.x *
+gridDim.x 大小先计算一部分和（这里使用了向量化加载以获得更高的内存访问效率） 。
+2. 然后使用线程组 thread_block 执行协作求和，负责每个 block 内的求和。
+3. 最后调用函数 atomicAdd 完成每个 block 的求和。
+完整的示例代码如下所示：
+#include<iostream>
+#include<mc_runtime.h>
+#include<MXMACA_cooperative_groups.h>
+using namespace cooperative_groups;
+__device__ int reduce_sum(thread_group g, int *temp, int val)
+{
+int lane = g.thread_rank();
+// Each iteration halves the number of active threads
+// Each thread adds its partial sum[i] to sum[lane+i]
+for (int i = g.size() / 2; i > 0; i /= 2)
+{
+temp[lane] = val;
+g.sync(); // wait for all threads to store
+if(lane<i) val += temp[lane + i];
+g.sync(); // wait for all threads to load
+(下页继续)
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 20

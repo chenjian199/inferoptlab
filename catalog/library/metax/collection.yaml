@@ -1,0 +1,61 @@
+schema_version: 0.2.0
+kind: KnowledgeCollection
+id: metax
+version: 1.0.0
+source_root: .
+pinned_files:
+- path: catalog/library/metax/hwdoc/generated/manifest.json
+  sha256: dab6d95775574f970d256c91980076d8d3784db897bf1feab87ea71977c0f8e1
+- path: catalog/library/metax/hwdoc/generated/knowledge.json
+  sha256: 728e6d9458853c221e1f2c9d98edc2aeb1e71bcb3e4099652ff294a38b97a686
+- path: catalog/library/metax/hwdoc/generated/pages.jsonl
+  sha256: 76e695856da6b93b08b276e00b08426fbcdf675c42d4d2bf90eac71d2091cd28
+- path: catalog/library/metax/hwdoc/tools/search.py
+  sha256: c6f2b6cf9d8ea666cea4f83e9a0028aa425093e6c8e20ef27dc7846f65d0579a
+- path: catalog/library/metax/hwdoc/tools/knowledge.py
+  sha256: 6efa05a54fd11eb8f13e1c088dd8a33230c61d0e1ee37f17f01684864405971f
+- path: catalog/library/metax/hwdoc/tools/practice.py
+  sha256: bfdf86ff128c1ab264646cfba142306748350235fa5ed49d3899342e750c857d
+- path: catalog/library/metax/methods/regression-policy.md
+  sha256: 04930880851d3c370dd83e646e2b8dd9f4488bdc9d86c945091f1f1717b98f9e
+- path: catalog/library/metax/methods/operator-workflow.md
+  sha256: 56556f201ccefae494591b87ceaeee4769e5f84127fd64034c3ae6474875df84
+- path: catalog/library/metax/methods/humaneval.md
+  sha256: ed5ca46fa64c8377b769788b9b921dee1d6c98cfef913378f42e5de05ef10d9d
+- path: experiments/evidence/metax/glm53/baseline_ops/BASELINE_REPORT.md
+  sha256: 2c24358c1cd0a1db680d95d297cce6d01f448d1fdd719961a86cf3c9c97276fb
+- path: experiments/evidence/metax/glm53/repeatability_20261123/REPORT.md
+  sha256: 542cf4c88973f8297ae7f0c5a3070dda2882af77295beaf9ecec965f77335702
+- path: experiments/evidence/metax/glm53/reboot_recheck_20261123/REPORT.md
+  sha256: 689b5907b276645a79a90969cf134b7a34be55248a7980527346471b3bdc520f
+curated:
+- id: regression-policy
+  title: regression-policy
+  path: catalog/library/metax/methods/regression-policy.md
+  kind: method
+  verification: reviewed_method_not_execution_result
+- id: operator-workflow
+  title: operator-workflow
+  path: catalog/library/metax/methods/operator-workflow.md
+  kind: method
+  verification: reviewed_method_not_execution_result
+- id: humaneval-reproduction
+  title: humaneval-reproduction
+  path: catalog/library/metax/methods/humaneval.md
+  kind: method
+  verification: reviewed_method_not_execution_result
+- id: humaneval-baseline
+  title: humaneval-baseline
+  path: experiments/evidence/metax/glm53/baseline_ops/BASELINE_REPORT.md
+  kind: historical_report
+  verification: historical_scoped_evidence
+- id: repeatability
+  title: repeatability
+  path: experiments/evidence/metax/glm53/repeatability_20261123/REPORT.md
+  kind: historical_report
+  verification: historical_scoped_evidence
+- id: gemm-recheck
+  title: gemm-recheck
+  path: experiments/evidence/metax/glm53/reboot_recheck_20261123/REPORT.md
+  kind: historical_report
+  verification: historical_scoped_evidence

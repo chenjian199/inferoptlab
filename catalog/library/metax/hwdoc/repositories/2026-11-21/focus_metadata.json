@@ -1,0 +1,1377 @@
+{
+  "DeepEP": {
+    "branches": {
+      "url": "https://api.github.com/repos/MetaX-MACA/DeepEP/branches?per_page=100",
+      "data": [
+        {
+          "name": "main",
+          "commit": {
+            "sha": "3885404ffb31a3d9cbd238aa1a366408881bb069",
+            "url": "https://api.github.com/repos/MetaX-MACA/DeepEP/commits/3885404ffb31a3d9cbd238aa1a366408881bb069"
+          },
+          "protected": false
+        }
+      ],
+      "link": null
+    },
+    "releases": {
+      "url": "https://api.github.com/repos/MetaX-MACA/DeepEP/releases?per_page=3",
+      "data": [],
+      "link": null
+    }
+  },
+  "FlashMLA": {
+    "branches": {
+      "url": "https://api.github.com/repos/MetaX-MACA/FlashMLA/branches?per_page=100",
+      "data": [
+        {
+          "name": "main",
+          "commit": {
+            "sha": "b246af19465084b1a97d4de480c3ea0c1b356e4c",
+            "url": "https://api.github.com/repos/MetaX-MACA/FlashMLA/commits/b246af19465084b1a97d4de480c3ea0c1b356e4c"
+          },
+          "protected": false
+        }
+      ],
+      "link": null
+    },
+    "releases": {
+      "url": "https://api.github.com/repos/MetaX-MACA/FlashMLA/releases?per_page=3",
+      "data": [],
+      "link": null
+    }
+  },
+  "maca-samples": {
+    "branches": {
+      "url": "https://api.github.com/repos/MetaX-MACA/maca-samples/branches?per_page=100",
+      "data": [
+        {
+          "name": "main",
+          "commit": {
+            "sha": "e6de14cc4d9248768d066a1475450ed7705fd766",
+            "url": "https://api.github.com/repos/MetaX-MACA/maca-samples/commits/e6de14cc4d9248768d066a1475450ed7705fd766"
+          },
+          "protected": false
+        }
+      ],
+      "link": null
+    },
+    "releases": {
+      "url": "https://api.github.com/repos/MetaX-MACA/maca-samples/releases?per_page=3",
+      "data": [],
+      "link": null
+    }
+  },
+  "mccl_tests": {
+    "branches": {
+      "url": "https://api.github.com/repos/MetaX-MACA/mccl_tests/branches?per_page=100",
+      "data": [
+        {
+          "name": "main",
+          "commit": {
+            "sha": "1e44d4af1b177f2ab9e23bdd0b393ad757d08f4e",
+            "url": "https://api.github.com/repos/MetaX-MACA/mccl_tests/commits/1e44d4af1b177f2ab9e23bdd0b393ad757d08f4e"
+          },
+          "protected": false
+        }
+      ],
+      "link": null
+    },
+    "releases": {
+      "url": "https://api.github.com/repos/MetaX-MACA/mccl_tests/releases?per_page=3",
+      "data": [],
+      "link": null
+    }
+  },
+  "mcFlashMLA": {
+    "branches": {
+      "url": "https://api.github.com/repos/MetaX-MACA/mcFlashMLA/branches?per_page=100",
+      "data": [
+        {
+          "name": "main",
+          "commit": {
+            "sha": "c2dbf6e9328f839b96970662e6ec379b6d79d6c8",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcFlashMLA/commits/c2dbf6e9328f839b96970662e6ec379b6d79d6c8"
+          },
+          "protected": false
+        },
+        {
+          "name": "mcFlashMLA",
+          "commit": {
+            "sha": "82c9f1bbda344cef2d17c67e3f4de14b235e4959",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcFlashMLA/commits/82c9f1bbda344cef2d17c67e3f4de14b235e4959"
+          },
+          "protected": false
+        }
+      ],
+      "link": null
+    },
+    "releases": {
+      "url": "https://api.github.com/repos/MetaX-MACA/mcFlashMLA/releases?per_page=3",
+      "data": [],
+      "link": null
+    }
+  },
+  "mcoplib": {
+    "branches": {
+      "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/branches?per_page=100",
+      "data": [
+        {
+          "name": "main",
+          "commit": {
+            "sha": "0e64378285a5c693b15a57f7c03b600a520ce1fa",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/0e64378285a5c693b15a57f7c03b600a520ce1fa"
+          },
+          "protected": false
+        },
+        {
+          "name": "mcoplib_params_dump",
+          "commit": {
+            "sha": "4c55921a276b9d43675635a2e04a4e75d72eada2",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/4c55921a276b9d43675635a2e04a4e75d72eada2"
+          },
+          "protected": false
+        },
+        {
+          "name": "mcoplib_0.2.0",
+          "commit": {
+            "sha": "c4dcf11a9269975a287b9d4b8edb7df77bd5f92c",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/c4dcf11a9269975a287b9d4b8edb7df77bd5f92c"
+          },
+          "protected": false
+        },
+        {
+          "name": "mcoplib_0.3.0",
+          "commit": {
+            "sha": "fc68e8d44ba70920fbe3304b5b5572573ea80a7d",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/fc68e8d44ba70920fbe3304b5b5572573ea80a7d"
+          },
+          "protected": false
+        },
+        {
+          "name": "mcoplib_0.3.1",
+          "commit": {
+            "sha": "bd9871709d97b9e2e0e89de7a53b98ae217e2b66",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/bd9871709d97b9e2e0e89de7a53b98ae217e2b66"
+          },
+          "protected": false
+        },
+        {
+          "name": "mcoplib_0.4.0",
+          "commit": {
+            "sha": "ce59c568a930191cbf7324051578633f87b2d612",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/ce59c568a930191cbf7324051578633f87b2d612"
+          },
+          "protected": false
+        },
+        {
+          "name": "mcoplib_0.4.1",
+          "commit": {
+            "sha": "a3c97d22f54aea1b5ab9ad15a65a46ee13083cfb",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/a3c97d22f54aea1b5ab9ad15a65a46ee13083cfb"
+          },
+          "protected": false
+        },
+        {
+          "name": "mcoplib_0.4.2",
+          "commit": {
+            "sha": "5473acab784ddf15b13a7506a376ddcc7905ff60",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/5473acab784ddf15b13a7506a376ddcc7905ff60"
+          },
+          "protected": false
+        },
+        {
+          "name": "mcoplib_0.4.3",
+          "commit": {
+            "sha": "604843a1af670bc2827523b2eb387df9078a36cf",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/604843a1af670bc2827523b2eb387df9078a36cf"
+          },
+          "protected": false
+        },
+        {
+          "name": "mcoplib-0.4.4",
+          "commit": {
+            "sha": "2b5bc881bcafefdd66e20c20e7e30cb3949e5b03",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/2b5bc881bcafefdd66e20c20e7e30cb3949e5b03"
+          },
+          "protected": false
+        },
+        {
+          "name": "mcoplib-0.4.5",
+          "commit": {
+            "sha": "998d67a65c5046c993d20f61c6106fe7890b2ea6",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/998d67a65c5046c993d20f61c6106fe7890b2ea6"
+          },
+          "protected": false
+        },
+        {
+          "name": "mcoplib-0.4.6",
+          "commit": {
+            "sha": "aaf33ed436bf1a87c293bcd7b4d30fa7688a535c",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/aaf33ed436bf1a87c293bcd7b4d30fa7688a535c"
+          },
+          "protected": false
+        },
+        {
+          "name": "mcoplib-0.4.7",
+          "commit": {
+            "sha": "d8a11d7042042ba43ea586890ed7ea628700a32d",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/d8a11d7042042ba43ea586890ed7ea628700a32d"
+          },
+          "protected": false
+        },
+        {
+          "name": "mcoplib-0.4.8",
+          "commit": {
+            "sha": "86663c7b2f2bc7feb7f42bb3d51cddfb9bf13f71",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/86663c7b2f2bc7feb7f42bb3d51cddfb9bf13f71"
+          },
+          "protected": false
+        },
+        {
+          "name": "mcoplib-0.4.9",
+          "commit": {
+            "sha": "4f63dd7f4d18e844d804fefc209ad54a1fd83575",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/4f63dd7f4d18e844d804fefc209ad54a1fd83575"
+          },
+          "protected": false
+        },
+        {
+          "name": "mcoplib-0.4.10",
+          "commit": {
+            "sha": "c10c3e25bc6a9fb8479fad0bce53407768510861",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/c10c3e25bc6a9fb8479fad0bce53407768510861"
+          },
+          "protected": false
+        },
+        {
+          "name": "mcoplib-0.4.11",
+          "commit": {
+            "sha": "3c3d0f26689ed42e6113d06b97bf19675d28500b",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/3c3d0f26689ed42e6113d06b97bf19675d28500b"
+          },
+          "protected": false
+        },
+        {
+          "name": "mcoplib-0.4.12",
+          "commit": {
+            "sha": "11140d533a8bfd9937520a1d8e4ed632741fa8b2",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/11140d533a8bfd9937520a1d8e4ed632741fa8b2"
+          },
+          "protected": false
+        },
+        {
+          "name": "mcoplib-0.4.13",
+          "commit": {
+            "sha": "79d68369e9bf6eab5ac09b8264104bd87133071e",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/79d68369e9bf6eab5ac09b8264104bd87133071e"
+          },
+          "protected": false
+        },
+        {
+          "name": "mcoplib-0.4.14",
+          "commit": {
+            "sha": "6e5abc3458c95897a322f71e349ed31f55e62925",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/6e5abc3458c95897a322f71e349ed31f55e62925"
+          },
+          "protected": false
+        },
+        {
+          "name": "mcoplib-0.4.15",
+          "commit": {
+            "sha": "e83f730a158a5432000488d19d77b23d22df6803",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/e83f730a158a5432000488d19d77b23d22df6803"
+          },
+          "protected": false
+        },
+        {
+          "name": "mcoplib-0.4.16",
+          "commit": {
+            "sha": "6805357a35821a6037e265872c818eef6076c8bb",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/6805357a35821a6037e265872c818eef6076c8bb"
+          },
+          "protected": false
+        },
+        {
+          "name": "vllm0.13.0_sglang0.5.6",
+          "commit": {
+            "sha": "8bcc67ed1a824648060ed02569f794e35f54f49c",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/8bcc67ed1a824648060ed02569f794e35f54f49c"
+          },
+          "protected": false
+        },
+        {
+          "name": "vllm_0120_sgl_056",
+          "commit": {
+            "sha": "7d6a97670f1279454b9f08417f8fe06dfa9662fb",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/7d6a97670f1279454b9f08417f8fe06dfa9662fb"
+          },
+          "protected": false
+        },
+        {
+          "name": "vllm_0130_sglang_057",
+          "commit": {
+            "sha": "3ac159e62135bf791c61aa9cef1927dbc784d025",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/commits/3ac159e62135bf791c61aa9cef1927dbc784d025"
+          },
+          "protected": false
+        }
+      ],
+      "link": null
+    },
+    "releases": {
+      "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/releases?per_page=3",
+      "data": [
+        {
+          "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/releases/452519065",
+          "assets_url": "https://api.github.com/repos/MetaX-MACA/mcoplib/releases/452519065/assets",
+          "upload_url": "https://uploads.github.com/repos/MetaX-MACA/mcoplib/releases/452519065/assets{?name,label}",
+          "html_url": "https://github.com/MetaX-MACA/mcoplib/releases/tag/mcoplib_0.4.16",
+          "id": 452519065,
+          "author": {
+            "login": "yiyu-metax",
+            "id": 250912274,
+            "node_id": "U_kgDODvSeEg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/250912274?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/yiyu-metax",
+            "html_url": "https://github.com/yiyu-metax",
+            "followers_url": "https://api.github.com/users/yiyu-metax/followers",
+            "following_url": "https://api.github.com/users/yiyu-metax/following{/other_user}",
+            "gists_url": "https://api.github.com/users/yiyu-metax/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/yiyu-metax/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/yiyu-metax/subscriptions",
+            "organizations_url": "https://api.github.com/users/yiyu-metax/orgs",
+            "repos_url": "https://api.github.com/users/yiyu-metax/repos",
+            "events_url": "https://api.github.com/users/yiyu-metax/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/yiyu-metax/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "node_id": "RE_kwDOQs6oGs4a-OSZ",
+          "tag_name": "mcoplib_0.4.16",
+          "target_commitish": "mcoplib-0.4.16",
+          "name": "mcoplib-0.4.16",
+          "draft": false,
+          "immutable": false,
+          "prerelease": false,
+          "created_at": "2026-11-20T09:48:24Z",
+          "updated_at": "2026-11-20T09:55:18Z",
+          "published_at": "2026-11-20T09:55:18Z",
+          "assets": [],
+          "tarball_url": "https://api.github.com/repos/MetaX-MACA/mcoplib/tarball/mcoplib_0.4.16",
+          "zipball_url": "https://api.github.com/repos/MetaX-MACA/mcoplib/zipball/mcoplib_0.4.16",
+          "body": "vllm 0.32.0 && sglang 0.5.22"
+        },
+        {
+          "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/releases/452518315",
+          "assets_url": "https://api.github.com/repos/MetaX-MACA/mcoplib/releases/452518315/assets",
+          "upload_url": "https://uploads.github.com/repos/MetaX-MACA/mcoplib/releases/452518315/assets{?name,label}",
+          "html_url": "https://github.com/MetaX-MACA/mcoplib/releases/tag/mcoplib_0.4.15",
+          "id": 452518315,
+          "author": {
+            "login": "yiyu-metax",
+            "id": 250912274,
+            "node_id": "U_kgDODvSeEg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/250912274?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/yiyu-metax",
+            "html_url": "https://github.com/yiyu-metax",
+            "followers_url": "https://api.github.com/users/yiyu-metax/followers",
+            "following_url": "https://api.github.com/users/yiyu-metax/following{/other_user}",
+            "gists_url": "https://api.github.com/users/yiyu-metax/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/yiyu-metax/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/yiyu-metax/subscriptions",
+            "organizations_url": "https://api.github.com/users/yiyu-metax/orgs",
+            "repos_url": "https://api.github.com/users/yiyu-metax/repos",
+            "events_url": "https://api.github.com/users/yiyu-metax/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/yiyu-metax/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "node_id": "RE_kwDOQs6oGs4a-OGr",
+          "tag_name": "mcoplib_0.4.15",
+          "target_commitish": "mcoplib-0.4.15",
+          "name": "mcoplib-0.4.15",
+          "draft": false,
+          "immutable": false,
+          "prerelease": false,
+          "created_at": "2026-11-20T09:45:59Z",
+          "updated_at": "2026-11-20T09:54:36Z",
+          "published_at": "2026-11-20T09:54:36Z",
+          "assets": [],
+          "tarball_url": "https://api.github.com/repos/MetaX-MACA/mcoplib/tarball/mcoplib_0.4.15",
+          "zipball_url": "https://api.github.com/repos/MetaX-MACA/mcoplib/zipball/mcoplib_0.4.15",
+          "body": "vllm 0.30.0 && sglang 0.5.19"
+        },
+        {
+          "url": "https://api.github.com/repos/MetaX-MACA/mcoplib/releases/452516517",
+          "assets_url": "https://api.github.com/repos/MetaX-MACA/mcoplib/releases/452516517/assets",
+          "upload_url": "https://uploads.github.com/repos/MetaX-MACA/mcoplib/releases/452516517/assets{?name,label}",
+          "html_url": "https://github.com/MetaX-MACA/mcoplib/releases/tag/mcoplib_0.4.14",
+          "id": 452516517,
+          "author": {
+            "login": "yiyu-metax",
+            "id": 250912274,
+            "node_id": "U_kgDODvSeEg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/250912274?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/yiyu-metax",
+            "html_url": "https://github.com/yiyu-metax",
+            "followers_url": "https://api.github.com/users/yiyu-metax/followers",
+            "following_url": "https://api.github.com/users/yiyu-metax/following{/other_user}",
+            "gists_url": "https://api.github.com/users/yiyu-metax/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/yiyu-metax/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/yiyu-metax/subscriptions",
+            "organizations_url": "https://api.github.com/users/yiyu-metax/orgs",
+            "repos_url": "https://api.github.com/users/yiyu-metax/repos",
+            "events_url": "https://api.github.com/users/yiyu-metax/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/yiyu-metax/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "node_id": "RE_kwDOQs6oGs4a-Nql",
+          "tag_name": "mcoplib_0.4.14",
+          "target_commitish": "mcoplib-0.4.14",
+          "name": "mcoplib-0.4.14",
+          "draft": false,
+          "immutable": false,
+          "prerelease": false,
+          "created_at": "2026-11-20T09:43:51Z",
+          "updated_at": "2026-11-20T09:53:35Z",
+          "published_at": "2026-11-20T09:52:57Z",
+          "assets": [],
+          "tarball_url": "https://api.github.com/repos/MetaX-MACA/mcoplib/tarball/mcoplib_0.4.14",
+          "zipball_url": "https://api.github.com/repos/MetaX-MACA/mcoplib/zipball/mcoplib_0.4.14",
+          "body": "mcoplib vllm 0.29.0 && sglang 0.5.19"
+        }
+      ],
+      "link": "<https://api.github.com/repositories/1120839706/releases?per_page=3&page=2>; rel=\"next\", <https://api.github.com/repositories/1120839706/releases?per_page=3&page=7>; rel=\"last\""
+    }
+  },
+  "mcPytorch": {
+    "branches": {
+      "url": "https://api.github.com/repos/MetaX-MACA/mcPytorch/branches?per_page=100",
+      "data": [
+        {
+          "name": "2.0",
+          "commit": {
+            "sha": "87e40fd02cec28edb700cc190a29f0b7b9d9b1a7",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcPytorch/commits/87e40fd02cec28edb700cc190a29f0b7b9d9b1a7"
+          },
+          "protected": false
+        },
+        {
+          "name": "2.4",
+          "commit": {
+            "sha": "b3db5eed6a6e330133cd3d4b173f8da392aa6bcb",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcPytorch/commits/b3db5eed6a6e330133cd3d4b173f8da392aa6bcb"
+          },
+          "protected": false
+        },
+        {
+          "name": "2.8.0-maca3.8.0",
+          "commit": {
+            "sha": "2ee4c34194937f3329cb7ecd27427927dfa3299e",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcPytorch/commits/2ee4c34194937f3329cb7ecd27427927dfa3299e"
+          },
+          "protected": false
+        },
+        {
+          "name": "2.10.0-maca3.8.0",
+          "commit": {
+            "sha": "eda08b2f4982b7009704c3d53bdcacfa402e74cb",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcPytorch/commits/eda08b2f4982b7009704c3d53bdcacfa402e74cb"
+          },
+          "protected": false
+        },
+        {
+          "name": "dependabot/bundler/ios/TestApp/bundler-00f0729802",
+          "commit": {
+            "sha": "b9b8f0b4941402ef06576578a5cb675050b96329",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcPytorch/commits/b9b8f0b4941402ef06576578a5cb675050b96329"
+          },
+          "protected": false
+        }
+      ],
+      "link": null
+    },
+    "releases": {
+      "url": "https://api.github.com/repos/MetaX-MACA/mcPytorch/releases?per_page=3",
+      "data": [],
+      "link": null
+    }
+  },
+  "mcTriton": {
+    "branches": {
+      "url": "https://api.github.com/repos/MetaX-MACA/mcTriton/branches?per_page=100",
+      "data": [
+        {
+          "name": "3.0",
+          "commit": {
+            "sha": "7dd407c26568fceaca44cb894138e5202d369805",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcTriton/commits/7dd407c26568fceaca44cb894138e5202d369805"
+          },
+          "protected": false
+        },
+        {
+          "name": "3.6",
+          "commit": {
+            "sha": "eb5e9b9a7c1f3ef644dca91aafadc961a46f3615",
+            "url": "https://api.github.com/repos/MetaX-MACA/mcTriton/commits/eb5e9b9a7c1f3ef644dca91aafadc961a46f3615"
+          },
+          "protected": false
+        }
+      ],
+      "link": null
+    },
+    "releases": {
+      "url": "https://api.github.com/repos/MetaX-MACA/mcTriton/releases?per_page=3",
+      "data": [],
+      "link": null
+    }
+  },
+  "MXDeepEP": {
+    "branches": {
+      "url": "https://api.github.com/repos/MetaX-MACA/MXDeepEP/branches?per_page=100",
+      "data": [
+        {
+          "name": "main",
+          "commit": {
+            "sha": "5ce9cce6efc06f2596b8f395e5cae3c78494699a",
+            "url": "https://api.github.com/repos/MetaX-MACA/MXDeepEP/commits/5ce9cce6efc06f2596b8f395e5cae3c78494699a"
+          },
+          "protected": false
+        }
+      ],
+      "link": null
+    },
+    "releases": {
+      "url": "https://api.github.com/repos/MetaX-MACA/MXDeepEP/releases?per_page=3",
+      "data": [],
+      "link": null
+    }
+  },
+  "op_optimization": {
+    "branches": {
+      "url": "https://api.github.com/repos/MetaX-MACA/op_optimization/branches?per_page=100",
+      "data": [
+        {
+          "name": "master",
+          "commit": {
+            "sha": "67875de0d2f159f7380ad6471a34bf8c6551a8f1",
+            "url": "https://api.github.com/repos/MetaX-MACA/op_optimization/commits/67875de0d2f159f7380ad6471a34bf8c6551a8f1"
+          },
+          "protected": false
+        }
+      ],
+      "link": null
+    },
+    "releases": {
+      "url": "https://api.github.com/repos/MetaX-MACA/op_optimization/releases?per_page=3",
+      "data": [],
+      "link": null
+    }
+  },
+  "sglang": {
+    "branches": {
+      "url": "https://api.github.com/repos/MetaX-MACA/sglang/branches?per_page=100",
+      "data": [
+        {
+          "name": "main",
+          "commit": {
+            "sha": "e55a35fbcd491eeb3743be9b021534512c6acf85",
+            "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/e55a35fbcd491eeb3743be9b021534512c6acf85"
+          },
+          "protected": false
+        },
+        {
+          "name": "release/v0.5.7",
+          "commit": {
+            "sha": "0900c2e1cb5cea1ef75a3e8ed31c016a51830e5a",
+            "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/0900c2e1cb5cea1ef75a3e8ed31c016a51830e5a"
+          },
+          "protected": false
+        },
+        {
+          "name": "release/v0.5.10",
+          "commit": {
+            "sha": "0ea078de33c49b3c9e538eb77193a08a7e1325f2",
+            "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/0ea078de33c49b3c9e538eb77193a08a7e1325f2"
+          },
+          "protected": false
+        },
+        {
+          "name": "release/v0.5.12",
+          "commit": {
+            "sha": "f261eb651c5a72ddc4d729dea4a77585056112a0",
+            "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/f261eb651c5a72ddc4d729dea4a77585056112a0"
+          },
+          "protected": false
+        },
+        {
+          "name": "release/v0.5.14-cr1",
+          "commit": {
+            "sha": "8af8c433a9fc2e72b6dd33c2355d1ad08b2f641f",
+            "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/8af8c433a9fc2e72b6dd33c2355d1ad08b2f641f"
+          },
+          "protected": false
+        },
+        {
+          "name": "release/v0.5.14-cr2",
+          "commit": {
+            "sha": "6ddf478dc90e3260c119a8208e456d7db24a52a5",
+            "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/6ddf478dc90e3260c119a8208e456d7db24a52a5"
+          },
+          "protected": false
+        },
+        {
+          "name": "release/v0.5.14",
+          "commit": {
+            "sha": "052dcfb5f7d968a121497b3fed82b1c563d856e8",
+            "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/052dcfb5f7d968a121497b3fed82b1c563d856e8"
+          },
+          "protected": false
+        },
+        {
+          "name": "release/v0.5.19",
+          "commit": {
+            "sha": "21b326b3d748412389789953bb65a28ee42779b3",
+            "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/21b326b3d748412389789953bb65a28ee42779b3"
+          },
+          "protected": false
+        },
+        {
+          "name": "release/v0.5.21",
+          "commit": {
+            "sha": "cea8f950303ae0635af66f021d1e9fb48fd06d5b",
+            "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/cea8f950303ae0635af66f021d1e9fb48fd06d5b"
+          },
+          "protected": false
+        },
+        {
+          "name": "release/v0.5.22-cr1",
+          "commit": {
+            "sha": "bcbd6c8d1daf156c916a8fdce202c36fee71cf37",
+            "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/bcbd6c8d1daf156c916a8fdce202c36fee71cf37"
+          },
+          "protected": false
+        }
+      ],
+      "link": null
+    },
+    "releases": {
+      "url": "https://api.github.com/repos/MetaX-MACA/sglang/releases?per_page=3",
+      "data": [],
+      "link": null
+    }
+  },
+  "TileKernels-Metax": {
+    "branches": {
+      "url": "https://api.github.com/repos/MetaX-MACA/TileKernels-Metax/branches?per_page=100",
+      "data": [
+        {
+          "name": "dev",
+          "commit": {
+            "sha": "0266ab740980de7dc03a828b8259cd73d100c2eb",
+            "url": "https://api.github.com/repos/MetaX-MACA/TileKernels-Metax/commits/0266ab740980de7dc03a828b8259cd73d100c2eb"
+          },
+          "protected": false
+        },
+        {
+          "name": "main",
+          "commit": {
+            "sha": "36d9e45d38e204ebb87e6f6e833821eee0482fe5",
+            "url": "https://api.github.com/repos/MetaX-MACA/TileKernels-Metax/commits/36d9e45d38e204ebb87e6f6e833821eee0482fe5"
+          },
+          "protected": false
+        }
+      ],
+      "link": null
+    },
+    "releases": {
+      "url": "https://api.github.com/repos/MetaX-MACA/TileKernels-Metax/releases?per_page=3",
+      "data": [],
+      "link": null
+    }
+  },
+  "TileOPs-Metax": {
+    "branches": {
+      "url": "https://api.github.com/repos/MetaX-MACA/TileOPs-Metax/branches?per_page=100",
+      "data": [
+        {
+          "name": "dev",
+          "commit": {
+            "sha": "916221870e092fff9c2219ef7d15f2e52299e141",
+            "url": "https://api.github.com/repos/MetaX-MACA/TileOPs-Metax/commits/916221870e092fff9c2219ef7d15f2e52299e141"
+          },
+          "protected": false
+        },
+        {
+          "name": "main",
+          "commit": {
+            "sha": "ee97eb7b300ea989e1959478e916972ad07f542c",
+            "url": "https://api.github.com/repos/MetaX-MACA/TileOPs-Metax/commits/ee97eb7b300ea989e1959478e916972ad07f542c"
+          },
+          "protected": false
+        },
+        {
+          "name": "stats",
+          "commit": {
+            "sha": "e04796da613b73251d2301e168b09277bdef60be",
+            "url": "https://api.github.com/repos/MetaX-MACA/TileOPs-Metax/commits/e04796da613b73251d2301e168b09277bdef60be"
+          },
+          "protected": false
+        }
+      ],
+      "link": null
+    },
+    "releases": {
+      "url": "https://api.github.com/repos/MetaX-MACA/TileOPs-Metax/releases?per_page=3",
+      "data": [],
+      "link": null
+    }
+  },
+  "verl-metax": {
+    "branches": {
+      "url": "https://api.github.com/repos/MetaX-MACA/verl-metax/branches?per_page=100",
+      "data": [
+        {
+          "name": "main",
+          "commit": {
+            "sha": "b39f7ce49014b605369344287896849a8457a76f",
+            "url": "https://api.github.com/repos/MetaX-MACA/verl-metax/commits/b39f7ce49014b605369344287896849a8457a76f"
+          },
+          "protected": false
+        },
+        {
+          "name": "release/v0.9.0",
+          "commit": {
+            "sha": "1ff470bc95a9326fa23314a10f5cf32bda005e9f",
+            "url": "https://api.github.com/repos/MetaX-MACA/verl-metax/commits/1ff470bc95a9326fa23314a10f5cf32bda005e9f"
+          },
+          "protected": false
+        }
+      ],
+      "link": null
+    },
+    "releases": {
+      "url": "https://api.github.com/repos/MetaX-MACA/verl-metax/releases?per_page=3",
+      "data": [],
+      "link": null
+    }
+  },
+  "vLLM-metax": {
+    "branches": {
+      "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/branches?per_page=100",
+      "data": [
+        {
+          "name": "fix-int8-w8a8-mla",
+          "commit": {
+            "sha": "9902b34ed881d439fc9ba122fbde4e3dece708d4",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/9902b34ed881d439fc9ba122fbde4e3dece708d4"
+          },
+          "protected": false
+        },
+        {
+          "name": "master",
+          "commit": {
+            "sha": "5d0b6a8ebbdcf145cc87e53c594b4ca64d120024",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/5d0b6a8ebbdcf145cc87e53c594b4ca64d120024"
+          },
+          "protected": true
+        },
+        {
+          "name": "releases/v0.8.5",
+          "commit": {
+            "sha": "11b156053ec0344b8637c621c49b25c45f0a2331",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/11b156053ec0344b8637c621c49b25c45f0a2331"
+          },
+          "protected": true
+        },
+        {
+          "name": "releases/v0.10.2",
+          "commit": {
+            "sha": "97da48a64def90e7ecfc71df66c52fe87da97351",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/97da48a64def90e7ecfc71df66c52fe87da97351"
+          },
+          "protected": true
+        },
+        {
+          "name": "releases/v0.11.2",
+          "commit": {
+            "sha": "7eeeb9e523467e1c1484b2e8304c2b401e4f46a8",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/7eeeb9e523467e1c1484b2e8304c2b401e4f46a8"
+          },
+          "protected": true
+        },
+        {
+          "name": "releases/v0.12.0",
+          "commit": {
+            "sha": "b12e350951d57bd20e3da50260387ba534f8ef1e",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/b12e350951d57bd20e3da50260387ba534f8ef1e"
+          },
+          "protected": true
+        },
+        {
+          "name": "releases/v0.13.0",
+          "commit": {
+            "sha": "cd578d635b400ad43a6ae2f74a0731bd5859d207",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/cd578d635b400ad43a6ae2f74a0731bd5859d207"
+          },
+          "protected": true
+        },
+        {
+          "name": "releases/v0.14.0",
+          "commit": {
+            "sha": "3fac66a4b39a37d853ee9ddaf1753c9fe19b2288",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/3fac66a4b39a37d853ee9ddaf1753c9fe19b2288"
+          },
+          "protected": true
+        },
+        {
+          "name": "releases/v0.15.0",
+          "commit": {
+            "sha": "95db3e06e85a854d04c6982681f862c38ba5e18d",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/95db3e06e85a854d04c6982681f862c38ba5e18d"
+          },
+          "protected": true
+        },
+        {
+          "name": "releases/v0.17.0",
+          "commit": {
+            "sha": "14d1f8889bf08c3a368f572d885d04f95ea88dfb",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/14d1f8889bf08c3a368f572d885d04f95ea88dfb"
+          },
+          "protected": true
+        },
+        {
+          "name": "releases/v0.18.0",
+          "commit": {
+            "sha": "d439f38762777498e6293c9ee32a07287d959ae9",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/d439f38762777498e6293c9ee32a07287d959ae9"
+          },
+          "protected": true
+        },
+        {
+          "name": "releases/v0.19.0",
+          "commit": {
+            "sha": "cfbfef3d80518a14995b4a9cf46fae2565b01ff7",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/cfbfef3d80518a14995b4a9cf46fae2565b01ff7"
+          },
+          "protected": true
+        },
+        {
+          "name": "releases/v0.20.0",
+          "commit": {
+            "sha": "600f6b6dd5906c2253da2626e75efad410b9f3f6",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/600f6b6dd5906c2253da2626e75efad410b9f3f6"
+          },
+          "protected": true
+        },
+        {
+          "name": "releases/v0.21.0",
+          "commit": {
+            "sha": "6f591c7062edd5e749763e72e09ea80e9c8b3b92",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/6f591c7062edd5e749763e72e09ea80e9c8b3b92"
+          },
+          "protected": true
+        },
+        {
+          "name": "releases/v0.22.0",
+          "commit": {
+            "sha": "eda1e4107f73e24e0a983745b7921d254b06c1c5",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/eda1e4107f73e24e0a983745b7921d254b06c1c5"
+          },
+          "protected": true
+        },
+        {
+          "name": "releases/v0.23.0",
+          "commit": {
+            "sha": "af1f8f7bfa3542624d1104f58db52a8bbe92c7a3",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/af1f8f7bfa3542624d1104f58db52a8bbe92c7a3"
+          },
+          "protected": true
+        },
+        {
+          "name": "releases/v0.24.0",
+          "commit": {
+            "sha": "8cd232826e34c23df6ecf0059f1d08826fae65f8",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/8cd232826e34c23df6ecf0059f1d08826fae65f8"
+          },
+          "protected": true
+        },
+        {
+          "name": "releases/v0.25.0",
+          "commit": {
+            "sha": "1b3811229d8770f5fbbf1209ec7c88d50cb23e9d",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/1b3811229d8770f5fbbf1209ec7c88d50cb23e9d"
+          },
+          "protected": true
+        },
+        {
+          "name": "releases/v0.26.0",
+          "commit": {
+            "sha": "615ac623bdbb8dcbd337436ab9bbff5f263cc3d0",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/615ac623bdbb8dcbd337436ab9bbff5f263cc3d0"
+          },
+          "protected": true
+        },
+        {
+          "name": "releases/v0.27.0",
+          "commit": {
+            "sha": "c46a5b464dccaf014bb3ce023fbfba1a3659b888",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/c46a5b464dccaf014bb3ce023fbfba1a3659b888"
+          },
+          "protected": true
+        },
+        {
+          "name": "releases/v0.28.0",
+          "commit": {
+            "sha": "4840e80c17fca73cb6fd6daa9d80f4f948c29aec",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/4840e80c17fca73cb6fd6daa9d80f4f948c29aec"
+          },
+          "protected": true
+        },
+        {
+          "name": "releases/v0.29.0",
+          "commit": {
+            "sha": "ae1df26a5177d8c3b90f4fc89bf08b3c4949aed8",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/ae1df26a5177d8c3b90f4fc89bf08b3c4949aed8"
+          },
+          "protected": true
+        },
+        {
+          "name": "support_deep_gemm_fp8",
+          "commit": {
+            "sha": "0e1b207a4bb11e60511c81968006cb1830e1372e",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/0e1b207a4bb11e60511c81968006cb1830e1372e"
+          },
+          "protected": false
+        },
+        {
+          "name": "support-flashinfermla",
+          "commit": {
+            "sha": "c99710907262eb0b5a91da72bd6382dd3ed82e9a",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/c99710907262eb0b5a91da72bd6382dd3ed82e9a"
+          },
+          "protected": false
+        },
+        {
+          "name": "switch-to-torch-stable-api",
+          "commit": {
+            "sha": "6fef18b641fd84fc880455d0e3c82a19c990a193",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/6fef18b641fd84fc880455d0e3c82a19c990a193"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.9.1-dev",
+          "commit": {
+            "sha": "809195c67418be083bc758f27aa613544011e54b",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/809195c67418be083bc758f27aa613544011e54b"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.10.1.1-dev",
+          "commit": {
+            "sha": "800ca7c6527f08247113a638a44844993e7c2a2d",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/800ca7c6527f08247113a638a44844993e7c2a2d"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.10.2-dev",
+          "commit": {
+            "sha": "62f9187faa8f3cb96675618e61ec52ece5b113fd",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/62f9187faa8f3cb96675618e61ec52ece5b113fd"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.11.0-dev",
+          "commit": {
+            "sha": "7848c28407e105be5f3bea8576d9be8edb088c48",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/7848c28407e105be5f3bea8576d9be8edb088c48"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.11.1rc6-dev",
+          "commit": {
+            "sha": "73fd46308252500965915e47c1bed803cf40df38",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/73fd46308252500965915e47c1bed803cf40df38"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.11.2-dev",
+          "commit": {
+            "sha": "d5d1dbf0c7450dd3846bba80b1742360c2dc8ee0",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/d5d1dbf0c7450dd3846bba80b1742360c2dc8ee0"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.12.0-dev",
+          "commit": {
+            "sha": "778f6a09de0d9d1760e10f3fefb472632c94b5f5",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/778f6a09de0d9d1760e10f3fefb472632c94b5f5"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.13.0-dev",
+          "commit": {
+            "sha": "9168a1275e950198e7a94febdabe6cd91c6ed869",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/9168a1275e950198e7a94febdabe6cd91c6ed869"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.14.0-dev",
+          "commit": {
+            "sha": "5728a84d966faa4d17abb2ecf91baa3ccc55c718",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/5728a84d966faa4d17abb2ecf91baa3ccc55c718"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.15.0-dev",
+          "commit": {
+            "sha": "9b2750c46a140020eab5c1e6e40d358e12d7a69b",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/9b2750c46a140020eab5c1e6e40d358e12d7a69b"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.17.0-dev",
+          "commit": {
+            "sha": "a2a4e3cdab45bac067e8cc2a00fb5cfd3a858688",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/a2a4e3cdab45bac067e8cc2a00fb5cfd3a858688"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.18.0-dev",
+          "commit": {
+            "sha": "e8a33d04584f3c2169b1271cbbeaa353b5843382",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/e8a33d04584f3c2169b1271cbbeaa353b5843382"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.19.0-dev",
+          "commit": {
+            "sha": "d5142560d356e581b420e9c228cb3055309bf16d",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/d5142560d356e581b420e9c228cb3055309bf16d"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.20.0-dev",
+          "commit": {
+            "sha": "fe3e7d3ac92fc1eb21636ff920b7d537e9d7ee63",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/fe3e7d3ac92fc1eb21636ff920b7d537e9d7ee63"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.21.0-dev",
+          "commit": {
+            "sha": "2e91de6debba58e145bdb76df13b5e359877328e",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/2e91de6debba58e145bdb76df13b5e359877328e"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.22.0-dev",
+          "commit": {
+            "sha": "b78dab8bb7f5dcd6815a665fe099f23ce5feb0b8",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/b78dab8bb7f5dcd6815a665fe099f23ce5feb0b8"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.23.0-dev",
+          "commit": {
+            "sha": "0c296bceaa4ec8a7432d783dee9506db0306fd56",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/0c296bceaa4ec8a7432d783dee9506db0306fd56"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.24.0-dev",
+          "commit": {
+            "sha": "3d7d9f2623a34abec11219f3a001bc6dec8f3bba",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/3d7d9f2623a34abec11219f3a001bc6dec8f3bba"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.25.0-dev",
+          "commit": {
+            "sha": "3e0abea423c90d52eef59a932e9944e3416bf886",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/3e0abea423c90d52eef59a932e9944e3416bf886"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.26.0-dev",
+          "commit": {
+            "sha": "625b0528c04d4e3576c7b199605072c42b2240c3",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/625b0528c04d4e3576c7b199605072c42b2240c3"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.27.0-dev",
+          "commit": {
+            "sha": "7cca94dd748ae7789c0f181b02bc409f44c62cb9",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/7cca94dd748ae7789c0f181b02bc409f44c62cb9"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.28.0-dev",
+          "commit": {
+            "sha": "28be6c0772d8ca798390339339a873857ef24171",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/28be6c0772d8ca798390339339a873857ef24171"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.29.0-dev",
+          "commit": {
+            "sha": "a1d5d32b8e2ada30cc4b9bbffe4926ececfc96c6",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/a1d5d32b8e2ada30cc4b9bbffe4926ececfc96c6"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.30.0-dev",
+          "commit": {
+            "sha": "968a4f3a250861851bb955239a049b71c8482d2b",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/968a4f3a250861851bb955239a049b71c8482d2b"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.32.0-dev",
+          "commit": {
+            "sha": "0962c8735ffe4795800030680311410848512b82",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/0962c8735ffe4795800030680311410848512b82"
+          },
+          "protected": false
+        },
+        {
+          "name": "vllm-cpu-dockerfile",
+          "commit": {
+            "sha": "e289ef8938447fe5a8960a12fe2d9c8f05ee399d",
+            "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/commits/e289ef8938447fe5a8960a12fe2d9c8f05ee399d"
+          },
+          "protected": false
+        }
+      ],
+      "link": null
+    },
+    "releases": {
+      "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/releases?per_page=3",
+      "data": [
+        {
+          "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/releases/452435272",
+          "assets_url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/releases/452435272/assets",
+          "upload_url": "https://uploads.github.com/repos/MetaX-MACA/vLLM-metax/releases/452435272/assets{?name,label}",
+          "html_url": "https://github.com/MetaX-MACA/vLLM-metax/releases/tag/v0.29.0",
+          "id": 452435272,
+          "author": {
+            "login": "ILikeIneine",
+            "id": 37239608,
+            "node_id": "MDQ6VXNlcjM3MjM5NjA4",
+            "avatar_url": "https://avatars.githubusercontent.com/u/37239608?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/ILikeIneine",
+            "html_url": "https://github.com/ILikeIneine",
+            "followers_url": "https://api.github.com/users/ILikeIneine/followers",
+            "following_url": "https://api.github.com/users/ILikeIneine/following{/other_user}",
+            "gists_url": "https://api.github.com/users/ILikeIneine/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/ILikeIneine/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/ILikeIneine/subscriptions",
+            "organizations_url": "https://api.github.com/users/ILikeIneine/orgs",
+            "repos_url": "https://api.github.com/users/ILikeIneine/repos",
+            "events_url": "https://api.github.com/users/ILikeIneine/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/ILikeIneine/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "node_id": "RE_kwDOO-O1Pc4a951I",
+          "tag_name": "v0.29.0",
+          "target_commitish": "master",
+          "name": "v0.29.0",
+          "draft": false,
+          "immutable": false,
+          "prerelease": false,
+          "created_at": "2026-11-20T08:09:05Z",
+          "updated_at": "2026-11-20T08:28:54Z",
+          "published_at": "2026-11-20T08:28:54Z",
+          "assets": [],
+          "tarball_url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/tarball/v0.29.0",
+          "zipball_url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/zipball/v0.29.0",
+          "body": "**Full Changelog**: https://github.com/MetaX-MACA/vLLM-metax/compare/v0.28.0...v0.29.0"
+        },
+        {
+          "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/releases/413603001",
+          "assets_url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/releases/413603001/assets",
+          "upload_url": "https://uploads.github.com/repos/MetaX-MACA/vLLM-metax/releases/413603001/assets{?name,label}",
+          "html_url": "https://github.com/MetaX-MACA/vLLM-metax/releases/tag/v0.28.0",
+          "id": 413603001,
+          "author": {
+            "login": "ILikeIneine",
+            "id": 37239608,
+            "node_id": "MDQ6VXNlcjM3MjM5NjA4",
+            "avatar_url": "https://avatars.githubusercontent.com/u/37239608?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/ILikeIneine",
+            "html_url": "https://github.com/ILikeIneine",
+            "followers_url": "https://api.github.com/users/ILikeIneine/followers",
+            "following_url": "https://api.github.com/users/ILikeIneine/following{/other_user}",
+            "gists_url": "https://api.github.com/users/ILikeIneine/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/ILikeIneine/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/ILikeIneine/subscriptions",
+            "organizations_url": "https://api.github.com/users/ILikeIneine/orgs",
+            "repos_url": "https://api.github.com/users/ILikeIneine/repos",
+            "events_url": "https://api.github.com/users/ILikeIneine/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/ILikeIneine/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "node_id": "RE_kwDOO-O1Pc4YpxS5",
+          "tag_name": "v0.28.0",
+          "target_commitish": "master",
+          "name": "v0.28.0",
+          "draft": false,
+          "immutable": false,
+          "prerelease": false,
+          "created_at": "2026-10-15T08:52:45Z",
+          "updated_at": "2026-10-15T08:59:45Z",
+          "published_at": "2026-10-15T08:59:45Z",
+          "assets": [],
+          "tarball_url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/tarball/v0.28.0",
+          "zipball_url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/zipball/v0.28.0",
+          "body": "## What's Changed\r\n\r\n- **DeepSeek-V4 / DSpark**: fix FlashMLA head padding with BF16 KV cache, keep DSpark `main_proj` in BF16, and sync the MLA base class. Keep main_proj in BF16 by @caozuoba in https://github.com/MetaX-MACA/vLLM-metax/pull/337\r\n- **Platform and attention**: force-enable the sparse attention indexer and add the `check_runner_kv_caches_multi_layer` platform interface.\r\n- **Operators and MoE**: register OOT implementations for `SituAndMul` and `ReLUSquaredActivation`; sync Modular MoE and all-to-all; remove imports of an upstream-deleted Marlin MoE class.\r\n- **Patch cleanup**: remove legacy Triton LoRA compatibility patches; retain version-specific telechat3-yarn adaptations.\r\n- **Dependencies and tooling**: remove the previous `kv_connectors` dependency entries, update TVM FFI and numba, and refactor batch validation tools.\r\n- **Upstream interface changes**: move bitsandbytes to an OOT plugin and remove `calculate_kv_scales` and `override_attention_dtype`.\r\n\r\n\r\n**Full Changelog**: https://github.com/MetaX-MACA/vLLM-metax/compare/v0.27.0...v0.28.0",
+          "mentions_count": 1
+        },
+        {
+          "url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/releases/413572151",
+          "assets_url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/releases/413572151/assets",
+          "upload_url": "https://uploads.github.com/repos/MetaX-MACA/vLLM-metax/releases/413572151/assets{?name,label}",
+          "html_url": "https://github.com/MetaX-MACA/vLLM-metax/releases/tag/v0.27.0",
+          "id": 413572151,
+          "author": {
+            "login": "ILikeIneine",
+            "id": 37239608,
+            "node_id": "MDQ6VXNlcjM3MjM5NjA4",
+            "avatar_url": "https://avatars.githubusercontent.com/u/37239608?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/ILikeIneine",
+            "html_url": "https://github.com/ILikeIneine",
+            "followers_url": "https://api.github.com/users/ILikeIneine/followers",
+            "following_url": "https://api.github.com/users/ILikeIneine/following{/other_user}",
+            "gists_url": "https://api.github.com/users/ILikeIneine/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/ILikeIneine/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/ILikeIneine/subscriptions",
+            "organizations_url": "https://api.github.com/users/ILikeIneine/orgs",
+            "repos_url": "https://api.github.com/users/ILikeIneine/repos",
+            "events_url": "https://api.github.com/users/ILikeIneine/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/ILikeIneine/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "node_id": "RE_kwDOO-O1Pc4Yppw3",
+          "tag_name": "v0.27.0",
+          "target_commitish": "master",
+          "name": "v0.27.0",
+          "draft": false,
+          "immutable": false,
+          "prerelease": false,
+          "created_at": "2026-10-15T08:26:41Z",
+          "updated_at": "2026-10-15T08:27:22Z",
+          "published_at": "2026-10-15T08:24:05Z",
+          "assets": [],
+          "tarball_url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/tarball/v0.27.0",
+          "zipball_url": "https://api.github.com/repos/MetaX-MACA/vLLM-metax/zipball/v0.27.0",
+          "body": "- **DeepSeek-V4**: update model, sparse MLA, and speculative decoding interfaces; fix `_gather_k_cache_kernel` stride order and disable the model's FP8 KV cache layout by default.\r\n- **MiniMax-M3**: fix Triton shared-memory limits; disable `cooperative_topk` / `persistent_topk`, which mcoplib does not support.\r\n- **MoE**: fix mctlass FP8, skip invalid experts, and explicitly prohibit non-batched DeepGEMM for INT8 W8A8.\r\n- **Distributed execution and memory**: add mxmesh support, fix MCCL all-gather hangs, and add `MacaMemBackend` for sleep mode.\r\n- **Toolchain integration**: update csrc, custom operators, and attention backends; disable `cudaLaunchAttribute` on MACA.\r\n"
+        }
+      ],
+      "link": "<https://api.github.com/repositories/1004778813/releases?per_page=3&page=2>; rel=\"next\", <https://api.github.com/repositories/1004778813/releases?per_page=3&page=7>; rel=\"last\""
+    }
+  },
+  "vllm-omni-metax": {
+    "branches": {
+      "url": "https://api.github.com/repos/MetaX-MACA/vllm-omni-metax/branches?per_page=100",
+      "data": [
+        {
+          "name": "main",
+          "commit": {
+            "sha": "679716dd798afc2d3cae5852e7ddfff308507550",
+            "url": "https://api.github.com/repos/MetaX-MACA/vllm-omni-metax/commits/679716dd798afc2d3cae5852e7ddfff308507550"
+          },
+          "protected": false
+        },
+        {
+          "name": "release/v0.18.0",
+          "commit": {
+            "sha": "2e52885116bff6e6d1642fa2284a3050fbe0a29b",
+            "url": "https://api.github.com/repos/MetaX-MACA/vllm-omni-metax/commits/2e52885116bff6e6d1642fa2284a3050fbe0a29b"
+          },
+          "protected": false
+        },
+        {
+          "name": "release/v0.19.0rc1",
+          "commit": {
+            "sha": "16e43251dcdd487baff2a1ed19f6d3a87bec6a78",
+            "url": "https://api.github.com/repos/MetaX-MACA/vllm-omni-metax/commits/16e43251dcdd487baff2a1ed19f6d3a87bec6a78"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.20.0-dev",
+          "commit": {
+            "sha": "afb64a428b32dff8e5dc7f7b8831027722472721",
+            "url": "https://api.github.com/repos/MetaX-MACA/vllm-omni-metax/commits/afb64a428b32dff8e5dc7f7b8831027722472721"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.22.0-dev",
+          "commit": {
+            "sha": "426b1e35fad1ce1c59e92c1293622d095d261e4b",
+            "url": "https://api.github.com/repos/MetaX-MACA/vllm-omni-metax/commits/426b1e35fad1ce1c59e92c1293622d095d261e4b"
+          },
+          "protected": false
+        },
+        {
+          "name": "v0.26.0-dev",
+          "commit": {
+            "sha": "fab3e33b292a8df85b701118cb6d14fd4557930a",
+            "url": "https://api.github.com/repos/MetaX-MACA/vllm-omni-metax/commits/fab3e33b292a8df85b701118cb6d14fd4557930a"
+          },
+          "protected": false
+        }
+      ],
+      "link": null
+    },
+    "releases": {
+      "url": "https://api.github.com/repos/MetaX-MACA/vllm-omni-metax/releases?per_page=3",
+      "data": [],
+      "link": null
+    }
+  }
+}

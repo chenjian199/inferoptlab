@@ -1,0 +1,20 @@
+文档: 沐曦通用GPU_mcTriton用户指南_CN_V08.pdf
+文档 ID: mctriton-v08
+SHA256: 5486a806ac8e48e40514347bac7403c40aee53d59515a9bded39cc17a7daed59
+PDF 页序号: 7
+PDF 页码标签: 3
+页脚页码候选: 3
+章节提示（书签推断）: 如何卸载
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcTriton 用户指南
+python -c "import triton"
+没有报错信息，表明 Triton 包安装成功。
+2.1.4 如何卸载
+卸载方式同标准 whl 包。
+操作步骤
+1. 卸载 mcTriton：
+python -m pip uninstall triton
+2. 卸载 mcPyTorch：
+python -m pip uninstall torch
+2 快速安装 沐曦股份专有信息 OG‑25009‑020‑F5_V08 | 3

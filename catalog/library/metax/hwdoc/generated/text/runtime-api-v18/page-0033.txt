@@ -1,0 +1,44 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 33
+PDF 页码标签: 24
+页脚页码候选: 24
+章节提示（书签推断）: 物理页面缓存行为
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+3.5.5 物理页面缓存行为
+应用程序可以为内存池配置释放阈值属性（ mcMemPoolAttrReleaseThreshold） ，让流序内存分
+配器为该内存池保留指定大小的物理内存占用，当用户程序在该内存池进行频繁分配和释放时，可
+以有效减少对物理内存的操作系统调用操作，提高应用程序效率。流序内存分配器这个功能可以
+视为物理页面的缓存行为。默认情况下，流序内存分配器会尝试将池的物理内存最小化，也就是
+mcMemPoolAttrReleaseThreshold 默认设置为 0。
+释放阈值是内存池在尝试将内存释放回操作系统之前应保留的内存量（以字节为单位） 。当内存池持有
+超过释放阈值字节的内存时，分配器将尝试在下一次调用流、事件或设备同步时将内存释放回操作系统。
+将释放阈值设置为 UINT64_MAX 可防止驱动程序在每次同步后尝试收缩池。
+mcuint64_t setVal = UINT64_MAX;
+mcMemPoolSetAttribute(memPool, mcMemPoolAttrReleaseThreshold, &setVal);
+将 mcMemPoolAttrReleaseThreshold 设置得足够高以有效禁用内存池收缩的应用程序可能希望显
+式收缩内存池的内存占用。mcMemPoolTrimTo 允许此类应用程序这样做。在调整内存池的占用空间时，
+minBytesToKeep 参数允许应用程序保留它预期在后续执行阶段需要的内存量。
+mcuint64_t setVal = UINT64_MAX;
+mcMemPoolSetAttribute(memPool, mcMemPoolAttrReleaseThreshold, &setVal);
+// Application phase needing a lot of memory from the stream ordered allocator
+for (i=0; i<10; i++) {
+for (j=0; j<10; j++) {
+mcMallocAsync(&ptrs[j],size[j], stream);
+}
+kernel<<<...,stream>>>(ptrs,...);
+for (j=0; j<10; j++) {
+mcFreeAsync(ptrs[j], stream);
+}
+}
+// Process does not need as much memory for the next phase.
+// Synchronize so that the trim operation will know that the allocations are no
+// longer in use.
+mcStreamSynchronize(stream);
+mcMemPoolTrimTo(mempool, 0);
+// Some other process/allocation mechanism can now use the physical memory
+// released by the trimming operation.
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 24

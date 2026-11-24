@@ -1,0 +1,46 @@
+文档: 沐曦通用GPU_MXMACA编译器内建函数编程指南_CN_V01.pdf
+文档 ID: builtins-v01
+SHA256: 80dfb3a83381e48e19968b432d4eb24d37c505bd711af14f74889277cffc3835
+PDF 页序号: 19
+PDF 页码标签: 13
+页脚页码候选: 13
+章节提示（书签推断）: __builtin_mxc_barrier_and_wait*
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® 编译器内建函数编程指南
+表 3.8 __builtin_mxc_barrier_ex 参数说明
+参数 描述
+flag 当值为 0 时，产生指令屏障和内存栅栏。编译器会根据代码中内存访问操作类型
+自动添加相应的内存栅栏。
+当值为 1 时，产生指令屏障和共享内存栅栏。编译器只有当代码中存在共享内存
+访问操作时才会自动添加共享内存栅栏。
+当值为 2 时，仅产生指令屏障。编译器不会自动插入任何的内存栅栏。
+当值为 3 时。不会产生指令屏障和内存栅栏。此时该函数仅用于阻止一些编译优
+化行为，不会产生任何的同步操作。
+代码示例
+__global__ void test_swap_warp_data(int *data) {
+__shared__ int sharedData[128];
+int id = threadIdx.x + blockIdx.x + blockDim.x;
+int warpId = id / 64;
+int laneId = threadIdx.x % 64;
+sharedData[id] = data[id];
+// Swap data by shared memory. So barrier_shared is enough.
+__builtin_mxc_barrier_ex(1);
+int targetWarpId = warpId ^ 1;
+int targetId = targetWarpId * 64 + laneId;
+int val = sharedData[targetId];
+data[id] = val;
+}
+3.1.10 __builtin_mxc_barrier_and_wait*
+功能描述
+内存栅栏。该函数只与 __builtin_mxc_ldg_*_bsm 配合使用，可以实现针对全局内存到共享内存加载
+操作的局部等待，从而在代码中构建更加高效灵活的数据访问与计算流水线。
+接口声明
+void __builtin_mxc_barrier_and_wait1(int scope, v1u32 ret_flag); // Used for 32bit  
+,→load
+void __builtin_mxc_barrier_and_wait2(int scope, v2u32 ret_flag); // Used for 64bit  
+,→load
+void __builtin_mxc_barrier_and_wait4(int scope, v4u32 ret_flag); // Used for  
+,→128bit load
+参数
+3 接口介绍 沐曦股份专有信息 OG‑26013‑000‑F5_V01 | 13

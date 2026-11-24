@@ -1,0 +1,53 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 108
+PDF 页码标签: 101
+页脚页码候选: 101
+章节提示（书签推断）: mcblas<t>hemm()
+质量标记: private_use_characters
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE
+• m < 0 , n < 0 或 batchCount < 0
+• trans != MCBLAS_OP_N, MCBLAS_OP_C,
+MCBLAS_OP_T
+• uplo != MCBLAS_FILL_MODE_LOWER,
+MCBLAS_FILL_MODE_UPPER
+• side != MCBLAS_SIDE_LEFT,
+MCBLAS_SIDE_RIGHT
+• diag != MCBLAS_DIAG_NON_UNIT,
+MCBLAS_DIAG_UNIT
+• 如 果 side == MCBLAS_SIDE_LEFT ，lda <
+max(1, m) ；否则 lda < max(1, n)
+• ldb < max(1, m)
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2.5.12 mcblas<t>hemm()
+mcblasStatus_t mcblasChemm(mcblasHandle_t handle,
+mcblasSideMode_t side, mcblasFillMode_t uplo,
+int m, int n,
+const mcComplex *alpha,
+const mcComplex *A, int lda,
+const mcComplex *B, int ldb,
+const mcComplex *beta,
+mcComplex *C, int ldc)
+mcblasStatus_t mcblasZhemm(mcblasHandle_t handle,
+mcblasSideMode_t side, mcblasFillMode_t uplo,
+int m, int n,
+const mcDoubleComplex *alpha,
+const mcDoubleComplex *A, int lda,
+const mcDoubleComplex *B, int ldb,
+const mcDoubleComplex *beta,
+mcDoubleComplex *C, int ldc)
+该函数执行厄米矩阵‑矩阵乘法
+C =
+
+
+
+αAB + βC if side == M CBLAS_SIDE _LEF T
+αBA + βC if side == M CBLAS_SIDE _RIGHT
+其中 A 是以 lower 或 upper 模式存储的厄米矩阵，B 和 C 是 m × n 矩阵，α 和 β 是标量。
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 101

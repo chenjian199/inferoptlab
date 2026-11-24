@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "status": "draft_requires_pilot",
+  "dataset_id": "openai/openai_humaneval",
+  "split": "test",
+  "expected_tasks": 164,
+  "dataset_manifest": "datasets/humaneval/manifest.json",
+  "task_selection": "all",
+  "samples_per_task": 1,
+  "report_label": "local_chat_adapted_humaneval_pass_at_1",
+  "sampling": {
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "seed": 0,
+    "max_tokens": 1024,
+    "ignore_eos": false
+  },
+  "chat_template": {
+    "reasoning_effort": "low",
+    "template_sha256": null,
+    "tokenizer_manifest_sha256": null,
+    "adapter_revision": null,
+    "code_extractor_revision": null
+  },
+  "prompt_protocol": {
+    "mode": "chat_request_completion_of_original_prefix",
+    "allowed_dataset_fields": [
+      "task_id",
+      "prompt"
+    ],
+    "excluded_from_generation": [
+      "canonical_solution",
+      "test",
+      "entry_point"
+    ],
+    "instruction_draft": "Complete the Python function from the following prefix. Output only the missing continuation, preserving indentation. Do not repeat the prefix or include explanations.",
+    "test_conditioned_repair": false,
+    "regenerate_on_test_failure": false
+  },
+  "runtime": {
+    "baseline_reference": "configs/d0_environment.json",
+    "runner": "V2",
+    "tensor_parallel_size": 8,
+    "max_model_len": 4096,
+    "max_num_seqs": 1,
+    "async_scheduling": false,
+    "enforce_eager": true,
+    "enable_prefix_caching": false
+  },
+  "context_policy": "Validate prompt_tokens + max_tokens <= 4096 for every task; no silent truncation or dropping. Freeze any pilot changes before B0/candidate comparison.",
+  "scoring": {
+    "metric": "pass@1",
+    "denominator": 164,
+    "missing_task_policy": "mark_run_incomplete",
+    "model_failure_categories": [
+      "parse_failure",
+      "syntax_error",
+      "test_failure",
+      "program_timeout"
+    ],
+    "infrastructure_failure_policy": "incomplete_not_a_valid_full_score",
+    "evaluator_commit": null,
+    "test_suite": "original_humaneval",
+    "execution_timeout_seconds": null,
+    "sandbox": {
+      "status": "not_implemented",
+      "cpu_only": true,
+      "network": false,
+      "mount_model": false,
+      "mount_docker_socket": false,
+      "mount_secrets": false,
+      "non_root_required": true,
+      "resource_limits_must_be_frozen": true
+    },
+    "diagnostic_flags": [
+      "truncated_output"
+    ],
+    "truncation_scoring": "Record separately; functional pass/fail is determined from the actual submitted code and tests."
+  },
+  "smoke": {
+    "count": 32,
+    "selection": "sort task_ids by ascending SHA256 of UTF-8 (salt + task_id); tie-break by task_id; take first 32",
+    "salt": "glm53-humaneval-smoke-v1:",
+    "task_ids": null,
+    "label": "custom_humaneval_smoke32_not_full_score"
+  },
+  "freeze_requirements": [
+    "data revision and hashes fixed",
+    "canonical solutions and negative cases verify scorer",
+    "code extraction validated",
+    "output budget and timeout calibrated",
+    "token counts fit context",
+    "B0 repeatability measured",
+    "protocol status changed to frozen explicitly"
+  ]
+}

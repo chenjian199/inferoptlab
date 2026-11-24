@@ -1,0 +1,46 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 289
+PDF 页码标签: 281
+页脚页码候选: 281
+章节提示（书签推断）: 没有memcpy_async
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+2.25.2 没有 memcpy_async
+在 没 有 memcpy_async 的 情 况 下， 拷 贝 阶 段 表 示 如 下： shared[local_idx] =
+global[global_idx]。这个 global 到 shared 的内存拷贝将会扩展为从 global 内存读取数据
+到寄存器，然后从寄存器写数据到shared内存。
+当这个模型出现在迭代计算中，每一个threadblock需要在从global到shared内存的拷贝之后进行同
+步，来确保在计算流程开始之前所有的到 shared 内存的写入都已经完成。thread block 在计算阶段结
+束之后也需要再次同步，防止在所有的 thread 完成计算之前在 shared 内存的覆盖写入。这个模型在下
+面的代码段描述：
+__global__ void without_memcpy_async(uint32_t* global_out,
+uint32_t const* global_in,
+uint32_t size,
+uint32_t num_batch_per_block)
+{
+auto grid = cooperative_groups::this_grid();
+auto block = cooperative_groups::this_thread_block();
+// 输入的 size应该与 num_batch_per_block * grid.size() 相等
+assert(size == num_batch_per_block * grid.size());
+// block.size() * sizeof(int) 字节
+extern __shared__ uint32_t shared[];
+uint32_t local_idx = block.thread_rank();
+for (uint32_t batch = 0; batch < num_batch_per_block; ++batch) {
+// 计算 global内存中当前 block的batch index
+uint32_t block_batch_idx =
+block.group_index().x * block.size() + grid.size() * batch;
+uint32_t global_idx = block_batch_idx + local_idx;
+shared[local_idx] = global_in[global_idx];
+// 等待所有线程完成
+block.sync();
+// 计算并将结果写回 global内存
+global_out[global_idx] =
+shared[local_idx] + shared[block.size() - local_idx - 1];
+// 等待使用 shared内存计算完成
+block.sync();
+}
+}
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 281

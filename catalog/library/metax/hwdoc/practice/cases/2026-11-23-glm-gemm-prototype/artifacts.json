@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "observed_on": "2026-11-23",
+  "evidence_snapshots": [
+    {
+      "snapshot": "evidence/verification_summary.json",
+      "snapshot_sha256": "94027d6c0da7fbcf78249cec09ed2de0d543e196448e0d9c1c2b59b15e91b063",
+      "original_path": "experiments/evidence/metax/glm53/gemm_replace_20261123/verification_summary.json",
+      "original_sha256": "94027d6c0da7fbcf78249cec09ed2de0d543e196448e0d9c1c2b59b15e91b063",
+      "selection": "Reviewed result summary, copied without modification; real weights/synthetic activations explicitly distinguished; kernel log limited to selected events, no raw environment or private configuration."
+    },
+    {
+      "snapshot": "evidence/isolated_layer_result.json",
+      "snapshot_sha256": "c1cf6553fdcc9d6b09db5055fccee2665876967dd47f66a09fb7e4a1c58d0629",
+      "original_path": "experiments/evidence/metax/glm53/gemm_replace_20261123/evidence/isolated_layer_result.json",
+      "original_sha256": "c1cf6553fdcc9d6b09db5055fccee2665876967dd47f66a09fb7e4a1c58d0629",
+      "selection": "Reviewed result summary, copied without modification; real weights/synthetic activations explicitly distinguished; kernel log limited to selected events, no raw environment or private configuration."
+    },
+    {
+      "snapshot": "evidence/hardware_issue_summary.json",
+      "snapshot_sha256": "7c8ca75dbcfa39e0bfcda97146525d55ca6f429d03040790ed6c473e4a902990",
+      "original_path": "experiments/evidence/metax/glm53/gemm_replace_20261123/evidence/hardware_issue_summary.json",
+      "original_sha256": "7c8ca75dbcfa39e0bfcda97146525d55ca6f429d03040790ed6c473e4a902990",
+      "selection": "Reviewed result summary, copied without modification; real weights/synthetic activations explicitly distinguished; kernel log limited to selected events, no raw environment or private configuration."
+    }
+  ],
+  "local_references": [
+    {
+      "path": "experiments/evidence/metax/glm53/gemm_replace_20261123/README.md",
+      "sha256": "bdbb33493e3569c0402ff6e3834bdd5655f939ba87527f4b8f36a97bc6d2e1cd"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/gemm_replace_20261123/artifact_manifest.json",
+      "sha256": "d47e59ac3d9f79e51e327d0db103a54292779b617d43ed459fbdb1b3e32b8896"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/gemm_replace_20261123/archive_receipt.json",
+      "sha256": "3a732a45a27bcdda3d93d7e2c1975daf0d2e3441132c0ad9e225e3a8396aaf47"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/gemm_replace_20261123/configs/contract-v1.json",
+      "sha256": "724a3c1ddb1cbbb5b8e9c5b9a9fb4d8ee41b289f7b8b438a3566e2af58f9f743"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/gemm_replace_20261123/harness/gemm_kernel.py",
+      "sha256": "df5a0abe332a2d7521d2b682734f7f375fcaf5faad10b9446685173ff4773f84"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/gemm_replace_20261123/harness/replacement_worker.py",
+      "sha256": "a133e45c913e939458e55ec898e2de1cf525110d7dae836ba97f4a868a290d51"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/gemm_replace_20261123/harness/isolated_layer_probe.py",
+      "sha256": "d3a009d77a5ee186a36534f9c0b9fafb89838f89a1e4bcb5b6e8ac9c46253a1f"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/gemm_replace_20261123/evidence/isolated_layer_probe.v3.py",
+      "sha256": "a30df5c416d815ffe23ce459555bee5a5c44bcd4b616b64ad4de87664a230292"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/gemm_replace_20261123/harness/run_model.py",
+      "sha256": "c8e2c186e737b3f10fc2e4527811879e998f7b1e4df96da8cc6c3cf1a8bb711f"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/gemm_replace_20261123/harness/verify_experiment.py",
+      "sha256": "8833f310e6504012576cd83967d5056a6b2db7acb344ca979cf4c9852339a208"
+    }
+  ],
+  "remote_assets": [
+    {
+      "path": "/home/metax/glm53-gemm-20261123/archives/gemm_replace_20261123_v1.tar.gz",
+      "sha256": "1b38a1479062103c78be3f415feab28d2bf1e6319bcbffc3c04f89f630bacd5e",
+      "verification": "Remote archive hash and all69 entries verified 2026-11-23; same archive available locally."
+    }
+  ],
+  "change_tracking": {
+    "git_available": false,
+    "scope": "New experiment directory; existing baseline and repeatability manifests verified unchanged. New files listed in artifact_manifest; no fabricated git diff."
+  }
+}

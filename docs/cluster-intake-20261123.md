@@ -14,7 +14,7 @@
 | PCIe 当前链路 | 32 GT/s × 16；这是链路属性，不是实测传输带宽 |
 | GPU 可用性 | 采集时均被已有服务占用；健康认证未执行 |
 
-硬件证据位于 `schemas/evidence/metax-four-node-inventory/1.0.0/`，对应每台 host 和每张卡的配方位于 `schemas/recipes/hardware/metax-four-node-inventory-*.yaml`。这里记录了真实的序号、板卡序列号、BDF、NUMA、CPU 亲和性、显存和链路；没有把原 `metax` 的硬件性能测量复制到新集群。
+硬件证据位于 `experiments/evidence/metax-four-node-inventory/1.0.0/`，对应每台 host 和每张卡的配方位于 `recipes/hardware/metax-four-node-inventory-*.yaml`。这里记录了真实的序号、板卡序列号、BDF、NUMA、CPU 亲和性、显存和链路；没有把原 `metax` 的硬件性能测量复制到新集群。
 
 新驱动未返回 `vram driver reserved`，规约现支持 `driver_reserved_bytes: null`，明确表示未知，不填零。
 
@@ -31,7 +31,7 @@
 
 Flash 是 45 层、hidden 4096、288 专家/top-8，包含 34 层线性注意力与 11 层稀疏注意力；完整版是 78 层、hidden 6144、256 专家/top-8。W4A8 实际是 Linear W8A8 与 FusedMoE W4A8 混合分组，不能将所有权重都理解为 4 bit。完整版 W8A8 的权重文件已超过单节点 512 GiB 显存，部署还需要额外考虑 KV cache 与运行时开销。
 
-新配方位于 `schemas/recipes/models/`，元数据与采集脚本位于 `schemas/evidence/model-intake/`。模型导入入口为 `python -m tools.import_inspected_model`，支持此次实际出现的 dense 非量化、无索引单文件、混合量化及 MoE 模型。LLMC 的 YAML 包含 Python 对象标签，导入器只读取 JSON 配置，不执行这些标签。
+新配方按家族与具体模型归档在 `recipes/models/<family>/<model>/`，详见 [模型目录](../recipes/models/README.md)；元数据与采集脚本位于 `experiments/evidence/model-intake/`。模型导入入口为 `python -m tools.import_inspected_model`，必须提供 `--family` 和 `--model` 归档参数，支持此次实际出现的 dense 非量化、无索引单文件、混合量化及 MoE 模型。LLMC 的 YAML 包含 Python 对象标签，导入器只读取 JSON 配置，不执行这些标签。
 
 ## 镜像和工具
 
@@ -48,7 +48,7 @@ Flash 是 45 层、hidden 4096、288 专家/top-8，包含 34 层线性注意力
 
 旧镜像 `sha256:641be9b5d27dfbc85b582dc8b2871edb28ec39b7aac60b10b8d7ecce2c6b7b0e` 同时存在 SGLang `0.5.12+maca3.8.2.7` 与 `0.3.1+mx.dev.0.5.19.2ad2ac45f4.maca0` 元数据，遍历顺序不同会给出不同的 `metadata.version()` 结果。后续不能用这一返回值单独锁定版本。
 
-逐节点原始检查结果见 `schemas/evidence/cluster-runtime-intake/20261123/<host>/`。可复用探针为 `tools/hardware/probes/runtime.py`：在 Linux 主机执行 `python3 runtime.py --model /absolute/model/path`；默认审计本地全部镜像，可用重复 `--image sha256:...` 限定或 `--skip-images` 只查宿主机与模型。探针保存所有包版本候选和模块来源，区分“包元数据存在”与“模块能够定位”；它不证明模型已成功加载。
+逐节点原始检查结果见 `experiments/evidence/cluster-runtime-intake/20261123/<host>/`。可复用探针为 `tools/hardware/probes/runtime.py`：在 Linux 主机执行 `python3 runtime.py --model /absolute/model/path`；默认审计本地全部镜像，可用重复 `--image sha256:...` 限定或 `--skip-images` 只查宿主机与模型。探针保存所有包版本候选和模块来源，区分“包元数据存在”与“模块能够定位”；它不证明模型已成功加载。
 
 ## 原 metax 小模型验证
 
@@ -58,11 +58,11 @@ Flash 是 45 层、hidden 4096、288 专家/top-8，包含 34 层线性注意力
 
 vLLM 镜像 `sha256:9bbf20dbcaaf52b794b887f0311a6dcbff6d23bb0a78b72fb0f442f8aab0f285` 采用 editable 安装，必须同时挂载 `/home/metax/glm53-vllm032:/work:ro`。只有镜像 ID 不足以完整锁定服务代码，Runtime 配方保留相应冻结阻塞项。该节点 `/dev/mxcd` 仅 root 可读写，测试容器采用默认容器用户访问设备，没有修改宿主机设备权限。
 
-计划 `benchmark/plans/qwen-metax-pipeline-plan.yaml` 包含 4 个 run：128/16、1024/32（并发 1 和 2）、8192/32；每个 run 4 个测量请求、1 个独立预热请求。长短场景是小模型流程资格检查，不替代 GLM 正式场景或 p99 验收。
+计划 `recipes/plans/benchmark/qwen-metax-pipeline-plan.yaml` 包含 4 个 run：128/16、1024/32（并发 1 和 2）、8192/32；每个 run 4 个测量请求、1 个独立预热请求。长短场景是小模型流程资格检查，不替代 GLM 正式场景或 p99 验收。
 
 真实验证已发现并修正两个离线替身测试没有发现的问题：
 
-- Transformers 5 的聊天模板默认返回 `BatchEncoding`，直接求长度会得到字段数。现在读取 `input_ids`，并保留旧版平铺 token ID 列表的兼容性；回归测试覆盖字典返回值。
+- Transformers 5 的聊天模板默认返回 `BatchEncoding`，直接求长度会得到字段数。当前实现显式传入 `return_dict=True` 并读取 `input_ids`，回归测试覆盖这一契约。
 - AIPerf 0.12 不接受 `--warmup-request-count 0`。安装源码明确规定：不传 warmup count/duration 才是不启用其内建预热。现在省略这两个选项，由我们的独立请求集执行预热；首轮失败批次保留，不计为有效测量。
 
 新增 vLLM external 适配器回读 `/server_info`，核对并行参数、prefix cache、stream interval 与上下文长度。新增 MetaX 实时设备身份与驱动核对。客户端容器 `mx-smi` 显示的 MACA 3.8.2.6 是采集进程用户态库版本，与宿主机安装的 3.9.0.29 分别记录，不能据此推断服务使用哪个运行库。AIPerf 确认从隔离环境 `/job/aiperf012/lib/python3.12/site-packages/aiperf/` 加载 0.12.0，未误用镜像内 0.13.0。未验证的环境不会被标成通过。
@@ -78,7 +78,7 @@ vLLM 镜像 `sha256:9bbf20dbcaaf52b794b887f0311a6dcbff6d23bb0a78b72fb0f442f8aab0
 
 这些数值只验证 Qwen、单卡、eager 部署下的采集闭环。TPOT 为客户端 `(E2E - TTFT)/(输出 token 数 - 1)`；吞吐窗口是首请求开始至末请求结束。样本量不足以进行尾延迟验收，未采集连续 GPU 功耗/利用率遥测，也没有设置正式 SLA。
 
-归档位置为 [benchmark-qualification/20261123](../schemas/evidence/benchmark-qualification/20261123/)：包含成功批次、首次 CLI 参数失败批次、逐请求原始导出、请求集、服务配置、启动命令、日志、客户端包清单和执行代码快照。下载后校验了 231 个归档文件的 SHA-256；[离线复算记录](../schemas/evidence/benchmark-qualification/20261123/offline-verification.json) 确认四个 run 的原始哈希、计数、状态完全一致，数值在 `1e-12` 绝对/相对误差内一致。Linux Python 3.12 与 Windows Python 3.11 的浮点求和末位存在约 `1e-15` 的差异，不改写原始测量。
+归档位置为 [benchmark-qualification/20261123](../experiments/evidence/benchmark-qualification/20261123/)：包含成功批次、首次 CLI 参数失败批次、逐请求原始导出、请求集、服务配置、启动命令、日志、客户端包清单和执行代码快照。下载后校验了 231 个归档文件的 SHA-256；[离线复算记录](../experiments/evidence/benchmark-qualification/20261123/offline-verification.json) 确认四个 run 的原始哈希、计数、状态完全一致，数值在 `1e-12` 绝对/相对误差内一致。Linux Python 3.12 与 Windows Python 3.11 的浮点求和末位存在约 `1e-15` 的差异，不改写原始测量。
 
 测试完成后已删除本次创建的四个服务尝试容器；设备进程检查显示 `no process found`。工作目录、隔离 AIPerf 环境及证据保留，四台新节点的现有服务未改动。
 

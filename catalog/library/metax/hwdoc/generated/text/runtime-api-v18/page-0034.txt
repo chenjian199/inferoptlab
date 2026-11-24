@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 34
+PDF 页码标签: 25
+页脚页码候选: 25
+章节提示（书签推断）: 多GPU的设备可访问性支持
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+3.5.6 多 GPU 的设备可访问性支持
+内存池分配可访问性不遵循 mcDeviceEnablePeerAccess 或 mcCtxEnablePeerAccess。 相反， 流
+序内存分配器提供了 mcMemPoolSetAccess API 用于设置哪些设备可以访问流序内存池中的分配。默
+认情况下，可以从流序内存池分配所在的设备访问分配，并且无法撤销此访问权限。要启用其他设备的
+访问，访问设备必须与内存池的设备对等，可以通过检查 mcDeviceCanAccessPeer 来查询。如果未
+检查对等功能，则设置访问可能会失败并显示 mcErrorInvalidDevice。如果没有从池中进行分配，
+即使设备不具备对等能力，mcMemPoolSetAccess 调用也可能成功；在这种情况下，内存池中的下一
+次分配将失败。
+值得注意的是， mcMemPoolSetAccess 会影响内存池中的所有分配，而不仅仅是未来的分配。此外，
+mcMemPoolGetAccess 报告的可访问性适用于池中的所有分配，而不仅仅是未来的分配。建议不要频
+繁更改给定 GPU 的内存池的可访问性设置；一旦可以从给定 GPU 访问内存池，则应在内存池的整个生
+命周期内都可以从该 GPU 进行访问。
+// snippet showing usage of mcMemPoolSetAccess:
+mcError_t setAccessOnDevice(mcMemPool_t memPool, int residentDevice,
+int accessingDevice) {
+mcMemAccessDesc accessDesc = {};
+accessDesc.location.type = mcMemLocationTypeDevice;
+accessDesc.location.id = accessingDevice;
+accessDesc.flags = mcMemAccessFlagsProtReadWrite;
+int canAccess = 0;
+mcError_t error = mcDeviceCanAccessPeer(&canAccess, accessingDevice,
+residentDevice);
+if (error != mcSuccess) {
+return error;
+} else if (canAccess == 0) {
+return mcErrorPeerAccessUnsupported;
+}
+// Make the address accessible
+return mcMemPoolSetAccess(memPool, &accessDesc, 1);
+}
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 25

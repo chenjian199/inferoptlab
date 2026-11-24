@@ -1,0 +1,762 @@
+{
+  "captures": 108,
+  "tasks": 9,
+  "finite": 108,
+  "zero_temperature": 108,
+  "greedy_at_max": 108,
+  "cpu_gpu_argmax_match": 108,
+  "decisions_with_ties": 0,
+  "top1_top2_gap_range": [
+    0.125,
+    1.25
+  ],
+  "comparisons": {
+    "across_process_cached": {
+      "pairs": 27,
+      "exact_logits": 27,
+      "winner_changes": 0,
+      "max_logit_abs_delta": 0.0,
+      "max_logit_rmse": 0.0,
+      "first_changed_modules": {
+        "none": 27
+      }
+    },
+    "across_process_prefill": {
+      "pairs": 27,
+      "exact_logits": 27,
+      "winner_changes": 0,
+      "max_logit_abs_delta": 0.0,
+      "max_logit_rmse": 0.0,
+      "first_changed_modules": {
+        "none": 27
+      }
+    },
+    "prefill_vs_cached": {
+      "pairs": 54,
+      "exact_logits": 12,
+      "winner_changes": 0,
+      "max_logit_abs_delta": 2.1953125,
+      "max_logit_rmse": 0.39134838587851156,
+      "first_changed_modules": {
+        "language_model.model.layers.0.self_attn": 42,
+        "none": 12
+      }
+    },
+    "within_process_cached": {
+      "pairs": 54,
+      "exact_logits": 54,
+      "winner_changes": 0,
+      "max_logit_abs_delta": 0.0,
+      "max_logit_rmse": 0.0,
+      "first_changed_modules": {
+        "none": 54
+      }
+    },
+    "within_process_prefill": {
+      "pairs": 54,
+      "exact_logits": 54,
+      "winner_changes": 0,
+      "max_logit_abs_delta": 0.0,
+      "max_logit_rmse": 0.0,
+      "first_changed_modules": {
+        "none": 54
+      }
+    }
+  },
+  "tasks_first_repeat": {
+    "HumanEval/10": {
+      "prefill": {
+        "temperature": [
+          0.0
+        ],
+        "seeds": [
+          0
+        ],
+        "fused": false,
+        "dtype": "torch.bfloat16",
+        "sampler": "vllm_metax.patch.enhancement.performance.gumbel_sample",
+        "finite": true,
+        "selected": 45052,
+        "cpu_argmax": 45052,
+        "gpu_argmax": 45052,
+        "selected_is_max": true,
+        "selected_equals_cpu_argmax": true,
+        "max_ties": 1,
+        "top_ids": [
+          45052,
+          11770,
+          914,
+          35650,
+          3355
+        ],
+        "top_logits": [
+          27.25,
+          26.0,
+          24.0,
+          19.25,
+          18.0
+        ],
+        "top1_top2_gap": 1.25
+      },
+      "cached": {
+        "temperature": [
+          0.0
+        ],
+        "seeds": [
+          0
+        ],
+        "fused": false,
+        "dtype": "torch.bfloat16",
+        "sampler": "vllm_metax.patch.enhancement.performance.gumbel_sample",
+        "finite": true,
+        "selected": 45052,
+        "cpu_argmax": 45052,
+        "gpu_argmax": 45052,
+        "selected_is_max": true,
+        "selected_equals_cpu_argmax": true,
+        "max_ties": 1,
+        "top_ids": [
+          45052,
+          11770,
+          914,
+          35650,
+          3355
+        ],
+        "top_logits": [
+          27.125,
+          26.75,
+          23.75,
+          19.0,
+          17.625
+        ],
+        "top1_top2_gap": 0.375
+      },
+      "cross_mode_logit_delta": {
+        "shape_match": true,
+        "exact": false,
+        "max_abs": 1.0390625,
+        "mean_abs": 0.1587792323944582,
+        "rmse": 0.20177296578004214,
+        "reference_abs_max": 27.25
+      },
+      "first_changed_module": "language_model.model.layers.0.self_attn"
+    },
+    "HumanEval/37": {
+      "prefill": {
+        "temperature": [
+          0.0
+        ],
+        "seeds": [
+          0
+        ],
+        "fused": false,
+        "dtype": "torch.bfloat16",
+        "sampler": "vllm_metax.patch.enhancement.performance.gumbel_sample",
+        "finite": true,
+        "selected": 154842,
+        "cpu_argmax": 154842,
+        "gpu_argmax": 154842,
+        "selected_is_max": true,
+        "selected_equals_cpu_argmax": true,
+        "max_ties": 1,
+        "top_ids": [
+          154842,
+          139306,
+          16770,
+          1654,
+          5120
+        ],
+        "top_logits": [
+          19.125,
+          18.75,
+          17.75,
+          15.875,
+          15.625
+        ],
+        "top1_top2_gap": 0.375
+      },
+      "cached": {
+        "temperature": [
+          0.0
+        ],
+        "seeds": [
+          0
+        ],
+        "fused": false,
+        "dtype": "torch.bfloat16",
+        "sampler": "vllm_metax.patch.enhancement.performance.gumbel_sample",
+        "finite": true,
+        "selected": 154842,
+        "cpu_argmax": 154842,
+        "gpu_argmax": 154842,
+        "selected_is_max": true,
+        "selected_equals_cpu_argmax": true,
+        "max_ties": 1,
+        "top_ids": [
+          154842,
+          139306,
+          16770,
+          1654,
+          5120
+        ],
+        "top_logits": [
+          19.125,
+          18.75,
+          17.75,
+          15.875,
+          15.625
+        ],
+        "top1_top2_gap": 0.375
+      },
+      "cross_mode_logit_delta": {
+        "shape_match": true,
+        "exact": true,
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rmse": 0.0,
+        "reference_abs_max": 19.125
+      },
+      "first_changed_module": null
+    },
+    "HumanEval/89": {
+      "prefill": {
+        "temperature": [
+          0.0
+        ],
+        "seeds": [
+          0
+        ],
+        "fused": false,
+        "dtype": "torch.bfloat16",
+        "sampler": "vllm_metax.patch.enhancement.performance.gumbel_sample",
+        "finite": true,
+        "selected": 154842,
+        "cpu_argmax": 154842,
+        "gpu_argmax": 154842,
+        "selected_is_max": true,
+        "selected_equals_cpu_argmax": true,
+        "max_ties": 1,
+        "top_ids": [
+          154842,
+          24765,
+          13409,
+          34370,
+          36744
+        ],
+        "top_logits": [
+          19.625,
+          19.125,
+          16.125,
+          15.25,
+          14.75
+        ],
+        "top1_top2_gap": 0.5
+      },
+      "cached": {
+        "temperature": [
+          0.0
+        ],
+        "seeds": [
+          0
+        ],
+        "fused": false,
+        "dtype": "torch.bfloat16",
+        "sampler": "vllm_metax.patch.enhancement.performance.gumbel_sample",
+        "finite": true,
+        "selected": 154842,
+        "cpu_argmax": 154842,
+        "gpu_argmax": 154842,
+        "selected_is_max": true,
+        "selected_equals_cpu_argmax": true,
+        "max_ties": 1,
+        "top_ids": [
+          154842,
+          24765,
+          13409,
+          34370,
+          36744
+        ],
+        "top_logits": [
+          19.625,
+          19.125,
+          16.125,
+          15.25,
+          14.75
+        ],
+        "top1_top2_gap": 0.5
+      },
+      "cross_mode_logit_delta": {
+        "shape_match": true,
+        "exact": true,
+        "max_abs": 0.0,
+        "mean_abs": 0.0,
+        "rmse": 0.0,
+        "reference_abs_max": 19.625
+      },
+      "first_changed_module": null
+    },
+    "HumanEval/94": {
+      "prefill": {
+        "temperature": [
+          0.0
+        ],
+        "seeds": [
+          0
+        ],
+        "fused": false,
+        "dtype": "torch.bfloat16",
+        "sampler": "vllm_metax.patch.enhancement.performance.gumbel_sample",
+        "finite": true,
+        "selected": 856,
+        "cpu_argmax": 856,
+        "gpu_argmax": 856,
+        "selected_is_max": true,
+        "selected_equals_cpu_argmax": true,
+        "max_ties": 1,
+        "top_ids": [
+          856,
+          1629,
+          1044,
+          897,
+          348
+        ],
+        "top_logits": [
+          31.375,
+          31.25,
+          26.0,
+          25.125,
+          22.875
+        ],
+        "top1_top2_gap": 0.125
+      },
+      "cached": {
+        "temperature": [
+          0.0
+        ],
+        "seeds": [
+          0
+        ],
+        "fused": false,
+        "dtype": "torch.bfloat16",
+        "sampler": "vllm_metax.patch.enhancement.performance.gumbel_sample",
+        "finite": true,
+        "selected": 856,
+        "cpu_argmax": 856,
+        "gpu_argmax": 856,
+        "selected_is_max": true,
+        "selected_equals_cpu_argmax": true,
+        "max_ties": 1,
+        "top_ids": [
+          856,
+          1629,
+          1044,
+          897,
+          348
+        ],
+        "top_logits": [
+          32.25,
+          31.375,
+          26.25,
+          25.0,
+          24.125
+        ],
+        "top1_top2_gap": 0.875
+      },
+      "cross_mode_logit_delta": {
+        "shape_match": true,
+        "exact": false,
+        "max_abs": 1.25,
+        "mean_abs": 0.15211428514958844,
+        "rmse": 0.19347652689026476,
+        "reference_abs_max": 31.375
+      },
+      "first_changed_module": "language_model.model.layers.0.self_attn"
+    },
+    "HumanEval/123": {
+      "prefill": {
+        "temperature": [
+          0.0
+        ],
+        "seeds": [
+          0
+        ],
+        "fused": false,
+        "dtype": "torch.bfloat16",
+        "sampler": "vllm_metax.patch.enhancement.performance.gumbel_sample",
+        "finite": true,
+        "selected": 73022,
+        "cpu_argmax": 73022,
+        "gpu_argmax": 73022,
+        "selected_is_max": true,
+        "selected_equals_cpu_argmax": true,
+        "max_ties": 1,
+        "top_ids": [
+          73022,
+          262,
+          333,
+          286,
+          14546
+        ],
+        "top_logits": [
+          23.5,
+          23.0,
+          19.75,
+          18.5,
+          18.0
+        ],
+        "top1_top2_gap": 0.5
+      },
+      "cached": {
+        "temperature": [
+          0.0
+        ],
+        "seeds": [
+          0
+        ],
+        "fused": false,
+        "dtype": "torch.bfloat16",
+        "sampler": "vllm_metax.patch.enhancement.performance.gumbel_sample",
+        "finite": true,
+        "selected": 73022,
+        "cpu_argmax": 73022,
+        "gpu_argmax": 73022,
+        "selected_is_max": true,
+        "selected_equals_cpu_argmax": true,
+        "max_ties": 1,
+        "top_ids": [
+          73022,
+          262,
+          333,
+          286,
+          14546
+        ],
+        "top_logits": [
+          23.625,
+          23.125,
+          19.875,
+          18.75,
+          18.25
+        ],
+        "top1_top2_gap": 0.5
+      },
+      "cross_mode_logit_delta": {
+        "shape_match": true,
+        "exact": false,
+        "max_abs": 0.3828125,
+        "mean_abs": 0.058477652690196336,
+        "rmse": 0.07426688202676136,
+        "reference_abs_max": 23.5
+      },
+      "first_changed_module": "language_model.model.layers.0.self_attn"
+    },
+    "HumanEval/144": {
+      "prefill": {
+        "temperature": [
+          0.0
+        ],
+        "seeds": [
+          0
+        ],
+        "fused": false,
+        "dtype": "torch.bfloat16",
+        "sampler": "vllm_metax.patch.enhancement.performance.gumbel_sample",
+        "finite": true,
+        "selected": 856,
+        "cpu_argmax": 856,
+        "gpu_argmax": 856,
+        "selected_is_max": true,
+        "selected_equals_cpu_argmax": true,
+        "max_ties": 1,
+        "top_ids": [
+          856,
+          264,
+          1629,
+          63080,
+          470
+        ],
+        "top_logits": [
+          23.125,
+          22.375,
+          19.375,
+          18.625,
+          18.625
+        ],
+        "top1_top2_gap": 0.75
+      },
+      "cached": {
+        "temperature": [
+          0.0
+        ],
+        "seeds": [
+          0
+        ],
+        "fused": false,
+        "dtype": "torch.bfloat16",
+        "sampler": "vllm_metax.patch.enhancement.performance.gumbel_sample",
+        "finite": true,
+        "selected": 856,
+        "cpu_argmax": 856,
+        "gpu_argmax": 856,
+        "selected_is_max": true,
+        "selected_equals_cpu_argmax": true,
+        "max_ties": 1,
+        "top_ids": [
+          856,
+          264,
+          1629,
+          470,
+          63080
+        ],
+        "top_logits": [
+          23.375,
+          22.375,
+          20.5,
+          18.25,
+          18.0
+        ],
+        "top1_top2_gap": 1.0
+      },
+      "cross_mode_logit_delta": {
+        "shape_match": true,
+        "exact": false,
+        "max_abs": 2.1953125,
+        "mean_abs": 0.30738119949502024,
+        "rmse": 0.39134838587851156,
+        "reference_abs_max": 23.125
+      },
+      "first_changed_module": "language_model.model.layers.0.self_attn"
+    },
+    "HumanEval/148": {
+      "prefill": {
+        "temperature": [
+          0.0
+        ],
+        "seeds": [
+          0
+        ],
+        "fused": false,
+        "dtype": "torch.bfloat16",
+        "sampler": "vllm_metax.patch.enhancement.performance.gumbel_sample",
+        "finite": true,
+        "selected": 476,
+        "cpu_argmax": 476,
+        "gpu_argmax": 476,
+        "selected_is_max": true,
+        "selected_equals_cpu_argmax": true,
+        "max_ties": 1,
+        "top_ids": [
+          476,
+          510,
+          98543,
+          25,
+          6260
+        ],
+        "top_logits": [
+          26.875,
+          26.25,
+          14.6875,
+          14.6875,
+          14.4375
+        ],
+        "top1_top2_gap": 0.625
+      },
+      "cached": {
+        "temperature": [
+          0.0
+        ],
+        "seeds": [
+          0
+        ],
+        "fused": false,
+        "dtype": "torch.bfloat16",
+        "sampler": "vllm_metax.patch.enhancement.performance.gumbel_sample",
+        "finite": true,
+        "selected": 476,
+        "cpu_argmax": 476,
+        "gpu_argmax": 476,
+        "selected_is_max": true,
+        "selected_equals_cpu_argmax": true,
+        "max_ties": 1,
+        "top_ids": [
+          476,
+          510,
+          25,
+          6260,
+          98543
+        ],
+        "top_logits": [
+          26.375,
+          26.25,
+          14.6875,
+          14.4375,
+          14.25
+        ],
+        "top1_top2_gap": 0.125
+      },
+      "cross_mode_logit_delta": {
+        "shape_match": true,
+        "exact": false,
+        "max_abs": 0.921875,
+        "mean_abs": 0.14103289804890876,
+        "rmse": 0.17775992441478822,
+        "reference_abs_max": 26.875
+      },
+      "first_changed_module": "language_model.model.layers.0.self_attn"
+    },
+    "HumanEval/156": {
+      "prefill": {
+        "temperature": [
+          0.0
+        ],
+        "seeds": [
+          0
+        ],
+        "fused": false,
+        "dtype": "torch.bfloat16",
+        "sampler": "vllm_metax.patch.enhancement.performance.gumbel_sample",
+        "finite": true,
+        "selected": 2278,
+        "cpu_argmax": 2278,
+        "gpu_argmax": 2278,
+        "selected_is_max": true,
+        "selected_equals_cpu_argmax": true,
+        "max_ties": 1,
+        "top_ids": [
+          2278,
+          508,
+          17800,
+          50792,
+          320
+        ],
+        "top_logits": [
+          28.75,
+          27.875,
+          27.75,
+          19.25,
+          17.875
+        ],
+        "top1_top2_gap": 0.875
+      },
+      "cached": {
+        "temperature": [
+          0.0
+        ],
+        "seeds": [
+          0
+        ],
+        "fused": false,
+        "dtype": "torch.bfloat16",
+        "sampler": "vllm_metax.patch.enhancement.performance.gumbel_sample",
+        "finite": true,
+        "selected": 2278,
+        "cpu_argmax": 2278,
+        "gpu_argmax": 2278,
+        "selected_is_max": true,
+        "selected_equals_cpu_argmax": true,
+        "max_ties": 1,
+        "top_ids": [
+          2278,
+          17800,
+          508,
+          50792,
+          2509
+        ],
+        "top_logits": [
+          28.75,
+          28.125,
+          27.5,
+          19.25,
+          18.0
+        ],
+        "top1_top2_gap": 0.625
+      },
+      "cross_mode_logit_delta": {
+        "shape_match": true,
+        "exact": false,
+        "max_abs": 1.01953125,
+        "mean_abs": 0.14575968327747335,
+        "rmse": 0.18497146448615331,
+        "reference_abs_max": 28.75
+      },
+      "first_changed_module": "language_model.model.layers.0.self_attn"
+    },
+    "HumanEval/162": {
+      "prefill": {
+        "temperature": [
+          0.0
+        ],
+        "seeds": [
+          0
+        ],
+        "fused": false,
+        "dtype": "torch.bfloat16",
+        "sampler": "vllm_metax.patch.enhancement.performance.gumbel_sample",
+        "finite": true,
+        "selected": 262,
+        "cpu_argmax": 262,
+        "gpu_argmax": 262,
+        "selected_is_max": true,
+        "selected_equals_cpu_argmax": true,
+        "max_ties": 1,
+        "top_ids": [
+          262,
+          73022,
+          474,
+          333,
+          1499
+        ],
+        "top_logits": [
+          23.5,
+          23.0,
+          21.125,
+          17.0,
+          15.625
+        ],
+        "top1_top2_gap": 0.5
+      },
+      "cached": {
+        "temperature": [
+          0.0
+        ],
+        "seeds": [
+          0
+        ],
+        "fused": false,
+        "dtype": "torch.bfloat16",
+        "sampler": "vllm_metax.patch.enhancement.performance.gumbel_sample",
+        "finite": true,
+        "selected": 262,
+        "cpu_argmax": 262,
+        "gpu_argmax": 262,
+        "selected_is_max": true,
+        "selected_equals_cpu_argmax": true,
+        "max_ties": 1,
+        "top_ids": [
+          262,
+          73022,
+          474,
+          333,
+          750
+        ],
+        "top_logits": [
+          23.5,
+          23.125,
+          20.875,
+          16.5,
+          15.625
+        ],
+        "top1_top2_gap": 0.375
+      },
+      "cross_mode_logit_delta": {
+        "shape_match": true,
+        "exact": false,
+        "max_abs": 2.046875,
+        "mean_abs": 0.28975767811186887,
+        "rmse": 0.36883544321751516,
+        "reference_abs_max": 23.5
+      },
+      "first_changed_module": "language_model.model.layers.0.self_attn"
+    }
+  },
+  "scope": "Rank 0 synchronous observation, same logical prefix via prefill and forced cached decode, within-process and two fresh-process comparisons. Instrumentation differs from historical unobserved execution."
+}

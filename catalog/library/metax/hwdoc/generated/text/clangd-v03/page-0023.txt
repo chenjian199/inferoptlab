@@ -1,0 +1,21 @@
+文档: 沐曦通用GPU_MXMACA Clangd用户手册_CN_V03.pdf
+文档 ID: clangd-v03
+SHA256: f84564a4060d30251dbb164705b0aec56b25f11c02c1c748d5ce6187e44868ad
+PDF 页序号: 23
+PDF 页码标签: 18
+页脚页码候选: 18
+章节提示（书签推断）: 重启Clangd工具
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® Clangd 用户手册
+5 进阶配置
+5.1 配置 Clangd 工具路径
+如果需要用其他 MXMACA 目录下的 Clangd，可以在 Clangd 插件中设置对应路径。如 图 5.1 所示，点
+击 Clangd 插件配置按钮
+ ，并选择 Extension Settings ，根据需要，选择 User 、Remote 或
+Workspace 页面，配置 Clangd: Path 为所需的 Clangd 路径。
+图 5.1 配置 Clangd 工具路径
+5.2 重启 Clangd 工具
+修改了 Clangd 插件的设置后，需要重启 Clangd 工具才能生效。按 Ctrl + Shift + P，输入 clangd:
+Restart language server ，并执行，稍等即可生效。
+5 进阶配置 沐曦股份专有信息 OG‑24072‑020‑F5_V03 | 18

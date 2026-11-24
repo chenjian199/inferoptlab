@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 28
+PDF 页码标签: 21
+页脚页码候选: 21
+章节提示（书签推断）: mcblasSetLoggerCallback()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+参数
+• logIsOn： 输入。 完全打开/关闭日志记录。 默认情况下为关闭， 通过调用mcblasSetLoggerCallback
+以用户定义的回调函数来打开。
+• logToStdOut：输入。打开/关闭标准输出 I/O 流的日志记录。默认情况下为关闭。
+• logToStdErr：输入。打开/关闭标准错误 I/O 流的日志记录。默认情况下为关闭。
+• logFileName： 输入。 打开/关闭文件系统中文件 （由其名称指定） 的日志记录。 mcblasLoggerConfigure
+拷贝 logFileName 的内容。如果不需要这种类型的日志记录，该指针应为空。
+返回值
+MCBLAS_STATUS_SUCCESS
+成功。
+2.2.27 mcblasGetLoggerCallback()
+mcblasStatus_t mcblasGetLoggerCallback(
+mcblasLogCallback* userCallback)
+此函数检索函数指针， 指针指向通过 mcblasSetLoggerCallback 安装的用户自定义回调函数， 否则指针
+为零。
+参数
+userCallback
+输出。指针，指向用户定义的回调函数。
+返回值
+MCBLAS_STATUS_SUCCESS
+成功。
+2.2.28 mcblasSetLoggerCallback()
+mcblasStatus_t mcblasSetLoggerCallback(
+mcblasLogCallback userCallback)
+此函数通过公共 mcBLAS C API 安装用户自定义回调函数。
+参数
+userCallback
+输入。指针，指向用户定义的回调函数。
+返回值
+MCBLAS_STATUS_SUCCESS
+成功。
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 21

@@ -1,0 +1,90 @@
+{
+  "version": "20261123-v1",
+  "scope": "observed smoke32 only; not full164 acceptance gold",
+  "fresh_processes": [
+    "a",
+    "b",
+    "c"
+  ],
+  "plain_runs": 5,
+  "stable_pass_observed_32": [
+    "HumanEval/16",
+    "HumanEval/131",
+    "HumanEval/103",
+    "HumanEval/54",
+    "HumanEval/144",
+    "HumanEval/115",
+    "HumanEval/123",
+    "HumanEval/162",
+    "HumanEval/156",
+    "HumanEval/94",
+    "HumanEval/48",
+    "HumanEval/56",
+    "HumanEval/160",
+    "HumanEval/6",
+    "HumanEval/117",
+    "HumanEval/12",
+    "HumanEval/59",
+    "HumanEval/30",
+    "HumanEval/10",
+    "HumanEval/82",
+    "HumanEval/35",
+    "HumanEval/104",
+    "HumanEval/89",
+    "HumanEval/110",
+    "HumanEval/15",
+    "HumanEval/40",
+    "HumanEval/148",
+    "HumanEval/72",
+    "HumanEval/157",
+    "HumanEval/13",
+    "HumanEval/127"
+  ],
+  "stable_fail_observed_32": [
+    "HumanEval/37"
+  ],
+  "variable_correctness_observed_32": [],
+  "historical_token_watchlist": [
+    "HumanEval/144",
+    "HumanEval/123",
+    "HumanEval/162",
+    "HumanEval/156",
+    "HumanEval/94",
+    "HumanEval/117",
+    "HumanEval/10",
+    "HumanEval/104",
+    "HumanEval/89",
+    "HumanEval/148",
+    "HumanEval/72",
+    "HumanEval/37"
+  ],
+  "historical_correctness_watchlist": [
+    "HumanEval/37"
+  ],
+  "policy": {
+    "release_tasks": 164,
+    "independent_processes_per_arm": 3,
+    "pairing": "interleave same-time baseline and candidate",
+    "stable_pass_regression": "fail",
+    "variable_pass_count_decline": "inconclusive",
+    "missing_evidence_or_infrastructure_error": "invalid",
+    "smoke32_release_gate": false,
+    "numeric_tolerance": "operator-specific, freeze before candidate; not defined globally by this experiment",
+    "token_exact": "diagnostic unless separately frozen stable fixture and identical path"
+  },
+  "numeric_observations": {
+    "same_path_logit_max_abs": 0.0,
+    "same_path_pair_count": 162,
+    "cross_path_logit_max_abs": 2.1953125,
+    "cross_path_is_noise_budget": false,
+    "captures": 108,
+    "tasks": 9,
+    "fresh_diagnostic_processes": 2,
+    "repeats_per_mode": 3,
+    "top1_top2_gap_range": [
+      0.125,
+      1.25
+    ],
+    "global_epsilon": null
+  }
+}

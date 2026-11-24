@@ -1,0 +1,47 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 42
+PDF 页码标签: 30
+页脚页码候选: 30
+章节提示（书签推断）: 使用说明
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+其中每个参数的说明，参见表 5.3。
+表 5.3 参数说明
+参数 值 默认值 说明
+import_model 输入模型路径，目前只支持 ONNX 模型
+export_model 输出模型路径，目前只支持 ONNX 模型
+export_type [onnx, native] onnx 导出模型的类型
+onnx：导出 onnx qdq 格式
+native： 导出 qdq 格式外， 额外导出二进
+制的模型
+quant_algorithm [percentile, min‑
+max,mse, kl]
+percentile 量化算法选择
+export_batch [True, False] 1 导出模型的 BatchSize，默认为 1
+output_threshold 0‑1 0.1 量化后 SNR 误差最大允许范围
+without_bs [True, False] False 模型输入是否带有 BatchSize 维度
+force_advance_quant [True, False] False 是否量化过程中开启强制优化
+calib_dir 校准数据集的目录或 dataset.txt 路径。 如
+果模型为多输入，仅支持 dataset.txt 文
+本格式，且数据为 npy 或二进制数据
+calib_num [50‑500] 校准数据集的数量
+batch_size 量化计算时的 BatchSize
+enable [True, False] 是否对数据做预处理
+False：校准数据需要是 npy 或二进制数
+据
+isreverse [True, False] 是否将图像通道 RGB 转为 BGR
+mean 预处理均值
+std 预处理方差。
+keep_ratio [True, False] Resize 是否保持等比例。
+to Resize 大小 [chw]。
+pad_value 0 Resize 边缘填充的值。
+centercrop [True, False] False centercrop 大小 [h, w]。
+如不需要 centercrop，可删除该参数。
+操作步骤
+1. 执行以下命令，运行模型量化。
+python -m maca_quantizer -c quantize.yaml
+参数说明：
+5 MacaRT 工具链 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 30

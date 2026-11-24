@@ -1,0 +1,27 @@
+文档: 沐曦通用GPU_MXMACA Clangd用户手册_CN_V03.pdf
+文档 ID: clangd-v03
+SHA256: f84564a4060d30251dbb164705b0aec56b25f11c02c1c748d5ce6187e44868ad
+PDF 页序号: 8
+PDF 页码标签: 3
+页脚页码候选: 3
+章节提示（书签推断）: 禁用VSCode官方C/C++插件（若有）
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® Clangd 用户手册
+2 MXMACA Clangd 安装
+2.1 准备文件
+下载并安装 2.27.0 及以后版本的 MXMACA SDK 包。
+Clangd 工 具 已 安 装 于 /opt/maca/mxgpu_llvm/bin/clangd 。Clangd 插 件 安 装 文 件 位 于
+/opt/maca/mxgpu_llvm/extensions/packages/MXMACA‑clangd‑0.2.0.vsix。
+2.2 安装 Clangd 插件
+采用 VSCode 插件离线安装方法，将 Clangd 插件安装到 VSCode。
+1. 在 VSCode 主界面选择 View ‑> Extensions 。
+2. 点 击 Views and More Actions 图 标
+ ， 选 择 Install from VSIX ， 找 到 MXMACA‑clangd‑
+0.2.0.vsix 文件进行安装。部分环境中安装耗时可能较久，耐心等待即可。
+图 2.1 安装 Clangd 插件
+2.3 禁用 VSCode 官方 C/C++ 插件（若有）
+Clangd 和官方 C/C++ 插件会有冲突，若已安装 C/C++ 插件，如 C/C++ Extension Pack，需禁用。
+1. 点击插件右侧配置按钮
+ 。
+2 MXMACA Clangd 安装 沐曦股份专有信息 OG‑24072‑020‑F5_V03 | 3

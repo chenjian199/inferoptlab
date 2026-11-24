@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_MACA_VISIBLE_DEVICES配置工具介绍_CN_V01.pdf
+文档 ID: device-order-v01
+SHA256: a46029cb1594ee57eaac6881937f14279ad0bf0810183c06108cce1e7b407356
+PDF 页序号: 6
+PDF 页码标签: 2
+页脚页码候选: 2
+章节提示（书签推断）: 命令行参数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MACA_VISIBLE_DEVICES 配置工具介绍
+2 工具介绍
+2.1 支持的并行维度
+表 2.1 支持的并行维度
+维度 说明
+TP Tensor Parallel，张量并行
+CP Context Parallel，上下文并行
+PP Pipeline Parallel，流水并行
+DP Data Parallel，数据并行
+EP Expert Parallel，专家并行
+2.2 命令行参数
+mx‑cmi 是通信库巡检工具，本功能（device_order）作为巡检工具中一个子功能，集成在 mx‑cmi 中。
+在使用本工具前， 需要安装 MXMACA SDK， SDK 的安装目录可以自定义， 默认安装在/opt/maca。 如 SDK
+安装在默认路径， 则 mx‑cmi 工具的具体路径为：/opt/maca/tools/communication/inspector/mx‑
+cmi。
+device_order 工具的具体使用参数如下：
+usage: /opt/maca/tools/communication/inspector/mx-cmi device_order [-h] [--tp TP] 
+,→[--dp DP] [--ep EP] [--pp PP] [--cp CP] [--visible-devices VISIBLE_DEVICES] [--
+,→show-groups]
+Generate MACA_VISIBLE_DEVICES ordering for METAX devices.
+optional arguments:
+-h, --help show this help message and exit
+--tp TP tensor parallel rank num (default: 1)
+--dp DP data parallel rank num (default: 1)
+--ep EP expert parallel rank num (default: 1)
+--pp PP pipeline parallel rank num (default: 1)
+--cp CP context parallel rank num (default: 1)
+--visible-devices VISIBLE_DEVICES, --visible VISIBLE_DEVICES
+a list of visible devices, for example --visible 0,1,2,3,4,
+,→5,6,7
+--show-groups Print the per-dimension split summary.
+也可以根据如下命令参数查看帮助信息：
+2 工具介绍 沐曦股份专有信息 OG‑26020‑020‑F5_V01 | 2

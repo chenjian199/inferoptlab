@@ -7,6 +7,7 @@ from tools.specs import SpecError, read
 from .config import load
 from .export import export
 from .runner import execute, verify
+from .model import inspect_model
 
 
 def report(directory):
@@ -29,6 +30,10 @@ def report(directory):
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest='command', required=True)
+    model = commands.add_parser('inspect-model', help='Read checkpoint metadata without GPU allocation')
+    model.add_argument('--host', required=True)
+    model.add_argument('--model', required=True, help='Absolute remote checkpoint directory')
+    model.add_argument('--out', required=True, type=Path)
     for name in ('plan', 'inspect', 'run'):
         command = commands.add_parser(name)
         command.add_argument('plan', type=Path)
@@ -41,7 +46,9 @@ def main(argv=None):
             command.add_argument('--out', type=Path, required=True, help='Recipe/evidence root inside this repository')
     args = parser.parse_args(argv)
     try:
-        if args.command == 'plan':
+        if args.command == 'inspect-model':
+            print(inspect_model(args.host, args.model, args.out))
+        elif args.command == 'plan':
             print(json.dumps(load(args.plan), indent=2, ensure_ascii=False))
         elif args.command in ('inspect', 'run'):
             manifest = execute(load(args.plan), args.out, args.command)

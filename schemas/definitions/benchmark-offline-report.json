@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/benchmark-offline-report.json",
+  "title": "BenchmarkOfflineReport",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "const": "BenchmarkOfflineReport"
+    },
+    "schema_version": {
+      "const": "0.2.0"
+    },
+    "module": {
+      "enum": [
+        "accuracy",
+        "breakdown"
+      ]
+    },
+    "operation": {
+      "enum": [
+        "plan",
+        "inspect",
+        "compare"
+      ]
+    },
+    "status": {
+      "enum": [
+        "awaiting_evidence",
+        "history_verified",
+        "pass_functional",
+        "fail",
+        "inconclusive",
+        "invalid"
+      ]
+    },
+    "new_gpu_execution": {
+      "const": false
+    },
+    "release_accepted": {
+      "const": false
+    },
+    "plan": {
+      "oneOf": [
+        {
+          "$ref": "accuracy.json"
+        },
+        {
+          "$ref": "breakdown.json"
+        }
+      ]
+    },
+    "context_snapshot": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "document": {
+            "type": "object"
+          },
+          "sha256": {
+            "$ref": "common.json#/$defs/sha256"
+          }
+        },
+        "required": [
+          "document",
+          "sha256"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "findings": {
+      "type": "object"
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "$ref": "common.json#/$defs/sha256"
+          },
+          "role": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "path",
+          "sha256",
+          "role"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    },
+    "content_sha256": {
+      "$ref": "common.json#/$defs/sha256"
+    }
+  },
+  "required": [
+    "kind",
+    "schema_version",
+    "module",
+    "operation",
+    "status",
+    "new_gpu_execution",
+    "release_accepted",
+    "plan",
+    "context_snapshot",
+    "findings",
+    "artifacts",
+    "limitations",
+    "content_sha256"
+  ],
+  "additionalProperties": false
+}

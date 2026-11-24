@@ -1,0 +1,41 @@
+FlashInfer kernels are disabled: flashinfer-cubin is not installed and nvcc (CUDA_HOME, CUDA_PATH, PATH or /usr/local/cuda) or ninja (PATH) is missing. Set CUDA_HOME to a CUDA toolkit and put ninja on PATH, or run `vllm download-kernels`.
+Version info:Mcoplib_Version = '0.4.14'
+Build_Maca_Version = '3.9.0.31'
+Build_Torch_Version = '2.10.0+metax3.9.0.8'
+Min_Compatibility_Maca_Version = '3.7.0'
+GIT_BRANCH = 'HEAD'
+GIT_COMMIT = 'f3794c4'
+Vllm Op Version = 0.29.0
+SGlang Op Version  = 0.5.19 
+
+INFO mcoplib version: None
+
+INFO: Torch version compatibility check passed: build=2.10.0+metax3.9.0.8, runtime=2.10.0+metax3.9.0.8.
+
+INFO: Release major.minor matching,  successful:3.9. 
+
+INFO: MACA minimum compatibility check passed: 3.9.0 >= 3.7.0.
+
+Traceback (most recent call last):
+  File "/experiment/harness/isolated_layer_probe.py", line 62, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/experiment/harness/isolated_layer_probe.py", line 36, in main
+    scheme.create_weights(layer,[part,part],k,torch.bfloat16,lambda *args:None)
+  File "/work/src/vllm/vllm/model_executor/layers/quantization/compressed_tensors/schemes/compressed_tensors_w8a8_int8.py", line 58, in create_weights
+    weight = ModelWeightParameter(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/work/src/vllm/vllm/model_executor/parameter.py", line 139, in __init__
+    super().__init__(**kwargs)
+  File "/work/src/vllm/vllm/model_executor/parameter.py", line 210, in __init__
+    super().__init__(**kwargs)
+  File "/work/src/vllm/vllm/model_executor/parameter.py", line 63, in __init__
+    self.tp_rank = get_tensor_model_parallel_rank()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/src/vllm/vllm/distributed/parallel_state.py", line 2444, in get_tensor_model_parallel_rank
+    return get_tp_group().rank_in_group
+           ^^^^^^^^^^^^^^
+  File "/work/src/vllm/vllm/distributed/parallel_state.py", line 1589, in get_tp_group
+    assert _TP is not None, "tensor model parallel group is not initialized"
+           ^^^^^^^^^^^^^^^
+AssertionError: tensor model parallel group is not initialized

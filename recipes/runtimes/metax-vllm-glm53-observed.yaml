@@ -1,0 +1,113 @@
+schema_version: 0.2.0
+kind: RuntimeSpec
+id: metax-vllm-glm53-observed
+version: 1.0.0
+title: GLM TP8 离线运行环境观测
+provenance:
+- source_ref:
+    id: source-metax-reboot-runtime-scope
+    version: 1.0.0
+  locator: /
+- source_ref:
+    id: source-metax-current-packages
+    version: 1.0.0
+  locator: /
+- source_ref:
+    id: source-metax-gemm-stack-inventory
+    version: 1.0.0
+  locator: /compiler
+- source_ref:
+    id: source-metax-effective-engine-config
+    version: 1.0.0
+  locator: EngineCore initialization
+issues:
+- code: unfrozen-runtime-source
+  path: /source_commit
+  reason: 镜像 ID 无法固定 bind mount 中的 vLLM 源码，尚未取得源码 .git commit；仅有镜像 ID 不能完整复现运行环境。
+  blocking: true
+  status: unverified
+- code: offline-not-api-service
+  path: /execution_profile/interface
+  reason: 已观察到的是离线 LLM 实验，尚未核验 OpenAI HTTP endpoint；接入 AIPerf attached 模式前需另行核验服务。
+  blocking: false
+  status: unverified
+- code: expert-parallel-unconfirmed
+  path: /execution_profile/parallelism
+  reason: 已观察到 TP8、PP1、DP1；EP 的实际有效配置尚未确认。
+  blocking: true
+  status: unverified
+extensions: {}
+engine: vllm-metax
+version_label: 0.32.0+g0962c8.d20261122.maca3.9.0.29.torch2.10.0
+source_commit: null
+container_digest: sha256:9bbf20dbcaaf52b794b887f0311a6dcbff6d23bb0a78b72fb0f442f8aab0f285
+driver: 3.10.14
+device_runtime: MACA 3.9.0.29
+compiler: 'mxcc version 1.0.0 (568b911cc9)
+
+  Target: x86_64-unknown-linux-gnu
+
+  Thread model: posix
+
+  InstalledDir: /opt/maca-3.9.0/mxgpu_llvm/bin'
+libraries:
+  torch: 2.10.0+metax3.9.0.8
+  triton: 3.6.0+metax3.9.0.8
+  vllm: 0.32.0+empty
+  vllm-metax: 0.32.0+g0962c8.d20261122.maca3.9.0.29.torch2.10.0
+  transformers: 5.17.0
+  mcoplib: 0.4.14+gf3794c4.maca3.9.0.31.torch2.10
+  mctlassEx: 0.1.1+metax3.9.0.8torch2.10
+launch_parameters: {}
+status: environment_verified
+execution_profile:
+  interface: offline_python
+  model_path: /models/GLM-5.3-Flash-W8A8
+  parallelism:
+    tp: 8
+    pp: 1
+    ep: null
+    dp: 1
+    expert_parallel_enabled: null
+  environment:
+    MCCL_P2P_DISABLE: '1'
+    VLLM_USE_V2_MODEL_RUNNER: '1'
+    MACA_VISIBLE_DEVICES: 0,1,2,3,4,5,6,7
+    USE_PRECOMPILED_KERNEL: '1'
+  settings:
+    model: /models/GLM-5.3-Flash-W8A8
+    tensor_parallel_size: 8
+    distributed_executor_backend: mp
+    dtype: bfloat16
+    quantization: compressed-tensors
+    load_format: safetensors
+    max_model_len: 4096
+    max_num_seqs: 1
+    max_num_batched_tokens: 4096
+    gpu_memory_utilization: 0.9
+    enforce_eager: true
+    enable_prefix_caching: false
+    async_scheduling: false
+    attention_config:
+      indexer_kv_dtype: auto
+    limit_mm_per_prompt:
+      image: 0
+      video: 0
+    trust_remote_code: false
+    worker_extension_cls: replacement_worker.Replacement
+    disable_custom_all_reduce: true
+    pipeline_parallel_size: 1
+    data_parallel_size: 1
+    enable_chunked_prefill: true
+    kv_cache_dtype: auto
+    speculative_config: null
+  sampling:
+    temperature: 0.0
+    top_p: 1.0
+    seed: 0
+    max_tokens: 1024
+    ignore_eos: false
+  validation_scope: 'One-layer feasibility pilot: baseline32, candidate32, rollback4. Not a performance acceptance
+    run. EngineCore confirms TP8/PP1/DP1, max_seq_len=4096, chunked prefill enabled, speculative_config=None; EP
+    is not exported.'
+container_identity_kind: docker_image_id

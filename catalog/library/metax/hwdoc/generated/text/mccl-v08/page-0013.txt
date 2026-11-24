@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_MCCL编程指南_CN_V08.pdf
+文档 ID: mccl-v08
+SHA256: 7a95ac3ce4f68b0fb11baabb7fa08794cd5f5081c9ec3e888eefaaa03ab8c8b2
+PDF 页序号: 13
+PDF 页码标签: 6
+页脚页码候选: 6
+章节提示（书签推断）: 多进程
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MCCL 编程指南
+3.1.11 mcclCommUserRank
+mcclResult_t mcclCommUserRank(const mcclComm_t comm, int* rank);
+获取当前通讯器的 rank 编号。
+3.1.12 示例
+3.1.12.1 单进程
+int nranks = 4;
+mcclComm_t comms[nranks];
+int devs[nranks] = {0, 1, 2, 3};
+mcclCommInitAll(comms, nranks, devs);
+//...
+//OPs...
+//...
+// finalizing MCCL
+for (int i = 0; i < nranks; ++i)
+mcclCommDestroy(comms[i]);
+3.1.12.2 多进程
+mcclUniqueId id;
+mcclComm_t comm;
+//initializing MPI
+MPICHECK(MPI_Init(&argc, &argv));
+MPICHECK(MPI_Comm_rank(MPI_COMM_WORLD, &myRank));
+MPICHECK(MPI_Comm_size(MPI_COMM_WORLD, &nRanks));
+//get MCCL unique ID at rank 0 and broadcast it to all others
+if (myRank == 0) mcclGetUniqueId(&id);
+MPICHECK(MPI_Bcast((void *)&id, sizeof(id), MPI_BYTE, 0, MPI_COMM_WORLD));
+mcSetDevice(myRank);
+mcclCommInitRank(&comm, nRanks, id, myRank);
+//Other Ops.
+//finalizing MCCL
+mcclCommDestroy(comm);
+3 编程模型 沐曦股份专有信息 PG‑23004‑020‑F5_V08 | 6

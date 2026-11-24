@@ -1,0 +1,46 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 283
+PDF 页码标签: 275
+页脚页码候选: 275
+章节提示（书签推断）: 例子
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+__shfl_up_sync() 通过 caller 线程的 laneID 减少delta 来计算 srcLaneID。计算出的 srcLaneID
+对应的线程的 var 的值将被返回：实际上，var 再 warp 中向上移动了delta 个 lane。如果 width 比
+warpSize小，那么每一个warp的子group将作为一个独立的实体，拥有一个逻辑的从0开始的laneID
+系统。srcLaneID不会环绕width改变，因此低laneID的lane的值将不会改变。
+__shfl_down_sync()通过caller线程的laneID增加 delta来计算srcLaneID。计算出的srcLaneID
+对应的线程的 var 的值将被返回：实际上，var 再 warp 中向上移动了delta 个 lane。如果 width 比
+warpSize小，那么每一个warp的子group将作为一个独立的实体，拥有一个逻辑的从0开始的laneID
+系统。srcLaneID不会环绕width改变，因此低laneID的lane的值将不会改变。
+__shfl_xor_sync() 通过 caller 线程的 laneID 与laneMask 做与运算来计算 srcLaneID。计算出的
+srcLaneID对应的线程的var的值将被返回。如果width比warpSize小，每组宽度连续的线程能够访问
+之前线程组中的元素，但是如果它们想访问之后组的线程，它们自己的 var 的值会被返回。这种模式实
+现了一种蝴蝶寻址模式，如用于树缩减和广播的模式。
+这些 intrinsic 有一个 mask 参数表明参与这个操作的线程。每个 bit 都对应着一个线程的 laneID，每一
+个参与的线程对应的 bit 必须设置为 1 来确保它们在硬件执行内部函数之前正确聚合。所有 mask 标识
+的未退出的线程必须使用相同的mask执行相同的intrinsic，否则结果会是不确定的。
+约束：mask中设置为1的线程必须为active线程。
+2.22.3 例子
+#include <stdio.h>
+__global__ void bcast(int arg)
+{
+int laneId = threadIdx.x & 0x1f;
+int value;
+if (laneId == 0) // 注意：除了第零个 lane，
+value = arg; // 其他线程不会使用这个变量
+value = __shfl_sync(0xffffffffffffffffUL, value, 0); // 
+,→同步 warp中所有线程，并且从 lane 0 处取得“ value”
+if (value != arg)
+printf("Thread %d failed.\n", threadIdx.x);
+}
+int main()
+{
+bcast<<<1, 64>>>(1234);
+mcDeviceSynchronize();
+return 0;
+}
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 275

@@ -1,0 +1,55 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 64
+PDF 页码标签: 55
+页脚页码候选: 55
+章节提示（书签推断）: 运行时编译和动态加载
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+(续上页)
+/* load kernel file to buffer*/
+std::vector<char> buffer = load_file_data("my_kernel.cu");
+/* Create an instance of mcrtcProgram */
+mcrtcProgram prog;
+mcrtcCreateProgram( &prog, // prog
+(char *)&buffer[0], // buffer
+"", //name
+0, // numHeaders
+NULL, //headers
+NULL); //includeNames
+const char *opts[] = {"-x maca"};
+/* Compile the program */
+mcrtcCompileProgram(prog, // prog
+1, // numOptions
+opts); // options
+size_t codeSize;
+mcrtcGetCodeSize(prog, &codeSize);
+char *code = new char[codeSize];
+/* get binary file */
+mcrtcGetCode(prog, code);
+mcrtcDestroyProgram(&prog);
+mcModule_t module;
+mcFunction_t kernel_addr;
+/* load binary file to buffer */
+mcModuleLoadData(&module, code);
+/* get kernel function point */
+mcModuleGetFunction(&kernel_addr, module, "test_kernel");
+/* launch kernel function */
+mcModuleLaunchKernel(kernel_addr, 1, 1, 1, 1, 1, 1, 0, NULL,NULL,NULL);
+mcModuleUnload(module);
+delete[] code;
+}
+int main()
+{
+rtcTest();
+return 1;
+}
+3. 正确设置环境变量（以缺省安装位置 /opt/maca 为例） ：
+export MACA_PATH=/opt/maca
+export LD_LIBRARY_PATH=${MACA_PATH}/lib:${LD_LIBRARY_PATH}
+export PATH=${MACA_PATH}/mxgpu_llvm/bin:${PATH}
+4. 在源文件 rtc_test.cpp 同级目录下执行以下命令，即可得到可执行文件 a.out，如图 4.5 所示。
+mxcc -x maca rtc_test.cpp
+4 编译和调试 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 55

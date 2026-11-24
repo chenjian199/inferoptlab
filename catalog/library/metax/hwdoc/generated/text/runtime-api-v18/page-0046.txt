@@ -1,0 +1,44 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 46
+PDF 页码标签: 37
+页脚页码候选: 37
+章节提示（书签推断）: API附加说明
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+mcDeviceSynchronize 之前，不能保证子网格开始执行。
+3.7.4.2 同步
+由于暂不支持命名流与事件，MXMACA 设备运行时不支持调用线程与从其他线程调用的子网格之间的同
+步，但可以通过隐式同步或者显式同步达到调用线程与调用的子网格之间的同步，并保证子网格中发生
+的更改对父网格中的线程可见。
+• 隐式同步：在网格中所有线程的所有启动完成之后，网格的执行才被视为完成。如果网格中的所有线
+程在所有子启动完成之前退出，则将自动触发隐式同步操作。
+• 显式同步 ：来自任何线程的 MXMACA 设备运行时操作（包括核函数启动）在网格中的所有线程
+中都可见。这意味着父网格中的调用线程可以执行同步，以控制在网格任意线程上的网格启动
+顺序。MXMACA 设备运行时提供函数 mcDeviceSynchronize 用于同步，保证当前网格中在函数
+mcDeviceSynchronize 之前启动的所有子网格全部执行完毕，并保证子网格操作的全局地址数据
+对父网格可见。
+3.7.5 API 附加说明
+表 3.3 提供了设备端运行时 API 和主机端运行时 API 的对照说明：
+表 3.3 设备端运行时 API 和主机端运行时 API 的对照说明
+设备端运行时 API 说明
+mcDeviceSynchronize 和主机端运行时相应的 API 行为一致
+mcMalloc
+mcLaunchDevice
+mcLaunchDeviceV2
+mcMemcpy2DAsync
+mcMemcpy3DAsync
+mcMemsetAsync
+mcMemset2DAsync
+mcMemset3DAsync
+mcGetParameterBuffer 禁止在参数缓冲区中进行参数重排序，并且放置在参数缓冲中的每个
+单独参数需要对齐，对齐方式参考结构体的对齐。参数缓冲区的最大
+值为 4KB。mcGetParameterBufferV2
+mcFree 不能释放主机端使用 mcMalloc 接口分配的指针
+mcMemcpyAsync 对于所有的 memcpy/memset 函数：
+• 仅支持异步的 memcpy/set 函数
+• 仅支持设备内的内存拷贝
+使用私有内存或共享内存结果可能是未知的
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 37

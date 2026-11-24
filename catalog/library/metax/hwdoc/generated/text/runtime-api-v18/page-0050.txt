@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 50
+PDF 页码标签: 41
+页脚页码候选: 41
+章节提示（书签推断）: 实例化图更新
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+(续上页)
+mcGraphCreate(&graph, 0);
+// Add two memory copy nodes into the graph
+mcGraphAddMemcpyNode1D(&a, graph, NULL, 0, &nodeParams);
+mcGraphAddMemcpyNode1D(&b, graph, NULL, 0, &nodeParams);
+// Add one kernel node into the graph
+mcGraphAddKernelNode(&c, graph, NULL, 0, &nodeParams);
+// Add one memory copy nodes into the graph
+mcGraphAddMemcpyNode1D(&d, graph, NULL, 0, &nodeParams);
+// Now set up dependencies on each node
+mcGraphAddDependencies(graph, &a, &c, 1); // A->C
+mcGraphAddDependencies(graph, &b, &c, 1); // B->C
+mcGraphAddDependencies(graph, &c, &d, 1); // C->D
+3.8.2 流捕获图编程接口
+流捕获图编程接口提供了一种机制，即从现有基于流的 API 创建任务图。用于将工作启动到流中的代码
+片段 （包括现有代码） ，可以用函数mcStreamBeginCapture 和 mcStreamEndCapture 调用括起来。
+如下代码所示，使用流捕获图编程接口创建 VectorAdd 任务图：
+// Create a graph with Stream Capture API
+mcGraph_t graph;
+mcStreamBeginCapture(stream, mcStreamCaptureModeGlobal);
+mcMemcpyAsync(device_A, host_A, size, stream);
+mcMemcpyAsync(device_B, host_B, size, stream);
+vectorAdd<<< ..., stream >>>( device_A, device_B, device_C...);
+mcMemcpyAsync(host_C, device_C, size, stream);
+mcStreamEndCapture(stream, &graph);
+3.8.3 实例化图更新
+沐曦通用 GPU 提供了两种更新实例化图参数的机制，即整图更新和单个节点更新。整图更新允许用户提
+供拓扑相同的 mcGraph_t 对象，其节点包含更新的参数。单个节点更新允许用户显式更新单个节点的
+参数。当大量节点正在更新时，或者当调用方不知道图拓扑（即，库调用的流捕获所产生的图）时，使
+用更新的 mcGraph_t。当更新数量较少且用户拥有需要更新的节点的句柄时，最好使用单个节点更新。
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 41

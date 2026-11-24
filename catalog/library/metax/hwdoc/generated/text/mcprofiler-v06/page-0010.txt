@@ -1,0 +1,13 @@
+文档: 沐曦通用GPU_mcProfiler使用手册_CN_V06.pdf
+文档 ID: mcprofiler-v06
+SHA256: 22c9fa76c4f27e328b151bad16f105b11d81df4fc501075baec5794c29b5c66e
+PDF 页序号: 10
+PDF 页码标签: 5
+页脚页码候选: 5
+章节提示（书签推断）: 卸载
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcProfiler 使用手册
+2.3 卸载
+mcProfiler 为纯绿色免安装软件，删除整个 mcProfiler 文件夹，即可卸载。
+2 mcProfiler 沐曦股份专有信息 OG‑24005‑020‑F5_V06 | 5

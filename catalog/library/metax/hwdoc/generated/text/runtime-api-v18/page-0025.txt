@@ -1,0 +1,38 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 25
+PDF 页码标签: 16
+页脚页码候选: 16
+章节提示（书签推断）: 流回调
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+(续上页)
+mcMemcpyAsync(dst, src, byte_size, mcMemcpyHostToDevice, stream1);
+mcEventRecord(sync_event, stream1);
+mcStreamWaitEvent(stream2, sync_event, mcEventWaitDefault);
+mcnnExecuteAsync(ctx, network_id, batch_ size, inputs, outputs, stream2);
+其中，stream1 及 stream2 上的操作均不会阻塞调用线程，但是 stream2 上的推理操作需等待 stream1
+上的内存拷贝完成后再开始。
+3.3.4 流回调
+流回调用于设置添加当流上的操作全部完成后执行的动作，属于一种设备与主机之间的同步机制，回调
+函数由调用者提供。使用如下 API 添加回调：
+mcError_t mcStreamAddCallback(mcStream_t stream,mcStreamCallback_t callback, void 
+,→*userData,unsigned int flags)
+每次使用 mcStreamAddCallback 添加一次回调，回调每次只执行一次。在执行回调时，会阻塞添加
+回调函数后的操作执行。
+此外，userData 可用于指定调用者传递给回调函数的数据。
+注解:
+• flags 当前未使用，需设置为 0。
+• 通常，不应在回调函数中添加设备 API 相关的代码。
+代码示例
+在推理完成后添加回调，代码如下所示：
+static my_callback(mcStream_t stream, mcError_t status, void *userData) {
+printf("receive call back from stream[%p] with status[%d]", stream, status);
+}
+mcStream_t stream;
+mcStreamCreate(&stream);
+mcnnExecuteAsync(ctx, network_id, batch_size, inputs, outputs, stream);
+mcStreamAddCallback(stream, my_callback, nullptr, 0);
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 16

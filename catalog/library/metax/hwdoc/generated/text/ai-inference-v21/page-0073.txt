@@ -1,0 +1,39 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 73
+PDF 页码标签: 61
+页脚页码候选: 61
+章节提示（书签推断）: 执行模型评测
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+9.4.3 数据集获取
+MacaRT‑ModelZoo 中模型的量化和结果指标评估需要数据集，有以下三种获取方式：
+• 联系沐曦技术支持工程师，获取数据集，无需修改直接使用
+• 下载公开数据集，可能需要调整
+• 自己制作数据集，可能需要调整
+需要调整的原因是：可能存在数据集的数据存放目录结构和标注信息与 MacaRT‑ModelZoo 中要求的数
+据集有所差异。
+9.5 模型评测步骤
+9.5.1 启动容器镜像
+从发布的软件包中获取 modelzoo.cnn.inference 容器镜像并启动， 此容器镜像包含 MacaRT‑ModelZoo
+模型评测所需的运行时软件栈。容器镜像的使用，参见《沐曦通用 GPU 用户指南》中“容器相关场景支
+持”章节。容器镜像启动时需要挂载用户的 ONNX 模型目录和数据集目录。
+9.5.2 建立数据集的关联
+参见 9.4.3 数据集获取，准备好数据集后，切换到模型大类目录下建立软链接。例如，测试 Resnet18 可
+执行以下命令：
+cd $MODELZOO_PATH/classification
+ln -s $CLASSIFICATION_DATA_SET_PATH data
+9.5.3 执行模型评测
+MacaRT‑ModelZoo 中评测模型性能或精度，需要先切换到模型大类目录，然后统一使用以下命令：
+python ./code/OnnxRT_v2/start.py $modelpath $batchsize $precision $task $modelfile
+,→$ep $num_thr
+通过参数可以配置测试任务为性能测试任务、精度测试任务或两者兼有，也可以配置测试精度为 int8、
+fp16 或 fp32，具体参数说明参见表 9.1：
+表 9.1 模型评测命令行参数解析
+参数名称 说明
+modelpath 模型配置目录，运行 resnet18 则是 models/ox_resnet18_224x224
+batchsize 推理 batchsize
+下页继续
+9 MacaRT‑ModelZoo 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 61

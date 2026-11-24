@@ -1,0 +1,31 @@
+文档: 沐曦通用GPU_MCCL编程指南_CN_V08.pdf
+文档 ID: mccl-v08
+SHA256: 7a95ac3ce4f68b0fb11baabb7fa08794cd5f5081c9ec3e888eefaaa03ab8c8b2
+PDF 页序号: 18
+PDF 页码标签: 11
+页脚页码候选: 11
+章节提示（书签推断）: mcclSend
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MCCL 编程指南
+3.3.1 mcclGroupStart
+mcclResult_t mcclGroupStart();
+开始一个组编程。在此之后的所有 MCCL 函数都不会立即执行，而是放入一个执行队列中等待执行。
+3.3.2 mcclGroupEnd
+mcclResult_t mcclGroupEnd();
+结束组编程。立即启动队列中的所有操作，并根据不同 stream 放入不同队列执行。在所有操作完成之
+前，阻塞当前线程。
+3.3.3 示例
+mcclGroupStart();
+mcclSend(sendbuff[0], size, mcclFloat, 1, comms[0], s[0]);
+mcclRecv(recvbuff[1], size, mcclFloat, 0, comms[1], s[1]);
+mcclGroupEnd();
+3.4 点对点通讯
+点对点的通讯，即把数据从一个 rank 复制给另一个 rank，也就是将显存中的内容，由一个显卡复制到
+另一个显卡中。
+3.4.1 mcclSend
+mcclResult_t mcclSend(const void* sendbuff, size_t count, mcclDataType_t datatype, 
+,→int peer, mcclComm_t comm, mcStream_t stream);
+将 sendbuff 中的内存发送给接收端 peer 。count 为数据的个数，datatype 为数据类型。
+comm 为通信器对象，stream 为 MXMACA 的 stream。
+3 编程模型 沐曦股份专有信息 PG‑23004‑020‑F5_V08 | 11

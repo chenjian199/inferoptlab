@@ -1,0 +1,85 @@
+schema_version: 0.2.0
+kind: AccuracyPlan
+id: glm53-humaneval-smoke32
+version: 1.0.0
+title: GLM Flash HumanEval smoke32 offline preparation
+provenance: []
+issues: []
+extensions: {}
+model_ref:
+  id: metax-glm-5.3-flash-w8a8
+  version: 1.0.0
+hardware_ref:
+  id: metax-c500-8gpu
+  version: 1.0.0
+runtime_ref:
+  id: metax-vllm-glm53-observed
+  version: 1.0.0
+method_sources:
+- path: catalog/library/metax/methods/regression-policy.md
+  sha256: 04930880851d3c370dd83e646e2b8dd9f4488bdc9d86c945091f1f1717b98f9e
+- path: catalog/library/metax/methods/humaneval.md
+  sha256: ed5ca46fa64c8377b769788b9b921dee1d6c98cfef913378f42e5de05ef10d9d
+dataset:
+  id: openai/openai_humaneval
+  revision: 7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544
+  scope: smoke32
+  task_ids:
+  - HumanEval/16
+  - HumanEval/131
+  - HumanEval/103
+  - HumanEval/54
+  - HumanEval/144
+  - HumanEval/115
+  - HumanEval/123
+  - HumanEval/162
+  - HumanEval/156
+  - HumanEval/94
+  - HumanEval/48
+  - HumanEval/56
+  - HumanEval/160
+  - HumanEval/6
+  - HumanEval/117
+  - HumanEval/12
+  - HumanEval/59
+  - HumanEval/30
+  - HumanEval/10
+  - HumanEval/82
+  - HumanEval/35
+  - HumanEval/104
+  - HumanEval/89
+  - HumanEval/110
+  - HumanEval/15
+  - HumanEval/40
+  - HumanEval/148
+  - HumanEval/72
+  - HumanEval/157
+  - HumanEval/13
+  - HumanEval/37
+  - HumanEval/127
+  manifest:
+    path: experiments/datasets/humaneval/manifest.json
+    sha256: 821fc881f4b6fda21916e6c048b09e61e838e91ae8e75b48b7ea033825228b95
+functional:
+  independent_processes_per_side: 3
+  samples_per_task: 1
+  interleave_baseline_candidate: true
+  stable_regression: fail
+  variable_regression: inconclusive
+  aggregate_protection: true
+scoring:
+  network: false
+  gpu: false
+  read_only_root: true
+  cpus: 1
+  memory_mib: 512
+  pids_limit: 32
+  cpu_timeout_s: 8
+  wall_timeout_s: 10
+  allow_repair_or_resampling: false
+numerical:
+  same_prefix_only: true
+  paths:
+  - prefill
+  - cached_decode
+  thresholds: []

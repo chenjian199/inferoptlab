@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "status": "observed_not_revalidated",
+  "baseline_id": "D0-20261122",
+  "source_case": "hwdoc/practice/cases/2026-11-22-glm53-w8a8-tp8/case.json",
+  "observed_on": "2026-11-22",
+  "model": "GLM-5.3-Flash-W8A8",
+  "image": {
+    "tag": "glm53-vllm032:verified-20261122",
+    "image_id": "sha256:9bbf20dbcaaf52b794b887f0311a6dcbff6d23bb0a78b72fb0f442f8aab0f285"
+  },
+  "host_driver": "3.8.30",
+  "sdk": "3.9.0.29",
+  "versions": {
+    "torch": "2.10.0+metax3.9.0.8",
+    "triton": "3.6.0+metax3.9.0.8",
+    "vllm": "0.32.0+empty",
+    "vllm-metax": "0.32.0+g0962c8.d20261122.maca3.9.0.29.torch2.10.0",
+    "mcoplib": "0.4.14+gf3794c4.maca3.9.0.31.torch2.10",
+    "transformers": "5.17.0",
+    "compressed-tensors": "0.17.0"
+  },
+  "source_commits": {
+    "metax": "0962c8735ffe4795800030680311410848512b82",
+    "upstream": "5df63a7203cdb9328d824a27b682e77c7b9928be"
+  },
+  "required_repairs": [
+    "moe_align_legacy_abi",
+    "glm_int8_indexer_tensor_contract",
+    "glm_mla_scale_ownership"
+  ],
+  "weights": {
+    "repository": "metax-tech/GLM-5.3-Flash-W8A8",
+    "revision": "6df7a9b0309e530094e29b2a6ced3e21bed6c16d",
+    "verified_files": 59,
+    "shards": 47,
+    "structure_check": {
+      "complete": false,
+      "tensor_data_and_mapping_valid": true,
+      "known_metadata_issue": "index metadata total_size=[]; retained unchanged"
+    }
+  },
+  "runner": "V2",
+  "historically_validated_settings": {
+    "model": "/models/GLM-5.3-Flash-W8A8",
+    "tensor_parallel_size": 8,
+    "distributed_executor_backend": "mp",
+    "dtype": "bfloat16",
+    "quantization": "compressed-tensors",
+    "load_format": "safetensors",
+    "max_model_len": 4096,
+    "max_num_seqs": 1,
+    "max_num_batched_tokens": 4096,
+    "gpu_memory_utilization": 0.9,
+    "enforce_eager": true,
+    "enable_prefix_caching": false,
+    "attention_config": {
+      "indexer_kv_dtype": "auto"
+    },
+    "limit_mm_per_prompt": {
+      "image": 0,
+      "video": 0
+    },
+    "trust_remote_code": false,
+    "worker_extension_cls": "worker_provenance.Provenance",
+    "async_scheduling": false
+  },
+  "historical_smoke_sampling": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "seed": 0,
+    "max_tokens": 1024
+  },
+  "experimental_root": null,
+  "experimental_container": null,
+  "new_container_full_inference_verified": false,
+  "note": "Historical source paths and worker extension must be mapped to the new experiment. This is not a runnable vLLM CLI config."
+}

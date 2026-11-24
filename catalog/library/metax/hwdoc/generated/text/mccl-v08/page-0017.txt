@@ -1,0 +1,43 @@
+文档: 沐曦通用GPU_MCCL编程指南_CN_V08.pdf
+文档 ID: mccl-v08
+SHA256: 7a95ac3ce4f68b0fb11baabb7fa08794cd5f5081c9ec3e888eefaaa03ab8c8b2
+PDF 页序号: 17
+PDF 页码标签: 10
+页脚页码候选: 10
+章节提示（书签推断）: 组调用
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MCCL 编程指南
+(续上页)
+mcclAllGather((const void*)sendbuff[i], (void*)recvbuff[i], size, mcclFloat, 
+,→comms[i], s[i]);
+}
+mcclGroupEnd();
+mcclGroupStart();
+for (int i = 0; i < nranks; ++i) {
+mcclAllReduceScatter((const void*)sendbuff[i], (void*)recvbuff[i], size, 
+,→mcclFloat, mcclSum, comms[i], s[i]);
+}
+mcclGroupEnd();
+mcclGroupStart();
+for (int i = 0; i < nranks; ++i) {
+mcclAllToAll((const void*)sendbuff[i], (void*)recvbuff[i], size, mcclFloat, 
+,→comms[i], s[i]);
+}
+mcclGroupEnd();
+mcclGroupStart();
+for (int i = 0; i < nranks; ++i) {
+mcclToAllAllv((const void*)sendbuff[i], sendcounts, sdispls, (void*)recvbuff[i],
+,→ recvcounts, rdispls, mcclFloat, comms[i], s[i]);
+}
+mcclGroupEnd();
+mcclGroupStart();
+for (int i = 0; i < nranks; ++i) {
+mcclAllToAlld((const void**)sendbuff[i], sendcounts, (void**)recvbuff[i], 
+,→recvcounts, mcclFloat, comms[i], s[i]);
+}
+mcclGroupEnd();
+3.3 组调用
+组调用可以把一系列 MCCL 操作合并在一起放入后台执行，不同 stream 的操作可互不影响地执行。这
+样可以实现 MCCL 操作在不同 stream 并发执行。
+3 编程模型 沐曦股份专有信息 PG‑23004‑020‑F5_V08 | 10

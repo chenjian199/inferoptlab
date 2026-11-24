@@ -1,0 +1,43 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 69
+PDF 页码标签: 62
+页脚页码候选: 62
+章节提示（书签推断）: mcblas<t>her()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE • n < 0
+• incx = 0 或 incy = 0
+• uplo != MCBLAS_FILL_MODE_UPPER,
+MCBLAS_FILL_MODE_LOWER
+• alpha = NULL 或 beta = NULL
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2.4.20 mcblas<t>her()
+mcblasStatus_t mcblasCher(mcblasHandle_t handle, mcblasFillMode_t uplo,
+int n, const float *alpha,
+const mcComplex *x, int incx,
+mcComplex *A, int lda)
+mcblasStatus_t mcblasZher(mcblasHandle_t handle, mcblasFillMode_t uplo,
+int n, const double *alpha,
+const mcDoubleComplex *x, int incx,
+mcDoubleComplex *A, int lda)
+此函数执行厄米秩一校正
+A = αxxH + A
+其中 A 是以列主格式存储的 n × n 厄米矩阵，x 是向量，α 是标量。
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+uplo input 指示存储的是矩阵 A 的上半部分还是下半部分， 另外 Hermitian
+部分未被引用，且是从存储的元素推断出来的
+n input 矩阵 A 的行数和列数
+alpha 主机或设备 input 用于乘法的 <type> 标量
+x 设备 input 包含 n 个元素的 <type> 向量
+incx input x 中连续元素之间的步幅
+A 设备 in/out <type> 数组，维度为 lda x n ，其中 lda>=max(1,n) 。假
+定对角线元素的虚数部分为 0
+lda input 用于存储矩阵 A 的二维数组的前导维度
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 62

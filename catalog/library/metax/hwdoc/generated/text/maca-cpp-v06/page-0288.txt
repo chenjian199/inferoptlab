@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 288
+PDF 页码标签: 280
+页脚页码候选: 280
+章节提示（书签推断）: memcpy_async API
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+2.24.5 示例
+以下代码实现了在单个warp里进行16x16x16矩阵乘法。
+#include <mma.h>
+__global__ void wmma_ker(half *a, half *b, float *c) {
+// 声明矩阵分片
+wmma::fragment<wmma::matrix_a, 16, 16, 16, half, wmma::col_major> a_frag;
+wmma::fragment<wmma::matrix_b, 16, 16, 16, half, wmma::row_major> b_frag;
+wmma::fragment<wmma::accumulator, 16, 16, 16, float> c_frag;
+// 输出初始化为 0
+wmma::fill_fragment(c_frag, 0.0f);
+// 加载输入
+wmma::load_matrix_sync(a_frag, a, 16);
+wmma::load_matrix_sync(b_frag, b, 16);
+// 执行矩阵乘法
+wmma::mma_sync(c_frag, a_frag, b_frag, c_frag);
+// 保存输出
+wmma::store_matrix_sync(c, c_frag, 16, wmma::mem_row_major);
+}
+2.25 Asynchronous Data Copies
+MXMACA引入memcpy_asynAPI允许设备隐式管理异步数据拷贝。 memcpy_async特性允许MXMACA
+内核重叠数据移动和计算。
+2.25.1 memcpy_async API
+memcpy_asyncAPI由maca_async.h头文件提供。
+cooperative_groups::memcpy_async使用 cooperative_groups::wait同步。
+拷贝和计算模型通过shared内存预存数据。
+通常应用这样一种拷贝和计算模型：
+• 从global内存取数据
+• 将数据存储到shared内存中
+• 在shared内存数据上进行运算，最终将结果写回到global内存中。
+下面的两个小节将描述这个模型在有/无memcpy_async的情况下的表达方式：
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 280

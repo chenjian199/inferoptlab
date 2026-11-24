@@ -1,0 +1,30 @@
+文档: 沐曦通用GPU_MXMACA Clangd用户手册_CN_V03.pdf
+文档 ID: clangd-v03
+SHA256: f84564a4060d30251dbb164705b0aec56b25f11c02c1c748d5ce6187e44868ad
+PDF 页序号: 10
+PDF 页码标签: 5
+页脚页码候选: 5
+章节提示（书签推断）: 为工程生成compile_commands.json文件
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® Clangd 用户手册
+3 MXMACA Clangd 使用
+打开工程目录或文件即可使用。正常情况下，能够识别 .maca 文件，代码高亮显示，无编译报错波浪线
+提示，如图 3.1 所示。具体功能详见 4 特性列表。
+图 3.1 .maca 文件示例
+体验完整功能需要提供准确的编译命令，比如准确的变量跳转、头文件包含、预编译宏分支选择等。用
+户需要提供一个含有每个文件编译命令的 compile_commands.json 的文件，供 Clangd 获取编译命
+令。该文件通常可以自动生成，详见 3.1 为工程生成 compile_commands.json 文件 。
+MXMACA 相关头文件需要从 MXMACA 安装路径中获取，Clangd 依次从编译命令的 -maca-path 选项、
+环境变量 MACA_PATH、Clangd 所在目录、/opt/maca 中获取 MXMACA 安装路径。
+3.1 为工程生成 compile_commands.json 文件
+基于 cmake 的工程
+• 方式 1：在 cmake 命令中添加 -DCMAKE_EXPORT_COMPILE_COMMANDS=1
+• 方式 2：在 CMakeLists.txt文件中添加 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+在构建根目录下将生成 compile_commands.json ，Clangd 会自动搜索到该文件。
+基于 make 的工程
+使用 bear 工具，根据版本不同，命令为 bear make 或 bear -- make 。
+其他构建工程，或使用其他工具生成该文件，可参考 工程构建相关文档 。
+Clangd 工具自动搜索文件目录和其下的 build 目录，以及递归搜索父目录和其下的 build 目录。如果
+上述目录中没有这个文件，可以软链接或手动拷贝过去。
+3 MXMACA Clangd 使用 沐曦股份专有信息 OG‑24072‑020‑F5_V03 | 5

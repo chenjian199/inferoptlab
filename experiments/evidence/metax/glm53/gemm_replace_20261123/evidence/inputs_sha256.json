@@ -1,0 +1,14 @@
+{
+  "harness/code_adapter.py": "9112a71b1917f32020b31c88810944d388664a7f7b386a26eab61a933f2973ea",
+  "harness/evaluate_humaneval.py": "97120ed7783aaa1e36c19ff42103b80cb3fe1046ce059210dc770ed43a16a8f1",
+  "harness/gemm_kernel.py": "df5a0abe332a2d7521d2b682734f7f375fcaf5faad10b9446685173ff4773f84",
+  "harness/inventory.py": "56b53a7413adbd7fb1f6aad7e7a71f5171a26316cc2d4d60917972aa97d337a8",
+  "harness/launch_model.py": "15502e9f0702f90dd50dc44c1aac9ff54fbe68d35234cb3e867b32c708cd6f4f",
+  "harness/replacement_worker.py": "a133e45c913e939458e55ec898e2de1cf525110d7dae836ba97f4a868a290d51",
+  "harness/run_model.py": "c8e2c186e737b3f10fc2e4527811879e998f7b1e4df96da8cc6c3cf1a8bb711f",
+  "harness/test_device.py": "7e508c69f7338d630ded0d489c5ad036249e0db61b3c911470bda1d658cdbc75",
+  "harness/worker_provenance.py": "439b86e5b68ff5223b5521f737cb2f5f3a4ff5991040bedf06d3d3589cc8f0bb",
+  "configs/contract-v1.json": "724a3c1ddb1cbbb5b8e9c5b9a9fb4d8ee41b289f7b8b438a3566e2af58f9f743",
+  "configs/model-plan.json": "3184459847fe121b5e31fa99822151b31c6874aaa7816f109e5f5fd2f157dd31",
+  "data/prompt_manifest.json": "9511992c6111410171e161e556e397a7e33af3b464bc7320658e323c3cec30cb"
+}

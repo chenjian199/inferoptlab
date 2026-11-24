@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_mcPyTorch用户指南_CN_V16.pdf
+文档 ID: mcpytorch-v16
+SHA256: 165b88e24e4768497ef4587368037b4bbc99ab933eafc3e4baac43175c83cdb2
+PDF 页序号: 13
+PDF 页码标签: 7
+页脚页码候选: 7
+章节提示（书签推断）: Tensor Views
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcPyTorch 用户指南
+3.5 Tensor Attributes
+支持
+3.6 Tensor Views
+支持：
+• basic slicing and indexing
+• adjoint
+• as_strided
+• detach
+• diagonal
+• expand
+• expand_as
+• movedim
+• narrow
+• permute
+• select
+• squeeze
+• transpose
+• t
+• T
+• H
+• mT
+• mH
+• real
+• imag
+• view_as_real
+• unflatten
+• unfold
+• unsqueeze
+• view
+• view_as
+3 功能支持 沐曦股份专有信息 OG‑23031‑020‑F5_V16 | 7

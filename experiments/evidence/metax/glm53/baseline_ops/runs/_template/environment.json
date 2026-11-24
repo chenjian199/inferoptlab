@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "status": "template_not_run",
+  "observed_at": null,
+  "host_driver": null,
+  "sdk": null,
+  "versions": {},
+  "rank_provenance": [],
+  "gpu_state": [],
+  "source_fingerprints": {},
+  "weight_manifest_sha256": null,
+  "cache_policy": null
+}

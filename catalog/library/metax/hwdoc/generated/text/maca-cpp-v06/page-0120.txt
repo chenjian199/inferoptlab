@@ -1,0 +1,43 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 120
+PDF 页码标签: 112
+页脚页码候选: 112
+章节提示（书签推断）: Bfloat16精度转换与数据移动函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+• maca_bfloat16，值由a转换得到
+函数描述
+• 以向上舍入模式将32位浮点数类型转换为maca_bfloat16。
+__host__ __device__ maca_bfloat16 __float2bfloat16_rz (const float a)
+参数
+a
+• float，只读入参
+返回值
+• maca_bfloat16，值由a转换得到
+函数描述
+• 以向零舍入模式将32位浮点数类型转换为maca_bfloat16。
+__host__ __device__ maca_bfloat162 __floats2bfloat162_rn (const float a, const 
+,→float b)
+参数
+a
+• float，只读入参
+b
+• float，只读入参
+返回值
+• maca_bfloat162，由a和b构建得到的向量
+函数描述
+• 以向最近偶数舍入模式将两个 32 位浮点数类型转换为两个 maca_bfloat16，并用这两个
+maca_bfloat16构建一个maca_bfloat162向量。
+__device__ maca_bfloat162 __halves2bfloat162 (const maca_bfloat16 a, const maca_
+,→bfloat16 b)
+参数
+a
+• maca_bfloat16，只读入参
+b
+• maca_bfloat16，只读入参
+返回值
+• maca_bfloat162，由a和b构建得到的向量
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 112

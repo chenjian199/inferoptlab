@@ -1,0 +1,37 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 160
+PDF 页码标签: 152
+页脚页码候选: 152
+章节提示（书签推断）: 单精度数学函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+将 x 四舍五入到最接近的整数值，一半的情况下从零四舍五入。如果结果超出返回类型的范围，则结果
+未定义。
+__device__ float max (const float a, const float b)
+计算输入的浮点数的最大值。
+函数描述
+计算输入参数a和b的最大值，行为与函数fmaxf()一致。
+注解: 这个函数与std::里面的函数不同。
+__device__ float min (const float a, const float b)
+计算输入的浮点数的最小值。
+函数描述
+计算输入参数a和b的最小值，行为与函数fminf()一致。
+注解: 这个函数与std::里面的函数不同。
+__device__ float modff (float x, float *iptr)
+将输入参数分解为分数和整数部分。
+返回值
+• modff(±x,iptr)返回一个与x具有相同的符号的结果。
+• modff(±∞,iptr)返回±0并且在iptr指向的内存中存入±∞。
+• modff(NaN,iptr)返货NaN并且在iptr指向的内存中存入NaN。
+函数描述
+将参数x分解为分数和整数部分。分数部分存储在参数iptr中。分数和整数部分的符号与参数x相同。
+__device__ float nanf (const char *tagp)
+返回“NotaNumber”值。
+返回值
+• nanf(tagp)返回NaN。
+函数描述
+返回安静NaN的表示。参数tagp选择一种可能的表示形式。
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 152

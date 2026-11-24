@@ -1,0 +1,12 @@
+{
+  "proxy_running": true,
+  "controller_without_auth": 401,
+  "proxy_without_auth": 407,
+  "mixed_address": "127.0.0.1:17890",
+  "controller_address": "127.0.0.1:19090",
+  "allow_lan": false,
+  "tun_enabled": false,
+  "config_permissions": "0o600",
+  "global_proxy_changed": false,
+  "docker_restarted": false
+}

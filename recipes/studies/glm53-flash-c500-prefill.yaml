@@ -1,0 +1,30 @@
+schema_version: 0.2.0
+kind: StudySpec
+id: glm53-flash-c500-prefill
+version: 1.0.0
+title: GLM Flash C500 prefill 初版诊断扫描
+provenance: []
+issues: []
+extensions: {}
+model_ref:
+  id: cluster-glm53-flash-w8a8
+  version: 1.0.0
+hardware_ref:
+  id: metax-four-node-inventory-metax-60-host
+  version: 1.0.0
+runtime_ref:
+  id: glm53-flash-c500-sglang-candidate
+  version: 1.0.0
+case_refs:
+- id: glm53-flash-prefill-short-case
+  version: 1.0.0
+- id: glm53-flash-prefill-long-case
+  version: 1.0.0
+allowed_deployment_modes:
+- aggregated
+objective: null
+budget:
+  max_candidates: 3
+  max_device_hours: null
+  max_wall_hours: 24
+capability_policy: probe_before_execution

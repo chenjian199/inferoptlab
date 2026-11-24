@@ -1,0 +1,31 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 67
+PDF 页码标签: 58
+页脚页码候选: 58
+章节提示（书签推断）: 关闭Binary Cache功能
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+图 4.6 Binary Cache 生成
+4.3.1 更改 Binary Cache 文件支持 Size
+需要设置环境变量：MACA_CACHE_MAXSIZE
+1. 编辑 ~/.bashrc 文件：
+vim ~/.bashrc
+2. 在文件末尾加入以下内容：
+export MACA_CACHE_MAXSIZE = xxx // 所 设 置 的 文 件 大 小 ， 单 位 字 节
+3. 保存后执行以下命令：
+source ~/.bashrc
+4.3.2 自定义 Cache 文件路径
+需要设置环境变量：MACA_CACHE_PATH
+1. 编辑 ~/.bashrc 文件
+$ vim ~/.bashrc
+2. 在文件末尾加入以下内容：
+export MACA_CACHE_PATH=your/specific/path // 用 户 自 定 义 路 径
+4.3.3 关闭 Binary Cache 功能
+1. 编辑 ~/.bashrc 文件
+vim ~/.bashrc
+2. 在文件末尾加入以下内容：
+export MACA_CACHE_DISABLE=1
+4 编译和调试 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 58

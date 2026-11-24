@@ -1,0 +1,39 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 66
+PDF 页码标签: 54
+页脚页码候选: 54
+章节提示（书签推断）: 使用vLLM镜像
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+• 支持 enforce_eager=False 方式。需通过显式配置，默认为True。另外，需要额外设置 MACA 环
+境变量来获取加速效果：export MACA_GRAPH_LAUNCH_MODE=1
+局限性：
+• 不支持 FP8 类型 KV Cache 和相关 FP8 模型
+• 包含 Ubuntu 20、Ubuntu 22、kylin2309a 系统版本，后续完善支持其他系统
+8.3 MacaRT‑vLLM‑metax使用流程
+本章节介绍 MacaRT‑vLLM‑metax 的安装和使用步骤，功能主要分为离线推理、吞吐测试和 Server 服
+务。
+8.3.1 环境准备
+使用 MacaRT‑vLLM‑metax 进行推理需要准备好环境。目前提供两种方式：镜像和 wheel 包。如果您想
+开发、调试或测试 vLLM‑metax 的最新功能，可以从源码构建 vLLM‑metax 并将其安装到 Docker 环境
+中。vLLM‑metax 源码构建请参考：MacaRT‑vLLM‑metax 源码构建。
+8.3.1.1 使用 vLLM 镜像
+从沐曦开发者中心的镜像资源中心获取镜像。
+选择合适的架构类型、操作系统类型、Python 版本后，点击 docker 命令复制，获取此 Docker 镜像的
+拉取命令。
+创建容器环境示例如下：
+export IMAGE=cr.metax-tech.com/public-ai-release/maca/vllm-metax:0.15.0-maca.ai3.5.
+,→3.203-torch2.8-py310-ubuntu22.04-amd64
+sudo docker run -it --privileged --cap-add=SYS_PTRACE --security-opt 
+,→seccomp=unconfined \
+--device=/dev/dri --device=/dev/mxcd --device=infiniband --group-add video --
+,→name vllm_metax --network=host \
+--security-opt apparmor=unconfined --shm-size '100gb' --ulimit memlock=-1 \
+-v /mnt:/mnt \
+$IMAGE \
+/bin/bash
+sudo docker exec -it vllm_metax /bin/bash
+8 MacaRT‑vLLM‑metax 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 54

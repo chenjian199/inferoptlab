@@ -1,0 +1,25 @@
+文档: 沐曦通用GPU_mcProfiler使用手册_CN_V06.pdf
+文档 ID: mcprofiler-v06
+SHA256: 22c9fa76c4f27e328b151bad16f105b11d81df4fc501075baec5794c29b5c66e
+PDF 页序号: 7
+PDF 页码标签: 2
+页脚页码候选: 2
+章节提示（书签推断）: 前置要求
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcProfiler 使用手册
+2 mcProfiler
+2.1 安装
+mcProfiler 包含在 win‑perf‑kit 工具包内，是一个 Windows 上的 UI 程序，用户解压 mcProfiler 压
+缩包后，双击 gui‑profiler .exe即可直接使用。
+2.2 使用
+2.2.1 前置要求
+mcProfiler 主要通过在 Windows 上执行可视化 +Linux 上执行实际采样的方式进行作业，方便用户直接
+使用 mcProfiler 进行可视化调优。考虑到跨平台的兼容性问题，需要满足以下前置条件：
+• Windows GUI 客户端所在的平台，简称为 GUI 平台：需要对应的网络权限。建议针对 GUI 程序关闭
+防火墙拦截。
+• MXMACA 程序所在的 Linux 平台，简称为 MXMACA 平台：需要开放对应的 SSH 权限。若使用私钥登
+录，需要确保用户目录权限（通常为 700）以及对应的公钥文件权限（通常为 600）正确。
+• 对于被度量的目标程序，需要链接 libmcToolsExt.so动态库（跟随 MXMACA 软件包默认安装）以启
+动调试支持。用户可以在编译目标程序时加上 -lmcToolsExt 链接选项进行链接。
+2 mcProfiler 沐曦股份专有信息 OG‑24005‑020‑F5_V06 | 2

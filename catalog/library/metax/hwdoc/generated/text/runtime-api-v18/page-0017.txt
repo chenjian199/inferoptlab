@@ -1,0 +1,48 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 17
+PDF 页码标签: 8
+页脚页码候选: 8
+章节提示（书签推断）: 查询设备信息
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+3 编程接口
+3.1 设备管理
+一个服务器主机系统可以有多个设备，设备之间可以通过 PCIe 或者 MetaXLink 进行通信。沐曦通用
+GPU 提供了查询和管理设备的方法。通过这些方法，可选择合适的设备进行任务工作。
+3.1.1 查询设备信息
+主 机 线 程 可 以 通 过 调 用 mcGetDeviceCount 随 时 查 看 可 以 使 用 的 GPU 数 量， 并 通 过 调 用
+mcGetDeviceProperties 查询每个设备的属性。
+代码示例
+可使用以下代码，查询设备信息：
+//File test.maca
+int main( void ) {
+mcDeviceProp_t prop;
+int count;
+mcGetDeviceCount( &count );
+for (int i=0; i< count; i++) {
+mcGetDeviceProperties( &prop, i );
+printf( " --- General Information for device %d ---\n", i );
+printf( "Name: %s\n", prop.name );
+printf( "Compute capability: %d.%d\n", prop.major, prop.minor );
+printf( "Clock rate: %d\n", prop.clockRate );
+printf( "Device copy overlap: " );
+if (prop.deviceOverlap)
+printf( "Enabled\n" );
+else
+printf( "Disabled\n" );
+printf( "Kernel execition timeout : " );
+if (prop.kernelExecTimeoutEnabled)
+printf( "Enabled\n" );
+else
+printf( "Disabled\n" );
+printf( " --- Memory Information for device %d ---\n", i );
+printf( "Total global mem: %ld\n", prop.totalGlobalMem );
+printf( "Total constant Mem: %ld\n", prop.totalConstMem );
+printf( "Max mem pitch: %ld\n", prop.memPitch );
+printf( "Texture Alignment: %ld\n", prop.textureAlignment );
+printf( " --- Multi-Processor(MP) Info for device %d ---\n", i );
+(下页继续)
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 8

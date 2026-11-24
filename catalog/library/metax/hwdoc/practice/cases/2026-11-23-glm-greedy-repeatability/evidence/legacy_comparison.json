@@ -1,0 +1,177 @@
+{
+  "status": "complete",
+  "prompt_manifest_equal": true,
+  "settings_equal": true,
+  "score": {
+    "status": "complete",
+    "tasks": 32,
+    "passed": 31,
+    "pass_at_1": 0.96875,
+    "failures_by_type": {
+      "parse_failure": 1,
+      "passed": 31
+    },
+    "truncated": 0,
+    "adapter_version": "humaneval-chat-code-v1",
+    "evaluator_sha256": "4c663febe4381f4920fe7324728615165ab494280e9b9d68ad9a1d290c063280",
+    "adapter_sha256": "9112a71b1917f32020b31c88810944d388664a7f7b386a26eab61a933f2973ea",
+    "sandbox_image": "sha256:96bbee871d4ea038b123276eacd65f77825b093b9255157938e0b1628e121f0b",
+    "canonical": false,
+    "scope": "Original HumanEval tests; one generation per task; local chat-adapted protocol. No HumanEval+ tests."
+  },
+  "comparisons": {
+    "new_process_a": {
+      "tasks": 32,
+      "exact_token_matches": 32,
+      "first_divergences": {},
+      "score_transitions": {
+        "both_pass": [
+          "HumanEval/16",
+          "HumanEval/131",
+          "HumanEval/103",
+          "HumanEval/54",
+          "HumanEval/144",
+          "HumanEval/115",
+          "HumanEval/123",
+          "HumanEval/162",
+          "HumanEval/156",
+          "HumanEval/94",
+          "HumanEval/48",
+          "HumanEval/56",
+          "HumanEval/160",
+          "HumanEval/6",
+          "HumanEval/117",
+          "HumanEval/12",
+          "HumanEval/59",
+          "HumanEval/30",
+          "HumanEval/10",
+          "HumanEval/82",
+          "HumanEval/35",
+          "HumanEval/104",
+          "HumanEval/89",
+          "HumanEval/110",
+          "HumanEval/15",
+          "HumanEval/40",
+          "HumanEval/148",
+          "HumanEval/72",
+          "HumanEval/157",
+          "HumanEval/13",
+          "HumanEval/127"
+        ],
+        "regression": [],
+        "improvement": [],
+        "both_fail": [
+          "HumanEval/37"
+        ]
+      }
+    },
+    "historical_smoke32": {
+      "tasks": 32,
+      "exact_token_matches": 25,
+      "first_divergences": {
+        "HumanEval/123": 1,
+        "HumanEval/94": 28,
+        "HumanEval/117": 6,
+        "HumanEval/10": 8,
+        "HumanEval/104": 2,
+        "HumanEval/148": 52,
+        "HumanEval/72": 2
+      },
+      "score_transitions": {
+        "both_pass": [
+          "HumanEval/16",
+          "HumanEval/131",
+          "HumanEval/103",
+          "HumanEval/54",
+          "HumanEval/144",
+          "HumanEval/115",
+          "HumanEval/123",
+          "HumanEval/162",
+          "HumanEval/156",
+          "HumanEval/94",
+          "HumanEval/48",
+          "HumanEval/56",
+          "HumanEval/160",
+          "HumanEval/6",
+          "HumanEval/117",
+          "HumanEval/12",
+          "HumanEval/59",
+          "HumanEval/30",
+          "HumanEval/10",
+          "HumanEval/82",
+          "HumanEval/35",
+          "HumanEval/104",
+          "HumanEval/89",
+          "HumanEval/110",
+          "HumanEval/15",
+          "HumanEval/40",
+          "HumanEval/148",
+          "HumanEval/72",
+          "HumanEval/157",
+          "HumanEval/13",
+          "HumanEval/127"
+        ],
+        "regression": [],
+        "improvement": [],
+        "both_fail": [
+          "HumanEval/37"
+        ]
+      }
+    },
+    "historical_full164_subset": {
+      "tasks": 32,
+      "exact_token_matches": 23,
+      "first_divergences": {
+        "HumanEval/37": 0,
+        "HumanEval/72": 2,
+        "HumanEval/89": 0,
+        "HumanEval/94": 28,
+        "HumanEval/104": 2,
+        "HumanEval/117": 6,
+        "HumanEval/144": 2,
+        "HumanEval/156": 4,
+        "HumanEval/162": 1
+      },
+      "score_transitions": {
+        "both_pass": [
+          "HumanEval/6",
+          "HumanEval/10",
+          "HumanEval/12",
+          "HumanEval/13",
+          "HumanEval/15",
+          "HumanEval/16",
+          "HumanEval/30",
+          "HumanEval/35",
+          "HumanEval/40",
+          "HumanEval/48",
+          "HumanEval/54",
+          "HumanEval/56",
+          "HumanEval/59",
+          "HumanEval/72",
+          "HumanEval/82",
+          "HumanEval/89",
+          "HumanEval/94",
+          "HumanEval/103",
+          "HumanEval/104",
+          "HumanEval/110",
+          "HumanEval/115",
+          "HumanEval/117",
+          "HumanEval/123",
+          "HumanEval/127",
+          "HumanEval/131",
+          "HumanEval/144",
+          "HumanEval/148",
+          "HumanEval/156",
+          "HumanEval/157",
+          "HumanEval/160",
+          "HumanEval/162"
+        ],
+        "regression": [
+          "HumanEval/37"
+        ],
+        "improvement": [],
+        "both_fail": []
+      }
+    }
+  }
+}

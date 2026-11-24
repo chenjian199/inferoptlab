@@ -1,0 +1,19 @@
+--- frozen_original_generator
++++ legacy_control
+@@ -63,7 +63,7 @@
+     save(ROOT/'evidence/generation_environment.json',dict(settings=settings,workers=provenance,
+         vllm_file=vllm.__file__,plugin_file=vllm_metax.__file__,load_seconds=time.monotonic()-started))
+     params=SamplingParams(**config['sampling'])
+-    for phase in ['smoke32','full164']:
++    for phase in ['smoke32']:
+         if phase=='full164':
+             gate=ROOT/'evidence'/('authorize_full_'+args.label+'.json')
+             print('WAITING_FOR_FULL_GATE',flush=True)
+@@ -76,6 +76,7 @@
+             assert authorization['smoke_scoring_complete'] and authorization['canonical_passed']==164
+         run=ROOT/'runs'/(args.label+'_'+phase)
+         run.mkdir(exist_ok=False)
++        os.chown(run, 1000, 1000)
+         ids=selection['smoke32'] if phase=='smoke32' else selection['all']
+         manifest=dict(status='running',task_ids=ids,phase=phase,protocol_sha256=sha(config_path),
+                       prompt_manifest_sha256=sha(ROOT/'evidence/prompt_manifest.json'),

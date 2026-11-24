@@ -1,0 +1,51 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 12
+PDF 页码标签: 5
+页脚页码候选: 5
+章节提示（书签推断）: 数据布局
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+(续上页)
+return EXIT_FAILURE;
+}
+stat = mcblasSetMatrix (M, N, sizeof(*a), a, M, devPtrA, M);
+if (stat != MCBLAS_STATUS_SUCCESS) {
+printf ("data download failed");
+mcFree (devPtrA);
+mcblasDestroy(handle);
+return EXIT_FAILURE;
+}
+modify (handle, devPtrA, M, N, 1, 2, 16.0f, 12.0f);
+stat = mcblasGetMatrix (M, N, sizeof(*a), devPtrA, M, a, M);
+if (stat != MCBLAS_STATUS_SUCCESS) {
+printf ("data upload failed");
+mcFree (devPtrA);
+mcblasDestroy(handle);
+return EXIT_FAILURE;
+}
+mcFree (devPtrA);
+mcblasDestroy(handle);
+for (j = 0; j < N; j++) {
+for (i = 0; i < M; i++) {
+printf ("%7.0f", a[IDX2C(i,j,M)]);
+}
+printf ("\n");
+}
+free(a);
+return EXIT_SUCCESS;
+}
+1.4 数据布局
+为了最大程度地兼容现有的 Fortran 环境，mcBLAS 库使用列主（column‑major）格式存储和基于 1 的
+索引。由于 C 和 C++ 使用行主（row‑major）格式存储，因此用这些语言编写的应用程序不能对二维数
+组使用原生数组语义。相反，应定义宏或内联函数（inline function）以基于一维数组实现矩阵。对于以
+机械方式移植到 C 的 Fortran 代码，可以选择保留基于 1 的索引，以避免变换循环（loop） 。在这种情况
+下，可以通过以下的宏来计算行“i”和列“j”中矩阵元素的数组索引。
+#define IDX2F(i,j,ld) ((((j)-1)*(ld))+((i)-1))
+在这里，ld 是指矩阵的前导维度（leading dimension） ，在列主存储的情况下，它是已分配矩阵（即使
+只使用其子矩阵）的行数。对于原生编写的 C 和 C++ 代码，最有可能选择基于 0 的索引，在这种情况下，
+可以通过以下的宏来计算行“i”和列“j”中矩阵元素的数组索引。
+#define IDX2C(i,j,ld) (((j)*(ld))+(i))
+1 简介 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 5

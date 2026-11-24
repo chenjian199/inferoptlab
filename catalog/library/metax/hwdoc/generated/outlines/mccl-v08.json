@@ -1,0 +1,632 @@
+[
+  {
+    "title": "概述",
+    "pdf_page": 8,
+    "depth": 1
+  },
+  {
+    "title": "适用产品",
+    "pdf_page": 8,
+    "depth": 2
+  },
+  {
+    "title": "简介",
+    "pdf_page": 9,
+    "depth": 1
+  },
+  {
+    "title": "系统架构",
+    "pdf_page": 9,
+    "depth": 2
+  },
+  {
+    "title": "编程模型",
+    "pdf_page": 11,
+    "depth": 1
+  },
+  {
+    "title": "通讯器管理",
+    "pdf_page": 11,
+    "depth": 2
+  },
+  {
+    "title": "mcclGetVersion",
+    "pdf_page": 11,
+    "depth": 3
+  },
+  {
+    "title": "mcclGetUniqueId",
+    "pdf_page": 11,
+    "depth": 3
+  },
+  {
+    "title": "mcclCommInitRank",
+    "pdf_page": 11,
+    "depth": 3
+  },
+  {
+    "title": "mcclCommInitAll",
+    "pdf_page": 11,
+    "depth": 3
+  },
+  {
+    "title": "mcclCommDestroy",
+    "pdf_page": 12,
+    "depth": 3
+  },
+  {
+    "title": "mcclCommAbort",
+    "pdf_page": 12,
+    "depth": 3
+  },
+  {
+    "title": "mcclGetErrorString",
+    "pdf_page": 12,
+    "depth": 3
+  },
+  {
+    "title": "mcclCommGetAsyncError",
+    "pdf_page": 12,
+    "depth": 3
+  },
+  {
+    "title": "mcclCommCount",
+    "pdf_page": 12,
+    "depth": 3
+  },
+  {
+    "title": "mcclCommMcDevice",
+    "pdf_page": 12,
+    "depth": 3
+  },
+  {
+    "title": "mcclCommUserRank",
+    "pdf_page": 13,
+    "depth": 3
+  },
+  {
+    "title": "示例",
+    "pdf_page": 13,
+    "depth": 3
+  },
+  {
+    "title": "单进程",
+    "pdf_page": 13,
+    "depth": 4
+  },
+  {
+    "title": "多进程",
+    "pdf_page": 13,
+    "depth": 4
+  },
+  {
+    "title": "集合通讯",
+    "pdf_page": 14,
+    "depth": 2
+  },
+  {
+    "title": "mcclAllReduce",
+    "pdf_page": 14,
+    "depth": 3
+  },
+  {
+    "title": "mcclBroadcast",
+    "pdf_page": 14,
+    "depth": 3
+  },
+  {
+    "title": "mcclReduce",
+    "pdf_page": 14,
+    "depth": 3
+  },
+  {
+    "title": "mcclAllGather",
+    "pdf_page": 15,
+    "depth": 3
+  },
+  {
+    "title": "mcclReduceScatter",
+    "pdf_page": 15,
+    "depth": 3
+  },
+  {
+    "title": "mcclAllToAll",
+    "pdf_page": 15,
+    "depth": 3
+  },
+  {
+    "title": "mcclAllToAllv",
+    "pdf_page": 15,
+    "depth": 3
+  },
+  {
+    "title": "mcclAllToAlld",
+    "pdf_page": 16,
+    "depth": 3
+  },
+  {
+    "title": "示例",
+    "pdf_page": 16,
+    "depth": 3
+  },
+  {
+    "title": "组调用",
+    "pdf_page": 17,
+    "depth": 2
+  },
+  {
+    "title": "mcclGroupStart",
+    "pdf_page": 18,
+    "depth": 3
+  },
+  {
+    "title": "mcclGroupEnd",
+    "pdf_page": 18,
+    "depth": 3
+  },
+  {
+    "title": "示例",
+    "pdf_page": 18,
+    "depth": 3
+  },
+  {
+    "title": "点对点通讯",
+    "pdf_page": 18,
+    "depth": 2
+  },
+  {
+    "title": "mcclSend",
+    "pdf_page": 18,
+    "depth": 3
+  },
+  {
+    "title": "mcclRecv",
+    "pdf_page": 19,
+    "depth": 3
+  },
+  {
+    "title": "示例",
+    "pdf_page": 19,
+    "depth": 3
+  },
+  {
+    "title": "数据类型",
+    "pdf_page": 19,
+    "depth": 2
+  },
+  {
+    "title": "返回值类型",
+    "pdf_page": 20,
+    "depth": 2
+  },
+  {
+    "title": "归约操作类型",
+    "pdf_page": 20,
+    "depth": 2
+  },
+  {
+    "title": "环境变量",
+    "pdf_page": 21,
+    "depth": 1
+  },
+  {
+    "title": "推荐环境变量",
+    "pdf_page": 21,
+    "depth": 2
+  },
+  {
+    "title": "多机环境",
+    "pdf_page": 21,
+    "depth": 3
+  },
+  {
+    "title": "极致性能",
+    "pdf_page": 21,
+    "depth": 3
+  },
+  {
+    "title": "Arm服务器",
+    "pdf_page": 22,
+    "depth": 3
+  },
+  {
+    "title": "异构集群",
+    "pdf_page": 22,
+    "depth": 3
+  },
+  {
+    "title": "虚拟化场景",
+    "pdf_page": 22,
+    "depth": 3
+  },
+  {
+    "title": "C500X机型",
+    "pdf_page": 23,
+    "depth": 3
+  },
+  {
+    "title": "阡视服务器",
+    "pdf_page": 23,
+    "depth": 3
+  },
+  {
+    "title": "大模型通信日志",
+    "pdf_page": 23,
+    "depth": 3
+  },
+  {
+    "title": "环境变量说明",
+    "pdf_page": 23,
+    "depth": 2
+  },
+  {
+    "title": "功能相关",
+    "pdf_page": 23,
+    "depth": 3
+  },
+  {
+    "title": "MCCL_DISABLE_OPTIC_LINK",
+    "pdf_page": 23,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_FAST_WRITE_BACK",
+    "pdf_page": 23,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_EARLY_WRITE_BACK",
+    "pdf_page": 24,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_GROUP_WRITE_BACK",
+    "pdf_page": 24,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_DISABLE_MULTI_NODE_FABRIC",
+    "pdf_page": 24,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_BUFFSIZE",
+    "pdf_page": 24,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_DISABLE_CACHEABLE_BUFFER",
+    "pdf_page": 25,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_THRESHOLD_TO_USE_CACHEABLE_BUFFER",
+    "pdf_page": 25,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_THRESHOLD_TO_USE_CACHEABLE_BUFFER_P2P",
+    "pdf_page": 25,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_PCIE_BUFFER_MODE",
+    "pdf_page": 25,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_TUNING_MODEL",
+    "pdf_page": 26,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_PROTO",
+    "pdf_page": 26,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_ALGO",
+    "pdf_page": 26,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_DMABUF_ENABLE",
+    "pdf_page": 26,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_EXT_CCL_ENABLE",
+    "pdf_page": 27,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_HC_PLUGIN",
+    "pdf_page": 27,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_RINGS",
+    "pdf_page": 27,
+    "depth": 4
+  },
+  {
+    "title": "性能相关",
+    "pdf_page": 27,
+    "depth": 3
+  },
+  {
+    "title": "MCCL_ENABLE_FC",
+    "pdf_page": 27,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_ENABLE_FC8_OAM",
+    "pdf_page": 28,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_FC_BYTE_LIMIT",
+    "pdf_page": 28,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_FC_MAX_BLOCKS",
+    "pdf_page": 28,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_FC_DISABLE_REMOTE_READ",
+    "pdf_page": 28,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_FC_BYTE_LIMIT_DRAGONFLY",
+    "pdf_page": 28,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_FC_MTLK_BLOCKS",
+    "pdf_page": 29,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_LIMIT_RING_LL_THREADTHRESHOLDS",
+    "pdf_page": 29,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_CROSS_NIC",
+    "pdf_page": 29,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_MIN_NCHANNELS",
+    "pdf_page": 29,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_MAX_NCHANNELS",
+    "pdf_page": 30,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_RING_TP8_MODE",
+    "pdf_page": 30,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_NET_DISABLE_INTRA",
+    "pdf_page": 31,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_PXN_DISABLE",
+    "pdf_page": 31,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_MIN_P2P_NCHANNELS",
+    "pdf_page": 31,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_MAX_P2P_NCHANNELS",
+    "pdf_page": 31,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_P2P_NCHANNELS",
+    "pdf_page": 31,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_TUNING_FILE",
+    "pdf_page": 32,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_TOPO_FILE",
+    "pdf_page": 32,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_TOPO_DUMP_FILE",
+    "pdf_page": 32,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_P2P_DISABLE",
+    "pdf_page": 32,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_P2P_LEVEL",
+    "pdf_page": 32,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_DF16_RINGS",
+    "pdf_page": 33,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_IGNORE_CPU_AFFINITY",
+    "pdf_page": 33,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_RUNTIME_CONNECT",
+    "pdf_page": 34,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_HFC_EP4_KERNEL_LIMIT",
+    "pdf_page": 34,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_HFC_EP8_KERNEL_LIMIT",
+    "pdf_page": 34,
+    "depth": 4
+  },
+  {
+    "title": "网络相关",
+    "pdf_page": 34,
+    "depth": 3
+  },
+  {
+    "title": "MCCL_SHM_DISABLE",
+    "pdf_page": 34,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_IB_GID_INDEX",
+    "pdf_page": 35,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_IB_DISABLE",
+    "pdf_page": 35,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_SOCKET_FAMILY",
+    "pdf_page": 35,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_SOCKET_IFNAME",
+    "pdf_page": 35,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_IB_HCA",
+    "pdf_page": 35,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_NET_GDR_LEVEL",
+    "pdf_page": 36,
+    "depth": 4
+  },
+  {
+    "title": "调试相关",
+    "pdf_page": 36,
+    "depth": 3
+  },
+  {
+    "title": "MCCL_DEBUG",
+    "pdf_page": 36,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_DEBUG_SUBSYS",
+    "pdf_page": 37,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_DEBUG_FILE",
+    "pdf_page": 37,
+    "depth": 4
+  },
+  {
+    "title": "UMD相关",
+    "pdf_page": 38,
+    "depth": 3
+  },
+  {
+    "title": "MACA_EXT_CPU_THREAD_POLICY",
+    "pdf_page": 38,
+    "depth": 4
+  },
+  {
+    "title": "MACA_LAUNCH_BLOCKING",
+    "pdf_page": 38,
+    "depth": 4
+  },
+  {
+    "title": "MACA_VISIBLE_DEVICES",
+    "pdf_page": 38,
+    "depth": 4
+  },
+  {
+    "title": "MACA_DEVICE_ORDER",
+    "pdf_page": 39,
+    "depth": 4
+  },
+  {
+    "title": "MXLOG_LEVEL",
+    "pdf_page": 39,
+    "depth": 4
+  },
+  {
+    "title": "MACA_EXT_MPS_MODE",
+    "pdf_page": 40,
+    "depth": 4
+  },
+  {
+    "title": "MACA_EXT_DIRECT_DISPATCH",
+    "pdf_page": 40,
+    "depth": 4
+  },
+  {
+    "title": "工具相关",
+    "pdf_page": 40,
+    "depth": 3
+  },
+  {
+    "title": "MX_TRACER_ENABLED_MCPTI",
+    "pdf_page": 40,
+    "depth": 4
+  },
+  {
+    "title": "MCCL_OPTIMIZATION_A2A",
+    "pdf_page": 41,
+    "depth": 4
+  },
+  {
+    "title": "P2P_MODE",
+    "pdf_page": 41,
+    "depth": 4
+  },
+  {
+    "title": "附录",
+    "pdf_page": 42,
+    "depth": 1
+  },
+  {
+    "title": "调试信息",
+    "pdf_page": 42,
+    "depth": 2
+  },
+  {
+    "title": "共享内存",
+    "pdf_page": 42,
+    "depth": 3
+  },
+  {
+    "title": "术语/缩略语",
+    "pdf_page": 42,
+    "depth": 2
+  }
+]

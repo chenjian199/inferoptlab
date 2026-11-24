@@ -1,0 +1,14 @@
+# Maintained text uses LF on every platform; archived evidence keeps its bytes.
+*.py text eol=lf
+*.md text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.json text eol=lf
+.editorconfig text eol=lf
+.gitattributes text eol=lf
+.gitignore text eol=lf
+
+# Sealed evidence is addressed by byte hashes; never convert line endings.
+experiments/evidence/** -text
+catalog/library/metax/** -text
+experiments/datasets/humaneval/** -text

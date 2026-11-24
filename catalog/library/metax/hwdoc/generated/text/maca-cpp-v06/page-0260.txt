@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 260
+PDF 页码标签: 252
+页脚页码候选: 252
+章节提示（书签推断）: tex1Dfetch()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+函数描述
+从使用MXMACA数组创建的一维textureobject中，获取浮点texture坐标x所在位置的元素值。
+2.9.2 Texture Reference API
+2.9.2.1 tex1Dfetch()
+template <class DataType>
+Type tex1Dfetch(texture<DataType, mcTextureType1D, mcReadModeElementType> texRef,
+int x);
+参数
+texRef
+• texture<DataType, mcTextureType1D, mcReadModeElementType>， 一 维 texture reference，
+DataType 的可取范围为 char, unsigned char, short, unsigned short, int, unsigned int, float 及
+其int1，int2，int4向量类型。
+x
+• int，整型texture坐标，必须是非归一化整数型值。
+返回值
+• Type，Type的可取范围为char,unsignedchar,short,unsignedshort,int,unsignedint,float及其
+int1，int2，int4向量类型，与模板类型DateType一致。
+template <class DataType>
+Type tex1Dfetch(texture<DataType, mcTextureType1D, mcReadModeNormalizedFloat> 
+,→texRef,
+int x);
+参数
+texRef
+• texture<DataType, mcTextureType1D, mcReadModeElementType>， 一 维 texture reference，
+DataType 的可取范围为 char, unsigned char, short, unsigned short, int, unsigned int, float 及
+其int1，int2，int4向量类型。
+x
+• int，整型texture坐标，可以是归一化坐标(‑1.0~1.0)或者(0~1.0)，也可以是非归一化浮点坐标。
+返回值
+• Type，Type的可取范围为float及其int1，int2，int4向量类型。
+函数描述
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 252

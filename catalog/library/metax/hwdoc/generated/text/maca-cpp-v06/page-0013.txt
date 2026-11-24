@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 13
+PDF 页码标签: 5
+页脚页码候选: 5
+章节提示（书签推断）: maca_bfloat16
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+extern __shared__ float array[];
+__device__ void func() // __device__ 或者 __global__ 函数
+{
+short* array0 = (short *)array;
+float* array1 = (float*)&array0[128];
+int* array2 = (int*)&array1[64];
+}
+需要注意的是指针需要根据它指向的类型对齐，因此如下代码将无法正常工作（array1 没有 4 字节对
+齐） ：
+extern __shared__ float array[];
+__device__ void func() // __device__ 或者 __global__ 函数
+{
+short* array0 = (short*)array;
+float* array1 = (float*)&array0[127];
+}
+内置向量类型的对齐要求参见表2.1。
+2.2.4 __managed__
+__managed__内存空间标识符，可选择与__device__一起使用，声明这样一个变量：
+• 可以同时被 device 与 host 的代码引用，它的地址可以从 device 或者 host 函数中获取，也可以从
+device或者host函数中直接读取或者写入。
+• 拥有与应用程序相同的生命周期。
+2.3 内置类型
+2.3.1 maca_bfloat16
+maca_bfloat16是一种通过截断float类型的后16bit而得到的半精度浮点格式，从编码角度而言，它就
+是一个尾数只有7bit长的float，可以被视为用精度换内存的float。
+其内存结构如下所示：
+• Signbit（符号位） ：1bit
+• Exponentwidth（指数位宽） ：8bits
+• Significandprecision（尾数精度） ：7bits
+maca_bfloat16 的动态范围大约是 [‑3.4e38, ‑1.18e‑38]∪ [1.18e‑38, 3.4e38]，最多可具有三个有效的
+小数位数。在对精度要求不高的场景下，使用maca_bfloat16替代float可以显著减小数据拷贝的开销。
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 5

@@ -1,0 +1,38 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 27
+PDF 页码标签: 20
+页脚页码候选: 20
+章节提示（书签推断）: mcblasLoggerConfigure()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+返回值 含义
+MCBLAS_STATUS_SUCCESS 数学模式设置成功
+MCBLAS_STATUS_INVALID_VALUE 为 mode 指定了无效值
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+2.2.23 mcblasGetMathMode()
+mcblasStatus_t mcblasGetMathMode(mcblasHandle_t handle, mcblasMath_t *mode)
+此函数返回库例程使用的数学模式。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 数学类型返回成功
+MCBLAS_STATUS_INVALID_VALUE mode 的值为空
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+2.2.24 mcblasSetSmCountTarget()
+目前不支持此例程。
+2.2.25 mcblasGetSmCountTarget()
+目前不支持此例程。
+2.2.26 mcblasLoggerConfigure()
+mcblasStatus_t mcblasLoggerConfigure(
+int logIsOn,
+int logToStdOut,
+int logToStdErr,
+const char* logFileName)
+此函数在运行时配置日志记录。除了以上这种类型的配置，还可以使用特殊的环境变量配置日志记录，
+libmcblas 会检查这些变量：
+• MCBLAS_LOGINFO_DBG ‑设置 env. 变量为 1，表示打开日志记录（默认情况下日志记录处于关闭状
+态） 。
+• MCBLAS_LOGDEST_DBG ‑设置 env. 变量对如何记录进行编码。stdout，stderr 分别表示将日志消息
+输出到 stdout 和 stderr。在另一种情况下，它指定文件的 filename。
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 20

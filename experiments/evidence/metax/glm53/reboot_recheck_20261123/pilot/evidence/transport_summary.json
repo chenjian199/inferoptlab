@@ -1,0 +1,17 @@
+{
+  "scope": "Small8GPU collective diagnostic, not model transport packet tracing",
+  "MCCL_P2P_DISABLE": "1",
+  "shm_channel_lines": 447,
+  "selected_channel_lines": [
+    "glm53-gemm-reboot-v1:19:204 [0] MCCL INFO Channel 00 : 0[5000] -> 1[b000] via SHM/direct/direct comm 0x5630d64a19d0 nRanks 08",
+    "glm53-gemm-reboot-v1:19:204 [0] MCCL INFO Channel 01 : 0[5000] -> 1[b000] via SHM/direct/direct comm 0x5630d64a19d0 nRanks 08",
+    "glm53-gemm-reboot-v1:19:204 [0] MCCL INFO Channel 02 : 0[5000] -> 1[b000] via SHM/direct/direct comm 0x5630d64a19d0 nRanks 08",
+    "glm53-gemm-reboot-v1:19:204 [0] MCCL INFO Channel 03 : 0[5000] -> 1[b000] via SHM/direct/direct comm 0x5630d64a19d0 nRanks 08",
+    "glm53-gemm-reboot-v1:19:204 [0] MCCL INFO Channel 04 : 0[5000] -> 1[b000] via SHM/direct/direct comm 0x5630d64a19d0 nRanks 08",
+    "glm53-gemm-reboot-v1:19:204 [0] MCCL INFO Channel 05 : 0[5000] -> 1[b000] via SHM/direct/direct comm 0x5630d64a19d0 nRanks 08",
+    "glm53-gemm-reboot-v1:19:204 [0] MCCL INFO Channel 06 : 0[5000] -> 1[b000] via SHM/direct/direct comm 0x5630d64a19d0 nRanks 08",
+    "glm53-gemm-reboot-v1:19:204 [0] MCCL INFO Channel 07 : 0[5000] -> 1[b000] via SHM/direct/direct comm 0x5630d64a19d0 nRanks 08"
+  ],
+  "original_path": "pilot/evidence/communication.log",
+  "original_sha256": "9ec3544c70abd04b0cdc83247543492202140f983e2cbd10c60888038b468535"
+}

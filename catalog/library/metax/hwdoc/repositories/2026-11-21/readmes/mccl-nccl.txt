@@ -1,0 +1,19 @@
+# MCCL
+
+MXMACA Communication Collectives Library
+
+## Requirements
+
+1. MXMACA supported GPUs
+2. MXMACA stack installed
+
+## known issues
+1. alltoall with nvidia gpu may hang
+
+### To build the library:
+
+1. download MXMACA stack
+2. extract or install MXMACA stack with mxmaca-sdk-install.sh in sdk package
+3. export MACA_PATH=/path to MXACA, default path is /opt/maca if not set
+4. bash build.sh
+5. copy build/libmccl.so to $MACA_PATH/lib/

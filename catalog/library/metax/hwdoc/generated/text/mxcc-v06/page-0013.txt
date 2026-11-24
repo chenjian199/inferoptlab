@@ -1,0 +1,35 @@
+文档: 沐曦通用GPU_mxcc编译器用户指南_CN_V06.pdf
+文档 ID: mxcc-v06
+SHA256: 6fceba6f92b1b4274a5c2dd106d76320947a0b4ef0cdaffd36af5497fdffb6dd
+PDF 页序号: 13
+PDF 页码标签: 8
+页脚页码候选: 8
+章节提示（书签推断）: 指定编译器/链接器行为的选项
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mxcc 编译器用户指南
+--optimize level (-O)
+指定主机代码的优化级别。默认值为 O3。
+--ftemplate-backtrace-limit=limit (-ftemplate-backtrace-limit=)
+为单个警告或错误设置模板实例化注释的最大数量。
+--ftemplate-depth=limit (-ftemplate-depth=)
+为模板类设置最大实例化深度。
+--no-exceptions (-noeh)
+禁用主机代码的异常处理。
+--shared (-shared)
+在链接期间生成共享库。必须和 -fPIC 一起使用。
+--x {c|c++|maca} (-x)
+显式指定输入文件的语言，而不是使用基于文件名称后缀的默认语言。仅对指定此选项之后的文件有效。
+--std {c++03|c++11|c++14|c++17} (-std)
+选择特定的 C++ 方言。默认值为 c++14。
+--extended-lambda (-extended-lambda)
+在 lambda 声明中允许 __host__ 和 __device__ 注释。
+--expt-extended-lambda (-expt-extended-lambda)
+–extended-lambda 的别名。
+--fkeep-device-symbols (-fkeep-device-symbols)
+保留未使用的设备符号。
+--fno-keep-device-symbols (-fno-keep-device-symbols)
+删除未使用的设备符号。
+--default-stream {legacy|null|per-thread} (-default-stream)
+指定默认情况下将编译程序中的 MXMACA 命令发送到的流。
+4 支持的选项 沐曦股份专有信息 OG‑23026‑020‑F5_V06 | 8

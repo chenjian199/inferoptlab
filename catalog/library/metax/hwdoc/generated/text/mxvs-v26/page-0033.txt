@@ -1,0 +1,29 @@
+文档: 沐曦通用GPU_mxvs测试工具套件使用手册_CN_V26.pdf
+文档 ID: mxvs-v26
+SHA256: f14e664d429c6568ce5723a3a83c7a9164c2fcb33fd59137fb49c1128ab63ce2
+PDF 页序号: 33
+PDF 页码标签: 23
+页脚页码候选: 23
+章节提示（书签推断）: ETH压力测试
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mxvs 测试工具套件使用手册
+11.3 ETH 压力测试
+命令
+/opt/maca/bin/mxvs stress --eth
+命令参数
+表 11.3 ETH 压力测试命令参数
+参数 必填 描述
+--eth 是 ETH 压力测试开关。
+--duration 否 以 “HH:MM” 的格式， 指定执行压力测试的持续时间， 默认为00:30。 当
+进行长时间压力测试时， 建议在后台执行， 例如：nohup /opt/maca/
+bin/mxvs stress --metaxlink --duration 12:00 &
+--panels 否 选择要在压力测试面板中展示的内容，默认显示以下几项：
+0：DEVICE LIST（所有可测试的设备列表信息）
+1：BOARD POWER（功耗）
+2：USAGE（使用率）
+4：ETH BANDWIDTH（ETH 带宽）
+--monitor-log 否 在测试期间若有内核错误可打印显示。
+输出结果
+图 11.3 ETH 压力测试结果示例图
+11 压力测试 沐曦股份专有信息 OG‑23023‑020‑F5_V26 | 23

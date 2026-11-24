@@ -1,0 +1,39 @@
+文档: 沐曦通用GPU_MCCL编程指南_CN_V08.pdf
+文档 ID: mccl-v08
+SHA256: 7a95ac3ce4f68b0fb11baabb7fa08794cd5f5081c9ec3e888eefaaa03ab8c8b2
+PDF 页序号: 32
+PDF 页码标签: 25
+页脚页码候选: 25
+章节提示（书签推断）: MCCL_P2P_LEVEL
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MCCL 编程指南
+4.2.2.18 MCCL_TUNING_FILE
+描述：用户指定调优配置文件路径。
+可选值：可访问的用户自定义文件路径
+默认值：/opt/maca/etc/tuning.cfg
+4.2.2.19 MCCL_TOPO_FILE
+描述： 在检测拓扑之前要加载的 XML 文件路径。 默认情况下， MCCL 将加载/var/run/metax/topo.xml
+（如果存在） 。
+可选值：描述部分或全部拓扑的可访问文件的路径
+默认值：/var/run/metax/topo.xml
+4.2.2.20 MCCL_TOPO_DUMP_FILE
+描述：检测后要将 XML 格式拓扑存储的文件路径。
+可选值：要创建或者覆盖的文件路径
+默认值：同MCCL_TOPO_FILE
+4.2.2.21 MCCL_P2P_DISABLE
+描述：禁用基于 PCIe 或 MetaXLink 的点对点（P2P）传输。
+可选值：
+• 1：禁用
+• 0：不禁用
+默认值：0
+4.2.2.22 MCCL_P2P_LEVEL
+描述：允许用户精细地控制何时在 GPU 之间使用点对点传输。该变量定义了 MCCL 将使用 P2P 传输的
+GPU 之间的最大距离。 应该使用表示路径类型的短字符串来指定使用 P2P 传输的地形截止点。 如果没有
+指定，MCCL 将尝试根据运行的体系结构和环境选择最佳值。
+可选值：
+• 字符串类型值：
+– LOC：永远不要使用 P2P（总是禁用）
+– MetaXLink：GPU 通过 MetaXLink 连接时使用 P2P
+– PIX：GPU 位于同一 PCI 交换机时，使用 P2P
+4 环境变量 沐曦股份专有信息 PG‑23004‑020‑F5_V08 | 25

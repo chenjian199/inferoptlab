@@ -1,0 +1,43 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 309
+PDF 页码标签: 301
+页脚页码候选: 301
+章节提示（书签推断）: memcpy_async
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+(续上页)
+const TyGroup &group,
+TyElem *__restrict__ dst,
+const TyDstLayout &dstLayout,
+const TyElel *__restrict__ src,
+const TySrcLayout &srcLayout
+);
+执行 min(dstLayout, srcLayout)个元素的拷贝。
+代码生成要求：C++11
+头文件 maca_async.h需要被包含。
+例子：
+/// 这个例子在 block上把 elementsPerThreadBlock个有效数据从全局内存拷贝到
+/// 限制大小的共享内存（ elementsInShared）。
+#include <maca_cooperative_groups.h>
+#include <maca_async.h>
+namespace cg = cooperative_groups;
+__global__ void kernel(int *global_data) {
+cg::thread_block tb = cg::this_thread_block();
+const size_t elementsPerThreadBlock = 16 * 1024;
+const size_t elementsInShared = 128;
+__shared__ int local_smem[elementsInShared];
+size_t copy_count;
+size_t index = 0;
+while (index < elementsPerThreadBlock) {
+cg::memcpy_async(tb, local_smem, elementsInShared, global_data + index,
+elementsPerThreadBlock - index);
+copy_count = min(elementsInShared, elementsPerThreadBlock - index);
+cg::wait(tb);
+// 操作 local_smem
+index += copy_count;
+}
+}
+3 CooperativeGroups 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 301

@@ -1,0 +1,52 @@
+[
+  {
+    "title": "概述",
+    "pdf_page": 6,
+    "depth": 1
+  },
+  {
+    "title": "适用产品",
+    "pdf_page": 6,
+    "depth": 2
+  },
+  {
+    "title": "mcProfiler",
+    "pdf_page": 7,
+    "depth": 1
+  },
+  {
+    "title": "安装",
+    "pdf_page": 7,
+    "depth": 2
+  },
+  {
+    "title": "使用",
+    "pdf_page": 7,
+    "depth": 2
+  },
+  {
+    "title": "前置要求",
+    "pdf_page": 7,
+    "depth": 3
+  },
+  {
+    "title": "创建度量任务",
+    "pdf_page": 8,
+    "depth": 3
+  },
+  {
+    "title": "执行度量任务",
+    "pdf_page": 9,
+    "depth": 3
+  },
+  {
+    "title": "分析度量结果",
+    "pdf_page": 9,
+    "depth": 3
+  },
+  {
+    "title": "卸载",
+    "pdf_page": 10,
+    "depth": 2
+  }
+]

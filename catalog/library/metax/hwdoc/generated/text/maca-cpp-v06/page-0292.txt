@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 292
+PDF 页码标签: 284
+页脚页码候选: 284
+章节提示（书签推断）: 例子
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+2.29 格式化输出
+设备侧的printf函数可以对设备侧的信息进行格式化输出。函数原型如下：
+int printf(const char *format[, arg, …]);
+与标准 C 库的 printf 函数类似，设备侧 printf 函数根据输入的 format 参数，将输入的参数格式化的输
+出到主机端的流。其返回值与标准C库中的printf一致。
+设备侧的printf函数会被设备侧的每个活动线程执行，其执行结果以warp为单位保序。
+2.29.1 Format Specifiers
+与标准C库的printf一致，其拥有这样的格式: %[flags][width][.precision][size]type
+目前支持:
+• Flags: #、 “空格” 、0、+、‑
+• Width: *、 “0‑9”
+• Precision: “0‑9”
+• Size: h、l、ll
+• Type: “%diouxXfFeEgGaAcspn”
+2.29.2 限制
+Printf 输出的最终格式由主机端决定。这意味着格式字符串必须由主机系统的编译器和 C 库控制。我们
+将努力确保 MXMACA 的 printf 函数支持的格式说明符的形成来自最常见的主机编译器的通用子集，但
+确切的行为将取决于主机操作系统。
+如格式说明符所述，printf() 将接受有效标志和类型的所有组合，但其无法确定在最终输出格式化的主
+机系统上组合有效。如果程序发出包含无效组合的格式字符串，输出可能未定义。
+2.29.3 例子
+如下代码：
+#include <stdio.h>
+__global__ void helloMXMACA(float f)
+{
+printf("Hello thread %d, f=%f\n", threadIdx.x, f);
+}
+int main()
+{
+(下页继续)
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 284

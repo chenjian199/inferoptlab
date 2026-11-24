@@ -1,0 +1,1 @@
+"""Benchmark load module."""

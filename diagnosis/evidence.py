@@ -4,11 +4,12 @@ import math
 from pathlib import Path
 
 from tools.specs import SpecError, digest, read
-from benchmark.io import inside, file_hash
-from benchmark.cli import load_snapshot
-from benchmark.planner import embedded_catalog, scenario_parts
-from benchmark.metrics.normalize import normalize
-from benchmark.adapters.aiperf import telemetry_issues
+from benchmark.common.io import inside, file_hash
+from benchmark.load.cli import load_snapshot
+from benchmark.load.planner import embedded_catalog, scenario_parts
+from benchmark.load.metrics.normalize import normalize
+from benchmark.load.adapters.aiperf import telemetry_issues
+from benchmark.load.counts import at_point, fixture_name
 
 
 def close(a,b):
@@ -51,12 +52,13 @@ def load_batch(catalog,entry,study_ref):
     if digest(embedded.get(study_ref))!=digest(catalog.get(study_ref)):raise SpecError('study differs from captured definition')
     if batch['plan_sha256']!=snap['content_sha256']:raise SpecError('batch/snapshot fingerprint mismatch')
     if batch['status'] not in {'completed','completed_with_errors','failed','stopped'}:raise SpecError('batch is not terminal')
-    trials={t['id']:t for t in snap['trials']}
+    trials={(t['id'],t['repetition']):t for t in snap['trials']}
     seen=set();rows=[]
     for item in batch['runs']:
-        trial=trials.get(item['trial_id'])
-        if trial is None or item['trial_id'] in seen:raise SpecError('unknown or duplicated trial in batch')
-        seen.add(item['trial_id'])
+        identity=(item['trial_id'],item['repetition'])
+        trial=trials.get(identity)
+        if trial is None or identity in seen:raise SpecError('unknown or duplicated trial in batch')
+        seen.add(identity)
         if item['repetition']!=trial['repetition'] or item['concurrency']!=trial['concurrency']:
             raise SpecError('ledger trial settings differ from snapshot')
         if not item.get('directory'):continue
@@ -67,11 +69,13 @@ def load_batch(catalog,entry,study_ref):
         if record['trial_id']!=trial['id'] or record['plan_sha256']!=snap['content_sha256'] or record['status']!=item['status'] or record['repetition']!=trial['repetition']:
             raise SpecError('run/ledger/snapshot identity mismatch')
         scene,case,workload,protocol=scenario_parts(embedded,trial['scenario_ref'])
+        fixture_id=fixture_name(scene,workload,trial['concurrency'])
+        workload=at_point(workload,trial['concurrency'])
         deployment=embedded.get(trial['deployment_ref'])
         for key,expected in [('trial',trial),('deployment',deployment),('case',case),('workload',workload),('protocol',protocol)]:
             if scope_record[key]!=expected:raise SpecError('run resolved scope differs: '+key)
         manifest=record['dataset_manifest']
-        fixture=directory/'datasets'/scene['id']
+        fixture=directory/'datasets'/fixture_id
         ids.append(require(fixture/'manifest.json','dataset_manifest'))
         if read(fixture/'manifest.json')!=manifest:raise SpecError('dataset manifest differs from run')
         for name in ('requests.jsonl','warmup.jsonl'):
@@ -89,6 +93,13 @@ def load_batch(catalog,entry,study_ref):
         if original['evidence_kind']!='measured':reasons.append('not independently measured')
         if original['validity']!='valid' or bundle['validity']!='valid':reasons.append('invalid or incomplete measurement')
         if bundle['counts']['failed']:reasons.append('request failures present')
+        if protocol['method']=='prefix_reuse_decode':
+            from benchmark.load.cache import verify_replay
+            cached=verify_replay(run_dir,manifest['files']['requests.jsonl']['session_ids'],workload,protocol,manifest['files']['requests.jsonl']['sha256'])
+            if cached!=original.get('cache_replay'):raise SpecError('cache replay evidence differs from stored result')
+            for name in ('cache-replay.json','cache-lifecycle.json','raw/cache-fill/profile_export.jsonl'):
+                if (run_dir/name).is_file():ids.append(require(run_dir/name,'cache_evidence'))
+            reasons+=cached['issues']
         for k in ('counts','statistics','rates','duration_s'):
             if not close(bundle[k],original[k]):raise SpecError('raw recomputation differs from stored '+k)
         reasons+=record['environment_issues']
@@ -104,7 +115,7 @@ def load_batch(catalog,entry,study_ref):
             if probe.get('status')!='observed' or probe.get('location')!='server_host':
                 reasons.append('server-host device inventory is not verified')
             elif probe.get('provider')=='mx-smi':
-                from benchmark.adapters.metax import binding_issues
+                from benchmark.load.adapters.metax import binding_issues
                 reasons+=binding_issues(probe,deployment['devices'],embedded.get(deployment['hardware_ref']))
             elif probe.get('provider')=='nvidia-smi':
                 observed={}
@@ -114,7 +125,7 @@ def load_batch(catalog,entry,study_ref):
                 if any(observed.get(str(b['visible_index']))!=b['device_id'] for b in deployment['devices']):
                     reasons.append('NVIDIA ordinal/UUID mapping differs from deployment')
             else:reasons.append('device inventory provider has no offline verifier')
-            from benchmark.adapters import for_runtime
+            from benchmark.load.adapters import for_runtime
             try:
                 reasons+=for_runtime(embedded.get(deployment['runtime_ref'])).verify_server(
                     deployment,environment.get('server_info'),workload['input']['tokens']+workload['output']['tokens'])

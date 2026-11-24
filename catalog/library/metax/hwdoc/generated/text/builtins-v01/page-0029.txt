@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_MXMACA编译器内建函数编程指南_CN_V01.pdf
+文档 ID: builtins-v01
+SHA256: 80dfb3a83381e48e19968b432d4eb24d37c505bd711af14f74889277cffc3835
+PDF 页序号: 29
+PDF 页码标签: 23
+页脚页码候选: 23
+章节提示（书签推断）: __builtin_mxc_bsm_permute
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® 编译器内建函数编程指南
+表 3.15 __builtin_mxc_bsm_bpermute 参数说明
+名称 描述
+dest 返回值
+index 混洗规则，用法见算法描述
+data 输入数据
+算法
+for n in 0..63 //thread index
+dest[n] = data[floor(index[n] / 4) % 64]
+代码示例
+__device__ int test_mxc_bsm_bpermute(int index, int data) {
+// index[0:63] = {256, 254, ... 4,0}
+// It will reverse the data of threads 0 to 63.
+return __builtin_mxc_bsm_bpermute(index, data);
+}
+3.4.4 __builtin_mxc_bsm_permute
+功能描述
+warp 内所有 64 个 thread 间的数据混洗。遍历输入数据的所有线程，根据混洗规则参数将输入数据写
+到返回值的特定线程中。
+接口声明
+int __builtin_mxc_bsm_permute(int index, int data)
+参数
+表 3.16 __builtin_mxc_bsm_permute 参数说明
+名称 描述
+dest 返回值
+index 混洗规则，用法见算法描述
+data 输入数据
+算法
+for n in 0..63 //thread index
+dest[floor(index[n] / 4) % 64] = data[n]
+代码示例
+3 接口介绍 沐曦股份专有信息 OG‑26013‑000‑F5_V01 | 23

@@ -1,0 +1,36 @@
+文档: 沐曦通用GPU_MCCL编程指南_CN_V08.pdf
+文档 ID: mccl-v08
+SHA256: 7a95ac3ce4f68b0fb11baabb7fa08794cd5f5081c9ec3e888eefaaa03ab8c8b2
+PDF 页序号: 19
+PDF 页码标签: 12
+页脚页码候选: 12
+章节提示（书签推断）: 数据类型
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MCCL 编程指南
+3.4.2 mcclRecv
+mcclResult_t mcclRecv(void* recvbuff, size_t count, mcclDataType_t datatype, int 
+,→peer, mcclComm_t comm, mcStream _t stream);
+从 peer 端接收数据到 recvbuff 中。count 为数据的个数，datatype 为数据类型。
+comm 为通信器对象，stream 为 MXMACA 的 stream。
+3.4.3 示例
+mcclSend(sendbuff[0], size, mcclFloat, 1, comms[0], s[0]);
+mcclRecv(recvbuff[1], size, mcclFloat, 0, comms[1], s[1]);
+3.5 数据类型
+MCCL 的数据类型用于指定各操作原语所使用的数据类型，对应 MXMACA 的数据类型。对应关系如下：
+• mcclInt8：char
+• mcclChar：char
+• mcclUint8：unsigned char
+• mcclInt32：int
+• mcclInt：int
+• mcclUint32：unsigned int
+• mcclInt64：long
+• mcclUint64：unsigned long
+• mcclFloat16：half
+• mcclHalf：half
+• mcclFloat32：float
+• mcclFloat：float
+• mcclFloat64：double
+• mcclDouble：double
+• mcclBfloat16：bfloat16
+3 编程模型 沐曦股份专有信息 PG‑23004‑020‑F5_V08 | 12

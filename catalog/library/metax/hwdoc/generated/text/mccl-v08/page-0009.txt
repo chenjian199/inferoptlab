@@ -1,0 +1,35 @@
+文档: 沐曦通用GPU_MCCL编程指南_CN_V08.pdf
+文档 ID: mccl-v08
+SHA256: 7a95ac3ce4f68b0fb11baabb7fa08794cd5f5081c9ec3e888eefaaa03ab8c8b2
+PDF 页序号: 9
+PDF 页码标签: 2
+页脚页码候选: 2
+章节提示（书签推断）: 系统架构
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MCCL 编程指南
+2 简介
+MetaX Collective Communications Library（MCCL）是一个提供 GPU 间通信原语的库。MCCL 使用方
+便，可以进行拓扑感知与计算，是专用于 GPU 间通信的通讯库。
+MCCL 提供以下集合通信原语：
+• AllReduce
+• Broadcast
+• Reduce
+• AllGather
+• ReduceScatter
+• AllToAll
+• P2P Send/Receive
+MCCL 是基于 MXMACA®，并通过 MXMACA 的内存复制和 MXMACA 核函数来实现，以进行局部归约。另
+一方面，MCCL 通过算法优化，以实现快速同步，并最大限度地提高带宽利用率。
+开发人员在使用 MCCL 后，不再需要对通讯进行优化。MCCL 支持节点内和跨节点的多 GPU 上进行集合
+通讯。它支持多种技术，包括 PCIe、MetaXLink、InfiniBand Verbs 和 IP Sockets。
+MCCL 编程简单，提供 C 语言标准的 API，可以通过多种编程语言调用。MCCL 符合由 MPI 定义的 API 标
+准。MCCL 增加了 stream 参数，可以与 MXMACA 进行同步。MCCL 兼容多种 GPU 并行化模型：
+• 所有 GPU 的单线程控制
+• 多线程，例如，每个 GPU 使用一个线程
+• 多进程，例如 MPI
+MCCL 在深度学习框架中得到了很好的应用，其中 AllReduce 被大量用于神经网络训练。MCCL 提供的
+多 GPU 多节点通信可以有效扩展神经网络训练。
+2.1 系统架构
+沐曦通用 GPU MCCL 的系统整体架构如图 2.1 所示：
+2 简介 沐曦股份专有信息 PG‑23004‑020‑F5_V08 | 2

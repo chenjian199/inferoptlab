@@ -1,0 +1,14 @@
+{
+  "status": "local_and_remote_verified",
+  "archive": "glmf/recovery_20261123/archives/recovery_20261123_attempt1.tar.gz",
+  "sha256": "ac7a50624da3e84f37bcbf0cbc9f628856782bb21267c6a3798e4789d4e8f643",
+  "bytes": 95020,
+  "hashed_files": 33,
+  "remote_verified": true,
+  "remote_verification": {
+    "status": "passed",
+    "archive": "/home/metax/glm53-recovery-20261123/archives/recovery_20261123_attempt1.tar.gz",
+    "sha256": "ac7a50624da3e84f37bcbf0cbc9f628856782bb21267c6a3798e4789d4e8f643",
+    "verified_files": 33
+  }
+}

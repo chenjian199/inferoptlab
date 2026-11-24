@@ -1,0 +1,9 @@
+{
+  "revision": 5,
+  "change": "Append terminal placeholder to cached trace; capture actual greedy decision before trace override. No source changes; input_processor normalization capped v4 at trace length. Failed v4 archived.",
+  "files": {
+    "harness/run_diagnostic.py": "1939cd34fa55eabeed72caf939356ed5aad8e2b6ac07d9e1f6763467517ab146",
+    "harness/diagnostic_worker.py": "796dc5661e877c19b9cca399fc50a087292bfa5455f7be05530dfa3e3fa3bc5c",
+    "harness/analyze_tensors.py": "01f9266957a598dbfd85283f0dc370bcace4f0be9076882811711b4bfa911fde"
+  }
+}

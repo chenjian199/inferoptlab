@@ -1,0 +1,103 @@
+{
+  "captured_at": "2026-11-23T08:28:57.267087+00:00",
+  "host_packages": {
+    "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+    "executable": "/usr/bin/python3",
+    "packages": {
+      "vllm": null,
+      "sglang": null,
+      "aiperf": null,
+      "torch": null,
+      "transformers": null,
+      "triton": null
+    },
+    "executables": {
+      "vllm": null,
+      "sglang": null,
+      "aiperf": null,
+      "torch": null,
+      "transformers": null,
+      "triton": null
+    }
+  },
+  "models": [
+    {
+      "path": "/NFS_62/Models/Qwen_Series/Qwen3-0.6B",
+      "exists": true,
+      "config_sha256": "a9597c105a570f7e1bd5b8b95b13553d383f4355901bd9a544df369e8cff91e8",
+      "weight_files": [
+        {
+          "name": "model.safetensors",
+          "size_bytes": 1503300328,
+          "readable_header": true
+        }
+      ],
+      "errors": [],
+      "tokenizer_readable": true
+    }
+  ],
+  "images": [
+    {
+      "image_id": "sha256:9bbf20dbcaaf52b794b887f0311a6dcbff6d23bb0a78b72fb0f442f8aab0f285",
+      "tags": [
+        "glm53-vllm032:verified-20261122"
+      ],
+      "returncode": 0,
+      "stdout": "{\"python\": \"3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]\", \"executable\": \"/opt/conda/bin/python3\", \"packages\": {\"vllm\": \"0.32.0+empty\", \"sglang\": null, \"aiperf\": null, \"torch\": \"2.10.0+metax3.9.0.8\", \"transformers\": \"5.17.0\", \"triton\": \"3.6.0+metax3.9.0.8\"}, \"executables\": {\"vllm\": \"/opt/conda/bin/vllm\", \"sglang\": null, \"aiperf\": null, \"torch\": null, \"transformers\": \"/opt/conda/bin/transformers\", \"triton\": null}}\n",
+      "stderr": "",
+      "runtime": {
+        "python": "3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]",
+        "executable": "/opt/conda/bin/python3",
+        "packages": {
+          "vllm": "0.32.0+empty",
+          "sglang": null,
+          "aiperf": null,
+          "torch": "2.10.0+metax3.9.0.8",
+          "transformers": "5.17.0",
+          "triton": "3.6.0+metax3.9.0.8"
+        },
+        "executables": {
+          "vllm": "/opt/conda/bin/vllm",
+          "sglang": null,
+          "aiperf": null,
+          "torch": null,
+          "transformers": "/opt/conda/bin/transformers",
+          "triton": null
+        }
+      }
+    },
+    {
+      "image_id": "sha256:b6a896a22281630b82a7a099c1473c71c2a49576192151bdf6754f037516ff04",
+      "tags": [
+        "heyi/dynamo-tools-metax:1.5.1-heyi-m10-4b1efe773c-r1"
+      ],
+      "returncode": 0,
+      "stdout": "{\"python\": \"3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]\", \"executable\": \"/opt/dynamo/venv/bin/python3\", \"packages\": {\"vllm\": \"0.26.0\", \"sglang\": null, \"aiperf\": \"0.13.0\", \"torch\": \"2.10.0+metax3.8.2.2\", \"transformers\": \"5.15.1\", \"triton\": \"3.6.0+metax3.8.2.2\"}, \"executables\": {\"vllm\": \"/opt/conda/bin/vllm\", \"sglang\": null, \"aiperf\": \"/opt/dynamo/venv/bin/aiperf\", \"torch\": null, \"transformers\": \"/opt/conda/bin/transformers\", \"triton\": null}}\n",
+      "stderr": "",
+      "runtime": {
+        "python": "3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]",
+        "executable": "/opt/dynamo/venv/bin/python3",
+        "packages": {
+          "vllm": "0.26.0",
+          "sglang": null,
+          "aiperf": "0.13.0",
+          "torch": "2.10.0+metax3.8.2.2",
+          "transformers": "5.15.1",
+          "triton": "3.6.0+metax3.8.2.2"
+        },
+        "executables": {
+          "vllm": "/opt/conda/bin/vllm",
+          "sglang": null,
+          "aiperf": "/opt/dynamo/venv/bin/aiperf",
+          "torch": null,
+          "transformers": "/opt/conda/bin/transformers",
+          "triton": null
+        }
+      }
+    }
+  ],
+  "docker_images_returncode": 0,
+  "docker_images_stderr": "",
+  "ssh_host": "metax",
+  "probe_sha256": "96f3047f40216cb831728bbf457a42f7785e8083aa7794c7543579172d191499"
+}

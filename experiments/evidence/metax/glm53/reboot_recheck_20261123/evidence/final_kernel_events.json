@@ -1,0 +1,13 @@
+{
+  "selection": "Current boot MetaXLink/error/status lines only, same selection as boot_link_events",
+  "events": [
+    "2026-11-23T07:01:06+0000 63metax kernel: METAX.B500.D0.MON.INFO the active status of this card is changed, new status:1",
+    "2026-11-23T07:01:08+0000 63metax kernel: METAX.BB00.D0.MON.INFO the active status of this card is changed, new status:1",
+    "2026-11-23T07:01:10+0000 63metax kernel: METAX.BE00.D0.MON.INFO the active status of this card is changed, new status:1",
+    "2026-11-23T07:01:11+0000 63metax kernel: METAX.BF00.D0.MON.INFO the active status of this card is changed, new status:1",
+    "2026-11-23T07:01:13+0000 63metax kernel: METAX.B5500.D0.MON.INFO the active status of this card is changed, new status:1",
+    "2026-11-23T07:01:15+0000 63metax kernel: METAX.B5600.D0.MON.INFO the active status of this card is changed, new status:1",
+    "2026-11-23T07:01:17+0000 63metax kernel: METAX.B5B00.D0.MON.INFO the active status of this card is changed, new status:1",
+    "2026-11-23T07:01:20+0000 63metax kernel: METAX.B5E00.D0.MON.INFO the active status of this card is changed, new status:1"
+  ]
+}

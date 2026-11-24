@@ -1,0 +1,16 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-metax-current-packages
+version: 1.0.0
+title: 63metax 采集记录：current-packages.json
+provenance: []
+issues: []
+extensions: {}
+path: experiments/evidence/metax/20261123/imported/current-packages.json
+sha256: 86754bc3631936aec5def57396fd757dda9f90c62f777f35a67d9e82896f2840
+media_type: application/json
+role: machine_inventory
+authority: machine_collected
+coverage:
+  status: complete_visible
+  description: 通过 SSH 从 63metax 采集或归档的记录；覆盖范围以原文件实际字段为准，未记录的状态不作推断。

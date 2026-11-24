@@ -1,0 +1,37 @@
+文档: 沐曦通用GPU_mxcc编译器用户指南_CN_V06.pdf
+文档 ID: mxcc-v06
+SHA256: 6fceba6f92b1b4274a5c2dd106d76320947a0b4ef0cdaffd36af5497fdffb6dd
+PDF 页序号: 12
+PDF 页码标签: 7
+页脚页码候选: 7
+章节提示（书签推断）: 指定编译器/链接器行为的选项
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mxcc 编译器用户指南
+--generate-nonsystem-dependencies (-MM)
+与 -M 相同，但忽略在系统目录找到的头文件。
+默认在 stdout 中生成输出。
+--generate-dependencies-with-compile (-MD)
+生成一个依赖文件，并编译输入文件。依赖文件可以包含在 .c 、.cc 、.cpp 、.cxx 和 .maca 输入文件
+的 Makefile 中。
+此选项不能与 -E 一起指定。依赖文件名的计算方法如下：
+• 如果指定 -MF ，则指定的文件名将用作依赖文件名。
+• 如果指定 -o ，则通过将指定文件名的后缀替换为 .d 来计算依赖文件名。
+• 否则，通过将输入文件名的后缀替换为 .d 来计算依赖文件名。
+如果依赖文件名是基于 -MF 或 -o 计算的，则不支持多个输入文件。
+--generate-nonsystem-dependencies-with-compile (-MMD)
+与 -MD 相同，但忽略在系统目录找到的头文件。
+--run (-run)
+将所有输入文件编译并链接到可执行文件中，然后执行此文件。
+4.3 指定编译器/链接器行为的选项
+--profile (-pg)
+生成插桩的产物，供 gprof 使用。
+--debug (-g)
+生成主机代码的调试信息。
+--device-debug (-device-debug)
+生成设备代码的调试信息。
+--generate-line-info (-lineinfo)
+为设备代码生成行号信息。
+--optimization-info kind (-opt-info)
+为指定的优化类型提供优化报告。
+4 支持的选项 沐曦股份专有信息 OG‑23026‑020‑F5_V06 | 7

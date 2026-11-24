@@ -1,0 +1,170 @@
+{
+  "date": "2026-11-23",
+  "status": "passed",
+  "scope": "Local distribution checks only; no remote deployment, GPU inference or generated-code scoring performed.",
+  "index_rebuild": {
+    "command": [
+      "python",
+      "-B",
+      "hwdoc/tools/build_knowledge.py"
+    ],
+    "exit_code": 0,
+    "stdout": "Built 161 components, 284 knowledge records, 2 web snapshots."
+  },
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "hwdoc/tools/build_knowledge.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.47,
+      "stdout": "Verified 161 components, 284 knowledge records, 2 web snapshots.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "hwdoc/tools/verify_index.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.58,
+      "stdout": "PASS: 16 PDFs unchanged; 899 pages complete; 810373 characters consistent; bookmarks and evidence targets valid.\nExtraction flags: 44 pages; empty text: 0. See generated/quality.json.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "hwdoc/tools/verify_practice.py",
+        "--check-originals"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.67,
+      "stdout": "{\n  \"records\": 16,\n  \"snapshots\": 23,\n  \"local_references\": 82,\n  \"originals_checked\": true,\n  \"remote_assets_checked\": false,\n  \"secret_scan\": \"heuristics passed; manual review still required\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "hwdoc/tools",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 23.62,
+      "stdout": "",
+      "stderr": ".......................................\n----------------------------------------------------------------------\nRan 39 tests in 23.398s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "hwdoc/tools/search.py",
+        "weight_scale",
+        "--source",
+        "practice",
+        "--limit",
+        "2"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.25,
+      "stdout": "匹配 2 条（PDF 0 页 / 生态 0 条 / GitHub 0 条 / 实践 2 条），显示 2 条。\n本地来源日期: {\"practice\": [\"2026-11-22\", \"2026-11-23\"]}；验证状态逐条标注。latest 对生态/GitHub 分别取最新日期，实践保留全部案例。\n\n1. [practice/issue] FP8 兼容加载器吞掉 INT8 scale | 2026-11-22 | historical_case_with_scoped_evidence\n   快照: H:\\workspace\\C500模型优化\\C500模型优化-副本\\hwdoc\\practice\\cases\\2026-11-22-glm53-w8a8-tp8\\issues.md line 32\n   覆盖范围与限制: H:\\workspace\\C500模型优化\\C500模型优化-副本\\hwdoc\\practice\\cases\\2026-11-22-glm53-w8a8-tp8\\case.json\n   适用范围: 8卡 C500，驱动 3.8.30 / SDK 3.9.0.29；MetaX 0962c873 加局部修复 / vLLM 5df63a72；TP8、V2、eager、同步、4K、单序列；不代表全框架验收。 scale 所有权与 12 个 loader 用例；未覆盖所有 checkpoint。\n   证据: H:\\workspace\\C500模型优化\\C500模型优化-副本\\hwdoc\\practice\\cases\\2026-11-22-glm53-w8a8-tp8\\evidence\\glm_mla_scale_before_after.json | SHA256 39f2209d912c045e214e276842f5ba34580883cf543058f396c8735a755bf6e3\n   证据: H:\\workspace\\C500模型优化\\C500模型优化-副本\\hwdoc\\practice\\cases\\2026-11-22-glm53-w8a8-tp8\\evidence\\glm_mla_scale_loader.json | SHA256 91c92150dee23a680fdba3696b17b5a561dcf41a1d0de7960fc1aa441e6aaed0\n   证据: H:\\workspace\\C500模型优化\\C500模型优化-副本\\hwdoc\\practice\\cases\\2026-11-22-glm53-w8a8-tp8\\evidence\\inference-summary.json | SHA256 72b6d888302042754e4478dda28384f1da7016f482d8e9dd738cecf3ad1d8a26\n   …推断是 cache 根因。 - 根因：`models/glm5next/common/model.py::_try_load_fp8_attn_proj` 只识别目标 `weight_scale_inv`。INT8 目标使用 `weight_scale`，被 FP8 回退缓存误消费，真实 INT8 scale 未初始化。 - 修复：目标参数存在 `weight_scale_inv` **或** `weight_scale` 时返回 False，由正常量化加载器加载。原生 INT8 构造已正确启用，不是把…\n\n2. [practice/case] 2026-11-22 GLM-5.3-Flash-W8A8 八卡部署 | 2026-11-22 | historical_case_with_scoped_evidence\n   快照: H:\\workspace\\C500模型优化\\C500模型优化-副本\\hwdoc\\practice\\cases\\2026-11-22-glm53-w8a8-tp8\\README.md line 1\n   覆盖范围与限制: H:\\workspace\\C500模型优化\\C500模型优化-副本\\hwdoc\\practice\\cases\\2026-11-22-glm53-w8a8-tp8\\case.json\n   适用范围: 8卡 C500，驱动 3.8.30 / SDK 3.9.0.29；MetaX 0962c873 加局部修复 / vLLM 5df63a72；TP8、V2、eager、同步、4K、单序列；不代表全框架验收。\n   证据: H:\\workspace\\C500模型优化\\C500模型优化-副本\\hwdoc\\practice\\cases\\2026-11-22-glm53-w8a8-tp8\\evidence\\deployment-summary.json | SHA256 ac7b80ca8724a9dd741714206539a9656c98c0a1f6aff9b8786fc233a5adea8b\n   证据: H:\\workspace\\C500模型优化\\C500模型优化-副本\\hwdoc\\practice\\cases\\2026-11-22-glm53-w8a8-tp8\\evidence\\inference-summary.json | SHA256 72b6d888302042754e4478dda28384f1da7016f482d8e9dd738cecf3ad1d8a26\n   证据: H:\\workspace\\C500模型优化\\C500模型优化-副本\\hwdoc\\practice\\cases\\2026-11-22-glm53-w8a8-tp8\\evidence\\weight-summary.json | SHA256 315ecc1ab16c7bf12b6111cff4cf95febf2d3465e82ee8a4ac611d77902ed163\n   证据: H:\\workspace\\C500模型优化\\C500模型优化-副本\\hwdoc\\practice\\cases\\2026-11-22-glm53-w8a8-tp8\\evidence\\structure-summary.json | SHA256 67003f9fe1601a3acf831aba318b10227e2db056d6da9ace9ea7895476fb9de6\n   证据: H:\\workspace\\C500模型优化\\C500模型优化-副本\\hwdoc\\practice\\cases\\2026-11-22-glm53-w8a8-tp8\\evidence\\frozen_baseline_check.json | SHA256 720dd957c648a4ac76528d8bb3cd03c5e7e4f307628ae1021e238de4113b3a1e\n   …。 4. 逐层检查发现前三个 KDA 层有限，首个 MLA 层出现 NaN；进一步定位到 fused QKV A 投影及 scale。FP8 兼容加载器吞掉 INT8 `weight_scale`，导致正常 INT8 参数未初始化。修复加载所有权后，8 个 worker 各自 33 个 MLA INT8 scale 均有限且为正，三项真实生成通过。 V1 混合调度尝试曾非法访问显存，恢复后八卡计算通过；最终 scale 修复后未重测 V1。这次没有证明 V1 问题的根因或最终修复状态。具体症状、最小验证…\n",
+      "stderr": "",
+      "output_encoding": "utf-8 explicitly set for Chinese output capture"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "glmf/baseline_ops/harness",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.22,
+      "stdout": "",
+      "stderr": ".........\n----------------------------------------------------------------------\nRan 9 tests in 0.007s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "glmf/repeatability_20261123/harness",
+        "-p",
+        "test_*.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.2,
+      "stdout": "",
+      "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.001s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "glmf/reboot_recheck_20261123/verify_results.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.28,
+      "stdout": "{\n  \"evidence_integrity\": \"passed\",\n  \"pilot_correctness_gate\": \"passed\",\n  \"preserved_old_experiments\": true,\n  \"prior_recovery_files_checked\": 33,\n  \"current_files_checked\": 89,\n  \"boundary\": \"P2P-disabled single-engine32/32/4 pilot only; does not certify MetaXLink, default transport, full164, multiple engines or performance.\"\n}\n",
+      "stderr": ""
+    }
+  ],
+  "unit_tests": {
+    "knowledge": 39,
+    "baseline_harness": 9,
+    "repeatability_harness": 7,
+    "total": 55
+  },
+  "evidence_chain": [
+    "reboot_recheck_20261123 -> gemm_replace_20261123 -> repeatability_20261123 -> baseline_ops",
+    "Recovery archive manifest also verified by reboot verifier.",
+    "The pilot analyzer recomputed a summary; its bytes remained unchanged against the initial copy."
+  ],
+  "package_verifier_tests": [
+    {
+      "case": "intact",
+      "expected_exit": 0,
+      "exit_code": 0,
+      "stdout": "PASS: 2 files match FILES_SHA256.json; no unexpected files.",
+      "passed": true
+    },
+    {
+      "case": "modified",
+      "expected_exit": 1,
+      "exit_code": 1,
+      "stdout": "Changed: sample.txt",
+      "passed": true
+    },
+    {
+      "case": "unexpected",
+      "expected_exit": 1,
+      "exit_code": 1,
+      "stdout": "Unexpected: extra.txt",
+      "passed": true
+    }
+  ],
+  "original_project_preservation": {
+    "original_files_checked": 1674,
+    "status": "unchanged",
+    "method": "All original relative paths, file sizes and SHA256 checked before and after copy preparation; distribution copy and future new ZIP/sidecar excluded."
+  },
+  "archive_verification_note": "Final ZIP SHA256 and post-extraction checks are supplied in the external packaging report to avoid self-referential hashes."
+}

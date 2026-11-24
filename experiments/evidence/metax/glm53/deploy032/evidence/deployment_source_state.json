@@ -1,0 +1,17 @@
+{
+  "vllm": {
+    "head": "5df63a7203cdb9328d824a27b682e77c7b9928be",
+    "status": "",
+    "tracked_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "vllm-metax": {
+    "head": "0962c8735ffe4795800030680311410848512b82",
+    "status": " M vllm_metax/models/glm5next/common/model.py\n M vllm_metax/models/glm5next/metax/sparse_indexer.py\n M vllm_metax/patch/AUDIT.md\n M vllm_metax/patch/bugfix/__init__.py\n?? vllm_metax/patch/bugfix/moe_align_legacy_abi.py\n",
+    "tracked_patch_sha256": "8aecb4566881142b874036201e0d5efd73c0b42ede3cfd63e9fb87d37f5328e7",
+    "added_file": {
+      "path": "vllm_metax/patch/bugfix/moe_align_legacy_abi.py",
+      "sha256": "0a54d539f60406e94c5756dab11840304d7e4f407883006cfc55411f853a071e"
+    }
+  },
+  "validation_scope": "Targeted GLM deployment compatibility repairs; focused GPU/CPU numerical references and source checks, followed by real-weight TP8 acceptance. Not full framework/model matrix upgrade acceptance."
+}

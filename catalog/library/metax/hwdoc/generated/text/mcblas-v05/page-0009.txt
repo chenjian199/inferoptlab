@@ -1,0 +1,51 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 9
+PDF 页码标签: 2
+页脚页码候选: 2
+章节提示（书签推断）: Hello mcBLAS
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+1.3 Hello mcBLAS
+有关示例代码参考，请参见下面的两个示例。它们展示了使用有两种索引样式的 mcBLAS 库 API 和 C 语
+言编写应用程序 （示例 1. “使用 C 和 mcBLAS 的应用程序： 基于 1 的索引” 和示例 2. “使用 C 和 mcBLAS
+的应用程序：基于 0 的索引” ） 。
+#CMakeLists.txt
+cmake_minimum_required(VERSION 3.5.0)
+set(PROJECT_NAME example)
+project(${PROJECT_NAME} VERSION 0.1.0)
+set(CMAKE_BUILD_TYPE "Debug")
+set(CMAKE_CXX_STANDARD 14)
+INCLUDE_DIRECTORIES(ENV{MACA_PATH}/include/mcr)
+INCLUDE_DIRECTORIES(ENV{MACA_PATH}/include/mcblas)
+INCLUDE_DIRECTORIES(ENV{MACA_PATH}/include)
+LINK_DIRECTORIES(ENV{MACA_PATH}/lib)
+file(GLOB EXAMPLE_SRCS1 "example1.cpp")
+file(GLOB EXAMPLE_SRCS2 "example2.cpp")
+add_executable("example1" ${EXAMPLE_SRCS1})
+add_executable("example2" ${EXAMPLE_SRCS2})
+target_link_libraries("example1" mcblas mcruntime)
+target_link_libraries("example2" mcblas mcruntime)
+//示 例 1.使 用 C和mcBLAS 的 应 用 程 序 ： 基 于1 的 索 引
+//example1.cpp
+//-----------------------------------------------------------
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <mc_runtime.h>
+#include "mcblas.h"
+#define M 6
+#define N 5
+#define IDX2F(i,j,ld) ((((j)-1)*(ld))+((i)-1))
+static __inline__ void modify (mcblasHandle_t handle, float *m, int ldm, int n, 
+,→int p, int q, float alpha, float beta){
+mcblasSscal (handle, n-q+1, &alpha, &m[IDX2F(p,q,ldm)], ldm);
+mcblasSscal (handle, ldm-p+1, &beta, &m[IDX2F(p,q,ldm)], 1);
+}
+int main (void){
+int mcStat;
+mcblasStatus_t stat;
+(下页继续)
+1 简介 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 2

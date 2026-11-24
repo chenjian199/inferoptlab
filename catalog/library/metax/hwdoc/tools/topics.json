@@ -1,0 +1,29 @@
+{
+  "documents": [
+    {"match": "运行时API", "id": "runtime-api", "topics": ["environment", "kernels", "communication"]},
+    {"match": "AI推理", "id": "ai-inference", "topics": ["inference"]},
+    {"match": "DeepEP", "id": "deepep", "topics": ["communication"]},
+    {"match": "MACA_VISIBLE_DEVICES", "id": "device-order", "topics": ["communication", "environment"]},
+    {"match": "mcBLAS", "id": "mcblas", "topics": ["libraries", "kernels"]},
+    {"match": "MCCL", "id": "mccl", "topics": ["communication"]},
+    {"match": "mcProfiler", "id": "mcprofiler", "topics": ["profiling"]},
+    {"match": "mcPyTorch", "id": "mcpytorch", "topics": ["inference", "environment"]},
+    {"match": "mcTracer", "id": "mctracer", "topics": ["profiling"]},
+    {"match": "mcTriton", "id": "mctriton", "topics": ["kernels", "environment"]},
+    {"match": "mxcc", "id": "mxcc", "topics": ["development", "kernels"]},
+    {"match": "MXMACA C++", "id": "maca-cpp", "topics": ["kernels", "development"]},
+    {"match": "Clangd", "id": "clangd", "topics": ["development"]},
+    {"match": "内建函数", "id": "builtins", "topics": ["kernels"]},
+    {"match": "mxvs", "id": "mxvs", "topics": ["environment", "profiling", "communication"]},
+    {"match": "mcEigen", "id": "mceigen", "topics": ["libraries", "development"]}
+  ],
+  "topics": [
+    {"id": "environment", "title": "环境检查与安装", "purpose": "核对硬件、驱动、SDK、框架依赖和设备选择，建立服务器环境记录。", "keywords": ["环境", "安装", "验证", "适用产品", "设备信息", "工作状态", "工具部署", "前置", "版本"]},
+    {"id": "inference", "title": "模型运行与推理", "purpose": "查找框架安装、功能支持、模型转换、精度和推理配置。", "keywords": ["环境", "安装", "推理", "模型", "量化", "精度", "功能支持", "环境变量"]},
+    {"id": "profiling", "title": "性能分析与基准测试", "purpose": "定位跟踪采集、性能指标和测试工具入口；运行测试前确认其影响。", "keywords": ["使用", "前置", "度量", "分析", "Viewer", "带宽", "算力", "压力", "日志"]},
+    {"id": "communication", "title": "多卡与多机通信", "purpose": "查找卡序、并行维度、集合通信、互连与多机内存注册说明；区分单机和多机场景。", "keywords": ["并行", "输出", "示例", "配置", "版本", "客户使用建议", "通信", "通讯", "环境变量", "PCIe", "P2P", "多设备"]},
+    {"id": "kernels", "title": "算子与 GPU 编程", "purpose": "查找 Triton、C++、运行时和内建函数的编程与优化入口。", "keywords": ["功能支持", "编程", "内存", "核函数", "语言扩展", "接口", "数据布局", "使用", "访存", "同步"]},
+    {"id": "development", "title": "编译与开发工具", "purpose": "查找编译选项、语言支持、编辑器配置和工程集成。", "keywords": ["安装", "配置", "选项", "使用", "支持", "工程", "编译"]},
+    {"id": "libraries", "title": "数学库与接口参考", "purpose": "查找矩阵运算、数据类型、库安装和 API 示例。", "keywords": ["安装", "API", "数据", "Hello", "Eigen", "gemm", "模块"]}
+  ]
+}

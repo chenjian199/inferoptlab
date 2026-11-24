@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 155
+PDF 页码标签: 147
+页脚页码候选: 147
+章节提示（书签推断）: 单精度数学函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+• frexp(±∞,nptr)返回±∞，并且在nptr指向的内存赋值一个不确定的值。
+• frexp(NaN,y)返回NaN，并且在nptr指向的内存赋值一个不确定的值。
+函数描述
+• 将浮点值 x 分解为归一化分数元素的分量 m 和指数的另一项 n。m 的绝对值将大于或等于 0.5 且小于
+1.0或等于0；x=m*2 n。整数指数n将存储在nptr指向的位置。
+__device__ float hypotf (float x, float y)
+计算x与y的平方和的平方根。
+返回值
+• 斜边的长度sqrt(x 2 +y 2)。如果正确计算的值溢出，返回+无穷。如果正确计算结果向下溢出，返回0。
+函数描述
+• 计算直角三角形斜边的长度，该直角三角形的两侧具有长度x和y，且没有过度溢出或下溢。
+__device__ float ilogbf (float x)
+计算参数的无偏整数指数。
+返回值
+• 如果成功，返回参数的无偏指数。
+• ilogbf(0)返回INT_MIN。
+• ilogbf(NaN)返回INT_MIN。
+• 如果x是∞或者确切值比INT_MAX大，ilogbf(x)返回INT_MAX。
+• 如果确切值比INT_MIN小，ilogbf(x)返回INT_MIN。
+• 注意，上面的操作不涉及FP_ILOGB0、FP_ILOGBNAN。
+函数描述
+• 计算参数x的无偏整数指数。
+__device__ bool isfinite (float a)
+确认参数是否是有穷的。
+返回值
+• 当且仅当a是一个有穷值的时候返回true。
+函数描述
+• 确认参数a是否是有穷的。
+__device__ bool isinf (float a)
+确认参数是否是无穷的。
+返回值
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 147

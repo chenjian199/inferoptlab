@@ -1,0 +1,57 @@
+[
+  {
+    "source": "glmf/recovery_20261123/pilot/harness/code_adapter.py",
+    "source_sha256": "9112a71b1917f32020b31c88810944d388664a7f7b386a26eab61a933f2973ea",
+    "destination": "harness/code_adapter.py"
+  },
+  {
+    "source": "glmf/recovery_20261123/pilot/harness/communication_check.py",
+    "source_sha256": "d3010632f70972ed24d012b67958549e5f1714e9971b647d60d3f246b45ead47",
+    "destination": "harness/communication_check.py"
+  },
+  {
+    "source": "glmf/recovery_20261123/pilot/harness/evaluate_humaneval.py",
+    "source_sha256": "cb9b4972821f67faa83015466aeb7b1c4be2cb5e37428f5c6ad1d4c3a09a051a",
+    "destination": "harness/evaluate_humaneval.py"
+  },
+  {
+    "source": "glmf/recovery_20261123/pilot/harness/gemm_kernel.py",
+    "source_sha256": "df5a0abe332a2d7521d2b682734f7f375fcaf5faad10b9446685173ff4773f84",
+    "destination": "harness/gemm_kernel.py"
+  },
+  {
+    "source": "glmf/recovery_20261123/pilot/harness/launch_model.py",
+    "source_sha256": "1e0483f2a391eb5bfbc942a2f95f1d53aeaf97484b69df6670be8328c1625fac",
+    "destination": "harness/launch_model.py"
+  },
+  {
+    "source": "glmf/recovery_20261123/pilot/harness/replacement_worker.py",
+    "source_sha256": "a133e45c913e939458e55ec898e2de1cf525110d7dae836ba97f4a868a290d51",
+    "destination": "harness/replacement_worker.py"
+  },
+  {
+    "source": "glmf/recovery_20261123/pilot/harness/run_model.py",
+    "source_sha256": "c8e2c186e737b3f10fc2e4527811879e998f7b1e4df96da8cc6c3cf1a8bb711f",
+    "destination": "harness/run_model.py"
+  },
+  {
+    "source": "glmf/recovery_20261123/pilot/harness/worker_provenance.py",
+    "source_sha256": "439b86e5b68ff5223b5521f737cb2f5f3a4ff5991040bedf06d3d3589cc8f0bb",
+    "destination": "harness/worker_provenance.py"
+  },
+  {
+    "source": "glmf/recovery_20261123/pilot/configs/contract-v1.json",
+    "source_sha256": "724a3c1ddb1cbbb5b8e9c5b9a9fb4d8ee41b289f7b8b438a3566e2af58f9f743",
+    "destination": "configs/contract-v1.json"
+  },
+  {
+    "source": "glmf/recovery_20261123/pilot/configs/model-plan.json",
+    "source_sha256": "3184459847fe121b5e31fa99822151b31c6874aaa7816f109e5f5fd2f157dd31",
+    "destination": "configs/model-plan.json"
+  },
+  {
+    "source": "glmf/recovery_20261123/pilot/data/prompt_manifest.json",
+    "source_sha256": "9511992c6111410171e161e556e397a7e33af3b464bc7320658e323c3cec30cb",
+    "destination": "data/prompt_manifest.json"
+  }
+]

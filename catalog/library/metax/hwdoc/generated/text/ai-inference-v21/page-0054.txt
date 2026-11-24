@@ -1,0 +1,46 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 54
+PDF 页码标签: 42
+页脚页码候选: 42
+章节提示（书签推断）: 本地模型部署性能测试
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+注解:
+• 执行测试脚本前，需要激活测试环境变量，否则会测试失败。
+• <STEP> 需要与 6.3.1.5 PMX 模型测试中保存的 step 相对应，否则会导致输入数据加载失败。
+6.3.3 本地模型部署性能测试
+为了探测特定大模型的极限性能，可以在本地进行性能测试，为后续服务端部署性能做一个参照，进而
+优化服务端部署参数设置，最大限度发挥出沐曦通用 GPU 的硬件性能。
+本地部署性能测试依赖工具如下：
+benchmark_llama：性能测试可执行文件，安装 ppl.llm.serving_*_amd64.deb 后在/opt/maca‑
+ai/ppl.llm.serving/bin/下获取。当前仅支持 llama 系列及类 llama 模型的测试。
+操作步骤（以 llama‑7b 为例）
+1. 创建一个测试 bash 脚本 benchmark_7b.sh，内容如下：
+#!/bin/bash
+MODEL_TYPE="llama"
+MODEL_DIR="/mnt/hpc/shengyunrui/model_card/llama_7b_ppl"
+MODEL_PARAM_PATH="/mnt/hpc/shengyunrui/model_card/llama_7b_ppl/params.json"
+TENSOR_PARALLEL_SIZE=1
+TOP_P=0.0
+TOP_K=1
+TEMPERATURE=1.0
+WARMUP_LOOPS=2
+BENCHMARK_LOOPS=2
+INPUT_FILE_BASE="tokens_input"
+INPUT_LEN=8
+GENERATION_LEN=256
+BATCH_SIZE_LIST=(1 2 4 8 16 32 64 128 256)
+for BATCH_SIZE in ${BATCH_SIZE_LIST[@]}; do
+INPUT_FILE=${INPUT_FILE_BASE}_${INPUT_LEN}
+your_path_of_benchmark_llama \
+--model-type $MODEL_TYPE \
+--model-dir $MODEL_DIR \
+--model-param-path $MODEL_PARAM_PATH \
+--tensor-parallel-size $TENSOR_PARALLEL_SIZE \
+--top-p $TOP_P \
+--top-k $TOP_K \
+(下页继续)
+6 MacaRT‑LLM 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 42

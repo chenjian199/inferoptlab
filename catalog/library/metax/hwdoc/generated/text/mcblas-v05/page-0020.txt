@@ -1,0 +1,31 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 20
+PDF 页码标签: 13
+页脚页码候选: 13
+章节提示（书签推断）: mcblasSetStream()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+2.2.5 mcblasGetStatusName()
+const char* mcblasGetStatusName(mcblasStatus_t status)
+该函数返回给定状态的字符串表示。
+返回值 含义
+NULL 结尾字符串 status 的字符串表示
+2.2.6 mcblasGetStatusString()
+const char* mcblasGetStatusString(mcblasStatus_t status)
+该函数返回给定状态的描述字符串。
+返回值 含义
+NULL 结尾的字符串 status 的描述
+2.2.7 mcblasSetStream()
+mcblasStatus_t
+mcblasSetStream(mcblasHandle_t handle, mcStream_t streamId)
+此函数设置 mcBLAS 库流，该库流将用于后续所有的 mcBLAS 库函数调用。如果未设置 mcBLAS 库流，
+则所有内核都使用默认的 NULL 流。特别是，此例程可用于更改内核启动（kernel launch）之间的流，
+然后将 mcBLAS 库流重置回 NULL。此外，此函数无条件地将 mcBLAS 库工作空间重置回默认的工作空
+间池（请参见mcblasSetWorkspace()） 。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 流设置成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 13

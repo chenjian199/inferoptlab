@@ -1,0 +1,362 @@
+{
+  "revision": "6df7a9b0309e530094e29b2a6ced3e21bed6c16d",
+  "total_files": 59,
+  "verified": [
+    {
+      "file": ".gitattributes",
+      "size": 2197,
+      "sha256": "be3062e448b5c6faeb638f985aaeb03c2df87b13a8e79fceb3311c5bb557e24b",
+      "status": "verified_existing"
+    },
+    {
+      "file": "LICENSE",
+      "size": 1070,
+      "sha256": "30b85b6b9659f2e78aa259f8faf5d920a68dee7c9ced3fa6dba1f19f2bc4fca1",
+      "status": "verified_existing"
+    },
+    {
+      "file": "README.md",
+      "size": 7238,
+      "sha256": "4f46db37e6a7cbe3a494d6d7f616a96f4fffe6d1de68be361199a715c8d928fc",
+      "status": "verified_existing"
+    },
+    {
+      "file": "chat_template.jinja",
+      "size": 10641,
+      "sha256": "58f88a9ff33e084ed5cb935b6bab1eea2d3a783b57cb63e3796351bb33291aa8",
+      "status": "verified_existing"
+    },
+    {
+      "file": "config.json",
+      "size": 50219,
+      "sha256": "671a1dec45411c0d126573646ec7173aa1b4fd02aaaab62be8613b9c08e3018e",
+      "status": "verified_existing"
+    },
+    {
+      "file": "configuration.json",
+      "size": 29,
+      "sha256": "8fa209ef18ac53dea0c47cf8d6f4e92c907565a4971bee413c1772e314a251fa",
+      "status": "verified_existing"
+    },
+    {
+      "file": "generation_config.json",
+      "size": 194,
+      "sha256": "230c30609ecbbb9e6583bedde8e7bdda0c6eb8fe5fad0eaeb3d1b293d751cb4f",
+      "status": "verified_existing"
+    },
+    {
+      "file": "llmc_qconfig.yaml",
+      "size": 3417,
+      "sha256": "ced68a942beaad2a206b96971528df1fabaaa597b64f8c1302dae1800d5e3c5f",
+      "status": "verified_existing"
+    },
+    {
+      "file": "model-language_model-layers-00000.safetensors",
+      "size": 428322852,
+      "sha256": "694818afe8ab795ed038c9cc60681a02eb9d5e74c5f2289e2f8789e821711306",
+      "status": "verified_existing"
+    },
+    {
+      "file": "model-language_model-layers-00001.safetensors",
+      "size": 428322852,
+      "sha256": "b9df30353994398e73e2054345c866753b79a6db693baeb7d3ea657ac97d9c04",
+      "status": "verified_existing"
+    },
+    {
+      "file": "model-language_model-layers-00002.safetensors",
+      "size": 428322852,
+      "sha256": "e48fbc575c58dcb934446282ddf8958312e56091e1b901f3d0d7cde463ea3e81",
+      "status": "verified_existing"
+    },
+    {
+      "file": "model-language_model-layers-00003.safetensors",
+      "size": 7431060212,
+      "sha256": "63fb7f7fde3373a882da97b8c1d424743e7e3edaec54dc8690906f47312f9656",
+      "status": "verified_existing"
+    },
+    {
+      "file": "model-language_model-layers-00004.safetensors",
+      "size": 7557526812,
+      "sha256": "f5f73ec595b49d546b5b01817edcd046b6393263d1f001366025fd9465d283b7",
+      "status": "verified_existing"
+    },
+    {
+      "file": "model-language_model-layers-00005.safetensors",
+      "size": 7557526812,
+      "sha256": "157c9f078fd7691bcad9eb9d49d04990c41cc5f46e1fa0b449a65e57427d7d23",
+      "status": "verified_existing"
+    },
+    {
+      "file": "model-language_model-layers-00006.safetensors",
+      "size": 7557526812,
+      "sha256": "7b2fd673d8bb799007bf5f4aedd4213ef7bcad8c6d9e48bb7d9da4ccd8d625db",
+      "status": "verified_existing"
+    },
+    {
+      "file": "model-language_model-layers-00007.safetensors",
+      "size": 7431060212,
+      "sha256": "fd742cd4b95d12a62c87ba104de55be2eddcbe3fde193e616048e481a3aebc21",
+      "status": "verified_existing"
+    },
+    {
+      "file": "model-language_model-layers-00008.safetensors",
+      "size": 7557526812,
+      "sha256": "5882e5be1408775fffcd82cb5f9244f194a0db03662f8630d3800f495ae7ed57",
+      "status": "verified_existing"
+    },
+    {
+      "file": "model-language_model-layers-00009.safetensors",
+      "size": 7557526812,
+      "sha256": "3a0af2da08710f6603daab9410193ad45de9051a104f96a7d823022431351164",
+      "status": "verified_existing"
+    },
+    {
+      "file": "model-language_model-layers-00010.safetensors",
+      "size": 7557528572,
+      "sha256": "4e50ae0ad339a84dcc0c393946d77cf2281fe648f7cf9b6cd420d2a65b2e4a07",
+      "status": "verified_existing"
+    },
+    {
+      "file": "model-language_model-layers-00011.safetensors",
+      "size": 7431061972,
+      "sha256": "9726a8d59730224a19ce3264bbcfe03c7f3e1de58ae5c3c06173f1c8fa8a4d46",
+      "status": "verified_existing"
+    },
+    {
+      "file": "model-language_model-layers-00012.safetensors",
+      "size": 7557528572,
+      "sha256": "c4cb41e745700f3827cd9daf4548ce21759abccae58a7baee035d810e526b44c",
+      "status": "verified_existing"
+    },
+    {
+      "file": "model-language_model-layers-00013.safetensors",
+      "size": 7557528572,
+      "sha256": "06ecb2de008dd109bc19e69e0e646a00ec0def789d92e572b4626ead52979d82",
+      "status": "verified_existing"
+    },
+    {
+      "file": "model-language_model-layers-00014.safetensors",
+      "size": 7557528572,
+      "sha256": "fdbb828b7faeb14e555022c571cbf8db332b1aee963e8283cdab12c66ff005d9",
+      "status": "verified_existing"
+    },
+    {
+      "file": "model-language_model-layers-00015.safetensors",
+      "size": 7431061972,
+      "sha256": "eca57e93eef2906fd1d5ceb017744940a784440d5c37a87ba95af9b62d2831f5",
+      "status": "verified_existing"
+    },
+    {
+      "file": "model-language_model-layers-00016.safetensors",
+      "size": 7557528572,
+      "sha256": "822c872f784950bddc38cde5fb9c0a7a10a0d98a5127e73485c0cc9c25977c36",
+      "status": "verified_existing"
+    },
+    {
+      "file": "model-language_model-layers-00017.safetensors",
+      "size": 7557528572,
+      "sha256": "d8e1f7d440ab78c8c4e461fdb61c3a5a0a9e01d4adbada5a341a03aefdd5a128",
+      "status": "verified_existing"
+    },
+    {
+      "file": "model-language_model-layers-00018.safetensors",
+      "size": 7557528572,
+      "sha256": "02839760f90dfd672fa13df64d33c5cb010564f59b379c2f14924a9aacbbc78b",
+      "status": "verified_existing"
+    },
+    {
+      "file": "model-language_model-layers-00019.safetensors",
+      "size": 7431061972,
+      "sha256": "51b517b150c5abed700fa99c0580b2eea33cc87e3fdc2975fc9929bf390bb8f4",
+      "status": "verified_existing"
+    },
+    {
+      "file": "model-language_model-layers-00020.safetensors",
+      "size": 7557528572,
+      "sha256": "c7e094d92964787932b7581bc1f6be9f800445cdb82d432932dfc0bce18c895e",
+      "status": "verified_download"
+    },
+    {
+      "file": "model-language_model-layers-00021.safetensors",
+      "size": 7557528572,
+      "sha256": "6d7e758b0eb3c5ddd563a35fc8136f68cc20a72caa7b411cec3835034d3d9293",
+      "status": "verified_download"
+    },
+    {
+      "file": "model-language_model-layers-00022.safetensors",
+      "size": 7557528572,
+      "sha256": "e0a2dc180a97ded1c87311af98f59334a75529b5b5e6b5625a3448aee0b26c5a",
+      "status": "verified_download"
+    },
+    {
+      "file": "model-language_model-layers-00023.safetensors",
+      "size": 7431061972,
+      "sha256": "9a78332a4252588f6c8fd43270b7411984610aadd25fd8ad0d898b91e27cbd16",
+      "status": "verified_download"
+    },
+    {
+      "file": "model-language_model-layers-00024.safetensors",
+      "size": 7557528572,
+      "sha256": "e333c5eba87f43aa78e11117d1c081e1024ca3c5ed1d7a49bad5a33a6c979791",
+      "status": "verified_download"
+    },
+    {
+      "file": "model-language_model-layers-00025.safetensors",
+      "size": 7557528572,
+      "sha256": "778befd5a04f7158acccde1c86e7339c1f1f4125f9c32b85170897309f544d86",
+      "status": "verified_download"
+    },
+    {
+      "file": "model-language_model-layers-00026.safetensors",
+      "size": 7557528572,
+      "sha256": "529c84da2e0f477207c6075a464550028bd13cc872073bdf614d990939457769",
+      "status": "verified_download"
+    },
+    {
+      "file": "model-language_model-layers-00027.safetensors",
+      "size": 7431061972,
+      "sha256": "23990d461e69e209f60195fae21179df3d51008d2ad513da940d9676418e5c73",
+      "status": "verified_download"
+    },
+    {
+      "file": "model-language_model-layers-00028.safetensors",
+      "size": 7557528572,
+      "sha256": "93accb170aefbee27dfed025831d3a3b09b7f0444c9e47e65ea40e8d2e2c92ce",
+      "status": "verified_download"
+    },
+    {
+      "file": "model-language_model-layers-00029.safetensors",
+      "size": 7557528572,
+      "sha256": "88905a42428acc98d01d11c964dedce2dbc4f90b636e22ba35c834fc47d23dc9",
+      "status": "verified_download"
+    },
+    {
+      "file": "model-language_model-layers-00030.safetensors",
+      "size": 7557528572,
+      "sha256": "7ee4202211dfe185806ba6f9335b0898cf6dcc4d7b8aa46d6b9860e8d2ed7518",
+      "status": "verified_download"
+    },
+    {
+      "file": "model-language_model-layers-00031.safetensors",
+      "size": 7431061972,
+      "sha256": "30580a44d4fe95e4790c02abdbd97dd2e97d94aa990a7672967e2c1a60511348",
+      "status": "verified_download"
+    },
+    {
+      "file": "model-language_model-layers-00032.safetensors",
+      "size": 7557528572,
+      "sha256": "c5b26dc8b7d80b9412e1e77bd5ab2d66197d343cc3432acedcc1f652c5b2c731",
+      "status": "verified_download"
+    },
+    {
+      "file": "model-language_model-layers-00034.safetensors",
+      "size": 7557528572,
+      "sha256": "068933e7fc0b7b88dd86386121a8bc8564cd79e78b96fd18bb1e54780c92c0da",
+      "status": "verified_download"
+    },
+    {
+      "file": "model-language_model-layers-00035.safetensors",
+      "size": 7431061972,
+      "sha256": "28346a3f4505a1a8c652d3c91c21243f21b59bc5076b1db5147dd305ca3b3499",
+      "status": "verified_download"
+    },
+    {
+      "file": "model-language_model-layers-00036.safetensors",
+      "size": 7557528572,
+      "sha256": "f5596c5935cbc3cb723d5cebb0a093ca25391f9c74609c606daa0e5ce4cc2910",
+      "status": "verified_download"
+    },
+    {
+      "file": "model-language_model-layers-00039.safetensors",
+      "size": 7431061972,
+      "sha256": "72225ea86d3e52d64b7bbec268971f9fb94ab2c99922fa6732daedbfb4aaeab5",
+      "status": "verified_download"
+    },
+    {
+      "file": "model-language_model-layers-00040.safetensors",
+      "size": 7557528572,
+      "sha256": "40a12a22e3db5bfe87057fa6476818f8b32cefa229e582ec2d13121a01fd5894",
+      "status": "verified_download"
+    },
+    {
+      "file": "model-language_model-layers-00041.safetensors",
+      "size": 7557528572,
+      "sha256": "24c1eb4664a603906d285df6048101062b9acaf5dff8f5f337575fb74abae654",
+      "status": "verified_download"
+    },
+    {
+      "file": "model-language_model-layers-00042.safetensors",
+      "size": 7557528572,
+      "sha256": "20b8e3514606db73c187dcf55d0a4abae6bad1b415ac213aced5504c4772f5c5",
+      "status": "verified_download"
+    },
+    {
+      "file": "model-language_model-layers-00044.safetensors",
+      "size": 7557528572,
+      "sha256": "ec5a36ed45f93d3b6bde7085fcf7c93b3f1b08412e2dfb710dd7c424db421683",
+      "status": "verified_download"
+    },
+    {
+      "file": "model-language_model-layers-00045.safetensors",
+      "size": 7496624048,
+      "sha256": "6bd4b763708780b3ac7706f63cdffde803de64103b7b0204584e66739a358a14",
+      "status": "verified_download"
+    },
+    {
+      "file": "model.safetensors.index.json",
+      "size": 9242104,
+      "sha256": "df7051ab389ace971ee537109503dfe51ed5a982bab1017f9ec7f96c73d53c80",
+      "status": "verified_download"
+    },
+    {
+      "file": "model_exclude_layers.safetensors",
+      "size": 3664856128,
+      "sha256": "2800f061c8099db5f21b42121f6dc0c926ade0ad1621630f3c97d1efd551ac9a",
+      "status": "verified_download"
+    },
+    {
+      "file": "processor_config.json",
+      "size": 1445,
+      "sha256": "ce7d2572395b24edcd2525e886ecbd132754db2f9025adbbcf5f482d7978fa40",
+      "status": "verified_download"
+    },
+    {
+      "file": "tokenizer.json",
+      "size": 20217442,
+      "sha256": "19e773648cb4e65de8660ea6365e10acca112d42a854923df93db4a6f333a82d",
+      "status": "verified_download"
+    },
+    {
+      "file": "tokenizer_config.json",
+      "size": 790,
+      "sha256": "77af7d4769cd62c107b90495cac9b0ba81573c86486821bfba2980c04285ec7a",
+      "status": "verified_download"
+    },
+    {
+      "file": "model-language_model-layers-00038.safetensors",
+      "size": 7557528572,
+      "sha256": "cdb30d4caa14ba0bd88935624eb63516567285880e176e8d271821ffe354b582",
+      "status": "verified_download"
+    },
+    {
+      "file": "model-language_model-layers-00043.safetensors",
+      "size": 7431061972,
+      "sha256": "8fa97fa2458a68233589cd71a2bdbec43508a50ae73173c6ec6eb0d31bcdd756",
+      "status": "verified_download"
+    },
+    {
+      "file": "model-language_model-layers-00033.safetensors",
+      "size": 7557528572,
+      "sha256": "0d700d8f8ccad0c43cb793d1dada1e5909a6f76527f2946e3676a3133c14b9d3",
+      "status": "verified_download"
+    },
+    {
+      "file": "model-language_model-layers-00037.safetensors",
+      "size": 7557528572,
+      "sha256": "c4c61dab7b5ab0997821703b55a385790661b3d52e0e5b2f4a42535b1e2494ad",
+      "status": "verified_download"
+    }
+  ],
+  "failures": [],
+  "complete": true
+}

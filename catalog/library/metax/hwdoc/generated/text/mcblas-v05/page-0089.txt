@@ -1,0 +1,60 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 89
+PDF 页码标签: 82
+页脚页码候选: 82
+章节提示（书签推断）: mcblas<t>gemmStridedBatched()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+(续上页)
+mcblas_stride strideB,
+const float *beta,
+float *C, int ldc,
+mcblas_stride strideC,
+int batchCount)
+mcblasStatus_t mcblasDgemmStridedBatched(mcblasHandle_t handle,
+mcblasOperation_t transa,
+mcblasOperation_t transb,
+int m, int n, int k,
+const double *alpha,
+const double *A, int lda,
+mcblas_stride strideA,
+const double *B, int ldb,
+mcblas_stride strideB,
+const double *beta,
+double *C, int ldc,
+mcblas_stride strideC,
+int batchCount)
+mcblasStatus_t mcblasCgemmStridedBatched(mcblasHandle_t handle,
+mcblasOperation_t transa,
+mcblasOperation_t transb,
+int m, int n, int k,
+const mcComplex *alpha,
+const mcComplex *A, int lda,
+mcblas_stride strideA,
+const mcComplex *B, int ldb,
+mcblas_stride strideB,
+const mcComplex *beta,
+mcComplex *C, int ldc,
+mcblas_stride strideC,
+int batchCount)
+mcblasStatus_t mcblasCgemm3mStridedBatched(mcblasHandle_t handle,
+mcblasOperation_t transa,
+mcblasOperation_t transb,
+int m, int n, int k,
+const mcComplex *alpha,
+const mcComplex *A, int lda,
+mcblas_stride strideA,
+const mcComplex *B, int ldb,
+mcblas_stride strideB,
+const mcComplex *beta,
+mcComplex *C, int ldc,
+mcblas_stride strideC,
+int batchCount)
+mcblasStatus_t mcblasZgemmStridedBatched(mcblasHandle_t handle,
+mcblasOperation_t transa,
+mcblasOperation_t transb,
+(下页继续)
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 82

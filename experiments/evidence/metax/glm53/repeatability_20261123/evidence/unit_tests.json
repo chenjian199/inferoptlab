@@ -1,0 +1,5 @@
+{
+  "status": "passed",
+  "command": "python -B -m unittest discover -s glmf/repeatability_20261123/harness -p test_*.py",
+  "output": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.001s\n\nOK\n"
+}

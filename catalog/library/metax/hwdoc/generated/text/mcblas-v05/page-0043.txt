@@ -1,0 +1,43 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 43
+PDF 页码标签: 36
+页脚页码候选: 36
+章节提示（书签推断）: mcblas<t>gbmv()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+中（从第二个位置开始） ，第一个次对角线存储在行ku + 2 中（从第一个位置开始）等。因此通常，元素
+A (i, j) 存储在 A(ku+1+i-j,j)，其中 j = 1, . . . , n，i ∈ [max (1, j − ku) , min (m, j + kl)]。此外，数组
+A 中的元素，在概念上与带状矩阵中的元素不对应（左上 ku × ku 和右下 kl × kl 三角） ，也不会被引用。
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+trans input 非转置或共轭转置运算 op(A)
+m input 矩阵 A 的行数
+n input 矩阵 A 的列数
+kl input 矩阵 A 的次对角线数
+ku input 矩阵 A 的超对角线数
+alpha 主机或设备 input 用于乘法的 <type> 标量
+A 设备 input <type> 数组，维度为 lda x n ，其中 lda>=kl+ku+1
+lda input 用于存储矩阵 A 的二维数组的前导维度
+x 设备 input 如 果 transa == MCBLAS_OP_N， 则 为 包 含 n 个 元 素 的
+<type> 向量；否则，包含 m 个元素
+incx input x 中连续元素之间的步幅
+beta 主机或设备 input 用于乘法的 <type> 标量，如果 beta == 0 ，则 y 不必为有效
+输入
+y 设备 in/out 如 果 transa == MCBLAS_OP_N， 则 为 包 含 m 个 元 素 的
+<type> 向量；否则，包含 n 个元素
+incy input y 中连续元素之间的步幅
+下面列出了此函数可能的返回值及其含义。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE • m, n, kl, ku < 0
+• lda < (kl+ku+1)
+• incx, incy == 0
+• trans != MCBLAS_OP_N, MCBLAS_OP_T,
+MCBLAS_OP_C
+• alpha, beta == NULL
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 36

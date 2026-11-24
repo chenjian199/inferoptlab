@@ -1,0 +1,40 @@
+文档: 沐曦通用GPU_mcTriton用户指南_CN_V08.pdf
+文档 ID: mctriton-v08
+SHA256: 5486a806ac8e48e40514347bac7403c40aee53d59515a9bded39cc17a7daed59
+PDF 页序号: 9
+PDF 页码标签: 5
+页脚页码候选: 5
+章节提示（书签推断）: scenario
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcTriton 用户指南
+3.2.1 triton.Config
+出于性能调优的目的，mcTriton 扩展了triton.Config 中的配置选项，提供给用户做不同场景下的性能
+调优。
+3.2.1.1 pipeline
+pipeline 选项用于指定在 for 循环中 triton.language.dot 场景下使用的不同优化方式。具体使
+用方法：
+triton.Config({...,'pipeline': "basic",...},...)
+支持参数：
+• basic：基础 N‑buffer 优化。其中 num-stages 大于 2 的 buffer 数据会暂存在寄存器当中。 basic
+是 pipeline 的默认配置。
+• cpasync：使用 cp.async 功能在 pipeline 中将数据直接从全局内存拷贝到共享内存进行 N‑buffer 优
+化，该配置下 num-stages 增大的同时，共享内存用量也会同步变大。
+• 当 pipeline 设置为空时，关闭所有 N‑buffer 优化。
+对于不同的 Triton kernel， 可能获得最优性能的pipeline 参数是不同的， 可以配合triton.autotune
+搜索得到当前 kernel 的最佳 pipeline。
+3.2.1.2 scenario
+scenario 选项用于指定在 for 循环中 triton.language.dot 场景下一些特定的编译选项和指令重
+排方式。具体使用方法：
+triton.Config({...,'scenario': "flashattn-fwd",...},...)
+支持参数：
+scenario 可以搭配 pipeline 使用，当前版本沐曦通用 GPU 支持以下参数设置：
+• flashattn-fwd：针对 flashattn 前向类型的 Triton 算子进行编译层面的重排和优化。
+• flashattn-bwd：针对 flashattn 反向类型的 Triton 算子进行编译层面的重排和优化。
+• mla：针对 mla 或者 extendattn 前向类型的 Triton 算子进行编译层面的重排和优化。
+• unroll：pipeline 为 cpasync 时， 对 Triton 算子中的循环进行展开 （默认为不展开） ；pipeline
+为 basic 时，Triton 算子中的循环默认是展开的；pipeline 为空时无效。
+• roll：pipeline 为 basic 时，对 Triton 算子中的循环进行不展开（默认为展开） ；pipeline 为
+cpasync 时，Triton 算子中的循环默认是不展开的；pipeline 为空时无效。
+• unprefetch：当 pipeline 为 basic 时，不会进行 prefetch 操作。
+3 功能支持 沐曦股份专有信息 OG‑25009‑020‑F5_V08 | 5

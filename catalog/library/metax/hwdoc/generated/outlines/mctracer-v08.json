@@ -1,0 +1,52 @@
+[
+  {
+    "title": "概述",
+    "pdf_page": 6,
+    "depth": 1
+  },
+  {
+    "title": "适用产品",
+    "pdf_page": 6,
+    "depth": 2
+  },
+  {
+    "title": "mcTracer",
+    "pdf_page": 7,
+    "depth": 1
+  },
+  {
+    "title": "安装",
+    "pdf_page": 7,
+    "depth": 2
+  },
+  {
+    "title": "使用",
+    "pdf_page": 7,
+    "depth": 2
+  },
+  {
+    "title": "卸载",
+    "pdf_page": 8,
+    "depth": 2
+  },
+  {
+    "title": "mcTracer-Viewer",
+    "pdf_page": 9,
+    "depth": 1
+  },
+  {
+    "title": "安装",
+    "pdf_page": 9,
+    "depth": 2
+  },
+  {
+    "title": "使用",
+    "pdf_page": 9,
+    "depth": 2
+  },
+  {
+    "title": "卸载",
+    "pdf_page": 9,
+    "depth": 2
+  }
+]

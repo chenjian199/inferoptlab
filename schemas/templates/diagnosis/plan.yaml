@@ -27,8 +27,8 @@ parameters:
     type: array
     description: Override batches for the new recipe
     default:
-    - directory: schemas/evidence/benchmark-qualification/20261123/project/runs/benchmark/batch-20261123T085945Z-ccf82622
-      manifest: schemas/evidence/benchmark-qualification/20261123/sha256.json
+    - directory: experiments/evidence/benchmark-qualification/20261123/project/runs/benchmark/batch-20261123T085945Z-ccf82622
+      manifest: experiments/evidence/benchmark-qualification/20261123/sha256.json
       manifest_sha256: e77cf7dfc2aa1d585e6df86e1e81876ddceeb1d8312221a30eb5d83f2f7655be
   method_refs:
     type: array

@@ -1,0 +1,542 @@
+[
+  {
+    "title": "概述",
+    "pdf_page": 10,
+    "depth": 1
+  },
+  {
+    "title": "适用产品",
+    "pdf_page": 10,
+    "depth": 2
+  },
+  {
+    "title": "编程模型",
+    "pdf_page": 11,
+    "depth": 1
+  },
+  {
+    "title": "程序结构",
+    "pdf_page": 11,
+    "depth": 2
+  },
+  {
+    "title": "执行模型",
+    "pdf_page": 12,
+    "depth": 2
+  },
+  {
+    "title": "内存层次模型",
+    "pdf_page": 13,
+    "depth": 2
+  },
+  {
+    "title": "核函数",
+    "pdf_page": 14,
+    "depth": 2
+  },
+  {
+    "title": "动态并行",
+    "pdf_page": 15,
+    "depth": 2
+  },
+  {
+    "title": "图编程",
+    "pdf_page": 15,
+    "depth": 2
+  },
+  {
+    "title": "MPS多进程服务",
+    "pdf_page": 16,
+    "depth": 2
+  },
+  {
+    "title": "编程接口",
+    "pdf_page": 17,
+    "depth": 1
+  },
+  {
+    "title": "设备管理",
+    "pdf_page": 17,
+    "depth": 2
+  },
+  {
+    "title": "查询设备信息",
+    "pdf_page": 17,
+    "depth": 3
+  },
+  {
+    "title": "查询设备计算能力",
+    "pdf_page": 19,
+    "depth": 4
+  },
+  {
+    "title": "选择运行设备",
+    "pdf_page": 19,
+    "depth": 3
+  },
+  {
+    "title": "初始化设备",
+    "pdf_page": 20,
+    "depth": 3
+  },
+  {
+    "title": "内存管理",
+    "pdf_page": 20,
+    "depth": 2
+  },
+  {
+    "title": "内存申请与释放",
+    "pdf_page": 20,
+    "depth": 3
+  },
+  {
+    "title": "内存拷贝",
+    "pdf_page": 20,
+    "depth": 3
+  },
+  {
+    "title": "流和事件",
+    "pdf_page": 21,
+    "depth": 2
+  },
+  {
+    "title": "流",
+    "pdf_page": 21,
+    "depth": 3
+  },
+  {
+    "title": "代码示例",
+    "pdf_page": 22,
+    "depth": 4
+  },
+  {
+    "title": "流管理函数",
+    "pdf_page": 22,
+    "depth": 4
+  },
+  {
+    "title": "事件",
+    "pdf_page": 23,
+    "depth": 3
+  },
+  {
+    "title": "代码示例",
+    "pdf_page": 23,
+    "depth": 4
+  },
+  {
+    "title": "事件管理函数",
+    "pdf_page": 23,
+    "depth": 4
+  },
+  {
+    "title": "操作并发",
+    "pdf_page": 24,
+    "depth": 3
+  },
+  {
+    "title": "使用异步流进行并发",
+    "pdf_page": 24,
+    "depth": 4
+  },
+  {
+    "title": "设置流之间依赖",
+    "pdf_page": 24,
+    "depth": 4
+  },
+  {
+    "title": "流回调",
+    "pdf_page": 25,
+    "depth": 3
+  },
+  {
+    "title": "同步",
+    "pdf_page": 26,
+    "depth": 2
+  },
+  {
+    "title": "系统级同步",
+    "pdf_page": 26,
+    "depth": 3
+  },
+  {
+    "title": "线程块级/线程束级同步",
+    "pdf_page": 26,
+    "depth": 3
+  },
+  {
+    "title": "用户细粒度并行同步",
+    "pdf_page": 26,
+    "depth": 3
+  },
+  {
+    "title": "协作组API",
+    "pdf_page": 28,
+    "depth": 4
+  },
+  {
+    "title": "线程组集体操作",
+    "pdf_page": 28,
+    "depth": 4
+  },
+  {
+    "title": "协作组示例",
+    "pdf_page": 29,
+    "depth": 4
+  },
+  {
+    "title": "流序内存分配",
+    "pdf_page": 31,
+    "depth": 2
+  },
+  {
+    "title": "基本接口",
+    "pdf_page": 31,
+    "depth": 3
+  },
+  {
+    "title": "内存池和内存池数据结构",
+    "pdf_page": 32,
+    "depth": 3
+  },
+  {
+    "title": "默认内存池",
+    "pdf_page": 32,
+    "depth": 3
+  },
+  {
+    "title": "显式内存池",
+    "pdf_page": 32,
+    "depth": 3
+  },
+  {
+    "title": "物理页面缓存行为",
+    "pdf_page": 33,
+    "depth": 3
+  },
+  {
+    "title": "多GPU的设备可访问性支持",
+    "pdf_page": 34,
+    "depth": 3
+  },
+  {
+    "title": "IPC内存池",
+    "pdf_page": 35,
+    "depth": 3
+  },
+  {
+    "title": "创建和共享IPC内存池",
+    "pdf_page": 35,
+    "depth": 4
+  },
+  {
+    "title": "在导入进程中设置访问权限",
+    "pdf_page": 36,
+    "depth": 4
+  },
+  {
+    "title": "从导出的IPC内存池创建和共享分配",
+    "pdf_page": 36,
+    "depth": 4
+  },
+  {
+    "title": "IPC导出内存池限制",
+    "pdf_page": 38,
+    "depth": 4
+  },
+  {
+    "title": "IPC导入内存池限制",
+    "pdf_page": 38,
+    "depth": 4
+  },
+  {
+    "title": "多设备系统编程",
+    "pdf_page": 38,
+    "depth": 2
+  },
+  {
+    "title": "多设备管理",
+    "pdf_page": 38,
+    "depth": 3
+  },
+  {
+    "title": "点对点通信",
+    "pdf_page": 39,
+    "depth": 3
+  },
+  {
+    "title": "点对点访问",
+    "pdf_page": 39,
+    "depth": 4
+  },
+  {
+    "title": "点对点内存复制",
+    "pdf_page": 40,
+    "depth": 4
+  },
+  {
+    "title": "多GPU设备间的同步",
+    "pdf_page": 40,
+    "depth": 3
+  },
+  {
+    "title": "动态并行",
+    "pdf_page": 40,
+    "depth": 2
+  },
+  {
+    "title": "核函数",
+    "pdf_page": 41,
+    "depth": 3
+  },
+  {
+    "title": "异步启动",
+    "pdf_page": 41,
+    "depth": 4
+  },
+  {
+    "title": "启动环境配置",
+    "pdf_page": 41,
+    "depth": 4
+  },
+  {
+    "title": "用设备端运行时API启动",
+    "pdf_page": 41,
+    "depth": 4
+  },
+  {
+    "title": "内存管理",
+    "pdf_page": 42,
+    "depth": 3
+  },
+  {
+    "title": "内存声明和使用",
+    "pdf_page": 42,
+    "depth": 4
+  },
+  {
+    "title": "全局内存",
+    "pdf_page": 42,
+    "depth": 4
+  },
+  {
+    "title": "零拷贝内存",
+    "pdf_page": 43,
+    "depth": 4
+  },
+  {
+    "title": "常量内存",
+    "pdf_page": 43,
+    "depth": 4
+  },
+  {
+    "title": "共享内存和私有内存",
+    "pdf_page": 44,
+    "depth": 4
+  },
+  {
+    "title": "私有内存",
+    "pdf_page": 44,
+    "depth": 4
+  },
+  {
+    "title": "设备管理",
+    "pdf_page": 44,
+    "depth": 3
+  },
+  {
+    "title": "流和事件",
+    "pdf_page": 45,
+    "depth": 3
+  },
+  {
+    "title": "排序和并发",
+    "pdf_page": 45,
+    "depth": 4
+  },
+  {
+    "title": "同步",
+    "pdf_page": 46,
+    "depth": 4
+  },
+  {
+    "title": "API附加说明",
+    "pdf_page": 46,
+    "depth": 3
+  },
+  {
+    "title": "代码示例",
+    "pdf_page": 47,
+    "depth": 3
+  },
+  {
+    "title": "性能分析",
+    "pdf_page": 47,
+    "depth": 3
+  },
+  {
+    "title": "限制和注意事项",
+    "pdf_page": 48,
+    "depth": 3
+  },
+  {
+    "title": "内存限制",
+    "pdf_page": 48,
+    "depth": 4
+  },
+  {
+    "title": "API错误和启动失败",
+    "pdf_page": 49,
+    "depth": 4
+  },
+  {
+    "title": "图编程接口",
+    "pdf_page": 49,
+    "depth": 2
+  },
+  {
+    "title": "显式图编程接口",
+    "pdf_page": 49,
+    "depth": 3
+  },
+  {
+    "title": "流捕获图编程接口",
+    "pdf_page": 50,
+    "depth": 3
+  },
+  {
+    "title": "实例化图更新",
+    "pdf_page": 50,
+    "depth": 3
+  },
+  {
+    "title": "整图更新",
+    "pdf_page": 51,
+    "depth": 4
+  },
+  {
+    "title": "单个节点更新",
+    "pdf_page": 52,
+    "depth": 4
+  },
+  {
+    "title": "启用或禁用节点（Individual Node Enable）",
+    "pdf_page": 52,
+    "depth": 4
+  },
+  {
+    "title": "实例化图更新的限制",
+    "pdf_page": 53,
+    "depth": 4
+  },
+  {
+    "title": "图编程的注意事项",
+    "pdf_page": 53,
+    "depth": 3
+  },
+  {
+    "title": "图编程的调试接口",
+    "pdf_page": 54,
+    "depth": 4
+  },
+  {
+    "title": "MPS多进程服务",
+    "pdf_page": 56,
+    "depth": 2
+  },
+  {
+    "title": "MPS多进程服务控制",
+    "pdf_page": 56,
+    "depth": 3
+  },
+  {
+    "title": "MPS多进程服务行为说明",
+    "pdf_page": 56,
+    "depth": 4
+  },
+  {
+    "title": "MPS多进程服务使用限制",
+    "pdf_page": 57,
+    "depth": 4
+  },
+  {
+    "title": "编译和调试",
+    "pdf_page": 58,
+    "depth": 1
+  },
+  {
+    "title": "离线编译和静态运行",
+    "pdf_page": 58,
+    "depth": 2
+  },
+  {
+    "title": "Makefile编译和示例",
+    "pdf_page": 58,
+    "depth": 3
+  },
+  {
+    "title": "CMake编译和示例",
+    "pdf_page": 61,
+    "depth": 4
+  },
+  {
+    "title": "运行时编译和动态加载",
+    "pdf_page": 62,
+    "depth": 2
+  },
+  {
+    "title": "代码托管（Binary Cache）",
+    "pdf_page": 65,
+    "depth": 2
+  },
+  {
+    "title": "更改Binary Cache 文件支持Size",
+    "pdf_page": 67,
+    "depth": 3
+  },
+  {
+    "title": "自定义Cache文件路径",
+    "pdf_page": 67,
+    "depth": 3
+  },
+  {
+    "title": "关闭Binary Cache功能",
+    "pdf_page": 67,
+    "depth": 3
+  },
+  {
+    "title": "环境变量",
+    "pdf_page": 68,
+    "depth": 2
+  },
+  {
+    "title": "主机代码调试信息",
+    "pdf_page": 74,
+    "depth": 2
+  },
+  {
+    "title": "设备代码调试信息",
+    "pdf_page": 75,
+    "depth": 2
+  },
+  {
+    "title": "使用GPU printf",
+    "pdf_page": 75,
+    "depth": 3
+  },
+  {
+    "title": "使用GPU Trap Handler",
+    "pdf_page": 76,
+    "depth": 3
+  },
+  {
+    "title": "附录",
+    "pdf_page": 79,
+    "depth": 1
+  },
+  {
+    "title": "术语/缩略语",
+    "pdf_page": 79,
+    "depth": 2
+  }
+]

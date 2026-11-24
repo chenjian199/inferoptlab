@@ -1,0 +1,44 @@
+version: 1.0.0
+provenance: []
+issues: []
+extensions: {}
+model_ref:
+  id: metax-glm-5.3-flash-w8a8
+  version: 1.0.0
+hardware_ref:
+  id: metax-c500-8gpu
+  version: 1.0.0
+runtime_ref:
+  id: metax-vllm-glm53-observed
+  version: 1.0.0
+id: example-operators-case
+title: Historical layer0 gate_up replay contract; fresh qualification required
+method_sources:
+- path: catalog/library/metax/hwdoc/practice/cases/2026-11-23-glm-gemm-prototype/evidence/isolated_layer_result.json
+  sha256: c1cf6553fdcc9d6b09db5055fccee2665876967dd47f66a09fb7e4a1c58d0629
+module_path: language_model.model.layers.0.mlp.gate_up_proj
+baseline_implementation: vllm_metax.registry.linear_kernels.int8.MctlassScaledMMLinearKernel
+execution_scope: historical_single_device_sequential_tp_partitions
+tensor_contract:
+  weight_shape_kn:
+  - 4096
+  - 3072
+  weight_stride:
+  - 1
+  - 4096
+  weight_dtype: int8
+  shapes_mnk:
+  - - 1
+    - 3072
+    - 4096
+  - - 17
+    - 3072
+    - 4096
+  - - 173
+    - 3072
+    - 4096
+  activation_origin: synthetic_with_checkpoint_weights
+  quantization_scheme: CompressedTensorsW8A8Int8
+numeric_budget: null
+fixture_artifacts: []
+baseline_self_replay: not_revalidated

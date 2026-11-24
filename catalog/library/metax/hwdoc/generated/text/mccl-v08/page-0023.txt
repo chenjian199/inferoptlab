@@ -1,0 +1,36 @@
+文档: 沐曦通用GPU_MCCL编程指南_CN_V08.pdf
+文档 ID: mccl-v08
+SHA256: 7a95ac3ce4f68b0fb11baabb7fa08794cd5f5081c9ec3e888eefaaa03ab8c8b2
+PDF 页序号: 23
+PDF 页码标签: 16
+页脚页码候选: 16
+章节提示（书签推断）: MCCL_FAST_WRITE_BACK
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MCCL 编程指南
+4.1.6 C500X 机型
+软件方式开关 C500X Dragonfly 机型的机外互联，可使用环境变量 MCCL_DISABLE_OPTIC_LINK，详
+情参见 4.2.1.1 MCCL_DISABLE_OPTIC_LINK 。
+4.1.7 阡视服务器
+针对阡视 8 卡性能最优服务器，需要设置：
+MACA_VISIBLE_DEVICES=0,1,8,9,2,3,10,11,4,5,12,13,6,7,14,15。
+4.1.8 大模型通信日志
+获取大模型的通信行为日志，需要设置：
+export MCCL_DEBUG=TRACE
+export MCCL_DEBUG_SUBSYS=^ALLOC
+4.2 环境变量说明
+4.2.1 功能相关
+4.2.1.1 MCCL_DISABLE_OPTIC_LINK
+描述：C500X 环境使用软件方式关闭机外 MetaXLink 互联的环境变量。在机外互联 training 成功后使
+用，通信效果和不 training 一致。
+可选值：
+• 0：开启机外互联
+• 1：关闭机外互联
+默认值：0
+4.2.1.2 MCCL_FAST_WRITE_BACK
+描述：使用 MCCL 内存屏障（Memory Barrier）时是否启用快速回写 Cache Line 的功能。
+可选值：
+• ‑2：不启用
+• 其他值：启用
+默认值：‑2
+4 环境变量 沐曦股份专有信息 PG‑23004‑020‑F5_V08 | 16

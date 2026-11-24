@@ -1,0 +1,52 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 305
+PDF 页码标签: 297
+页脚页码候选: 297
+章节提示（书签推断）: Coalesced Groups
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+3.3.2.2 Coalesced Groups
+在 MXMACA 的 SIMT 架构下，在硬件层面，多处理器以一组 64 线程（称作 warps）的方式执行。如果
+在应用代码中存在数据依赖的条件分支，导致一个 warp 内的 thread 岔道，那么 warp 串行地执行每个
+分支，同时disable 掉不在当前执行分支上的线程。在分支上的，保持active的线程被称作coalesced。
+CooperativeGroups有能力去发现，并且创建一个包含所有的coalesced线程的分组。
+通过 coalesced_threads() 构造这个分组的句柄是机会主义的。它返回那个调用点当时 active
+thread组成的集合，并且不保证哪一个thread是被返回的（只要他们是active的） ，或者说它们在整个
+执行过程中将会保持coalesced（它们在执行过程中作为一个集体，但是之后也可能再次分岔） 。
+class coalesced_group;
+// 通过如下方式构造：
+coalesced_group active = coalesced_threads();
+// Public 成员函数：
+void sync() const; // 同步 group内的线程
+unsigned long long num_threads() const; // group 中线程总数
+unsigned long long thread_rank() const; // 调用线程在 [0, num_threads) 上的排序
+unsigned long long meta_group_size() const; // 返回 parent group 分割创建的组的数量
+// 如果这个 group是通过查询活动线程集创建的，
+// 比如 coalesced_threads(), meta_group_size() 值为 1
+unsigned long long meta_group_rank() const; // 从父 group划分的 tiles集合中的
+// （由 meta_group_size限定）
+T shfl_up(T var, int delta) const; // 参考 Warp Shuffle Functions
+T shfl_down(T var, int delta) const; // 参考 Warp Shuffle Functions
+T shfl_xor(T var, int delta) const; // 参考 Warp Shuffle Functions
+T any(int predicate) const; // 参考 Warp Vote Functions
+T all(int predicate) const; //参考 Warp Vote Functions
+T ballot(int predicate) const; // 参考 Warp Vote Functions
+T match_any(T val) const; // 参考 Warp Match Functions
+T match_all(T val, int &pred) const; // 参考 Warp Match Functions
+// 传统成员函数（别名）
+unsigned long long size() const; // 当前 group中总的线程数 (num_threads的别名
+在 C++11 及更高版本标准机型编译时，shfl, shfl_up, shfl_down 与 shfl_xor 这些函数接收任意类型的
+对象。意味着只要满足以下条件，就可以shuffle非整数型的类型：
+• 具有可复制性：比如，is_trivially_copyable<T>::value==true
+• sizeof(T)<=32
+例子：
+__global__ void kernel(int *gIn) {
+if (threadIdx.x == *gIn) {
+coalesced_group active = coalesced_threads();
+active.sync();
+}
+}
+3 CooperativeGroups 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 297

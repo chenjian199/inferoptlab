@@ -1,0 +1,39 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 213
+PDF 页码标签: 205
+页脚页码候选: 205
+章节提示（书签推断）: 单精度intrinsic
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+__device__ float __saturatef (float x)
+将输入参数映射为[+0.0,1.0]。
+返回值
+• 如果x<0， __saturatef(x)返回0。
+• 如果x>1， __saturatef(x)返回1。
+• 如果0 ⩽x ⩽1，__saturatef(x)返回x。
+• __saturatef(NaN)返回0。
+函数描述
+• 把输入参数映射到区间[+0.0,1.0]。
+__device__ void __sincosf (float x, float *sptr, float *cptr)
+计算第一个输入参数的正弦和余弦的快速近似值。
+返回值
+• 无。
+函数描述
+• 计算第一个输入参数x的正弦和余弦的快速近似值（以弧度为单位） 。正弦和余弦的结果分别写入第二
+个参数sptr和第三个参数cptr。
+__device__ float __sinf (float x)
+计算输入参数的正弦的快速近似值。
+返回值
+• x的正弦值。
+函数描述
+• 以弧度为单位，计算x的正弦值。
+__device__ float __tanf (float x)
+计算输入参数的正切的快速近似值。
+返回值
+• x的正切值。
+函数描述
+• 以弧度为单位，计算x的正切值。
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 205

@@ -1,0 +1,36 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 25
+PDF 页码标签: 13
+页脚页码候选: 13
+章节提示（书签推断）: 构建模型输入字典
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+4 MacaRT Python API
+4.1 部署 ONNX 模型
+MacaRT 支持使用 Python API 将 ONNX 模型部署到沐曦通用 GPU 上，并完成推理。
+4.1.1 创建 Session
+操作步骤
+1. 执行以下命令，创建 Session。
+import onnxruntime as ort
+provider_options=[{'device_id':0}]
+session = ort.InferenceSession(your_onnx_model_path, providers=[
+,→"MACAExecutionProvider"],provider_options=provider_options)
+4.1.2 获取模型图的输入输出信息
+操作步骤
+1. 执行以下命令，获取模型图的输入输出信息。
+input_nodes = session.get_inputs()
+input_names = [i_n.name for i_n in input_nodes]
+output_nodes = session.get_outputs()
+output_names = [o_n.name for o_n in output_nodes]
+4.1.3 构建模型输入字典
+操作步骤
+1. 准备输入数据。假设已创建一个包含所有模型输入数据的 List，List 中的元素为模型的每个输入的
+numpy 数据，且输入 List 的变量名为 input_data_list。
+2. 构建输入字典。
+input_dict ={}
+for i_d, i_n in zip(input_data_list, input_names):
+input_dict[i_n] = i_d
+4 MacaRT Python API 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 13

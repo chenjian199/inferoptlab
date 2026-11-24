@@ -9,8 +9,8 @@
 在仓库根目录运行，复用 `schemas/requirements.txt`，没有额外 GPU 依赖：
 
 ```powershell
-python -m optimization plan runs/analysis/qwen-metax-v2/analysis.yaml --out runs/optimization/qwen-metax-v1
-python tools/specs.py validate runs/optimization/qwen-metax-v1/handoff.yaml
+python -m optimization plan experiments/runs/analysis/qwen-metax-v2/analysis.yaml --out experiments/runs/optimization/qwen-metax-v1
+python tools/specs.py validate experiments/runs/optimization/qwen-metax-v1/handoff.yaml
 ```
 
 输出目录必须不存在；重跑时换一个目录，保留历史。输入路径相对当前目录解析；报告内部证据路径按项目根目录解析。已有第三步报告含绝对路径，迁移工作区后应先重建第二/三步结果，不应修改摘要绕过检查。

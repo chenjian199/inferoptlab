@@ -1,0 +1,37 @@
+文档: 沐曦通用GPU_DeepEP多机通信内存注册环境变量配置说明_CN_V01.pdf
+文档 ID: deepep-v01
+SHA256: 04ecd9ea7a268dc14c88f283869f64e17479a5da63dadef5cc4b93b07732fbf0
+PDF 页序号: 6
+PDF 页码标签: 2
+页脚页码候选: 2
+章节提示（书签推断）: 3.8.3 ≤ MXMACA SDK Release版本 ≤ 3.10.0
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+DeepEP 多机通信内存注册环境变量配置说明
+2 配置说明
+mxshmem 支持两种内存注册方式：
+• DMA‑BUF
+• Peer Memory
+客户可以通过环境变量 MXSHMEM_IB_DISABLE_DMABUF 手动指定内存注册方式：
+表 2.1 MXSHMEM_IB_DISABLE_DMABUF 环境变量配置
+环境变量配置 内存注册方式
+MXSHMEM_IB_DISABLE_DMABUF=0 启用 DMA‑BUF
+MXSHMEM_IB_DISABLE_DMABUF=1 禁用 DMA‑BUF，使用 Peer Memory
+实际支持及默认使用哪种方式， 取决于 MXMACA SDK Release 版本、 Linux Kernel 版本和 MOFED 版本。
+2.1 不同 MXMACA SDK Release 版本的支持情况
+2.1.1 MXMACA SDK Release 版本＜ 3.8.3
+• 仅支持 Peer Memory，不支持 DMA‑BUF。
+• 当 Linux Kernel 版本 ≥ 6.8 时，由于操作系统内核仅支持 DMA‑BUF 方式，DeepEP Low Latency 场
+景将无法正常运行。
+2.1.2 3.8.3 ≤ MXMACA SDK Release 版本 ≤ 3.10.0
+该版本范围内，mxshmem 同时支持 DMA‑BUF 和 Peer Memory，默认使用 DMA‑BUF。客户也可以通
+过环境变量 MXSHMEM_IB_DISABLE_DMABUF=1 手动切换为 Peer Memory。
+表 2.2 不同 MOFED 版本的内存注册方式
+Linux Kernel 版本 MOFED 版本 默认内存注册方式 使用说明
+≥ 5.16 不限 DMA‑BUF 默认使用 DMA‑BUF
+＜ 5.16 以下指定版本 DMA‑BUF 默认使用 DMA‑BUF
+＜ 5.16 其他版本 DMA‑BUF 不可用 需 设 置
+MXSHMEM_IB_DISABLE_DMABUF=1，
+使用 Peer Memory
+其中，Linux Kernel 版本＜ 5.16 时，支持 DMA‑BUF 的 MOFED 版本包括：23.10‑6.1.6.1‑2023 L TS U6、
+2 配置说明 沐曦股份专有信息 OG‑26021‑020‑F5_V01 | 2

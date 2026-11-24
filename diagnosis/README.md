@@ -9,12 +9,12 @@
 在仓库根目录执行，依赖与 `schemas/requirements.txt` 相同，不需要 PyTorch：
 
 ```powershell
-python -m diagnosis plan diagnosis/plans/qwen-metax.yaml
-python -m diagnosis run diagnosis/plans/qwen-metax.yaml --out runs/diagnosis/my-qwen
-python tools/specs.py validate runs/diagnosis/my-qwen/diagnosis.yaml
+python -m diagnosis plan recipes/plans/diagnosis/qwen-metax.yaml
+python -m diagnosis run recipes/plans/diagnosis/qwen-metax.yaml --out experiments/runs/diagnosis/my-qwen
+python tools/specs.py validate experiments/runs/diagnosis/my-qwen/diagnosis.yaml
 ```
 
-输出目录必须不存在。已生成的实际例子是 `runs/diagnosis/qwen-metax-v1/`，包含 `diagnosis.yaml` 和 `report.md`。归因任务不会覆盖第一步原始数据。
+输出目录必须不存在。已生成的实际例子是 `experiments/runs/diagnosis/qwen-metax-v1/`，包含 `diagnosis.yaml` 和 `report.md`。归因任务不会覆盖第一步原始数据。
 
 ## 模块划分
 
@@ -28,7 +28,7 @@ python tools/specs.py validate runs/diagnosis/my-qwen/diagnosis.yaml
 
 ## 输入规约
 
-`DiagnosisPlan` 位于 `diagnosis/plans/`，纳入 `tools/specs.py validate`：
+`DiagnosisPlan` 位于 `recipes/plans/diagnosis/`，纳入 `tools/specs.py validate`：
 
 - `study_ref`：精确 Study 身份。读取 benchmark 内嵌快照后，核对该 Study 的实际内容，不能只比较名字。
 - `batches[]`：批次目录、封存清单路径、清单 SHA-256。清单覆盖使用到的原始请求、汇总、环境、请求集和解析后配置。
@@ -40,7 +40,7 @@ python tools/specs.py validate runs/diagnosis/my-qwen/diagnosis.yaml
 新批次可先封存：
 
 ```powershell
-python -m diagnosis seal runs/benchmark/YOUR_BATCH --out runs/benchmark/YOUR_BATCH/sha256.json
+python -m diagnosis seal experiments/runs/benchmark/YOUR_BATCH --out experiments/runs/benchmark/YOUR_BATCH/sha256.json
 ```
 
 命令要求批次处于终态，生成清单并打印其 SHA-256。清单目录必须包含批次目录。将输出路径和摘要填入新 DiagnosisPlan 后再运行。封存证明的是“此后未改变”，不能把人为生成的数据认证为真实测量。
@@ -48,10 +48,10 @@ python -m diagnosis seal runs/benchmark/YOUR_BATCH --out runs/benchmark/YOUR_BAT
 模板：`schemas/templates/diagnosis/plan.yaml`。除 ID/title 外，可覆盖 Study、批次、方法、校准、历史引用和 policy：
 
 ```powershell
-python tools/specs.py instantiate schemas/templates/diagnosis/plan.yaml --params schemas/examples/diagnosis-plan.yaml --out runs/new-diagnosis.yaml
+python tools/specs.py instantiate schemas/templates/diagnosis/plan.yaml --params examples/parameters/diagnosis-plan.yaml --out experiments/runs/new-diagnosis.yaml
 ```
 
-示例参数继承 Qwen 数据。新模型必须同时更换 Study 和输入批次，确认后放入 `diagnosis/plans/`；不能只改名称。
+示例参数继承 Qwen 数据。新模型必须同时更换 Study 和输入批次，确认后放入 `recipes/plans/diagnosis/`；不能只改名称。
 
 ## 处理顺序
 

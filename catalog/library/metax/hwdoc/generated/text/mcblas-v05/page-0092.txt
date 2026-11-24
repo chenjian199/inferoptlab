@@ -1,0 +1,51 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 92
+PDF 页码标签: 85
+页脚页码候选: 85
+章节提示（书签推断）: mcblas<t>symm()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE • m, n, k, batchCount < 0
+• transa, transb != MCBLAS_OP_N,
+MCBLAS_OP_C, MCBLAS_OP_T
+• 如果 transa == MCBLAS_OP_N ，lda < max(1,
+m) ；否则 lda < max(1, k)
+• 如果 transb == MCBLAS_OP_N ，ldb < max(1,
+k) ；否则 ldb < max(1, n)
+• ldc < max(1, m)
+MCBLAS_STATUS_ARCH_MISMATCH 不支持该设备
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2.5.5 mcblas<t>symm()
+mcblasStatus_t mcblasSsymm(mcblasHandle_t handle,
+mcblasSideMode_t side, mcblasFillMode_t uplo,
+int m, int n,
+const float *alpha,
+const float *A, int lda,
+const float *B, int ldb,
+const float *beta,
+float *C, int ldc)
+mcblasStatus_t mcblasDsymm(mcblasHandle_t handle,
+mcblasSideMode_t side, mcblasFillMode_t uplo,
+int m, int n,
+const double *alpha,
+const double *A, int lda,
+const double *B, int ldb,
+const double *beta,
+double *C, int ldc)
+mcblasStatus_t mcblasCsymm(mcblasHandle_t handle,
+mcblasSideMode_t side, mcblasFillMode_t uplo,
+int m, int n,
+const mcComplex *alpha,
+const mcComplex *A, int lda,
+const mcComplex *B, int ldb,
+const mcComplex *beta,
+mcComplex *C, int ldc)
+mcblasStatus_t mcblasZsymm(mcblasHandle_t handle,
+(下页继续)
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 85

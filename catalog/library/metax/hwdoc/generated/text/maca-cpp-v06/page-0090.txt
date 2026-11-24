@@ -1,0 +1,43 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 90
+PDF 页码标签: 82
+页脚页码候选: 82
+章节提示（书签推断）: Bfloat162算术函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+函数描述
+• 将输入向量视为复数，并执行融合乘加运算。
+__device__ maca_bfloat162 __hfma2 (const maca_bfloat162 a, const maca_bfloat162 b,
+const maca_bfloat162 c)
+参数
+a
+• maca_bfloat162，只读入参
+b
+• maca_bfloat162，只读入参
+C
+• maca_bfloat162，只读入参
+返回值
+• maca_bfloat162，向量a乘b加c的结果
+函数描述
+• 以向最近偶数舍入模式执行maca_bfloat162的向量融合乘加运算。
+__device__ maca_bfloat162 __hfma2_relu (const maca_bfloat162 a,
+const maca_bfloat162 b, const maca_bfloat162 c)
+参数
+a
+• maca_bfloat162，只读入参
+b
+• maca_bfloat162，只读入参
+c
+• maca_bfloat162，只读入参
+返回值
+• maca_bfloat162，向量a乘b加c的结果
+函数描述
+• 以向最近偶数舍入模式执行maca_bfloat162的向量融合乘加运算，并将运算结果进行relu变换。
+• 若分量的结果小于0.0则视为0.0。NaN被视为标准NaN。
+__device__ maca_bfloat162 __hfma2_sat (const maca_bfloat162 a, const maca_
+,→bfloat162 b,
+const maca_bfloat162 c)
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 82

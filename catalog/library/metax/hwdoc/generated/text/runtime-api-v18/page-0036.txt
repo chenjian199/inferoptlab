@@ -1,0 +1,47 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 36
+PDF 页码标签: 27
+页脚页码候选: 27
+章节提示（书签推断）: 从导出的IPC内存池创建和共享分配
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+(续上页)
+mcMemPoolImportFromShareableHandle(&importedMemPool,
+(void*)fdHandle,
+mcDevAttrHandleTypePosixFileDescriptor,
+0);
+3.5.7.2 在导入进程中设置访问权限
+导入的 IPC 内存池最初只能从其常驻设备访问，因为导入的内存池不继承导出进程设置的任何可访问性。
+如果导入的 IPC 内存池在导入进程中属于不可见的设备，则用户必须使用 mcMemPoolSetAccess API
+来启用指定 GPU 对该 IPC 内存池的访问。
+3.5.7.3 从导出的 IPC 内存池创建和共享分配
+共享 IPC 内存池后，在导出进程中使用函数 mcMallocAsync 从池中进行的分配可以与已导入池的其他
+进程共享。由于池的安全策略是在池级别建立和验证的，操作系统不需要额外的记录来为特定的池分配
+提供安全性；换句话说，可以使用任何机制将导入池分配所需的不透明 mcMemPoolPtrExportData
+发送到导入进程。
+在没有与分配流同步的情况下，流序内存分配也可能原进程导出或导入另一个进程。所以在访问流序内
+存分配时，导入进程与导出进程必须遵循相同的规则。即，对分配的访问必须发生在分配流中流序内存
+分配之后。以下代码片段展示了函数 mcMemPoolExportPointer 和 mcMemPoolImportPointer 与
+IPC 事件共享分配，该 IPC 事件用于保证在准备好分配之前，不会在导入进程中访问分配。
+// preparing an allocation in the exporting process
+mcMemPoolPtrExportData exportData;
+mcEvent_t readyIpcEvent;
+mcIpcEventHandle_t readyIpcEventHandle;
+// IPC event for coordinating between processes
+// mcEventInterprocess flag makes the event an IPC event
+// mcEventDisableTiming is set for performance reasons
+mcEventCreate(
+&readyIpcEvent, mcEventDisableTiming | mcEventInterprocess)
+// allocate from the exporting mem pool
+mcMallocAsync(&ptr, size,exportMemPool, stream);
+// event for sharing when the allocation is ready.
+mcEventRecord(readyIpcEvent, stream);
+mcMemPoolExportPointer(&exportData, ptr);
+mcIpcGetEventHandle(&readyIpcEventHandle, readyIpcEvent);
+// Share IPC event and pointer export data with the importing process using
+// any mechanism. Here we copy the data into shared memory
+(下页继续)
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 27

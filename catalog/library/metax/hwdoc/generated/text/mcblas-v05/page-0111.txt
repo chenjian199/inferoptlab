@@ -1,0 +1,52 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 111
+PDF 页码标签: 104
+页脚页码候选: 104
+章节提示（书签推断）: mcblas<t>her2k()
+质量标记: private_use_characters
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE
+• n < 0 或 k < 0
+• trans != MCBLAS_OP_N, MCBLAS_OP_C,
+MCBLAS_OP_T
+• uplo != MCBLAS_FILL_MODE_LOWER,
+MCBLAS_FILL_MODE_UPPER
+• 如果 trans == MCBLAS_OP_N ，lda < max(1,
+n) ；否则 lda < max(1, k)
+• ldc < max(1, n)
+• alpha == NULL 或 beta == NULL
+• C = NULL
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2.5.14 mcblas<t>her2k()
+mcblasStatus_t mcblasCher2k(mcblasHandle_t handle,
+mcblasFillMode_t uplo, mcblasOperation_t trans,
+int n, int k,
+const mcComplex *alpha,
+const mcComplex *A, int lda,
+const mcComplex *B, int ldb,
+const float *beta,
+mcComplex *C, int ldc)
+mcblasStatus_t mcblasZher2k(mcblasHandle_t handle,
+mcblasFillMode_t uplo, mcblasOperation_t trans,
+int n, int k,
+const mcDoubleComplex *alpha,
+const mcDoubleComplex *A, int lda,
+const mcDoubleComplex *B, int ldb,
+const double *beta,
+mcDoubleComplex *C, int ldc)
+此函数执行厄米秩‑ 2k 校正 C = αop(A)op(B)H + αop(B)op(A)H + βC ，其中 α 和 β 是标量，C 是以
+lower 或 upper 模式存储的厄米矩阵，A 和 B 是维度分别为 op(A) n × k 和 op(B) n × k 的矩阵。此外，
+对于矩阵 A 和 B，
+op(A) and op (B) =
+
+
+
+A and B if trans == M CBLAS_OP _N
+AH and B H if trans == M CBLAS_OP _C
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 104

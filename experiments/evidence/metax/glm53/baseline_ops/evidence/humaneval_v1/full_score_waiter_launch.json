@@ -1,0 +1,5 @@
+{
+  "pid": 385954,
+  "script": "/home/metax/glm53-baseline-ops/evidence/full_score_waiter.py",
+  "purpose": "Score only after successful full164 generation; verify frozen scorer hashes"
+}

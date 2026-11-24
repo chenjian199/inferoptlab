@@ -59,7 +59,10 @@
         "HardwareMeasurement",
         "DiagnosisPlan",
         "AnalysisPlan",
-        "AnalysisMethod"
+        "AnalysisMethod",
+        "AccuracyPlan",
+        "BreakdownPlan",
+        "OperatorCase"
       ]
     },
     "parameters": {

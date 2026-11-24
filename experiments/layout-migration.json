@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "byte_preserving": true,
+  "moves": [
+    {
+      "source": "schemas/recipes",
+      "destination": "recipes",
+      "files": 255
+    },
+    {
+      "source": "schemas/evidence",
+      "destination": "experiments/evidence",
+      "files": 321
+    },
+    {
+      "source": "schemas/examples",
+      "destination": "examples/parameters",
+      "files": 20
+    },
+    {
+      "source": "benchmark/recipes",
+      "destination": "recipes/deployments",
+      "files": 6
+    },
+    {
+      "source": "benchmark/scenarios",
+      "destination": "recipes/scenarios",
+      "files": 6
+    },
+    {
+      "source": "benchmark/plans",
+      "destination": "recipes/plans/benchmark",
+      "files": 6
+    },
+    {
+      "source": "diagnosis/plans",
+      "destination": "recipes/plans/diagnosis",
+      "files": 1
+    },
+    {
+      "source": "analysis/plans",
+      "destination": "recipes/plans/analysis",
+      "files": 4
+    },
+    {
+      "source": "tools/hardware/plans",
+      "destination": "recipes/plans/hardware",
+      "files": 2
+    },
+    {
+      "source": "runs",
+      "destination": "experiments/runs",
+      "files": 137
+    }
+  ]
+}

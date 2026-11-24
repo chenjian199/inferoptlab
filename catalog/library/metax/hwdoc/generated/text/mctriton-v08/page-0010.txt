@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_mcTriton用户指南_CN_V08.pdf
+文档 ID: mctriton-v08
+SHA256: 5486a806ac8e48e40514347bac7403c40aee53d59515a9bded39cc17a7daed59
+PDF 页序号: 10
+PDF 页码标签: 6
+页脚页码候选: 6
+章节提示（书签推断）: scenario
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcTriton 用户指南
+• fullstage: 使用更激进的策略对更多的 Op 进行 N‑buffer pipeline 来掩盖访存带来的延迟，同时
+会占用更多的设备资源。当 pipeline 为 basic 时，开启会占用更多的寄存器；当 pipeline 为
+cpasync 时，开启会占用更多的共享内存。
+• storeCoalesce：优先开启全局内存写入时的大位宽优化。
+注解: Triton3.6 分支不再支持 flash‑attn 以及相关的 scenario 参数（包括 flashattn-fwd、
+flashattn-bwd、mla） 。Triton3.0 与 Triton3.6 对scenario 参数的支持情况对比如下：
+表 3.2 Triton3.0 与 Triton3.6 的 scenario 参数支持对比
+scenario 参数 Triton3.0 Triton3.6
+unroll 支持 支持
+roll 支持 支持
+unprefetch 支持 支持
+fullstage 支持 支持
+storeCoalesce 支持 支持
+flashattn-fwd 支持 不支持
+flashattn-bwd 支持 不支持
+mla 支持 不支持
+多个 scenario 的参数设置可以进行叠加成为 scenario 组合，组合中每个参数之间使用“;”进行间隔，
+例如：
+triton.Config({...,'scenario': "unprefetch;roll;fullstage",...},...)
+以下 scenario 之间存在冲突，避开组合当中同时出现：
+• flashattn-fwd;flashattn-bwd;mla
+• unroll;roll
+对于不同的 Triton kernel， 可能获得最优性能的 scenario 组合是不同的， 可以配合triton.autotune
+搜索得到当前 kernel 的最佳 scenario 组合。
+小 技 巧: 对 于 类 似 矩 阵 乘 的 单 dot 计 算， 使 用 大 tile（如 128*128*128） 时， 建 议 设 置
+pipeline="cpasync"，优化效果更好。
+autotune 用例
+triton.autotune 配合 triton.Config 的使用示例如下：
+@triton.autotune(
+configs=[
+(下页继续)
+3 功能支持 沐曦股份专有信息 OG‑25009‑020‑F5_V08 | 6

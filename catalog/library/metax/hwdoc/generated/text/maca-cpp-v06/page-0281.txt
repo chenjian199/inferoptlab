@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 281
+PDF 页码标签: 273
+页脚页码候选: 273
+章节提示（书签推断）: 描述
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+这些带有 _sync的matchintrinsic有一个mask参数表明参与这个操作的线程。每个bit都对应着一个
+线程的 laneID，每一个参与的线程对应的 bit 必须设置为 1 来确保它们在硬件执行内部函数之前正确聚
+合。所有 mask 标识的未退出的线程必须使用相同的 mask 执行相同的 intrinsic，否则结果会是不确定
+的。
+约束：mask中设置为1的线程必须为active线程。
+2.21 Warp Reduce 函数
+__reduce_sync(unsigned mask, T value)在mask标记的线程同步后对value数据执行一个规
+约操作。对于 {add，min，max} 操作 T 可以是无符号和有符号的，对于 {and，or，xor} 操作 T 仅支持
+无符号。
+2.21.1 提要
+// add/min/max
+unsigned int __reduce_add_sync(unsigned long mask, unsigned int value);
+unsigned int __reduce_min_sync(unsigned long mask, unsigned int value);
+unsigned int __reduce_max_sync(unsigned long mask, unsigned int value);
+int __reduce_add_sync(unsigned long mask, int value);
+int __reduce_min_sync(unsigned long mask, int value);
+int __reduce_max_sync(unsigned long mask, int value);
+// and/or/xor
+unsigned int __reduce_and_sync(unsigned long mask, unsigned int value);
+unsigned int __reduce_or_sync(unsigned long mask, unsigned int value);
+unsigned int __reduce_xor_sync(unsigned long mask, unsigned int value);
+2.21.2 描述
+__reduce_add_sync, __reduce_min_sync, __reduce_max_sync
+返回在mask标记线程中对value执行算数求和、最小或者最大规约操作的结果。
+__reduce_and_sync, __reduce_or_sync, __reduce_xor_sync
+返回在mask标记线程中对value执行逻辑AND、OR或者XOR规约操作的结果。
+mask 指示了该调用中参与运算的线程。每个 bit 都对应着一个线程的 laneID，每一个参与的线程对应
+的 bit 必须设置为 1 来确保它们在硬件执行内部函数之前正确聚合。所有 mask 标识的未退出的线程必
+须使用相同的mask执行相同的intrinsic，否则结果会是不确定的。
+约束：mask中设置为1的线程必须为active线程。
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 273

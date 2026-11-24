@@ -1,0 +1,39 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 31
+PDF 页码标签: 22
+页脚页码候选: 22
+章节提示（书签推断）: 基本接口
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+(续上页)
+mcStream_t stream;
+mcStreamCreate(&stream);
+mcLaunchCooperativeKernel((void *)sum_kernel_block, nBlocks,
+blockSize, kernelArgs, sharedBytes, stream);
+mcStreamSynchronize(stream);
+mcStreamDestroy(stream);
+std::cout<<"sum="<<*sum<<std::endl;
+return 0;
+};
+将代码保存到 syncWithCooperativeGroups.cpp 文件，然后用 mxcc 编译它：
+mxcc -x MXMACA syncWithCooperativeGroups.cpp -o syncWithCG
+./syncWithCG
+sum =5120
+3.5 流序内存分配
+3.5.1 基本接口
+沐曦通用 GPU 支持流序内存分配：mcMallocAsync 返回分配，mcFreeAsync 释放分配。两个 API 都
+接受流参数来定义分配何时可用以及何时停止可用。 mcMallocAsync 返回的指针值是同步确定的，可
+用于构建未来的工作。 要的是要注意mcMallocAsync 在确定分配的位置时会忽略当前设备/上下文。 相
+反，mcMallocAsync 根据指定的内存池或提供的流来确定常驻设备。
+最简单的使用模式是分配、使用和释放内存到同一个流中。
+void *ptr;
+size_t size = 512;
+mcMallocAsync(&ptr, size, mcStreamPerThread);
+// do work using the allocation
+kernel<<<..., mcStreamPerThread>>>(ptr, ...);
+// An asynchronous free can be specified without synchronizing the CPU and GPU
+mcFreeAsync(ptr, mcStreamPerThread);
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 22

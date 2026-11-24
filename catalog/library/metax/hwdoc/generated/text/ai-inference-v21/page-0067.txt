@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 67
+PDF 页码标签: 55
+页脚页码候选: 55
+章节提示（书签推断）: 设置环境变量
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+8.3.1.2 安装 wheel 包
+操作步骤
+1. 预先安装沐曦平台的 torch、flash attn、mcoplib、xformer（可选）环境。
+2. 获 取MacaRT‑vLLM 压 缩 包 maca‑vllm‑metax‑0.11.0‑py310‑xxx‑${OS_Version}.tar .xz并 解
+压。
+3. pip 安装以下 wheel 包：
+• vllm_metax‑0.11.0+xxx.whl
+• flash_attn+xxx.whl （适配 vLLM 新加速 whl 包）
+• ray‑2.48.0‑cp310‑cp310_${OS_Version}.whl
+• mcoplib‑0.1.0‑+macaxxx‑cp310‑cp310_${OS_Version}.whl
+• vllm‑0.11.0‑cp310‑xxx_${OS_Version}.whl
+4. vLLM‑metax、vLLM、mcoplib 安装后需要手动执行 mcoplib_init 命令。
+除了上述 wheel 包，其他依赖环境可以通过外部镜像源进行安装。安装过程中有其他依赖，需要提前配
+置好 Python 的 pip 源。
+8.3.1.3 源代码构建教程
+从沐曦开发者社区 中获取 vLLM 镜像并启动，参见《沐曦通用 GPU 用户指南》中“容器相关场景支持”
+章节。
+8.3.1.4 设置环境变量
+# setup MACA path
+export MACA_PATH="/opt/maca"
+# cu-bridge
+export CUCC_PATH="${MACA_PATH}/tools/cu-bridge"
+export CUDA_PATH=/root/cu-bridge/CUDA_DIR
+export CUCC_CMAKE_ENTRY=2
+# update PATH
+export PATH=${MACA_PATH}/mxgpu_llvm/bin:${MACA_PATH}/bin:${CUCC_PATH}/tools:${CUCC_
+,→PATH}/bin:${PATH}
+export LD_LIBRARY_PATH=${MACA_PATH}/lib:${MACA_PATH}/ompi/lib:${MACA_PATH}/mxgpu_
+,→llvm/lib:${LD_LIBRARY_PATH}
+export VLLM_INSTALL_PUNICA_KERNELS=1
+8 MacaRT‑vLLM‑metax 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 55

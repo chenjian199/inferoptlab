@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 64
+PDF 页码标签: 56
+页脚页码候选: 56
+章节提示（书签推断）: 半精度转换与数据移动函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+返回值
+• half，将i转换成half结构
+函数描述
+• 以向零舍入模式将signed64bitint类型的i，转换成半精度的浮点类型输出。
+__host__ __device__ float __low2float (const __half2 a)
+参数
+a
+• half2，只读入参
+返回值
+• float，a中低16bit的部分，转换为float
+函数描述
+• 将half2类型的参数a，中低16bit的部分，转换为32bit的float类型，并输出。
+__device__ __half __low2half (const __half2 a)
+参数
+a
+• half2，只读入参
+返回值
+• half，输出a中低16bit的half值
+函数描述
+• 输出half2类型中，低16bit的half值。
+__device__ __half2 __low2half2 (const __half2 a)
+参数
+a
+• half2，只读入参
+返回值
+• half2，a中低16bit的值，组合为half2类型后输出
+函数描述
+• 讲half2类型a中，低16bit的值，组合为half2类型后输出。
+__device__ __half2 __lowhigh2highlow (const __half2 a)
+参数
+a
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 56

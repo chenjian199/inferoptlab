@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 259
+PDF 页码标签: 251
+页脚页码候选: 251
+章节提示（书签推断）: tex1D()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+• 把 4 字节参数分成 4 个部分，每部分由 1 个字节组成。对每个对应的部分，做无符号饱和减法，每部
+分的结果组成最终结果以 unsigned int返回。
+2.9 Texture函数
+2.9.1 Texture Object API
+2.9.1.1 tex1Dfetch()
+template<class T>
+T tex1Dfetch(mcTextureObject_t texObj, int x);
+参数
+texObj
+• mcTextureObject_t，一维textureobject对象
+x
+• int，整型texture坐标，必须是非归一化整数型值。
+返回值
+• T，T 的可取范围为 char, unsigned char, short, unsigned short, int, unsigned int, float 及其 int1，
+int2，int4向量类型。
+函数描述
+从使用线性空间创建的一维textureobject中获取整数型texture坐标x所在位置的元素值。坐标x必须
+是非归一化坐标，且只支持border和clamp两种寻址模式，不支持texturefilter操作，对于8bit或者
+16bit整数型，可以将输出数据提升成单精度浮点型输出。
+2.9.1.2 tex1D()
+template<class T>
+T tex1D(mcTextureObject_t texObj, float x);
+参数
+texObj
+• mcTextureObject_t，一维textureobject对象
+x
+• float,浮点texture坐标，可以是归一化坐标(‑1.0~1.0)或者(0~1.0),也可以是非归一化浮点坐标。
+返回值
+• T，T 的可取范围为 char, unsigned char, short, unsigned short, int, unsigned int, float 及其 int1，
+int2，int4向量类型。
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 251

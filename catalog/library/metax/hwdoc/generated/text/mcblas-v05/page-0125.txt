@@ -1,0 +1,53 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 125
+PDF 页码标签: 118
+页脚页码候选: 118
+章节提示（书签推断）: mcblas<t>getriBatched()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+2.6.5 mcblas<t>getriBatched()
+mcblasStatus_t mcblasSgetriBatched(mcblasHandle_t handle,
+int n,
+const float *const Aarray[],
+int lda,
+int *PivotArray,
+float *const Carray[],
+int ldc,
+int *infoArray,
+int batchSize);
+mcblasStatus_t mcblasDgetriBatched(mcblasHandle_t handle,
+int n,
+const double *const Aarray[],
+int lda,
+int *PivotArray,
+double *const Carray[],
+int ldc,
+int *infoArray,
+int batchSize);
+mcblasStatus_t mcblasCgetriBatched(mcblasHandle_t handle,
+int n,
+const mcComplex *const Aarray[],
+int lda,
+int *PivotArray,
+mcComplex *const Carray[],
+int ldc,
+int *infoArray,
+int batchSize);
+mcblasStatus_t mcblasZgetriBatched(mcblasHandle_t handle,
+int n,
+const mcDoubleComplex *const Aarray[],
+int lda,
+int *PivotArray,
+mcDoubleComplex *const Carray[],
+int ldc,
+int *infoArray,
+int batchSize);
+Aarray 和 Carray 是指向矩阵的指针数组，以列主格式存储，维度为 n*n，前导维度分别为 lda 和
+ldc。
+该函数执行 A[i] 矩阵反转，i = 0，…，batchSize-1。
+在 调 用 mcblas<t>getriBatched 之 前， 必 须 先 使 用 例 程 mcblas<t>getrfBatched 对 矩 阵A[i] 进 行
+分 解。 在 调 用 mcblas<t>getrfBatched 后，Aarray[i] 指 向 的 矩 阵 将 包 含 矩 阵A[i] 的 LU 分 解，
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 118

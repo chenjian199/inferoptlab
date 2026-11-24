@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 94
+PDF 页码标签: 86
+页脚页码候选: 86
+章节提示（书签推断）: Bfloat16比较函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+• maca_bfloat16，只读入参
+返回值
+• bool， “a大于或等于b”的判定结果
+函数描述
+• 判定第一个参数maca_bfloat16是否大于或等于第二个参数maca_bfloat16。
+• 如果任一输入为NaN，则判定结果为false。
+__device__ bool __hgeu(const maca_bfloat16 a, const maca_bfloat16 b)
+参数
+a
+• maca_bfloat16，只读入参
+b
+• maca_bfloat16，只读入参
+返回值
+• bool， “a大于或等于b”的判定结果
+函数描述
+• 判定第一个参数maca_bfloat16是否大于或等于第二个参数maca_bfloat16。
+• 如果任一输入为NaN，则判定结果为true。
+__device__ bool __hgt(const maca_bfloat16 a, const maca_bfloat16 b)
+参数
+a
+• maca_bfloat16，只读入参
+b
+• maca_bfloat16，只读入参
+返回值
+• bool， “a大于b”的判定结果
+函数描述
+• 判定第一个参数maca_bfloat16是否大于第二个参数maca_bfloat16。
+• 如果任一输入为NaN，则判定结果为false。
+__device__ bool __hgtu(const maca_bfloat16 a, const maca_bfloat16 b)
+参数
+a
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 86

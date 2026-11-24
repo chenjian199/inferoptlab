@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 175
+PDF 页码标签: 167
+页脚页码候选: 167
+章节提示（书签推断）: 双精度数学函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+• 返回2 x。
+函数描述
+• 计算输入参数x的基数10指数，2 x。
+__device__ double expm1 (double x)
+计算输入参数的基数e指数减去1。
+返回值
+• 返回e x ‑1。
+函数描述
+• 计算输入参数x的基数10指数减去1，e x ‑1。
+__device__ double fabs (double x)
+计算输入参数的基数e指数减去1。
+返回值
+• fabs(±∞)返回+∞。
+• fabs(±0)返回0。
+函数描述
+• 计算输入参数x的绝对值。
+__device__ double fdim (double x, double y)
+计算x与y之间的正数差。
+返回值
+• 返回x与y之间的正数差。
+• 如果x>y，fdim(x,y)返回x‑y。
+• 如果x ⩽y，fdim(x,y)返回+0。
+函数描述
+• 计算x与y之间的正数差。当x>y时结果为x‑y；否则，为+0。
+__device__ double floor (double x)
+计算不大于x的最大整数。
+返回值
+• 返回值以浮点数返回。
+• floor(±∞)返回±∞
+• floor(±0)返回±0。
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 167

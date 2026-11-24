@@ -1,0 +1,7 @@
+{
+  "vllm": "/opt/conda/lib/python3.12/site-packages/vllm/__init__.py",
+  "plugin": "/opt/conda/lib/python3.12/site-packages/vllm_metax/__init__.py",
+  "before": false,
+  "after_plugin_registration": false,
+  "registration": "None"
+}

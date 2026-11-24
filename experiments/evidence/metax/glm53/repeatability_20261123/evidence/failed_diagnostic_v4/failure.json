@@ -1,0 +1,6 @@
+{
+  "status": "diagnostic_harness_failure",
+  "cause": "input_processor clamps max_tokens to trace length; no target step after forced prefix. Ten tensors preserved, last empty. Excluded from final probes.",
+  "archive_note": "Unprivileged archive move copied diagnostics_d1 but could not remove root-owned original; both copies retained. Root renamed original in same task directory.",
+  "source_sha256": "97f66659814177d3f7b72b959f09201cbdd1794de21ec1542fe8970f18a1a2b6"
+}

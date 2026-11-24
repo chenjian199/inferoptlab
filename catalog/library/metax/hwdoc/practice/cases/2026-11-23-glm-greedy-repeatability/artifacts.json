@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "observed_on": "2026-11-23",
+  "evidence_snapshots": [
+    {
+      "snapshot": "evidence/repeatability_summary.json",
+      "snapshot_sha256": "3706bc1fae0f92637178027d5948532e0be79b07ae715314471abe1976b2fa40",
+      "original_path": "experiments/evidence/metax/glm53/repeatability_20261123/repeatability_summary.json",
+      "original_sha256": "3706bc1fae0f92637178027d5948532e0be79b07ae715314471abe1976b2fa40",
+      "selection": "Reviewed result summary, copied without modification; no raw startup log or private configuration."
+    },
+    {
+      "snapshot": "evidence/tensor_summary.json",
+      "snapshot_sha256": "c85c10d687103407adf6193aa09f335dea4c7ff8bebe7bf001743ce7869f4972",
+      "original_path": "experiments/evidence/metax/glm53/repeatability_20261123/evidence/tensor_summary.json",
+      "original_sha256": "c85c10d687103407adf6193aa09f335dea4c7ff8bebe7bf001743ce7869f4972",
+      "selection": "Reviewed result summary, copied without modification; no raw startup log or private configuration."
+    },
+    {
+      "snapshot": "evidence/legacy_comparison.json",
+      "snapshot_sha256": "ee3c2bcb6f5e816aa7fc7776660a0f14007c3af85e9d4763be020173b439a4f8",
+      "original_path": "experiments/evidence/metax/glm53/repeatability_20261123/evidence/legacy_comparison.json",
+      "original_sha256": "ee3c2bcb6f5e816aa7fc7776660a0f14007c3af85e9d4763be020173b439a4f8",
+      "selection": "Reviewed result summary, copied without modification; no raw startup log or private configuration."
+    }
+  ],
+  "local_references": [
+    {
+      "path": "experiments/evidence/metax/glm53/repeatability_20261123/REPORT.md",
+      "sha256": "542cf4c88973f8297ae7f0c5a3070dda2882af77295beaf9ecec965f77335702"
+    },
+    {
+      "path": "catalog/library/metax/methods/regression-policy.md",
+      "sha256": "04930880851d3c370dd83e646e2b8dd9f4488bdc9d86c945091f1f1717b98f9e"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/repeatability_20261123/artifact_manifest.json",
+      "sha256": "6a59947b47df58cdf57e26871084dd197e098552b90b74b890369cef1ce9ada5"
+    },
+    {
+      "path": "experiments/evidence/metax/glm53/repeatability_20261123/archive_receipt.json",
+      "sha256": "8f9211ddaee5a941345e3aa3590df9a3b1588fbdc8adf1409a729e3e75cd1141"
+    }
+  ],
+  "remote_assets": []
+}

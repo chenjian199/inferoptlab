@@ -1,0 +1,39 @@
+文档: 沐曦通用GPU_MCCL编程指南_CN_V08.pdf
+文档 ID: mccl-v08
+SHA256: 7a95ac3ce4f68b0fb11baabb7fa08794cd5f5081c9ec3e888eefaaa03ab8c8b2
+PDF 页序号: 35
+PDF 页码标签: 28
+页脚页码候选: 28
+章节提示（书签推断）: MCCL_IB_HCA
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MCCL 编程指南
+4.2.3.2 MCCL_IB_GID_INDEX
+描述：定义在 RoCE 模式中 Global ID 索引。
+可选值：‑1，0，正整数
+默认值：‑1
+4.2.3.3 MCCL_IB_DISABLE
+描述：可防止 MCCL 使用 IB/RoCE 传输。相反，MCCL 将恢复使用 IP 套接字。
+可选值：
+• 0：启用 IB/RoCE 传输
+• 1：启用 IP 套接字传输
+默认值：0
+4.2.3.4 MCCL_SOCKET_FAMIL Y
+描述：允许用户强制 MCCL 只使用 IPv4 或 IPv6 接口。
+可选值：设为 AF_INET 则强制使用 IPv4。设为 AF_INET6 则强制使用 IPv6。
+默认值：无
+4.2.3.5 MCCL_SOCKET_IFNAME
+描述：指定使用哪些 IP 接口进行通信。
+可选值：
+定义为前缀列表，用于筛选 MCCL 将使用的接口。可以提供多个前缀，以 , 符号分隔。使用 ^ 符号，
+MCCL 将排除以该列表中任何前缀开头的接口。要匹配（或不匹配）精确的接口名称，请在前缀字符串
+的开头使用 = 字符。示例：MCCL_SOCKET_IFNAME=eth0,eth1。
+默认值：无
+4.2.3.6 MCCL_IB_HCA
+描述：指定使用哪些 RDMA 接口进行通信。
+可选值：
+定义用于筛选 MCCL 将使用的 IB Verbs 接口。列表以 , 分隔；端口号可使用 : 符号指定。可选前缀 ^ 表
+示该列表是排除列表。第二个可选前缀 = 表示标记为精确名称，否则 MCCL 默认会将每个标记视为接口
+前缀。示例：MCCL_IB_HCA=mlx5_0,mlx5_1。
+默认值：无
+4 环境变量 沐曦股份专有信息 PG‑23004‑020‑F5_V08 | 28

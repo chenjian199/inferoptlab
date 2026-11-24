@@ -1,0 +1,23 @@
+文档: 沐曦通用GPU_mxvs测试工具套件使用手册_CN_V26.pdf
+文档 ID: mxvs-v26
+SHA256: f14e664d429c6568ce5723a3a83c7a9164c2fcb33fd59137fb49c1128ab63ce2
+PDF 页序号: 38
+PDF 页码标签: 28
+页脚页码候选: 28
+章节提示（书签推断）: 术语/缩略语
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mxvs 测试工具套件使用手册
+14 附录
+14.1 术语/缩略语
+术语/缩略语 全称 说明
+AppImage 一种把应用打包成单一文件的格式
+FUSE Filesystem in Userspace 一个面向类 Unix 计算机操作系统的软件
+接口
+MetaXLink 沐曦 GPU D2D 接口总线
+mxvs MetaX Validation Suite 沐曦验收测试套件
+PCIe Peripheral Component Interconnect
+Express
+一种高速串行计算机扩展总线标准
+SDMA System Direct Memory Access 系统直接内存访问
+14 附录 沐曦股份专有信息 OG‑23023‑020‑F5_V26 | 28

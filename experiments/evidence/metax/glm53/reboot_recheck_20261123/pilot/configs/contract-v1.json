@@ -1,0 +1,14 @@
+{
+  "status": "frozen_before_device_test",
+  "date": "2026-11-23",
+  "target": "language_model.model.layers.0.mlp.gate_up_proj",
+  "contract": "A[M,K] INT8, B[K,N] INT8; arbitrary positive strides; symmetric zero-point; FP32 per-row/scalar A scale and per-column/scalar B scale; BF16 output, no bias; K<=131071 prevents worst-case int32 overflow. Original activation quantization unchanged.",
+  "gates": {
+    "int32_accumulator": "exact CPU int64 reference",
+    "epilogue": "exact explicit FP32 multiply-left-to-right then BF16",
+    "high_precision_reference": "at most1 BF16 ULP at larger magnitude, subnormal floor",
+    "original_gemm": "at most1 BF16 ULP, finite, shape/dtype identical",
+    "integration": "all8 ranks actually replaced, zero unexpected fallback, paired32 no stable-pass regression; compare free tokens and rollback. Pilot only, not full164 release gate."
+  },
+  "fallback": "Unselected layers and unsupported contract use original callable; evidence records fallback counts; selected unsupported shapes invalidate pilot coverage."
+}

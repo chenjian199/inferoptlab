@@ -1,0 +1,36 @@
+文档: 沐曦通用GPU_mcTriton用户指南_CN_V08.pdf
+文档 ID: mctriton-v08
+SHA256: 5486a806ac8e48e40514347bac7403c40aee53d59515a9bded39cc17a7daed59
+PDF 页序号: 11
+PDF 页码标签: 7
+页脚页码候选: 7
+章节提示（书签推断）: MCTRITON_LOG_LEVEL
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcTriton 用户指南
+(续上页)
+triton.Config({...,'pipeline': "basic",'scenario': "unprefetch",...}, num_
+,→warps=4, num_stages =2),
+triton.Config({...,'pipeline': "cpasync",...}, num_warps =8, num_stages =3),
+],
+key=['M', 'N', 'K'],
+)
+@triton.jit
+def matmul_kernel(...):
+...
+3.2.2 MCTRITON_LOG_LEVEL
+Triton3.6 支持通过 MCTRITON_LOG_LEVEL 环境变量开启 Triton 代码中的日志打印功能，日志级别由
+高到低依次为 TRACE、DEBUG、INFO、WARN、ERROR、CRITICAL，级别越高，打印的日志内容越多。
+表 3.3 MCTRITON_LOG_LEVEL 支持的日志级别
+日志级别 说明
+TRACE 打印全部跟踪信息，如 layout、Tensor 的 shape 等。
+DEBUG 打印用于确认优化和函数执行的调试信息及关键数值。
+INFO 打印基础信息，如 config 设置、Kernel 的寄存器/共享内存使用情况等。
+WARN 打印编译器行为可能导致性能不达预期的消息。
+ERROR 打印编译器行为将导致错误的消息。
+CRITICAL 仅打印用户自定义的消息。
+使用示例
+设置 MCTRITON_LOG_LEVEL 环境变量后运行 Kernel：
+export MCTRITON_LOG_LEVEL=INFO
+每条打印信息包含时间、打印位置、进程号、logger 名称、日志级别和消息内容。
+3 功能支持 沐曦股份专有信息 OG‑25009‑020‑F5_V08 | 7

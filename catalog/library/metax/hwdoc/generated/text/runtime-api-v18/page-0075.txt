@@ -1,0 +1,30 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 75
+PDF 页码标签: 66
+页脚页码候选: 66
+章节提示（书签推断）: 使用GPU printf
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+图 4.7 mcanalyzer 动态库提供的 mcLog API 示例
+4.6 设备代码调试信息
+4.6.1 使用 GPU printf
+当需要在设备侧代码输出调试信息时，沐曦通用 GPU 支持在设备核函数里面使用 printf 函数打印相
+关信息。
+代码示例
+使用 GPU printf，示例代码如下：
+__global__ void vectorAdd(const float* a, const float* b, float* c, int width, int 
+,→height)
+{
+int x = blockDim.x * blockIdx.x + threadIdx.x;
+int y = blockDim.y * blockIdx.y + threadIdx.y;
+int i = x;
+if (i < (width * height))
+{
+c[i] = a[i] + b[i];
+printf("c[%d]:%f \n", i, c[i]);
+}
+在 kernel 里面添加了 printf 后，执行程序，得到输出结果部分如图 4.8 所示。
+4 编译和调试 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 66

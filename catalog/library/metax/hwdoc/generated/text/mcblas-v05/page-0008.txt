@@ -1,0 +1,47 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 8
+PDF 页码标签: 1
+页脚页码候选: 1
+章节提示（书签推断）: 安装mcBLAS
+质量标记: private_use_characters
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+1 简介
+mcBLAS 库是基于 MetaX MXMACA® 运行时的基本线性代数子程序 （Basic Linear Algebra Subprograms，
+BLAS）的实现。它允许用户访问 MetaX GPU 的计算资源。
+要使用 mcBLAS API，应用程序必须在 GPU 内存空间中分配所需的矩阵和向量并使用数据填充，调用所
+需 mcBLAS 函数的序列，然后将结果从 GPU 内存空间上传回主机。mcBLAS API 还提供了用于从 GPU
+写入和检索数据的辅助函数。
+mcBLAS 提供了与传统 BLAS 功能相似的高性能健壮实现，适用于在 GPU 上运行。
+mcBLAS 以 C++14 和 MXMACA 编写。它使用 MetaX MXMACA 运行时以在 GPU 设备上运行。
+mcBLAS API 是一个使用沙漏模式（Hourglass Pattern）的精简 C99 API。它包含：
+• [Helper]、[ Level1]、[ Level2]、[ Level3 ] 和 [BLAS‑Like] BLAS 函数，具有批处理（batched）版本
+和跨步批处理（strided‑batched）版本。
+1.1 适用产品
+本文档适用于沐曦 MXC500 系列产品：曦云 ® C500、C500X、C550、C550‑PL、C588，曦思® N260，曦
+索 ® X206；以及 MXC600 系列产品：曦云 ® C600，曦思 ® N300，曦索 ® X301、X302。
+1.2 安装 mcBLAS
+M ACA
+
+
+
+library
+
+
+
+mcBLAS
+...
+...
+...
+mcBLAS 库随 MXMACA 工具包一起发布。MXMACA 工具包的安装，参见《沐曦通用 GPU 快速上手指
+南》 。安装后，确保设置了环境变量MACA_PATH。
+export MACA_PATH=/opt/maca
+这 里 的 /opt/maca 路 径 为 MXMACA 工 具 包 的 默 认 安 装 路 径。 如 果 安 装 时 选 择 了 其 它 路 径， 则 将
+MACA_PATH 设置为该路径。下面列出了与 mcBLAS API 相关的文件。
+#header location:
+${MACA_PATH}/include/mcblas
+#lib location:
+${MACA_PATH}/lib/libmcblas.so
+1 简介 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 1

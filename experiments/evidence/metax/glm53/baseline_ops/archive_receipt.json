@@ -1,0 +1,10 @@
+{
+  "path": "archives/20261123_humaneval_v1.tar.gz",
+  "sha256": "95278d7b264b88db8398d4916ab78f0f3869f935639cb0041c0dc37394af45e6",
+  "bytes": 372377,
+  "contents": 67,
+  "remote_copy": "verified",
+  "remote_path": "/home/metax/glm53-baseline-ops/archive/20261123_humaneval_v1.tar.gz",
+  "remote_sha256": "95278d7b264b88db8398d4916ab78f0f3869f935639cb0041c0dc37394af45e6",
+  "archive_member_hashes_verified": 65
+}

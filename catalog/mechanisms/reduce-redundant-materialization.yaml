@@ -1,5 +1,4 @@
-# 设计模板；REPLACE_* 必须在执行前解析。数值仅为结构示例，不是性能推荐。
-schema_version: '0.1'
+schema_version: 0.2.0
 kind: MechanismCard
 mechanism_id: reduce-redundant-materialization
 title: 减少不必要的张量物化与重复拷贝

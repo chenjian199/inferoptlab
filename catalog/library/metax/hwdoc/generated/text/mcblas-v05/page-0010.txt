@@ -1,0 +1,60 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 10
+PDF 页码标签: 3
+页脚页码候选: 3
+章节提示（书签推断）: Hello mcBLAS
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+(续上页)
+mcblasHandle_t handle;
+int i, j;
+float* devPtrA;
+float* a = 0;
+a = (float *)malloc (M * N * sizeof (*a));
+if (!a) {
+printf ("host memory allocation failed");
+return EXIT_FAILURE;
+}
+for (j = 1; j <= N; j++) {
+for (i = 1; i <= M; i++) {
+a[IDX2F(i,j,M)] = (float)((i-1) * N + j);
+}
+}
+mcStat = mcMalloc ((void**)&devPtrA, M*N*sizeof(*a));
+if (mcStat != 0) {
+printf ("device memory allocation failed");
+return EXIT_FAILURE;
+}
+stat = mcblasCreate(&handle);
+if (stat != MCBLAS_STATUS_SUCCESS) {
+printf ("mcBLAS initialization failed\n");
+return EXIT_FAILURE;
+}
+stat = mcblasSetMatrix (M, N, sizeof(*a), a, M, devPtrA, M);
+if (stat != MCBLAS_STATUS_SUCCESS) {
+printf ("data download failed");
+mcFree (devPtrA);
+mcblasDestroy(handle);
+return EXIT_FAILURE;
+}
+modify (handle, devPtrA, M, N, 2, 3, 16.0f, 12.0f);
+stat = mcblasGetMatrix (M, N, sizeof(*a), devPtrA, M, a, M);
+if (stat != MCBLAS_STATUS_SUCCESS) {
+printf ("data upload failed");
+mcFree (devPtrA);
+mcblasDestroy(handle);
+return EXIT_FAILURE;
+}
+mcFree (devPtrA);
+mcblasDestroy(handle);
+for (j = 1; j <= N; j++) {
+for (i = 1; i <= M; i++) {
+printf ("%7.0f", a[IDX2F(i,j,M)]);
+}
+printf ("\n");
+}
+(下页继续)
+1 简介 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 3

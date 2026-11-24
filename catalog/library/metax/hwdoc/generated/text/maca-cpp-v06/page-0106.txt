@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 106
+PDF 页码标签: 98
+页脚页码候选: 98
+章节提示（书签推断）: Bfloat162比较函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+• maca_bfloat162，只读入参
+返回值
+• maca_bfloat162，用于指示两个分量的比较结果
+函数描述
+• 分别对向量的两个分量进行大于判定。
+• 第一个 maca_bfloat162 向量的分量大于第二个的向量的对应分量时，判定结果的对应分量会被赋予
+1.0的值；否则，赋予0.0。
+• 若分量的值为NaN会使得判定结果被赋予1.0。
+__device__ maca_bfloat162 __hisnan2(const maca_bfloat162 a)
+参数
+a
+• maca_bfloat162，只读入参
+返回值
+• maca_bfloat162，用于指示两个分量是否为NaN的结果
+函数描述
+• 分别判定输入向量的两个分量的值是否为 NaN，如果是 NaN，结果中相应的分量会被赋予 1.0 的值；
+否则，赋予0.0的值。
+__device__ maca_bfloat162 __hle2(const maca_bfloat162 a, const maca_bfloat162 b)
+参数
+a
+• maca_bfloat162，只读入参
+b
+• maca_bfloat162，只读入参
+返回值
+• maca_bfloat162，用于指示两个分量的比较结果
+函数描述
+• 分别对向量的两个分量进行小于或等于判定。
+• 第一个 maca_bfloat162 向量的分量小于或等于第二个的向量的对应分量时，判定结果的对应分量会
+被赋予1.0的值；否则，赋予0.0。
+• 若分量的值为NaN会使得判定结果被赋予0.0。
+__device__ maca_bfloat162 __hleu2(const maca_bfloat162 a, const maca_bfloat162 b)
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 98

@@ -1,0 +1,52 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 19
+PDF 页码标签: 11
+页脚页码候选: 11
+章节提示（书签推断）: Memory Fence函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+(续上页)
+__device__ void readXY()
+{
+int B = Y;
+__threadfence();
+int A = X;
+}
+对于这段代码，可以观察得到的结果如下：
+• A的值为1并且B的值为2。
+• A的值为10并且B的值为2。
+• A的值为10并且B的值为20。
+第四个结果是不可能的，因为第一个写操作必须在第二个写操作之前可见。
+• 如果thread1和2属于同一个block，使用__threadfence_block()就足够。
+• 如果thread1和2不属于同一个block：
+– 如果它们是属于同一个MXMACAdevice，必须使用__threadfence()。
+– 如果它们属于不同的MXMACAdevice，必须使用__threadfence_system()。
+一个常见的用例就是当线程使用其他线程产生的一些数据，如下面的代码所示，该kernel函数在一次调
+用中计算 N 个数字的数组的和。每个 block 首先对于数组的一个子集求和，并且将结果存储到全局内存
+中。当所有 block 执行完毕，最后一个 block 从全局内存读取这些数据和并且将它们相加以获得最终结
+果。为了确定哪个 block 是最后完成的，每个 block 都原子地增加一个计数器，以表示它已经完成了部
+分求和计算以及存储（参考2.14Atomic函数 中关于atomic函数的描述） 。最后个block是收到计数器
+的值等于 gridDim.x‑1。如果在存储部分和递增计数器之间没有设置栅栏，计数器可能在存储结果之前
+就递增了。因此可能到达gridDim.x‑1，让最后个block在内存更新之前开始读部分求和结果。
+Memory fence 函数只影响现成的内存操作的顺序；它们不会确保内存操作对于其他线程是可见的（像
+__syncthreads() 对于同一个 block 所做的事那样，参考2.7 同步函数） 。在下面的代码示例中，result
+的内存操作的可见性，是通过将其声明为volatile来确保的。
+__device__ unsigned int count = 0;
+__shared__ bool isLastBlockDone;
+__global__ void sum(const float *array, unsigned int N,
+volatile float *result)
+{
+// Each block sums a subset of the input array.
+float partialSum = calculatePartialSum(array, N);
+if (threadIdx.x == 0)
+{
+// Thread 0 of each block stores the partial sum
+// to global memory. The compiler will use
+// a store operation that bypasses the L1 cache
+// since the "result" variable is declared as
+// volatile. This ensures that the threads of
+(下页继续)
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 11

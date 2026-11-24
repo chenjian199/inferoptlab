@@ -1,0 +1,9 @@
+{
+  "before_sdk_path": "/opt/maca-3.8.2",
+  "sdk_path": "/opt/maca-3.9.0",
+  "version": "Version:3.9.0.29",
+  "dpkg_audit_exit": 0,
+  "dpkg_audit": "",
+  "host_driver_installer_used": false,
+  "recipe": "official .layerspec/Dockerfile: mxmaca-sdk-install.sh -f; ldconfig"
+}

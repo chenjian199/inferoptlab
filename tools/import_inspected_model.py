@@ -6,12 +6,21 @@ stay in hashed source evidence; no pickle/Python-tagged quantization YAML is loa
 import argparse
 import hashlib
 from pathlib import Path
+import re
 import shutil
 
 import yaml
 
 from tools.specs import Catalog, ROOT, SpecError, digest, read
 from tools.hardware.export import meta, ref
+
+
+def model_recipe_path(root, family, model, identity):
+    """Use explicit catalogue groups; never infer a base model from quantization tags."""
+    for name, value in [('family', family), ('model', model), ('id', identity)]:
+        if not re.fullmatch(r'[a-z0-9]+(?:[.-][a-z0-9]+)*', value):
+            raise SpecError(f'{name} must be a lowercase slug containing letters, digits, dots or hyphens')
+    return root/'recipes'/'models'/family/model/(identity+'.yaml')
 
 
 def convert(raw, identity, source):
@@ -92,8 +101,11 @@ def convert(raw, identity, source):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('observation',type=Path); parser.add_argument('--id',required=True); parser.add_argument('--version',default='1.0.0')
+    parser.add_argument('--family', required=True, help='Catalogue family directory, e.g. glm or qwen')
+    parser.add_argument('--model', required=True, help='Base model directory, e.g. glm-5.3-flash; omit quantization/host tags')
     args=parser.parse_args()
-    evidence=ROOT/'schemas/evidence/model-intake'/args.id/args.version/'metadata.json'
+    model_path=model_recipe_path(ROOT,args.family,args.model,args.id)
+    evidence=ROOT/'experiments/evidence/model-intake'/args.id/args.version/'metadata.json'
     source=meta('SourceDocument','source-'+args.id,args.version,args.id+' machine-collected model metadata')
     source.update(path=evidence.relative_to(ROOT).as_posix(),sha256=hashlib.sha256(args.observation.read_bytes()).hexdigest(),
         media_type='application/json',role='model_metadata',authority='machine_collected',
@@ -102,7 +114,7 @@ def main():
     catalog=Catalog();catalog.load()
     paths=[]
     for group,doc in [('sources',source),('models',model)]:
-        path=ROOT/'schemas/recipes'/group/(doc['id']+'.yaml')
+        path=model_path if group=='models' else ROOT/'recipes'/group/(doc['id']+'.yaml')
         if (doc['id'],doc['version']) in catalog.documents or path.exists() or evidence.exists():
             raise SpecError('recipe/evidence already exists')
         catalog.documents[(doc['id'],doc['version'])]=doc;paths.append(path)
@@ -115,7 +127,8 @@ def main():
     evidence.parent.mkdir(parents=True,exist_ok=False)
     shutil.copyfile(args.observation,evidence);shutil.copyfile(probe,evidence.with_suffix('.probe.py'))
     for doc,path in zip((source,model),paths):
-        with path.open('x',encoding='utf-8') as f:yaml.safe_dump(doc,f,sort_keys=False,allow_unicode=True)
+        path.parent.mkdir(parents=True,exist_ok=True)
+        with path.open('x',encoding='utf-8',newline='\n') as f:yaml.safe_dump(doc,f,sort_keys=False,allow_unicode=True)
     print(paths[-1])
 
 

@@ -1,0 +1,44 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 79
+PDF 页码标签: 67
+页脚页码候选: 67
+章节提示（书签推断）: Server服务动态推理性能测试
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+(续上页)
++ 'temperature': 1.0,
+'best_of': 1,
+'max_tokens': request_func_input.output_len,
+'stream': not args.disable_stream,
+2. 下载ShareGPT_V3_unfiltered_cleaned_split.json：
+python profile_restful_api.py --port 23333 --backend lmdeploy --dataset-path ./
+,→ShareGPT_V3_unfiltered_cleaned_split.json
+输出如下:
+Backend: lmdeploy
+Traffic request rate: inf
+Successful requests: 1000
+Benchmark duration(s): 96.23
+Total input tokens: 228316
+Total generated tokens: 195534
+Total generated tokens (retokimized): 181775
+Request throughput (req/s): 10.39
+Input token throughput (tok/s): 2372.62
+Output token throughput (tok/s): 2031.95
+End-to-End Latency
+Mean E2E Latency (ms): 43531.86
+Median E2E Latency (ms): 42845.51
+Mean TTFT (ms): 26513.87
+Median TTFT (ms): 24519.39
+P99 TTFT (ms): 62724.06
+Time per Output Token (excl. 1st token)
+Mean TPOT (ms): 110.65
+Median TPOT (ms): 95.38
+P99 TPOT (ms): 535.69
+Inter-token Latency
+Mean ITL (ms): 91.67
+Median ITL (ms): 61.98
+P99 ITL (ms): 724.82
+10 MacaRT‑LMDeploy 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 67

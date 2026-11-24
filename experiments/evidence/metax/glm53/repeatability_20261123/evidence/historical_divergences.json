@@ -1,0 +1,92 @@
+[
+  {
+    "task_id": "HumanEval/10",
+    "first_divergence_index": 8,
+    "lengths": [
+      38,
+      54
+    ],
+    "text_a": "</think>    if not string:\n        return ''\n    for i in range(len(string)):\n        if is_palindrome(string[i:]):\n            return string + string[:i][::-1]",
+    "text_b": "</think>    if not string:\n        return ''\n\n    beginning_of_suffix = 0\n\n    while not is_palindrome(string[beginning_of_suffix:]):\n        beginning_of_suffix += 1\n\n    return string + string[:beginning_of_suffix][::-1]"
+  },
+  {
+    "task_id": "HumanEval/37",
+    "first_divergence_index": 0,
+    "lengths": [
+      28,
+      45
+    ],
+    "text_a": "</think>evens = sorted(l[::2])\n    result = l[:]\n    result[::2] = evens\n    return result",
+    "text_b": "evens = sorted(l[::2]); result...</think>```python\n    evens = sorted(l[::2])\n    result = l[:]\n    result[::2] = evens\n    return result\n```"
+  },
+  {
+    "task_id": "HumanEval/89",
+    "first_divergence_index": 0,
+    "lengths": [
+      30,
+      42
+    ],
+    "text_a": "</think>    return ''.join(chr((ord(c) - 97 + 4) % 26 + 97) for c in s)",
+    "text_b": "Shift by 4.</think>```python\n    return ''.join(chr((ord(c) - ord('a') + 4) % 26 + ord('a')) for c in s)\n```"
+  },
+  {
+    "task_id": "HumanEval/94",
+    "first_divergence_index": 64,
+    "lengths": [
+      99,
+      99
+    ],
+    "text_a": "</think>    def is_prime(n):\n        if n < 2:\n            return False\n        for i in range(2, int(n ** 0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    max_prime = 0\n    for num in lst:\n        if num > max_prime and is_prime(num):\n            max_prime = num\n    return sum(int(d) for d in str(max_prime))",
+    "text_b": "</think>    def is_prime(n):\n        if n < 2:\n            return False\n        for i in range(2, int(n ** 0.5) + 1):\n            if n % i == 0:\n                return False\n        return True\n\n    max_prime = 0\n    for x in lst:\n        if x > max_prime and is_prime(x):\n            max_prime = x\n    return sum(int(d) for d in str(max_prime))"
+  },
+  {
+    "task_id": "HumanEval/123",
+    "first_divergence_index": 1,
+    "lengths": [
+      68,
+      72
+    ],
+    "text_a": "</think>    odd_numbers = []\n    while n != 1:\n        if n % 2 == 1:\n            odd_numbers.append(n)\n        n = n // 2 if n % 2 == 0 else 3 * n + 1\n    odd_numbers.append(1)\n    return sorted(odd_numbers)",
+    "text_b": "</think>```python\n    odd_numbers = []\n    while n != 1:\n        if n % 2 == 1:\n            odd_numbers.append(n)\n        n = n // 2 if n % 2 == 0 else 3 * n + 1\n    odd_numbers.append(1)\n    return sorted(odd_numbers)\n```"
+  },
+  {
+    "task_id": "HumanEval/144",
+    "first_divergence_index": 2,
+    "lengths": [
+      50,
+      42
+    ],
+    "text_a": "</think>    x_num, x_den = map(int, x.split(\"/\"))\n    n_num, n_den = map(int, n.split(\"/\"))\n    return (x_num * n_num) % (x_den * n_den) == 0",
+    "text_b": "</think>    a, b = map(int, x.split(\"/\"))\n    c, d = map(int, n.split(\"/\"))\n    return (a * c) % (b * d) == 0"
+  },
+  {
+    "task_id": "HumanEval/148",
+    "first_divergence_index": 52,
+    "lengths": [
+      113,
+      132
+    ],
+    "text_a": "</think>    planet_names = (\"Mercury\", \"Venus\", \"Earth\", \"Mars\", \"Jupiter\", \"Saturn\", \"Uranus\", \"Neptune\")\n    if planet1 not in planet_names or planet2 not in planet_names:\n        return ()\n    idx1 = planet_names.index(planet1)\n    idx2 = planet_names.index(planet2)\n    if idx1 > idx2:\n        idx1, idx2 = idx2, idx1\n    return planet_names[idx1 + 1:idx2]",
+    "text_b": "</think>    planet_names = (\"Mercury\", \"Venus\", \"Earth\", \"Mars\", \"Jupiter\", \"Saturn\", \"Uranus\", \"Neptune\")\n    if planet1 not in planet_names or planet2 not in planet_names or planet1 == planet2:\n        return ()\n    planet1_index = planet_names.index(planet1)\n    planet2_index = planet_names.index(planet2)\n    if planet1_index < planet2_index:\n        return planet_names[planet1_index + 1: planet2_index]\n    else:\n        return planet_names[planet2_index + 1: planet1_index]"
+  },
+  {
+    "task_id": "HumanEval/156",
+    "first_divergence_index": 4,
+    "lengths": [
+      121,
+      121
+    ],
+    "text_a": "</think>    values = [\n        (1000, 'm'), (900, 'cm'), (500, 'd'), (400, 'cd'),\n        (100, 'c'), (90, 'xc'), (50, 'l'), (40, 'xl'),\n        (10, 'x'), (9, 'ix'), (5, 'v'), (4, 'iv'), (1, 'i')\n    ]\n    result = ''\n    for value, symbol in values:\n        while number >= value:\n            result += symbol\n            number -= value\n    return result",
+    "text_b": "</think>    values = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]\n    symbols = ['m', 'cm', 'd', 'cd', 'c', 'xc', 'l', 'xl', 'x', 'ix', 'v', 'iv', 'i']\n    result = ''\n    for value, symbol in zip(values, symbols):\n        while number >= value:\n            result += symbol\n            number -= value\n    return result"
+  },
+  {
+    "task_id": "HumanEval/162",
+    "first_divergence_index": 1,
+    "lengths": [
+      29,
+      31
+    ],
+    "text_a": "</think>    if not text:\n        return None\n    import hashlib\n    return hashlib.md5(text.encode('utf-8')).hexdigest()",
+    "text_b": "</think>```python\n    if not text:\n        return None\n    import hashlib\n    return hashlib.md5(text.encode('ascii')).hexdigest()\n```"
+  }
+]

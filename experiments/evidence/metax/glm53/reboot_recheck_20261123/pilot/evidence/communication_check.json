@@ -1,0 +1,1 @@
+{"status": "passed", "ranks": 8, "default_p2p": false, "MCCL_P2P_DISABLE": "1", "scope": "Small compute/collectives with P2P disabled; does not repair or certify MetaXLink."}

@@ -1,0 +1,45 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 88
+PDF 页码标签: 76
+页脚页码候选: 76
+章节提示（书签推断）: 服务器信息配置
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+14.4.2 模型获取
+模型权重可以从 魔搭社区 获取，若不存在则默认使用官方发布的权重。在 ModelZoo.LLm.SGLang 的
+code/models 目录下已经存放了部分模型的 config 文件，其他模型可参考已有的 config 进行构建。更
+多说明见后文“修改模型配置文件”部分。
+14.4.3 服务器信息配置
+节点信息和通用环境变量配置，参见表 14.1。
+表 14.1 machine_info 的节点配置
+参数名称 说明
+ip IP 地址。
+ifname 网络接口名。填写与 IP 地址匹配的网卡名称。可以在 host 机器上使用命令
+ifconfig，然后查看 IP 地址对应的网卡名称。
+ib_hcas 主机通道适配器。在 host 机器上执行 ibstat 命令，筛选并汇总所有名称以
+mlx5 开头、端口状态为 Active 的网卡信息。
+公共环境变量配置，配置默认路径在 sgl/models/machines.json, 参数说明参见表 14.2。
+表 14.2 模型评测命令行参数解析
+参数名称 说明
+MACA_SMALL_PAGESIZE_ENABLE 页面大小优化
+TRITON_ENABLE_MACA_OPT_MOVE_DOT_
+OPERANDS_OUT_LOOP
+Triton 编译器优化
+TRITON_ENABLE_MACA_CHAIN_DOT_OPT Triton 编译器的链式 Dot 操作优化
+MACA_DIRECT_DISPATCH 开启 direct dispatch 功能
+MCDBG_GRAPH_LAUNCH_QUEUE_POLICY 设置 graph 内部创建的 stream/queue 的优先级
+为 high
+MCDBG_GRAPH_LAUNCH_QUEUE_POLICY 设置 graph 内部创建的 stream/queue 的优先级
+为 high
+PYTORCH_ENABLE_PG_HIGH_PRIORITY_
+STREAM
+PyTorch 的优先级流（Priority Stream）优化
+MACA_QUEUE_SCHEDULE_POLICY MACA 队列调度策略设置
+这里可以配置多组环境变量，以组名区分，如 default_envs、specific_scenario_envs。针对不同
+的任务，可以通过 task 和 benchmark 配置中的 environment 字段添加组名（如 specific_scenario_
+envs）来直接使用对应的环境变量。
+注意：default_envs 是针对当前版本提供的默认服务启动参数的最优环境变量。如果变更服务启动
+14 ModelZoo.LLM.SGLang 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 76

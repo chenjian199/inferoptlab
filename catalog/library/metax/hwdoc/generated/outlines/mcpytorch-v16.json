@@ -1,0 +1,357 @@
+[
+  {
+    "title": "概述",
+    "pdf_page": 7,
+    "depth": 1
+  },
+  {
+    "title": "适用产品",
+    "pdf_page": 7,
+    "depth": 2
+  },
+  {
+    "title": "快速安装",
+    "pdf_page": 8,
+    "depth": 1
+  },
+  {
+    "title": "基于pip安装",
+    "pdf_page": 8,
+    "depth": 2
+  },
+  {
+    "title": "环境准备",
+    "pdf_page": 8,
+    "depth": 3
+  },
+  {
+    "title": "开始安装",
+    "pdf_page": 8,
+    "depth": 3
+  },
+  {
+    "title": "验证安装",
+    "pdf_page": 9,
+    "depth": 3
+  },
+  {
+    "title": "如何卸载",
+    "pdf_page": 9,
+    "depth": 3
+  },
+  {
+    "title": "使用Docker运行",
+    "pdf_page": 10,
+    "depth": 2
+  },
+  {
+    "title": "功能支持",
+    "pdf_page": 11,
+    "depth": 1
+  },
+  {
+    "title": "torch",
+    "pdf_page": 11,
+    "depth": 2
+  },
+  {
+    "title": "torch.nn",
+    "pdf_page": 11,
+    "depth": 2
+  },
+  {
+    "title": "Convolution Layers",
+    "pdf_page": 11,
+    "depth": 3
+  },
+  {
+    "title": "Recurrent Layers",
+    "pdf_page": 12,
+    "depth": 3
+  },
+  {
+    "title": "Dropout Layers",
+    "pdf_page": 12,
+    "depth": 3
+  },
+  {
+    "title": "torch.nn.functional",
+    "pdf_page": 12,
+    "depth": 2
+  },
+  {
+    "title": "torch.Tensor",
+    "pdf_page": 12,
+    "depth": 2
+  },
+  {
+    "title": "Tensor Attributes",
+    "pdf_page": 13,
+    "depth": 2
+  },
+  {
+    "title": "Tensor Views",
+    "pdf_page": 13,
+    "depth": 2
+  },
+  {
+    "title": "torch.amp",
+    "pdf_page": 14,
+    "depth": 2
+  },
+  {
+    "title": "torch.autograd",
+    "pdf_page": 14,
+    "depth": 2
+  },
+  {
+    "title": "torch.library",
+    "pdf_page": 14,
+    "depth": 2
+  },
+  {
+    "title": "torch.cuda",
+    "pdf_page": 14,
+    "depth": 2
+  },
+  {
+    "title": "cuda",
+    "pdf_page": 14,
+    "depth": 3
+  },
+  {
+    "title": "Random Number Generator",
+    "pdf_page": 16,
+    "depth": 3
+  },
+  {
+    "title": "Communication collectives",
+    "pdf_page": 16,
+    "depth": 3
+  },
+  {
+    "title": "Streams and events",
+    "pdf_page": 16,
+    "depth": 3
+  },
+  {
+    "title": "Memory management",
+    "pdf_page": 16,
+    "depth": 3
+  },
+  {
+    "title": "Tools Extension",
+    "pdf_page": 17,
+    "depth": 3
+  },
+  {
+    "title": "Jiterator (beta)",
+    "pdf_page": 17,
+    "depth": 3
+  },
+  {
+    "title": "torch.backends",
+    "pdf_page": 18,
+    "depth": 2
+  },
+  {
+    "title": "torch.backends.cuda",
+    "pdf_page": 18,
+    "depth": 3
+  },
+  {
+    "title": "torch.backends.cudnn",
+    "pdf_page": 18,
+    "depth": 3
+  },
+  {
+    "title": "torch.backends.mps",
+    "pdf_page": 18,
+    "depth": 3
+  },
+  {
+    "title": "torch.backends.mkl",
+    "pdf_page": 19,
+    "depth": 3
+  },
+  {
+    "title": "torch.backends.mkldnn",
+    "pdf_page": 19,
+    "depth": 3
+  },
+  {
+    "title": "torch.backends.openmp",
+    "pdf_page": 19,
+    "depth": 3
+  },
+  {
+    "title": "torch.backends.opt_einsum",
+    "pdf_page": 19,
+    "depth": 3
+  },
+  {
+    "title": "torch.distributed",
+    "pdf_page": 19,
+    "depth": 2
+  },
+  {
+    "title": "torch.distributions",
+    "pdf_page": 19,
+    "depth": 2
+  },
+  {
+    "title": "torch._dynamo",
+    "pdf_page": 19,
+    "depth": 2
+  },
+  {
+    "title": "torch.fft",
+    "pdf_page": 20,
+    "depth": 2
+  },
+  {
+    "title": "torch.fx",
+    "pdf_page": 20,
+    "depth": 2
+  },
+  {
+    "title": "torch.jit",
+    "pdf_page": 20,
+    "depth": 2
+  },
+  {
+    "title": "torch.linalg",
+    "pdf_page": 20,
+    "depth": 2
+  },
+  {
+    "title": "torch.package",
+    "pdf_page": 20,
+    "depth": 2
+  },
+  {
+    "title": "torch.profiler",
+    "pdf_page": 20,
+    "depth": 2
+  },
+  {
+    "title": "torch.nn.init",
+    "pdf_page": 20,
+    "depth": 2
+  },
+  {
+    "title": "torch.onnx",
+    "pdf_page": 20,
+    "depth": 2
+  },
+  {
+    "title": "torch.optim",
+    "pdf_page": 21,
+    "depth": 2
+  },
+  {
+    "title": "Complex Numbers",
+    "pdf_page": 21,
+    "depth": 2
+  },
+  {
+    "title": "DDP Communication Hooks",
+    "pdf_page": 21,
+    "depth": 2
+  },
+  {
+    "title": "torch.random",
+    "pdf_page": 21,
+    "depth": 2
+  },
+  {
+    "title": "torch.masked",
+    "pdf_page": 21,
+    "depth": 2
+  },
+  {
+    "title": "torch.nested",
+    "pdf_page": 21,
+    "depth": 2
+  },
+  {
+    "title": "torch.sparse",
+    "pdf_page": 21,
+    "depth": 2
+  },
+  {
+    "title": "torch.Storage",
+    "pdf_page": 21,
+    "depth": 2
+  },
+  {
+    "title": "torch.testing",
+    "pdf_page": 22,
+    "depth": 2
+  },
+  {
+    "title": "torch.utils.benchmark",
+    "pdf_page": 22,
+    "depth": 2
+  },
+  {
+    "title": "torch.utils.bottleneck",
+    "pdf_page": 22,
+    "depth": 2
+  },
+  {
+    "title": "torch.utils.checkpoint",
+    "pdf_page": 22,
+    "depth": 2
+  },
+  {
+    "title": "torch.utils.cpp_extension",
+    "pdf_page": 22,
+    "depth": 2
+  },
+  {
+    "title": "torch.utils.data",
+    "pdf_page": 22,
+    "depth": 2
+  },
+  {
+    "title": "torch.utils.jit",
+    "pdf_page": 22,
+    "depth": 2
+  },
+  {
+    "title": "torch.utils.model_zoo",
+    "pdf_page": 23,
+    "depth": 2
+  },
+  {
+    "title": "torch.utils.tensorboard",
+    "pdf_page": 23,
+    "depth": 2
+  },
+  {
+    "title": "Type Info",
+    "pdf_page": 23,
+    "depth": 2
+  },
+  {
+    "title": "torch.__config__",
+    "pdf_page": 23,
+    "depth": 2
+  },
+  {
+    "title": "常用环境变量",
+    "pdf_page": 24,
+    "depth": 1
+  },
+  {
+    "title": "PYTORCH_DEFAULT_NCHW",
+    "pdf_page": 24,
+    "depth": 2
+  },
+  {
+    "title": "TORCH_ALLOW_TF32_CUBLAS_OVERRIDE",
+    "pdf_page": 25,
+    "depth": 2
+  }
+]

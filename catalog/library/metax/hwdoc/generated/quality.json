@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-11-24T03:53:03.829702+00:00",
+  "document_count": 16,
+  "page_count": 899,
+  "source_hashes_verified": true,
+  "empty_pages": [],
+  "flagged_pages": [
+    {
+      "doc_id": "mceigen-v03",
+      "pdf_page": 3,
+      "page_label": "i",
+      "text_path": "generated/text/mceigen-v03/page-0003.txt",
+      "quality_flags": [
+        "short_text"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 8,
+      "page_label": "1",
+      "text_path": "generated/text/mcblas-v05/page-0008.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 36,
+      "page_label": "29",
+      "text_path": "generated/text/mcblas-v05/page-0036.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 37,
+      "page_label": "30",
+      "text_path": "generated/text/mcblas-v05/page-0037.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 38,
+      "page_label": "31",
+      "text_path": "generated/text/mcblas-v05/page-0038.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 39,
+      "page_label": "32",
+      "text_path": "generated/text/mcblas-v05/page-0039.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 42,
+      "page_label": "35",
+      "text_path": "generated/text/mcblas-v05/page-0042.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 44,
+      "page_label": "37",
+      "text_path": "generated/text/mcblas-v05/page-0044.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 46,
+      "page_label": "39",
+      "text_path": "generated/text/mcblas-v05/page-0046.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 56,
+      "page_label": "49",
+      "text_path": "generated/text/mcblas-v05/page-0056.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 57,
+      "page_label": "50",
+      "text_path": "generated/text/mcblas-v05/page-0057.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 59,
+      "page_label": "52",
+      "text_path": "generated/text/mcblas-v05/page-0059.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 61,
+      "page_label": "54",
+      "text_path": "generated/text/mcblas-v05/page-0061.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 62,
+      "page_label": "55",
+      "text_path": "generated/text/mcblas-v05/page-0062.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 64,
+      "page_label": "57",
+      "text_path": "generated/text/mcblas-v05/page-0064.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 76,
+      "page_label": "69",
+      "text_path": "generated/text/mcblas-v05/page-0076.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 79,
+      "page_label": "72",
+      "text_path": "generated/text/mcblas-v05/page-0079.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 82,
+      "page_label": "75",
+      "text_path": "generated/text/mcblas-v05/page-0082.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 84,
+      "page_label": "77",
+      "text_path": "generated/text/mcblas-v05/page-0084.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 86,
+      "page_label": "79",
+      "text_path": "generated/text/mcblas-v05/page-0086.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 90,
+      "page_label": "83",
+      "text_path": "generated/text/mcblas-v05/page-0090.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 93,
+      "page_label": "86",
+      "text_path": "generated/text/mcblas-v05/page-0093.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 95,
+      "page_label": "88",
+      "text_path": "generated/text/mcblas-v05/page-0095.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 97,
+      "page_label": "90",
+      "text_path": "generated/text/mcblas-v05/page-0097.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 99,
+      "page_label": "92",
+      "text_path": "generated/text/mcblas-v05/page-0099.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 101,
+      "page_label": "94",
+      "text_path": "generated/text/mcblas-v05/page-0101.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 103,
+      "page_label": "96",
+      "text_path": "generated/text/mcblas-v05/page-0103.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 106,
+      "page_label": "99",
+      "text_path": "generated/text/mcblas-v05/page-0106.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 108,
+      "page_label": "101",
+      "text_path": "generated/text/mcblas-v05/page-0108.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 110,
+      "page_label": "103",
+      "text_path": "generated/text/mcblas-v05/page-0110.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 111,
+      "page_label": "104",
+      "text_path": "generated/text/mcblas-v05/page-0111.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 113,
+      "page_label": "106",
+      "text_path": "generated/text/mcblas-v05/page-0113.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 116,
+      "page_label": "109",
+      "text_path": "generated/text/mcblas-v05/page-0116.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 119,
+      "page_label": "112",
+      "text_path": "generated/text/mcblas-v05/page-0119.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 123,
+      "page_label": "116",
+      "text_path": "generated/text/mcblas-v05/page-0123.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 137,
+      "page_label": "130",
+      "text_path": "generated/text/mcblas-v05/page-0137.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 140,
+      "page_label": "133",
+      "text_path": "generated/text/mcblas-v05/page-0140.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 144,
+      "page_label": "137",
+      "text_path": "generated/text/mcblas-v05/page-0144.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 149,
+      "page_label": "142",
+      "text_path": "generated/text/mcblas-v05/page-0149.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 153,
+      "page_label": "146",
+      "text_path": "generated/text/mcblas-v05/page-0153.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 155,
+      "page_label": "148",
+      "text_path": "generated/text/mcblas-v05/page-0155.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 157,
+      "page_label": "150",
+      "text_path": "generated/text/mcblas-v05/page-0157.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 159,
+      "page_label": "152",
+      "text_path": "generated/text/mcblas-v05/page-0159.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    },
+    {
+      "doc_id": "mcblas-v05",
+      "pdf_page": 165,
+      "page_label": "158",
+      "text_path": "generated/text/mcblas-v05/page-0165.txt",
+      "quality_flags": [
+        "private_use_characters"
+      ]
+    }
+  ],
+  "limitations": [
+    "文本提取不保证图表、公式、代码缩进及跨页表格的版式正确；使用时回看 PDF。",
+    "质量标记仅是启发式检查；无标记不等于已完成视觉校验。",
+    "page_label 来自 PDF 元数据，footer_label_candidate 是页脚猜测；PDF 页序号是唯一定位依据。",
+    "主题为人工配置的导航分类；软件兼容性尚未与服务器实测核对。"
+  ]
+}

@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 62
+PDF 页码标签: 50
+页脚页码候选: 50
+章节提示（书签推断）: 安装wheel包
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+7.3 MacaRT‑vLLM 使用流程
+本章节介绍 MacaRT‑vLLM 的使用步骤，主要分为离线推理、吞吐测试和 Server 服务。
+7.3.1 环境准备
+使用 MacaRT‑vLLM 进行推理需要准备好环境。目前提供两种方式：镜像和 wheel 包。
+7.3.1.1 使用 vLLM 镜像
+从沐曦开发者中心的镜像资源中心获取镜像。
+选择合适的架构类型、操作系统类型、Python 版本后，点击 docker 命令复制，获取此 Docker 镜像的
+拉取命令。
+创建容器环境示例如下：
+export IMAGE=cr.metax-tech.com/public-ai-release/maca/vllm:maca.ai3.1.0.7-torch2.6-
+,→py310-ubuntu22.04-amd64
+sudo docker run -it --privileged --cap-add=SYS_PTRACE --security-opt 
+,→seccomp=unconfined \
+--device=/dev/dri --device=/dev/mxcd --device=infiniband --group-add video --
+,→name vllm_metax --network=host \
+--security-opt apparmor=unconfined --shm-size '100gb' --ulimit memlock=-1 \
+-v /mnt:/mnt \
+$IMAGE \
+/bin/bash
+sudo docker exec -it vllm_metax /bin/bash
+7.3.1.2 安装 wheel 包
+操作步骤
+1. 预先安装沐曦平台的 torch、flash attn、xformer（可选）环境。
+2. 获取MacaRT‑vLLM 压缩包maca‑vllm‑py310‑xxx‑${OS_Version}.tar .xz并解压。
+3. pip 安装以下 wheel 包：
+• vllm‑0.8.2+xxx.whl
+• flash_attn+xxx.whl （适配 vLLM 新加速 whl 包）
+• ray‑2.43.0‑cp310‑cp310_${OS_Version}.whl
+除了上述 wheel 包，其他依赖环境可以通过外部镜像源进行安装。安装过程中有其他依赖，需要提前配
+置好 Python 的 pip 源。
+7 MacaRT‑vLLM 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 50

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "template",
+  "operator_id": null,
+  "source": {
+    "module": null,
+    "dispatcher_schema": null,
+    "kernel": null,
+    "commit": null
+  },
+  "phase": null,
+  "ranks": [],
+  "inputs": [],
+  "outputs": [],
+  "layout_stride_alias_contract": null,
+  "quantization_scale_contract": null,
+  "state_mutation_contract": null,
+  "workspace_contract": null,
+  "supported_shapes": [],
+  "fallback_contract": null,
+  "capture_artifacts": [],
+  "reference": null,
+  "tolerance_config": null,
+  "B0_capture_replay_verified": false
+}

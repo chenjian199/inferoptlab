@@ -1,0 +1,178 @@
+{
+  "date": "2026-11-23",
+  "distribution_kind": "Documentation, scripts, patches and historical evidence; no inference/scoring images or complete build materials",
+  "source_copy_initial_files": 1674,
+  "source_copy_initial_bytes": 2049660119,
+  "copy_matched_original_before_changes": true,
+  "original_project_preservation": {
+    "original_files_checked": 1674,
+    "status": "unchanged",
+    "method": "All original relative paths, file sizes and SHA256 checked before and after copy preparation; distribution copy and future new ZIP/sidecar excluded."
+  },
+  "removed": [
+    {
+      "path": "glmf/deploy032/image_download/0d0c0386441fb26465071878734155b16ca1cd0988c6d40533782c1e1016e6c7.part",
+      "bytes": 653262848,
+      "sha256": "aef57133a209346129bdf6e140872e799c2e5a893edd61cf5f383d043eb55a4a",
+      "reason": "Incomplete image download and its metadata excluded"
+    },
+    {
+      "path": "glmf/deploy032/image_download/69009d94255a83778b9774920f0279b859b9815e9519453ba325cd5571034dc1.part",
+      "bytes": 636485632,
+      "sha256": "483743f9d24addf564f4c1ce5cfa0ed91936582e0522e49704dc2b64859a344e",
+      "reason": "Incomplete image download and its metadata excluded"
+    },
+    {
+      "path": "glmf/deploy032/image_download/a21e3d78e706172c4d67bccd6f73c82341487d99c7462037a0394d4ec0f0a654.part",
+      "bytes": 686675647,
+      "sha256": "b0e16fe55d524295f1543016f6b8bb55489a791f5236903c9ebfb2496ca3be32",
+      "reason": "Incomplete image download and its metadata excluded"
+    },
+    {
+      "path": "glmf/deploy032/image_download/manifest.raw.json",
+      "bytes": 9320,
+      "sha256": "c0bf5876cc334521408bd54f4028f36d171e31a6ab05136da4174344e057d76d",
+      "reason": "Incomplete image download and its metadata excluded"
+    },
+    {
+      "path": "glmf/deploy032/image_download/progress.json",
+      "bytes": 1110,
+      "sha256": "76729ccc1a1597f1d29c5f9742d58aba0672ff6bee5f4b800878243b16d14ff0",
+      "reason": "Incomplete image download and its metadata excluded"
+    },
+    {
+      "path": "tmp/github_repos_raw.json",
+      "bytes": 409660,
+      "sha256": "efc4d366d228a4051f9e43b3ce85e6866f0d66ac21cecb3842318a134b0bb5c2",
+      "reason": "Temporary local staging / preview files excluded"
+    },
+    {
+      "path": "tmp/integration_source_hashes.json",
+      "bytes": 3017,
+      "sha256": "f8894b86cadfcea7a23d5ddac168baf464023a0ce03ba133d71fd645776be5e1",
+      "reason": "Temporary local staging / preview files excluded"
+    },
+    {
+      "path": "tmp/pdfs/gemm_stack/blas-008.png",
+      "bytes": 184761,
+      "sha256": "a261da3f33d81dc59068816adfbc5960f9a81790be3a1f169f3aee1359efd545",
+      "reason": "Temporary local staging / preview files excluded"
+    },
+    {
+      "path": "tmp/pdfs/gemm_stack/blas-009.png",
+      "bytes": 161807,
+      "sha256": "61c730997c2cd3d87790c4f892471c3c3a31aa4e6640b5991fd3de7675be8395",
+      "reason": "Temporary local staging / preview files excluded"
+    },
+    {
+      "path": "tmp/pdfs/gemm_stack/cpp-009.png",
+      "bytes": 43131,
+      "sha256": "ef5e465b4eb1902a2f11297a499ad93db6f722bc98814b0a1bcb719f546e5a54",
+      "reason": "Temporary local staging / preview files excluded"
+    },
+    {
+      "path": "tmp/pdfs/gemm_stack/cpp-010.png",
+      "bytes": 171354,
+      "sha256": "d960c63e0913b2f64665af9e16e14893c978d55da8a8e5c397aff4dcd1633c34",
+      "reason": "Temporary local staging / preview files excluded"
+    },
+    {
+      "path": "tmp/pdfs/gemm_stack/mccl-32.png",
+      "bytes": 153433,
+      "sha256": "9af6b8cfe466dfcb6e165f60924b42201e5e474483af2bc5b2fdd9eca30d53bf",
+      "reason": "Temporary local staging / preview files excluded"
+    },
+    {
+      "path": "tmp/pdfs/gemm_stack/mxcc-06.png",
+      "bytes": 62212,
+      "sha256": "257405f02340cc6b5dc8de52702ac675c9c6a675cf3f549e5427ec62b15dd765",
+      "reason": "Temporary local staging / preview files excluded"
+    },
+    {
+      "path": "tmp/pdfs/gemm_stack/triton-05.png",
+      "bytes": 85426,
+      "sha256": "0538b1eafe5d52fb159fa335b41b459175b0a72ad67360b2adf94aa4b75ca22e",
+      "reason": "Temporary local staging / preview files excluded"
+    },
+    {
+      "path": "tmp/pdfs/gemm_stack/triton-06.png",
+      "bytes": 125046,
+      "sha256": "d070858348616d73323f21726392e963ede4003128512ddb56c04814d9c95d94",
+      "reason": "Temporary local staging / preview files excluded"
+    }
+  ],
+  "removed_bytes": 1977834404,
+  "modified_original_files": [
+    {
+      "path": "hwdoc/generated/knowledge.json",
+      "original": {
+        "bytes": 1390899,
+        "sha256": "529b8284e87543908ce4fe1ddc9e9a7e159c223d78e58c5eda1ba5b3073f1d38"
+      },
+      "distributed": {
+        "bytes": 1391820,
+        "sha256": "7511e193972254ee28285c479d014a10760d0dbfa11c2cf1de9a581ca87f06af"
+      }
+    },
+    {
+      "path": "hwdoc/repositories/2026-11-21/README.md",
+      "original": {
+        "bytes": 8001,
+        "sha256": "85b33eb23aee443ef320178f7d12c32fe9df56f5f58fa007c100d9dd005b3f52"
+      },
+      "distributed": {
+        "bytes": 8454,
+        "sha256": "debc7b98962c91bcce100ed81ddeb8aec32a17c69cf0de30724c08353565608a"
+      }
+    },
+    {
+      "path": "hwdoc/repositories/2026-11-21/readmes/mcXformer.txt",
+      "original": {
+        "bytes": 13620,
+        "sha256": "292c1c18afeebcb3d44ecb54539aa5cf32ce9570349edd6e4c7a15eacbb94e78"
+      },
+      "distributed": {
+        "bytes": 13603,
+        "sha256": "a67425e919272f8cb766b0ba8203c874f7aacc7184b03f16221f5b7244df28ab"
+      }
+    },
+    {
+      "path": "hwdoc/repositories/2026-11-21/repositories.json",
+      "original": {
+        "bytes": 176138,
+        "sha256": "2066f31eff18cede86215cfc2c1dbfe960f4f6d260c1e664532ea72f33b27e7e"
+      },
+      "distributed": {
+        "bytes": 176603,
+        "sha256": "5a9af6f17d4f0f22573cbccb4b20f53f0f7602eaad90ed99ba39baa4c08a0cc2"
+      }
+    },
+    {
+      "path": "移交说明_C500_GLM模型复现.md",
+      "original": {
+        "bytes": 43105,
+        "sha256": "f0c6ea07bbbd444ccccbf38f9c5bf89dd2d7e6c5a9376c778b7da5069719b9d0"
+      },
+      "distributed": {
+        "bytes": 43684,
+        "sha256": "2ea954ed90bedb8b1d65cde459c212cc4c2e0c333721a8ec729d213e9d92261c"
+      }
+    }
+  ],
+  "sanitization": {
+    "path": "hwdoc/repositories/2026-11-21/readmes/mcXformer.txt",
+    "line": 13,
+    "original_sha256": "292c1c18afeebcb3d44ecb54539aa5cf32ce9570349edd6e4c7a15eacbb94e78",
+    "sanitized_sha256": "a67425e919272f8cb766b0ba8203c874f7aacc7184b03f16221f5b7244df28ab",
+    "transformation": "Remove public Codecov badge URL token query parameter; no token value retained in provenance."
+  },
+  "new_distribution_files": [
+    "FILES_SHA256.json",
+    "TRANSFER_PROVENANCE.json",
+    "TRANSFER_SECURITY_REVIEW.json",
+    "TRANSFER_VALIDATION.json",
+    "verify_package.py",
+    "先读我_移交包.md"
+  ],
+  "integrity_note": "FILES_SHA256.json covers every distributed file except itself. ZIP sidecar SHA256 covers the entire archive, including that manifest. No historic experiment artifact hashes were rewritten."
+}

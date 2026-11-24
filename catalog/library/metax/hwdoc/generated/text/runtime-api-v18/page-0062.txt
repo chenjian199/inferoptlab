@@ -1,0 +1,21 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 62
+PDF 页码标签: 53
+页脚页码候选: 53
+章节提示（书签推断）: 运行时编译和动态加载
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+图 4.3 CMake 编译和示例
+4.2 运行时编译和动态加载
+沐曦通用 GPU 支持运行时编译和动态加载功能，整个流程如 图 4.4 所示。其中运行时进行实时编译
+（Just‑In‑Time, JIT）采用了 LLVM bitcode 格式文件，有关该格式的详细内容，参见官方文档介绍。
+用户在使用时通过引入头文件 mcrtc.h，即可使用 MCRTC 提供的所有功能：
+• MCRTC 将原始的 C++ 语法的 MXMACA 代码，通过 mcrtcGetBitCode 接口编译生成 bitcode 格式
+的二进制代码。
+• 将生成的 bitcode 代码，通过 mcModuleLoad 进行加载，沐曦通用 GPU 的驱动（运行时库 API）会
+继续进行后续编译并生成设备侧的可执行代码，用户在调用 mcModuleLaunchKernel API 接口的时
+候会将这些设备侧可执行代码送入 GPU 执行。
+4 编译和调试 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 53

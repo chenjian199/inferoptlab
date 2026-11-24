@@ -1,0 +1,43 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 38
+PDF 页码标签: 29
+页脚页码候选: 29
+章节提示（书签推断）: 多设备管理
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+3.5.7.4 IPC 导出内存池限制
+IPC 内存池目前不支持将物理块释放回操作系统。因此，mcMemPoolTrimTo API 充当空操作，即该 API
+设置的参数 mcMemPoolAttrReleaseThreshold 不会生效。此行为由驱动程序控制，而不是运行时
+控制，且未来可能会随驱动程序更新而发生变化。
+3.5.7.5 IPC 导入内存池限制
+不支持从导入池中分配； 具体来说， 导入池不能设置为当前内存池， 也不能在mcMallocFromPoolAsync
+API 中使用。因此，分配重用策略属性对这些 IPC 导入内存池没有意义。
+3.6 多设备系统编程
+3.6.1 多设备管理
+在使用沐曦通用 GPU 时，单个主机线程可以管理多个设备。一般来说，第一步是确定系统内可用的使能
+MXMACA 设备的数量，使用如下函数获得：
+mcError_t mcGetDeviceCount(int* count);
+下面的代码说明了如何确定使能 MXMACA 的设备的数量，对这些设备进行遍历，并查询性能。
+int nGpus;
+mcGetDeviceCount(&nGpus);
+for (int i = 0; i < nGpus; i++) {
+mcDeviceProp devProp;
+mcGetDeviceProperties(&devProp, i);
+printf("Device %d has compute capability %d.%d.\n",
+i, devProp.major, devProp.minor);
+}
+对于利用多 GPU 一起工作的 MXMACA 应用程序，必须显式指定哪个 GPU 是当前所有 MXMACA 运算的
+目标。使用以下函数设置当前设备：
+mcError_t mcSetDeviceCount(int id);
+该函数将具有标识符 id 的设备设置为当前设备。该函数不会与其他设备同步，因此是一个低开销的调
+用。使用此函数，可以在任何时间从任何主机线程中选择任何设备。有效的设备标识符范围为从 0 到
+ngpus-1。如果在首个 MXMACA API 调用之前，没有显式调用 mcSetDevice 函数，那么当前设备会被
+自动设置为设备 0。
+一旦选定了当前设备，所有的 MXMACA 运算都将应用到该设备上：
+• 任何从主线程中分配来的设备内存将完全地常驻于该设备上
+• 任何由 MXMACA 运行时函数分配的主机内存都会有与该设备相关的生存时间
+• 任何由主机线程创建的流或事件都会与该设备相关
+3 编程接口 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 29

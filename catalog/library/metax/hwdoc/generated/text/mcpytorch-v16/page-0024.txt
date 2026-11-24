@@ -1,0 +1,38 @@
+文档: 沐曦通用GPU_mcPyTorch用户指南_CN_V16.pdf
+文档 ID: mcpytorch-v16
+SHA256: 165b88e24e4768497ef4587368037b4bbc99ab933eafc3e4baac43175c83cdb2
+PDF 页序号: 24
+PDF 页码标签: 18
+页脚页码候选: 18
+章节提示（书签推断）: PYTORCH_DEFAULT_NCHW
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcPyTorch 用户指南
+4 常用环境变量
+4.1 PYTORCH_DEFAUL T_NCHW
+对于四维 Tensor，为获得更好的性能，mcPyTorch 在其从 CPU 向 device 侧搬运时会更改 layout 为
+torch.channels_last (NHWC)。该环境变量用于恢复官方默认行为，即搬运时不做额外的 layout 改变逻
+辑。
+注解: 偶然情况下，上述默认更改 layout 的转换可能因为 viewop 的使用引起以下报错：
+Runtime Error: view size is not compatible with input tensor's size and stride(.
+,→..). Use .reshape(...) instead.
+这 时 可 以 参 考 提 示 信 息 使 用 reshape 替 换 viewop； 也 可 设 置export PYTORCH_DEFAULT_
+NCHW=1 恢复官方默认行为，避免这种报错。
+• 设置：export PYTORCH_DEFAULT_NCHW=1
+• 取消设置：unset PYTORCH_DEFAULT_NCHW
+示例：
+• 设置 unset PYTORCH_DEFAULT_NCHW ，运行程序结果如下：
+>>> import torch
+>>> a = torch.rand(2,3,4,5).cuda()
+>>> a.shape
+torch.Size([2, 3, 4, 5])
+>>> a.stride()
+(60, 1, 15, 3)
+• 设置 export PYTORCH_DEFAULT_NCHW=1 ，运行程序结果如下：
+>>> import torch
+>>> a = torch.rand(2,3,4,5).cuda()
+>>> a.shape
+torch.Size([2, 3, 4, 5])
+>>> a.stride()
+(60, 20, 5, 1)
+4 常用环境变量 沐曦股份专有信息 OG‑23031‑020‑F5_V16 | 18

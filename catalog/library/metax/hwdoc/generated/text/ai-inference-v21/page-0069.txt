@@ -1,0 +1,45 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 69
+PDF 页码标签: 57
+页脚页码候选: 57
+章节提示（书签推断）: 吞吐测试
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+(续上页)
+sampling_params = SamplingParams(temperature=0.8, top_p=0.95)
+def main():
+# Create an LLM.
+llm = LLM(model="facebook/opt-125m")
+# Generate texts from the prompts.
+# The output is a list of RequestOutput objects
+# that contain the prompt, generated text, and other information.
+outputs = llm.generate(prompts, sampling_params)
+# Print the outputs.
+print("\nGenerated Outputs:\n" + "-" * 60)
+for output in outputs:
+prompt = output.prompt
+generated_text = output.outputs[0].text
+print(f"Prompt: {prompt!r}" )
+print(f"Output: {generated_text!r}" )
+print("-" * 60)
+if __name__ == "__main__":
+main()
+其中主要配置为：
+• LLM 初始化类：指定模型路径（可配置为本地路径，如果不是本地路径，会根据网络下载外网模型） 、
+tensor 切分数量、模型数据类型（可不配置，如果没指定，将通过model config 读取） 、模型最大处
+理长度（可不配置，如果没设置，将从 model config 读取）
+• SamplingParams：设置采样算法方式。参数配置可参照官方 vLLM v0.11.0 版本进行配置。
+8.3.3 吞吐测试
+吞吐测试代码可参考官方 vLLm‑0.11.0 benchmark_throughput.py。
+吞吐测试代码的运行方式示例 1：
+python -m vllm.entrypoints.cli.main bench throughput --model XXX --tensor-parallel-
+,→size 1 --num-prompts 8 --trust-remote-code --input-len 1024 --output-len 512
+模型为 XXX，tensor 并行为 1，8 条请求数量，信任模型路径的 tokenizer 方式，每条输入长度为 1024
+个 token，输出为 512 个 token。
+吞吐测试代码的运行方式示例 2：
+vllm bench throughput --model XXX --tensor-parallel-size 1 --num-prompts 8 --trust-
+,→remote-code --dataset XXX.json
+8 MacaRT‑vLLM‑metax 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 57

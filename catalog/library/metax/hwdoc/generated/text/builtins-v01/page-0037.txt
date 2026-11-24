@@ -1,0 +1,38 @@
+文档: 沐曦通用GPU_MXMACA编译器内建函数编程指南_CN_V01.pdf
+文档 ID: builtins-v01
+SHA256: 80dfb3a83381e48e19968b432d4eb24d37c505bd711af14f74889277cffc3835
+PDF 页序号: 37
+PDF 页码标签: 31
+页脚页码候选: 31
+章节提示（书签推断）: __builtin_mxc_mad_wide_i32/u32
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® 编译器内建函数编程指南
+3.6.7 __builtin_mxc_mma_16x16x8tf32
+功能描述
+tf32 类型矩阵乘加函数: D = A * B + C.
+接口声明
+v4f32 __builtin_mxc_mma_16x16x8tf32(v2f32 a, v2f32 b, v4f32 c);
+参数
+表 3.24 __builtin_mxc_mma_16x16x8tf32 参数说明
+名称 描述
+return_value 元素类型为 tf32 的 16x16 输出矩阵
+a 元素类型为 tf32 的 16x8 输入矩阵
+b 元素类型为 tf32 的 8x16 输入矩阵
+c 元素类型为 tf32 的 16x16 输入矩阵
+代码示例
+using v4f32 = __NATIVE_VECTOR__(4, float);
+using v2f32 = __NATIVE_VECTOR__(2, float);
+__device__ v4f32 test_builtin_mxc_mma_16x16x8tf32(v2f32 A, v2f32 B, v4f32 C) {
+v4f32 D = __builtin_mxc_mma_16x16x8tf32(A, B, C);
+return D;
+}
+3.7 常用计算函数
+3.7.1 __builtin_mxc_mad_wide_i32/u32
+功能描述
+整数乘加。其中乘法操作数宽度为 32bit，而累加操作数宽度为 64bit。
+接口声明
+int64_t __builtin_mxc_mad_wide_i32(int a, int b, int64_t c);
+uint64_t __builtin_mxc_mad_wide_u32(unsigned int a, unsigned int b, uint64_t c);
+参数
+3 接口介绍 沐曦股份专有信息 OG‑26013‑000‑F5_V01 | 31

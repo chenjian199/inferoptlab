@@ -1,0 +1,12 @@
+[
+  {
+    "test": "test_int8_linear",
+    "exit": 0,
+    "elapsed_seconds": 31.86722865900083
+  },
+  {
+    "test": "test_sparse_mla",
+    "exit": 0,
+    "elapsed_seconds": 32.37201914099569
+  }
+]

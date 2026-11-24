@@ -1,0 +1,47 @@
+[
+  {
+    "title": "概述",
+    "pdf_page": 5,
+    "depth": 1
+  },
+  {
+    "title": "适用场景",
+    "pdf_page": 5,
+    "depth": 2
+  },
+  {
+    "title": "适用产品",
+    "pdf_page": 5,
+    "depth": 2
+  },
+  {
+    "title": "配置说明",
+    "pdf_page": 6,
+    "depth": 1
+  },
+  {
+    "title": "不同 MXMACA SDK Release版本的支持情况",
+    "pdf_page": 6,
+    "depth": 2
+  },
+  {
+    "title": "MXMACA SDK Release版本 ＜ 3.8.3",
+    "pdf_page": 6,
+    "depth": 3
+  },
+  {
+    "title": "3.8.3 ≤ MXMACA SDK Release版本 ≤ 3.10.0",
+    "pdf_page": 6,
+    "depth": 3
+  },
+  {
+    "title": "MXMACA SDK Release版本 ≥ 3.10.1",
+    "pdf_page": 7,
+    "depth": 3
+  },
+  {
+    "title": "客户使用建议",
+    "pdf_page": 7,
+    "depth": 2
+  }
+]

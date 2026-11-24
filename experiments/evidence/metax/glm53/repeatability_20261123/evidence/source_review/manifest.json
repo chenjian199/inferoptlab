@@ -1,0 +1,22 @@
+[
+  {
+    "path": "/opt/conda/lib/python3.12/site-packages/mcoplib/triton_gumbel_sample.py",
+    "file": "0_triton_gumbel_sample.py",
+    "sha256": "4b5368bda01a6de90059cf9c099856ceebdc5bbb9ed1a4588c0d027dbca49b1e"
+  },
+  {
+    "path": "/work/src/vllm/vllm/v1/worker/gpu/sample/sampler.py",
+    "file": "1_sampler.py",
+    "sha256": "620b0ff1bea504ebe61794b91ab07cdc243d3d05f8dea4c4044c374add76270b"
+  },
+  {
+    "path": "/work/src/vllm/vllm/v1/worker/gpu/sample/states.py",
+    "file": "2_states.py",
+    "sha256": "7dbccea6fb6e24830dafb447a43f93fd0539f33ef02f1b5bf7c2547234cbffa3"
+  },
+  {
+    "path": "/work/src/vllm-metax/vllm_metax/patch/enhancement/performance/gumbel_sample.py",
+    "file": "3_gumbel_sample.py",
+    "sha256": "2a2741c4d64c8124f667fb1881c981ee6a525d814ababa18455a26149f477445"
+  }
+]

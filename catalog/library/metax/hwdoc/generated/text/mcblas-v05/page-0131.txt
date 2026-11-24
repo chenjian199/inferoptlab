@@ -1,0 +1,56 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 131
+PDF 页码标签: 124
+页脚页码候选: 124
+章节提示（书签推断）: mcblas<t>gelsBatched()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+(续上页)
+int lda,
+float *const Carray[],
+int ldc,
+int *info,
+int *devInfoArray,
+int batchSize );
+mcblasStatus_t mcblasDgelsBatched(mcblasHandle_t handle,
+mcblasOperation_t trans,
+int m,
+int n,
+int nrhs,
+double *const Aarray[],
+int lda,
+double *const Carray[],
+int ldc,
+int *info,
+int *devInfoArray,
+int batchSize );
+mcblasStatus_t mcblasCgelsBatched(mcblasHandle_t handle,
+mcblasOperation_t trans,
+int m,
+int n,
+int nrhs,
+mcComplex *const Aarray[],
+int lda,
+mcComplex *const Carray[],
+int ldc,
+int *info,
+int *devInfoArray,
+int batchSize );
+mcblasStatus_t mcblasZgelsBatched(mcblasHandle_t handle,
+mcblasOperation_t trans,
+int m,
+int n,
+int nrhs,
+mcDoubleComplex *const Aarray[],
+int lda,
+mcDoubleComplex *const Carray[],
+int ldc,
+int *info,
+int *devInfoArray,
+int batchSize );
+Aarray 是一个指向矩阵的指针数组，以列主格式存储，维度为 m x n，前导维度为 lda。Carray 是
+一个指向矩阵的指针数组，以列主格式存储，维度为 n x nrhs，前导维度为 ldc。
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 124

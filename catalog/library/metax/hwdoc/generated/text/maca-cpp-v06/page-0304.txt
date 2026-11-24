@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 304
+PDF 页码标签: 296
+页脚页码候选: 296
+章节提示（书签推断）: Single thread分组
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+(续上页)
+thread_block_tile<32> tile32 = tiled_partition<32>(block);
+thread_block_tile<4, thread_block> tile4 = tiled_partition<4>(block);
+注解: 这里要使用模板化的数据结构 thread_block_tile ，分组的 size 通过模板参数传递给
+tiled_partition而非函数参数。
+Warp‑Synchronous 代码模型
+开发者可能会写出之前隐式地假定 warp size 的 warp‑synchronize 代码，并且根据这个数字编写代码。
+现在需要显式地指定这个数字。
+__global__ void cooperative_kernel(...) {
+// 获取默认的“当前 thread block” 分组
+thread_block my_block = this_thread_block();
+// 细分为 32个thread的分组， tiled子分组
+// tiled子分组将父分组均匀地划分为相邻的 thread集合
+// ——在这种情况下，每个分组有一个 warp size数量的 thread
+auto my_tile = tiled_partition<64>(my_block);
+// 下面的操作将会只被每个 block的前 64个thread组成的
+// tiled分组执行
+if（my_tile.meta_group_rank() == 0) {
+// ...
+my_tile.sync();
+}
+}
+Single thread 分组
+表示当前thread的分组可以通过 this_thread这个函数获取：
+thread_block_tile<1> this_thread();
+下面的 memcpy_asyncAPI使用一个 thread_group，来从源到目标拷贝一个元素：
+#include <maca_cooperative_groups.h>
+#include <maca_async.h>
+cooperative_groups::memcpy_async(cooperative_groups::this_thread(),
+dest, src, sizeof(int));
+3 CooperativeGroups 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 296

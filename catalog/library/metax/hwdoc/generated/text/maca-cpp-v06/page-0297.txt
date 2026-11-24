@@ -1,0 +1,53 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 297
+PDF 页码标签: 289
+页脚页码候选: 289
+章节提示（书签推断）: #pragma unroll
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+__global__ void
+__launch_bounds__(maxThreadsPerBlock)
+MyKernel(...)
+{
+...
+}
+maxThreadsPerBlock确定每次程序启动MyKernel的时候，每个block的最大线程数量。
+如果指定了启动边界，编译器首先从它们派生出内核应该使用的寄存器数量上限，以确保 max‑
+ThreadsPerBlock线程可以驻留在多处理器上。
+2.33 #pragma unroll
+编译器在默认情况下会展开具有较小次数的循环。也可以使用 #pragma unroll指令指示编译器展开
+任意循环。该指令的位置必须在一个循环前面，同时也只作用于这个循环。指令后可以跟随一个可选的
+整型常数表达式（ICE） 。当没有指定 ICE 并且循环次数是常数的时候，编译器将会将循环完全展开。当
+ICE的值为1时，编译器将不会展开循环。当ICE的值是一个非正整数或者大于 int类型最大值的时候，
+编译器将忽略该指令。
+例子：
+struct S1_t
+{
+static const int value = 4;
+};
+template <int X, typename T2>
+__device__ void foo(int *p1, int *p2)
+{
+// 没有参数，循环将被完全展开
+#pragma unroll
+for (int i = 0; i < 12; ++i)
+p1[i] += p2[i] * 2;
+// unroll value = 8
+#pragma unroll(X + 1)
+for (int i = 0; i < 12; ++i)
+p1[i] += p2[i] * 4;
+// unroll value = 1, 不展开循环
+#pragma unroll 1
+for (int i = 0; i < 12; ++i)
+p1[i] += p2[i] * 8;
+// unroll value = 4
+#pragma unroll(T2::value)
+for (int i = 0; i < 12; ++i)
+p1[i] += p2[i] * 16;
+}
+__global__ void bar(int *p1, int *p2)
+(下页继续)
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 289

@@ -1,0 +1,44 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 44
+PDF 页码标签: 32
+页脚页码候选: 32
+章节提示（书签推断）: 注意事项
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+1000000000_input_ids.npy 1000000000_input_mask.npy 1000000000_segment_ids.npy
+1000000001_input_ids.npy 1000000001_input_mask.npy 1000000001_segment_ids.npy
+1000000002_input_ids.npy 1000000002_input_mask.npy 1000000002_segment_ids.npy
+1000000003_input_ids.npy 1000000003_input_mask.npy 1000000003_segment_ids.npy
+1000000004_input_ids.npy 1000000004_input_mask.npy 1000000004_segment_ids.npy
+1000000005_input_ids.npy 1000000005_input_mask.npy 1000000005_segment_ids.npy
+5.3.3 注意事项
+• 目前只支持 ONNX 模型的量化，如果不是，建议量化前使用 MacaConverter 对模型进行转换。
+• 目前只支持 ONNX（opset 11~13）模型文件作为输入，如果不是，建议量化前使用 MacaConverter
+对模型转换。
+• 目前 MacaQuantizer 支持的算子参见表 5.4：
+表 5.4 MacaQuantizer 支持的 ONNX 算子
+Gemm ReduceMean Sqrt
+grid_sampler ReduceSum Log
+GlobalAveragePool Relu Floor
+GlobalMaxPool Reshape RoiAlign
+Greater Resize MMCVRoiAlign
+LeakyRelu ScatterElements SpaceToDepth
+Less ScatterND DepthToSpace
+MatMul Shape Tanh
+Max Sigmoid Pow
+MaxPool Slice InstanceNormalization
+Min Softmax HardSigmoid
+Mul Softplus HardSwish
+NonMaxSuppression Split Neg
+NonZero Squeeze GRU
+Not Sub Swish
+Pad Tile Identity
+PRelu TopK OneHot
+Range Transpose Reciprocal
+ReduceL2 Unsqueeze Mish
+ReduceMax Where Elu
+Sum Erf
+5 MacaRT 工具链 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 32

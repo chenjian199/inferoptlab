@@ -1,0 +1,136 @@
+{
+  "date": "2026-11-23",
+  "status": "passed",
+  "text_files_scanned": 1607,
+  "rules": [
+    "url_credentials",
+    "query_credential",
+    "private_key",
+    "authorization",
+    "literal_secret"
+  ],
+  "findings": [
+    {
+      "path": "hwdoc/tools/test_practice.py",
+      "line": 119,
+      "rule": "url_credentials",
+      "allowed_synthetic_fixture": true
+    },
+    {
+      "path": "hwdoc/tools/test_practice.py",
+      "line": 120,
+      "rule": "query_credential",
+      "allowed_synthetic_fixture": true
+    },
+    {
+      "path": "hwdoc/tools/test_practice.py",
+      "line": 121,
+      "rule": "authorization",
+      "allowed_synthetic_fixture": true
+    },
+    {
+      "path": "hwdoc/tools/test_practice.py",
+      "line": 118,
+      "rule": "literal_secret",
+      "allowed_synthetic_fixture": true
+    }
+  ],
+  "archive_review": {
+    "archives": [
+      {
+        "path": "glmf/baseline_ops/archives/20261123_humaneval_v1.tar.gz",
+        "files": 67,
+        "uncompressed_bytes": 1663521
+      },
+      {
+        "path": "glmf/gemm_replace_20261123/archives/gemm_replace_20261123_v1.tar.gz",
+        "files": 70,
+        "uncompressed_bytes": 1528924
+      },
+      {
+        "path": "glmf/reboot_recheck_20261123/archives/reboot_recheck_20261123_v1.tar.gz",
+        "files": 90,
+        "uncompressed_bytes": 1871239
+      },
+      {
+        "path": "glmf/recovery_20261123/archives/recovery_20261123_attempt1.tar.gz",
+        "files": 34,
+        "uncompressed_bytes": 674706
+      },
+      {
+        "path": "glmf/repeatability_20261123/archives/repeatability_20261123_v1.tar.gz",
+        "files": 137,
+        "uncompressed_bytes": 7290636
+      }
+    ],
+    "findings": [],
+    "note": "Read-only archive bytes and pickle strings; no deserialization or code execution."
+  },
+  "binary_files_excluded_from_plain_text_scan": [
+    "glmf/baseline_ops/archives/20261123_humaneval_v1.tar.gz",
+    "glmf/baseline_ops/datasets/raw/7dce6050a7d6d172f3cc5c32aa97f52fa1a2e544/test.parquet",
+    "glmf/gemm_replace_20261123/archives/gemm_replace_20261123_v1.tar.gz",
+    "glmf/gemm_replace_20261123/evidence/real_inputs/rankisolated_slice0_decode.pt",
+    "glmf/gemm_replace_20261123/evidence/real_inputs/rankisolated_slice0_prefill.pt",
+    "glmf/gemm_replace_20261123/evidence/real_inputs/rankisolated_slice1_decode.pt",
+    "glmf/gemm_replace_20261123/evidence/real_inputs/rankisolated_slice1_prefill.pt",
+    "glmf/gemm_replace_20261123/evidence/real_inputs/rankisolated_slice2_decode.pt",
+    "glmf/gemm_replace_20261123/evidence/real_inputs/rankisolated_slice2_prefill.pt",
+    "glmf/gemm_replace_20261123/evidence/real_inputs/rankisolated_slice3_decode.pt",
+    "glmf/gemm_replace_20261123/evidence/real_inputs/rankisolated_slice3_prefill.pt",
+    "glmf/gemm_replace_20261123/evidence/real_inputs/rankisolated_slice4_decode.pt",
+    "glmf/gemm_replace_20261123/evidence/real_inputs/rankisolated_slice4_prefill.pt",
+    "glmf/gemm_replace_20261123/evidence/real_inputs/rankisolated_slice5_decode.pt",
+    "glmf/gemm_replace_20261123/evidence/real_inputs/rankisolated_slice5_prefill.pt",
+    "glmf/gemm_replace_20261123/evidence/real_inputs/rankisolated_slice6_decode.pt",
+    "glmf/gemm_replace_20261123/evidence/real_inputs/rankisolated_slice6_prefill.pt",
+    "glmf/gemm_replace_20261123/evidence/real_inputs/rankisolated_slice7_decode.pt",
+    "glmf/gemm_replace_20261123/evidence/real_inputs/rankisolated_slice7_prefill.pt",
+    "glmf/reboot_recheck_20261123/archives/reboot_recheck_20261123_v1.tar.gz",
+    "glmf/reboot_recheck_20261123/pilot/evidence/real_inputs/rank0_decode.pt",
+    "glmf/reboot_recheck_20261123/pilot/evidence/real_inputs/rank0_prefill.pt",
+    "glmf/reboot_recheck_20261123/pilot/evidence/real_inputs/rank1_decode.pt",
+    "glmf/reboot_recheck_20261123/pilot/evidence/real_inputs/rank1_prefill.pt",
+    "glmf/reboot_recheck_20261123/pilot/evidence/real_inputs/rank2_decode.pt",
+    "glmf/reboot_recheck_20261123/pilot/evidence/real_inputs/rank2_prefill.pt",
+    "glmf/reboot_recheck_20261123/pilot/evidence/real_inputs/rank3_decode.pt",
+    "glmf/reboot_recheck_20261123/pilot/evidence/real_inputs/rank3_prefill.pt",
+    "glmf/reboot_recheck_20261123/pilot/evidence/real_inputs/rank4_decode.pt",
+    "glmf/reboot_recheck_20261123/pilot/evidence/real_inputs/rank4_prefill.pt",
+    "glmf/reboot_recheck_20261123/pilot/evidence/real_inputs/rank5_decode.pt",
+    "glmf/reboot_recheck_20261123/pilot/evidence/real_inputs/rank5_prefill.pt",
+    "glmf/reboot_recheck_20261123/pilot/evidence/real_inputs/rank6_decode.pt",
+    "glmf/reboot_recheck_20261123/pilot/evidence/real_inputs/rank6_prefill.pt",
+    "glmf/reboot_recheck_20261123/pilot/evidence/real_inputs/rank7_decode.pt",
+    "glmf/reboot_recheck_20261123/pilot/evidence/real_inputs/rank7_prefill.pt",
+    "glmf/recovery_20261123/archives/recovery_20261123_attempt1.tar.gz",
+    "glmf/repeatability_20261123/archives/repeatability_20261123_v1.tar.gz",
+    "hwdoc/曦云系列_通用计算GPU_mcEigen用户指南_CN_V03.pdf",
+    "hwdoc/沐曦通用GPU_AI推理用户手册_CN_V21.pdf",
+    "hwdoc/沐曦通用GPU_DeepEP多机通信内存注册环境变量配置说明_CN_V01.pdf",
+    "hwdoc/沐曦通用GPU_MACA_VISIBLE_DEVICES配置工具介绍_CN_V01.pdf",
+    "hwdoc/沐曦通用GPU_mcBLAS API参考_CN_V05.pdf",
+    "hwdoc/沐曦通用GPU_MCCL编程指南_CN_V08.pdf",
+    "hwdoc/沐曦通用GPU_mcProfiler使用手册_CN_V06.pdf",
+    "hwdoc/沐曦通用GPU_mcPyTorch用户指南_CN_V16.pdf",
+    "hwdoc/沐曦通用GPU_mcTracer使用手册_CN_V08.pdf",
+    "hwdoc/沐曦通用GPU_mcTriton用户指南_CN_V08.pdf",
+    "hwdoc/沐曦通用GPU_mxcc编译器用户指南_CN_V06.pdf",
+    "hwdoc/沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf",
+    "hwdoc/沐曦通用GPU_MXMACA Clangd用户手册_CN_V03.pdf",
+    "hwdoc/沐曦通用GPU_MXMACA编译器内建函数编程指南_CN_V01.pdf",
+    "hwdoc/沐曦通用GPU_mxvs测试工具套件使用手册_CN_V26.pdf",
+    "hwdoc/沐曦通用GPU_运行时API编程指南_CN_V18.pdf"
+  ],
+  "manual_review": [
+    "Reviewed mcXformer badge context; removed its public query token from distribution only.",
+    "Reviewed test_practice.py flagged lines: synthetic values in scanner regression, retained.",
+    "Reviewed handoff instructions, file inventory, archive scope and evidence validators; no live private configuration files included."
+  ],
+  "limits": [
+    "Heuristic scan is not proof that arbitrary content contains no secret.",
+    "Original vendor PDFs retained and integrity-checked; generated PDF text included in text scan.",
+    "Tensor pickle bytes inspected as text without deserialization; tensor payloads and parquet binary data not semantically inspected.",
+    "No remote files, credentials, services or environment queried."
+  ]
+}

@@ -1,0 +1,38 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 65
+PDF 页码标签: 56
+页脚页码候选: 56
+章节提示（书签推断）: 代码托管（Binary Cache）
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+此时 device 代码 my_kernel.cu 并没有编译到 a.out 中，而是在运行 a.out 过程中编译该 device
+文件。
+图 4.5 可执行文件 a.out 获取
+4.3 代码托管（Binary Cache）
+使用默认设置 binary cache（cache 文件保存路径以及所支持文件大小均采用默认值，无需设置环境变
+量） 。
+代码示例：
+#include<mc_runtime.h>
+__global__ void vectorADD(const float* A_d, const float* B_d, float* C_d, size_t 
+,→NELEM) {
+size_t offset = (blockIdx.x * blockDim.x + threadIdx.x);
+size_t stride = blockDim.x * gridDim.x;
+for (size_t i = offset; i < NELEM; i += stride) {
+C_d[i] = A_d[i] + B_d[i];
+}
+}
+int main()
+{
+int blocks=20;
+int threadsPerBlock=1024;
+int numSize=1024*1024;
+float *A_d=nullptr;
+float *B_d=nullptr;
+float *C_d=nullptr;
+float *A_h=nullptr;
+float *B_h=nullptr;
+(下页继续)
+4 编译和调试 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 56

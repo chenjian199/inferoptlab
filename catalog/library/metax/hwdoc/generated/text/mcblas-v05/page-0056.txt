@@ -1,0 +1,51 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 56
+PDF 页码标签: 49
+页脚页码候选: 49
+章节提示（书签推断）: mcblas<t>tbmv()
+质量标记: private_use_characters
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+(续上页)
+double *x, int incx)
+mcblasStatus_t mcblasCtbmv(mcblasHandle_t handle, mcblasFillMode_t uplo,
+mcblasOperation_t trans, mcblasDiagType_t diag,
+int n, int k, const mcComplex *A, int lda,
+mcComplex *x, int incx)
+mcblasStatus_t mcblasZtbmv(mcblasHandle_t handle, mcblasFillMode_t uplo,
+mcblasOperation_t trans, mcblasDiagType_t diag,
+int n, int k, const mcDoubleComplex *A, int lda,
+mcDoubleComplex *x, int incx)
+该函数执行三角带状矩阵‑向量乘法
+x = op(A)x
+其中 A 是三角带状矩阵，x 是向量。此外，对于矩阵 A，
+op(A) =
+
+
+
+A if trans == M CBLAS_OP _N
+AT if trans == M CBLAS_OP _T
+AH if trans == M CBLAS_OP _C
+如果 uplo == MCBLAS_FILL_MODE_LOWER，三角带状矩阵 A 按列存储，矩阵的主对角线存储在第 1
+行，第一个次对角线在第 2 行中（从第一个位置开始） ，第二个次对角线在第3 行中（从第一个位置开
+始）等。因此通常，元素 A(i, j) 存储在 A(1+i-j,j)，其中 j = 1, . . . , n，i ∈ [j, min(m, j + k)]。此外，
+数组 A 中的元素，在概念上与带状矩阵中的元素不对应（右下 k × k 三角） ，也不会被引用。
+如果 uplo == MCBLAS_FILL_MODE_UPPER，三角带状矩阵 A 按列存储，矩阵的主对角线存储在行
+k+1 ，第一个超对角线在行 k 中（从第二个位置开始） ，第二个超对角线在行k-1 中（从第三个位置开
+始）等。因此通常，元素 A(i, j) 存储在 A(1+k+i-j,j)，其中 j = 1 , . . . , n，i ∈ [max(1, j − k, j)]。此
+外，数组 A 中的元素，在概念上与带状矩阵中的元素不对应（左上角 k × k 三角） ，也不会被引用。
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+uplo input 指示存储的是矩阵 A 的上半部分还是下半部分，另外半部分未
+被引用，且是从存储的元素推断出来的
+trans input 非转置或共轭转置运算 op(A)
+diag input 指示矩阵 A 主对角线上的元素是否是统一的且不应被访问
+n input 矩阵 A 的行数和列数
+k input 矩阵的次对角线和超对角线
+A 设备 input <type> 数组，维度为 lda x n ，其中 lda>=k+1
+lda input 用于存储矩阵 A 的二维数组的前导维度
+x 设备 in/out 包含 n 个元素的 <type> 向量
+incx input x 中连续元素之间的步幅
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 49

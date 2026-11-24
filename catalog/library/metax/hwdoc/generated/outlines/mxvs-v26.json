@@ -1,0 +1,172 @@
+[
+  {
+    "title": "概述",
+    "pdf_page": 11,
+    "depth": 1
+  },
+  {
+    "title": "适用产品",
+    "pdf_page": 11,
+    "depth": 2
+  },
+  {
+    "title": "工具部署",
+    "pdf_page": 12,
+    "depth": 1
+  },
+  {
+    "title": "日志存放",
+    "pdf_page": 13,
+    "depth": 1
+  },
+  {
+    "title": "设备信息显示",
+    "pdf_page": 14,
+    "depth": 1
+  },
+  {
+    "title": "显卡工作状态显示",
+    "pdf_page": 15,
+    "depth": 1
+  },
+  {
+    "title": "PCIe验收测试工具",
+    "pdf_page": 16,
+    "depth": 1
+  },
+  {
+    "title": "PCIe实时速率查询",
+    "pdf_page": 16,
+    "depth": 2
+  },
+  {
+    "title": "PCIe单向带宽测试",
+    "pdf_page": 16,
+    "depth": 2
+  },
+  {
+    "title": "PCIe双向带宽测试",
+    "pdf_page": 18,
+    "depth": 2
+  },
+  {
+    "title": "PCIe眼图特性测试",
+    "pdf_page": 19,
+    "depth": 2
+  },
+  {
+    "title": "Memory验收测试工具",
+    "pdf_page": 20,
+    "depth": 1
+  },
+  {
+    "title": "Memory实时带宽查询",
+    "pdf_page": 20,
+    "depth": 2
+  },
+  {
+    "title": "Memory带宽测试",
+    "pdf_page": 21,
+    "depth": 2
+  },
+  {
+    "title": "MetaXLink验收测试工具",
+    "pdf_page": 22,
+    "depth": 1
+  },
+  {
+    "title": "MetaXLink实时带宽查询",
+    "pdf_page": 22,
+    "depth": 2
+  },
+  {
+    "title": "MetaXLink带宽测试",
+    "pdf_page": 23,
+    "depth": 2
+  },
+  {
+    "title": "MetaXLink眼图特性测试",
+    "pdf_page": 24,
+    "depth": 2
+  },
+  {
+    "title": "P2P验收测试工具",
+    "pdf_page": 26,
+    "depth": 1
+  },
+  {
+    "title": "P2P带宽测试",
+    "pdf_page": 26,
+    "depth": 2
+  },
+  {
+    "title": "算力测试工具",
+    "pdf_page": 28,
+    "depth": 1
+  },
+  {
+    "title": "算力测试",
+    "pdf_page": 28,
+    "depth": 2
+  },
+  {
+    "title": "软切分算力测试示例(C588不支持)",
+    "pdf_page": 29,
+    "depth": 2
+  },
+  {
+    "title": "压力测试",
+    "pdf_page": 30,
+    "depth": 1
+  },
+  {
+    "title": "XCORE压力测试",
+    "pdf_page": 30,
+    "depth": 2
+  },
+  {
+    "title": "MetaXLink压力测试",
+    "pdf_page": 32,
+    "depth": 2
+  },
+  {
+    "title": "ETH压力测试",
+    "pdf_page": 33,
+    "depth": 2
+  },
+  {
+    "title": "ETH验收测试工具",
+    "pdf_page": 34,
+    "depth": 1
+  },
+  {
+    "title": "ETH眼图特性测试",
+    "pdf_page": 34,
+    "depth": 2
+  },
+  {
+    "title": "光模块验收测试工具（仅适用C500X）",
+    "pdf_page": 35,
+    "depth": 1
+  },
+  {
+    "title": "单机MetaXLink带宽测试",
+    "pdf_page": 35,
+    "depth": 2
+  },
+  {
+    "title": "跨机MetaXLink带宽测试",
+    "pdf_page": 36,
+    "depth": 2
+  },
+  {
+    "title": "附录",
+    "pdf_page": 38,
+    "depth": 1
+  },
+  {
+    "title": "术语/缩略语",
+    "pdf_page": 38,
+    "depth": 2
+  }
+]

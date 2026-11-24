@@ -1,0 +1,47 @@
+文档: 沐曦通用GPU_MXMACA编译器内建函数编程指南_CN_V01.pdf
+文档 ID: builtins-v01
+SHA256: 80dfb3a83381e48e19968b432d4eb24d37c505bd711af14f74889277cffc3835
+PDF 页序号: 26
+PDF 页码标签: 20
+页脚页码候选: 20
+章节提示（书签推断）: __builtin_mxc_mov_shfl
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® 编译器内建函数编程指南
+表 3.13 – 续上页
+名称 描述
+BMSK if (!(bmsk & 0x1)) lanes[0:3, 16:19, 32:35, 48:51] are disabled
+if (!(bmsk & 0x2)) lanes[4:7, 20:23, 36:39, 52:55] are disabled
+if (!(bmsk & 0x4)) lanes[8:11, 24:27, 40:43, 56:59] are disabled
+if (!(bmsk & 0x8)) lanes[12:15, 28:31, 44:47, 60:63] are disabled
+BC 如果 BC 为 0，则索引计算结果越界的线程将写 0
+如果 BC 为 1，则索引计算结果越界的线程值不变
+算法
+• Row Broadcast
+将某个特定线程的值广播到同一个 row 内的所有其他线程。
+for n in (1..64)
+dest.thread[n] = src.thread[(n&0x30)+ mode[3:0]]
+• Quad Permutation
+将一个 row 内的 16 个线程划分为 4 个连续的 4 线程区间，在每一个区间内完成给定规则的混洗操作。
+for n in (1..64)
+dest.thread[n] = src.thread[(n&0x3c)+mode[n%4*2+1:n%4*2]]
+• Row Rotate Right
+在一个 row 内的 16 个线程间进行循环右移。
+for n in (1..64)
+If((n&0xf) >= mode[3:0]) {
+dest.thread[n] = src.thread[n-mode[3:0]];
+} else {
+dest.thread[n] = src.thread[n+16-mode[3:0]];
+}
+• Row Shift Left
+在一个 row 内的 16 个线程间进行左移。
+for n in (1..64)
+If((n&0xf) < (16-mode[3:0])) {
+dest.thread[n] = src.thread[n+mode[3:0]];
+} else {
+if BC == 0:
+dest.thread[n] = 0
+else:
+do nothing
+}
+3 接口介绍 沐曦股份专有信息 OG‑26013‑000‑F5_V01 | 20

@@ -1,0 +1,49 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 79
+PDF 页码标签: 72
+页脚页码候选: 72
+章节提示（书签推断）: mcblas<t>gemvStridedBatched()
+质量标记: private_use_characters
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+(续上页)
+const float *beta,
+mc_bfloat16 *y, int incy,
+mcblas_stride stridey,
+int batchCount)
+mcblasStatus_t mcblasTSSgemvStridedBatched(mcblasHandle_t handle,
+mcblasOperation_t trans,
+int m, int n,
+const float *alpha,
+const mc_bfloat16 *A, int lda,
+mcblas_stride strideA,
+const mc_bfloat16 *x, int incx,
+mcblas_stride stridex,
+const float *beta,
+float *y, int incy,
+mcblas_stride stridey,
+int batchCount)
+该函数对一批矩阵和向量执行矩阵‑向量乘法。该批是“均匀”的，即所有实例对于各自的 A 矩阵，x 和
+y 向量具有相同的维度（m，n） ，前导维度（lda） ，增量（incx，incy）和转置（trans） 。批处理中每个
+实例的输入矩阵 A 和向量 x 以及输出向量 y 的位置，与前一个实例中的位置在元素数量上有固定的偏移。
+第一个实例中指向 A 矩阵，x 和 y 向量的指针，与元素数量的偏移量（strideA、stridex、stridey）一并
+由用户传入函数，这些偏移量决定了后续实例中输入矩阵和向量以及输出向量的位置。
+y + i ∗ stridey = αop(A + i ∗ strideA)(x + i ∗ stridex) + β(y + i ∗ stridey),
+for i ∈ [0, batchCount − 1]
+其中 α 和 β 是标量，并且 A 是一个指针数组，指向矩阵 A[i] （以列主格式存储，维度为 m × n） ，x 和 y
+是指向向量的指针数组。此外，对于矩阵 A[i]
+op(A [i]) =
+
+
+
+A [i] if trans == M CBLAS_OP _N
+A [i]T if trans == M CBLAS_OP _T
+A [i]H if trans == M CBLAS_OP _C
+注解: y [i] 矩阵不能重叠，即单个 gemv 操作必须独立计算；否则，会导致未定义行为。在某些
+problem size 上， 可能需要在不同的 MXMACA 流中多次调用mcblas<t>gemv， 而不是使用此 API。
+在下表中，我们使用 A[i], x[i], y[i] 分别表示 A、B、C 矩阵，以及批处理中第 i 个实例中的 x
+和 y 向量，隐式假设它们分别是相对于 A[i-1], x[i-1], y[i-1] 的元素数量的偏移 strideA,
+stridex, stridey。偏移的单位是元素数量，不能为零。
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 72

@@ -1,0 +1,16 @@
+文档: 沐曦通用GPU_mcTracer使用手册_CN_V08.pdf
+文档 ID: mctracer-v08
+SHA256: 63b792c27a24a5f89d2e599bd5f84791f0c31b815e30d341e4c4cfcc1c21a492
+PDF 页序号: 8
+PDF 页码标签: 3
+页脚页码候选: 3
+章节提示（书签推断）: 卸载
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcTracer使用手册
+当程序执行完成后， 会在当前执行路径下得到tracer_out_${timestamp}文件夹 （若未使用--odname
+选项） 。 该目录内包含了 mcTracer 生成的数据文件tracer_out‑${pid}.json（若未使用 --name 选项） 。
+该文件用于后续在 UI 客户端内进行活动显示。
+2.3 卸载
+mcTracer 无特殊卸载需求，卸载沐曦通用 GPU 驱动后，mcTracer 会自动卸载。
+2 mcTracer 沐曦股份专有信息 OG‑24004‑020‑F5_V08 | 3

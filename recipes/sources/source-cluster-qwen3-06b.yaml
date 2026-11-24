@@ -1,0 +1,17 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-cluster-qwen3-06b
+version: 1.0.0
+title: cluster-qwen3-06b machine-collected model metadata
+provenance: []
+issues: []
+extensions: {}
+path: experiments/evidence/model-intake/cluster-qwen3-06b/1.0.0/metadata.json
+sha256: 24056ce74c4c8567ae7fbb1111a04af201e3feb71a3c82817a5148d57724df2d
+media_type: application/json
+role: model_metadata
+authority: machine_collected
+coverage:
+  status: partial
+  description: Config, tokenizer and all shard headers; no full payload hashing or
+    model execution.

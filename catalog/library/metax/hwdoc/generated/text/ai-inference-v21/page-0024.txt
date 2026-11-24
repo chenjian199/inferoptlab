@@ -1,0 +1,28 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 24
+PDF 页码标签: 12
+页脚页码候选: 12
+章节提示（书签推断）: Kernel输入输出的数据排布
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+3.5.1 Domain 的定义
+将自定义算子注册到 MacaEP 的后端时，Domain 必须设置为 custom.op，即：
+static const char* c_OpDomain="custom.op";
+3.5.2 Kernel 输入输出的数据排布
+在构建自定义算子库时，在 MacaRT 中新增接口用于指定 Kernel 需要的输入输出数据排布。
+OrtDataLayout GetInputDataLayout(size_t index); // 指 定 输 入 的 数 据 排 布
+OrtDataLayout GetOutputDataLayout(size_t index); // 指 定 输 出 的 数 据 排 布
+当前 MacaEP 的自定义算子支持以下三种数据排布：
+typedef enum OrtDataLayout{
+NCHW,
+NHWC8,
+NHWC16,
+}OrtDataLayout;
+需要注意的是：
+• 在默认情况下，所有自定义算子 Kernel 的输入输出都是 NCHW 格式。
+• 模型的输入数据排布必须是 NCHW 格式，MacaEP 会根据 Kernel 需求自动进行数据排布的转换。
+• 模型的输出会被 MacaEP 自动转换为 NCHW 格式的排布。
+3 MacaRT C++ API 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 12

@@ -1,0 +1,69 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 70
+PDF 页码标签: 61
+页脚页码候选: 61
+章节提示（书签推断）: 环境变量
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+表 4.2 – 续上页
+变量名称 可设置值 缺省值 描述
+MACA_EXT_
+CPU_THREAD_
+POLICY
+‑1‑3 0 设置 API CPU 占用策略。
+‑1：运行时 API 使用最小化 CPU 占用策略；
+0：运行时 API 使用默认 CPU 线程策略，平衡 CPU 的占
+用和 API 的 latency；
+1：运行时 API 使用温和抢占 CPU 线程资源策略，降低
+event/signal/sync 相关 API latency；
+2：运行时 API 使用积极抢占 CPU 线程资源策略，降低
+event/signal/sync 相关 API latency；
+3：运行时 API 使用激进抢占 CPU 线程资源策略，降低
+event/signal/sync 相关 API latency。
+MACA_EXT_
+SYNC_POLICY
+0‑3 0 API 使用的 CPU 同步策略。
+设置为 0 时，运行时 API 使用默认 CPU 同步策略；
+设置为 1 时，运行时 API 使用 GPU 进行 signal 同步，
+offload CPU 并降低同步 latency；
+设置为 2 时，运行时 API 使用 GPU 进行 event 同步，
+offload CPU 并降低同步 latency；
+设置为 3 时，运行时 API 使用 GPU 进行 signal & event
+同步，offload CPU 并降低同步 latency。
+MACA_EXT_
+NUMA_
+MEMORY_
+POLICY
+0‑4 0 NUMA 内存分配策略。
+设置为 0 时， 所有主机内存由 KMD 分配 （禁用 numactl） ；
+设置为 1 时，MPOL_PREFERRED，优先尝试亲和 CPU
+节点，若该节点内存耗尽，则从其他节点分配；
+设置为 2 时，MPOL_BIND，仅使用亲和 CPU 节点，若
+该节点内存耗尽，则分配失败并返回 ENOMEM；
+设置为 3 时，MPOL_INTERLEAVE，在节点掩码内按页
+级轮询，均衡内存带宽；
+设置为 4 时， MPOL_DEFAUL T， 本地节点 （通常为 CPU
+0） ，若内存耗尽则从其他节点分配。
+MACA_EXT_
+PRIORITY_
+QUEUE_
+POLICY
+0‑0xHNL 0 设置高/中/低优先级硬件队列个数策略。
+0：使用默认配置，H/N/L 各优先级最多分别占用 8/4/4
+个硬件队列。
+0xHNL：H/N/L 表示高/中/低优先级队列的数量，每个
+数字范围在 [0,16] 内，高/中/低优先级硬件队列个数总
+和最多 16 个。
+注意：每个字母占用 4 位，低优先级队列数量必须大于
+等于 1，例如 0x5A1。
+MACA_
+EXT_MCCL_
+QUEUE_NUM
+0‑15 0 设置 MCCL 专用硬件队列个数。
+0：默认配置，没有配置 MCCL 专用硬件队列;
+其它：配置指定个数 MCCL 专用硬件队列。
+下页继续
+4 编译和调试 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 61

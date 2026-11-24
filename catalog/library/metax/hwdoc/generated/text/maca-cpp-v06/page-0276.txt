@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 276
+PDF 页码标签: 268
+页脚页码候选: 268
+章节提示（书签推断）: __builtin_mxc_ldg_*_predicator
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+2.18.12 __builtin_mxc_barrier_inst
+描述
+指令级屏障：不进行指令重排，等待所有存储和取指返回。
+语法
+void __builtin_mxc_barrier_inst();
+示例
+__global__ void test_swap_warp_data(int *data) {
+__shared__ int sharedData[128];
+int id = threadIdx.x + blockIdx.x * blockDim.x;
+int warpId = id / 64;
+int laneId = threadIdx.x % 64;
+sharedData[id] = data[id];
+__builtin_mxc_arrive_bsmcnt(0);
+__builtin_mxc_barrier_inst();
+int targetWarpId = warpId ^ 1;
+int targetId = targetWarpId * 64 + laneId;
+int val = sharedData[targetId];
+__builtin_mxc_arrive_bsmcnt(0);
+__builtin_mxc_barrier_inst();
+data[id] = val;
+}
+2.18.13 __builtin_mxc_ldg_*_predicator
+描述
+使用 predicator作为活跃掩码，从全局内存加载数据。当“1”predicator为真时，对应线程执行
+加载操作。predicator经过以下计算得到：
+predicator = cmp_flag cmp_op1 cmp_op2
+语法
+// 示例列出常用三种位宽，其他向量 /位宽形态同理
+uint32_t __builtin_mxc_ldg_b32_predicator(const void *global_addr,
+size_t offset, bool ret0_en,
+(下页继续)
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 268

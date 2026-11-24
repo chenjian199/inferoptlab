@@ -1,0 +1,54 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 101
+PDF 页码标签: 94
+页脚页码候选: 94
+章节提示（书签推断）: mcblas<t>trmm()
+质量标记: private_use_characters
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+(续上页)
+const mcComplex *A, int lda,
+const mcComplex *B, int ldb,
+mcComplex *C, int ldc)
+mcblasStatus_t mcblasZtrmm(mcblasHandle_t handle,trmm
+mcblasSideMode_t side, mcblasFillMode_t uplo,
+mcblasOperation_t trans, mcblasDiagType_t diag,
+int m, int n,
+const mcDoubleComplex *alpha,
+const mcDoubleComplex *A, int lda,
+const mcDoubleComplex *B, int ldb,
+mcDoubleComplex *C, int ldc)
+该函数执行三角矩阵‑矩阵乘法
+C =
+
+
+
+αop(A)B if side == M CBLAS_SIDE _LEF T
+αBop(A) if side == M CBLAS_SIDE _RIGHT
+其中 A 是以 lower 或 upper 模式存储的三角矩阵（无论是否有主对角线） ，B 和 C 为 m × n 矩阵，α 是
+标量。此外，对于矩阵 A，
+op(A) =
+
+
+
+A if trans == M CBLAS_OP _N
+AT if trans == M CBLAS_OP _T
+AH if trans == M CBLAS_OP _C
+请注意， 为了实现更好的并行性， mcBLAS 与 BLAS API 仅在此例程上不同。 BLAS API 采用就地实现 （结
+果写回到 B） ，而 mcBLAS API 采用异地实现（结果写入 C） 。通过传递矩阵 B 的地址来代替矩阵 C，此应
+用可以在 mcBLAS API 中获得 BLAS 的就地实现功能。不支持其他输入参数的重叠。
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+side input 指示矩阵 A 是在 B 的左边还是右边
+uplo input 指示存储的是矩阵 A 的上半部分还是下半部分，另外半部分未
+被引用，且是从存储的元素推断出来的
+trans input 非转置或共轭转置运算 op(A)
+diag input 指示矩阵 A 主对角线上的元素是否是统一的且不应被访问
+m input 矩阵 B 的行数，矩阵 A 的大小也相应调整
+n input 矩阵 B 的列数，矩阵 A 的大小也相应调整
+alpha 主机或设备 input 用于乘法的 <type> 标量，如果 alpha == 0，则 A 未被引用，
+且 B 不必为有效输入
+下页继续
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 94

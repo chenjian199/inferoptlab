@@ -1,0 +1,40 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 58
+PDF 页码标签: 49
+页脚页码候选: 49
+章节提示（书签推断）: Makefile编译和示例
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+4 编译和调试
+4.1 离线编译和静态运行
+4.1.1 Makefile 编译和示例
+以图 4.1 所示的项目文件目录为例：
+图 4.1 一个简单的 MXMACA 源代码项目文件目录
+//a.cpp:
+#include <mc_runtime.h>
+#include <string.h>
+extern "C" __global__ void vector_add(int *A_d, size_t num)
+{
+size_t offset = (blockIdx.x * blockDim.x + threadIdx.x);
+size _t stride = blockDim.x * gridDim.x;
+for (size_t i = offset; i < num; i += stride) {
+A_d[i]++;
+}
+}
+void func_a()
+{
+size_t arrSize = 100;
+mcDeviceptr_t a_d;
+int *a_h = (int *)malloc(sizeof(int) * arrSize);
+memset(a_h, 0, sizeof(int) * arrSize);
+mcMalloc(&a_d, sizeof(int) * arrSize);
+mcMemcpyHtoD(a_d, a_h, sizeof(int) * arrSize);
+vector_add<<<1, arrSize>>>(reinterpret_cast<int *>(a_d), arrSize);
+mcMemcpyDtoH(a_h, a_d, sizeof(int) * arrSize);
+bool resCheck = true;
+for (int i; i < arrSize; i++) {
+(下页继续)
+4 编译和调试 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 49

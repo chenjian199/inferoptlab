@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_MXMACA编译器内建函数编程指南_CN_V01.pdf
+文档 ID: builtins-v01
+SHA256: 80dfb3a83381e48e19968b432d4eb24d37c505bd711af14f74889277cffc3835
+PDF 页序号: 36
+PDF 页码标签: 30
+页脚页码候选: 30
+章节提示（书签推断）: __builtin_mxc_mma_16x16x4f64
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® 编译器内建函数编程指南
+表 3.22 __builtin_mxc_mma_16x16x16bf16 参数说明
+名称 描述
+return_value 元素类型为 float 的 16x16 输出矩阵
+a 元素类型为 bf16 的 16x16 输入矩阵
+b 元素类型为 bf16 的 16x16 输入矩阵
+c 元素类型为 float 的 16x16 输入矩阵
+代码示例
+using v4f16 = __NATIVE_VECTOR__(4, _Float16);
+using v4f32 = __NATIVE_VECTOR__(4, float);
+__device__ v4f32 test_builtin_mxc_mma_16x16x16bf16(v4f16 a, v4f16 b, v4f32 c) {
+v4f32 d = __builtin_mxc_mma_16x16x16bf16(a, b, c);
+return d;
+}
+3.6.6 __builtin_mxc_mma_16x16x4f64
+功能描述
+double 类型矩阵乘加函数: D = A * B + C.
+接口声明
+v4f64 __builtin_mxc_mma_16x16x4f64(double a, double b, v4f64 c);
+参数
+表 3.23 __builtin_mxc_mma_16x16x4f64 参数说明
+名称 描述
+return_value 元素类型为 double 的 16x16 输出矩阵
+a 元素类型为 double 的 16x4 输入矩阵
+b 元素类型为 double 的 4x16 输入矩阵
+c 元素类型为 double 的 16x16 输入矩阵
+代码示例
+using v4f64 = __NATIVE_VECTOR__(4, double);
+__device__ v4f64 test_builtin_mxc_mma_16x16x4f64(double A, double B, v4f64 C) {
+v4f64 D = __builtin_mxc_mma_16x16x4f64(A, B, C);
+return D;
+}
+3 接口介绍 沐曦股份专有信息 OG‑26013‑000‑F5_V01 | 30

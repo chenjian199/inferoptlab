@@ -1,0 +1,16 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-metax-effective-engine-config
+version: 1.0.0
+title: GLM 实际运行的 EngineCore 配置记录
+provenance: []
+issues: []
+extensions: {}
+path: experiments/evidence/metax/20261123/imported/reboot-engine-config.txt
+sha256: a0dc0c676a55a21c30153a9bfc50a45592ca44ce778e390a44157aa3cbeed3f1
+media_type: text/plain
+role: machine_inventory
+authority: machine_collected
+coverage:
+  status: partial
+  description: 从 /home/metax/glm53-reboot-recheck-20261123/pilot/evidence/model.log 归档的 EngineCore 初始化配置；仅表示该次运行的有效设置。

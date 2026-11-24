@@ -1,0 +1,14 @@
+{
+  "command": [
+    "docker",
+    "exec",
+    "glm53-heval-v1",
+    "python3",
+    "/experiment/harness/check_frozen_baseline.py"
+  ],
+  "status": "complete",
+  "started_epoch": 1795364419.1184542,
+  "pid": 247188,
+  "exit_code": 0,
+  "elapsed_seconds": 37.700215578079224
+}

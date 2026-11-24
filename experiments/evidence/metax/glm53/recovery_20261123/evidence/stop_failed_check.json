@@ -1,0 +1,12 @@
+{
+  "command": [
+    "docker",
+    "stop",
+    "--time",
+    "10",
+    "glm53-gemm-recovery-v1"
+  ],
+  "returncode": 0,
+  "stdout": "Flag --time has been deprecated, use --timeout instead\nglm53-gemm-recovery-v1\n",
+  "stderr": ""
+}

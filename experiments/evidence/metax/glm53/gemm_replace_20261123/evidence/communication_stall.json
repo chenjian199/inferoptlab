@@ -1,0 +1,8 @@
+{
+  "observed_epoch": 1795409857.1240418,
+  "phase": "eight-rank distributed initialization, before model weight loading or candidate injection",
+  "host_driver_observed": "3.10.14",
+  "previous_experiment_driver": "3.8.30",
+  "symptom": "MCCL initialization log stationary; GPU6 Not Available in mx-smi; single-device tests56 passed.",
+  "action": "Stop only experiment container; investigate without driver or original deployment change"
+}

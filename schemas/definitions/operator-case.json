@@ -1,0 +1,220 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/operator-case.json",
+  "title": "OperatorCase",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.2.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/provenance"
+      },
+      "minItems": 0
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/issue"
+      },
+      "minItems": 0
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_.-]*$"
+      }
+    },
+    "model_ref": {
+      "$ref": "common.json#/$defs/reference"
+    },
+    "hardware_ref": {
+      "$ref": "common.json#/$defs/reference"
+    },
+    "runtime_ref": {
+      "$ref": "common.json#/$defs/reference"
+    },
+    "method_sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "$ref": "common.json#/$defs/sha256"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "kind": {
+      "const": "OperatorCase"
+    },
+    "module_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "baseline_implementation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "execution_scope": {
+      "const": "historical_single_device_sequential_tp_partitions"
+    },
+    "tensor_contract": {
+      "type": "object",
+      "properties": {
+        "weight_shape_kn": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "weight_stride": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "weight_dtype": {
+          "const": "int8"
+        },
+        "shapes_mnk": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "minItems": 3,
+            "maxItems": 3
+          },
+          "minItems": 1
+        },
+        "activation_origin": {
+          "const": "synthetic_with_checkpoint_weights"
+        },
+        "quantization_scheme": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "weight_shape_kn",
+        "weight_stride",
+        "weight_dtype",
+        "shapes_mnk",
+        "activation_origin",
+        "quantization_scheme"
+      ],
+      "additionalProperties": false
+    },
+    "numeric_budget": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "atol": {
+              "type": "number",
+              "minimum": 0
+            },
+            "rtol": {
+              "type": "number",
+              "minimum": 0
+            },
+            "reference": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "atol",
+            "rtol",
+            "reference"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "fixture_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "$ref": "common.json#/$defs/sha256"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "baseline_self_replay": {
+      "enum": [
+        "not_revalidated",
+        "passed"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "version",
+    "title",
+    "provenance",
+    "issues",
+    "extensions",
+    "model_ref",
+    "hardware_ref",
+    "runtime_ref",
+    "method_sources",
+    "kind",
+    "module_path",
+    "baseline_implementation",
+    "execution_scope",
+    "tensor_contract",
+    "numeric_budget",
+    "fixture_artifacts",
+    "baseline_self_replay"
+  ],
+  "additionalProperties": false
+}

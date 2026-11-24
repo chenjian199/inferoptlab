@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "id": "2026-11-22-glm53-w8a8-tp8",
+  "observed_on": "2026-11-22",
+  "timezone": "Asia/Shanghai",
+  "verification": "server_validated_with_explicit_limits",
+  "status": "complete_tp8_w8a8_passed_baseline_frozen_and_replay_checked",
+  "hardware": "8 x C500 64 GiB",
+  "os": "Ubuntu 22.04.5",
+  "host_driver": "3.8.30",
+  "sdk": "3.9.0.29",
+  "versions": {
+    "torch": "2.10.0+metax3.9.0.8",
+    "triton": "3.6.0+metax3.9.0.8",
+    "vllm": "0.32.0+empty",
+    "vllm-metax": "0.32.0+g0962c8.d20261122.maca3.9.0.29.torch2.10.0",
+    "mcoplib": "0.4.14+gf3794c4.maca3.9.0.31.torch2.10",
+    "transformers": "5.17.0",
+    "compressed-tensors": "0.17.0"
+  },
+  "sources": {
+    "metax": {
+      "ref": "v0.32.0-dev",
+      "commit": "0962c8735ffe4795800030680311410848512b82",
+      "path": "/home/metax/glm53-vllm032/src/vllm-metax",
+      "prepared": true,
+      "deployment_patch": "evidence/vllm-metax_deployment.patch plus moe_align_legacy_abi.py; see deployment_source_state.json for hashes"
+    },
+    "upstream": {
+      "ref": "v0.32.0",
+      "commit": "5df63a7203cdb9328d824a27b682e77c7b9928be",
+      "path": "/home/metax/glm53-vllm032/src/vllm",
+      "prepared": true,
+      "clean": true
+    }
+  },
+  "weights": {
+    "repository": "metax-tech/GLM-5.3-Flash-W8A8",
+    "revision": "6df7a9b0309e530094e29b2a6ced3e21bed6c16d",
+    "verified_files": 59,
+    "shards": 47,
+    "structure_check": {
+      "complete": false,
+      "tensor_data_and_mapping_valid": true,
+      "known_metadata_issue": "index metadata total_size=[]; retained unchanged"
+    }
+  },
+  "validated_settings": {
+    "model": "/models/GLM-5.3-Flash-W8A8",
+    "tensor_parallel_size": 8,
+    "distributed_executor_backend": "mp",
+    "dtype": "bfloat16",
+    "quantization": "compressed-tensors",
+    "load_format": "safetensors",
+    "max_model_len": 4096,
+    "max_num_seqs": 1,
+    "max_num_batched_tokens": 4096,
+    "gpu_memory_utilization": 0.9,
+    "enforce_eager": true,
+    "enable_prefix_caching": false,
+    "attention_config": {
+      "indexer_kv_dtype": "auto"
+    },
+    "limit_mm_per_prompt": {
+      "image": 0,
+      "video": 0
+    },
+    "trust_remote_code": false,
+    "worker_extension_cls": "worker_provenance.Provenance",
+    "async_scheduling": false
+  },
+  "sampling": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "seed": 0,
+    "max_tokens": 1024
+  },
+  "acceptance": {
+    "passed": true,
+    "runner": "V2",
+    "max_model_len": 4096,
+    "max_num_seqs": 1,
+    "async_scheduling": false,
+    "enforce_eager": true,
+    "prompt_tokens": [
+      20,
+      23,
+      2433
+    ],
+    "output_tokens": [
+      272,
+      3,
+      20
+    ],
+    "all_finish_reason": "stop",
+    "report": "evidence/inference_smoke.json",
+    "run": "evidence/inference_scale_fixed_run.json",
+    "scope": "Functional text-generation smoke acceptance, not performance, concurrency, multimodal or million-token context qualification."
+  },
+  "original_mim_image_available": false,
+  "independent_baseline_image_available": true,
+  "fresh_container_validation": [
+    "source imports",
+    "8 device discovery",
+    "pip check"
+  ],
+  "not_validated": [
+    "fresh container full model generation",
+    "V1 after scale repair",
+    "concurrency > 1",
+    "async scheduling",
+    "graph execution",
+    "context > 4096",
+    "multimodal",
+    "performance benchmark",
+    "SGLang comparison",
+    "whole framework/model matrix"
+  ],
+  "preserved": [
+    "dcc container",
+    "existing framework checkouts",
+    "host driver and SDK",
+    "canonical model files"
+  ],
+  "coverage_note": "Functional smoke only. Historical failed attempts remain failures. Runbooks contain recommendations beyond executed steps."
+}

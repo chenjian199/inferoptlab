@@ -4,7 +4,7 @@ from pathlib import Path
 import sys
 
 from tools.specs import ROOT, Catalog, SpecError, read, write
-from benchmark.io import file_hash
+from benchmark.common.io import file_hash
 from diagnosis.contracts import validate
 from diagnosis.engine import diagnose
 from diagnosis.report import render

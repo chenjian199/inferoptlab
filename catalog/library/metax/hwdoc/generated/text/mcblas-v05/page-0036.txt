@@ -1,0 +1,49 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 36
+PDF 页码标签: 29
+页脚页码候选: 29
+章节提示（书签推断）: mcblas<t>rotg()
+质量标记: private_use_characters
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+(续上页)
+mcDoubleComplex *y, int incy,
+const double *c, const double *s)
+该函数将吉文斯旋转 （Givens rotation） 矩阵 （即， 在 x， y 平面上逆时针旋转， 旋转角度由 cos(alpha)=c，
+sin(alpha)=s 定义） ：
+G =
+
+ c s
+−s c
+
+ 应用到向量 x 和 y 中。
+因此，结果为 x[k] = c × x[k] + s × y[j] 和 y[j] = −s × x[k] + c × y[j]，其中 k = 1 + ( i − 1) ∗ incx，
+j = 1 + ( i − 1) ∗ incy。请注意，最后两个公式反映了基于 1 的索引，该索引用于与 Fortran 兼容。
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+n input 向量 x 和 y 中的元素数
+x 设备 in/out 包含 n 个元素的 <type> 向量
+incx input x 中连续元素之间的步幅
+y 设备 in/out 包含 n 个元素的 <type> 向量
+incy input y 中连续元素之间的步幅
+c 主机或设备 input 旋转矩阵的余弦元素
+s 主机或设备 input 旋转矩阵的正弦元素
+下面列出了此函数可能的返回值及其含义。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2.3.9 mcblas<t>rotg()
+mcblasStatus_t mcblasSrotg(mcblasHandle_t handle,
+float *a, float *b,
+float *c, float *s)
+mcblasStatus_t mcblasDrotg(mcblasHandle_t handle,
+double *a, double *b,
+double *c, double *s)
+mcblasStatus_t mcblasCrotg(mcblasHandle_t handle,
+mcComplex *a, mcComplex *b,
+float *c, mcComplex *s)
+(下页继续)
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 29

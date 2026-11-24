@@ -1,0 +1,49 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 76
+PDF 页码标签: 69
+页脚页码候选: 69
+章节提示（书签推断）: mcblas<t>gemvBatched()
+质量标记: private_use_characters
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+是指向向量的指针数组。此外，对于矩阵 A[i]，
+op(A[i]) =
+
+
+
+A[i] if trans == M CBLAS_OP _N
+A[i]T if trans == M CBLAS_OP _T
+A[i]H if trans == M CBLAS_OP _C
+注解: y [i] 向量不能重叠，即单个 gemv 操作必须独立计算；否则，会导致未定义行为。在某些
+problem size 上， 可能需要在不同的 MXMACA 流中多次调用mcblas<t>gemv， 而不是使用此 API。
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+trans input 非转置或共轭转置运算 op(A[i])
+m input 矩阵 A[i] 的行数
+n input 矩阵 A[i] 的列数
+alpha 主机或设备 input 用于乘法的 <type> 标量
+Aarray 设备 input 指向 <type> 数组的指针数组，每个数组维度为 lda x
+n ，其中 lda >=max(1,m) 。
+所有指针都必须满足特定的对齐条件。详情参见以下
+内容
+lda input 用于存储矩阵 A[i] 的二维数组的前导维度
+xarray 设备 input 指 向 <type> 数 组 的 指 针 数 组， 如 果 trans ==
+MCBLAS_OP_N，数组维度为 n ；否则为 m。
+所有指针都必须满足特定的对齐条件。详情参见以下
+内容
+incx input 每个一维数组 x[i] 的步幅
+beta 主机或设备 input 用于乘法的 <type> 标量，如果 beta == 0 ，则 y 不
+必为有效输入
+yarray 设备 in/out 指 向 <type> 数 组 的 指 针 数 组。 如 果 trans ==
+MCBLAS_OP_N，数组维度为 n ；否则为 m。 向量y[i]
+不应重叠；否则，将出现未定义的行为。
+所有指针都必须满足特定的对齐条件。详情参见以下
+内容
+incy input 每个一维数组 y[i] 的步幅
+batchCount input Aarray、xarray 和 yarray 中包含的指针数
+如果使用 mcblasSgemvBatched() 时，数学模式启用快速数学模式，则 GPU 内存中的指针（而非指
+针数组）必须正确对齐，以避免未对齐的内存访问错误。理想情况下，所有指针都至少对齐 16 个字节。
+否则，建议符合以下规则：
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 69

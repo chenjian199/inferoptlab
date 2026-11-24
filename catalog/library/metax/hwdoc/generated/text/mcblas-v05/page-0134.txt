@@ -1,0 +1,45 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 134
+PDF 页码标签: 127
+页脚页码候选: 127
+章节提示（书签推断）: mcblas<t>trttp()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+参数 内存 In/out 含义
+handle input mcBLAS 库上下文的句柄
+uplo input 指示矩阵 AP 包含矩阵 A 的下半部分还是上半部分
+n input 矩阵 A 的行数和列数
+AP 设备 input 以压缩格式存储 A 的 <type> 数组
+A 设备 output <type> 数组， 维度为lda x n ， 其中lda>=max(1,n) 。 A 的另一侧
+不受影响。
+lda input 用于存储矩阵 A 的二维数组的前导维度
+下面列出了此函数可能的返回值及其含义。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_INVALID_VALUE • n < 0
+• uplo != MCBLAS_FILL_MODE_UPPER,
+MCBLAS_FILL_MODE_LOWER
+• lda < max(1, n)
+MCBLAS_STATUS_EXECUTION_FAILED 此函数在 GPU 上启用失败
+2.6.10 mcblas<t>trttp()
+mcblasStatus_t mcblasStrttp(mcblasHandle_t handle,
+mcblasFillMode_t uplo,
+int n,
+const float *A,
+int lda,
+float *AP );
+mcblasStatus_t mcblasDtrttp(mcblasHandle_t handle,
+mcblasFillMode_t uplo,
+int n,
+const double *A,
+int lda,
+double *AP );
+mcblasStatus_t mcblasCtrttp(mcblasHandle_t handle,
+mcblasFillMode_t uplo,
+int n,
+(下页继续)
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 127

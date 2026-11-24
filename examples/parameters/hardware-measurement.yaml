@@ -1,0 +1,111 @@
+id: example-hardware-measurement
+version: 1.0.0
+title: 模板参数示例：C500 GPU0 的 GEMM 与设备内复制实测
+provenance:
+- source_ref:
+    id: source-metax-calibration-20261123
+    version: 1.0.0
+  locator: /
+issues: []
+extensions: {}
+hardware_ref:
+  id: metax-c500-8gpu
+  version: 1.0.0
+runtime_ref:
+  id: metax-pytorch-c500-calibration
+  version: 1.0.0
+captured_at: '2026-11-23T07:32:43.389216+00:00'
+device_ids:
+- c500-aena2402001182
+evidence_kind: measured
+isolation: exclusive_preflight_only
+timer: torch.cuda.Event.elapsed_time
+measurements:
+- name: gemm_float16
+  metric: gemm
+  dtype: torch.float16
+  shape_mnk:
+  - 4096
+  - 4096
+  - 4096
+  payload_bytes: null
+  warmup_iterations: 10
+  iterations_per_sample: 20
+  samples_ms:
+  - 0.6100480079650878
+  - 0.6098048210144043
+  - 0.6100480079650878
+  - 0.6102015972137451
+  - 0.6102015972137451
+  statistic: median
+  value: 225.29202895104842
+  unit: TFLOPS
+  correctness: passed
+  formula: 2*M*N*K/(median_ms/1000)/1e12
+- name: gemm_bfloat16
+  metric: gemm
+  dtype: torch.bfloat16
+  shape_mnk:
+  - 4096
+  - 4096
+  - 4096
+  payload_bytes: null
+  warmup_iterations: 10
+  iterations_per_sample: 20
+  samples_ms:
+  - 0.6104191780090332
+  - 0.6108672142028808
+  - 0.6110208034515381
+  - 0.6109312057495118
+  - 0.6108928203582764
+  statistic: median
+  value: 224.9804693913325
+  unit: TFLOPS
+  correctness: passed
+  formula: 2*M*N*K/(median_ms/1000)/1e12
+- name: gemm_float32
+  metric: gemm
+  dtype: torch.float32
+  shape_mnk:
+  - 4096
+  - 4096
+  - 4096
+  payload_bytes: null
+  warmup_iterations: 10
+  iterations_per_sample: 20
+  samples_ms:
+  - 4.689984130859375
+  - 4.690470504760742
+  - 4.6907390594482425
+  - 4.691660690307617
+  - 4.690879821777344
+  statistic: median
+  value: 29.30006374905163
+  unit: TFLOPS
+  correctness: passed
+  formula: 2*M*N*K/(median_ms/1000)/1e12
+- name: device_copy
+  metric: device_copy
+  dtype: torch.float32
+  shape_mnk: null
+  payload_bytes: 268435456
+  warmup_iterations: 10
+  iterations_per_sample: 20
+  samples_ms:
+  - 0.3931391954421997
+  - 0.39296000003814696
+  - 0.39358720779418943
+  - 0.39461119174957277
+  - 0.39334399700164796
+  statistic: median
+  value: 1364.8890439219053
+  unit: GB/s
+  correctness: passed
+  formula: 2*payload_bytes/(median_ms/1000)/1e9
+limitations:
+- '仅测量 GPU0，不代表 8 卡聚合性能。'
+- 校准前后 GPU 进程清单为空；空闲检查不等同于测试全程具有系统级独占锁。
+- FP16、BF16、FP32 GEMM 仅覆盖 M=N=K=4096 的 torch.mm，不能代表 W8A8 模型或其他形状的性能。
+- device_copy 使用 256 MiB 设备内数据，按读写合计流量计带宽，不代表 H2D、D2H、PCIe 或 MetaXLink 带宽。
+- 常量矩阵输出检查仅用于排除本次计算执行错误，不能替代模型质量评测。
+- 未测 INT8 GEMM、跨卡通信或端到端 token 吞吐；这些指标需要独立实验。

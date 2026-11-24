@@ -1,0 +1,19 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 74
+PDF 页码标签: 62
+页脚页码候选: 62
+章节提示（书签推断）: 执行模型评测
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+表 9.1 – 续上页
+参数名称 说明
+precision 推理精度类型，目前支持 fp32、fp16、int8
+task 测试任务，normal 测试模型精度和 fps；fpsonly 只测试模型 fps；fpsclosed
+只测试模型精度
+modelfile 模型路径，若为./，会默认读取 config 配置的模型路径
+ep 推理运行的后端平台，默认为 maca，即沐曦通用 GPU 平台，可选 CPU 平台
+num_thr 测试的线程数，建议数值为 1 或者 8 的倍数
+9 MacaRT‑ModelZoo 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 62

@@ -1,0 +1,37 @@
+[
+  {
+    "title": "概述",
+    "pdf_page": 5,
+    "depth": 1
+  },
+  {
+    "title": "适用产品",
+    "pdf_page": 5,
+    "depth": 2
+  },
+  {
+    "title": "工具介绍",
+    "pdf_page": 6,
+    "depth": 1
+  },
+  {
+    "title": "支持的并行维度",
+    "pdf_page": 6,
+    "depth": 2
+  },
+  {
+    "title": "命令行参数",
+    "pdf_page": 6,
+    "depth": 2
+  },
+  {
+    "title": "使用示例",
+    "pdf_page": 7,
+    "depth": 2
+  },
+  {
+    "title": "输出说明",
+    "pdf_page": 7,
+    "depth": 2
+  }
+]

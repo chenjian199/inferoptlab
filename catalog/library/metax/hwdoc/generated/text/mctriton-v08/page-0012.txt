@@ -1,0 +1,15 @@
+文档: 沐曦通用GPU_mcTriton用户指南_CN_V08.pdf
+文档 ID: mctriton-v08
+SHA256: 5486a806ac8e48e40514347bac7403c40aee53d59515a9bded39cc17a7daed59
+PDF 页序号: 12
+PDF 页码标签: 8
+页脚页码候选: 8
+章节提示（书签推断）: 开源资源
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcTriton 用户指南
+4 开源资源
+mcTriton 的源代码仓库以及 tutorial 示例已开源：
+• mcTriton 源代码仓库
+• Tutorial 示例
+4 开源资源 沐曦股份专有信息 OG‑25009‑020‑F5_V08 | 8

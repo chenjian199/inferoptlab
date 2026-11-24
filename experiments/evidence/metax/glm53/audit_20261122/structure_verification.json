@@ -1,0 +1,63 @@
+{
+  "complete": false,
+  "tensor_data_and_mapping_valid": true,
+  "errors": [
+    "index total_size mismatch"
+  ],
+  "shards": 47,
+  "indexed_tensors": 76108,
+  "actual_tensors": 76108,
+  "tensor_counts_by_dtype": {
+    "F32": 213,
+    "BF16": 38557,
+    "I8": 37338
+  },
+  "tensor_bytes_by_dtype": {
+    "F32": 14541696,
+    "BF16": 14049830140,
+    "I8": 314396639232
+  },
+  "computed_total_tensor_bytes": 328461011068,
+  "index_metadata": {
+    "total_size": []
+  },
+  "quantization": [
+    {
+      "path": "/compression_config",
+      "method": "compressed-tensors",
+      "format": "int-quantized",
+      "config_groups": {
+        "group_0": {
+          "targets": [
+            "Linear"
+          ],
+          "input_activations": {
+            "dynamic": true,
+            "group_size": null,
+            "num_bits": 8,
+            "observer": "minmax",
+            "observer_kwargs": {},
+            "strategy": "token",
+            "symmetric": true,
+            "type": "int"
+          },
+          "weights": {
+            "dynamic": false,
+            "group_size": null,
+            "num_bits": 8,
+            "observer": "minmax",
+            "observer_kwargs": {},
+            "strategy": "channel",
+            "symmetric": true,
+            "type": "int"
+          }
+        }
+      },
+      "ignored_count": 683
+    }
+  ],
+  "architecture": [
+    "Glm5NextForConditionalGeneration"
+  ],
+  "original_checkpoint_modified": false
+}

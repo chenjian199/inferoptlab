@@ -1,0 +1,15 @@
+{
+  "observed_on": "2026-11-23",
+  "action": "One warm reset targeting0000:5b:00.0, affectedGPU4-7; explicitly authorized",
+  "reset_rc": 0,
+  "command_stdout": "mx-smi  version: 2.3.4\nGPU#4/5/6/7 try to reset...\nGPU#6 reset Done\n",
+  "waited_seconds": 90.00791239738464,
+  "boot_unchanged": true,
+  "driver": "3.10.14 unchanged",
+  "all8_available_after": true,
+  "affected_group_links": "All12 ports up,32GT/s,x16; CE/UE counters0 immediately after reset",
+  "errors_after_reset": [],
+  "boundary": "Initial recovery only; counters reset by warm reset, no durability claim; requires compute/communication/model verification.",
+  "original_sha256": "b5771a842913f42feb0a48840aeb46b2ce3c4c17f04428e41e7927f42943726e",
+  "selection": "Explicit reviewed recovery status; full driver initialization log excluded."
+}

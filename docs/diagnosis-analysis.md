@@ -58,7 +58,7 @@ runs/
   analysis/          # 专项任务与 trace 汇总
 ```
 
-依赖方向是 `benchmark 归档 → diagnosis → analysis`；前两步不会依赖厂商 Python SDK。共享基础对象仍由 `schemas` 管理，不在阶段目录另建私有 Model/Hardware。`analysis.trace` 只消费显式归一化格式，保留未来 ProfilerAdapter 的转换边界。
+依赖方向是 `benchmark 归档 → diagnosis → analysis`；前两步不会依赖厂商 Python SDK。共享基础对象仍由 `schemas` 管理，不在阶段目录另建私有 Model/Hardware。`benchmark.breakdown.trace` 只消费显式归一化格式，保留未来 ProfilerAdapter 的转换边界。
 
 ## 3. 新增七类规约
 
@@ -72,7 +72,7 @@ runs/
 | TraceCapture | `trace-capture.json` | 单位、窗口、时钟域、rank、事件身份明确，禁止越界事件 |
 | TraceSummary | `trace-summary.json` | 重叠使用 union，跨 rank 不求总延迟，关键路径未证明就为空 |
 
-沿用 `schema_version: 0.2.0` 的增量扩展。旧 `MechanismCard 0.1` 与 `OptimizationTask 0.1` 不改写，以免破坏原有例子；新 AnalysisMethod 是可版本化、可展开的专项实验规约。冗余物化方法明确承接旧机制卡，未来可建立完整机制—方法的多对多注册，不要求一张机制卡只能对应一个专项。
+各对象统一使用 `schema_version: 0.2.0`。MechanismCard 描述机制，AnalysisMethod 定义可版本化、可展开的专项实验方法，OptimizationTask 表达候选优化任务。冗余物化方法关联相应机制卡；未来可建立完整机制—方法的多对多注册，不要求一张机制卡只能对应一个专项。
 
 定义使用 JSON Schema；模板、计划、配方与结果默认 YAML。命名由目录说明用途，不增加 `.schema`、`.template` 后缀。
 
@@ -123,7 +123,7 @@ runs/
 | 三种 GLM 实际 config/header | 层数、专家、注意力、量化分组、权重大小 | 生成具体不同的专项作用域 | 文件存在不等于 loader 可用；未测 GLM 性能 |
 | 新四节点硬件清单 | 设备序列号、NUMA、PCIe、驱动、占用状态 | 集群任务资源前置条件 | 链路属性不等于带宽/通信实测，历史占用需重新检查 |
 
-历史资料以 `schemas/recipes/observations/` 的结构化录入和相应 SourceDocument 为入口。原始 V1/V2 文档或图片不在本地时，沿用已有录入与设计文档，并明确缺失原件；本版没有重新读取不存在的附件。
+历史资料以 `recipes/observations/` 的结构化录入和相应 SourceDocument 为入口。原始 V1/V2 文档或图片不在本地时，沿用已有录入与设计文档，并明确缺失原件；本版没有重新读取不存在的附件。
 
 现有硬件校准可提供的具体参考：4096³ FP16 约 225.22 TFLOPS、BF16 约 225.07 TFLOPS、FP32 约 29.30 TFLOPS，256 MiB 设备内复制按读写两倍 payload 口径约 1373.70 GB/s。这些值全部来自 `metax-hardware-baseline-metax-gpu0-measurement@1.0.0`，不代表量化 MoE、小 M decode GEMM 或跨卡通信的能力。
 
@@ -137,12 +137,12 @@ DeepSeek 历史 C4 3.34→1.6 ms、通信约节省 300 μs、padding 约 200 μs
 
 | 结果 | 位置 |
 |---|---|
-| Qwen 归因报告 | `runs/diagnosis/qwen-metax-v1/report.md` |
-| Qwen 专项任务 | `runs/analysis/qwen-metax-v2/report.md` |
-| GLM Flash-W8A8 任务 | `runs/analysis/glm53-flash-v1/report.md` |
-| GLM W4A8 任务 | `runs/analysis/glm53-w4a8-v1/report.md` |
-| GLM W8A8 任务 | `runs/analysis/glm53-w8a8-v1/report.md` |
-| 合成重叠 trace 汇总 | `runs/analysis/overlap-summary.yaml` |
+| Qwen 归因报告 | `experiments/runs/diagnosis/qwen-metax-v1/report.md` |
+| Qwen 专项任务 | `experiments/runs/analysis/qwen-metax-v2/report.md` |
+| GLM Flash-W8A8 任务 | `experiments/runs/analysis/glm53-flash-v1/report.md` |
+| GLM W4A8 任务 | `experiments/runs/analysis/glm53-w4a8-v1/report.md` |
+| GLM W8A8 任务 | `experiments/runs/analysis/glm53-w8a8-v1/report.md` |
+| 合成重叠 trace 汇总 | `experiments/runs/analysis/overlap-summary.yaml` |
 
 所有这些结果均为离线处理，本次没有在任何机器启动新 GPU 工作。
 

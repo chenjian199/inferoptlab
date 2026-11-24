@@ -1,0 +1,43 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 273
+PDF 页码标签: 265
+页脚页码候选: 265
+章节提示（书签推断）: __builtin_mxc_arrive
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+unsigned char __builtin_mxc_load_global_async8 (const unsigned char *addr);
+unsigned short __builtin_mxc_load_global_async16(const unsigned short *addr);
+unsigned int __builtin_mxc_load_global_async32(const unsigned int *addr);
+unsigned long long __builtin_mxc_load_global_async64(const unsigned long long 
+,→*addr);
+v3i __builtin_mxc_load_global_async96(const v3i *addr);
+v4i __builtin_mxc_load_global_async128(const v4i *addr);
+参数
+参数名 说明
+addr 指向全局内存中数据的常量指针
+示例
+typedef __NATIVE_VECTOR__(3, int) v3i;
+__global__ void k(v3i* src, v3i* dst) {
+dst[0] = __builtin_mxc_load_global_async96(src);
+}
+typedef __NATIVE_VECTOR__(4, int) v4i;
+__global__ void k(v4i* src, v4i* dst) {
+dst[0] = __builtin_mxc_load_global_async128(src);
+}
+2.18.8 __builtin_mxc_arrive
+描述
+内存栅栏：等待共享内存和全局内存的未完成操作计数降低至指定值及以下。MXMACA平台中“arrive”
+表示内存栅栏（memoryfence） ，请参考2.6MemoryFence函数 。
+语法
+void __builtin_mxc_arrive(unsigned flag);
+参数
+参数名 说明
+flag[5:0] gvm_cnt（全局内存计数） ，最多63个未完成操作
+flag[6] gvm_cnt_enable（置1表示等待全局内存计数）
+flag[10:7] bsm_cnt（共享内存计数） ，最多15个未完成操作
+flag[12] bsm_cnt_enable（置1表示等待共享内存计数）
+示例
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 265

@@ -1,0 +1,38 @@
+文档: 沐曦通用GPU_mcTracer使用手册_CN_V08.pdf
+文档 ID: mctracer-v08
+SHA256: 63b792c27a24a5f89d2e599bd5f84791f0c31b815e30d341e4c4cfcc1c21a492
+PDF 页序号: 7
+PDF 页码标签: 2
+页脚页码候选: 2
+章节提示（书签推断）: 使用
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcTracer使用手册
+2 mcTracer
+2.1 安装
+mcTracer 包含在 MXMACA 软件包内，软件包安装完成后，mcTracer 工具位于/opt/maca/bin 目录下。
+2.2 使用
+mcTracer 依赖于 MXMACA 安装包中的 libmcToolsExt.so动态库（默认跟随 MXMACA 安装） 。
+mcTracer 是一个 Linux 命令行工具，遵循如下命令格式：
+mcTracer [tracer options] [user program] [user program args]
+其中：
+• tracer options 为可选参数，可选参数有：
+– --help：显示帮助信息
+– --debug：mcTracer 自身的调试选项，使用后会输出 mcTracer 的调试信息
+– --odname：自定义输出文件夹名称，默认为 当前路径 /tracer_out_${timestamp}，${times‑
+tamp} 为实际的时间戳
+– --name：自定义输出文件的文件名前缀，默认输出文件名为tracer_out‑${pid}.json，${pid} 为
+实际的用户进程 pid
+– --mctx：开启自定义标签段数据，开启后在 MXMACA 内的 MCTX API 会被追踪
+– --attach：使能 attach 模式，后跟用户程序 pid，支持多次 attach，使用“Ctrl+t”可以结束单
+次 attach。
+attach 模式用于用户自定义 tracing 用户程序区间数据，该模式需在两个会话窗口使用，一个窗
+口内执行用户程序，另一个窗口内执行 mcTracer --attach <pid> 有关指令， “Ctrl+t”需在
+mcTracer 窗口执行用于结束单次 attach
+• user program 代表被追踪的用户执行程序。在 attach 模式下，无需使用该参数，在非 attach 模式
+下，该参数为必选
+• user program args 代表被追踪的用户程序自身的参数。在 attach 模式下，无需使用该参数，在
+非 attach 模式下，该参数为必选
+以下命令演示了一个为向量加的追踪程序，且向量的宽 x 高为 1024x256：
+mcTracer ./vectoradd -vector_width=1024 –vector_height=256
+2 mcTracer 沐曦股份专有信息 OG‑24004‑020‑F5_V08 | 2

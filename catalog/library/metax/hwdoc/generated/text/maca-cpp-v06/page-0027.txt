@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 27
+PDF 页码标签: 19
+页脚页码候选: 19
+章节提示（书签推断）: half2算术函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+__device__ __half2 __hadd2_sat (const __half2 a, const __half2 b)
+参数
+a
+• half2，只读入参
+b
+• half2，只读入参
+返回值
+• half2，返回a加b的和
+函数描述
+• 对a和b求和。把求到的结果向最近偶数舍入后，结果限制在区间[0.0,1.0]上，返回结果。
+__device__ __half2 __hcmadd (const __half2 a, const __half2 b, const __half2 c)
+参数
+a
+• half2，只读入参
+b
+• half2，只读入参
+c
+• half2，只读入参
+返回值
+• half2，a乘b加c的结果
+函数描述
+• 函数会将入参理解为半精度的复数。
+• 计算a乘b的积，再用这个积与c求和。
+__device__ __half2 __hfma2 (const __half2 a, const __half2 b, const __half2 c)
+参数
+a
+• half2，只读入参
+b
+• half2，只读入参
+c
+• half2，只读入参
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 19

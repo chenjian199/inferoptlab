@@ -1,0 +1,7 @@
+{
+  "comparison": "installed Python files vs git archive HEAD of /workspace/vLLM-metax",
+  "head": "4840e80c17fca73cb6fd6daa9d80f4f948c29aec",
+  "same_count": 185,
+  "different": [],
+  "missing": []
+}

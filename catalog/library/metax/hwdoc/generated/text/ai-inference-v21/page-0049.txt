@@ -1,0 +1,46 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 49
+PDF 页码标签: 37
+页脚页码候选: 37
+章节提示（书签推断）: PMX模型测试
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+表 6.3 – 续上页
+LLM Model Merge.py 导入代码
+Mixtral8x7B import macaPMX.model_zoo.mixtral.modeling.MergeModel
+as MergeModel
+2. 执行以下命令，对切分后 PMX 模型进行合并。
+python merge.py --input_dir <input_directory_path> --num_shards <number_of_
+,→shards> --output_dir <output_directory_path>
+参数说明：
+• input_dir ：待合并 PMX 模型路径（文件夹）
+• num_shards ：PMX 子模型的份数
+• output_dir ：合并后 PMX 模型目标路径（文件夹）
+6.3.1.5 PMX 模型测试
+当生成 PMX 模型后，使用 torch 加载 PMX 模型并执行 LLM 推理，根据输出结果验证 PMX 模型转换的
+正确性。同时，若设置相应 dump 参数，可以将模型对应 step 的输入、输出保存下来，作为后续本地部
+署精度验证的输入及输出参考值。
+操作步骤
+1. 在/opt/maca‑ai/ppl.llm.serving/samples/samples/model_converter/路径下获取 PMX 模型
+测试示例脚本 Demo.py。
+根据需要，修改第 2 行导入相应模型的 PMX 运行函数。当前支持的模型及对应导入代码参见表 6.4。
+表 6.4 MacaPMX 支持的大模型及对应 PMX 模型运行函数
+LLM Model Demo.py 导入代码
+Llama 全系/其它类 Llama 大模
+型
+from macaPMX.model_zoo.llama.huggingface import run_
+demo
+chatglm2_6B/chatglm3_6B from macaPMX.model_zoo.chatglm2.huggingface import
+run_demo
+internlm_7B from macaPMX.model_zoo.internlm.huggingface import
+run_demo
+BaiChuan2_7B from macaPMX.model_zoo.baichuan.huggingface import
+run_7B
+Mixtral8x7B from macaPMX.model_zoo.mixtral.huggingface import
+run_demo
+QWen 系列模型 from macaPMX.model_zoo.qwen.huggingface import run_
+demo
+6 MacaRT‑LLM 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 37

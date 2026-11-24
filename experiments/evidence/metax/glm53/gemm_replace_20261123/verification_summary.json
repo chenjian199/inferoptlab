@@ -1,0 +1,106 @@
+{
+  "status": "passed_with_model_blocked",
+  "unit_cases": 56,
+  "unit_devices_before_fault": 8,
+  "isolated_cases": 24,
+  "isolated_device": 0,
+  "isolated_checkpoint_partitions": 8,
+  "isolated_exact_cases": 17,
+  "isolated_max_bf16_ulp": 1.0,
+  "isolated_max_abs": 0.0078125,
+  "rollback_exact_cases": 24,
+  "fallback": 0,
+  "captures": [
+    {
+      "path": "evidence/real_inputs/rankisolated_slice0_decode.pt",
+      "sha256": "6d82dc2256754c96c77ae4199574455c3c73232c400d2fc20e3fc43c3786a3b4"
+    },
+    {
+      "path": "evidence/real_inputs/rankisolated_slice0_prefill.pt",
+      "sha256": "1ed29482b7aaf51e65713f0a3dcc6dcdeefa1fbefef62c29b92bae8a7f11bb0a"
+    },
+    {
+      "path": "evidence/real_inputs/rankisolated_slice1_decode.pt",
+      "sha256": "7273a496f11afb8af9d36ecbf2a592d8b556a8c456ee8c524db8d5c588e6abb6"
+    },
+    {
+      "path": "evidence/real_inputs/rankisolated_slice1_prefill.pt",
+      "sha256": "163cb107cbe8ffb91a5b5a1c07058844b647bea55d8da06f0e9aa9ceb0c5efae"
+    },
+    {
+      "path": "evidence/real_inputs/rankisolated_slice2_decode.pt",
+      "sha256": "40f578f7032c3de5e33b4ce8f28017b3b407a8673755aea2a48347e9f4c07bb6"
+    },
+    {
+      "path": "evidence/real_inputs/rankisolated_slice2_prefill.pt",
+      "sha256": "5e549e7095f0859826ba02722b908772b039d1ee43ab348f8af4858584a2e58c"
+    },
+    {
+      "path": "evidence/real_inputs/rankisolated_slice3_decode.pt",
+      "sha256": "5990e146151617cc687c5f3a65579dd8480fb9ca6422649a3497f28917df2e51"
+    },
+    {
+      "path": "evidence/real_inputs/rankisolated_slice3_prefill.pt",
+      "sha256": "dd6e6872e6a557695cc74a863f495cea71a48809ee5a09b239108aac0e73277c"
+    },
+    {
+      "path": "evidence/real_inputs/rankisolated_slice4_decode.pt",
+      "sha256": "757f5aa911b252c6ae69da7da41d27029bbe79393c154d95ee293d399493db35"
+    },
+    {
+      "path": "evidence/real_inputs/rankisolated_slice4_prefill.pt",
+      "sha256": "88ce093dd65874e754955b6dc6de024c143abb9805215c2f822196f646f42d09"
+    },
+    {
+      "path": "evidence/real_inputs/rankisolated_slice5_decode.pt",
+      "sha256": "f30c2f3c36a3b7a2cfb7b6a417fde73c35aae96ed026d014bc1cf0ff25bd94ee"
+    },
+    {
+      "path": "evidence/real_inputs/rankisolated_slice5_prefill.pt",
+      "sha256": "cdd4ab10095b4b749b1323c3521e37e27f810704b84fe68c4e0bedb05b210889"
+    },
+    {
+      "path": "evidence/real_inputs/rankisolated_slice6_decode.pt",
+      "sha256": "1bdb4fce595c93ceeca1bcdee373ee22d72bb435db1b5b69c676d67c1da59b66"
+    },
+    {
+      "path": "evidence/real_inputs/rankisolated_slice6_prefill.pt",
+      "sha256": "0dd4b0852a1f0a855273e4f1e68e6d5d7ed2c6ec2f34f62abc6ca04dd8fda1eb"
+    },
+    {
+      "path": "evidence/real_inputs/rankisolated_slice7_decode.pt",
+      "sha256": "0d774658e5e8942117a59322f73a361c69fcf53b8122f897263385e1ddc8c5f0"
+    },
+    {
+      "path": "evidence/real_inputs/rankisolated_slice7_prefill.pt",
+      "sha256": "23248d7d6e28cb673eb3470f33128f1425045c47c8edc4dcb420174a83c6d088"
+    }
+  ],
+  "preserved_containers": true,
+  "prior_verification": {
+    "status": "passed",
+    "independent_plain_processes": 3,
+    "diagnostic_captures": 108,
+    "baseline_verification": {
+      "status": "passed",
+      "archive_files_checked": 65,
+      "results": {
+        "smoke32": {
+          "tasks": 32,
+          "passed": 31,
+          "pass_at_1": 0.96875
+        },
+        "full164": {
+          "tasks": 164,
+          "passed": 153,
+          "pass_at_1": 0.9329268292682927
+        }
+      },
+      "scope": "Offline integrity and completeness; no inference or candidate code execution."
+    },
+    "artifact_files_checked": 135,
+    "boundary": "Local metadata and evidence integrity. Full tensor bytes remain on remote host; their hashes are recorded, not reread by this verifier."
+  },
+  "full_model": "Blocked before candidate injection by GPU6/communication fault; zero model generations or HumanEval scores in this experiment.",
+  "boundary": "Real checkpoint weights/scales, synthetic activations; single GPU sequential partitions; no TP8 model, performance or release acceptance claim."
+}

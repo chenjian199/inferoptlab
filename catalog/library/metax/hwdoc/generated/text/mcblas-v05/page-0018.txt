@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 18
+PDF 页码标签: 11
+页脚页码候选: 11
+章节提示（书签推断）: mcblasCreate()
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+表 2.1 – 续上页
+值 含义
+MCBLAS_COMPUTE_32F_FAST_16BF 允许库对 32‑bit 输入和输出矩阵使用具有自动下变频换功能
+的 Tensor Core 和 bfloat16 计算。
+MCBLAS_COMPUTE_32F_FAST_TF32 允许库对将 32‑bit 输入和输出矩阵使用 Tensor Core 和 TF32
+计算。
+MCBLAS_COMPUTE_64F 默认的 64‑bit 双精度浮点，使用至少 64‑bit 的计算和中间结
+果存储精度。
+MCBLAS_COMPUTE_64F_PEDANTIC 对所有计算阶段使用 64‑bit 双精度浮点运算，并禁用算法优
+化，如高斯复杂度归约（3M） 。
+MCBLAS_COMPUTE_32I 默认的 32‑bit 整数模式，使用至少 32‑bit 的计算和中间结果
+存储精度。
+MCBLAS_COMPUTE_32I_PEDANTIC 对所有计算阶段使用 32‑bit 整数运算。
+2.2 mcBLAS 辅助函数
+2.2.1 mcblasCreate()
+mcblasStatus_t
+mcblasCreate(mcblasHandle_t *handle)
+该函数用于初始化 mcBLAS 库并创建一个不透明结构的句柄， 该结构存放 mcBLAS 库上下文。 该函数在
+主机和设备上分配硬件资源，必须在调用其他任何 mcBLAS 库之前对其进行调用。mcBLAS 库上下文与
+当前 MXMACA 设备绑定。要在多个设备上使用库，需要为每个设备创建一个 mcBLAS 句柄。此外，对
+于给定设备，可以创建多个具有不同配置的 mcBLAS 句柄。由于通过 mcblasCreate() 分配一些内部
+资源和通过 mcblasDestroy() 释放这些资源将隐式调用 mcblasDeviceSynchronize()，因此建
+议尽量减少 mcblasCreate()/mcblasDestroy() 的调用次数。 对于使用相同设备但来自不同线程的
+多线程应用，推荐使用的编程模型是为每个线程创建一个 mcBLAS 句柄，并在线程的整个生命周期中使
+用该 mcBLAS 句柄。
+返回值 含义
+MCBLAS_STATUS_SUCCESS 初始化成功
+MCBLAS_STATUS_NOT_INITIALIZED MXMACA 运行时初始化失败
+MCBLAS_STATUS_ALLOC_FAILED 资源无法分配
+MCBLAS_STATUS_INVALID_VALUE handle == NULL
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 11

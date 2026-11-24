@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 189
+PDF 页码标签: 181
+页脚页码候选: 181
+章节提示（书签推断）: 双精度数学函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+• rsqrt(±0)返回±∞
+• 如果x<0，rsqrt(x)返回NaN。
+函数描述
+计算输入参数x的平方根的倒数。
+__device__ double scalbln (double x, long int n)
+按2的整数幂缩放浮点输入。
+返回值
+• 返回x*2 n。
+• scalblnf(±0,n)返回±0。
+• scalblnf(x,0)返回x。
+• scalblnf(±∞,n)返回±∞。
+函数描述
+按2 n 缩放浮点输入x。
+__device__ double scalbln (double x, int n)
+按2的整数幂缩放浮点输入。
+返回值
+• 返回x*2 n。
+• scalbln(±0,n)返回±0。
+• scalbln(x,0)返回x。
+• scalbln(±∞,n)返回±∞。
+函数描述
+按2 n 缩放浮点输入x。
+__device__ bool signbit (double a)
+返回输入的符号位。
+返回值
+• 当且仅当a是负数返回true。
+函数描述
+确认浮点数是不是负数。
+__device__ float sin (double x)
+计算输入参数的正弦。
+返回值
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 181

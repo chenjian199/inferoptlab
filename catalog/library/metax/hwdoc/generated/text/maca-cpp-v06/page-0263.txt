@@ -1,0 +1,36 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 263
+PDF 页码标签: 255
+页脚页码候选: 255
+章节提示（书签推断）: Atomic函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+2.13 时间函数
+clock_t clock();
+long long int clock64();
+当在执行 device 代码的时候，返回每个多处理器计数器的值，该值在每个时钟周期递增。在 kernel 开
+始以及结束的时候对这个计数器取样，取两次样本的差值，并且记录每个线程为每个线程提供设备为完
+全执行线程所需的时钟周期数的度量的结果，但是不是 device 确切的消耗在执行这些指令上的时钟周
+期数。前一个数字比后一个数字大，因为线程时间是切片的。
+2.14 Atomic 函数
+Atomic 函数是对 global 或 shared 的内存空间执行“读‑改‑写”的原子操作。例如，atomicAdd()从
+global 或者 shared 的内存空间的某个地址读取一个字，对该字加 1 后将结果写回到相同的地址上。该
+操作是原子的，它保证该操作可以在不受其他线程干扰的情况下执行（在操作完成之前，没有其他线程
+可以访问该地址） 。Atomic 函数与 memory fence 不同，其不具有同步或者其他约束内存操作顺序的行
+为（参考2.6MemoryFence函数 以了解更多） 。Atomic函数仅可被用于设备侧函数中。
+Atomic函数的原子范围：
+• system 范围原子：当前程序中所有 MXMACA 线程具备原子性，包括系统中的其他 CPU 和 GPU。这
+些函数使用“_system”做为后缀，例如atomicAdd_system。
+• device范围原子：与当前线程处于同一个 device的所有 MXMACA线程具备原子性。这些函数没有扩
+展后缀，例如atomicAdd。
+• block 范围原子：与当前线程处于同一个 block 的所有 MXMACA 线程具备原子性。这些函数使用
+“_block”做为后缀，例如atomicAdd_block。
+下例中，使用“atomicAdd_system”函数更新了地址addr的值：
+__global__ void mykernel(int *addr) {
+atomicAdd_system(addr, 10);
+}
+注解: 大多数的原子操作均可通过“atomicCAS”函数实现。
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 255

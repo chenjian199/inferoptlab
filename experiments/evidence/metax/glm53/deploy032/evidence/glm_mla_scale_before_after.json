@@ -1,0 +1,10 @@
+{
+  "before": {
+    "fp8_helper_consumed_int8_scale": true,
+    "buffered": true
+  },
+  "after": {
+    "fp8_helper_consumed_int8_scale": false,
+    "buffered": false
+  }
+}

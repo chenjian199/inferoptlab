@@ -1,0 +1,57 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 11
+PDF 页码标签: 4
+页脚页码候选: 4
+章节提示（书签推断）: Hello mcBLAS
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+(续上页)
+free(a);
+return 0;
+}
+//示 例 2.使 用 C和mcBLAS 的 应 用 程 序 ： 基 于0 的 索 引
+//example2.cpp
+//-----------------------------------------------------------
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <mc_runtime.h>
+#include "mcblas.h"
+#define M 6
+#define N 5
+#define IDX2C(i,j,ld) (((j)*(ld))+(i))
+static __inline__ void modify (mcblasHandle_t handle, float *m, int ldm, int n, 
+,→int p, int q, float alpha, float beta){
+mcblasSscal (handle, n-q, &alpha, &m[IDX2C(p,q,ldm)], ldm);
+mcblasSscal (handle, ldm-p, &beta, &m[IDX2C(p,q,ldm)], 1);
+}
+int main (void){
+int mcStat;
+mcblasStatus_t stat;
+mcblasHandle_t handle;
+int i, j;
+float* devPtrA;
+float* a = 0;
+a = (float *)malloc (M * N * sizeof (*a));
+if (!a) {
+printf ("host memory allocation failed");
+return EXIT_FAILURE;
+}
+for (j = 0; j < N; j++) {
+for (i = 0; i < M; i++) {
+a[IDX2C(i,j,M)] = (float)(i * N + j + 1);
+}
+}
+mcStat = mcMalloc ((void**)&devPtrA, M*N*sizeof(*a));
+if (mcStat != 0) {
+printf ("device memory allocation failed");
+return EXIT_FAILURE;
+}
+stat = mcblasCreate(&handle);
+if (stat != MCBLAS_STATUS_SUCCESS) {
+printf ("mcBLAS initialization failed\n");
+(下页继续)
+1 简介 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 4

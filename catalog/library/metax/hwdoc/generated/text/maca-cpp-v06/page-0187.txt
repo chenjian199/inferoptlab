@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 187
+PDF 页码标签: 179
+页脚页码候选: 179
+章节提示（书签推断）: 双精度数学函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+计算单精度浮点余数。
+返回值
+• remainderf(x,0)返回NaN。
+• remainderf(±∞,y)返回NaN。
+• remainderf(x,±∞)对于有穷x返回x。
+函数描述
+计算非零y的x除以y的单精度浮点余数r，因此r=x‑ny。n的值是最接近x/y的整数。
+__device__ double remquo (double x, double y, int *quo)
+计算单精度浮点余数和部分商。
+返回值
+• 返回余数。
+• remquo(x,0,quo)返回NaN。
+• remquo(±∞,y,quo)返回NaN。
+• remquo(x,±∞,quo)返回x。
+函数描述
+以与remainder()函数相同的方式计算双精度浮点余数。参数quo在x除以y后返回部分商。值quo与
+x/y有相同的符号，可能不是精确商，但与低阶3位中的精确商一致。
+__device__ double rhypot (double x, double y)
+计算两个参数平方和的平方根。
+返回值
+• 返回斜边长度倒数值1/sqrt(x 2 +y 2)。如果平方根溢出，返回0。如果平方根向下溢出，返回+∞。
+函数描述
+计算直角三角形斜边长度倒数，该直角三角形的两侧具有长度x和y，没有过度溢出或下溢。
+__device__ double rint (double x)
+将输入四舍五入为最接近的浮点整数值。
+返回值
+• 返回舍入后的值。
+函数描述
+以浮点格式将x四舍五入为最接近的整数值，将一半大小写四舍五入为最接近的偶数整数值。
+__device__ double rnorm (int dim, const double *p)
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 179

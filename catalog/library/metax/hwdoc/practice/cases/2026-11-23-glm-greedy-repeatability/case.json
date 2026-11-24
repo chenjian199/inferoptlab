@@ -1,0 +1,12 @@
+{
+  "observed_on": "2026-11-23",
+  "status": "open_root_cause_not_reproduced",
+  "scope": "C500 TP8, vLLM 5df63a72, MetaX 0962c873 plus frozen repairs, image 9bbf20db, V2/eager/single sequence; HumanEval32 repeatability only; no full164 repeat claim",
+  "observed": "Four independent plain engines, six32 runs all31/32 and token exact;108 fixed-prefix probes;162 same-path comparisons exact. Original historical9 differences remain unexplained.",
+  "unverified": [
+    "historical full164 request-history replay",
+    "cold versus warm compiler cache factorial test",
+    "global deterministic execution guarantee"
+  ],
+  "preserved": "Original153/164 baseline and existing deployment unchanged."
+}

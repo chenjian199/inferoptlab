@@ -1,0 +1,61 @@
+文档: 沐曦通用GPU_运行时API编程指南_CN_V18.pdf
+文档 ID: runtime-api-v18
+SHA256: fff0305698ce390261781c45706df7ee1c34bf07f3409acb975e75c689a2a5f0
+PDF 页序号: 69
+PDF 页码标签: 60
+页脚页码候选: 60
+章节提示（书签推断）: 环境变量
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+运行时 API 编程指南
+表 4.1 – 续上页
+变量名称 可设置值 缺省值 描述
+MACA_
+MODULE_
+LOADING
+LAZY
+或 EAGER
+LAZY 控制核函数的预加载（kernel preloading）方式。
+设置为 EAGER 时， 在调用模块加载 API 时， 预先加载核
+函数的设备代码到设备显存。
+当设置为 LAZY 时， 在核函数首次在设备启动执行时， 加
+载核函数的设备代码到设备显存。
+常用调试控制
+MXLOG_LEVEL off
+critical
+error
+warn
+info
+debug
+verbose
+error MXMACA 日志级别管理。
+功能 1： 全量调整日志级别。 层级从高到低逐层递减， 设
+置到相应层级，会打开该层级及更高层级日志，默认设
+置为 error 层级，可按需调整：
+设置为 off 时，关闭所有日志。
+设置为 critical 时，仅打开严重错误相关日志。
+设置为 error 时，打开 error 层级及更高层级相关日志。
+设置为 warn 时，打开 warn 层级及更高层级相关日志。
+设置为 info 时，打开 info 层级及更高层级相关日志。
+设置为 debug 时，打开 debug 层级及更高层级相关日
+志。
+设置为 verbose 时，打开最高层级相关日志。
+功能 2：支持模块化日志级别设置： export MXLOG_
+LEVEL=err,[模块名]=[级别]
+模块名：从 export MXLOG_LEVEL=debug 输出中获
+取（如 MCR/MXC/MXKW） 。
+级别：与全局调整的级别可设置值一致。
+例如：export MXLOG_LEVEL=err,MCR=debug 仅启
+用 MCR 模块的 debug 及以上级别日志，其他模块保持
+error 级别。
+功能 3： 控制日志刷新级别， 强制实时刷新日志：export
+MXLOG_LEVEL=debug,FLUSH_LEVEL=debug
+用途说明：仅调试使用，性能开销大，解决异常退出时
+日志缓存未落盘问题（如 Ctrl+C 终止） 。
+此外，针对复杂应用需求，沐曦通用 GPU 还提供面向策略控制、高阶执行控制、多进程服务、内核态加
+载参数调整及高阶调试等功能的环境变量支持。支持的环境变量参见表 4.2。
+表 4.2 高阶环境变量
+变量名称 可设置值 缺省值 描述
+策略控制
+下页继续
+4 编译和调试 沐曦股份专有信息 PG‑23003‑020‑F5_V18 | 60

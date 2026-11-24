@@ -1,0 +1,37 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 58
+PDF 页码标签: 46
+页脚页码候选: 46
+章节提示（书签推断）: C++客户端部署
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+export MACA_PATH=your_maca_path
+export PATH=${MACA_PATH}/bin:${PATH}
+export LD_LIBRARY_PATH=${MACA_PATH}/lib:${MACA_PATH}/mxgpu_llvm/lib:${LD_LIBRARY_
+,→PATH}
+export USE_GEMM_NN=true
+export SHOW_PREFILL=true # 若 需 要 输 出prefill 性 能 统 计 数 据 ， 设 置 该 环 境 变 量
+./ppl_llm_server llama_7b_config.json
+当输出下列日志时，表示 llama_7b 服务启动完成：
+[INFO][2023-12-07 16:05:29.304][llama_worker.cc:962] waiting for request ...
+6.3.4.2 C++ 客户端部署
+安装 ppl.llm.serving_*_amd64.deb 后， 可在/opt/maca‑ai/ppl.llm.serving/samples/samples/ppl_
+server_client/cpp_client/路径下获取 C++ 代码示例。安装路径中有该代码示例已编译生成的可执行
+文件：/opt/maca‑ai/ppl.llm.serving/bin/cpp_client。工程文件目录如图 6.2 所示：
+• cmake：文件夹，包含三方依赖库 cmake 配置。
+• CMakeLists.txt：CMake 配置文件。
+• proto：文件夹，包含与服务端交互时 grpc 依赖的 proto 文件。
+• src：文件夹，包含 client_sample.cc，是 C++ 客户端的简单使用示例程序。
+图 6.2 C++ 客户端目录结构图
+参考 client_sample.cc 示例代码，根据业务需求定制相应的 C++ 客户端即可。
+编译时需要将 cmake/deps.cmake 中 37‑39 行、41‑43 行中 grpc、absl 依赖库地址修改为：
+hpcc_declare_git_dep(grpc
+https://github.com/grpc/grpc.git
+v1.56.2)
+hpcc_declare_git_dep(absl
+https://github.com/abseil/abseil-cpp.git
+lts_2023_01_25)
+6 MacaRT‑LLM 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 46

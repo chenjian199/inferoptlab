@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 308
+PDF 页码标签: 300
+页脚页码候选: 300
+章节提示（书签推断）: memcpy_async
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+注解: 这个功能仍然在测试中以后可能会有轻微改动。
+3.5 组操作集合
+3.5.1 同步
+3.5.1.1 sync
+cooperative_groups::sync(T& group);
+sync函数同步指定的分组内的线程。T可以是任何存在的分组类型，它们都支持同步操作。如果这个分
+组是一个grid_group或者一个multi_grid_group，内核必须使用合适的cooperative启动接口来启动。
+3.5.2 数据移动
+3.5.2.1 memcpy_async
+memcpy_async是一个组级别的内存拷贝操作集合，它对非阻塞的全局到共享内存的内存交换应用硬件
+加速支持。对于分组内的特定的线程集合，memcpy_async会通过单独的一个流水步骤移动指定数量的
+字节或者输入类型的元素。此外，为了获取最佳的性能表现，需要全局以及共享内存按照 16 字节对齐。
+只有当拷贝源是全局内存并且拷贝目标是共享内存，并且两块内存编码都必须是 16，8 或者 4 字节对齐
+的时候这个操作才是异步的，否则它就是一个通常意义上的内存拷贝操作。异步内存拷贝的数据应该只
+能在 wait之后读取，表示把数据移动到共享内存的操作阶段已经结束了。
+必须等待所有未处理的请求可能会失去一些灵活性（但是会获得简单性） 。为了有效地重叠数据传输和执
+行，能够在等待和操作请求N的同时启动N+1 memcpy_async请求很重要。
+用法 1
+template <typename TyGroup, typename TyElem, typename TyShape>
+void memcpy_async(
+const TyGroup &group,
+TyElem *__restrict__ _dst,
+const TyElem *__restrict__ _src,
+const TyShape &shape
+);
+执行shape字节数的数据拷贝。
+用法 2
+template <typename TyGroup, typename TyElem,
+typename TyDstLayout, typename TySrcLayout>
+void memcpy_async(
+(下页继续)
+3 CooperativeGroups 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 300

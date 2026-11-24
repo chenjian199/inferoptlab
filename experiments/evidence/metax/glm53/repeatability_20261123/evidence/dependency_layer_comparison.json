@@ -1,0 +1,10 @@
+{
+  "glm53-heval-v1": {
+    "dependency_writable_layer_changes": [],
+    "mcoplib_gumbel_sha256": "4b5368bda01a6de90059cf9c099856ceebdc5bbb9ed1a4588c0d027dbca49b1e"
+  },
+  "glm53-repeat-v1": {
+    "dependency_writable_layer_changes": [],
+    "mcoplib_gumbel_sha256": "4b5368bda01a6de90059cf9c099856ceebdc5bbb9ed1a4588c0d027dbca49b1e"
+  }
+}

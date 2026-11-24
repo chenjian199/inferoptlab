@@ -1,0 +1,922 @@
+[
+  {
+    "title": "概述",
+    "pdf_page": 9,
+    "depth": 1
+  },
+  {
+    "title": "适用产品",
+    "pdf_page": 9,
+    "depth": 2
+  },
+  {
+    "title": "C++ 语言扩展",
+    "pdf_page": 10,
+    "depth": 1
+  },
+  {
+    "title": "函数执行空间标识符",
+    "pdf_page": 10,
+    "depth": 2
+  },
+  {
+    "title": "__global__",
+    "pdf_page": 10,
+    "depth": 3
+  },
+  {
+    "title": "__device__",
+    "pdf_page": 10,
+    "depth": 3
+  },
+  {
+    "title": "__host__",
+    "pdf_page": 10,
+    "depth": 3
+  },
+  {
+    "title": "未定义的行为",
+    "pdf_page": 11,
+    "depth": 3
+  },
+  {
+    "title": "__noinline__与__forceinline__",
+    "pdf_page": 11,
+    "depth": 3
+  },
+  {
+    "title": "变量存储空间标识符",
+    "pdf_page": 11,
+    "depth": 2
+  },
+  {
+    "title": "__device__",
+    "pdf_page": 12,
+    "depth": 3
+  },
+  {
+    "title": "__constant__",
+    "pdf_page": 12,
+    "depth": 3
+  },
+  {
+    "title": "__shared__",
+    "pdf_page": 12,
+    "depth": 3
+  },
+  {
+    "title": "__managed__",
+    "pdf_page": 13,
+    "depth": 3
+  },
+  {
+    "title": "内置类型",
+    "pdf_page": 13,
+    "depth": 2
+  },
+  {
+    "title": "maca_bfloat16",
+    "pdf_page": 13,
+    "depth": 3
+  },
+  {
+    "title": "maca_bfloat162 与 maca_bfloat16 关系",
+    "pdf_page": 14,
+    "depth": 4
+  },
+  {
+    "title": "Half-precision floating-point format（半精度浮点格式）",
+    "pdf_page": 14,
+    "depth": 3
+  },
+  {
+    "title": "IEEE 754 - 2008 半精度二进制浮点格式：binary16",
+    "pdf_page": 14,
+    "depth": 4
+  },
+  {
+    "title": "指数编码",
+    "pdf_page": 14,
+    "depth": 4
+  },
+  {
+    "title": "半精度示例",
+    "pdf_page": 15,
+    "depth": 4
+  },
+  {
+    "title": "half2 与 half 关系",
+    "pdf_page": 15,
+    "depth": 4
+  },
+  {
+    "title": "内置向量类型",
+    "pdf_page": 15,
+    "depth": 2
+  },
+  {
+    "title": "char，short，int，long，longlong，float，double",
+    "pdf_page": 15,
+    "depth": 3
+  },
+  {
+    "title": "dim3",
+    "pdf_page": 17,
+    "depth": 3
+  },
+  {
+    "title": "内置变量",
+    "pdf_page": 17,
+    "depth": 2
+  },
+  {
+    "title": "gridDim",
+    "pdf_page": 17,
+    "depth": 3
+  },
+  {
+    "title": "blockIdx",
+    "pdf_page": 17,
+    "depth": 3
+  },
+  {
+    "title": "blockDim",
+    "pdf_page": 17,
+    "depth": 3
+  },
+  {
+    "title": "threadIdx",
+    "pdf_page": 17,
+    "depth": 3
+  },
+  {
+    "title": "warpSize",
+    "pdf_page": 17,
+    "depth": 3
+  },
+  {
+    "title": "Memory Fence函数",
+    "pdf_page": 17,
+    "depth": 2
+  },
+  {
+    "title": "同步函数",
+    "pdf_page": 20,
+    "depth": 2
+  },
+  {
+    "title": "数学函数",
+    "pdf_page": 21,
+    "depth": 2
+  },
+  {
+    "title": "半精度（half）算术函数",
+    "pdf_page": 21,
+    "depth": 3
+  },
+  {
+    "title": "half2算术函数",
+    "pdf_page": 26,
+    "depth": 3
+  },
+  {
+    "title": "half比较函数",
+    "pdf_page": 30,
+    "depth": 3
+  },
+  {
+    "title": "half2比较函数",
+    "pdf_page": 37,
+    "depth": 3
+  },
+  {
+    "title": "半精度转换与数据移动函数",
+    "pdf_page": 47,
+    "depth": 3
+  },
+  {
+    "title": "half数学函数",
+    "pdf_page": 76,
+    "depth": 3
+  },
+  {
+    "title": "half2数学函数",
+    "pdf_page": 80,
+    "depth": 3
+  },
+  {
+    "title": "Bfloat16算术函数",
+    "pdf_page": 84,
+    "depth": 3
+  },
+  {
+    "title": "Bfloat162算术函数",
+    "pdf_page": 88,
+    "depth": 3
+  },
+  {
+    "title": "Bfloat16比较函数",
+    "pdf_page": 93,
+    "depth": 3
+  },
+  {
+    "title": "Bfloat162比较函数",
+    "pdf_page": 99,
+    "depth": 3
+  },
+  {
+    "title": "Bfloat16精度转换与数据移动函数",
+    "pdf_page": 110,
+    "depth": 3
+  },
+  {
+    "title": "Bfloat16数学函数",
+    "pdf_page": 139,
+    "depth": 3
+  },
+  {
+    "title": "Bfloat162数学函数",
+    "pdf_page": 143,
+    "depth": 3
+  },
+  {
+    "title": "单精度数学函数",
+    "pdf_page": 147,
+    "depth": 3
+  },
+  {
+    "title": "双精度数学函数",
+    "pdf_page": 169,
+    "depth": 3
+  },
+  {
+    "title": "整数型度数学函数",
+    "pdf_page": 193,
+    "depth": 3
+  },
+  {
+    "title": "单精度intrinsic",
+    "pdf_page": 204,
+    "depth": 3
+  },
+  {
+    "title": "双精度intrinsic",
+    "pdf_page": 214,
+    "depth": 3
+  },
+  {
+    "title": "整数型intrinsic",
+    "pdf_page": 220,
+    "depth": 3
+  },
+  {
+    "title": "类型转换intrinsic",
+    "pdf_page": 225,
+    "depth": 3
+  },
+  {
+    "title": "SIMD intrinsic",
+    "pdf_page": 240,
+    "depth": 3
+  },
+  {
+    "title": "Texture函数",
+    "pdf_page": 259,
+    "depth": 2
+  },
+  {
+    "title": "Texture Object API",
+    "pdf_page": 259,
+    "depth": 3
+  },
+  {
+    "title": "tex1Dfetch()",
+    "pdf_page": 259,
+    "depth": 4
+  },
+  {
+    "title": "tex1D()",
+    "pdf_page": 259,
+    "depth": 4
+  },
+  {
+    "title": "Texture Reference API",
+    "pdf_page": 260,
+    "depth": 3
+  },
+  {
+    "title": "tex1Dfetch()",
+    "pdf_page": 260,
+    "depth": 4
+  },
+  {
+    "title": "tex1D()",
+    "pdf_page": 261,
+    "depth": 4
+  },
+  {
+    "title": "只读数据缓存区加载函数",
+    "pdf_page": 262,
+    "depth": 2
+  },
+  {
+    "title": "使用缓存提示的加载函数",
+    "pdf_page": 262,
+    "depth": 2
+  },
+  {
+    "title": "使用缓存提示的存储函数",
+    "pdf_page": 262,
+    "depth": 2
+  },
+  {
+    "title": "时间函数",
+    "pdf_page": 263,
+    "depth": 2
+  },
+  {
+    "title": "Atomic函数",
+    "pdf_page": 263,
+    "depth": 2
+  },
+  {
+    "title": "算术函数",
+    "pdf_page": 264,
+    "depth": 3
+  },
+  {
+    "title": "atomicAdd()",
+    "pdf_page": 264,
+    "depth": 4
+  },
+  {
+    "title": "atomicSub()",
+    "pdf_page": 264,
+    "depth": 4
+  },
+  {
+    "title": "atomicExch()",
+    "pdf_page": 264,
+    "depth": 4
+  },
+  {
+    "title": "atomicMin()",
+    "pdf_page": 265,
+    "depth": 4
+  },
+  {
+    "title": "atomicMax()",
+    "pdf_page": 265,
+    "depth": 4
+  },
+  {
+    "title": "atomicInc()",
+    "pdf_page": 265,
+    "depth": 4
+  },
+  {
+    "title": "atomicDec()",
+    "pdf_page": 265,
+    "depth": 4
+  },
+  {
+    "title": "atomicCAS()",
+    "pdf_page": 266,
+    "depth": 4
+  },
+  {
+    "title": "位运算函数",
+    "pdf_page": 266,
+    "depth": 3
+  },
+  {
+    "title": "atomicAnd()",
+    "pdf_page": 266,
+    "depth": 4
+  },
+  {
+    "title": "atomicOr()",
+    "pdf_page": 266,
+    "depth": 4
+  },
+  {
+    "title": "atomicXor()",
+    "pdf_page": 267,
+    "depth": 4
+  },
+  {
+    "title": "地址空间谓词函数",
+    "pdf_page": 267,
+    "depth": 2
+  },
+  {
+    "title": "__isGlobal()",
+    "pdf_page": 267,
+    "depth": 3
+  },
+  {
+    "title": "__isShared()",
+    "pdf_page": 267,
+    "depth": 3
+  },
+  {
+    "title": "__isLocal()",
+    "pdf_page": 267,
+    "depth": 3
+  },
+  {
+    "title": "地址空间转换函数",
+    "pdf_page": 267,
+    "depth": 2
+  },
+  {
+    "title": "__cvta_generic_to_global()",
+    "pdf_page": 267,
+    "depth": 3
+  },
+  {
+    "title": "__cvta_generic_to_shared()",
+    "pdf_page": 268,
+    "depth": 3
+  },
+  {
+    "title": "__cvta_generic_to_constant()",
+    "pdf_page": 268,
+    "depth": 3
+  },
+  {
+    "title": "__cvta_generic_to_local()",
+    "pdf_page": 268,
+    "depth": 3
+  },
+  {
+    "title": "__cvta_global_to_generic()",
+    "pdf_page": 268,
+    "depth": 3
+  },
+  {
+    "title": "__cvta_shared_to_generic()",
+    "pdf_page": 268,
+    "depth": 3
+  },
+  {
+    "title": "__cvta_constant_to_generic()",
+    "pdf_page": 268,
+    "depth": 3
+  },
+  {
+    "title": "__cvta_local_to_generic()",
+    "pdf_page": 269,
+    "depth": 3
+  },
+  {
+    "title": "Alloca函数",
+    "pdf_page": 269,
+    "depth": 2
+  },
+  {
+    "title": "alloca()",
+    "pdf_page": 269,
+    "depth": 3
+  },
+  {
+    "title": "编译器内置函数",
+    "pdf_page": 269,
+    "depth": 2
+  },
+  {
+    "title": "__builtin_assume_aligned()",
+    "pdf_page": 269,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_assume()",
+    "pdf_page": 270,
+    "depth": 3
+  },
+  {
+    "title": "__assume()",
+    "pdf_page": 270,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_expect()",
+    "pdf_page": 270,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_unreachable()",
+    "pdf_page": 271,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_byte_perm",
+    "pdf_page": 271,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_load_global_async",
+    "pdf_page": 272,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_arrive",
+    "pdf_page": 273,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_arrive_gvmcnt",
+    "pdf_page": 274,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_arrive_bsmcnt",
+    "pdf_page": 274,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_barrier",
+    "pdf_page": 275,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_barrier_inst",
+    "pdf_page": 276,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_ldg_*_predicator",
+    "pdf_page": 276,
+    "depth": 3
+  },
+  {
+    "title": "__builtin_mxc_stg_*_predicator",
+    "pdf_page": 278,
+    "depth": 3
+  },
+  {
+    "title": "Warp Vote函数",
+    "pdf_page": 279,
+    "depth": 2
+  },
+  {
+    "title": "Warp Match函数",
+    "pdf_page": 280,
+    "depth": 2
+  },
+  {
+    "title": "提要",
+    "pdf_page": 280,
+    "depth": 3
+  },
+  {
+    "title": "描述",
+    "pdf_page": 280,
+    "depth": 3
+  },
+  {
+    "title": "Warp Reduce函数",
+    "pdf_page": 281,
+    "depth": 2
+  },
+  {
+    "title": "提要",
+    "pdf_page": 281,
+    "depth": 3
+  },
+  {
+    "title": "描述",
+    "pdf_page": 281,
+    "depth": 3
+  },
+  {
+    "title": "Warp Shuffle函数",
+    "pdf_page": 282,
+    "depth": 2
+  },
+  {
+    "title": "提要",
+    "pdf_page": 282,
+    "depth": 3
+  },
+  {
+    "title": "描述",
+    "pdf_page": 282,
+    "depth": 3
+  },
+  {
+    "title": "例子",
+    "pdf_page": 283,
+    "depth": 3
+  },
+  {
+    "title": "Nanosleep函数",
+    "pdf_page": 284,
+    "depth": 2
+  },
+  {
+    "title": "提要",
+    "pdf_page": 284,
+    "depth": 3
+  },
+  {
+    "title": "描述",
+    "pdf_page": 284,
+    "depth": 3
+  },
+  {
+    "title": "例子",
+    "pdf_page": 284,
+    "depth": 3
+  },
+  {
+    "title": "Warp matrix函数",
+    "pdf_page": 284,
+    "depth": 2
+  },
+  {
+    "title": "描述",
+    "pdf_page": 285,
+    "depth": 3
+  },
+  {
+    "title": "其他浮点类型",
+    "pdf_page": 286,
+    "depth": 3
+  },
+  {
+    "title": "双精度类型",
+    "pdf_page": 287,
+    "depth": 3
+  },
+  {
+    "title": "元素类型和矩阵形状",
+    "pdf_page": 287,
+    "depth": 3
+  },
+  {
+    "title": "示例",
+    "pdf_page": 288,
+    "depth": 3
+  },
+  {
+    "title": "Asynchronous Data Copies",
+    "pdf_page": 288,
+    "depth": 2
+  },
+  {
+    "title": "memcpy_async API",
+    "pdf_page": 288,
+    "depth": 3
+  },
+  {
+    "title": "没有memcpy_async",
+    "pdf_page": 289,
+    "depth": 3
+  },
+  {
+    "title": "有memcpy_async",
+    "pdf_page": 290,
+    "depth": 3
+  },
+  {
+    "title": "Assert函数",
+    "pdf_page": 291,
+    "depth": 2
+  },
+  {
+    "title": "Trap函数",
+    "pdf_page": 291,
+    "depth": 2
+  },
+  {
+    "title": "Breakpoint函数",
+    "pdf_page": 291,
+    "depth": 2
+  },
+  {
+    "title": "格式化输出",
+    "pdf_page": 292,
+    "depth": 2
+  },
+  {
+    "title": "Format Specifiers",
+    "pdf_page": 292,
+    "depth": 3
+  },
+  {
+    "title": "限制",
+    "pdf_page": 292,
+    "depth": 3
+  },
+  {
+    "title": "例子",
+    "pdf_page": 292,
+    "depth": 3
+  },
+  {
+    "title": "动态Global内存操作",
+    "pdf_page": 293,
+    "depth": 2
+  },
+  {
+    "title": "堆内存分配",
+    "pdf_page": 294,
+    "depth": 3
+  },
+  {
+    "title": "与host内存交互的api",
+    "pdf_page": 294,
+    "depth": 3
+  },
+  {
+    "title": "例子",
+    "pdf_page": 294,
+    "depth": 3
+  },
+  {
+    "title": "Per Thread 分配",
+    "pdf_page": 294,
+    "depth": 4
+  },
+  {
+    "title": "Per Thread block 分配",
+    "pdf_page": 295,
+    "depth": 4
+  },
+  {
+    "title": "执行配置",
+    "pdf_page": 296,
+    "depth": 2
+  },
+  {
+    "title": "Launch Bounds（启动边界）",
+    "pdf_page": 296,
+    "depth": 2
+  },
+  {
+    "title": "#pragma unroll",
+    "pdf_page": 297,
+    "depth": 2
+  },
+  {
+    "title": "关于内联汇编",
+    "pdf_page": 298,
+    "depth": 2
+  },
+  {
+    "title": "Cooperative Groups",
+    "pdf_page": 299,
+    "depth": 1
+  },
+  {
+    "title": "介绍",
+    "pdf_page": 299,
+    "depth": 2
+  },
+  {
+    "title": "编程模型概念",
+    "pdf_page": 299,
+    "depth": 2
+  },
+  {
+    "title": "组示例",
+    "pdf_page": 300,
+    "depth": 3
+  },
+  {
+    "title": "组类型",
+    "pdf_page": 300,
+    "depth": 2
+  },
+  {
+    "title": "隐式组",
+    "pdf_page": 300,
+    "depth": 3
+  },
+  {
+    "title": "Thread Block Group",
+    "pdf_page": 301,
+    "depth": 4
+  },
+  {
+    "title": "Grid Group",
+    "pdf_page": 302,
+    "depth": 4
+  },
+  {
+    "title": "Multi Grid Group",
+    "pdf_page": 302,
+    "depth": 4
+  },
+  {
+    "title": "显式组",
+    "pdf_page": 303,
+    "depth": 3
+  },
+  {
+    "title": "Thread Block Tile",
+    "pdf_page": 303,
+    "depth": 4
+  },
+  {
+    "title": "Warp-Synchronous代码模型",
+    "pdf_page": 304,
+    "depth": 5
+  },
+  {
+    "title": "Single thread分组",
+    "pdf_page": 304,
+    "depth": 5
+  },
+  {
+    "title": "Coalesced Groups",
+    "pdf_page": 305,
+    "depth": 4
+  },
+  {
+    "title": "Discovery Pattern",
+    "pdf_page": 306,
+    "depth": 5
+  },
+  {
+    "title": "组分割",
+    "pdf_page": 306,
+    "depth": 2
+  },
+  {
+    "title": "tiled_partition",
+    "pdf_page": 306,
+    "depth": 3
+  },
+  {
+    "title": "labeled_partition",
+    "pdf_page": 307,
+    "depth": 3
+  },
+  {
+    "title": "binary_partition",
+    "pdf_page": 307,
+    "depth": 3
+  },
+  {
+    "title": "组操作集合",
+    "pdf_page": 308,
+    "depth": 2
+  },
+  {
+    "title": "同步",
+    "pdf_page": 308,
+    "depth": 3
+  },
+  {
+    "title": "sync",
+    "pdf_page": 308,
+    "depth": 4
+  },
+  {
+    "title": "数据移动",
+    "pdf_page": 308,
+    "depth": 3
+  },
+  {
+    "title": "memcpy_async",
+    "pdf_page": 308,
+    "depth": 4
+  },
+  {
+    "title": "Grid 同步",
+    "pdf_page": 310,
+    "depth": 2
+  },
+  {
+    "title": "多设备同步",
+    "pdf_page": 311,
+    "depth": 2
+  },
+  {
+    "title": "C++ 语言支持",
+    "pdf_page": 313,
+    "depth": 1
+  },
+  {
+    "title": "C++98 支持状态",
+    "pdf_page": 313,
+    "depth": 2
+  },
+  {
+    "title": "C++11支持状态",
+    "pdf_page": 313,
+    "depth": 2
+  },
+  {
+    "title": "C++14支持状态",
+    "pdf_page": 313,
+    "depth": 2
+  },
+  {
+    "title": "C++17以及之后标准支持状态",
+    "pdf_page": 313,
+    "depth": 2
+  }
+]

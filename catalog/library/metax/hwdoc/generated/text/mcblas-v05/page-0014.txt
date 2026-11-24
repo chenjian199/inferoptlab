@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_mcBLAS API参考_CN_V05.pdf
+文档 ID: mcblas-v05
+SHA256: 89e54674efde34906958f75828231bc53e3e7a72986e741a8e220f52761b9c13
+PDF 页序号: 14
+PDF 页码标签: 7
+页脚页码候选: 7
+章节提示（书签推断）: macaDataType_t
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcBLAS API 参考
+2.1.7 mcblasStatus_t
+该类型用于函数状态返回。所有 mcBLAS 库函数调用返回其状态 mcblasStatus_t。
+值 含义
+MCBLAS_STATUS_SUCCESS 操作成功
+MCBLAS_STATUS_NOT_INITIALIZED 库未初始化
+MCBLAS_STATUS_ALLOC_FAILED 资源分配失败
+MCBLAS_STATUS_INVALID_VALUE 使用无效的数值作为参数
+MCBLAS_STATUS_ARCH_MISMATCH 当前函数功能在本设备上不支持
+MCBLAS_STATUS_MAPPING_ERROR 访问 GPU 内存空间失败
+MCBLAS_STATUS_EXECUTION_FAILED GPU 程序无法执行
+MCBLAS_STATUS_INTERNAL_ERROR 内部操作失败
+MCBLAS_STATUS_NOT_SUPPORTED 不支持所需功能
+2.1.8 macaDataType_t
+macaDataType_t 是指定数据精度的枚举类型。 当数据引用 （data reference） 不携带 type 类型时 （例
+如 void *） ，使用此枚举。
+例如，可在 mcblasSgemmEx 例程中使用。
+值 含义
+MACA_R_16F 数据类型为 16‑bit 实数半精度浮点
+MACA_C_16F 数据类型为 16‑bit 复数半精度浮点
+MACA_R_16BF 数据类型为 16‑bit 实数 bfloat16 浮点
+MACA_C_16BF 数据类型为 16‑bit 复数 bfloat16 浮点
+MACA_R_32F 数据类型为 32‑bit 实数单精度浮点
+MACA_C_32F 数据类型为 32‑bit 复数单精度浮点
+MACA_R_64F 数据类型为 64‑bit 实数双精度浮点
+MACA_C_64F 数据类型为 64‑bit 复数双精度浮点
+MACA_R_8I 数据类型为 8‑bit 实数有符号整数
+MACA_C_8I 数据类型为 8‑bit 复数有符号整数
+MACA_R_8U 数据类型为 8‑bit 实数无符号整数
+MACA_C_8U 数据类型为 8‑bit 复数无符号整数
+MACA_R_32I 数据类型为 32‑bit 实数有符号整数
+MACA_C_32I 数据类型为 32‑bit 复数有符号整数
+2 使用 mcBLAS API 沐曦股份专有信息 RD‑23012‑020‑F5_V05 | 7

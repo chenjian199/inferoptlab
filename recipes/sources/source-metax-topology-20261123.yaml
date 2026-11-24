@@ -1,0 +1,16 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-metax-topology-20261123
+version: 1.0.0
+title: 63metax 采集记录：model-directory-and-topology.json
+provenance: []
+issues: []
+extensions: {}
+path: experiments/evidence/metax/20261123/model-directory-and-topology.json
+sha256: 0e23426f3d80b5c84ae207cfa86cdb309358437011af4eaab92c2e9c5ce95cc0
+media_type: application/json
+role: machine_inventory
+authority: machine_collected
+coverage:
+  status: complete_visible
+  description: 通过 SSH 从 63metax 采集或归档的记录；覆盖范围以原文件实际字段为准，未记录的状态不作推断。

@@ -1,0 +1,45 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 48
+PDF 页码标签: 36
+页脚页码候选: 36
+章节提示（书签推断）: 模型合并（可选）
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+6.3.1.3 模型切分
+当模型需要在多卡环境上进行并行推理时，需要将生成的 PMX 模型进行切分，以适应多卡并行推理。
+操作步骤
+1. 在/opt/maca‑ai/ppl.llm.serving/samples/samples/model_converter/路径下获取 PMX 模型
+切分示例脚本 Split.py。
+根据需要，修改第 2 行导入相应模型的切分函数。当前支持的模型及对应导入代码参见表 6.2。
+表 6.2 MacaPMX 支持的大模型及对应 PMX 切分函数
+LLM Model Split.py 导入代码
+Llama/Qwen/其 它 类 Llama 大
+模型
+import macaPMX.model_zoo.llama.modeling.SplitModel
+as SplitModel
+Mixtral8x7B import macaPMX.model_zoo.mixtral.modeling.SplitModel
+as SplitModel
+2. 执行以下命令，进行模型拆分。
+python Split.py --input_dir <input_directory_path> --num_shards <number_of_
+,→shards> --output_dir <output_directory_path>
+参数说明：
+• input_dir ：待切分 PMX 模型路径（文件夹）
+• num_shards ：PMX 模型切分份数
+• output_dir ：切分后 PMX 模型目标路径（文件夹）
+6.3.1.4 模型合并（可选）
+该操作与模型切分相反，将多个切分后的 PMX 模型合并成一个。
+操作步骤
+1. 在/opt/maca‑ai/ppl.llm.serving/samples/samples/model_converter/路径下获取 PMX 模型
+合并示例脚本 Merge.py。
+根据需要，修改第 2 行导入相应模型的合并函数。当前支持的模型及对应导入代码参见表 6.3。
+表 6.3 MacaPMX 支持的大模型及对应 PMX 合并函数
+LLM Model Merge.py 导入代码
+Llama/Qwen/其 它 类 Llama 大
+模型
+import macaPMX.model_zoo.llama.modeling.MergeModel
+as MergeModel
+下页继续
+6 MacaRT‑LLM 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 36

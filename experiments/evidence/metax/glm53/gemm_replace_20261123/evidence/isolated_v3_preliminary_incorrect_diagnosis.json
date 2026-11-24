@@ -1,0 +1,5 @@
+{
+  "status": "stopped_during_initialization",
+  "cause_hypothesis": "Reused Gloo FileStore after failed init; next attempt uses unique rendezvous path",
+  "candidate_executed": false
+}

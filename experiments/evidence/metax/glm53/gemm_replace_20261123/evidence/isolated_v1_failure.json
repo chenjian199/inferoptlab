@@ -1,0 +1,1 @@
+{"cause": "vLLM ModelWeightParameter requires a TP group. First isolated harness omitted it; v2 uses single-rank Gloo metadata group on healthyGPU0. No full model inference."}

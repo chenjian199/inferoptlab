@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 262
+PDF 页码标签: 254
+页脚页码候选: 254
+章节提示（书签推断）: 使用缓存提示的存储函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+2.10 只读数据缓存区加载函数
+T __ldg(const T* address);
+函数返回数据类型T在地址address的数据，这里的数据类型T可以是char、signedchar、short、int、
+long、 longlongunsignedchar、 unsignedshort、 unsignedint、 unsignedlong、 unsignedlonglong、
+char2、char4、short2、short4、int2、int4、longlong2uchar2、uchar4、ushort2、ushort4、uint2、
+uint4、ulonglong2float、float2、float4、double或者double2。当包含头文件maca_fp16.h时，数
+据类型T也可以是__half或者__half2。同样的，当包含头文件maca_bfloat16.h时，数据类型T也可
+以是maca_bfloat16或者maca_bfloat162。该操作的数据被缓存在只读数据缓存区域。
+2.11 使用缓存提示的加载函数
+T __ldcg(const T* address);
+T __ldca(const T* address);
+T __ldcs(const T* address);
+T __ldlu(const T* address);
+T __ldcv(const T* address);
+这些函数返回数据类型T在地址address的数据，这里的数据类型T可以是char、signedchar、short、
+int、long、longlongunsignedchar、unsignedshort、unsignedint、unsignedlong、unsignedlong
+long、char2、char4、short2、short4、int2、int4、longlong2uchar2、uchar4、ushort2、ushort4、
+uint2、uint4、ulonglong2float、float2、float4、double或者double2。当包含头文件maca_fp16.h
+时，数据类型T也可以是__half或者__half2。同样的，当包含头文件maca_bfloat16.h时，数据类型
+T也可以是maca_bfloat16或者maca_bfloat162。这些操作使用各自对应的缓存方式。
+2.12 使用缓存提示的存储函数
+void __stwb(T* address, T value);
+void __stcg(T* address, T value);
+void __stcs(T* address, T value);
+void __stwt(T* address, T value);
+这些函数在地址 address 上存储数据类型为 T 的数据 value，这里的数据类型 T 可以是 char、signed
+char、short、int、long、longlong、unsignedchar、unsignedshort、unsignedint、unsignedlong、
+unsignedlonglong、 char2、 char4、 short2、 short4、 int2、 int4、 longlong2、 uchar2、 uchar4、 ushort2、
+ushort4、uint2、uint4、ulonglong2、float、float2、float4、double 或者 double2。当包含头文件
+maca_fp16.h时，数据类型T也可以是__half或者__half2。同样的，当包含头文件maca_bfloat16.h
+时，数据类型T也可以是maca_bfloat16或者maca_bfloat162。这些操作使用各自对应的缓存方式。
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 254

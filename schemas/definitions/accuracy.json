@@ -1,0 +1,295 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://inferoptlab.local/schemas/0.2.0/accuracy.json",
+  "title": "AccuracyPlan",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "0.2.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:[._-][a-z0-9]+)*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/provenance"
+      },
+      "minItems": 0
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/issue"
+      },
+      "minItems": 0
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*\\.[a-z][a-z0-9_.-]*$"
+      }
+    },
+    "kind": {
+      "const": "AccuracyPlan"
+    },
+    "model_ref": {
+      "$ref": "common.json#/$defs/reference"
+    },
+    "hardware_ref": {
+      "$ref": "common.json#/$defs/reference"
+    },
+    "runtime_ref": {
+      "$ref": "common.json#/$defs/reference"
+    },
+    "method_sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "$ref": "common.json#/$defs/sha256"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "dataset": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "const": "openai/openai_humaneval"
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "enum": [
+            "smoke32",
+            "full164"
+          ]
+        },
+        "task_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "manifest": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "$ref": "common.json#/$defs/sha256"
+            }
+          },
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "revision",
+        "scope",
+        "task_ids",
+        "manifest"
+      ],
+      "additionalProperties": false
+    },
+    "functional": {
+      "type": "object",
+      "properties": {
+        "independent_processes_per_side": {
+          "const": 3
+        },
+        "samples_per_task": {
+          "const": 1
+        },
+        "interleave_baseline_candidate": {
+          "const": true
+        },
+        "stable_regression": {
+          "const": "fail"
+        },
+        "variable_regression": {
+          "const": "inconclusive"
+        },
+        "aggregate_protection": {
+          "const": true
+        }
+      },
+      "required": [
+        "independent_processes_per_side",
+        "samples_per_task",
+        "interleave_baseline_candidate",
+        "stable_regression",
+        "variable_regression",
+        "aggregate_protection"
+      ],
+      "additionalProperties": false
+    },
+    "scoring": {
+      "type": "object",
+      "properties": {
+        "network": {
+          "const": false
+        },
+        "gpu": {
+          "const": false
+        },
+        "read_only_root": {
+          "const": true
+        },
+        "cpus": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "memory_mib": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "pids_limit": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "cpu_timeout_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "wall_timeout_s": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "allow_repair_or_resampling": {
+          "const": false
+        }
+      },
+      "required": [
+        "network",
+        "gpu",
+        "read_only_root",
+        "cpus",
+        "memory_mib",
+        "pids_limit",
+        "cpu_timeout_s",
+        "wall_timeout_s",
+        "allow_repair_or_resampling"
+      ],
+      "additionalProperties": false
+    },
+    "numerical": {
+      "type": "object",
+      "properties": {
+        "same_prefix_only": {
+          "const": true
+        },
+        "paths": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "prefill",
+              "cached_decode"
+            ]
+          },
+          "minItems": 2,
+          "maxItems": 2,
+          "uniqueItems": true
+        },
+        "thresholds": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "target": {
+                "type": "string",
+                "minLength": 1
+              },
+              "dtype": {
+                "type": "string",
+                "minLength": 1
+              },
+              "scope": {
+                "type": "string",
+                "minLength": 1
+              },
+              "atol": {
+                "type": "number",
+                "minimum": 0
+              },
+              "rtol": {
+                "type": "number",
+                "minimum": 0
+              },
+              "reference": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "target",
+              "dtype",
+              "scope",
+              "atol",
+              "rtol",
+              "reference"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "same_prefix_only",
+        "paths",
+        "thresholds"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "version",
+    "title",
+    "provenance",
+    "issues",
+    "extensions",
+    "kind",
+    "model_ref",
+    "hardware_ref",
+    "runtime_ref",
+    "method_sources",
+    "dataset",
+    "functional",
+    "scoring",
+    "numerical"
+  ],
+  "additionalProperties": false
+}

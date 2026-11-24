@@ -1,0 +1,31 @@
+文档: 沐曦通用GPU_MXMACA Clangd用户手册_CN_V03.pdf
+文档 ID: clangd-v03
+SHA256: f84564a4060d30251dbb164705b0aec56b25f11c02c1c748d5ce6187e44868ad
+PDF 页序号: 6
+PDF 页码标签: 1
+页脚页码候选: 1
+章节提示（书签推断）: 关键特性
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® Clangd 用户手册
+1 概述
+MXMACA® Clangd 是支持 MXMACA C/C++ 语言的编辑器辅助工具集，包括支持语言服务协议（LSP）的
+Clangd 工具（以下称为 Clangd 工具）和编辑器插件（以下称为 Clangd 插件） 。目前支持 VSCode 编辑
+器，提供了 VSCode 插件。
+在编辑器中编写、阅读 MXMACA C/C++ 代码时，MXMACA Clangd 可以提供文件识别、代码补全、跳转、
+诊断等多种功能，具有功能全面、识别准确、响应速度快等优点，帮助使用者快速、高效地开发、浏览
+MXMACA C/C++ 工程。
+1.1 工作流程
+如下图所示，在安装了 VSCode 插件和 MXMACA 的环境中，用户通过 VSCode 执行某个功能，Clangd
+插件发送对应的消息到 Clangd 工具，Clangd 工具处理后，将处理结果再通过消息返回给 Clangd 插件，
+经由 VSCode 显示给用户。
+图 1.1 MXMACA Clangd 工作流程
+1.2 关键特性
+MXMACA Clangd 支持以下特性：
+• 支持 MXMACA C/C++ 工程，支持自动识别 .maca 后缀的文件为 MXMACA C/C++ 语言，并设置对应图
+标
+• 兼容 C/C++ 语言，支持 MXMACA C/C++ 和 C/C++ 混合工程
+• 支持 MXMACA C/C++ 语言关键字、MXMACA 头文件和 API 的识别、跳转
+• 支持语言服务协议规定的大部分特性，支持了一些协议以外的扩展特性
+• 与官方 C/C++ Extension 插件相比，整体上功能更多，响应速度更快
+1 概述 沐曦股份专有信息 OG‑24072‑020‑F5_V03 | 1

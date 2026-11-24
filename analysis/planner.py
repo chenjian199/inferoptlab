@@ -2,7 +2,7 @@
 from pathlib import Path
 
 from tools.specs import SpecError, digest, read
-from benchmark.io import file_hash,inside
+from benchmark.common.io import file_hash,inside
 from diagnosis.contracts import finish, header, snapshot, validate
 
 

@@ -8,18 +8,22 @@ English description: An evidence-driven platform for end-to-end LLM inference pr
 
 ## 当前交付状态
 
+第一阶段已分为 [服务压测](benchmark/load/README.md)、[精度回归](benchmark/accuracy/README.md)、[端到端拆分与算子准备](benchmark/breakdown/README.md)，统一入口 `python -m benchmark {load,accuracy,breakdown}`。C500 移交资料通过 [catalog 资料库](catalog/README.md) 统一导航与检索，原件已按资料、方法、数据集和历史实验分类入库。精度/拆分目前提供协议及离线核验入口，尚未连接新机器上的生成、评分沙箱与原生 profiler。
+
+2026-11-24 调整为 **标准、配方、实验数据分离**：`schemas/` 只保存定义和模板，所有实际配置统一放在 [recipes/](recipes/README.md)，运行数据、完整配方快照、查询索引和基线放在 [experiments/](experiments/README.md)。已加入“请求数 = 并发 × 倍率”和受管 SGLang 缓存填充/重放/逐请求验真。GLM Flash 八卡 C500 的 P/D 扫描候选已准备，使用方法与尚未完成的真机验证见 [P/D 扫描说明](docs/benchmark-cache-replay.md)。
+
 新增 [可复用硬件测试工具](tools/hardware/README.md)：用 YAML 定义机器和测试矩阵，通过 `python -m tools.hardware` 完成探测、逐卡 GEMM/设备复制、证据归档和 YAML 配方导出。已在 metax C500 上跑通完整流程；支持多节点依次测试，集群通信性能仍需单独测量。
 
-当前已实现 **v0.2 规约基础、benchmark、第二/三步分析与第四步交接骨架，日期 2026-11-23**：提供版本化规约、离线校验/冻结、AIPerf 测试编排、单机 SGLang 启动器、vLLM 外部服务接入、请求集管理、指标统计和报告。已采集 C500、GLM/DeepSeek/Qwen 元数据并完成 GPU0 微基准及 Qwen 单卡 E2E 流程；详情见 [实机配方](schemas/recipes/README.md#metax-实机配方2026-11-23) 与 [集群检查和流程验证](docs/cluster-intake-20261123.md)。分布式 Worker、真实 profiler 适配与 KDA 自动调用仍待实现。
+当前已实现 **v0.2 规约基础、benchmark、第二/三步分析与第四步交接骨架，日期 2026-11-23**：提供版本化规约、离线校验/冻结、AIPerf 测试编排、单机 SGLang 启动器、vLLM 外部服务接入、请求集管理、指标统计和报告。已采集 C500、GLM/DeepSeek/Qwen 元数据并完成 GPU0 微基准及 Qwen 单卡 E2E 流程；详情见 [实机配方](recipes/README.md#metax-实机配方2026-11-23) 与 [集群检查和流程验证](docs/cluster-intake-20261123.md)。分布式 Worker、真实 profiler 适配与 KDA 自动调用仍待实现。
 
 新增 [第二步归因](diagnosis/README.md) 和 [第三步专项分析](analysis/README.md)：从已有真实归档复算指标、检查可比性并产生待验证假设，按 11 类方法生成带采集字段、控制实验、证伪条件、正确性和预算的专项任务。Qwen 与三种 GLM 均有实际作用域的计划；完整设计见 [阶段设计与资料映射](docs/diagnosis-analysis.md)。专项 GPU 采集和因果实验尚未执行。
 
-从 [规约入口](schemas/README.md) 和 [测试模块使用说明](benchmark/README.md) 开始。创建方法见 [模板目录](schemas/templates/README.md)，历史资料录入见 [首版来源配方](schemas/recipes/README.md)。`tools/specs.py` 支持结构与组合语义校验、模板实例化、Study 解析和快照冻结；benchmark 配置也纳入统一目录校验。来源缺失与冲突会阻止正式冻结。来源报告数据不等于本平台独立测量。
+从 [规约入口](schemas/README.md) 和 [测试模块使用说明](benchmark/README.md) 开始。创建方法见 [模板目录](schemas/templates/README.md)，历史资料录入见 [首版来源配方](recipes/README.md)。`tools/specs.py` 支持结构与组合语义校验、模板实例化、Study 解析和快照冻结；benchmark 配置也纳入统一目录校验。来源缺失与冲突会阻止正式冻结。来源报告数据不等于本平台独立测量。
 
 ```powershell
 python -m pip install -r schemas/requirements.txt
 python tools/specs.py validate
-python -m benchmark plan benchmark/plans/compare.yaml
+python -m benchmark load plan recipes/plans/benchmark/compare.yaml
 python -m unittest discover -s tests -v
 ```
 
@@ -81,7 +85,7 @@ python -m unittest discover -s tests -v
 ## 示例
 
 - [Study 示例](examples/study.example.yaml)：目标、资源、负载、搜索空间与停止条件。
-- [部署示例](examples/deployments.example.yaml)：聚合与 P/D 的显式设备映射，均为待验证模板。
+- [部署示例](examples/deployments.example.yaml)：由当前 DeploymentSpec 模板展开的候选配置，设备与后端能力仍待验证。
 - [优化任务示例](examples/optimization-task.example.yaml)：发给 KDA 或其他执行器的任务契约。
 - [机制卡示例](catalog/mechanisms/reduce-redundant-materialization.yaml)：从证据到实验，而非固定优化白名单。
 

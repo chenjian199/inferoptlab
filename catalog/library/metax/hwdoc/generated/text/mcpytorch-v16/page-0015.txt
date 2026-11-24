@@ -1,0 +1,38 @@
+文档: 沐曦通用GPU_mcPyTorch用户指南_CN_V16.pdf
+文档 ID: mcpytorch-v16
+SHA256: 165b88e24e4768497ef4587368037b4bbc99ab933eafc3e4baac43175c83cdb2
+PDF 页序号: 15
+PDF 页码标签: 9
+页脚页码候选: 9
+章节提示（书签推断）: cuda
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+mcPyTorch 用户指南
+• default_stream
+• device
+• device_count
+• device_of
+• get_sync_debug_mode
+• init
+• ipc_collect
+• is_available
+• is_initialized
+• set_device
+• set_stream
+• set_sync_debug_mode
+• stream
+• synchronize
+• OutOfMemoryError
+部分支持：
+• get_arch_list
+返回 ['sm_80']。模拟 CUDA capability==8.0 时的行为。
+• get_device_capability
+返回 (8. 0) 。模拟 CUDA capability==8.0 时的行为。
+• get_device_name
+返回 MXMACA 硬件相应设备名，而非 NVIDIA 设备名例如：NVIDIA A100‑PCIE‑40GB。
+• get_device_properties
+返回对应 CUDA 架构描述的 MXMACA 架构信息。
+• get_gencode_flags
+返回 "-gencode compute=compute_80,code=sm_80" 。 模拟CUDA capability==8.0 时的行
+为。
+3 功能支持 沐曦股份专有信息 OG‑23031‑020‑F5_V16 | 9

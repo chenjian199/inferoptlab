@@ -1,0 +1,42 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 167
+PDF 页码标签: 159
+页脚页码候选: 159
+章节提示（书签推断）: 单精度数学函数
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+计算输入参数的双曲正弦。
+返回值
+• sinhf(±0)返回±0。
+• sinhf(±∞)返回±∞。
+函数描述
+计算输入参数x的双曲正弦。
+__device__ float sinpif (float x)
+计算输入参数*  的正弦。
+返回值
+• sinf(±0)返回±0。
+• sinf(±∞)返回NaN。
+函数描述
+计算输入参数x*  的正弦。
+__device__ float sqrtf (float x)
+计算输入参数的平方根。
+返回值
+• sqrtf(±0)返回±0。
+• sqrtf(+∞)返回+∞。
+• 如果x<0，sqrtf(x)返回x。
+函数描述
+计算输入参数x的平方根。
+__device__ float tanf (float x)
+计算输入参数的正切。
+返回值
+• tanf(±0)返回±0。
+• tanf(±∞)返回NaN。
+函数描述
+计算输入参数x的正切。
+__device__ float tanhf (float x)
+计算输入参数的双曲正切。
+返回值
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 159

@@ -1,0 +1,16 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-metax-gemm-demo-readme
+version: 1.0.0
+title: 63metax 采集记录：gemm-demo-README.md
+provenance: []
+issues: []
+extensions: {}
+path: experiments/evidence/metax/20261123/imported/gemm-demo-README.md
+sha256: 1e06f5aec15036679fd1f3c09334a2d281502df3b6028272e9ec41ab9c0a264c
+media_type: text/markdown
+role: benchmark_report
+authority: machine_collected
+coverage:
+  status: complete_visible
+  description: 通过 SSH 从 63metax 采集或归档的记录；覆盖范围以原文件实际字段为准，未记录的状态不作推断。

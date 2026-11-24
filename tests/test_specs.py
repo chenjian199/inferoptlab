@@ -99,7 +99,7 @@ class SpecTests(unittest.TestCase):
 
     def test_original_source_hashes_when_attachments_available(self):
         sources = [d for d in self.catalog.documents.values() if d["kind"] == "SourceDocument"]
-        missing = [d for d in sources if not (ROOT / d["path"]).is_file()]
+        missing = [d for d in sources if not (ROOT / d["path"]).resolve().is_file()]
         for document in sources:
             errors = self.catalog.semantic_errors(document, verify_sources=True)
             if document in missing:
@@ -109,22 +109,24 @@ class SpecTests(unittest.TestCase):
         if missing:
             self.skipTest(f"{len(missing)} original attachments absent; source validation correctly rejects them")
 
-    def test_legacy_examples_remain_valid(self):
-        for path in ["examples/study.example.yaml", "examples/optimization-task.example.yaml",
+    def test_current_examples_validate_and_old_versions_are_rejected(self):
+        for path in ["examples/study.example.yaml", "examples/deployments.example.yaml", "examples/optimization-task.example.yaml",
                      "catalog/mechanisms/reduce-redundant-materialization.yaml"]:
             self.assertEqual(self.catalog.structural_errors(read(ROOT/path)), [], path)
+            old=read(ROOT/path);old['schema_version']='0.1'
+            self.assertTrue(self.catalog.structural_errors(old))
 
     def test_every_template_expands_and_validates_references(self):
         for path in sorted((ROOT/"schemas/templates").rglob("*.yaml")):
             params = "-".join(path.relative_to(ROOT/"schemas/templates").parts)
             with self.subTest(path=path):
-                result = instantiate(read(path), read(ROOT/"schemas/examples"/params), self.catalog)
+                result = instantiate(read(path), read(ROOT/"examples/parameters"/params), self.catalog)
                 self.assertEqual(self.catalog.structural_errors(result), [])
                 self.assertEqual(self.catalog.semantic_errors(result), [])
 
     def test_template_parameter_type_and_unknown_names(self):
         template = read(ROOT/"schemas/templates/slas/latency.yaml")
-        params = read(ROOT/"schemas/examples/slas-latency.yaml")
+        params = read(ROOT/"examples/parameters/slas-latency.yaml")
         params["threshold_ms"] = "5000"
         with self.assertRaisesRegex(SpecError, "parameter threshold_ms"):
             instantiate(template, params, self.catalog)
@@ -137,7 +139,7 @@ class SpecTests(unittest.TestCase):
         template = read(ROOT/"schemas/templates/slas/latency.yaml")
         template["body"]["id"] = {"$param": "undeclared"}
         with self.assertRaisesRegex(SpecError, "invalid parameter"):
-            instantiate(template, read(ROOT/"schemas/examples/slas-latency.yaml"), self.catalog)
+            instantiate(template, read(ROOT/"examples/parameters/slas-latency.yaml"), self.catalog)
 
     def test_unknown_fields_rejected(self):
         model = self.get("glm-5.3")
@@ -168,9 +170,9 @@ class SpecTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
             shutil.copytree(ROOT/"schemas/definitions", root/"schemas/definitions")
-            (root/"schemas/recipes").mkdir()
+            (root/"recipes").mkdir()
             for name in ["a.yaml", "b.yaml"]:
-                write(root/"schemas/recipes"/name, self.get("bw1000"))
+                write(root/"recipes"/name, self.get("bw1000"))
             with self.assertRaisesRegex(SpecError, "duplicate recipe identity"):
                 Catalog(root).load()
 

@@ -1,0 +1,41 @@
+文档: 沐曦通用GPU_MXMACA C++编程指南_CN_V06.pdf
+文档 ID: maca-cpp-v06
+SHA256: 030f0ca6e3c9c4a245b61a0d15a1c3469d411292f3aa728954c943843639168f
+PDF 页序号: 217
+PDF 页码标签: 209
+页脚页码候选: 209
+章节提示（书签推断）: 双精度intrinsic
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+MXMACA® C++ 编程指南
+• 返回1/x。
+函数描述
+• 以向上舍入模式计算1/x。
+__device__ double __drcp_rz (double x)
+以向零舍入模式计算1/x。
+返回值
+• 返回1/x。
+函数描述
+• 以向零舍入模式计算1/x。
+__device__ double __dsqrt_rd (double x)
+以向下舍入模式计算 sqrt(x)。
+返回值
+• 返回 sqrt(x)。
+函数描述
+• 以向下舍入模式计算 sqrt(x)。
+__device__ double __dsqrt_rn (double x)
+以向最近偶数舍入模式计算 sqrt(x)。
+返回值
+• 返回 sqrt(x)。
+函数描述
+• 以向最近偶数舍入模式计算 sqrt(x)。
+__device__ double __dsqrt_ru (double x)
+以向上舍入模式计算 sqrt(x)。
+返回值
+• 返回 sqrt(x)。
+函数描述
+• 以向上舍入模式计算 sqrt(x)。
+__device__ double __dsqrt_rz (double x)
+以向零舍入模式计算 sqrt(x)。
+返回值
+2 C++语言扩展 沐曦股份专有信息 PG‑23006‑020‑F5_V06 | 209

@@ -1,0 +1,201 @@
+{
+  "passed": true,
+  "alignment_cases": [
+    {
+      "dtype": "torch.int32",
+      "rows": 1,
+      "experts": 4,
+      "mapped": false,
+      "ignore_invalid": false,
+      "padded": 16
+    },
+    {
+      "dtype": "torch.int32",
+      "rows": 1,
+      "experts": 4,
+      "mapped": true,
+      "ignore_invalid": false,
+      "padded": 16
+    },
+    {
+      "dtype": "torch.int32",
+      "rows": 1,
+      "experts": 4,
+      "mapped": true,
+      "ignore_invalid": true,
+      "padded": 0
+    },
+    {
+      "dtype": "torch.int32",
+      "rows": 33,
+      "experts": 4,
+      "mapped": false,
+      "ignore_invalid": false,
+      "padded": 80
+    },
+    {
+      "dtype": "torch.int32",
+      "rows": 33,
+      "experts": 4,
+      "mapped": true,
+      "ignore_invalid": false,
+      "padded": 80
+    },
+    {
+      "dtype": "torch.int32",
+      "rows": 33,
+      "experts": 4,
+      "mapped": true,
+      "ignore_invalid": true,
+      "padded": 48
+    },
+    {
+      "dtype": "torch.int32",
+      "rows": 257,
+      "experts": 288,
+      "mapped": false,
+      "ignore_invalid": false,
+      "padded": 9216
+    },
+    {
+      "dtype": "torch.int32",
+      "rows": 257,
+      "experts": 288,
+      "mapped": true,
+      "ignore_invalid": false,
+      "padded": 9216
+    },
+    {
+      "dtype": "torch.int32",
+      "rows": 257,
+      "experts": 288,
+      "mapped": true,
+      "ignore_invalid": true,
+      "padded": 4608
+    },
+    {
+      "dtype": "torch.int32",
+      "rows": 4096,
+      "experts": 288,
+      "mapped": false,
+      "ignore_invalid": false,
+      "padded": 37216
+    },
+    {
+      "dtype": "torch.int32",
+      "rows": 4096,
+      "experts": 288,
+      "mapped": true,
+      "ignore_invalid": false,
+      "padded": 37216
+    },
+    {
+      "dtype": "torch.int32",
+      "rows": 4096,
+      "experts": 288,
+      "mapped": true,
+      "ignore_invalid": true,
+      "padded": 18528
+    },
+    {
+      "dtype": "torch.int64",
+      "rows": 1,
+      "experts": 4,
+      "mapped": false,
+      "ignore_invalid": false,
+      "padded": 32
+    },
+    {
+      "dtype": "torch.int64",
+      "rows": 1,
+      "experts": 4,
+      "mapped": true,
+      "ignore_invalid": false,
+      "padded": 32
+    },
+    {
+      "dtype": "torch.int64",
+      "rows": 1,
+      "experts": 4,
+      "mapped": true,
+      "ignore_invalid": true,
+      "padded": 32
+    },
+    {
+      "dtype": "torch.int64",
+      "rows": 33,
+      "experts": 4,
+      "mapped": false,
+      "ignore_invalid": false,
+      "padded": 80
+    },
+    {
+      "dtype": "torch.int64",
+      "rows": 33,
+      "experts": 4,
+      "mapped": true,
+      "ignore_invalid": false,
+      "padded": 80
+    },
+    {
+      "dtype": "torch.int64",
+      "rows": 33,
+      "experts": 4,
+      "mapped": true,
+      "ignore_invalid": true,
+      "padded": 48
+    },
+    {
+      "dtype": "torch.int64",
+      "rows": 257,
+      "experts": 288,
+      "mapped": false,
+      "ignore_invalid": false,
+      "padded": 9216
+    },
+    {
+      "dtype": "torch.int64",
+      "rows": 257,
+      "experts": 288,
+      "mapped": true,
+      "ignore_invalid": false,
+      "padded": 9216
+    },
+    {
+      "dtype": "torch.int64",
+      "rows": 257,
+      "experts": 288,
+      "mapped": true,
+      "ignore_invalid": true,
+      "padded": 4608
+    },
+    {
+      "dtype": "torch.int64",
+      "rows": 4096,
+      "experts": 288,
+      "mapped": false,
+      "ignore_invalid": false,
+      "padded": 37216
+    },
+    {
+      "dtype": "torch.int64",
+      "rows": 4096,
+      "experts": 288,
+      "mapped": true,
+      "ignore_invalid": false,
+      "padded": 37216
+    },
+    {
+      "dtype": "torch.int64",
+      "rows": 4096,
+      "experts": 288,
+      "mapped": true,
+      "ignore_invalid": true,
+      "padded": 18624
+    }
+  ],
+  "scatter_guard": true,
+  "moe_sum_exact": true,
+  "wrapper_module": "vllm_metax.patch.bugfix.moe_align_legacy_abi",
+  "native_schema": "_moe_C::moe_align_block_size(Tensor topk_ids, int num_experts, int block_size, Tensor($0! -> ) sorted_token_ids, Tensor($1! -> ) experts_ids, Tensor($2! -> ) num_tokens_post_pad, Tensor? maybe_expert_map) -> ()"
+}

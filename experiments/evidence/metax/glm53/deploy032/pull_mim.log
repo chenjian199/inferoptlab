@@ -1,0 +1,80 @@
+vllm0.29.0-maca.ai3.9.0.9-torch2.10-py312-ubuntu24.04-amd64-mim4.0.1: Pulling from mim-pub/vllm/model-free
+7b00ff7e8f9b: Pulling fs layer
+b3fdc81d0df7: Pulling fs layer
+038bbf47eddd: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+b50826a6d6f2: Pulling fs layer
+f354f8ca704b: Pulling fs layer
+ce61a272ad57: Pulling fs layer
+d5c9604ebf3b: Pulling fs layer
+48e415cf0835: Pulling fs layer
+bc15d88f7c8e: Pulling fs layer
+22d7e0cde7ee: Pulling fs layer
+b07c48fa72bd: Pulling fs layer
+f73bb4fe3ba4: Pulling fs layer
+a21e3d78e706: Pulling fs layer
+63e1c987012e: Pulling fs layer
+5189d672058e: Pulling fs layer
+14d2b98bda38: Pulling fs layer
+df9088a52fba: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+19c890bf6fb2: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+c7edf13dd9a9: Pulling fs layer
+107a4fb0af38: Pulling fs layer
+396c3a120952: Pulling fs layer
+15da21cec639: Pulling fs layer
+4812f7dca76f: Pulling fs layer
+0e985a07fbdf: Pulling fs layer
+b5a1a1d5abe7: Pulling fs layer
+11bc8783e30e: Pulling fs layer
+36cb57f0f1e8: Pulling fs layer
+81b6c8e57088: Pulling fs layer
+9ae9525e9e3f: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+c762c8e304d4: Pulling fs layer
+b4321612884e: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+0d0c0386441f: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+d36bfcd0efb5: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+69009d94255a: Pulling fs layer
+4f4fb700ef54: Already exists
+81b6c8e57088: Download complete
+36cb57f0f1e8: Download complete
+396c3a120952: Download complete
+4812f7dca76f: Download complete
+f73bb4fe3ba4: Download complete
+5189d672058e: Download complete
+d36bfcd0efb5: Download complete
+14d2b98bda38: Download complete
+0e985a07fbdf: Download complete
+b5a1a1d5abe7: Download complete
+f354f8ca704b: Download complete
+48e415cf0835: Download complete
+038bbf47eddd: Download complete
+b07c48fa72bd: Download complete
+9ae9525e9e3f: Download complete
+c762c8e304d4: Download complete
+7b00ff7e8f9b: Download complete
+c7edf13dd9a9: Download complete
+22d7e0cde7ee: Download complete
+19c890bf6fb2: Download complete
+b4321612884e: Download complete
+b3fdc81d0df7: Download complete
+b50826a6d6f2: Download complete
+ce61a272ad57: Download complete
+d5c9604ebf3b: Download complete
+107a4fb0af38: Download complete
+14d2b98bda38: Pull complete
+7b00ff7e8f9b: Pull complete
+b50826a6d6f2: Pull complete
+107a4fb0af38: Pull complete
+b3fdc81d0df7: Pull complete
+df9088a52fba: Download complete
+bc15d88f7c8e: Download complete
+15da21cec639: Download complete
+failed to copy: read tcp 192.168.10.94:36368->118.196.79.0:443: read: connection timed out

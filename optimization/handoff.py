@@ -2,7 +2,7 @@
 from pathlib import Path
 
 from analysis.planner import plan_tasks
-from benchmark.io import file_hash, inside
+from benchmark.common.io import file_hash, inside
 from diagnosis.contracts import finish, header, validate
 from tools.specs import SpecError, digest, read
 

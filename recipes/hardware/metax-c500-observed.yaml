@@ -1,0 +1,37 @@
+schema_version: 0.2.0
+kind: HardwareSpec
+id: metax-c500-observed
+version: 1.0.0
+title: MetaX C500 单卡识别（63metax 实机）
+provenance:
+- source_ref:
+    id: source-metax-host-20261123
+    version: 1.0.0
+  locator: /commands/hwinfo + /commands/memory + /pci
+issues: []
+extensions: {}
+profile_type: device
+vendor: MetaX
+product: C500
+specifications:
+- name: memory_capacity
+  quantity:
+    value: 64
+    unit: GiB
+    basis: measured
+  precision: null
+  operation: null
+  conditions: 'mx-smi 报告 65536 MiB / 67108864 KB；按二进制单位折算为 64 GiB。'
+interfaces:
+- name: memory
+  properties:
+    type: HBM2e
+- name: pcie
+  properties:
+    negotiated_speed_gt_s: 32
+    lanes: 16
+resources:
+  allocated_devices: null
+  nodes: []
+  topology: []
+capabilities: []

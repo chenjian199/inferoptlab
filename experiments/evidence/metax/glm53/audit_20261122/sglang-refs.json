@@ -1,0 +1,117 @@
+{
+  "branches?per_page=100": [
+    {
+      "name": "main",
+      "commit": {
+        "sha": "e55a35fbcd491eeb3743be9b021534512c6acf85",
+        "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/e55a35fbcd491eeb3743be9b021534512c6acf85"
+      },
+      "protected": false
+    },
+    {
+      "name": "release/v0.5.7",
+      "commit": {
+        "sha": "0900c2e1cb5cea1ef75a3e8ed31c016a51830e5a",
+        "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/0900c2e1cb5cea1ef75a3e8ed31c016a51830e5a"
+      },
+      "protected": false
+    },
+    {
+      "name": "release/v0.5.10",
+      "commit": {
+        "sha": "0ea078de33c49b3c9e538eb77193a08a7e1325f2",
+        "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/0ea078de33c49b3c9e538eb77193a08a7e1325f2"
+      },
+      "protected": false
+    },
+    {
+      "name": "release/v0.5.12",
+      "commit": {
+        "sha": "f261eb651c5a72ddc4d729dea4a77585056112a0",
+        "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/f261eb651c5a72ddc4d729dea4a77585056112a0"
+      },
+      "protected": false
+    },
+    {
+      "name": "release/v0.5.14-cr1",
+      "commit": {
+        "sha": "8af8c433a9fc2e72b6dd33c2355d1ad08b2f641f",
+        "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/8af8c433a9fc2e72b6dd33c2355d1ad08b2f641f"
+      },
+      "protected": false
+    },
+    {
+      "name": "release/v0.5.14-cr2",
+      "commit": {
+        "sha": "6ddf478dc90e3260c119a8208e456d7db24a52a5",
+        "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/6ddf478dc90e3260c119a8208e456d7db24a52a5"
+      },
+      "protected": false
+    },
+    {
+      "name": "release/v0.5.14",
+      "commit": {
+        "sha": "052dcfb5f7d968a121497b3fed82b1c563d856e8",
+        "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/052dcfb5f7d968a121497b3fed82b1c563d856e8"
+      },
+      "protected": false
+    },
+    {
+      "name": "release/v0.5.19",
+      "commit": {
+        "sha": "21b326b3d748412389789953bb65a28ee42779b3",
+        "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/21b326b3d748412389789953bb65a28ee42779b3"
+      },
+      "protected": false
+    },
+    {
+      "name": "release/v0.5.21",
+      "commit": {
+        "sha": "cea8f950303ae0635af66f021d1e9fb48fd06d5b",
+        "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/cea8f950303ae0635af66f021d1e9fb48fd06d5b"
+      },
+      "protected": false
+    },
+    {
+      "name": "release/v0.5.22-cr1",
+      "commit": {
+        "sha": "bcbd6c8d1daf156c916a8fdce202c36fee71cf37",
+        "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/bcbd6c8d1daf156c916a8fdce202c36fee71cf37"
+      },
+      "protected": false
+    }
+  ],
+  "releases?per_page=5": [],
+  "tags?per_page=20": [
+    {
+      "name": "tags/v0.5.21-rc3",
+      "zipball_url": "https://api.github.com/repos/MetaX-MACA/sglang/zipball/refs/tags/tags/v0.5.21-rc3",
+      "tarball_url": "https://api.github.com/repos/MetaX-MACA/sglang/tarball/refs/tags/tags/v0.5.21-rc3",
+      "commit": {
+        "sha": "cea8f950303ae0635af66f021d1e9fb48fd06d5b",
+        "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/cea8f950303ae0635af66f021d1e9fb48fd06d5b"
+      },
+      "node_id": "REF_kwDOR3vGurpyZWZzL3RhZ3MvdGFncy92MC41LjIxLXJjMw"
+    },
+    {
+      "name": "tags/v0.5.21-rc2",
+      "zipball_url": "https://api.github.com/repos/MetaX-MACA/sglang/zipball/refs/tags/tags/v0.5.21-rc2",
+      "tarball_url": "https://api.github.com/repos/MetaX-MACA/sglang/tarball/refs/tags/tags/v0.5.21-rc2",
+      "commit": {
+        "sha": "653d18e96c842d0af116ebfb8f25bbb5f5191a07",
+        "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/653d18e96c842d0af116ebfb8f25bbb5f5191a07"
+      },
+      "node_id": "REF_kwDOR3vGurpyZWZzL3RhZ3MvdGFncy92MC41LjIxLXJjMg"
+    },
+    {
+      "name": "tags/v0.5.21-rc1",
+      "zipball_url": "https://api.github.com/repos/MetaX-MACA/sglang/zipball/refs/tags/tags/v0.5.21-rc1",
+      "tarball_url": "https://api.github.com/repos/MetaX-MACA/sglang/tarball/refs/tags/tags/v0.5.21-rc1",
+      "commit": {
+        "sha": "2b6d2c59fe1e171947764dd34172a01a7aeec6ec",
+        "url": "https://api.github.com/repos/MetaX-MACA/sglang/commits/2b6d2c59fe1e171947764dd34172a01a7aeec6ec"
+      },
+      "node_id": "REF_kwDOR3vGurpyZWZzL3RhZ3MvdGFncy92MC41LjIxLXJjMQ"
+    }
+  ]
+}

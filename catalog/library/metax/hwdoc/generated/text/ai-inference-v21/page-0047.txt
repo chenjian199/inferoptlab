@@ -1,0 +1,45 @@
+文档: 沐曦通用GPU_AI推理用户手册_CN_V21.pdf
+文档 ID: ai-inference-v21
+SHA256: dccf0337eb99006d63db4b6f37938b250473ddd1ba8971dd78b0cfd9582b041d
+PDF 页序号: 47
+PDF 页码标签: 35
+页脚页码候选: 35
+章节提示（书签推断）: 转换为PMX模型
+质量标记: 无启发式标记
+--- 以下为未经语义改写的 PDF 提取文本 ---
+AI 推理用户手册
+6.3.1.2 转换为 PMX 模型
+操作步骤（以 llama‑7b 为例）
+1. 解压 ppl.llm.serving 发布包后，在解压路径 /ai_deb 中可以看到适配后的 ppl.llm.serving 安装
+包（ppl.llm.serving_*.deb） ，执行以下命令进行安装。
+sudo dpkg -i ppl.llm.serving_*.deb
+2. 安装完成后，在 /opt/maca‑ai/ppl.llm.serving/samples/samples/model_converter/路径下
+获取 PMX 模型转换示例脚本 ConvertWeightToPmx.py。
+根据需要，修改第 4 行导入相应模型的转换函数。当前支持的模型及对应导入代码参见表 6.1。
+表 6.1 MacaPMX 支持的大模型及对应转换函数
+LLM Model ConvertWeightToPmx.py导入代码
+Llama 全系/其它类 Llama 大模
+型
+from macaPMX.model_zoo.llama.huggingface import
+write_pmx_model
+chatglm2_6B/chatglm3_6B from macaPMX.model_zoo.chatglm2.huggingface import
+write_pmx_model
+internlm_7B from macaPMX.model_zoo.internlm.huggingface import
+write_pmx_model
+BaiChuan2_7B from macaPMX.model_zoo.baichuan.huggingface import
+write_pmx_model
+Mixtral8x7B from macaPMX.model_zoo.mixtral.huggingface import
+write_pmx_model
+QWen 系列模型 from macaPMX.model_zoo.qwen.huggingface import
+write_pmx_model
+注解: Llama 系列对应的 PMX 转换函数， 支持的参数与其它模型不同， 支持转换safetensors
+格式的原始权重，若使用 use_safetensors 参数，需要取消示例代码中 16‑21 行及 26 行的注
+释。该参数仅在 Llama 系列模型上生效，其余模型不能设置该参数，否则程序会执行失败。
+3. 执行以下命令，将 LLM 原始权重转换为 PMX 模型。
+python ConvertWeightToPmx.py --input_dir <hf_model_dir> --output_dir <pmx_model_
+,→dir> --use_safetensors True
+参数说明：
+• input_dir ：LLM 原始权重模型路径（文件夹）
+• output_dir ：输出 PMX 模型目标路径（文件夹）
+• use_safetensors ：原始权重文件格式是否为 safetensors，仅 Llama 系列支持该参数
+6 MacaRT‑LLM 沐曦股份专有信息 OG‑23025‑020‑F5_V21 | 35
