@@ -1,0 +1,42 @@
+{
+  "id": "chatcmpl-a5533d2dff7aa50f",
+  "object": "chat.completion",
+  "created": 1795517917,
+  "model": "glm53-flash",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": null,
+        "refusal": null,
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "reasoning": "The user has sent me a stream of words with no clear question or instruction. Let me look at what they sent:\n\n\"city red apple red red river morning"
+      },
+      "logprobs": null,
+      "finish_reason": "length",
+      "stop_reason": null,
+      "token_ids": null,
+      "routed_experts": null
+    }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.32.0-tp8-ep-ca279db5",
+  "usage": {
+    "prompt_tokens": 128,
+    "total_tokens": 160,
+    "completion_tokens": 32,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": {
+      "reasoning_tokens": 32
+    }
+  },
+  "prompt_logprobs": null,
+  "prompt_token_ids": null,
+  "prompt_text": null,
+  "kv_transfer_params": null,
+  "ec_transfer_params": null,
+  "metrics": null
+}

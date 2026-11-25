@@ -1,0 +1,7 @@
+{
+  "container": "/inferoptlab-glm53-vllm-r1",
+  "image": "sha256:9d82e3b3cc52430770a02b00d8c763b62e9c8bc64c4be871d9be25148e4fdf8b",
+  "running": true,
+  "health_http_status": 200,
+  "remaining_owned_test_containers": []
+}

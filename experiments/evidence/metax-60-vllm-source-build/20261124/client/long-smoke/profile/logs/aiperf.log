@@ -1,0 +1,72 @@
+2026-11-24 14:08:47.192 - aiperf.cli_runner._single_run - INFO - Starting AIPerf System
+2026-11-24 14:08:47.563 - system_controller - INFO - Registered Worker Manager (id: 'worker_manager')
+2026-11-24 14:08:47.577 - server_metrics_manager - INFO - Server Metrics: Discovered 1 endpoints: ['http://127.0.0.1:18081/metrics']
+2026-11-24 14:08:47.580 - RawRecordWriterProcessor_f4b2a38b - INFO - RawRecordWriter initialized: /work/experiments/glm53-vllm-source-20261124-r2/long-smoke/profile/raw_records/raw_records_record_processor_520eb568.jsonl - FULL request/response data will be exported (files may be large)
+2026-11-24 14:08:47.581 - system_controller - INFO - Registered Dataset Manager (id: 'dataset_manager')
+2026-11-24 14:08:47.586 - system_controller - INFO - Registered Record Processor (id: 'record_processor_520eb568')
+2026-11-24 14:08:47.605 - GPUTelemetryJSONLWriter_5d83b6db - INFO - GPU telemetry export enabled: /work/experiments/glm53-vllm-source-20261124-r2/long-smoke/profile/gpu_telemetry_export.jsonl
+2026-11-24 14:08:47.613 - OTelMetricsResultsProcessor_6edc1fcb - INFO - Telemetry streaming is disabled (set --otel-url and/or --mlflow-tracking-uri to enable)
+2026-11-24 14:08:47.614 - RecordExportJSONLWriter_5eb82c04 - INFO - Record metrics export enabled: /work/experiments/glm53-vllm-source-20261124-r2/long-smoke/profile/profile_export.jsonl
+2026-11-24 14:08:47.683 - system_controller - INFO - Registered Gpu Telemetry Manager (id: 'gpu_telemetry_manager')
+2026-11-24 14:08:47.716 - system_controller - INFO - Registered Worker (id: 'worker_28913d2b')
+2026-11-24 14:08:47.727 - system_controller - INFO - Registered Records Manager (id: 'records_manager')
+2026-11-24 14:08:47.780 - server_metrics_manager - INFO - Connection probe for server_metrics_manager succeeded after 3 attempts (0.2s)
+2026-11-24 14:08:47.781 - system_controller - INFO - Registered Server Metrics Manager (id: 'server_metrics_manager')
+2026-11-24 14:08:47.782 - system_controller - INFO - Registered Timing Manager (id: 'timing_manager')
+2026-11-24 14:08:48.058 - system_controller - INFO - AIPerf System is CONFIGURING
+2026-11-24 14:08:48.058 - system_controller - INFO - Configuring all services to start profiling
+2026-11-24 14:08:48.058 - InferenceResultParser_0207205d - INFO - Tokenization is disabled for this endpoint, skipping tokenizer configuration
+2026-11-24 14:08:48.058 - timing_manager - INFO - Waiting for dataset to be configured before configuring timing
+2026-11-24 14:08:48.059 - dataset_manager - INFO - Configuring tokenizer(s) for dataset manager
+2026-11-24 14:08:48.070 - server_metrics_manager - INFO - Server Metrics: Capturing baseline metrics...
+2026-11-24 14:08:48.084 - http://127.0.0.1:18081/metrics - INFO - Skipping unsupported summary metric: http_request_size_bytes
+2026-11-24 14:08:48.084 - http://127.0.0.1:18081/metrics - INFO - Skipping unsupported summary metric: http_response_size_bytes
+2026-11-24 14:08:48.085 - system_controller - INFO - Server metrics enabled - 1/1 endpoint(s) reachable.
+2026-11-24 14:08:48.085 - system_controller - INFO - Waiting for result domains: profile, server_metrics, telemetry
+2026-11-24 14:08:48.111 - gpu_telemetry_manager - WARNING - GPU Telemetry: http://localhost:9400/metrics is not reachable
+2026-11-24 14:08:48.112 - gpu_telemetry_manager - WARNING - GPU Telemetry: http://localhost:9401/metrics is not reachable
+2026-11-24 14:08:48.112 - system_controller - INFO - DCGM telemetry skipped: no telemetry sources reachable
+2026-11-24 14:08:48.113 - system_controller - INFO - Waiting for result domains: profile, server_metrics
+2026-11-24 14:08:49.721 - dataset_manager - INFO - Tokenizer(s) configured in 1.66 seconds
+2026-11-24 14:08:49.721 - dataset_manager - INFO - Configuring dataset for dataset_manager
+2026-11-24 14:08:50.016 - CustomDatasetComposer - INFO - Using explicit dataset format: single_turn
+2026-11-24 14:08:50.025 - MemoryMapDatasetBackingStore_9c4f87f0 - INFO - Memory-mapped backing store initialized (streaming to /tmp/aiperf_mmap_5b3a2daee5c1/dataset.dat)
+2026-11-24 14:08:50.025 - MemoryMapDatasetBackingStore_9c4f87f0 - INFO - Data file finalized: 4 conversations, 0.03 MB
+2026-11-24 14:08:50.026 - MemoryMapDatasetBackingStore_9c4f87f0 - INFO - Index file created: /tmp/aiperf_mmap_5b3a2daee5c1/index.dat
+2026-11-24 14:08:50.026 - dataset_manager - INFO - Backing store finalized: client_type=DatasetClientStoreType.MEMORY_MAP format=MemoryMapFormat.CONVERSATION data_file_path=PosixPath('/tmp/aiperf_mmap_5b3a2daee5c1/dataset.dat') index_file_path=PosixPath('/tmp/aiperf_mmap_5b3a2daee5c1/index.dat') conversation_count=4 total_size_bytes=27914 compressed=False compressed_data_file_path=None compressed_index_file_path=None compressed_size_bytes=0
+2026-11-24 14:08:50.026 - dataset_manager - INFO - sampling strategy: sequential, unique conversations: 4, unique turn count: 4
+2026-11-24 14:08:50.026 - dataset_manager - INFO - Generating inputs.json file at /work/experiments/glm53-vllm-source-20261124-r2/long-smoke/profile/inputs.json
+2026-11-24 14:08:50.028 - PhaseOrchestrator_4d28240f - INFO - Initialized 1 phase(s): ['Profiling']
+2026-11-24 14:08:50.028 - dataset_manager - INFO - inputs.json file generated in 0.00 seconds
+2026-11-24 14:08:50.109 - dataset_manager - INFO - Dataset client initialized and freed 4 conversations from memory
+2026-11-24 14:08:50.109 - dataset_manager - INFO - Dataset configured in 0.39 seconds
+2026-11-24 14:08:50.109 - system_controller - INFO - All services configured in 2.05 seconds
+2026-11-24 14:08:50.110 - system_controller - INFO - AIPerf System is CONFIGURED
+2026-11-24 14:08:50.110 - server_metrics_manager - INFO - Server Metrics: Started 1 collector(s) successfully
+2026-11-24 14:08:50.110 - system_controller - INFO - All services started profiling successfully
+2026-11-24 14:08:50.110 - system_controller - INFO - AIPerf System is PROFILING
+2026-11-24 14:08:50.112 - RateTiming - INFO - Creating interval generator: pattern=concurrency_burst, rate=None, smoothness=None
+2026-11-24 14:08:50.112 - PhaseRunner - NOTICE - Phase profiling (profiling) started | phase_index=0 | profiling_index=0 | target: 4 requests
+2026-11-24 14:08:50.112 - records_manager - INFO - Credit phase start: profiling
+2026-11-24 14:08:54.918 - records_manager - WARNING - Token usage is reported but no prompt-cache read tokens were seen (usage.prompt_tokens_details.cached_tokens absent). If your server uses prefix/KV caching, enable cache reporting so AIPerf can populate the prompt-cache metrics: vLLM --enable-prompt-tokens-details, SGLang --enable-cache-report (TRT-LLM reports it by default).
+2026-11-24 14:08:54.919 - MetricsAccumulator_5a32969c - WARNING - Token usage is reported but no prompt-cache read tokens were seen (usage.prompt_tokens_details.cached_tokens absent). If your server uses prefix/KV caching, enable cache reporting so AIPerf can populate the prompt-cache metrics: vLLM --enable-prompt-tokens-details, SGLang --enable-cache-report (TRT-LLM reports it by default).
+2026-11-24 14:09:04.377 - PhaseRunner - NOTICE - Phase profiling (profiling) sending complete | sent=4, completed=3, in_flight=1 | sessions: sent=4, completed=3
+2026-11-24 14:09:04.377 - records_manager - INFO - Sent 4 requests. Waiting for all to complete...
+2026-11-24 14:09:09.094 - PhaseRunner - NOTICE - Phase profiling (profiling) complete | completed=4, cancelled=0, errors=0 | sessions: completed=4, cancelled=0 | elapsed=18.98s
+2026-11-24 14:09:09.094 - PhaseOrchestrator_4d28240f - NOTICE - All credits completed
+2026-11-24 14:09:09.094 - records_manager - INFO - Received CREDIT_PHASE_COMPLETE message, Phase complete: PhaseRecordsStats(phase=CreditPhase.PROFILING, phase_index=0, profiling_index=0, phase_name='profiling', phase_kind='profiling', start_ns=1795500530112368329, sent_end_ns=1795500544377384389, requests_end_ns=1795500549094204331, baseline_start_ns=1795500530112352384, baseline_end_ns=1795500549094209809, total_expected_requests=4, expected_duration_sec=None, expected_num_sessions=None, expected_grace_period_sec=None, final_requests_sent=None, final_requests_completed=4, final_requests_cancelled=0, final_request_errors=0, final_sent_sessions=None, final_completed_sessions=None, final_cancelled_sessions=None, timeout_triggered=False, grace_period_timeout_triggered=False, was_cancelled=False, records_end_ns=None, success_records=3, error_records=0)
+2026-11-24 14:09:09.094 - records_manager - NOTICE - All requests have completed, please wait for the results to be processed (currently 3 of 4 records processed)...
+2026-11-24 14:09:09.094 - system_controller - INFO - Received credits complete from 'timing_manager'
+2026-11-24 14:09:09.095 - records_manager - INFO - All credits complete, please wait for the results to be processed...
+2026-11-24 14:09:09.096 - records_manager - INFO - Processed 4 valid requests and 0 errors (4 total).
+2026-11-24 14:09:09.096 - records_manager - INFO - Received all records, processing now...
+2026-11-24 14:09:09.097 - server_metrics_manager - INFO - Server Metrics: Profiling complete, capturing final metrics...
+2026-11-24 14:09:09.097 - records_manager - INFO - Waiting 2.0s for server metrics flush period...
+2026-11-24 14:09:11.095 - records_manager - INFO - Processing records results...
+2026-11-24 14:09:11.110 - system_controller - INFO - Waiting for result domains: server_metrics
+2026-11-24 14:09:11.147 - records_manager - INFO - _finalize_and_process_results completed
+2026-11-24 14:09:11.148 - system_controller - INFO - All results received, initiating shutdown
+2026-11-24 14:09:11.751 - ExporterManager - INFO - Exporting all records
+2026-11-24 14:09:11.784 - RawRecordAggregator - INFO - Aggregating 1 raw record files from /work/experiments/glm53-vllm-source-20261124-r2/long-smoke/profile/raw_records to /work/experiments/glm53-vllm-source-20261124-r2/long-smoke/profile/profile_export_raw.jsonl
+2026-11-24 14:09:11.796 - RawRecordAggregator - INFO - Aggregated 4 raw records to /work/experiments/glm53-vllm-source-20261124-r2/long-smoke/profile/profile_export_raw.jsonl
+2026-11-24 14:09:11.796 - ExporterManager - INFO - Exporting console data

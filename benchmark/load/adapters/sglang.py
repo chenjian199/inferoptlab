@@ -87,7 +87,7 @@ def wait_ready(serving, deadline, owned=None):
     last = 'no readiness response'
     while time.monotonic() < deadline:
         if owned is not None and owned.poll() is not None:
-            raise SpecError('SGLang exited before readiness; see server.log')
+            raise SpecError('server exited before readiness; see server.log')
         try:
             models = get_json(serving['url'].rstrip('/') + '/v1/models', min(5, max(.1, deadline-time.monotonic())))
             if any(item.get('id') == serving['served_model'] for item in models.get('data', [])):

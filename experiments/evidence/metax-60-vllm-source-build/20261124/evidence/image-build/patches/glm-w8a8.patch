@@ -1,0 +1,65 @@
+diff --git a/vllm_metax/models/glm5next/common/model.py b/vllm_metax/models/glm5next/common/model.py
+index 32a5768..731d22a 100644
+--- a/vllm_metax/models/glm5next/common/model.py
++++ b/vllm_metax/models/glm5next/common/model.py
+@@ -1458,7 +1458,11 @@ def _try_load_fp8_attn_proj(
+     target_s = f"{layer_prefix}.{target_base}.weight_scale_inv"
+     # If the model actually kept this projection in FP8, let the normal path
+     # handle it (it has a weight_scale_inv param).
+-    if target_s in params_dict:
++    # Quantized targets own their scales. In particular, W8A8 uses
++    # weight_scale rather than weight_scale_inv; consuming it here would leave
++    # the INT8 kernel's scale parameter uninitialized.
++    target_channel_scale = f"{layer_prefix}.{target_base}.weight_scale"
++    if target_s in params_dict or target_channel_scale in params_dict:
+         return False
+ 
+     entry = buf.setdefault(layer_prefix, {}).setdefault(key, {})
+diff --git a/vllm_metax/models/glm5next/metax/sparse_indexer.py b/vllm_metax/models/glm5next/metax/sparse_indexer.py
+index abb5706..21abc2c 100644
+--- a/vllm_metax/models/glm5next/metax/sparse_indexer.py
++++ b/vllm_metax/models/glm5next/metax/sparse_indexer.py
+@@ -404,8 +404,10 @@ def sparse_attn_indexer_kpool(
+             if chunk.local_total_seq_lens == 0:
+                 logits = q_slice.new_empty((num_rows, 0), dtype=torch.float32)
+             else:
++                # INT8 folds the Q scale into weights; its native scorer
++                # consumes Tensor Q, unlike the packed FP4 query pair.
+                 logits = _mqa_logits_by_dtype(
+-                    (q_slice_cast, q_scale_slice),
++                    q_slice_cast if use_int8_cache else (q_slice_cast, q_scale_slice),
+                     (k_quant_cast, k_scale_cast),
+                     weights[row_start:row_end],
+                     cu_seqlen_ks,
+diff --git a/vllm_metax/patch/AUDIT.md b/vllm_metax/patch/AUDIT.md
+index c6eb2f4..d36a55e 100644
+--- a/vllm_metax/patch/AUDIT.md
++++ b/vllm_metax/patch/AUDIT.md
+@@ -5,8 +5,8 @@ Reviewed upstream target: **v0.32.0**
+ to `vllm_metax/patch/`; upstream source paths are relative to `vllm/`.
+ Transformers compatibility entries refer to the approved **5.19.0** environment.
+ 
+-This inventory describes the current working tree: **32 patch modules**
+-(12 bugfix, 5 model-specific and 15 enhancement, including 3 performance),
++This inventory describes the current working tree: **33 patch modules**
++(13 bugfix, 5 model-specific and 15 enhancement, including 3 performance),
+ plus shared infrastructure.
+ Decisions describe the retained implementation or its migration/removal;
+ **they do not declare all v0.32.0 runtime obligations complete**. Earlier 0.30.0
+@@ -33,6 +33,7 @@ templates are not imported by the activation chain.
+ 
+ | Module / target | Decision, repair reason and removal condition |
+ | --- | --- |
++| `bugfix/moe_align_legacy_abi.py`: `vllm._custom_ops.moe_align_block_size` | **Deployment compatibility bridge (2026-11-22).** The pinned mcoplib 0.4.14 provider has seven arguments, while vLLM 0.32 passes optional scatter output as argument eight. Install only for the exact legacy schema; preserve all seven inputs and reject non-None scatter requests. New native schemas retain the upstream callable. Remove when the deployed provider implements scatter output. Focused GPU/reference checks are recorded separately in deployment evidence; this is not whole-framework acceptance. |
+ | `bugfix/bytes_to_unicode.py`: `transformers.models.gpt2.tokenization_gpt2.bytes_to_unicode` | **Retain.** Restore the cached GPT-2 byte mapping only when the export is absent; affected remote tokenizers still import that legacy Transformers location. Remove when those tokenizers no longer require the removed export. Remote-tokenizer loading remains a separate validation obligation. |
+ | `bugfix/tokenizer.py`: `LlamaTokenizerFast.convert_to_native_format`, `AutoTokenizer.from_pretrained` | **Retain.** Select full serialized-backend loading when a real `tokenizer.json` is supplied; otherwise delegate native conversion. After normal loading of a local JoyAI checkpoint, restore its serialized backend while retaining added-token flags and checking token IDs. Remove each branch when Transformers/checkpoints preserve the same backend semantics without it. Llama and JoyAI round-trip behavior require separate checks. |
+ | `bugfix/draft_config_overrides.py`: `SpeculativeConfig.compose_draft_hf_overrides`, `SpeculativeConfig.hf_config_override` | **Retain.** Target `config/speculative.py` intentionally inherits callable overrides but leaves dictionaries target-only. MetaX composes picklable dictionary/nested-config updates and preserves JoyAI's `joyai_dense_mtp` identity before the upstream draft rewrite; MiniMax DSpark also keeps its standalone architecture, flattened text config and independent quantization before model construction; other cases delegate. Empty/None overrides also use the callable object: the patched static-method module export is a descriptor, so returning its underlying function fails standard pickle. Remove when supported upstream configuration hooks cover these requirements. Verify nested overrides, serialization and actual draft selection. |
+diff --git a/vllm_metax/patch/bugfix/__init__.py b/vllm_metax/patch/bugfix/__init__.py
+index 7ba61fb..6043b8f 100644
+--- a/vllm_metax/patch/bugfix/__init__.py
++++ b/vllm_metax/patch/bugfix/__init__.py
+@@ -19,3 +19,4 @@ from . import draft_config_overrides  # noqa: F401
+ from . import minimax_m3_draft_config  # noqa: F401
+ from . import bytes_to_unicode  # noqa: F401
+ from . import routed_experts_fused_weight_fix  # noqa: F401
++from . import moe_align_legacy_abi  # noqa: F401

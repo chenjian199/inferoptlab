@@ -120,6 +120,26 @@
               "type": "null"
             }
           ]
+        },
+        "max_model_len": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "max_num_batched_tokens": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "enable_chunked_prefill": {
+          "type": [
+            "boolean",
+            "null"
+          ]
         }
       },
       "required": [
@@ -135,7 +155,8 @@
         "management": {
           "enum": [
             "external",
-            "sglang"
+            "sglang",
+            "vllm-docker"
           ]
         },
         "url": {
@@ -179,6 +200,10 @@
             "ROCR_VISIBLE_DEVICES",
             "MACA_VISIBLE_DEVICES"
           ]
+        },
+        "cache_dir": {
+          "type": "string",
+          "minLength": 1
         }
       },
       "required": [

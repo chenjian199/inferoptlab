@@ -1,0 +1,6 @@
+{
+  "command": "docker run --pull=never --rm -i --network none --name inferoptlab-aiperf-support-20261124 --entrypoint python3 sha256:a64028d594fd41dd89d701906d891c515f43242a83eb29073fe0c5c0bdb16fde -",
+  "returncode": 125,
+  "stdout": "",
+  "stderr": "docker: Error response from daemon: No such image: sha256:a64028d594fd41dd89d701906d891c515f43242a83eb29073fe0c5c0bdb16fde\n\nRun 'docker run --help' for more information\n"
+}

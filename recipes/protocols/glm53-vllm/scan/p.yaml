@@ -1,0 +1,35 @@
+schema_version: 0.2.0
+kind: MeasurementProtocol
+id: glm53-vllm-scan-p
+version: 1.0.0
+title: GLM Flash 完整扫描 P 协议
+provenance: []
+issues: []
+extensions: {}
+scope: prefill
+method: prefill_one_token
+allowed_deployment_modes:
+- aggregated
+timing:
+  ttft_boundary: client_submit_to_first_content_token
+  tpot_boundary: not_applicable
+  token_timestamps: unavailable
+  window: fixed_request_set
+  start: first_actual_send
+  finish: last_completion_or_timeout
+execution:
+  warmup: Separate AIPerf process and disjoint warmup fixture; excluded from scoring.
+  warmup_request_count: 4
+  timeout_s: 3600
+  repetitions: 3
+  profiler_during_scoring: false
+  warmup_request_multiplier: 1
+accounting:
+  primary_population: all_planned_requests
+  failure_policy: retain_in_denominator
+  logical_request_deduplication: true
+steps:
+- 独立预热并核对环境。
+- P 禁用前缀复用；D 重置缓存、填充完全相同输入、再重放。
+- 按并发倍率发请求，逐请求保留实际 token、缓存计数和失败。
+- 保留原始流事件与统计口径；核对 TTFT 是否包含 reasoning token，不混用不同计时边界。

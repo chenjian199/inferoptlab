@@ -1,0 +1,18 @@
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/benchmark/load/__main__.py", line 3, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/benchmark/load/cli.py", line 131, in main
+    directory,state=execute(catalog,load_snapshot(catalog,args.path),args.out or catalog.root/'experiments/runs/benchmark',args.qualification)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/benchmark/load/runner.py", line 94, in execute
+    return _execute(catalog,snapshot,plan,executable,Path(output_root),receipt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/benchmark/load/runner.py", line 291, in _execute
+    register_batch(catalog,directory)
+  File "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/tools/experiments.py", line 69, in register_batch
+    from diagnosis.evidence import close
+ModuleNotFoundError: No module named 'diagnosis'

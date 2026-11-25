@@ -14,6 +14,10 @@ English description: An evidence-driven platform for end-to-end LLM inference pr
 
 新增 [可复用硬件测试工具](tools/hardware/README.md)：用 YAML 定义机器和测试矩阵，通过 `python -m tools.hardware` 完成探测、逐卡 GEMM/设备复制、证据归档和 YAML 配方导出。已在 metax C500 上跑通完整流程；支持多节点依次测试，集群通信性能仍需单独测量。
 
+C500 服务环境的源码构建与启动入口见 [vLLM/MetaX 构建工具](tools/deployment/metax-vllm/README.md)：固定源码提交、校验 SDK 和 native wheel、构建独立镜像，并提供八卡通信、GLM 真实响应和 AIPerf 小规模流程检查。
+
+`metax-60` 已通过源码镜像运行 GLM-5.3-Flash-W8A8，完成八卡功能、真实响应与三组 AIPerf 检查；镜像、部署配方、测量范围和访问命令见 [2026-11-24 复现报告](docs/metax-60-glm53-vllm-source-build-20261124.md)。当前使用公开依赖齐备的 vLLM/MetaX 0.32 分支，尚未完成正式性能基线。
+
 当前已实现 **v0.2 规约基础、benchmark、第二/三步分析与第四步交接骨架，日期 2026-11-23**：提供版本化规约、离线校验/冻结、AIPerf 测试编排、单机 SGLang 启动器、vLLM 外部服务接入、请求集管理、指标统计和报告。已采集 C500、GLM/DeepSeek/Qwen 元数据并完成 GPU0 微基准及 Qwen 单卡 E2E 流程；详情见 [实机配方](recipes/README.md#metax-实机配方2026-11-23) 与 [集群检查和流程验证](docs/cluster-intake-20261123.md)。分布式 Worker、真实 profiler 适配与 KDA 自动调用仍待实现。
 
 新增 [第二步归因](diagnosis/README.md) 和 [第三步专项分析](analysis/README.md)：从已有真实归档复算指标、检查可比性并产生待验证假设，按 11 类方法生成带采集字段、控制实验、证伪条件、正确性和预算的专项任务。Qwen 与三种 GLM 均有实际作用域的计划；完整设计见 [阶段设计与资料映射](docs/diagnosis-analysis.md)。专项 GPU 采集和因果实验尚未执行。

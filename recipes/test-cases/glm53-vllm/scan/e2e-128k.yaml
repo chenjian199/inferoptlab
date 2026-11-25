@@ -1,0 +1,30 @@
+schema_version: 0.2.0
+kind: TestCaseSpec
+id: glm53-vllm-scan-e2e-128k-case
+version: 1.0.0
+title: GLM Flash 完整扫描 e2e-128k
+provenance: []
+issues: []
+extensions:
+  reference.scope: Borrowed GLM-5.3 targets for Flash diagnostics; unresolved statistic/comparator
+    retained; not formal acceptance.
+purpose: diagnostic
+model_ref:
+  id: cluster-glm53-flash-w8a8
+  version: 1.0.0
+workload_ref:
+  id: glm53-vllm-scan-e2e-128k-workload
+  version: 1.0.0
+protocol_ref:
+  id: glm53-vllm-scan-e2e
+  version: 1.0.0
+sla_ref:
+  id: sla-industry-128k-1k
+  version: 1.0.0
+required: true
+source_case_label: Full matrix; every deployment, length pair and concurrency; no
+  ranking selection
+declared_context:
+  input: '131072'
+  output: '1024'
+priority: null

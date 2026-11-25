@@ -1,0 +1,19 @@
+{
+  "status": "failed",
+  "command": [
+    "python3",
+    "tools/deployment/metax-vllm/run_scan.py",
+    "--client-root",
+    "/home/ubuntu/CJ_workspace/inferoptlab-client-20261124",
+    "--client-image",
+    "sha256:43af58b15b63b6095611b257590466632433d6786d66386839e1c5b8027d30ad",
+    "run",
+    "recipes/plans/benchmark/glm53-vllm/08-pipeline.yaml",
+    "--qualification",
+    "experiments/evidence/startup-r2/00-layout/qualification.json"
+  ],
+  "restore_required": true,
+  "exit": 1,
+  "restore_exit": 0,
+  "restored_http_ready": true
+}

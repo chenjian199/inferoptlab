@@ -1,0 +1,313 @@
+FILE /src/python/sglang/srt/configs/__init__.py
+from sglang.srt.configs.afmoe import AfmoeConfig
+from sglang.srt.configs.bailing_hybrid import BailingHybridConfig, BailingMoeV3VLConfig
+from sglang.srt.configs.bailing_moe_v2 import BailingMM2Config
+from sglang.srt.configs.chatglm import ChatGLMConfig
+from sglang.srt.configs.cohere2_moe import Cohere2MoeConfig
+from sglang.srt.configs.cosmos3 import (
+    Cosmos3Config,
+    Cosmos3EdgeConfig,
+    Cosmos3EdgeProjectorConfig,
+    Cosmos3EdgeTextConfig,
+    Cosmos3EdgeVisionConfig,
+)
+from sglang.srt.configs.dbrx import DbrxConfig
+from sglang.srt.configs.deepseekvl2 import DeepseekVL2Config
+from sglang.srt.configs.dots3 import Dots3Config
+from sglang.srt.configs.dots_ocr import DotsOCRConfig
+from sglang.srt.configs.dots_vlm import DotsVLMConfig
+from sglang.srt.configs.exaone import ExaoneConfig
+from sglang.srt.configs.falcon_h1 import FalconH1Config
+from sglang.srt.configs.gigachat35 import GigaChat35Config
+from sglang.srt.configs.glm5_next import Glm5NextConfig, Glm5NextTextConfig
+from sglang.srt.configs.granitemoehybrid import GraniteMoeHybridConfig
+from sglang.srt.configs.hy_v4 import HYV4Config
+from sglang.srt.configs.inkling import (
+    InklingAudioConfig,
+    InklingMMConfig,
+    InklingModelConfig,
+    InklingVisionConfig,
+)
+from sglang.srt.configs.interns2_mobius import (
+    InternS2MobiusConfig,
+    InternS2MobiusTextConfig,
+    InternS2MobiusVisionConfig,
+)
+from sglang.srt.configs.interns2preview import InternS2PreviewConfig
+from sglang.srt.configs.iquest_q1 import (
+    IQuestQ1Config,
+    IQuestQ1MTPConfig,
+)
+from sglang.srt.configs.janus_pro import MultiModalityConfig
+from sglang.srt.configs.jet_nemotron import JetNemotronConfig
+from sglang.srt.configs.jet_vlm import JetVLMConfig
+from sglang.srt.configs.k2_horizon import K2HorizonConfig, XllmConfig
+from sglang.srt.configs.kimi_k3 import KimiK3Config
+from sglang.srt.configs.kimi_k25 import KimiK25Config, KimiK2Config
+from sglang.srt.configs.kimi_linear import KimiLinearConfig
+from sglang.srt.configs.kimi_vl import KimiVLConfig
+from sglang.srt.configs.kimi_vl_moonvit import MoonViTConfig
+from sglang.srt.configs.laguna import LagunaConfig
+from sglang.srt.configs.lfm2 import Lfm2Config
+from sglang.srt.configs.lfm2_moe import Lfm2MoeConfig
+from sglang.srt.configs.lfm2_vl import Lfm2VlConfig
+from sglang.srt.configs.locate_anything import LocateAnythingConfig
+from sglang.srt.configs.longcat_flash import LongcatFlashConfig
+from sglang.srt.configs.mamba import FalconMambaConfig, MambaConfig
+from sglang.srt.configs.mamba2 import Mamba2Config
+from sglang.srt.configs.minicpm import MiniCPMHybridConfig
+from sglang.srt.configs.minicpmv4_6 import MiniCPMV4_6Config, MiniCPMV4_6VisionConfig
+from sglang.srt.configs.minimax_vl import MiniMaxM3VLConfig
+from sglang.srt.configs.muse_glimmer import (
+    MuseGlimmerAssistantConfig,
+    MuseGlimmerConfig,
+)
+from sglang.srt.configs.nanbeige import NanbeigeConfig
+from sglang.srt.configs.nano_nemotron_vl import (
+    NemotronH_Nano_Omni_Reasoning_V3_Config,
+    NemotronH_Nano_VL_V2_Config,
+    NemotronH_Omni_Reasoning_V3_Config,
+)
+from sglang.srt.configs.nemotron_h import NemotronHConfig, NemotronHPuzzleConfig
+from sglang.srt.configs.olmo3 import Olmo3Config
+from sglang.srt.configs.qwen3_5 import (
+    Qwen3_5Config,
+    Qwen3_5MoeConfig,
+    Qwen3_5MoeTextConfig,
+    Qwen3_5TextConfig,
+)
+from sglang.srt.configs.qwen3_asr import Qwen3ASRConfig
+from sglang.srt.configs.qwen3_next import Qwen3NextConfig
+from sglang.srt.configs.qwen4_exp import Qwen4ExpConfig, Qwen4ExpTextConfig
+from sglang.srt.configs.spark2_5 import Spark2_5Config
+from sglang.srt.configs.step3_vl import (
+    Step3TextConfig,
+    Step3VisionEncoderConfig,
+    Step3VLConfig,
+)
+from sglang.srt.configs.step3p5 import Step3p5Config
+from sglang.srt.configs.step3p7 import Step3p7Config
+from sglang.srt.configs.unlimited_ocr import UnlimitedVLConfig
+from sglang.srt.configs.zaya import ZayaConfig
+
+__all__ = [
+    "AfmoeConfig",
+    "BailingHybridConfig",
+    "BailingMM2Config",
+    "BailingMoeV3VLConfig",
+    "ExaoneConfig",
+    "ChatGLMConfig",
+    "Cosmos3Config",
+    "Cosmos3EdgeConfig",
+    "Cosmos3EdgeTextConfig",
+    "Cosmos3EdgeVisionConfig",
+    "Cosmos3EdgeProjectorConfig",
+    "DbrxConfig",
+    "DeepseekVL2Config",
+    "LongcatFlashConfig",
+    "MultiModalityConfig",
+    "KimiVLConfig",
+    "MoonViTConfig",
+    "K2HorizonConfig",
+    "XllmConfig",
+    "Step3VLConfig",
+    "Step3TextConfig",
+    "Step3VisionEncoderConfig",
+    "Olmo3Config",
+    "MuseGlimmerConfig",
+    "MuseGlimmerAssistantConfig",
+    "Glm5NextConfig",
+    "Glm5NextTextConfig",
+    "KimiLinearConfig",
+    "KimiK3Config",
+    "KimiK25Config",
+    "KimiK2Config",
+    "LagunaConfig",
+    "Qwen3NextConfig",
+    "Qwen4ExpConfig",
+    "Qwen4ExpTextConfig",
+    "Qwen3_5Config",
+    "Qwen3_5MoeConfig",
+    "Qwen3_5TextConfig",
+    "Qwen3_5MoeTextConfig",
+    "InternS2PreviewConfig",
+    "IQuestQ1Config",
+    "IQuestQ1MTPConfig",
+    "InternS2MobiusConfig",
+    "InternS2MobiusTextConfig",
+    "InternS2MobiusVisionConfig",
+    "DotsVLMConfig",
+    "DotsOCRConfig",
+    "Dots3Config",
+    "FalconH1Config",
+    "FalconMambaConfig",
+    "GigaChat35Config",
+    "GraniteMoeHybridConfig",
+    "HYV4Config",
+    "MambaConfig",
+    "Mamba2Config",
+    "Lfm2Config",
+    "Lfm2MoeConfig",
+    "Lfm2VlConfig",
+    "LocateAnythingConfig",
+    "MiniCPMV4_6Config",
+    "MiniCPMV4_6VisionConfig",
+    "NemotronHConfig",
+    "NemotronHPuzzleConfig",
+FILE /src/python/sglang/srt/utils/hf_transformers_utils.py
+FILE /src/python/sglang/srt/models/glm5_next.py
+import logging
+from array import array
+from contextlib import nullcontext
+from functools import partial
+from typing import Iterable, List, Optional, Tuple, Union
+
+import torch
+from torch import nn
+from torch.nn import functional as F
+
+from sglang.kernels.ops.attention.fla.fused_norm_gate import FusedRMSNormGated
+from sglang.kernels.ops.layernorm.mhc import hc_contract
+from sglang.kernels.ops.layernorm.mhc import hc_post as _hc_post_fn
+from sglang.kernels.ops.layernorm.mhc import hc_pre as _hc_pre_fn
+from sglang.srt.batch_overlap.two_batch_overlap import (
+    model_forward_stages,
+)
+from sglang.srt.configs.glm5_next import Glm5NextConfig, Glm5NextTextConfig
+from sglang.srt.configs.model_config import is_deepseek_dsa
+from sglang.srt.distributed.utils import divide
+from sglang.srt.environ import envs
+from sglang.srt.eplb.expert_distribution import (
+    get_global_expert_distribution_recorder,
+)
+from sglang.srt.eplb.expert_location import ModelConfigForExpertLocation
+from sglang.srt.layers.attention import vision_utils
+from sglang.srt.layers.attention.vision import VisionAttention
+from sglang.srt.layers.aux_hidden_states import AuxHiddenStateList
+from sglang.srt.layers.layer_boundary import (
+    PLAIN_RESIDUAL,
+    MHCState,
+    declare_attn,
+    declare_ffn,
+    enable_moe_dense_fully_dp,
+    get_attn_tp_context,
+    make_stages,
+)
+from sglang.srt.layers.layer_boundary.residual import access as residual_access
+from sglang.srt.layers.layer_boundary.residual import batch as residual_batch
+from sglang.srt.layers.layernorm import RMSNorm
+from sglang.srt.layers.linear import (
+    ColumnParallelBatchedLinear,
+    ColumnParallelLinear,
+    LinearBase,
+    MergedColumnParallelLinear,
+    MergedColumnParallelRepeatedLinear,
+    QKVParallelLinear,
+    ReplicatedLinear,
+    RowParallelLinear,
+)
+from sglang.srt.layers.logits_processor import LogitsProcessor
+from sglang.srt.layers.moe.fused_moe_triton.layer import FusedMoE
+from sglang.srt.layers.moe.utils import (
+    get_moe_a2a_backend,
+    is_shared_experts_fusion_disabled,
+)
+from sglang.srt.layers.quantization.base_config import QuantizationConfig
+from sglang.srt.layers.quantization.unquant import UnquantizedLinearMethod
+from sglang.srt.layers.quantization.utils import is_layer_skipped
+from sglang.srt.layers.radix_linear_attention import RadixLinearAttention
+from sglang.srt.layers.rotary_embedding import get_rope
+from sglang.srt.layers.utils.common import PPMissingLayer
+from sglang.srt.layers.vocab_parallel_embedding import (
+    ParallelLMHead,
+    VocabParallelEmbedding,
+    get_embedding_tp_kwargs,
+)
+from sglang.srt.managers.mm_utils import (
+    MultiModalityDataPaddingPatternMultimodalTokens,
+    general_mm_embed_routine,
+)
+from sglang.srt.managers.schedule_batch import MultimodalDataItem, MultimodalInputs
+from sglang.srt.model_executor.cuda_graph_config import (
+    Backend,
+    Phase,
+    check_cuda_graph_backend,
+)
+from sglang.srt.model_executor.forward_batch_info import (
+    ForwardBatch,
+    PPProxyTensors,
+)
+from sglang.srt.model_loader.weight_utils import (
+    default_weight_loader,
+    sharded_weight_loader,
+)
+from sglang.srt.models.deepseek_common.amd.deepseek_v4_fused_mhc import (
+    apply_mhc_post_pre_boundary,
+    is_cross_layer_mhc_fusion_enabled,
+)
+from sglang.srt.models.deepseek_common.deepseek_weight_loader import (
+    DeepseekV2WeightLoaderMixin,
+)
+from sglang.srt.models.deepseek_common.utils import (
+    _device_sm,
+    _is_cuda,
+    _use_aiter_gfx95,
+)
+from sglang.srt.models.deepseek_v2 import DeepseekV2AttentionMLA
+from sglang.srt.models.deepseek_v2 import DeepseekV2MLP as Glm5NextMLP
+from sglang.srt.models.deepseek_v2 import DeepseekV2MoE as Glm5NextMoE
+from sglang.srt.models.glm_ocr import (
+    GlmOcrRMSNorm,
+    GlmOcrVisionBlock,
+    GlmOcrVisionMLP,
+    GlmOcrVisionModel,
+    GlmOcrVisionPatchEmbed,
+    GlmOcrVisionPatchMerger,
+)
+from sglang.srt.models.utils import WeightsMapper
+from sglang.srt.multimodal.mm_utils import (
+    run_dp_presharded_mrope_vision_model,
+    run_dp_sharded_mrope_vision_model,
+)
+from sglang.srt.runtime_context import (
+    get_lora,
+    get_mm,
+    get_parallel,
+    get_spec,
+)
+from sglang.srt.speculative.spec_info import SpeculativeAlgorithm
+from sglang.srt.utils.common import (
+    BumpAllocator,
+    LazyValue,
+    add_prefix,
+    log_info_on_rank0,
+    make_layers,
+    set_weight_attrs,
+)
+
+if _use_aiter_gfx95:
+    from sglang.srt.layers.rocm_linear_utils import (
+        get_dsv3_gemm_output_zero_allocator_size,
+    )
+
+logger = logging.getLogger(__name__)
+
+# Matches DeepSeek-V4's _MHC_POST_MULT_VALUE; the fused and unfused boundaries
+# must agree on it.
+_MHC_POST_MULT_VALUE = 2.0
+
+# Conservative cap, not the crossover: at GLM-5.3-Flash's hc_mult=4 and
+# hidden_size=4096 the fusion wins to 16 tokens and reaches parity at 24, with
+# 17-23 unmeasured. Past it the pre-norm GEMM drops mhc_pre's split-K kernel.
+_MHC_FUSED_BOUNDARY_MAX_TOKENS = 16
+
+
+@torch.compile
+def swiglu_clamped(y: torch.Tensor, limit: float):
+    gate, up = torch.chunk(y, 2, dim=-1)
+    gate = torch.clamp(gate, max=limit)
+    up = torch.clamp(up, min=-limit, max=limit)
+    return F.silu(gate) * up
+
+
+class Glm5NextVisionMLP(GlmOcrVisionMLP):

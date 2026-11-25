@@ -1,0 +1,26 @@
+{
+  "format_version": 1,
+  "created_at": "2026-11-24T10:45:25.688767+00:00",
+  "scope": "startup_and_api_only",
+  "accuracy_qualified": false,
+  "performance_baseline": false,
+  "plan_sha256": "06185c995b83e0f00ed8ad4d793d3e7f17e110238b5462edaaee057b8d8728f5",
+  "deployments": [
+    {
+      "id": "glm53-vllm-a-context128k",
+      "binding": {
+        "deployment": "1589cb90595751e18a1fe58c22301c40e4db2df638ac1c9486899c4bf2eab0c0",
+        "runtime": "5e887aa6f27a53d710bae464fca2aeab36f017359f55ccff3248a56be10ceadf",
+        "model": "23edf60d31cbdc3d009afd6e3e83d500b4c8c12fe789061f7c5c5597426963bb",
+        "hardware": "d9f4bfb0be66d7b5a48b96c4454993322030ee3bf588f14603e33d6026eadbdd"
+      },
+      "status": "failed",
+      "maximum_context": 131073,
+      "started_at": "2026-11-24T10:45:25.689485+00:00",
+      "probes": [],
+      "error": "[Errno 98] Address already in use",
+      "finished_at": "2026-11-24T10:45:26.113610+00:00"
+    }
+  ],
+  "content_sha256": "749689d7e7fee4381a3fbab01e58897c49cd4b98c13e5181863cedd2677ac4da"
+}

@@ -2,6 +2,8 @@
 
 本目录只保存规约定义与标准创建模板。JSON Schema 是结构定义的唯一事实来源，YAML 是配方的编辑格式。实际配置统一在 [recipes/](../recipes/README.md)，参数示例在 `examples/parameters/`，证据、结果、索引与基线在 [experiments/](../experiments/README.md)。
 
+vLLM 扫描继续复用 `DeploymentSpec`、`WorkloadSpec` 和 `BenchmarkPlan`。部署的 `scheduling.max_num_batched_tokens` 表示 vLLM 调度预算，`chunked_prefill_tokens` 仅表达 SGLang 的 chunk 参数；`max_model_len`、`enable_chunked_prefill` 为显式部署限制，`max_running_requests` 在 vLLM 下映射每个 DP 引擎的 `max_num_seqs`。`serving.management: vllm-docker` 使用 RuntimeSpec 中固定的本地 Docker image ID。workload 的 `requests.min_count` 与 `count_multiplier` 联用，向上取整到并发的整数倍。计划的 `qualification_required: true` 要求执行前提供与部署、模型、硬件、runtime 内容匹配的启动验证记录。详见 [GLM 扫描计划](../recipes/plans/benchmark/glm53-vllm/README.md)。
+
 第一阶段新增 [AccuracyPlan](definitions/accuracy.json)、[BreakdownPlan](definitions/breakdown.json)、[OperatorCase](definitions/operator-case.json)，对应 `accuracy/`、`breakdown/`、`operators/` 创建模板。[BenchmarkOfflineReport](definitions/benchmark-offline-report.json) 固定声明离线、未接纳，不与实测性能记录混用；[KnowledgeCollection](definitions/knowledge-collection.json) 定义资料库集合入口，具体集合登记在 `catalog/library/`。
 
 第四步结果契约 [OptimizationHandoff](definitions/optimization-handoff.json) 由 `python -m optimization plan` 从第三步结果生成，放在 `experiments/runs/optimization/`。它记录待补证据、优化交接与回退要求，禁止填入未执行的候选/验收结果；OptimizationTask 则定义后续具体优化任务。详见 [第四步](../optimization/README.md)。

@@ -1,6 +1,7 @@
-"""SGLang owned-service cache lifecycle and per-request replay verification.
+"""Owned-service cache lifecycle and per-request replay verification.
 
 Native API: SGLang v0.5.14 POST /flush_cache (200 means successful).
+vLLM v0.32 POST /reset_prefix_cache requires HTTP 200 AND success=true.
 AIPerf v0.12.0 metric: usage_prompt_cache_read_tokens, unit tokens.
 No mock fallback and no inference of hit ratio from TTFT or aggregate gauges.
 """
@@ -15,20 +16,29 @@ from benchmark.common.io import json_write, file_hash, utc_now
 from benchmark.load.metrics.normalize import normalize, metric
 
 
+def verify_reset(response):
+    if response['status'] != 200 or response['endpoint'] not in {'/flush_cache', '/reset_prefix_cache'}:
+        raise SpecError('cache reset did not succeed')
+    if response['endpoint'] == '/reset_prefix_cache' and json.loads(response['body']).get('success') is not True:
+        raise SpecError('vLLM cache reset returned success=false; outstanding cache blocks must drain')
+
+
 def fill(executable, plan, deployment, workload, protocol, concurrency, fixture, run_dir, deadline, commands):
-    if deployment['serving']['management'] != 'sglang':
-        raise SpecError('cache reset requires an owned SGLang service')
+    management = deployment['serving']['management']
+    if management not in {'sglang', 'vllm-docker'}:
+        raise SpecError('cache reset requires an owned service')
     lifecycle = dict(status='resetting', reset_at=utc_now(), input_sha256=file_hash(fixture/'requests.jsonl'),
                      measurement_scope='cached_request_decode', strict_device_decode=False)
     json_write(run_dir/'cache-lifecycle.json', lifecycle)
     remaining=deadline-time.monotonic()
     if remaining <= 0:
         raise SpecError('deadline exhausted before cache reset')
-    request=Request(deployment['serving']['url'].rstrip('/')+'/flush_cache',data=b'',method='POST')
+    endpoint = '/flush_cache' if management == 'sglang' else '/reset_prefix_cache'
+    request=Request(deployment['serving']['url'].rstrip('/')+endpoint,data=b'',method='POST')
     with urlopen(request,timeout=min(30,remaining)) as response:
-        lifecycle['reset_response']=dict(status=response.status,body=response.read().decode('utf-8'))
-        if response.status != 200:
-            raise SpecError('SGLang cache reset did not succeed')
+        lifecycle['reset_response']=dict(endpoint=endpoint,status=response.status,body=response.read().decode('utf-8'))
+        json_write(run_dir/'cache-lifecycle.json', lifecycle)
+        verify_reset(lifecycle['reset_response'])
     lifecycle['status']='filling'
     json_write(run_dir/'cache-lifecycle.json',lifecycle)
     fill_workload=copy.deepcopy(workload)
@@ -93,7 +103,7 @@ def verify_replay(run_dir, expected_ids, workload, protocol, input_sha256):
         lifecycle=read(run_dir/'cache-lifecycle.json')
         if lifecycle.get('status')!='filled':raise SpecError('cache fill lifecycle is incomplete')
         if lifecycle['input_sha256']!=input_sha256:raise SpecError('cache fill used a different request dataset')
-        if lifecycle['reset_response']['status']!=200:raise SpecError('cache reset did not succeed')
+        verify_reset(lifecycle['reset_response'])
         process=lifecycle['fill_process']
         if process['returncode']!=0 or process['timed_out']:raise SpecError('cache fill process failed')
         _,filled=normalize(run_dir/'raw/cache-fill/profile_export.jsonl',expected_ids,workload['input']['tokens'],

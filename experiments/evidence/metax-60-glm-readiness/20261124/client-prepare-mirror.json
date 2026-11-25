@@ -1,0 +1,5 @@
+{
+  "returncode": 0,
+  "stdout": "{\"image\": \"sha256:43af58b15b63b6095611b257590466632433d6786d66386839e1c5b8027d30ad\", \"workdir\": \"/home/ubuntu/CJ_workspace/inferoptlab-client-20261124\", \"argv\": [\"docker\", \"run\", \"--pull=never\", \"--rm\", \"-i\", \"--name\", \"inferoptlab-client-install-20261124\", \"--user\", \"1000:1000\", \"--mount\", \"type=bind,source=/home/ubuntu/CJ_workspace/inferoptlab-client-20261124,target=/work\", \"-e\", \"HOME=/work\", \"--entrypoint\", \"python3\", \"sha256:43af58b15b63b6095611b257590466632433d6786d66386839e1c5b8027d30ad\", \"-\"], \"returncode\": 0, \"stdout\": \"{\\\"status\\\": \\\"ready\\\", \\\"python\\\": \\\"/work/venv/bin/python\\\", \\\"aiperf_version\\\": \\\"0.12.0\\\"}\\n\", \"stderr\": \"\"}\n",
+  "stderr": ""
+}

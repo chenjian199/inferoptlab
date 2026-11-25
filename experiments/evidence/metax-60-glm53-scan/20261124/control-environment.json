@@ -1,0 +1,13 @@
+{
+  "python": "3.10.12",
+  "packages": {
+    "PyYAML": "6.0.3",
+    "jsonschema": "4.25.1",
+    "referencing": "0.37.0",
+    "attrs": "26.1.0",
+    "rpds-py": "0.30.0",
+    "jsonschema-specifications": "2025.9.1",
+    "typing-extensions": "4.16.0"
+  },
+  "installation_scope": "workspace .host-deps; system Python packages unchanged"
+}

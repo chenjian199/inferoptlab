@@ -9,7 +9,7 @@ from unittest.mock import patch
 
 from tools.specs import Catalog, ROOT, SpecError, read, digest
 from tools.experiments import index, baseline, check
-from benchmark.load.counts import at_point, request_count, fixture_source
+from benchmark.load.counts import at_point, request_count, fixture_source, protocol_at_point
 from benchmark.load.cache import assess
 from benchmark.load.dataset import prepare
 from benchmark.common.io import json_write, jsonl_write, inside
@@ -40,7 +40,7 @@ class ExperimentFlowTests(unittest.TestCase):
         work['arrival']['load_points']=[1,2]
         work['cache'].update(prefix_reuse='enabled',target_hit_ratio=1.0,preparation='preload_exact_input_dataset')
         proto.update(scope='decode',method='prefix_reuse_decode',cache_replay=dict(fill_output_tokens=1,max_uncached_tokens_per_request=0))
-        proto['execution'].update(repetitions=2,warmup_request_count=1)
+        proto['execution'].update(repetitions=2,warmup_request_count=1,warmup_request_multiplier=1)
         plan['budget']['max_runs']=4
         dep=self.get('dsv4-bw1000-attached');dep['prefix_cache']=True
         tokenizer=self.root/'tokenizer';tokenizer.mkdir();(tokenizer/'tokenizer.json').write_text('{}')
@@ -49,7 +49,7 @@ class ExperimentFlowTests(unittest.TestCase):
         hw=self.c.get(dep['hardware_ref']);hw['resources']['nodes']=[dict(node_id='fixture',devices=[dict(device_id=f'gpu-{i}',device_profile_ref=ref('bw1000')) for i in range(8)],cpu='fixture',dram_gb=512,nics=[])]
         hw['resources']['allocated_devices']=8
         for concurrency in work['arrival']['load_points']:
-            prepare(at_point(work,concurrency),proto,tokenizer,inside(self.root,fixture_source(scene,work,concurrency)),tokenizer=TokenizerFixture())
+            prepare(at_point(work,concurrency),protocol_at_point(proto,concurrency),tokenizer,inside(self.root,fixture_source(scene,work,concurrency)),tokenizer=TokenizerFixture())
         return plan,work,proto,dep
 
     def test_counts_and_invalid_ambiguity(self):
@@ -63,14 +63,14 @@ class ExperimentFlowTests(unittest.TestCase):
     def test_same_input_identity_across_p_and_d(self):
         plan,work,proto,dep=self.configure()
         w=at_point(work,2);w['output']['tokens']=1
-        m=prepare(w,proto,dep['serving']['tokenizer_path'],self.root/'prefill',tokenizer=TokenizerFixture())
+        m=prepare(w,protocol_at_point(proto,2),dep['serving']['tokenizer_path'],self.root/'prefill',tokenizer=TokenizerFixture())
         original=read(inside(self.root,fixture_source(self.get('benchmark-smoke'),work,2))/'manifest.json')
         self.assertEqual(original['input_content_sha256'],m['input_content_sha256'])
         self.assertEqual(original['files']['requests.jsonl']['sha256'],m['files']['requests.jsonl']['sha256'])
 
     def test_external_cache_reset_is_rejected(self):
         plan,work,proto,dep=self.configure();dep['serving']['management']='external'
-        self.assertIn('owned SGLang','\n'.join(execution_issues(self.c,plan)))
+        self.assertIn('owned service','\n'.join(execution_issues(self.c,plan)))
 
     def test_cache_usage_is_required_and_residual_is_not_hidden(self):
         plan,work,proto,dep=self.configure();raw=self.root/'raw.jsonl'

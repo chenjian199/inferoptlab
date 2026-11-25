@@ -1,0 +1,2125 @@
+{
+  "note": "End-of-validation source snapshot; per-stage resolved.yaml is authoritative for the configuration actually tested.",
+  "files": [
+    {
+      "path": "benchmark/README.md",
+      "sha256": "a2a0c3abb5409e45e7853e19995dcd254d5fcf9e603d2b8fcb34d69e2ce0008b"
+    },
+    {
+      "path": "benchmark/__init__.py",
+      "sha256": "98e1ce26cd12252d20e0792a7e07c86aa02b6e046254033a8cbd7cb972cf57ab"
+    },
+    {
+      "path": "benchmark/__main__.py",
+      "sha256": "f2f8b7f152a192bc74ac1820ac6cc0414cab63c084339df9f6c24f8379c5ef14"
+    },
+    {
+      "path": "benchmark/accuracy/README.md",
+      "sha256": "53c4b0f5acf5303056935d95db29400844f7a002dcc5fd9cc98dfc764c3a8f5b"
+    },
+    {
+      "path": "benchmark/accuracy/__init__.py",
+      "sha256": "44f9e96659d3d1e3db7562cc0c28164a02d8cf3706cfcc2dff3b73f397ceaa50"
+    },
+    {
+      "path": "benchmark/accuracy/__main__.py",
+      "sha256": "2cd718f8445f433e5c20bafb97f9b1c83501e69b69d2c70151c00392b6d30048"
+    },
+    {
+      "path": "benchmark/accuracy/cli.py",
+      "sha256": "e4e54896e841844f9dd21428b4dd232502cadaeb32daa82c0edc3d7c349ca674"
+    },
+    {
+      "path": "benchmark/accuracy/functional.py",
+      "sha256": "330c92542dd18bc85b8f9d7cc8427baa55e9d15999873b039ef2bd684d270696"
+    },
+    {
+      "path": "benchmark/breakdown/README.md",
+      "sha256": "b7ac7b7b9f9cbca4eb9ab609f7e23200275354a319aa6d669d446d9d5be7d7a4"
+    },
+    {
+      "path": "benchmark/breakdown/__init__.py",
+      "sha256": "8a5e7ed99fb725e870b299ea6255cc73cba2d1a4a7eb03fe834579ac565cf82d"
+    },
+    {
+      "path": "benchmark/breakdown/__main__.py",
+      "sha256": "4c7bc9cfc9eab331ea4c4d00f15c899a0f982f3ba139fdb1655d70aa8fda8ec5"
+    },
+    {
+      "path": "benchmark/breakdown/cli.py",
+      "sha256": "91c4f7e965767567af62f7a95221bb650d91b3b4912406faec6881d382e9eb74"
+    },
+    {
+      "path": "benchmark/breakdown/operators/README.md",
+      "sha256": "e335c34f64309ddbaa4d48861829fc20d1661a73119793e9e0221189aaf5e71b"
+    },
+    {
+      "path": "benchmark/breakdown/operators/__init__.py",
+      "sha256": "60f1ca6fdf355cb59b74256872747d6c99f8506be2da8ae1730d7d4ef2ee9306"
+    },
+    {
+      "path": "benchmark/breakdown/trace.py",
+      "sha256": "296912b473badd272a766eb39f050249814948afe8f6602857329f94f8450c70"
+    },
+    {
+      "path": "benchmark/cli.py",
+      "sha256": "766373222cea7e55ccbc05750e7ff9fc3d85cad58beb59acd4825af9735c6d79"
+    },
+    {
+      "path": "benchmark/common/__init__.py",
+      "sha256": "8d58fd6edb02517bad951fc142fbac5d31827b0b79d62af654156bec44737128"
+    },
+    {
+      "path": "benchmark/common/io.py",
+      "sha256": "46204bb6b30de6b19d803b506e291c41e4f36a93dd9f01e2d412340ae08e3aab"
+    },
+    {
+      "path": "benchmark/common/offline.py",
+      "sha256": "d9ef66d252966f4a2a79396dd86ad592e3071bdd1ad13c8c84f1bc322b54f59c"
+    },
+    {
+      "path": "benchmark/common/process.py",
+      "sha256": "189e9d3a104ecb3510f72b64a42a994d0c5265939824bf0279c52d2ab2a5bdf3"
+    },
+    {
+      "path": "benchmark/load/README.md",
+      "sha256": "a7e37315d8b27244bcf3328e8ce63270d859377bdf0400741ee3835ed8534a5a"
+    },
+    {
+      "path": "benchmark/load/__init__.py",
+      "sha256": "3c5dcd9b682225f157d430625b4dfdae75fd4b7957d059e59055bf034cde8324"
+    },
+    {
+      "path": "benchmark/load/__main__.py",
+      "sha256": "43ff59f62d95c00256c537fa558e2e343837404126ded9968ff845d65efa9252"
+    },
+    {
+      "path": "benchmark/load/adapters/__init__.py",
+      "sha256": "1d3a85e5ccc9a1ab45afc55ac75aa018a341601bba665529a0e7989a88827c2d"
+    },
+    {
+      "path": "benchmark/load/adapters/aiperf.py",
+      "sha256": "6fc648b4af29a50371d68a07b446fbcd1c53fc202b2855670fb7f1631ff37514"
+    },
+    {
+      "path": "benchmark/load/adapters/metax.py",
+      "sha256": "307c41adbb1b473e99f46b63a33a10f8280b6856443150092074bbfda5869277"
+    },
+    {
+      "path": "benchmark/load/adapters/sglang.py",
+      "sha256": "4d28a102bb107965514631f12ba0b904b15665a3451a4ca7a9b882aa47d52167"
+    },
+    {
+      "path": "benchmark/load/adapters/vllm.py",
+      "sha256": "ec4a95c7a4f09571fa37b6dd0a7c3a6ae38273df4b1484bda8999a8906a1ea46"
+    },
+    {
+      "path": "benchmark/load/cache.py",
+      "sha256": "0252cf1e9a48e45036824ecd0ccc5496168255d9de6f1658d8a19b3862cc27af"
+    },
+    {
+      "path": "benchmark/load/cli.py",
+      "sha256": "0cb5afbab119caec7374881ab600b94f1f385e8fc2c7ef7da3004f1e6a48dc6f"
+    },
+    {
+      "path": "benchmark/load/counts.py",
+      "sha256": "563fa6784948ee7ed13ef38480d4b64570fa645b242e58fdf4ecdfc71726b8a4"
+    },
+    {
+      "path": "benchmark/load/dataset.py",
+      "sha256": "0ee6e19e4be8cf74bcd4272686cd5947d18fddb4cf78b86f899e4527daefd45a"
+    },
+    {
+      "path": "benchmark/load/metrics/__init__.py",
+      "sha256": "9bb04ec4db1fe3ee5bfb9c3ede668f3103f2ba5db9dc1143b6a5cf39282fac9b"
+    },
+    {
+      "path": "benchmark/load/metrics/evaluate.py",
+      "sha256": "78eb16fcce50ed558f6dfe5e1711ae6234e195fcb39208c4c738159263fd9867"
+    },
+    {
+      "path": "benchmark/load/metrics/normalize.py",
+      "sha256": "2e5e4ea46220bd954720e8d7b8cc9858dca2974ed65ccc1148df320198bcf4c7"
+    },
+    {
+      "path": "benchmark/load/metrics/report.py",
+      "sha256": "3c79b29b1d0c431c408ec7135dff0e109905ceb0d666579e07b97b91606d9a20"
+    },
+    {
+      "path": "benchmark/load/planner.py",
+      "sha256": "b7f4d708efcaf4895410125e53a5b1185d098a85b08fc839d989605375354c93"
+    },
+    {
+      "path": "benchmark/load/qualification.py",
+      "sha256": "869935ab75cf583a5161cf08eaeb2a20fda376e017047119abf93a3bb9889be1"
+    },
+    {
+      "path": "benchmark/load/runner.py",
+      "sha256": "de4a7292400f3fd0fcba611ff1835155714239fd10bb3e6ae6eaa0258b4a258d"
+    },
+    {
+      "path": "benchmark/requirements.txt",
+      "sha256": "198e82eb31de11aa380c7705fa96070caf5852084b667630cbdfe08f3a384714"
+    },
+    {
+      "path": "tools/deployment/metax-vllm/Dockerfile",
+      "sha256": "a1d5c2b5548aade0a1586ad200a5a42d7dbbeff730b03fa1e5cfe5d667d1946c"
+    },
+    {
+      "path": "tools/deployment/metax-vllm/README.md",
+      "sha256": "739e89bb2aee9d5fbfefc3ff6f6aaa6e42f64bdc9c83480443b0abbe643f9b14"
+    },
+    {
+      "path": "tools/deployment/metax-vllm/build_frameworks.py",
+      "sha256": "2dfa2098b3b5bb6659ef95aeb8c003cb08dacc85bdb308069b794a0ca0a50c65"
+    },
+    {
+      "path": "tools/deployment/metax-vllm/check_api.py",
+      "sha256": "cbc299f07e8be19850b2d0d767291eb20157498bcbd73b42819461fa5019ef73"
+    },
+    {
+      "path": "tools/deployment/metax-vllm/check_gpu.py",
+      "sha256": "ceedbd257e5c5b3451be827eeb77d93cbd1503cce154ed2dbd448071a66d1c65"
+    },
+    {
+      "path": "tools/deployment/metax-vllm/fetch_dependencies.py",
+      "sha256": "d3aa01cde11b153996a8733ae1ec0dc4cc4cfecbf21bb1ee2336e01ca8c75965"
+    },
+    {
+      "path": "tools/deployment/metax-vllm/install_sdk.py",
+      "sha256": "05a7bc50dd74aea62a3ebb5466361e1dd633481fd2e18dc0755aa59400fd2f04"
+    },
+    {
+      "path": "tools/deployment/metax-vllm/native-wheels.json",
+      "sha256": "d890c886a9fb5310cdaa4cb9c29088053f266802c015878f1f96b21145db5fb7"
+    },
+    {
+      "path": "tools/deployment/metax-vllm/patches/glm-w8a8.patch",
+      "sha256": "8aecb4566881142b874036201e0d5efd73c0b42ede3cfd63e9fb87d37f5328e7"
+    },
+    {
+      "path": "tools/deployment/metax-vllm/patches/moe_align_legacy_abi.py",
+      "sha256": "0a54d539f60406e94c5756dab11840304d7e4f407883006cfc55411f853a071e"
+    },
+    {
+      "path": "tools/deployment/metax-vllm/prepare.py",
+      "sha256": "383257aba52824199c3d6872a11f2a116771db031dad1d9a3f0bc12efde33371"
+    },
+    {
+      "path": "tools/deployment/metax-vllm/run_client.py",
+      "sha256": "0eacd140e37c91a18e0310888fab8e9a839e01cb1eb35e4a79273845b00c945b"
+    },
+    {
+      "path": "tools/deployment/metax-vllm/run_scan.py",
+      "sha256": "4407d23f71da489acef35774677b5b99bdda3ba616dbe658be134723f51c27c9"
+    },
+    {
+      "path": "tools/deployment/metax-vllm/serve.py",
+      "sha256": "a8fb407b792d34126be286eba53fa1232056ea0f66ca37e917fc064a03fe5be4"
+    },
+    {
+      "path": "tools/deployment/metax-vllm/smoke_client.py",
+      "sha256": "59e02f3a873e1ac29b4b6a0b71ba44522f2d0990dc571dc52d6de1303f70c41d"
+    },
+    {
+      "path": "tools/experiments.py",
+      "sha256": "6c8c90f126c5fc027ba63e650165e24e60c8d80bb2775f2a75bd89cd1b8a1c32"
+    },
+    {
+      "path": "tools/hardware/README.md",
+      "sha256": "9ca934c1c098c58119f7834345e1f2ebe879765502adb88b2549fcfcef934b9c"
+    },
+    {
+      "path": "tools/hardware/__init__.py",
+      "sha256": "148fe2d40a91d8e6c964b895b183e789e427ee288d45d8769cc342028d68fe55"
+    },
+    {
+      "path": "tools/hardware/__main__.py",
+      "sha256": "482b8693e2fe6dbd732e3d7961e03827d3efa187bad11d29da188be580ebbeea"
+    },
+    {
+      "path": "tools/hardware/cli.py",
+      "sha256": "88aaff55a8aa733c963d971724f8353142778b114249ae368e8bb2db857cb89b"
+    },
+    {
+      "path": "tools/hardware/config.py",
+      "sha256": "5f05a35fc6ba94067494eb0c528237246a9732a19d3fbad93e1e0319781ae2a8"
+    },
+    {
+      "path": "tools/hardware/export.py",
+      "sha256": "70a90f716fd611a1c483efcf37527d522e4d2dee9b17c7f5f3e992f2a00a7dca"
+    },
+    {
+      "path": "tools/hardware/metax.py",
+      "sha256": "6435c82298e4c507184f2c7974229690b0cf816d67b895e3bf2f3e5de8f2d8ab"
+    },
+    {
+      "path": "tools/hardware/model.py",
+      "sha256": "81614f63023fd26371e0f2e3ae66b15543fda37a6cea466c1025cb2051a16ac2"
+    },
+    {
+      "path": "tools/hardware/probes/metax.py",
+      "sha256": "83daf045af8401e8588c4dc9b1e989cdfa936cff2c0a01146b017b0a707763d0"
+    },
+    {
+      "path": "tools/hardware/probes/runtime.py",
+      "sha256": "f555b6b1b3ea1e9cf991058056d82349abc7972e6aa12bd2ba2525a1d9b7948c"
+    },
+    {
+      "path": "tools/hardware/probes/torch_bench.py",
+      "sha256": "62a444725f6170812fa9ec0460129350280a7f4ebde1a3137098caad40ba805a"
+    },
+    {
+      "path": "tools/hardware/remote.py",
+      "sha256": "c4087b13a4a63a832d048f6a2b95e254724eb21a180d49cb46f757d8cead5e33"
+    },
+    {
+      "path": "tools/hardware/runner.py",
+      "sha256": "dbb1798bc901c78ed72e31fc25cb11aaf49cd14eadf08e87824ce5fde5a9cdd6"
+    },
+    {
+      "path": "tools/import_inspected_model.py",
+      "sha256": "4fbaaca1aa215ddf56591e3fac74cc5d6609faf2fbb2f331951b209e3303a578"
+    },
+    {
+      "path": "tools/probes/c500_calibrate.py",
+      "sha256": "551a85dda968517f02122c62e8f7a879fda46b365942866c34579d81a8da2204"
+    },
+    {
+      "path": "tools/probes/metax_inventory.py",
+      "sha256": "11a402e00e76dfd1a69569d597d278415b35acd4a67d4d048f10f5fc52fae82e"
+    },
+    {
+      "path": "tools/spec_details.py",
+      "sha256": "4e796240c310f532eb9fa842c4c14bd6ac6faffd2aa79f53a49922ca1ca75870"
+    },
+    {
+      "path": "tools/specs.py",
+      "sha256": "e815ae0a1805eea2e8cad29b32d50e8f4bf7a9b87cc9390adf7cafb7e274af5e"
+    },
+    {
+      "path": "schemas/README.md",
+      "sha256": "462e889bddde7eaa9258b3e02b76f1a7a6aec321b6f49ffaee95cfa7925fad74"
+    },
+    {
+      "path": "schemas/definitions/accuracy.json",
+      "sha256": "5d1005099df6c7b617b50a6faebdc6cc095a78b003ae1f3330de5e73430544bb"
+    },
+    {
+      "path": "schemas/definitions/analysis-method.json",
+      "sha256": "be698a1acbbd8da3c9c7894f827e560cc520b267b62b4d2865ae48f52a00cf36"
+    },
+    {
+      "path": "schemas/definitions/analysis-plan.json",
+      "sha256": "a549ee5022763bd6b3ead6b4cb55ff95962981c5bb8f960b232f728b5b77efaa"
+    },
+    {
+      "path": "schemas/definitions/analysis-report.json",
+      "sha256": "e7349c8221e3e4d8aa4d370fe4bf3639fb5cb1dcac492ac432d878c94c3d09b7"
+    },
+    {
+      "path": "schemas/definitions/baseline-record.json",
+      "sha256": "0c7cabf063beda5b950854db15fcd696268281e33dc0feff2881ca1e1f05fee5"
+    },
+    {
+      "path": "schemas/definitions/benchmark-offline-report.json",
+      "sha256": "6f6bb3b1740619028e4bc22af2beeaf287d499dc6e1b6d8bec4fbe07af5a9b68"
+    },
+    {
+      "path": "schemas/definitions/benchmark-scenario.json",
+      "sha256": "9a8d93cd12b2361e7f1bd92e7afa22f8458d301f634a1472adc68d4fd1315c86"
+    },
+    {
+      "path": "schemas/definitions/benchmark-snapshot.json",
+      "sha256": "77377c3e87958fc4ff79ff2ff93f0fcd61c9377407fb26c7ff7dc418415f89b8"
+    },
+    {
+      "path": "schemas/definitions/benchmark.json",
+      "sha256": "12839eb73eb9e8b73a6109d873cc82fc59c8394c6635f66eff313ae0460a6682"
+    },
+    {
+      "path": "schemas/definitions/breakdown.json",
+      "sha256": "52ec0348e6009e326db8ebadc78de6a660cd639a4422d86043eae055d1665b03"
+    },
+    {
+      "path": "schemas/definitions/common.json",
+      "sha256": "4c62fbdb8fc1243a8ce992396332d97bec4f4d4254f7990e0789f9005ca84ec1"
+    },
+    {
+      "path": "schemas/definitions/deployment.json",
+      "sha256": "5391361e0a402b37ec34a7b183598f05156dca562813f84860759f7579575f2c"
+    },
+    {
+      "path": "schemas/definitions/diagnosis-plan.json",
+      "sha256": "eb031df8f94215ba7f66d907b0cb839c20c8255a75c4f94845b641d3acebbb9f"
+    },
+    {
+      "path": "schemas/definitions/diagnosis-report.json",
+      "sha256": "d1be4be6e1b401df84834bb1bc5fce1ef9caaf1767b97bd1a652725accd3c99a"
+    },
+    {
+      "path": "schemas/definitions/experiment-record.json",
+      "sha256": "655ac598a0b22d22f9dc671a6dc4f7449727d2fa68febea419fc1ecb55761a3e"
+    },
+    {
+      "path": "schemas/definitions/hardware-measurement.json",
+      "sha256": "96b36782824c2b397d7fe84200847acc95422ebb5447c02c82e9040719fa52a1"
+    },
+    {
+      "path": "schemas/definitions/hardware-test.json",
+      "sha256": "f534ff9be47776bf640d259d482054fa9c5cfc7098a89e33057e0b3bb5a6ea74"
+    },
+    {
+      "path": "schemas/definitions/hardware.json",
+      "sha256": "2a9ca0b7ea8384bcc2b69558b48794e753ce0d12e48e22935a68102fd7d8d602"
+    },
+    {
+      "path": "schemas/definitions/inspected.json",
+      "sha256": "5d608a6de92a9fb2269df32943d471461e47d3d5c51670e6cf43d233a4611cc2"
+    },
+    {
+      "path": "schemas/definitions/knowledge-collection.json",
+      "sha256": "c82a608d29a92c7621a34db25b3c8f84714bae8f9b3d04c0e175004ed9a470b5"
+    },
+    {
+      "path": "schemas/definitions/measurement-protocol.json",
+      "sha256": "e3f616fbddd0ed0260bba3988334e8ce4ead596fbf89ff945e9ced3f7e8eb89e"
+    },
+    {
+      "path": "schemas/definitions/measurement.json",
+      "sha256": "63e67d15ba2d3f78e9661b8baf89951445c85be23b151c9c135fc6ff3144e71a"
+    },
+    {
+      "path": "schemas/definitions/mechanism-card.json",
+      "sha256": "2ad25512b36f9ff1f9333ed01c7c54c2341d0c680133f6acac37503f4dbe9c00"
+    },
+    {
+      "path": "schemas/definitions/model.json",
+      "sha256": "b0508a9dcd96e0f7bbdef659dfe393f9d4d82335e6f0d233582817cdb3555c54"
+    },
+    {
+      "path": "schemas/definitions/operator-case.json",
+      "sha256": "3e0a9f845fcd0d13d3a1b5ef5daac62fc8df7b6c49acb207d84ec4a7887aebfb"
+    },
+    {
+      "path": "schemas/definitions/optimization-handoff.json",
+      "sha256": "95ccbae29f9d164852ddd9a810a17753248fcaf54eab94167a59b85493fcf590"
+    },
+    {
+      "path": "schemas/definitions/optimization-task.json",
+      "sha256": "00c24cd3a4cc0aac4a290e36dcf42da06e7d24653c8529348f2e19c04a6e950c"
+    },
+    {
+      "path": "schemas/definitions/reported-measurements.json",
+      "sha256": "f5b99051a892730b2518c39e8a6018bf15650c2cd2878f401f53eb24e38c43f5"
+    },
+    {
+      "path": "schemas/definitions/runtime.json",
+      "sha256": "37cde5e07db864e8c62f450ad80ccda9a9a3f32c52d9c36d221a62b70309d303"
+    },
+    {
+      "path": "schemas/definitions/sla.json",
+      "sha256": "72cae646fcfe099e18cfab5fa7bc3c343b0969b9eb6960d8aff126208636957e"
+    },
+    {
+      "path": "schemas/definitions/snapshot.json",
+      "sha256": "247416e2648a30346664ea7d50bc9c7e9af037bc8ea4c64f07acad40b0abf88f"
+    },
+    {
+      "path": "schemas/definitions/source.json",
+      "sha256": "8664f9166faaf0149e413053db401914b5d78cfbd96344c738f392d3ef174114"
+    },
+    {
+      "path": "schemas/definitions/study.json",
+      "sha256": "1fb69edf6a3ad570c4beabad53a91664f8de196aa37af13c4c1e975b27aa783c"
+    },
+    {
+      "path": "schemas/definitions/template.json",
+      "sha256": "fe442499c65f4fb6125307cbea7c3315aa13e049f7b07af8cffeb613ba5f1ef0"
+    },
+    {
+      "path": "schemas/definitions/test-case.json",
+      "sha256": "7b9685fd0463869bbd40823be2691404d02c59f5042d3eede37e65ccba3f00cc"
+    },
+    {
+      "path": "schemas/definitions/trace-capture.json",
+      "sha256": "17662ac064191e3d2cd1f04d17a58292b1fc36cc3342f93cea743e1e01fcd9d2"
+    },
+    {
+      "path": "schemas/definitions/trace-summary.json",
+      "sha256": "c5eafd75432f9452c9cab73f529e13d46e20e58925f13244169e9a0dcc5fcf13"
+    },
+    {
+      "path": "schemas/definitions/validation-policy.json",
+      "sha256": "36d2933224799fc3ddf0a6645346a53fb30e81c05a66eb10c3fdad11a91afcfa"
+    },
+    {
+      "path": "schemas/definitions/workload.json",
+      "sha256": "df9b9b18173dd72d2c6b9ad30c30a0646b1a58b2cb83bf8c9b54c218a4afc099"
+    },
+    {
+      "path": "schemas/requirements.txt",
+      "sha256": "1141a5197b84334cbef6bc3e68574caa324907a61cd9e1be955f09904c715737"
+    },
+    {
+      "path": "schemas/templates/README.md",
+      "sha256": "4ed4fe2dd2b7aaeb125e1c6e36746ff67f9dcdd0c781a3fa4a8c0319b1b57a38"
+    },
+    {
+      "path": "schemas/templates/accuracy/plan.yaml",
+      "sha256": "39b468f75acedff4be5d4deb1264cebb581b6427dca43df0bac3ccedd72cc2f3"
+    },
+    {
+      "path": "schemas/templates/analysis/method.yaml",
+      "sha256": "03fa76df6a87337777c4abf8b5ce428bdd996c5c5163cffcbe94d0e5e301a5dc"
+    },
+    {
+      "path": "schemas/templates/analysis/plan.yaml",
+      "sha256": "0e00733ba7b448b6cc21eb7f2c973fe219190faf9980ccd58e7729e0a5d6288f"
+    },
+    {
+      "path": "schemas/templates/benchmarks/plan.yaml",
+      "sha256": "d625d3a64caa756f4c2db3b5b03f394b49673b7f2592041a5233e32b0e521ca6"
+    },
+    {
+      "path": "schemas/templates/benchmarks/scenario.yaml",
+      "sha256": "300c27880f12a14c761d63dd1ca7eee693a0683de993af0e0e33ceebab693d34"
+    },
+    {
+      "path": "schemas/templates/breakdown/plan.yaml",
+      "sha256": "e3ce648b7d8654b7b2f80e39f3cb02fb83ccbf9b8f179efda019f5109508efaa"
+    },
+    {
+      "path": "schemas/templates/deployments/deployment.yaml",
+      "sha256": "715482fbc76d67cf3cb07ee26802f58cb5cf025099ba652545a316edbf366793"
+    },
+    {
+      "path": "schemas/templates/diagnosis/plan.yaml",
+      "sha256": "30974d6f318ca29cdcd9f303d622ddf2018b2cb93f615ae9576d8a125cec8f1b"
+    },
+    {
+      "path": "schemas/templates/hardware/cluster.yaml",
+      "sha256": "c1a1139d5eef34d3a7099fb1a32e932df969326faa8d4b7834e6b0e5133e91d0"
+    },
+    {
+      "path": "schemas/templates/hardware/device.yaml",
+      "sha256": "db0fab57c03b10c20aedf2c67588ea63baaf96fb85522ed7f485e075723ce9e3"
+    },
+    {
+      "path": "schemas/templates/hardware/inspected.yaml",
+      "sha256": "d246d199462cc7bd89002dcff110a98f0b1eea15efd19f444314d8b7002f7fca"
+    },
+    {
+      "path": "schemas/templates/hardware/measurement.yaml",
+      "sha256": "3af3e02b2064a6d8eceb940163daf875250f94ddf4f041af646e5fc5462a860d"
+    },
+    {
+      "path": "schemas/templates/models/inspected.yaml",
+      "sha256": "74fd5cc920c68d51a88ed1dbc5037ceea40a8611446d4a455ff82bb78350b02a"
+    },
+    {
+      "path": "schemas/templates/models/model.yaml",
+      "sha256": "4899752e8e1ee4e1ea694f2ae772041dd7c78c520e3db170b4d93272bb964ba4"
+    },
+    {
+      "path": "schemas/templates/operators/case.yaml",
+      "sha256": "fed8bf4f81ed5e0ceb2f8e8dd7c1162afe59745f4d13865f21ebf70071f8ba03"
+    },
+    {
+      "path": "schemas/templates/protocols/cache-replay.yaml",
+      "sha256": "50a85fe92ba54ab3124f35b30550affc5ee12defcb3da3ea01aa81a6691b31ab"
+    },
+    {
+      "path": "schemas/templates/protocols/measurement.yaml",
+      "sha256": "2ccba8e3b4c03a2c8d6c8154ff05b46de035bd2e962ca68163bf45299da557a6"
+    },
+    {
+      "path": "schemas/templates/runtimes/runtime.yaml",
+      "sha256": "581aca2453c4c98168d0754881a3864eff81d608e40ab28eecacdaf7e58dc0fd"
+    },
+    {
+      "path": "schemas/templates/slas/latency.yaml",
+      "sha256": "ad914889616ee8c22f0293195aa3aae740fadcb51183d26b6a71e67ae85181c2"
+    },
+    {
+      "path": "schemas/templates/slas/sla.yaml",
+      "sha256": "e229d8bb6e40eef46facfb694dc9422ac71a46130399b6c9994bc2b05df05153"
+    },
+    {
+      "path": "schemas/templates/studies/study.yaml",
+      "sha256": "61b17c91bf4fd80a4ccadd440982ddd1fec1803d9fada4af90552be74753ab99"
+    },
+    {
+      "path": "schemas/templates/test-cases/test-case.yaml",
+      "sha256": "b0fd2b53f12845a742d4bf9ba5dd3e80abc45d9ecc5806cabbc2467fdd95a000"
+    },
+    {
+      "path": "schemas/templates/validation/policy.yaml",
+      "sha256": "1f089af820853b58b8b0b215cfc5623a4c91bea64eb6a00fd4053bbfbc5ecdb4"
+    },
+    {
+      "path": "schemas/templates/workloads/workload.yaml",
+      "sha256": "4935f12e4c3e368daa529d1c232fa498ff2629700e8c6e71ad9d0040fe4a797e"
+    },
+    {
+      "path": "recipes/README.md",
+      "sha256": "89d082ce722165219caeb41aaf2e47aa7466d51aee2751983f6a201e418de1c2"
+    },
+    {
+      "path": "recipes/analysis/attention-compressor.yaml",
+      "sha256": "cc7990d1a225d53f7ee36fea32a490401b461d33526e576b8e7028ab6d5b4b43"
+    },
+    {
+      "path": "recipes/analysis/communication.yaml",
+      "sha256": "5c1aa7bfd3d5cd87eeea590e2d0baf54ffb457dc53dd901f67c1332cb439f101"
+    },
+    {
+      "path": "recipes/analysis/compute-gemm.yaml",
+      "sha256": "bddde392bec9710cc25615f7dfa6d16242067255894b1a77a8ee47227d1bf6ec"
+    },
+    {
+      "path": "recipes/analysis/host-serving.yaml",
+      "sha256": "99ba9aca12c60c97fb15ca5a624f426c39e035eb95604b6b495167c51bad93fe"
+    },
+    {
+      "path": "recipes/analysis/materialization.yaml",
+      "sha256": "42f48277bfbc015ecd3e7fa0a62d32db9296864d0143e0d333734c2661188c85"
+    },
+    {
+      "path": "recipes/analysis/memory-state.yaml",
+      "sha256": "ad1dc35e77f46b25e1de6baba4d1c538a15e6905711204f42918eeee3d5a89e8"
+    },
+    {
+      "path": "recipes/analysis/moe-routing.yaml",
+      "sha256": "6d9002e8ecd731ebe118d928863cf9cddb9ded3c03c00ad56dfdea25e42df713"
+    },
+    {
+      "path": "recipes/analysis/precision-kernels.yaml",
+      "sha256": "d2402081a28d3ab06907bd1c5eb358d33c20923d56571ace6d66451aac553664"
+    },
+    {
+      "path": "recipes/analysis/request-timing.yaml",
+      "sha256": "f433c28c7567a1ce5cd7812283346567bd34bef1211e9b2a996b78b3e118a8cf"
+    },
+    {
+      "path": "recipes/analysis/scheduling-graphs.yaml",
+      "sha256": "a1e012d08b236d5063665f0e7491ae5b58c8c6154775769fb6ef31781af5bb37"
+    },
+    {
+      "path": "recipes/analysis/speculation.yaml",
+      "sha256": "ff7764da5bfd6696603dd9d7a28a0538c355172579b4b1a7e1f699089e210b32"
+    },
+    {
+      "path": "recipes/deployments/deepseek-v4-flash/bw1000/sglang/attached.yaml",
+      "sha256": "9cd783b44804c11286912f418dd0ba9e2025d2fcee668a413f9544c31c640363"
+    },
+    {
+      "path": "recipes/deployments/deepseek-v4-flash/bw1000/sglang/baseline.yaml",
+      "sha256": "3f9eaeab35b33cc66d2ded80a9679e5c95b777add72d5cba7987509a68b99593"
+    },
+    {
+      "path": "recipes/deployments/deepseek-v4-flash/bw1000/sglang/chunk4096.yaml",
+      "sha256": "963a6cca90868166cdc13a1bf8b6393205e5d4cece9de89ab520f2a59e6be3e9"
+    },
+    {
+      "path": "recipes/deployments/deepseek-v4-flash/bw1000/sglang/chunk8192.yaml",
+      "sha256": "d9f4ada34ad992c40b87dbd1448f8fa87a927cd571d9109e24c923bd00431da4"
+    },
+    {
+      "path": "recipes/deployments/deepseek-v4-flash/bw1000/sglang/tp4-pp2-ep4.yaml",
+      "sha256": "37e32ac576546461b7f7dcb3075a20ccedcc2278b2ab75a3992d26c05fcf9975"
+    },
+    {
+      "path": "recipes/deployments/glm53-flash/c500/sglang/glm53-flash-decode-tp4-pp2-ep4-chunk4096.yaml",
+      "sha256": "d0e165a7ee64c1d7a7d36e00ffa7c4c780b0089e36e51aa1630d30df8916f362"
+    },
+    {
+      "path": "recipes/deployments/glm53-flash/c500/sglang/glm53-flash-decode-tp8-pp1-ep8-chunk4096.yaml",
+      "sha256": "2d5b5393a2b6a0f559ce13aa68b267517ab7b267d9b1af3334465c9448bbdc90"
+    },
+    {
+      "path": "recipes/deployments/glm53-flash/c500/sglang/glm53-flash-decode-tp8-pp1-ep8-chunk8192.yaml",
+      "sha256": "bdcd02863d63cfa8c2809998ee8f0c045219da12f6c12304ae5c4194bc07cac1"
+    },
+    {
+      "path": "recipes/deployments/glm53-flash/c500/sglang/glm53-flash-prefill-tp4-pp2-ep4-chunk4096.yaml",
+      "sha256": "5209f4e8421aba9e7eb8bde2e04a5a794ba81360c44ceb5473b640f20eecbd3c"
+    },
+    {
+      "path": "recipes/deployments/glm53-flash/c500/sglang/glm53-flash-prefill-tp8-pp1-ep8-chunk4096.yaml",
+      "sha256": "977c7d4d95318a0684e29c5c9b3c9802296b84c23f5430f191acb4d31ae59eb3"
+    },
+    {
+      "path": "recipes/deployments/glm53-flash/c500/sglang/glm53-flash-prefill-tp8-pp1-ep8-chunk8192.yaml",
+      "sha256": "19eee880a8ac26b3ab85d979a793c191fe64eb5f5c20f516fcf608a89cc691db"
+    },
+    {
+      "path": "recipes/deployments/glm53-flash/c500/vllm/a-budget2048.yaml",
+      "sha256": "d84b6129ff4fc2eb028814d08d532362f96ebfdf2494e4be42ac0014b05abb45"
+    },
+    {
+      "path": "recipes/deployments/glm53-flash/c500/vllm/a-budget8192.yaml",
+      "sha256": "96e163d0b313919b533fe3038cf2c771acbb788d72b25e0e9394f4ce95df773b"
+    },
+    {
+      "path": "recipes/deployments/glm53-flash/c500/vllm/a-cache.yaml",
+      "sha256": "06cbeeb06e61dd9deec4b5a8649c0c42a6c49a8341f46b94c09e81f6a1aa506a"
+    },
+    {
+      "path": "recipes/deployments/glm53-flash/c500/vllm/a-context128k.yaml",
+      "sha256": "1390e4a95990719b4111b2e863ce42eda984a26f7f9ce986b32814895448902f"
+    },
+    {
+      "path": "recipes/deployments/glm53-flash/c500/vllm/a-context64k.yaml",
+      "sha256": "059408b54361fb0bc0c9c95cce3e70a12d37c7c612462eb4318e39a13eb6ec44"
+    },
+    {
+      "path": "recipes/deployments/glm53-flash/c500/vllm/a-graph.yaml",
+      "sha256": "2e352dd863363e804a2dfe01869fc975722ea54667ed5c6688191aef2b6f0b49"
+    },
+    {
+      "path": "recipes/deployments/glm53-flash/c500/vllm/a-seqs256.yaml",
+      "sha256": "d4179872bdf14917ff6a559b8ee6bbe2076eaba2bbec450e243b286825a39e1a"
+    },
+    {
+      "path": "recipes/deployments/glm53-flash/c500/vllm/a-seqs64.yaml",
+      "sha256": "f56d4081667f2ffb06b0fa7c70ab0ccdf924056ef376e78bc76b2d278a110f2d"
+    },
+    {
+      "path": "recipes/deployments/glm53-flash/c500/vllm/a-tp8.yaml",
+      "sha256": "6b9f90dd78422d705f8a4a9ec7603210714ae2a9d5c4edd994b13d7c4826d841"
+    },
+    {
+      "path": "recipes/deployments/glm53-flash/c500/vllm/b-tp8-ep8.yaml",
+      "sha256": "9f09315b7f5796468eae499bf98c6f7ec973d8c2d00778f4feb433e62395e2ab"
+    },
+    {
+      "path": "recipes/deployments/glm53-flash/c500/vllm/c-tp4-dp2-ep8.yaml",
+      "sha256": "cad1675855ac64526356a9ee13d4a180e4ca2b51578425e7cc2c80bec9867f7c"
+    },
+    {
+      "path": "recipes/deployments/glm53-flash/c500/vllm/d-tp2-dp4-ep8.yaml",
+      "sha256": "1d7b3c671073d65df3ad23da805284337f30913e748d4cd684f5e13fc4fc83db"
+    },
+    {
+      "path": "recipes/deployments/glm53-flash/c500/vllm/metax60-tp8-smoke.yaml",
+      "sha256": "2e641e5fab2ca0cc0c267247d90acdc2996837e9459d1af6873b79fc075f9896"
+    },
+    {
+      "path": "recipes/deployments/qwen3-06b/metax/vllm/qwen-metax-vllm-attached.yaml",
+      "sha256": "6145b1fc55916fc4b426fe1031ecd17422d18ea41606dd3b8f3ba036433dea09"
+    },
+    {
+      "path": "recipes/hardware/bw1000-eight-card-budget.yaml",
+      "sha256": "88810bdc95c874d2e8954f28a02c895d263366b659c28022055e5b6cdb92ab4b"
+    },
+    {
+      "path": "recipes/hardware/bw1000.yaml",
+      "sha256": "fa04834caa3fe8cec11df9b0b90fbcbe19a60f5c30059e0d43a016c2923e11f4"
+    },
+    {
+      "path": "recipes/hardware/bw1100.yaml",
+      "sha256": "cedf8fedc5dd3d3f0c038e0c8398a4fb0b3d41790ea51b6087fac93c523c1186"
+    },
+    {
+      "path": "recipes/hardware/bw1301.yaml",
+      "sha256": "94c726203fb0c4bf63a46198b5a913dc87818aa46ac3c34481eed12b6762f8ab"
+    },
+    {
+      "path": "recipes/hardware/c500.yaml",
+      "sha256": "66559d8df6a8c3144de06d21200cacb74224c9dd839e89c3cfa866a4f7f1a4ee"
+    },
+    {
+      "path": "recipes/hardware/fp8-supernode-unidentified.yaml",
+      "sha256": "8fbf3525f517f8212bb9a3bff6473c04f1f1ff24b90c57c57b0dc5d8d1778ce6"
+    },
+    {
+      "path": "recipes/hardware/h20-141g.yaml",
+      "sha256": "8c73de6901224470f16591174a94a6f13083f5ea9ca6ecef69038cfed69ed0bf"
+    },
+    {
+      "path": "recipes/hardware/h20.yaml",
+      "sha256": "e6ebf1b6cd5527e8e8672dabcb7da2da7654e448a273388ad376016dbf5e0768"
+    },
+    {
+      "path": "recipes/hardware/l20.yaml",
+      "sha256": "9b5d976f7609f5e29789a62d5fcf0459ef8b1a813a02ab36adc62c6328871416"
+    },
+    {
+      "path": "recipes/hardware/metax-c500-8gpu.yaml",
+      "sha256": "78762a5c7e0de0b0641a38364c8abfe14cb0f2b68b49679914b3c7b45804fc5a"
+    },
+    {
+      "path": "recipes/hardware/metax-c500-observed.yaml",
+      "sha256": "ea79d8140b895acd687c8a9ef6aaa9f2698e151d441397690bab00e87bcfc084"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-60-gpu0-device-1.0.0.yaml",
+      "sha256": "bf0d5a635f0a476805a61dab594954b5df37b2027d31d88a9836d9d78886cdf4"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-60-gpu1-device-1.0.0.yaml",
+      "sha256": "1b0f61846996f9cf6b798f15bca5d1c0ae018c5f69fdf05dd5290e3d041e9130"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-60-gpu2-device-1.0.0.yaml",
+      "sha256": "a612dc23869cc82cf32a135709397e3dd88d3efbc7f02c01358d5d122599a6a1"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-60-gpu3-device-1.0.0.yaml",
+      "sha256": "0a5a1c61a5dbbfefc2ff15ec22406abb5090276e8587be8937a2c37c805cf501"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-60-gpu4-device-1.0.0.yaml",
+      "sha256": "e49b312a3cb2d541a787db853eb279244115fcf3b2a56ad1b0cf851171d2a550"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-60-gpu5-device-1.0.0.yaml",
+      "sha256": "c0ac461530129d6a70629337b3f94940883208d70a1e9acfb4f3ad319d1b2d7e"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-60-gpu6-device-1.0.0.yaml",
+      "sha256": "5c973aae0aeaa10961fa22b8dab298c78f5ec1e5a2e8a6045d2d8117d2e09412"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-60-gpu7-device-1.0.0.yaml",
+      "sha256": "51a1cd794981975c76492ff03f5421f7380ed36ee89c7c6d29abf7277b139fd9"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-60-host-1.0.0.yaml",
+      "sha256": "c6bf20b2bb554a5373722259ba27fa53631eb0ce1effb4cbad47cc15ce3d7fe9"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-61-gpu0-device-1.0.0.yaml",
+      "sha256": "48097adfebaa9196621b097cdff9034c64399d50e9baad724a726e75088f6ef6"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-61-gpu1-device-1.0.0.yaml",
+      "sha256": "ab8758f4f136e0109d1af1a2b2c1d539c2c88acf6a531153c85730281483dcba"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-61-gpu2-device-1.0.0.yaml",
+      "sha256": "519c8fa10c23ee61139c2acd38dbb8965d320b1c5189a52000871462a87dcdd7"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-61-gpu3-device-1.0.0.yaml",
+      "sha256": "f62f6902d6970bb2b6e925727034f291cbcb274842068d7e1d13b8bbf4c1f74b"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-61-gpu4-device-1.0.0.yaml",
+      "sha256": "483c7012095f2bdcceca5cd93371bd230743ec648bee55e326af68e95c89672f"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-61-gpu5-device-1.0.0.yaml",
+      "sha256": "d95974b7a2f672e4169dd4794ec4fee8c97975084f8e8c56cfbf1c0e7df7a423"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-61-gpu6-device-1.0.0.yaml",
+      "sha256": "f8381ee10d1e8040b786ed0132f1f4dafafcdd746b5f2aa352772a36a3c8e8a4"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-61-gpu7-device-1.0.0.yaml",
+      "sha256": "0a13f2b4fb72f4f95fcdeb578a66d44221e34f46d872bcdabb31e2b3ead714e1"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-61-host-1.0.0.yaml",
+      "sha256": "a1e9f5eb12bafa5abdccabf614f40c81da845bd28b84ec01e6a13bdc31059a54"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-64-gpu0-device-1.0.0.yaml",
+      "sha256": "eb3fadaf7023ce1d3285a7048b8a8a032736527d12f3c48ad4f1e2c4ed94ce68"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-64-gpu1-device-1.0.0.yaml",
+      "sha256": "7149f6ae898a1656c89ee05bb4a6e1278c5ea080fe6d99d0a5ec7b0803b243bb"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-64-gpu2-device-1.0.0.yaml",
+      "sha256": "50e619681794c5752e1dd3419d1a5f46027f75ccb89f5f2d52e9919fff13c9e9"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-64-gpu3-device-1.0.0.yaml",
+      "sha256": "067805f6efbeb55ee45dbb211b3e4c42f57d5862014f731130abcf1ebe1d1d4f"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-64-gpu4-device-1.0.0.yaml",
+      "sha256": "0ee120cf00f5100437562a2234484f0bf3cf5e96cb3e8264d9fb36813f9b1cab"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-64-gpu5-device-1.0.0.yaml",
+      "sha256": "6e883f0f5c5e6d42f60fd3c9fc31f4fef58ffad355ce21ec3c89cd3b2034d10f"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-64-gpu6-device-1.0.0.yaml",
+      "sha256": "04711da8f081a875bc2b1dd6489c07574220ec33d23e298fab43a57c8d1d9ed6"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-64-gpu7-device-1.0.0.yaml",
+      "sha256": "9d862f07f874b85c4cd6f42db75bd31a5a778d4a915bbf9f56cf48ac7afd8ae9"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-64-host-1.0.0.yaml",
+      "sha256": "9327fcec50928b110fb6fc19779cc450c2692f013a121f5c9eabf700ebb26270"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-65-gpu0-device-1.0.0.yaml",
+      "sha256": "eabba1ad00dda3cd79f16e0e6cd76c5ede58ac10b669221a7c4da43901a7c26e"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-65-gpu1-device-1.0.0.yaml",
+      "sha256": "849c0b4e07afaec93e82ab5390ba1a64d353bcfe82088b28b94045d996173f2a"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-65-gpu2-device-1.0.0.yaml",
+      "sha256": "e85f467a494a3b7a2587f8fc92caaf95973946e24eacff81f9f93b62149fe3eb"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-65-gpu3-device-1.0.0.yaml",
+      "sha256": "2674df0e910e43d56b4f1cd2aefa7520a8944ee106af03670b47542a9efc54a2"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-65-gpu4-device-1.0.0.yaml",
+      "sha256": "8338255d6f73abf1468a3c0905f5aff1f0c7712dbeb5c67482e9113242401223"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-65-gpu5-device-1.0.0.yaml",
+      "sha256": "e85dfb05e432ebe56fca95fecc56a1925f42bb93aadc166981e9e6c90bc53b0b"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-65-gpu6-device-1.0.0.yaml",
+      "sha256": "c3e0d271e2e9377cedab71d44f0e8e4d59ea0b889162f05566bdef5c381db54e"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-65-gpu7-device-1.0.0.yaml",
+      "sha256": "572ecea4d7b2c6863371f4f4ae4d885a4882a72575ce7c73e20cfdc3ad83a225"
+    },
+    {
+      "path": "recipes/hardware/metax-four-node-inventory-metax-65-host-1.0.0.yaml",
+      "sha256": "eaa2d9f5088940e7652a80be56bb0003b897494314ec9ccb94da87be08723a62"
+    },
+    {
+      "path": "recipes/hardware/metax-hardware-baseline-metax-gpu0-device-1.0.0.yaml",
+      "sha256": "f03ef2204235028b5ecf1e30de70b8cb24e69dd483e32e801f921ac2dcac162d"
+    },
+    {
+      "path": "recipes/hardware/metax-hardware-baseline-metax-gpu1-device-1.0.0.yaml",
+      "sha256": "42c250f6e427f8de21f41ad236d1e3a465127e7ece2ba769afae6aa2045d6768"
+    },
+    {
+      "path": "recipes/hardware/metax-hardware-baseline-metax-gpu2-device-1.0.0.yaml",
+      "sha256": "431d464eb3e571ae6cd414e39da14ab794fcd6084b2dbd49e1ef57628c710024"
+    },
+    {
+      "path": "recipes/hardware/metax-hardware-baseline-metax-gpu3-device-1.0.0.yaml",
+      "sha256": "ee43432daa7f71bb710ac2027ca7e4b559594c96520a240d2125bdfe9c5ee57c"
+    },
+    {
+      "path": "recipes/hardware/metax-hardware-baseline-metax-gpu4-device-1.0.0.yaml",
+      "sha256": "026f5424a49fa506272726569a86b0741e0b03ca61f055b1d2cf1f5fb7fff363"
+    },
+    {
+      "path": "recipes/hardware/metax-hardware-baseline-metax-gpu5-device-1.0.0.yaml",
+      "sha256": "e07c0868f21154453dee7072b4d89b3f12178518fff244109cb4009eb194503e"
+    },
+    {
+      "path": "recipes/hardware/metax-hardware-baseline-metax-gpu6-device-1.0.0.yaml",
+      "sha256": "929423b77f11feaaa952d52a811f3de71b15da77642123b21582cd7bd3f64a74"
+    },
+    {
+      "path": "recipes/hardware/metax-hardware-baseline-metax-gpu7-device-1.0.0.yaml",
+      "sha256": "b6f6327ad53a395d2c57e74146caa6f5ad73b42d2f1448501474cd5a1b94cd4c"
+    },
+    {
+      "path": "recipes/hardware/metax-hardware-baseline-metax-host-1.0.0.yaml",
+      "sha256": "3b316d0a9f195d7d7316894ff67bc17d53b7dcc0d74a45898eb0a99cf9c386d0"
+    },
+    {
+      "path": "recipes/hardware/metax-qwen-smoke-gpu0.yaml",
+      "sha256": "fa214e8245862399d25c92ceb4f9fdfc2e4a7288f391f02c4bccc76025c5453f"
+    },
+    {
+      "path": "recipes/measurements/metax-c500-gpu0-20261123.yaml",
+      "sha256": "d79ed42590233c9494136def96b54c06a5ea60da1fde80615209b674aba7e27c"
+    },
+    {
+      "path": "recipes/measurements/metax-hardware-baseline-metax-gpu0-measurement-1.0.0.yaml",
+      "sha256": "7427e20b574e85257e9f98b0fe8107fa50dc7ad0526f083f57ef07d572fda707"
+    },
+    {
+      "path": "recipes/models/README.md",
+      "sha256": "561835f41e9d8bc6e7a78cc3780af8d7b080a55a666f251f21f9e36cb5deb0df"
+    },
+    {
+      "path": "recipes/models/deepseek/deepseek-v4-flash/deepseek-v4-flash-w8a8.yaml",
+      "sha256": "5b72b3ee0b07f8bbbe2329212dd94b612c407c1e2256380d6e31ab032596fdbd"
+    },
+    {
+      "path": "recipes/models/deepseek/deepseek-v4-flash/metax-deepseek-v4-flash-w8a8-mtp.yaml",
+      "sha256": "9e1bbb1770c2e08f6468d31edb870e3bcd5023ab81d167630a9f92510031147a"
+    },
+    {
+      "path": "recipes/models/deepseek/deepseek-v4-pro/deepseek-v4-pro.yaml",
+      "sha256": "c4e93c3c89c5da170e493088fd6e460ea6bc2b1dbb8957bdc477a80e6ba7abb6"
+    },
+    {
+      "path": "recipes/models/deepseek/deepseek-v4.1-flash/deepseek-v4.1-flash.yaml",
+      "sha256": "932a0be4a9e2982dae6ac15ec503b1cb2c60f66d01bf8f484c61baa9d53db3d9"
+    },
+    {
+      "path": "recipes/models/deepseek/deepseek-v4.1-flash/metax-deepseek-v4.1-flash-w8a8.yaml",
+      "sha256": "723466456604629def888d8a1d61088a47641f3c9a79665b75dd587d710df5ef"
+    },
+    {
+      "path": "recipes/models/glm/glm-5.2/glm-5.2-w8a8.yaml",
+      "sha256": "f57a8102c5f521bfc814a259abb6813e5c38b64493e1b4beee35082b784475cf"
+    },
+    {
+      "path": "recipes/models/glm/glm-5.3/cluster-glm53-w4a8.yaml",
+      "sha256": "e6d62f2381d27686e38017da279157f725fb20a0bf102a1bef8f6bc65be706d1"
+    },
+    {
+      "path": "recipes/models/glm/glm-5.3/cluster-glm53-w8a8.yaml",
+      "sha256": "f3f5e576e5c0e9972bc383f8ac3e5df8c0db0fde07b63322199a17872ab865fd"
+    },
+    {
+      "path": "recipes/models/glm/glm-5.3/glm-5.3.yaml",
+      "sha256": "43b4045cf9b88fefe87326f22972fdc26bb31325bbcfe3a1d8fcd2e9d09088fd"
+    },
+    {
+      "path": "recipes/models/glm/glm-5.3-flash/cluster-glm53-flash-w8a8.yaml",
+      "sha256": "8d6950b56b795720b9aa625eca473489222e17419709e292a1103c3e69355319"
+    },
+    {
+      "path": "recipes/models/glm/glm-5.3-flash/glm-5.3-flash-fp8.yaml",
+      "sha256": "2c9d950037c97288e892d5afb7fc66133bcd48de35e78f1e7db987ab091d7212"
+    },
+    {
+      "path": "recipes/models/glm/glm-5.3-flash/glm-5.3-flash-int4.yaml",
+      "sha256": "34b753f5c923cef763b7b3fccd98cde44878f9049e13791b2bbd89bd59211a75"
+    },
+    {
+      "path": "recipes/models/glm/glm-5.3-flash/glm-5.3-flash-int8.yaml",
+      "sha256": "1426369783574d4824c3b021e60b2f7b4e1ecca932664fd363ecbf9736b832c6"
+    },
+    {
+      "path": "recipes/models/glm/glm-5.3-flash/metax-glm-5.3-flash-w8a8.yaml",
+      "sha256": "d5700eaf86e39441136ac494ceaad83afd043181eca0c97265ca8a82a296c1ce"
+    },
+    {
+      "path": "recipes/models/kimi/kimi-k2.7-code/kimi-k2.7-code-w4a16.yaml",
+      "sha256": "41acff125ccfb9bce1c939d605c307ea54a98aae6f9ac8cdc31dda0bef9302d9"
+    },
+    {
+      "path": "recipes/models/kimi/kimi-k3/kimi-k3.yaml",
+      "sha256": "a2c3b80fbe5e10dd032858168406fb2a06dfbfc26930bd101604f18247930c7a"
+    },
+    {
+      "path": "recipes/models/qwen/qwen3-0.6b/cluster-qwen3-06b.yaml",
+      "sha256": "a25b431bec9687a3449b1d35daee7b9ed379f0cd9131e29a2741bfb938522c5e"
+    },
+    {
+      "path": "recipes/models/qwen/qwen3-0.6b/metax-qwen3-06b.yaml",
+      "sha256": "0ba74b9d1279f4b795bf33aba9cdee351e2fa9b41fdd4fd4d37e7cd87c7741f8"
+    },
+    {
+      "path": "recipes/models/qwen/qwen3.8-2.4t-a95b/qwen3.8-2.4t-a95b.yaml",
+      "sha256": "8f079abd2ae8692aad73dd4bab2fffc5a3469c904e2e8b52eac9e091d498b0e8"
+    },
+    {
+      "path": "recipes/models/qwen/qwen3.8-27b/qwen3.8-27b.yaml",
+      "sha256": "11201b2607c4f8a51cee2105dd0d41a60b37ce5e2d4888ce4926f94b049a26b6"
+    },
+    {
+      "path": "recipes/observations/chitu-final-phase-results.yaml",
+      "sha256": "33ce00a9d4f3d58960f8182de785f677f1bc975a2381faf92a499ddfeb37e1b0"
+    },
+    {
+      "path": "recipes/observations/chitu-kimi-conflicting-summary.yaml",
+      "sha256": "0de44f1af56160ce2767b08618a47d60698f28599c2a0e4298f23ab8eb0cb979"
+    },
+    {
+      "path": "recipes/observations/chitu-quality-results.yaml",
+      "sha256": "e9bc7ef3dab396f0df927ab518f2919abdb06427569b07a75432ceee52c7a4d5"
+    },
+    {
+      "path": "recipes/observations/deepseek-optimization-claims.yaml",
+      "sha256": "62a7076a9f50c1764f97353ec6089789f0c0f9bbe7aeab7bf298f9a2e6866c7f"
+    },
+    {
+      "path": "recipes/observations/glm53-decode-visible-series.yaml",
+      "sha256": "bb774a4c817c74bc0e72315349684e0f0d8515bee23f43545d1c982240eee33f"
+    },
+    {
+      "path": "recipes/observations/glm53-h20-relative-summary.yaml",
+      "sha256": "9d333732c1e63935e653ab62f5f0b1e4f19f531132a2c70bc2533bbceda023e0"
+    },
+    {
+      "path": "recipes/observations/glm53-prefill-matrix.yaml",
+      "sha256": "9e86e91a101b903f7a5c74d05bdf47301adef4c5f36c881a9058711f636a7e3d"
+    },
+    {
+      "path": "recipes/operators/glm53-gate-up.yaml",
+      "sha256": "570c57e2f0718132a5ce30dab4bcfce2ccb3460a84c115937b8aada73048b018"
+    },
+    {
+      "path": "recipes/plans/accuracy/glm53-humaneval-full164.yaml",
+      "sha256": "b2748a6c3644786cf69c47998741a3304cc7799532bb3006e1de92b0a11fd676"
+    },
+    {
+      "path": "recipes/plans/accuracy/glm53-humaneval-smoke32.yaml",
+      "sha256": "f07e52fc347feab6143a00aa0e7c14963f50f8b9f8e8942a5020c124ab69bd62"
+    },
+    {
+      "path": "recipes/plans/analysis/glm53-flash-w8a8-c500.yaml",
+      "sha256": "8aa32a5d5c0308d650786bc5180154d8a994393c4426cddadd646c2d512eb494"
+    },
+    {
+      "path": "recipes/plans/analysis/glm53-w4a8-c500.yaml",
+      "sha256": "e40adccc73f8f667260e36b8121be26b1a8365e6c58a64c77ec278cd61a6efce"
+    },
+    {
+      "path": "recipes/plans/analysis/glm53-w8a8-c500.yaml",
+      "sha256": "d3764786f4bed68e074fbf840696687ef47d9d319d40de201299e0837617203b"
+    },
+    {
+      "path": "recipes/plans/analysis/qwen-metax.yaml",
+      "sha256": "fa60ed21e8b4f07485e2a5b49b1a6e69e6510bdf9c00b2d9b05a3d3d40ee0c36"
+    },
+    {
+      "path": "recipes/plans/benchmark/attached.yaml",
+      "sha256": "e26d022e20c8bfdbf77fd5c8d442eaea7ff409b37764c62415f01d347433a579"
+    },
+    {
+      "path": "recipes/plans/benchmark/baseline.yaml",
+      "sha256": "f8ec507551b64dbf8f13a4926cd7b39a808c7426e852c595027e183c08e052ad"
+    },
+    {
+      "path": "recipes/plans/benchmark/compare.yaml",
+      "sha256": "b7e63f0de201edbb97526e68d6e0a4886ac975b6f95c2924546410d4936fa257"
+    },
+    {
+      "path": "recipes/plans/benchmark/glm53-flash-decode.yaml",
+      "sha256": "c3f858f0ff37f3f3b2959ee6a46937eb8dab2e525c955439141b5d709be1c5c5"
+    },
+    {
+      "path": "recipes/plans/benchmark/glm53-flash-prefill.yaml",
+      "sha256": "99f3b98e446050ed4fefb190259450eafa80d5a611874d1bd9fb6f1f719c293a"
+    },
+    {
+      "path": "recipes/plans/benchmark/glm53-vllm/00-layout.yaml",
+      "sha256": "696f9de512e4f3f2c4a80413c130d9670847088b027f718a8a0870a4ed9947e8"
+    },
+    {
+      "path": "recipes/plans/benchmark/glm53-vllm/01-scheduling.yaml",
+      "sha256": "5ca98bcbcdde4211e15c0e6778c5d8cd2ea5d3a561a70fa76e47ccfbc825d8cb"
+    },
+    {
+      "path": "recipes/plans/benchmark/glm53-vllm/02-context64k.yaml",
+      "sha256": "208acabfc4a4d13df9b7a144e466a17c6f9433620f5d2d0b4d9447a1196caf73"
+    },
+    {
+      "path": "recipes/plans/benchmark/glm53-vllm/03-context128k.yaml",
+      "sha256": "8a175cd9178fe1f2921ac3213900b34065a0339d1d5f3641795fec282a1e51dc"
+    },
+    {
+      "path": "recipes/plans/benchmark/glm53-vllm/04-cache.yaml",
+      "sha256": "f10b1046b6bfc9d2b432be6fa2333af0fef015927e9f34d3bfa077dc4db11314"
+    },
+    {
+      "path": "recipes/plans/benchmark/glm53-vllm/05-confirm-short.yaml",
+      "sha256": "af8096685be41427867c33b9841d6452286c8008e7d1d6d51877e2420ddfc7ab"
+    },
+    {
+      "path": "recipes/plans/benchmark/glm53-vllm/06-confirm-long.yaml",
+      "sha256": "05a6d6fb550100745d7ed082557f4035213cf35920cdf94f29fa08dc9b183e3f"
+    },
+    {
+      "path": "recipes/plans/benchmark/glm53-vllm/07-confirm-ultralong.yaml",
+      "sha256": "363c6bb8d648b7ab2318751f5f5296feae77a4a9d3492447e44751230affd799"
+    },
+    {
+      "path": "recipes/plans/benchmark/glm53-vllm/08-pipeline.yaml",
+      "sha256": "047ac527b2700803d4ee885e1d3c82217e3f23b89f3601f16d64441b5cbc6b0d"
+    },
+    {
+      "path": "recipes/plans/benchmark/glm53-vllm/README.md",
+      "sha256": "13cfa08d5bf536595edf792489d03bc9ced1250823527aa0433350f23bebcafc"
+    },
+    {
+      "path": "recipes/plans/benchmark/parallel.yaml",
+      "sha256": "f1c2f30e2122dd4f55a37936428f916dd4c47380cb48e8432b7913bd70b3b04c"
+    },
+    {
+      "path": "recipes/plans/benchmark/qwen-metax-pipeline-plan.yaml",
+      "sha256": "404c916003f57b4510c85af4c1b45eea226b2d6ed3eeec39288d0da69d9c7a37"
+    },
+    {
+      "path": "recipes/plans/benchmark/smoke.yaml",
+      "sha256": "91923661cd3f34a565bb8c2b16daedf0bd2d8bf742c3148db3fb493396f9a5c0"
+    },
+    {
+      "path": "recipes/plans/breakdown/glm53-c500.yaml",
+      "sha256": "945cb1bdaccbc9d2f9ed680cf027f83a0e950aa4c36243068ffe2bba196cff50"
+    },
+    {
+      "path": "recipes/plans/diagnosis/qwen-metax.yaml",
+      "sha256": "ebc9076df7d9df278677ca0ee745238659e8b3d2664e82bba673bda47fbe6bdb"
+    },
+    {
+      "path": "recipes/plans/hardware/metax-four-nodes.yaml",
+      "sha256": "0fd52c91ee4ec0b3d15b5e75c6d61222e16a1884e04155e3de3f5fe7d736a406"
+    },
+    {
+      "path": "recipes/plans/hardware/metax.yaml",
+      "sha256": "449c92653d5599786adee9e3f129eb8f9f9e1962a6c7dccbf3d09724448cd075"
+    },
+    {
+      "path": "recipes/protocols/benchmark-e2e.yaml",
+      "sha256": "ab04b98da0594d79271da5934859a8b08037e8aaa646bf119797d731fc129ff5"
+    },
+    {
+      "path": "recipes/protocols/benchmark-smoke.yaml",
+      "sha256": "a88f69b30b6b2c943228aa9ede09523b9ca611dfe0a47b96ca30ba9961370241"
+    },
+    {
+      "path": "recipes/protocols/chitu-contract-decode.yaml",
+      "sha256": "5371b312a2c12084c366ff5c3c7b5dcb1adb7a361e1686847e930b5160ccce58"
+    },
+    {
+      "path": "recipes/protocols/chitu-contract-prefill.yaml",
+      "sha256": "f0fd21aee87bfc1d18a8f2ec79e5c181314e60185e4f2cacc424104c37282a4b"
+    },
+    {
+      "path": "recipes/protocols/deepseek-contract-decode.yaml",
+      "sha256": "9f78fadd8e52c952eb47baba857cb99b7927341ce1ae398c167bd0948bea7b44"
+    },
+    {
+      "path": "recipes/protocols/deepseek-contract-prefill.yaml",
+      "sha256": "be2b74b31edbebbef54c0c5cb2208d681d4bab877cf112065c60f6860ca3cb47"
+    },
+    {
+      "path": "recipes/protocols/glm53-fakeprefill-decode.yaml",
+      "sha256": "8159a425d9a0b0d85ec56dbb06b074afa7bd87155a1b017338df9ef586db479c"
+    },
+    {
+      "path": "recipes/protocols/glm53-flash-decode.yaml",
+      "sha256": "12d47a8e9bf68decd224deb1081495dfd469578108645af189cb2ba7da1faa79"
+    },
+    {
+      "path": "recipes/protocols/glm53-flash-prefill.yaml",
+      "sha256": "55a60bab7ad1f5d2830d766019629b4b08eaf1f2584d076a8e3f02f9432374c4"
+    },
+    {
+      "path": "recipes/protocols/glm53-prefill-profile.yaml",
+      "sha256": "a3289da4bd93924dd4c0e512a74ac17c6d1f3ad066870f162e8d88339b0b7ab4"
+    },
+    {
+      "path": "recipes/protocols/glm53-vllm/d-confirm.yaml",
+      "sha256": "df8ece0b9535a59c6f184b8cd7244337b7171a2431785b612f30362b143b909e"
+    },
+    {
+      "path": "recipes/protocols/glm53-vllm/d-screen.yaml",
+      "sha256": "ddfa901734b9b5f1d714d8e4521ac6fc84b0753532c239932cdb7acabd404354"
+    },
+    {
+      "path": "recipes/protocols/glm53-vllm/e2e-confirm.yaml",
+      "sha256": "c35bd16a663f49a769cf7c127b6cf2c9c3a8a1c65b134131b488cc45b10ec40f"
+    },
+    {
+      "path": "recipes/protocols/glm53-vllm/e2e-screen.yaml",
+      "sha256": "cf7e0ea7ff59333a452c2ccb5e2cd2ba3afbd8e407aea8e05c50eba9e1e6a4dc"
+    },
+    {
+      "path": "recipes/protocols/glm53-vllm/p-confirm.yaml",
+      "sha256": "bd80272186bfe2c9ddab7badb73a13e8c3df07b3b8face0e2e940afe9983bb86"
+    },
+    {
+      "path": "recipes/protocols/glm53-vllm/p-screen.yaml",
+      "sha256": "73b7d666fee65b955d8d6469ff875cb12864a158460632fd02d31488e40b7b45"
+    },
+    {
+      "path": "recipes/protocols/industry-e2e-unresolved.yaml",
+      "sha256": "01e41e73389e5113e34e0a8ab14040bcd9219719d3facbd0ff30d47c575b3b61"
+    },
+    {
+      "path": "recipes/protocols/qwen-pipeline-protocol.yaml",
+      "sha256": "6bfc39573be21ac5729a41f51e88479bfb549d1dda25dcdb15985c7405241365"
+    },
+    {
+      "path": "recipes/runtimes/chitu-bw1000-report.yaml",
+      "sha256": "a5bc3e37c24c83a2ba44b243283ce1341164c75a2377130c6e975f487ea667d1"
+    },
+    {
+      "path": "recipes/runtimes/glm53-flash-c500-sglang-candidate.yaml",
+      "sha256": "74d12b4fcfa499cd72a560bb39915187bf7f8660429c53775bda4ddec3c45518"
+    },
+    {
+      "path": "recipes/runtimes/metax-hardware-baseline-metax-gpu0-runtime-1.0.0.yaml",
+      "sha256": "b61b3796ea995ed0242c670a85bf93d4cca1ba761fd6c73b9d38adbe9e9f0722"
+    },
+    {
+      "path": "recipes/runtimes/metax-pytorch-c500-calibration.yaml",
+      "sha256": "bb54888cc27f6aa9ecf033f220f6377566c3bca2a1ef00c32973bb52c3d4fdef"
+    },
+    {
+      "path": "recipes/runtimes/metax-vllm-glm53-observed.yaml",
+      "sha256": "b6f34c2af1fa98885f06569d44f532f2d48310c1e82af29efb34c7ad9a671b9d"
+    },
+    {
+      "path": "recipes/runtimes/metax-vllm-qwen-smoke.yaml",
+      "sha256": "1e1d523746a69f5444d0ffe5354b14ed8adc676b157148bcd68ceafdbf1ce854"
+    },
+    {
+      "path": "recipes/runtimes/metax60-vllm-glm53-source.yaml",
+      "sha256": "2c78412dd5160279b5bd682805070b82155995da646dcde2b632e95556c32564"
+    },
+    {
+      "path": "recipes/runtimes/sglang-dsv4-v0.5.12-rlc.yaml",
+      "sha256": "e2d4840dc16e4c8b4aacd51d36b6ef530d3e70a6667a946b9f9ef92117f97583"
+    },
+    {
+      "path": "recipes/runtimes/sglang-dsv4-v0.5.15-post1-dev.yaml",
+      "sha256": "11fd0064ac47ac31c73f2e608aa95a4eaf630648e588cfc0bd1ef0d845b1fe9e"
+    },
+    {
+      "path": "recipes/scenarios/glm53-flash-decode-long.yaml",
+      "sha256": "756a927e2446049987ec4ae746d2fb1598c390bbcd6b2105ec50cac225352a32"
+    },
+    {
+      "path": "recipes/scenarios/glm53-flash-decode-short.yaml",
+      "sha256": "35fa7e11b6147df210bab6629ff03c88e82c09c9867914d5a7b79efffc6ecc04"
+    },
+    {
+      "path": "recipes/scenarios/glm53-flash-prefill-long.yaml",
+      "sha256": "bfdf5b564ebbe27ba7ea6a5f78410191e5eada3259ca12073feb4c957b63aed2"
+    },
+    {
+      "path": "recipes/scenarios/glm53-flash-prefill-short.yaml",
+      "sha256": "a72a137468b0cac510e71c6145c6d055ae8acae61d87217bc4138d89156a2470"
+    },
+    {
+      "path": "recipes/scenarios/glm53-vllm/d-4k.yaml",
+      "sha256": "2dfc031943864881c1b9d5273942899943a2f106dce1571e7b728b0cf648ac25"
+    },
+    {
+      "path": "recipes/scenarios/glm53-vllm/e2e-128k.yaml",
+      "sha256": "49a264c60810c6266abb4bee68132227ab2d59d16dbbbb0a2c404eb8a6d734f1"
+    },
+    {
+      "path": "recipes/scenarios/glm53-vllm/e2e-16k-confirm.yaml",
+      "sha256": "8b7737049ea4a9e2ffd602189e688ff0e8701e0301bc1bba03f1632f3c989bf8"
+    },
+    {
+      "path": "recipes/scenarios/glm53-vllm/e2e-16k.yaml",
+      "sha256": "b2925f034a7fb3b9021752607b3d578b080ff4d3361497e270a2c8067c4b368d"
+    },
+    {
+      "path": "recipes/scenarios/glm53-vllm/e2e-64k.yaml",
+      "sha256": "b68e8e5e4f17356f5782553761a04fc6ffbadd7273d5f35bb160958bafdb1e14"
+    },
+    {
+      "path": "recipes/scenarios/glm53-vllm/p-128k.yaml",
+      "sha256": "4b048ba5d46f7fe29cfc45f34288704ab9f841cec3c3805e780a464760c4cc9d"
+    },
+    {
+      "path": "recipes/scenarios/glm53-vllm/p-4k.yaml",
+      "sha256": "31b4daace8537bb2efe3094fa0834a9fc2c3809daa855790b40b675bf453c0bb"
+    },
+    {
+      "path": "recipes/scenarios/glm53-vllm/p-64k.yaml",
+      "sha256": "1d2d32ffa33f391ed8a358a4f5fc37040672a3d7919e1489767f548f17b1b152"
+    },
+    {
+      "path": "recipes/scenarios/glm53-vllm/pipeline.yaml",
+      "sha256": "62d61044dcfb4efd80eecdab653a304724eb7a240e0e92e5085f8b85bf652ceb"
+    },
+    {
+      "path": "recipes/scenarios/long.yaml",
+      "sha256": "8f0c3357edfee6705cbc80aa6465f4a2f4bdfd364af752f0f05880e8c84590eb"
+    },
+    {
+      "path": "recipes/scenarios/qwen-pipeline-long.yaml",
+      "sha256": "f05dbe6ba3f469f1e2eb4ae44dab26fbca90396e6f63e4a0fa77e5c035e4efd9"
+    },
+    {
+      "path": "recipes/scenarios/qwen-pipeline-short.yaml",
+      "sha256": "8bbb496e78af5ded8838faaee08d2308a96ac8d632617b69bf17274f83242110"
+    },
+    {
+      "path": "recipes/scenarios/qwen-pipeline-smoke.yaml",
+      "sha256": "33381ef19bb3458deae65ebcb442a3aaeb744b648edada3173bad105ccad963a"
+    },
+    {
+      "path": "recipes/scenarios/short.yaml",
+      "sha256": "0597540f52bdba278bc32fb6ed7f20d74c60a9c426311a42e5752af17a4fc038"
+    },
+    {
+      "path": "recipes/scenarios/smoke.yaml",
+      "sha256": "353cba4b9b996b715a692d833275af1dd41682883e5a0165981ac46dd83ad62b"
+    },
+    {
+      "path": "recipes/slas/chitu-glm-2k-decode.yaml",
+      "sha256": "8c4b2e2e63e649b846cc16d46a8b538b7a591acd5c4487c9f90a2509aa24404b"
+    },
+    {
+      "path": "recipes/slas/chitu-glm-2k-prefill.yaml",
+      "sha256": "37dec4cbb63e8546aea8580fb66793dc739f858b999b5f6a69b9d8666263c5c3"
+    },
+    {
+      "path": "recipes/slas/chitu-glm-50k-decode.yaml",
+      "sha256": "8491727eda76ee7b9f8350df067d2e16f5438de530bd16d465318e73d0b619a3"
+    },
+    {
+      "path": "recipes/slas/chitu-glm-50k-prefill.yaml",
+      "sha256": "eefa1a983092d893338a538afa62472e930151d8fddac5d29d94c6717282d2e3"
+    },
+    {
+      "path": "recipes/slas/chitu-glm-8k-decode.yaml",
+      "sha256": "2959d2035b6298e212cf78ff759e841ea8d44c469451591d6dc84f76be3d71dc"
+    },
+    {
+      "path": "recipes/slas/chitu-glm-8k-prefill.yaml",
+      "sha256": "ae6942a07793e833a453b6148012eb8c0866feb9f0bc799d3fb3630ab0dc4504"
+    },
+    {
+      "path": "recipes/slas/chitu-kimi-4k-decode.yaml",
+      "sha256": "978b74aa0372875e0ead3f1c74c9fc1eb8772cf2beb366d1125616988be84976"
+    },
+    {
+      "path": "recipes/slas/chitu-kimi-4k-prefill.yaml",
+      "sha256": "6ee4121619b177eff2956be7d907e8bf42c1f8d3bb95aba15a8809af878df2a0"
+    },
+    {
+      "path": "recipes/slas/chitu-kimi-64k-decode.yaml",
+      "sha256": "32b227b09caefb4e34a5e2fe840e6f5e791092bcde5aafa3d7407912941b0585"
+    },
+    {
+      "path": "recipes/slas/chitu-kimi-64k-prefill.yaml",
+      "sha256": "35ca48260ce96d8c3a2e3babeb7b520867fc6c8c09d3a70a3cf8f66c7085d1db"
+    },
+    {
+      "path": "recipes/slas/deepseek-contract-5-decode.yaml",
+      "sha256": "ee86038b93a06dbdc534520d24934fb9a788ee032369784f20ee7330b149f4a9"
+    },
+    {
+      "path": "recipes/slas/deepseek-contract-5-prefill.yaml",
+      "sha256": "8f1091b46c43f7f8516164a8df9c2737cbaf1adebf88de7fe6204509b190b9ad"
+    },
+    {
+      "path": "recipes/slas/deepseek-contract-6-decode.yaml",
+      "sha256": "4fa6206596e93c03072a164aa45c8b839eb9470c8763b3ee07e9c8379a9f36bd"
+    },
+    {
+      "path": "recipes/slas/deepseek-contract-6-prefill.yaml",
+      "sha256": "af2d817bfc5df44089217b36a4ce94d3d5da2492e11ad337384482484c61b8b5"
+    },
+    {
+      "path": "recipes/slas/deepseek-contract-7-decode.yaml",
+      "sha256": "ad4d224614e839823c76df943887223ad390fbfd005afc98a9b00c1fb8bf5b66"
+    },
+    {
+      "path": "recipes/slas/deepseek-contract-7-prefill.yaml",
+      "sha256": "7c8203302dd1a296593e2c9c41ef20af361048dd17ec3bde58660d1ff029db6f"
+    },
+    {
+      "path": "recipes/slas/deepseek-contract-8-decode.yaml",
+      "sha256": "e67fb9cf8bcef9f3bd988eb6a14631b1dd78bdfad94df00890d87ae2bffb11b0"
+    },
+    {
+      "path": "recipes/slas/deepseek-contract-8-prefill.yaml",
+      "sha256": "91e5ce7c8d99ade0ebd11e17b974b7edfa890cd9f7920b5430eb6e6b7ac6abf5"
+    },
+    {
+      "path": "recipes/slas/industry-128k-1k.yaml",
+      "sha256": "529aa61e7bfb91b7f2b4019324e6e8fdab976c0b39010968256138b5d3b36119"
+    },
+    {
+      "path": "recipes/slas/industry-16k-2k.yaml",
+      "sha256": "8ab1346869ba01e444637d79ba362d73db6da737e7b02aa2801eb985cf06c85d"
+    },
+    {
+      "path": "recipes/slas/industry-45k-600.yaml",
+      "sha256": "c4f64ced6dfb19864752076700bbad8bb804eefedf82ef6fbdcb8e709880e84e"
+    },
+    {
+      "path": "recipes/slas/industry-64k-1k.yaml",
+      "sha256": "dd717a857983bba56e053680bdd138deb5308f9d0c84b85f8db237b908a3f60f"
+    },
+    {
+      "path": "recipes/sources/source-bw1000-report.yaml",
+      "sha256": "03dfb244b21a9ede612da815c3cd67414b31479761bf40aed6cc5bdb1328c389"
+    },
+    {
+      "path": "recipes/sources/source-chip-comparison.yaml",
+      "sha256": "72425f592ba86a04a7c56571a616524b4d5780a9aeb66f90f3c4303e76a1cf91"
+    },
+    {
+      "path": "recipes/sources/source-cluster-glm53-flash-w8a8.yaml",
+      "sha256": "88fc95802233d12bc045bbea88f77bb0ddf1247ecff877e6bdefa1dc672784aa"
+    },
+    {
+      "path": "recipes/sources/source-cluster-glm53-w4a8.yaml",
+      "sha256": "4b60e7eab8cbc99ba6914feebd2d697d698a26c651387286fb942dc19c4594f4"
+    },
+    {
+      "path": "recipes/sources/source-cluster-glm53-w8a8.yaml",
+      "sha256": "2b92071812e5a582051b2087f139b871cf658dc0f3fd78ddb221ef8aef016427"
+    },
+    {
+      "path": "recipes/sources/source-cluster-qwen3-06b.yaml",
+      "sha256": "b8329522c9ba8e0622bfc1b570026a11cb9e05236d3933a8f547b1cb4827e53c"
+    },
+    {
+      "path": "recipes/sources/source-deepseek-project.yaml",
+      "sha256": "3f9052305ba8db96770e09cee94e35d18b6f71f68f17714dc114490531479d23"
+    },
+    {
+      "path": "recipes/sources/source-design-v1.yaml",
+      "sha256": "7da49dc2891164315407225dad4eb2a01d3cdf4ecee1a5e20e140ec6d2916d79"
+    },
+    {
+      "path": "recipes/sources/source-design-v2.yaml",
+      "sha256": "6827a2af81a6b258e2cb84f9884638c943260db1e3e83120d38122b95978cc25"
+    },
+    {
+      "path": "recipes/sources/source-glm53-c500-runtime-audit.yaml",
+      "sha256": "2a565eb95f96ae5ae50aa6bf077797eeb2d4792bc606e1588b5216948de59f72"
+    },
+    {
+      "path": "recipes/sources/source-glm53-decode-a.yaml",
+      "sha256": "83db4db4bf5c47c636f30d043cb665e1227388a44bd5dc2fda6d99bc7250a1d1"
+    },
+    {
+      "path": "recipes/sources/source-glm53-decode-b.yaml",
+      "sha256": "b658199f0b15d6533022429c1df8bce5040a9bc52bc17f00e6f8b5020093f59b"
+    },
+    {
+      "path": "recipes/sources/source-glm53-prefill.yaml",
+      "sha256": "f3e0c97ac19224ab3a9dec2fbf828824d14a49f577940bbf96d1dcbc3adee2d0"
+    },
+    {
+      "path": "recipes/sources/source-glm53-summary.yaml",
+      "sha256": "fe38c44a336d19c743ae2ddaf6921f4edcf9afb0710ce22b97c0cdf2cfbf841c"
+    },
+    {
+      "path": "recipes/sources/source-industry-sla.yaml",
+      "sha256": "4525ac35871bdfd00d4b8c99075e16453bb78185f23defc5bd325a76ce98f6a6"
+    },
+    {
+      "path": "recipes/sources/source-metax-c500.yaml",
+      "sha256": "779d8fdae264cad3733a6b7aeec3886ee068c4334be305c0d3f146fb8c68be8b"
+    },
+    {
+      "path": "recipes/sources/source-metax-calibration-20261123.yaml",
+      "sha256": "ca2388a37afd8a8d4c916e696e9902a3ab475d2a229e78acbe108153f4f58736"
+    },
+    {
+      "path": "recipes/sources/source-metax-current-packages.yaml",
+      "sha256": "a291e979d82c7e75fa4b00cdf5479b577cf61004633d26ce8dc862f2760d9617"
+    },
+    {
+      "path": "recipes/sources/source-metax-deepseek-v4-flash-w8a8-mtp.yaml",
+      "sha256": "c628bf0b506d64beebb869d8b585054802b7a3597a618cb369781919cb96594f"
+    },
+    {
+      "path": "recipes/sources/source-metax-deepseek-v4.1-flash-w8a8.yaml",
+      "sha256": "d77076677ea645f56e11f68728831df176daa62bc2828d9418a7100751ff467b"
+    },
+    {
+      "path": "recipes/sources/source-metax-effective-engine-config.yaml",
+      "sha256": "fc94c2b8c790113fa82e8852361c5b25d1774b9700e1349c407e36cada2d1152"
+    },
+    {
+      "path": "recipes/sources/source-metax-four-node-inventory-metax-60-1.0.0.yaml",
+      "sha256": "6ace1fd2fb51db6bfaf2431981321c63f3bf1204dd6a35338807813b01653aee"
+    },
+    {
+      "path": "recipes/sources/source-metax-four-node-inventory-metax-61-1.0.0.yaml",
+      "sha256": "b46ea4bdac74160fd946056be0d3da81529eff72810d3fb5fb59e1b63e79db3c"
+    },
+    {
+      "path": "recipes/sources/source-metax-four-node-inventory-metax-64-1.0.0.yaml",
+      "sha256": "5d448b848854b98557c478099be99834de26fad3046712b9be07a2faaf995c9b"
+    },
+    {
+      "path": "recipes/sources/source-metax-four-node-inventory-metax-65-1.0.0.yaml",
+      "sha256": "944fb3f3db3eadb6d34536bcb1f17a5136556912203c97268ccba8a1b6cff720"
+    },
+    {
+      "path": "recipes/sources/source-metax-gemm-demo-readme.yaml",
+      "sha256": "4d937400dc3a90dbc98e69d709f7210fd8d449b2275bd835f399cfe1399999eb"
+    },
+    {
+      "path": "recipes/sources/source-metax-gemm-hardware-issue-summary.yaml",
+      "sha256": "e041be1d7192f61a4497c15e9fd532f10cb402afe6d435245576c9434db93956"
+    },
+    {
+      "path": "recipes/sources/source-metax-gemm-stack-inventory.yaml",
+      "sha256": "35997e43bc91e45707b93c9c44dd5da8e1cc519812036a298f51819ce44f7678"
+    },
+    {
+      "path": "recipes/sources/source-metax-glm-5.3-flash-w8a8.yaml",
+      "sha256": "da5d1668aac77eca4716edb51be37a74a434aef94be219b7db36793ed3820090"
+    },
+    {
+      "path": "recipes/sources/source-metax-hardware-baseline-metax-1.0.0.yaml",
+      "sha256": "1377ee84e37d14743a43f96dac20c2a944992332f47fc4d2b37bcb32c274d10d"
+    },
+    {
+      "path": "recipes/sources/source-metax-host-20261123.yaml",
+      "sha256": "6fed0c7febedfea8f64cf9822d65bdce6d7fd08f2c5ec3b58cd75dd9d3f8e24f"
+    },
+    {
+      "path": "recipes/sources/source-metax-qwen-runtime-audit.yaml",
+      "sha256": "ec3b5f164b51e2fb3472a2aad5191ba5cd493b167f415eefa199c02dba54b7c5"
+    },
+    {
+      "path": "recipes/sources/source-metax-qwen3-06b.yaml",
+      "sha256": "5ffbb6b074ea4a3f204c607f7fb92947ef39938b3fc656e802ab17c920ef1f37"
+    },
+    {
+      "path": "recipes/sources/source-metax-reboot-communication-check.yaml",
+      "sha256": "9d6229fcdd60f9c18e3c2baa05711984e0b4042d3e563070022ae92698098acf"
+    },
+    {
+      "path": "recipes/sources/source-metax-reboot-runtime-scope.yaml",
+      "sha256": "51a1030bb9c4658f4161eaef6df7d4ed9093b82c82613bd75bbfde208e589990"
+    },
+    {
+      "path": "recipes/sources/source-metax-topology-20261123.yaml",
+      "sha256": "a2429b4d228fad15c2b44b99a229a7d55addbafc607b2bd0cdd923ecd723162c"
+    },
+    {
+      "path": "recipes/sources/source-metax60-glm53-source-build.yaml",
+      "sha256": "c4c0b991e77005f471bcce10c16c80c80bca96673ecec0d5a76210b0d466365d"
+    },
+    {
+      "path": "recipes/studies/deepseek-bw1000-contract.yaml",
+      "sha256": "c667a81a34080f4b788d9f639f4bee83ac368e78defd3e384a43025a2fe9b65e"
+    },
+    {
+      "path": "recipes/studies/deepseek-bw1000-exploration.yaml",
+      "sha256": "7c5e75be5783a86d5111c41ec445fe2c1b71a6c84080715bcc7fcdd2798fca1e"
+    },
+    {
+      "path": "recipes/studies/glm53-flash-c500-decode.yaml",
+      "sha256": "56d0c4ee9e3ef8eea32b304da0708a3d03d7809a524bb7abf9c5f9965863c56e"
+    },
+    {
+      "path": "recipes/studies/glm53-flash-c500-prefill.yaml",
+      "sha256": "7507c35598ad7689fba1c7f3c3e915df717fdc5b56c7ce8714f4c4d58693c396"
+    },
+    {
+      "path": "recipes/studies/glm53-vllm-c500-scan.yaml",
+      "sha256": "4070a5a1da8472e176cd6e35e49d6f6b7e1601fbc06d802dc11fa8d41c116ea0"
+    },
+    {
+      "path": "recipes/studies/qwen-metax-pipeline.yaml",
+      "sha256": "f4b342cd8ff5b3054fba52d7b8daad2b3c2f711be4c228e61ba769b8a4d29839"
+    },
+    {
+      "path": "recipes/test-cases/benchmark-long.yaml",
+      "sha256": "bc7e297f51cef6c4d8d671984c47105ba321801e4ea0f981d39709d7267ab390"
+    },
+    {
+      "path": "recipes/test-cases/benchmark-short.yaml",
+      "sha256": "38ce810d768e2e8d675713e61a8579a1f7f20b07feae3ef42035e14d7cab19c3"
+    },
+    {
+      "path": "recipes/test-cases/benchmark-smoke.yaml",
+      "sha256": "2290d8b613a7a5514aea67f46983eab24349cea5d0c9a07478a85ab0f0718e7a"
+    },
+    {
+      "path": "recipes/test-cases/chitu-glm-2k-decode.yaml",
+      "sha256": "d702f21b4602f379e139b80b6b39753c0d953160c63264c5e103a6e245d6e1e5"
+    },
+    {
+      "path": "recipes/test-cases/chitu-glm-2k-prefill.yaml",
+      "sha256": "3f1da3699f6d0607e5828e260f0de651f805d9a9f164e64390b70bfc039b461f"
+    },
+    {
+      "path": "recipes/test-cases/chitu-glm-50k-decode.yaml",
+      "sha256": "cb5dfe209bad64d0c97686d5fafdf27c0fdcd9c842a6286c7148643111f4bdba"
+    },
+    {
+      "path": "recipes/test-cases/chitu-glm-50k-prefill.yaml",
+      "sha256": "7cade93f2a8ba0252b57586754c9ef4e67b2d652837e513c84dc9185822cdc9d"
+    },
+    {
+      "path": "recipes/test-cases/chitu-glm-8k-decode.yaml",
+      "sha256": "77945e115e8fc2edd5df3ae8c59756dbad8cceb4b490295d4314e650b9e51160"
+    },
+    {
+      "path": "recipes/test-cases/chitu-glm-8k-prefill.yaml",
+      "sha256": "29d75d7bfde4b7b73c32256680380c6941917e8101d003d590cafd8686078957"
+    },
+    {
+      "path": "recipes/test-cases/chitu-kimi-4k-decode.yaml",
+      "sha256": "459958746bf2a5beed141386fefb3c6efdd00468e13886b0743bca7ee7b4003a"
+    },
+    {
+      "path": "recipes/test-cases/chitu-kimi-4k-prefill.yaml",
+      "sha256": "f196c97b3a992296c1a5dcacf2caf349272ee82f501c52b202544c8979c4c21f"
+    },
+    {
+      "path": "recipes/test-cases/chitu-kimi-64k-decode.yaml",
+      "sha256": "f2deafa13038d83b25c29079f0a4998a5bd965720bb441c8babd751ae9a19674"
+    },
+    {
+      "path": "recipes/test-cases/chitu-kimi-64k-prefill.yaml",
+      "sha256": "a78a5c0d8e10b33ccc7928c9be5c064c01c02182cfeca9aa51b4d0fd7def5955"
+    },
+    {
+      "path": "recipes/test-cases/deepseek-contract-5-decode.yaml",
+      "sha256": "bdf3613537d67d268f42c5cfcfc2062a5b581480c64234ee29a7b31651e0b26f"
+    },
+    {
+      "path": "recipes/test-cases/deepseek-contract-5-prefill.yaml",
+      "sha256": "1f514bb20dcf9d6b9cd9372f2794875b00bd639be2d094ea583b1071023894e1"
+    },
+    {
+      "path": "recipes/test-cases/deepseek-contract-6-decode.yaml",
+      "sha256": "bae5283ee93999a8f28fee95f4240bd5eaaf04aa7f5b632c97c9f5e688de3b49"
+    },
+    {
+      "path": "recipes/test-cases/deepseek-contract-6-prefill.yaml",
+      "sha256": "498c1b5e2b3249cc08b3e6f88e3e7117575914083d7a918152261c67652d7c97"
+    },
+    {
+      "path": "recipes/test-cases/deepseek-contract-7-decode.yaml",
+      "sha256": "ef6b8d56701fac47ca28d8b4200b4e3400b34551e0eb4fb802094f74495803b9"
+    },
+    {
+      "path": "recipes/test-cases/deepseek-contract-7-prefill.yaml",
+      "sha256": "da13245715a86fce41ba364f59b60822b98d3349f4fe0913789d1f1bbaedbc0f"
+    },
+    {
+      "path": "recipes/test-cases/deepseek-contract-8-decode.yaml",
+      "sha256": "10ef1b8d30a3e8a24b4f9e0af60e0e4a3ae26c879c85164e94b18b2fbef8350c"
+    },
+    {
+      "path": "recipes/test-cases/deepseek-contract-8-prefill.yaml",
+      "sha256": "ff1da5c11d1b3a330d5c09ce603db944531bf9c42147f6c52095924b0edd3329"
+    },
+    {
+      "path": "recipes/test-cases/glm53-decode-128k.yaml",
+      "sha256": "49b99268fb819097a51cdfaf9428a910b405a9c3e8ebd8b4affb5b59d5c8a00a"
+    },
+    {
+      "path": "recipes/test-cases/glm53-decode-4k.yaml",
+      "sha256": "d9e3d0cf031c2f1f592b0e2afec15e8f12bbc118b648cdadf6c2cd4dedd4ed70"
+    },
+    {
+      "path": "recipes/test-cases/glm53-decode-64k.yaml",
+      "sha256": "04ec15422dbfcc053e754b585886a2c2be18ba6026cd5ebc3de555b316f9b4d8"
+    },
+    {
+      "path": "recipes/test-cases/glm53-flash-decode-long-case.yaml",
+      "sha256": "4d51f84a700420e8171223a03da3bebdb7db10fb37cb4e34b7b4c147096533b3"
+    },
+    {
+      "path": "recipes/test-cases/glm53-flash-decode-short-case.yaml",
+      "sha256": "6c02b1ab29bba20233a3aa05dd0e7c488c54f846d443efc725d9c852607dc1dd"
+    },
+    {
+      "path": "recipes/test-cases/glm53-flash-prefill-long-case.yaml",
+      "sha256": "e9cec2bd03643a32cd3d8e439cd247e835b1547b5ede904f43578808418fb9aa"
+    },
+    {
+      "path": "recipes/test-cases/glm53-flash-prefill-short-case.yaml",
+      "sha256": "59108901e919b00f655f491d1e3b38554988658ac4717e5a6ee0a9a9332cc56c"
+    },
+    {
+      "path": "recipes/test-cases/glm53-prefill-128k.yaml",
+      "sha256": "e31381e16f8b214b57aa2fa6e0a766aca80db2bb593afa55f15e903f6a094a70"
+    },
+    {
+      "path": "recipes/test-cases/glm53-prefill-4k.yaml",
+      "sha256": "a51e123cc52674868bfa3255189103f2e806d3928e84b321b3dbd82d55571514"
+    },
+    {
+      "path": "recipes/test-cases/glm53-prefill-64k.yaml",
+      "sha256": "90533ef0ac3813d31054515f1de2dee55e6586fd2c181ade850fc75a567d2731"
+    },
+    {
+      "path": "recipes/test-cases/glm53-vllm/d-4k.yaml",
+      "sha256": "4027e18654af221c4274e00f74ea247179e497011913efe1b2e88f1320e898bd"
+    },
+    {
+      "path": "recipes/test-cases/glm53-vllm/e2e-128k.yaml",
+      "sha256": "191a775f66add680f10e361745c87d607f255beaa05d07aa1a322389e32a913c"
+    },
+    {
+      "path": "recipes/test-cases/glm53-vllm/e2e-16k-confirm.yaml",
+      "sha256": "ac5eeda25b05afb72fea14f1b78839041966a1bcc76eabcee85783401988d438"
+    },
+    {
+      "path": "recipes/test-cases/glm53-vllm/e2e-16k.yaml",
+      "sha256": "23e17f380b0fb575de056a5b9b9d874628bfc363757201f9bdf202f76f33235d"
+    },
+    {
+      "path": "recipes/test-cases/glm53-vllm/e2e-64k.yaml",
+      "sha256": "ebfe8fc6690a07e18b1be06036f6c7c1068381e412a713554908aec9435e488c"
+    },
+    {
+      "path": "recipes/test-cases/glm53-vllm/p-128k.yaml",
+      "sha256": "f2eea868276042b24970d1b97fe04db7a6429b3acdf726731e16d82076e5f241"
+    },
+    {
+      "path": "recipes/test-cases/glm53-vllm/p-4k.yaml",
+      "sha256": "3dacc4138bfda2032850b215106ce7adfb5fd4eda38a175734df913753a465fd"
+    },
+    {
+      "path": "recipes/test-cases/glm53-vllm/p-64k.yaml",
+      "sha256": "273898470e5400c477f9198ab9429d35933579675ebffc129a31b418b7acd0ff"
+    },
+    {
+      "path": "recipes/test-cases/glm53-vllm/pipeline.yaml",
+      "sha256": "4a1f9a90701143a4e612cb1bb1086791c0f1fd98a4a7a0f8406f7b4febdf4024"
+    },
+    {
+      "path": "recipes/test-cases/industry-deepseek-v4-pro-128k-1k.yaml",
+      "sha256": "b05a92a5d5312d10eb9e5cc3da7e0dcb8c2252d5f4c92ed1bd18adb8ffa7ef0c"
+    },
+    {
+      "path": "recipes/test-cases/industry-deepseek-v4-pro-16k-2k.yaml",
+      "sha256": "7c68a7b0c3b6eb1d32a37bd128881cbfe3c605b298fef8eeb756d3f8127e3be3"
+    },
+    {
+      "path": "recipes/test-cases/industry-deepseek-v4-pro-64k-1k.yaml",
+      "sha256": "4262d05292a9a0de52aa51afeccff20fcab0fec0f8c858b39dd7e27da2c142e6"
+    },
+    {
+      "path": "recipes/test-cases/industry-deepseek-v4.1-flash-128k-1k.yaml",
+      "sha256": "6dfc07d3c0bcdd40e60e64f2044db33672744a795210d075582c0644fcc6241c"
+    },
+    {
+      "path": "recipes/test-cases/industry-deepseek-v4.1-flash-16k-2k.yaml",
+      "sha256": "c3de890510be3222afb6133311d545317135c179c49878f63918b61aefff6357"
+    },
+    {
+      "path": "recipes/test-cases/industry-deepseek-v4.1-flash-64k-1k.yaml",
+      "sha256": "4233fc416b9f49adc3eb035b1e61d572129338565d076d5d02e3f5497383d937"
+    },
+    {
+      "path": "recipes/test-cases/industry-glm-5.3-128k-1k.yaml",
+      "sha256": "5c434ee215fa7aa83ae5a3d5c4048eb49771c06cc6f5aaeb2c28a1d0669d3fed"
+    },
+    {
+      "path": "recipes/test-cases/industry-glm-5.3-16k-2k.yaml",
+      "sha256": "7bf3f6ed31840b58b93b352f8f2a311087fba1b574fbe18b2c9a4e4381054447"
+    },
+    {
+      "path": "recipes/test-cases/industry-glm-5.3-64k-1k.yaml",
+      "sha256": "8e94db004aec7418f6e295660a0276ef553a0cabc2cfdc83bfab1a319d4471e3"
+    },
+    {
+      "path": "recipes/test-cases/industry-kimi-k3-128k-1k.yaml",
+      "sha256": "8b0f7b4d9fe275a9c48d56a90840eed21eb7a442ec7ac3ddf9af4a4099a8f5fe"
+    },
+    {
+      "path": "recipes/test-cases/industry-kimi-k3-16k-2k.yaml",
+      "sha256": "a5bffc900d8eb86f11eea31dee05ac0f9c897c172b475daf7e35f61179a0b158"
+    },
+    {
+      "path": "recipes/test-cases/industry-kimi-k3-64k-1k.yaml",
+      "sha256": "5837088da4dd812f23bed342f35e7b13ce2dd0f7da49f6b21728a556bd2ad176"
+    },
+    {
+      "path": "recipes/test-cases/industry-qwen3.8-2.4t-a95b-128k-1k.yaml",
+      "sha256": "8d7e7f72ee9e89b96ff475cd05a820f29ea06154b33e95327d5b48288ef2a4c1"
+    },
+    {
+      "path": "recipes/test-cases/industry-qwen3.8-2.4t-a95b-16k-2k.yaml",
+      "sha256": "9051a28d6221d59cd9e7a74eb97e7a6b3ec2cac974c4f48de9995cebe89e1073"
+    },
+    {
+      "path": "recipes/test-cases/industry-qwen3.8-2.4t-a95b-64k-1k.yaml",
+      "sha256": "61bec1567d00234da97e48b978d5ed8c6545e8eba73410e9cc4f5857fd51d275"
+    },
+    {
+      "path": "recipes/test-cases/industry-qwen3.8-27b-45k-600.yaml",
+      "sha256": "0a3b60874416bf5c43467b819ab2416f61de9dc3e749e6385294116d45e6dc6a"
+    },
+    {
+      "path": "recipes/test-cases/qwen-pipeline-long-case.yaml",
+      "sha256": "64e39defdd233b2bdeed99917381b535072c7f356adc6570f656e9de7cd33c32"
+    },
+    {
+      "path": "recipes/test-cases/qwen-pipeline-short-case.yaml",
+      "sha256": "72b20b66b1a8742b9bae796613b18e05aac016cca7d1fc7ed98cc5563fbd2877"
+    },
+    {
+      "path": "recipes/test-cases/qwen-pipeline-smoke-case.yaml",
+      "sha256": "4324fd82b2ee5e0e32469c520e24547f34888563916cda91a7c0b316702db740"
+    },
+    {
+      "path": "recipes/workloads/benchmark-long.yaml",
+      "sha256": "c583c53c8795883aee03de2650a2d189268a1d4a36c4b4b86884fcbc8a47b36b"
+    },
+    {
+      "path": "recipes/workloads/benchmark-short.yaml",
+      "sha256": "0be21e0626284a0e3faebd2fcecbc421251e5ee59782851f5553cade5760ddcb"
+    },
+    {
+      "path": "recipes/workloads/benchmark-smoke.yaml",
+      "sha256": "61c1bc01e76c48a6b88a64d271fb630fe3bceb3e8aeeb94da4f3157a54ae9f28"
+    },
+    {
+      "path": "recipes/workloads/chitu-glm-2k-decode.yaml",
+      "sha256": "624b319aa663f2863355dfe52c53906624aa98f6abec16a3e160972865735013"
+    },
+    {
+      "path": "recipes/workloads/chitu-glm-2k-prefill.yaml",
+      "sha256": "16e6fc88ce013b1d48262ba95ab63aea71d59083661d498c8d1d7dfab5d9be2f"
+    },
+    {
+      "path": "recipes/workloads/chitu-glm-50k-decode.yaml",
+      "sha256": "e8c9da953d2f3d438755e707c41cfafb7d5f6ffef5e0c38662abb1edf0f6a6dc"
+    },
+    {
+      "path": "recipes/workloads/chitu-glm-50k-prefill.yaml",
+      "sha256": "9e8d928a9162a9b3310fcc3a3c0dfa577a3fd017584e72bbe21ea439c5101784"
+    },
+    {
+      "path": "recipes/workloads/chitu-glm-8k-decode.yaml",
+      "sha256": "5bc92298a303c37217f6a149fa454dca0a2ca206c546af2c32cffee462c7d7ab"
+    },
+    {
+      "path": "recipes/workloads/chitu-glm-8k-prefill.yaml",
+      "sha256": "e81e68d0a628b17366ea059fa1fea1d11a3b36a12a4de3f1b94ff4d9fe0a9898"
+    },
+    {
+      "path": "recipes/workloads/chitu-kimi-4k-decode.yaml",
+      "sha256": "d7188d07cfbe27c8ca9a82536fce57f38f55d2d051da65c8360155d43f6bd707"
+    },
+    {
+      "path": "recipes/workloads/chitu-kimi-4k-prefill.yaml",
+      "sha256": "27e171b3cff47ed8c14609e5e8847602f46eabb961dd2fb28d883475166643f2"
+    },
+    {
+      "path": "recipes/workloads/chitu-kimi-64k-decode.yaml",
+      "sha256": "4427b8426a82ead959e428718e93aa566e462b91e2d52a1ce79ddf472c7c0ca1"
+    },
+    {
+      "path": "recipes/workloads/chitu-kimi-64k-prefill.yaml",
+      "sha256": "1ddb14eca7b7a2e1c40a005b3b6b61acd685a068e5197f64c3b86b064b5d7745"
+    },
+    {
+      "path": "recipes/workloads/deepseek-contract-5-decode.yaml",
+      "sha256": "0797d3449ebab187babc39e8d9af291d308a10d605d4e136fa38bb4cce60100d"
+    },
+    {
+      "path": "recipes/workloads/deepseek-contract-5-prefill.yaml",
+      "sha256": "8b187d2e85c3989ab46c02788deaf37ee310aeccdf5be0ccd0376d219e9b7042"
+    },
+    {
+      "path": "recipes/workloads/deepseek-contract-6-decode.yaml",
+      "sha256": "9b205a4bf484aff1f8df3f5eeb68d1ab9c6fdbde8002d868f42866ebea512fb5"
+    },
+    {
+      "path": "recipes/workloads/deepseek-contract-6-prefill.yaml",
+      "sha256": "fa7541217ea5009bb7ba35d61758371efd24450069c3580d920625076e44ca55"
+    },
+    {
+      "path": "recipes/workloads/deepseek-contract-7-decode.yaml",
+      "sha256": "2e205ceb64499072928d09a0000b79af2328f6e9ddf1879e9e3af4d1f41d4388"
+    },
+    {
+      "path": "recipes/workloads/deepseek-contract-7-prefill.yaml",
+      "sha256": "40e61cdbf7dd8003c73af9b943ef136933e1cba1dacadee1079255cbcd1a52c5"
+    },
+    {
+      "path": "recipes/workloads/deepseek-contract-8-decode.yaml",
+      "sha256": "d5c0a2acdd4339239dfa8b400a43d04f8319630e11a1ae09b8f9c3ad5b850d88"
+    },
+    {
+      "path": "recipes/workloads/deepseek-contract-8-prefill.yaml",
+      "sha256": "9b660faf3c592e38f52ef081aa3f52580be165722a932ee7fe702f14f7df5188"
+    },
+    {
+      "path": "recipes/workloads/glm53-decode-128k.yaml",
+      "sha256": "cfd289a63abc3c497add62adde95f3656c81b2f0712a14fb48e595f155f30469"
+    },
+    {
+      "path": "recipes/workloads/glm53-decode-4k.yaml",
+      "sha256": "971ff47a2fff52a1b81a38063b24434da404afbeb03639953157c2a0abc65f73"
+    },
+    {
+      "path": "recipes/workloads/glm53-decode-64k.yaml",
+      "sha256": "583d338bafa6d381ebf7f39563d6d3f4a14f79ac6661e57412883a4b11d4e185"
+    },
+    {
+      "path": "recipes/workloads/glm53-flash-decode-long-workload.yaml",
+      "sha256": "7d8ae3e7855b54f7525acadc75db4e97894e0e497c934517d658ff2e1d269fbd"
+    },
+    {
+      "path": "recipes/workloads/glm53-flash-decode-short-workload.yaml",
+      "sha256": "b9ded2a967c5dc254fa316b7725ecfa55daaebff7c011c6964cf81f030f3e664"
+    },
+    {
+      "path": "recipes/workloads/glm53-flash-prefill-long-workload.yaml",
+      "sha256": "06574c9e386e48f2c1d3eeabd09938df041c64d098ee04734d6007c050ddb2ab"
+    },
+    {
+      "path": "recipes/workloads/glm53-flash-prefill-short-workload.yaml",
+      "sha256": "713d0af76172102576ecdc8a6c2e7c07eac006a52d3afc2f9980412060182e5c"
+    },
+    {
+      "path": "recipes/workloads/glm53-prefill-128k.yaml",
+      "sha256": "846e1ae352622ff8fea728be41d16dc06442efbea2868aaf28363c3870db3680"
+    },
+    {
+      "path": "recipes/workloads/glm53-prefill-4k.yaml",
+      "sha256": "59b7113704f833e1c9ca1f0df92090a047489ae20fc9367c5fa10917d1737a3a"
+    },
+    {
+      "path": "recipes/workloads/glm53-prefill-64k.yaml",
+      "sha256": "9419958e4827c19c71469912ae4b7a07f820de7b29a66bd012dbed936a475002"
+    },
+    {
+      "path": "recipes/workloads/glm53-vllm/d-4k.yaml",
+      "sha256": "9b377e69f2302e65e205f20ab8682b1ab0bb813e78116045be0e957fe702066f"
+    },
+    {
+      "path": "recipes/workloads/glm53-vllm/e2e-128k.yaml",
+      "sha256": "23d5b63502dbf38a392a538332f2720153103004fab3e4127d6796a7f3b9c3d3"
+    },
+    {
+      "path": "recipes/workloads/glm53-vllm/e2e-16k-confirm.yaml",
+      "sha256": "8564e26e9a570eaf4a85afa510f14ac05d3a82753e77ee5bb43bee0d3d3af15c"
+    },
+    {
+      "path": "recipes/workloads/glm53-vllm/e2e-16k.yaml",
+      "sha256": "abb0650604431943e004b3f30bf4cba6677988027d09be08117c4eeeaa4598db"
+    },
+    {
+      "path": "recipes/workloads/glm53-vllm/e2e-64k.yaml",
+      "sha256": "a23fbbb4d9c87c6f849cc81a359e43dfcdabaeac8341476dd38f7d879917c7f3"
+    },
+    {
+      "path": "recipes/workloads/glm53-vllm/p-128k.yaml",
+      "sha256": "6c8402096b9a65f23674b52ead3f7b93e3fafb463163d0776a474997abdb581e"
+    },
+    {
+      "path": "recipes/workloads/glm53-vllm/p-4k.yaml",
+      "sha256": "804dfb861766bd423d521354e647c6c800a7135496f7ec05a9b4e58e1169e158"
+    },
+    {
+      "path": "recipes/workloads/glm53-vllm/p-64k.yaml",
+      "sha256": "6cd467c16a99bd97588d08d699d6a8df1c963b0bb82cd5760d39e5c8c22e40a3"
+    },
+    {
+      "path": "recipes/workloads/glm53-vllm/pipeline.yaml",
+      "sha256": "750fb0bcf0ec3a81d8c7134ff912d54f7c5d69ee9d5c9c8a67b963c7b47fbb92"
+    },
+    {
+      "path": "recipes/workloads/industry-128k-1k.yaml",
+      "sha256": "f74d2a53de703d78167f303d461b27e13c6ffc904021a67f2cc1ee220b99c0e4"
+    },
+    {
+      "path": "recipes/workloads/industry-16k-2k.yaml",
+      "sha256": "09decf3a91569f2fafa107979a2679e9dfb7acca316bf8193a18e545438c62f0"
+    },
+    {
+      "path": "recipes/workloads/industry-45k-600.yaml",
+      "sha256": "2c98936bee0420337687d261f831be6840f12b328990165b5cc94713917f7519"
+    },
+    {
+      "path": "recipes/workloads/industry-64k-1k.yaml",
+      "sha256": "81c9196854881cfcb5825b550492d817a3a04ef82dc74ca7933267ac7ed1649d"
+    },
+    {
+      "path": "recipes/workloads/qwen-pipeline-long-workload.yaml",
+      "sha256": "587b93c926bb8f09e97d53172075bd1c86d072457ca6be0f28ac914e1c9d1d8d"
+    },
+    {
+      "path": "recipes/workloads/qwen-pipeline-short-workload.yaml",
+      "sha256": "d27814ba446f8f2d3f82933f8393be7782922235d50563f4319736866bf3d306"
+    },
+    {
+      "path": "recipes/workloads/qwen-pipeline-smoke-workload.yaml",
+      "sha256": "b18ef5f056e3f75c1d40fec98c88bd9223d728fb127a273c030d9ee50cbe7f2f"
+    },
+    {
+      "path": "contracts/interfaces.py",
+      "sha256": "a1dd69153c59503317645b47b02c26bdf194801f7653f6ed34ddafc9ec58ff62"
+    },
+    {
+      "path": "diagnosis/README.md",
+      "sha256": "8d01d0badd412e476115912da036b13bfca4c926dd3bf3eef7c5f839376caf97"
+    },
+    {
+      "path": "diagnosis/__init__.py",
+      "sha256": "7094ef8da7541391f5ed74dfe86b63cab60464215429f976c1e6c7eb936cdf16"
+    },
+    {
+      "path": "diagnosis/__main__.py",
+      "sha256": "8134dc71036ab6fef7cb605ec59b400b2864890fc00526f9763c447e2937e295"
+    },
+    {
+      "path": "diagnosis/cli.py",
+      "sha256": "2324701abc6b3a7e1e3ef7440b4d846a1b51e140eb356d2e543a96e0bfc1ee51"
+    },
+    {
+      "path": "diagnosis/contracts.py",
+      "sha256": "89aac3f6c239dfe5c45891cddd598f837ba2f01e77355d24f6a7a062c9379bf3"
+    },
+    {
+      "path": "diagnosis/engine.py",
+      "sha256": "e3c17d9fe56c59ae20cc470cc2cfcbc13ae4213672008b1413cbc4e6f4875c88"
+    },
+    {
+      "path": "diagnosis/evidence.py",
+      "sha256": "d4e9a974bd7066f48c7a19f96e4af6cc0e1f3417e92b985087bd3344c15bf2e0"
+    },
+    {
+      "path": "diagnosis/report.py",
+      "sha256": "b1988f6363b2df98e96532fc45be3d1ed06a7e33ee51fd4bebc6ec3c3417e75f"
+    },
+    {
+      "path": "analysis/README.md",
+      "sha256": "9a8064042416dd16d828c699fa91ea7ce215db7f0f666b139297b7fa99b24597"
+    },
+    {
+      "path": "analysis/__init__.py",
+      "sha256": "fcf579dce528bcdc9af97b1adda866921b410069557ea33cc3334b2eb98c370b"
+    },
+    {
+      "path": "analysis/__main__.py",
+      "sha256": "8134dc71036ab6fef7cb605ec59b400b2864890fc00526f9763c447e2937e295"
+    },
+    {
+      "path": "analysis/cli.py",
+      "sha256": "b369c964fcefcc752adeacc8153f81bd5c65106bb4b7091faded0fba0d247b0c"
+    },
+    {
+      "path": "analysis/planner.py",
+      "sha256": "4504353f2111a59da4cfe369c265c0208f47ce9baba5483dea6c8c0ae2377639"
+    },
+    {
+      "path": "optimization/README.md",
+      "sha256": "2b9ee942a34dcc8642e42ba25db64434f8d3863ac679bf806b404124e6f5031e"
+    },
+    {
+      "path": "optimization/__init__.py",
+      "sha256": "6b2b68165c60dc4ac9f5e4c01def7a6b69f1f7bbc95fc33e37b6028e76094ed5"
+    },
+    {
+      "path": "optimization/__main__.py",
+      "sha256": "33d66ff669d950cc1784c26ebafbca7e435d966c3eaaba141d20a73312e14aff"
+    },
+    {
+      "path": "optimization/cli.py",
+      "sha256": "99ca69693894c609f591f46f8fa6231fbd6bbf0fb666319f0ea122706fd4ab69"
+    },
+    {
+      "path": "optimization/handoff.py",
+      "sha256": "c3f34b57aab828185438a9e9fae6bca3bbad768ff32ee8c7c2dfcb91e7007b17"
+    },
+    {
+      "path": "optimization/interfaces.py",
+      "sha256": "8ab19909fd2441880aebb5f540417efc043eb4bd51e75f4cba7cf07ead7e7c90"
+    }
+  ]
+}

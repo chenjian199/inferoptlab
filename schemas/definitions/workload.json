@@ -195,6 +195,10 @@
             "type": "string",
             "pattern": "^[a-f0-9]{64}$"
           }
+        },
+        "min_count": {
+          "type": "integer",
+          "minimum": 1
         }
       },
       "required": [
@@ -220,6 +224,18 @@
                 "type": "null"
               }
             }
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "min_count"
+            ]
+          },
+          "then": {
+            "required": [
+              "count_multiplier"
+            ]
           }
         }
       ]

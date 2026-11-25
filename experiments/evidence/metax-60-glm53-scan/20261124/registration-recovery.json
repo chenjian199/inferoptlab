@@ -1,0 +1,14 @@
+{
+  "reason": "Staged remote checkout lacked diagnosis module required by existing experiment registration; full project modules copied, original GPU data retained.",
+  "command": [
+    "python3",
+    "-m",
+    "tools.experiments",
+    "register",
+    "experiments/runs/benchmark/batch-20261124T120300Z-b51b3daf"
+  ],
+  "exit": 0,
+  "stdout": "[\n  \"/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/experiments/records/run-d1822b2123064f45.yaml\",\n  \"/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/experiments/records/run-45fb66a83a5e4efe.yaml\"\n]\n",
+  "stderr": "",
+  "new_gpu_execution": false
+}

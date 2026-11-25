@@ -1,0 +1,6 @@
+{
+  "command": "docker run --pull=never --rm --network none --entrypoint python3 pagoda-aiperf-runner-ascend:v0.0.1 --version",
+  "returncode": 255,
+  "stdout": "",
+  "stderr": "WARNING: The requested image's platform (linux/arm64) does not match the detected host platform (linux/amd64/v4) and no specific platform was requested\nexec /opt/aiperf/venv/bin/python3: exec format error\n"
+}

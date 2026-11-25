@@ -1,0 +1,74 @@
+2026-11-24 14:05:23.297 - aiperf.cli_runner._single_run - INFO - Starting AIPerf System
+2026-11-24 14:05:23.761 - system_controller - INFO - Registered Worker Manager (id: 'worker_manager')
+2026-11-24 14:05:23.766 - system_controller - INFO - Registered Gpu Telemetry Manager (id: 'gpu_telemetry_manager')
+2026-11-24 14:05:23.780 - system_controller - INFO - Registered Dataset Manager (id: 'dataset_manager')
+2026-11-24 14:05:23.780 - RawRecordWriterProcessor_89d7533e - INFO - RawRecordWriter initialized: /work/experiments/glm53-vllm-source-20261124/prefill-smoke/warmup/raw_records/raw_records_record_processor_4e3e7e66.jsonl - FULL request/response data will be exported (files may be large)
+2026-11-24 14:05:23.783 - server_metrics_manager - INFO - Server Metrics: Discovered 1 endpoints: ['http://127.0.0.1:18081/metrics']
+2026-11-24 14:05:23.785 - system_controller - INFO - Registered Record Processor (id: 'record_processor_4e3e7e66')
+2026-11-24 14:05:23.923 - system_controller - INFO - Registered Server Metrics Manager (id: 'server_metrics_manager')
+2026-11-24 14:05:23.964 - GPUTelemetryJSONLWriter_147b1e8f - INFO - GPU telemetry export enabled: /work/experiments/glm53-vllm-source-20261124/prefill-smoke/warmup/gpu_telemetry_export.jsonl
+2026-11-24 14:05:23.972 - OTelMetricsResultsProcessor_38726338 - INFO - Telemetry streaming is disabled (set --otel-url and/or --mlflow-tracking-uri to enable)
+2026-11-24 14:05:23.973 - RecordExportJSONLWriter_4c6009f3 - INFO - Record metrics export enabled: /work/experiments/glm53-vllm-source-20261124/prefill-smoke/warmup/profile_export.jsonl
+2026-11-24 14:05:23.977 - system_controller - INFO - Registered Records Manager (id: 'records_manager')
+2026-11-24 14:05:23.981 - system_controller - INFO - Registered Timing Manager (id: 'timing_manager')
+2026-11-24 14:05:24.016 - system_controller - INFO - Registered Worker (id: 'worker_61b96894')
+2026-11-24 14:05:24.254 - system_controller - INFO - AIPerf System is CONFIGURING
+2026-11-24 14:05:24.254 - system_controller - INFO - Configuring all services to start profiling
+2026-11-24 14:05:24.255 - InferenceResultParser_e466311f - INFO - Tokenization is disabled for this endpoint, skipping tokenizer configuration
+2026-11-24 14:05:24.255 - timing_manager - INFO - Waiting for dataset to be configured before configuring timing
+2026-11-24 14:05:24.255 - dataset_manager - INFO - Configuring tokenizer(s) for dataset manager
+2026-11-24 14:05:24.265 - server_metrics_manager - INFO - Server Metrics: Capturing baseline metrics...
+2026-11-24 14:05:24.292 - http://127.0.0.1:18081/metrics - INFO - Skipping unsupported summary metric: http_request_size_bytes
+2026-11-24 14:05:24.292 - http://127.0.0.1:18081/metrics - INFO - Skipping unsupported summary metric: http_response_size_bytes
+2026-11-24 14:05:24.293 - system_controller - INFO - Server metrics enabled - 1/1 endpoint(s) reachable.
+2026-11-24 14:05:24.293 - system_controller - INFO - Waiting for result domains: profile, server_metrics, telemetry
+2026-11-24 14:05:24.299 - gpu_telemetry_manager - WARNING - GPU Telemetry: http://localhost:9400/metrics is not reachable
+2026-11-24 14:05:24.300 - gpu_telemetry_manager - WARNING - GPU Telemetry: http://localhost:9401/metrics is not reachable
+2026-11-24 14:05:24.301 - system_controller - INFO - DCGM telemetry skipped: no telemetry sources reachable
+2026-11-24 14:05:24.301 - system_controller - INFO - Waiting for result domains: profile, server_metrics
+2026-11-24 14:05:25.055 - dataset_manager - ERROR - Dataset configuration failed: TokenizerError("Failed to load tokenizer '/model': HFValidationError: Repo id must use alphanumeric chars, '-', '_' or '.'. The name cannot start or end with '-' or '.' and the maximum length is 96: '/model'.")
+Traceback (most recent call last):
+  File "/work/venv/lib/python3.12/site-packages/aiperf/common/tokenizer.py", line 502, in from_pretrained
+    return cls._load_from_hub(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/work/venv/lib/python3.12/site-packages/aiperf/common/tokenizer.py", line 534, in _load_from_hub
+    tokenizer_instance = cls._from_pretrained_local(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/venv/lib/python3.12/site-packages/aiperf/common/tokenizer.py", line 629, in _from_pretrained_local
+    local_path = cls._resolve_local_snapshot(name, revision)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/venv/lib/python3.12/site-packages/aiperf/common/tokenizer.py", line 660, in _resolve_local_snapshot
+    return snapshot_download(
+           ^^^^^^^^^^^^^^^^^^
+  File "/work/venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 85, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/work/venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 139, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.errors.HFValidationError: Repo id must use alphanumeric chars, '-', '_' or '.'. The name cannot start or end with '-' or '.' and the maximum length is 96: '/model'.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/work/venv/lib/python3.12/site-packages/aiperf/dataset/dataset_manager.py", line 160, in _profile_configure_command
+    await self._do_profile_configure(message)
+  File "/work/venv/lib/python3.12/site-packages/aiperf/dataset/dataset_manager.py", line 213, in _do_profile_configure
+    await self._configure_dataset_locked()
+  File "/work/venv/lib/python3.12/site-packages/aiperf/dataset/dataset_manager.py", line 242, in _configure_dataset_locked
+    await self._configure_tokenizer()
+  File "/work/venv/lib/python3.12/site-packages/aiperf/dataset/dataset_manager.py", line 339, in _configure_tokenizer
+    self.tokenizer = await asyncio.to_thread(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/venv/lib/python3.12/site-packages/aiperf/common/tokenizer.py", line 515, in from_pretrained
+    raise TokenizerError(
+aiperf.common.exceptions.TokenizerError: Failed to load tokenizer '/model': HFValidationError: Repo id must use alphanumeric chars, '-', '_' or '.'. The name cannot start or end with '-' or '.' and the maximum length is 96: '/model'.
+2026-11-24 14:05:25.057 - dataset_manager - ERROR - Failed to handle command profile_configure with hook @on_command 🡒 DatasetManager._profile_configure_command: Failed to load tokenizer '/model': HFValidationError: Repo id must use alphanumeric chars, '-', '_' or '.'. The name cannot start or end with '-' or '.' and the maximum length is 96: '/model'.
+2026-11-24 14:05:25.057 - timing_manager - ERROR - Received dataset configuration failed notification from dataset_manager: TokenizerError: Failed to load tokenizer '/model': HFValidationError: Repo id must use alphanumeric chars, '-', '_' or '.'. The name cannot start or end with '-' or '.' and the maximum length is 96: '/model'.
+2026-11-24 14:05:25.057 - timing_manager - ERROR - Failed to handle command profile_configure with hook @on_command 🡒 TimingManager._profile_configure_command: Dataset configuration failed: TokenizerError: Failed to load tokenizer '/model': HFValidationError: Repo id must use alphanumeric chars, '-', '_' or '.'. The name cannot start or end with '-' or '.' and the maximum length is 96: '/model'.
+2026-11-24 14:05:25.058 - system_controller - ERROR - Error running Hook(func=<bound method SystemController._start_services of <SystemController system_controller (state=starting)>>, params=None) hook for SystemController: Failed to perform operation 'Configure Profiling'
+2026-11-24 14:05:25.058 - system_controller - ERROR - Failed for SystemController (id=system_controller): SystemController._start_services: Failed to perform operation 'Configure Profiling'

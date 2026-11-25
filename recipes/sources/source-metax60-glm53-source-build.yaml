@@ -1,0 +1,16 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-metax60-glm53-source-build
+version: 1.0.0
+title: metax-60 GLM-5.3-Flash 源码镜像与冒烟验证记录
+provenance: []
+issues: []
+extensions: {}
+path: experiments/evidence/metax-60-vllm-source-build/20261124/qualification.json
+sha256: 826445723f6453ef1aa167358daf0463447608ef89066cba977240f812a248c4
+media_type: application/json
+role: project_record
+authority: machine_collected
+coverage:
+  status: complete_visible
+  description: 记录本次源码构建、八卡通信与算子回归、真实 API 响应及三组 AIPerf 冒烟测试；不是正式性能或精度验收。

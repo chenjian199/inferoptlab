@@ -1,0 +1,8 @@
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+Traceback (most recent call last):
+  File "/work/project/tools/deployment/metax-vllm/smoke_client.py", line 62, in <module>
+    main()
+  File "/work/project/tools/deployment/metax-vllm/smoke_client.py", line 43, in main
+    assert completed.returncode == 0, f'{label}/{phase}: AIPerf exited {completed.returncode}'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: prefill-smoke/warmup: AIPerf exited 1

@@ -1,0 +1,665 @@
+[
+  {
+    "file": "maca_sdk_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 1292,
+    "sha256": "9acc495bd20afd1db9e3b770a2e7041eae1cbbce47c4611cf38ea7a7a7b56ea9",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/maca_sdk_3.9.0/maca_sdk_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mxffmpeg-dev-3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 210096,
+    "sha256": "005771ca7658f030d1d494585715494b7a3281a4e9ecc254118efc71dfcc0a52",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mxffmpeg-dev-3.9.0/mxffmpeg-dev-3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "macafy_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 307416,
+    "sha256": "54d95bc4ebc73b1c8c65048739885e7d73910e5b119754ddc9957f40dee49081",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/macafy_3.9.0/macafy_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mcsolverit_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 98519816,
+    "sha256": "9d10e8257ff2b2289be8aabfdbf9c1a17d8abfdee042be64821d7d9be0841964",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mcsolverit_3.9.0/mcsolverit_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mxvpu_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 8367054,
+    "sha256": "3b3d6f8da4f56491be381baf4fe4297121fe88a1d911e19dc1668535d09328d6",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mxvpu_3.9.0/mxvpu_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mxompi-3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 12668472,
+    "sha256": "84b8c31f019b5fa0e01c99e1e5ebc11fd89a27dd4824c1a83499657a6d2b0d69",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mxompi-3.9.0/mxompi-3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mcimage_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 35058400,
+    "sha256": "5225e768f938cc6b20865a9c00a7c130eb2aa498dc862932e1171933ac676a6f",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mcimage_3.9.0/mcimage_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mxreport-3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 884144,
+    "sha256": "e7e8aadb9b0b58fdf28dea52ed8298e4e0c10f0730a55680a87e625842a3987c",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mxreport-3.9.0/mxreport-3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mchotspot_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 1574652,
+    "sha256": "3c6b785d8d5b671fbde2edf4806a026e4e3eb8bef5423549ea851449f3aac0f9",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mchotspot_3.9.0/mchotspot_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mcmpp_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 27125474,
+    "sha256": "425c83924d90099db302fb7c64e81b5ee276e187c9b2bfaf6f687d04f44a7388",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mcmpp_3.9.0/mcmpp_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mcsanitizer-public_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 20232,
+    "sha256": "ce6aa31e515c96d0d90e5a77b54042f2b2b67bc192bb88adb78a0a18aff09d8d",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mcsanitizer-public_3.9.0/mcsanitizer-public_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mcpti_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 1388892,
+    "sha256": "95c1a783e68a9cd0c0bb487c056f26f84f11566d9fe69f612082035a2180b123",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mcpti_3.9.0/mcpti_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mxsml-devel-3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 69780,
+    "sha256": "f98fedb9a36db9cadfa5a23a7aa02ca166fb75e4d798ed5d87a057902fda9ebb",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mxsml-devel-3.9.0/mxsml-devel-3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mckernellib_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 47928492,
+    "sha256": "c6056b9f1e72e9febbb6dc8221df7b9a99fd74c69dea29242997bc8beb811def",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mckernellib_3.9.0/mckernellib_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mcjpeg_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 412890,
+    "sha256": "6a6f337ba3d5efeb2bde8d74bf6a18ac646312d1c587c14465588c0bf82df157",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mcjpeg_3.9.0/mcjpeg_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mxccl_plugin_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 112967732,
+    "sha256": "db2cc1993367a6fbbfd10cde365da65809da28d4fcf65d303da08a2dbe4f8f4d",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mxccl_plugin_3.9.0/mxccl_plugin_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mcgpufort_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 297150,
+    "sha256": "f90cccf4604f9c8c81bbd6503a91924f6b86c67c372b64b2cfb5bca74280467e",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mcgpufort_3.9.0/mcgpufort_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mcdnn_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 250377356,
+    "sha256": "61d4c29af0c57d8293c419e0ba4dacbb91546a59be94d444c13fa11cb0daa650",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mcdnn_3.9.0/mcdnn_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mctlass_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 1133346,
+    "sha256": "49c9f17c29bc2c5ccd6b54d6c25b8a20f80a0c37da263f40dbb225b1a3a09200",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mctlass_3.9.0/mctlass_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mccltests-3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 20102980,
+    "sha256": "8bb033de310bf20d31be0989effaffbda5d3074c6bad8b90b575a3ec5d02a9ab",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mccltests-3.9.0/mccltests-3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "maca_sdk_pkg_config_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 1120,
+    "sha256": "96eb4c6b43808125baf9558fcd5dba562174dc4a234d036c78d10e57e2ede209",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/maca_sdk_pkg_config_3.9.0/maca_sdk_pkg_config_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mxdiagease-3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 1907746,
+    "sha256": "70db12499dd13b82f4ae8a9d31a575fb6d5d176cd9fccdef7aec1530f79f65ad",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mxdiagease-3.9.0/mxdiagease-3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mxucx-3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 6920572,
+    "sha256": "41c1c425251bdf5f4128be3abd5259e601e25dac97c9e101a81c08572823ad02",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mxucx-3.9.0/mxucx-3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mcanalyzer_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 822024,
+    "sha256": "a2ed447f6025fafdf25be39bb66127c93316af3b5a4209b3e9fc990678a70b69",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mcanalyzer_3.9.0/mcanalyzer_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mcsolver_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 71043636,
+    "sha256": "040b5f4599eced130760b2992538c54dc306777dc5e00de7587a4295cb940a23",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mcsolver_3.9.0/mcsolver_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mctracer-3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 13020820,
+    "sha256": "bfaa33037d9556eadd8a99fce50188c947260921ef522eed7709fa1ea2c0b35a",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mctracer-3.9.0/mctracer-3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mxexporter-3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 48192,
+    "sha256": "49eaae917adb46904a18d3675a40044d47f16a150e8e0b748bda46a7485fce90",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mxexporter-3.9.0/mxexporter-3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mxfortran_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 62035642,
+    "sha256": "290bb56a145c243af202eded5c9b2df84b9118234a30d14ca4a569653ff7cbda",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mxfortran_3.9.0/mxfortran_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mcflashattn_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 1369181872,
+    "sha256": "c5c12d3bcc30665e61e241f21833e7eb13f11c4c9b9667fe4485d65527d358c5",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mcflashattn_3.9.0/mcflashattn_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mcdnnlt_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 61616522,
+    "sha256": "fa13185049225463613b9e0ed8b9cc5525b0f99ce07ef94e3dc0bbece61069fb",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mcdnnlt_3.9.0/mcdnnlt_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mxvs-3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 93039148,
+    "sha256": "793abfc17d7072f44300360e347e8c0ffb97d42818a6176aa5858d4a72041208",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mxvs-3.9.0/mxvs-3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mcfft_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 941819956,
+    "sha256": "98eb2fd1024e486d667bf76fb7366dd4ee4d4254541bdf193ef939eb809cc82f",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mcfft_3.9.0/mcfft_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mctlassex_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 111459452,
+    "sha256": "42317e28aec07c9c5dad933b7190818ee4a6eaa859b164209deea177b5cbf2a9",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mctlassex_3.9.0/mctlassex_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mcblaslt_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 2289081926,
+    "sha256": "8cf5f3f9730132876769a6c2827280031983c9822059fb789dec93cb2fe4e538",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mcblaslt_3.9.0/mcblaslt_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mcmathlib_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 1642894,
+    "sha256": "9f04c496aa0b30224098e69ecf13d977f4fbdab899d2f930d8317212c71f485c",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mcmathlib_3.9.0/mcmathlib_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mxcommlib_tools_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 15051666,
+    "sha256": "94859806c382b27ad5bf1ecd994ba0aad67743ae51b7c53e42123096e5c1354f",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mxcommlib_tools_3.9.0/mxcommlib_tools_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mxshmem_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 47511276,
+    "sha256": "06df8cf947132b690f39a081824be0f0c5761d100f74f8157fa14b8fc3363f06",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mxshmem_3.9.0/mxshmem_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "maca_sdk_3.9.0.29_amd64.deb",
+    "bytes": 1582,
+    "sha256": "596a4b61bef1e717206bf4ba7b315ae92053d661b9705ed72cff4332084a3e19",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/maca_sdk/maca_sdk_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "commonlib_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 78890,
+    "sha256": "d43b7efde21e2de12b63e8d71a005f0d4e60d5aff046a65e9996bc47adbe301f",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/c/commonlib_3.9.0/commonlib_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mcthrust_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 950230,
+    "sha256": "d0a9442afc4b85297c023c579157476b96f04a8c0b54f8aa5f5e14e9795f5f3b",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mcthrust_3.9.0/mcthrust_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mxgpu_llvm_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 360934822,
+    "sha256": "262fd4028b28e2d791ee36f3e36d650afdb091849c3841549394879560a98932",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mxgpu_llvm_3.9.0/mxgpu_llvm_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mxkw_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 451304,
+    "sha256": "b0611dda2fac99a44203983190e6e4a06e53768c9302c4898f50cc64608f639d",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mxkw_3.9.0/mxkw_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mcblas_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 115448580,
+    "sha256": "d7f33f76347e09ebac44c8c6fef02612aa6e714b4f7b8162b323ae91ef0578e6",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mcblas_3.9.0/mcblas_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mcsanitizer_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 88356,
+    "sha256": "3d46d6fc1379154d14de01b5f77dd518fff98ba4be772156bc12d04cebc5b0c5",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mcsanitizer_3.9.0/mcsanitizer_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mcsparse_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 72885930,
+    "sha256": "e7fb490578c65968de0d033099c8ff354b28b00ed2f8816a547661a4838154c6",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mcsparse_3.9.0/mcsparse_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "macainfo_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 19766,
+    "sha256": "e22fd2a6b8d206e891fd7d10cf709f356b9dfcea2f9c39b778ff3bb2ecd15177",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/macainfo_3.9.0/macainfo_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mxgdrcopy-3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 206340,
+    "sha256": "272854f13f3d79f66f607b45371909a2672a61d43c3e264e5f047513a635c48d",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mxgdrcopy-3.9.0/mxgdrcopy-3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "cu-bridge_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 3983472,
+    "sha256": "ac1c77cb1c2a07946805792be55669359b86c57b7fc6c9d1d721ee5ce3de5577",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/c/cu-bridge_3.9.0/cu-bridge_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mxmaca-install-3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 5368,
+    "sha256": "81da1ccc1a7fd96916f9f59ee8d7bea465d1390d8982a202b9ac5abef7276b2c",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mxmaca-install-3.9.0/mxmaca-install-3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mcrand_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 130549706,
+    "sha256": "0d96fb83f59cfe9861b6c328433cf836adf5d677fc90a63ce65431f661676b83",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mcrand_3.9.0/mcrand_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mccompiler_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 8783548,
+    "sha256": "03c11aa62763a07f01057196ff35bd0c1dfcc161623b13316f1a2aeeae925e9d",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mccompiler_3.9.0/mccompiler_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mcflashinfer_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 189928,
+    "sha256": "9b3143ece3abc2c3816ddc5a9dc65b0756247b6f194deb4d2f85966073917d77",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mcflashinfer_3.9.0/mcflashinfer_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mcruntime_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 27225174,
+    "sha256": "a2cb1ab657368621158ea72f557f58f8a7d70decdcaa2a55f329ab0c4f0d58ad",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mcruntime_3.9.0/mcruntime_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mcfile_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 128578,
+    "sha256": "7e8144c688672f722ca547752b3beb82609e3d972f6dc9f28041bec7c55d8f4e",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mcfile_3.9.0/mcfile_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "vscode-clangd_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 628424,
+    "sha256": "978f418aac57e847f3582300d8afc36d2ab6278d709ebd90cf7768d517a5fa63",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/v/vscode-clangd_3.9.0/vscode-clangd_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mxffmpeg-3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 48114164,
+    "sha256": "29da4aca92fcda075592bddff3ad42e812dca3c5539a6e5ddcec30e0c7eb82c9",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mxffmpeg-3.9.0/mxffmpeg-3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "sample_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 102686,
+    "sha256": "f94db8cc22f4096a500882f92c6a7b35eed1c113c8122dd0d1815bee534f81e2",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/s/sample_3.9.0/sample_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mctoolext_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 12393562,
+    "sha256": "b079bd22ef1619aa3410ddb8adde2401025e534fa441e1573cc8896a7c20a841",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mctoolext_3.9.0/mctoolext_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mccl_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 263404162,
+    "sha256": "24a49e546cf41f25644da33a9ddb820d28130a4bd049ff9879dbc3eaf2a9c2e4",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mccl_3.9.0/mccl_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "mxcompute_3.9.0_3.9.0.29_amd64.deb",
+    "bytes": 4135504,
+    "sha256": "b4f56578ca711bec9fafded2d966f2b1033821332dea9b6f8147b0262ab005b2",
+    "url": "https://repos.metax-tech.com/r/maca-sdk-deb/pool/m/mxcompute_3.9.0/mxcompute_3.9.0_3.9.0.29_amd64.deb",
+    "kind": "sdk"
+  },
+  {
+    "file": "apache_tvm_ffi-0.1.11+maca-cp312-abi3-linux_x86_64.whl",
+    "bytes": 2654104,
+    "sha256": "266a9267ff07678c2f18b920c30c3cd0b0c5b0c52971e822714a7cc256bfe060",
+    "repository_sha256": "266a9267ff07678c2f18b920c30c3cd0b0c5b0c52971e822714a7cc256bfe060",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/apache-tvm-ffi/0.1.11+maca/apache_tvm_ffi-0.1.11+maca-cp312-abi3-linux_x86_64.whl"
+  },
+  {
+    "file": "apex-0.1+metax3.9.0.8-cp312-cp312-linux_x86_64.whl",
+    "bytes": 188788411,
+    "sha256": "0ca4b12edeca7c36be4c3eaf9144ff46f62cf35f1edf86111346ce9607dbb4db",
+    "repository_sha256": "0ca4b12edeca7c36be4c3eaf9144ff46f62cf35f1edf86111346ce9607dbb4db",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/apex/0.1+metax3.9.0.8/apex-0.1+metax3.9.0.8-cp312-cp312-linux_x86_64.whl"
+  },
+  {
+    "file": "block_sparse_attn-0.0.2+metax3.9.0.8-cp312-cp312-linux_x86_64.whl",
+    "bytes": 125903300,
+    "sha256": "25c3fcb6e733cce6cb7a8704a97f551e41c3a64d6360856b24602f2f8efc9d1c",
+    "repository_sha256": "25c3fcb6e733cce6cb7a8704a97f551e41c3a64d6360856b24602f2f8efc9d1c",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/block-sparse-attn/0.0.2+metax3.9.0.8/block_sparse_attn-0.0.2+metax3.9.0.8-cp312-cp312-linux_x86_64.whl"
+  },
+  {
+    "file": "causal_conv1d-1.5.4+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 62041037,
+    "sha256": "601ea54b9d99c455f066a762b54ab389de16f7eb3e56d264be5560312fef2bfe",
+    "repository_sha256": "601ea54b9d99c455f066a762b54ab389de16f7eb3e56d264be5560312fef2bfe",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/causal-conv1d/1.5.4+metax3.9.0.8torch2.10/causal_conv1d-1.5.4+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl"
+  },
+  {
+    "file": "deep_ep-1.0.0+metax3.9.0.11torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 59282723,
+    "sha256": "0a00ad95a2c60090283bfdca703dc0713162bcef193ee6fa5c8c755b0c903e18",
+    "repository_sha256": "0a00ad95a2c60090283bfdca703dc0713162bcef193ee6fa5c8c755b0c903e18",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/deep-ep/1.0.0+metax3.9.0.11torch2.10/deep_ep-1.0.0+metax3.9.0.11torch2.10-cp312-cp312-linux_x86_64.whl"
+  },
+  {
+    "file": "deep_gemm-0.2.0+maca0.4.11.1-py3-none-any.whl",
+    "bytes": 487871,
+    "sha256": "d4a38a35493360f4660333e8a24176e8587f66eb1c1862bf45bdb18d83117a2c",
+    "repository_sha256": "d4a38a35493360f4660333e8a24176e8587f66eb1c1862bf45bdb18d83117a2c",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/deep-gemm/0.2.0+maca0.4.11.1/deep_gemm-0.2.0+maca0.4.11.1-py3-none-any.whl"
+  },
+  {
+    "file": "dropout_layer_norm-0.1+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 402972998,
+    "sha256": "2333d4b8ff55163a3c0523e40ec5e2ad1a386811a45fcffef06b344120b28f2d",
+    "repository_sha256": "2333d4b8ff55163a3c0523e40ec5e2ad1a386811a45fcffef06b344120b28f2d",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/dropout-layer-norm/0.1+metax3.9.0.8torch2.10/dropout_layer_norm-0.1+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl"
+  },
+  {
+    "file": "flash_attn-2.6.3+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 1369748259,
+    "sha256": "006bedf51877c5a1b01a6790d5688c249c520065b980ef2fcd54d33ac84a32ae",
+    "repository_sha256": "006bedf51877c5a1b01a6790d5688c249c520065b980ef2fcd54d33ac84a32ae",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/flash-attn/2.6.3+metax3.9.0.8torch2.10/flash_attn-2.6.3+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl"
+  },
+  {
+    "file": "flash_attn_3-3.0.0+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 70286460,
+    "sha256": "a4a7e1270a4921ea0b993f154aed9920a6fc8c86b5489baa23c66ffdaf1a9071",
+    "repository_sha256": "a4a7e1270a4921ea0b993f154aed9920a6fc8c86b5489baa23c66ffdaf1a9071",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/flash-attn-3/3.0.0+metax3.9.0.8torch2.10/flash_attn_3-3.0.0+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl"
+  },
+  {
+    "file": "flash_mla-1.0.1+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 17139474,
+    "sha256": "842eb5a6940ffd1ebbae9656b896284e22f533c04f6885337538f19a93f24a80",
+    "repository_sha256": "842eb5a6940ffd1ebbae9656b896284e22f533c04f6885337538f19a93f24a80",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/flash-mla/1.0.1+metax3.9.0.8torch2.10/flash_mla-1.0.1+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl"
+  },
+  {
+    "file": "flashinfer-0.2.6+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 184478406,
+    "sha256": "1a8025793de99c0ae97efa823845e00b5e89bc4826de3a04392595f3685de5af",
+    "repository_sha256": "1a8025793de99c0ae97efa823845e00b5e89bc4826de3a04392595f3685de5af",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/flashinfer/0.2.6+metax3.9.0.8torch2.10/flashinfer-0.2.6+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl"
+  },
+  {
+    "file": "fused_dense_lib-2.6.3+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 102968,
+    "sha256": "a69be5c70702214c0593fd97937b49d2ea3881703d265ec84b263a75f5e8358c",
+    "repository_sha256": "a69be5c70702214c0593fd97937b49d2ea3881703d265ec84b263a75f5e8358c",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/fused-dense-lib/2.6.3+metax3.9.0.8torch2.10/fused_dense_lib-2.6.3+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl"
+  },
+  {
+    "file": "lmcache-0.5.3+maca3.8.2.201-cp312-cp312-linux_x86_64.whl",
+    "bytes": 4844683,
+    "sha256": "fdcfd14cb00334ee0da8bf7da3c680f530e801b0d4390ea0fc16a65d0ea4aeac",
+    "repository_sha256": "fdcfd14cb00334ee0da8bf7da3c680f530e801b0d4390ea0fc16a65d0ea4aeac",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/lmcache/0.5.3+maca3.8.2.201/lmcache-0.5.3+maca3.8.2.201-cp312-cp312-linux_x86_64.whl"
+  },
+  {
+    "file": "maca_python-0.0.1-cp312-cp312-linux_x86_64.whl",
+    "bytes": 3049380,
+    "sha256": "f567d65d893c17f2a2eec97776131e7f8394f59f7ee084136e108a3097d6ebde",
+    "repository_sha256": "f567d65d893c17f2a2eec97776131e7f8394f59f7ee084136e108a3097d6ebde",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/maca-python/0.0.1/maca_python-0.0.1-cp312-cp312-linux_x86_64.whl"
+  },
+  {
+    "file": "mamba_ssm-2.2.4+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 239531487,
+    "sha256": "8507d995d9d9da3cefb2ca6e029b67c64d06269c316c37da268b90834c0b0bbb",
+    "repository_sha256": "8507d995d9d9da3cefb2ca6e029b67c64d06269c316c37da268b90834c0b0bbb",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/mamba-ssm/2.2.4+metax3.9.0.8torch2.10/mamba_ssm-2.2.4+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl"
+  },
+  {
+    "file": "mcoplib-0.4.14+gf3794c4.maca3.9.0.31.torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 250604949,
+    "sha256": "2733e4d1bb338ef3f6b2e152c41ebdeddff03bd5b28ae87f58177bdcca3adc23",
+    "repository_sha256": "2733e4d1bb338ef3f6b2e152c41ebdeddff03bd5b28ae87f58177bdcca3adc23",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/mcoplib/0.4.14+gf3794c4.maca3.9.0.31.torch2.10/mcoplib-0.4.14+gf3794c4.maca3.9.0.31.torch2.10-cp312-cp312-linux_x86_64.whl"
+  },
+  {
+    "file": "mctlassEx-0.1.1+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 345272,
+    "sha256": "6b2c9a51e3996fcca77a8101b3b0663c134da12ae2eee65d9cd8dc79a2ba65b4",
+    "repository_sha256": "6b2c9a51e3996fcca77a8101b3b0663c134da12ae2eee65d9cd8dc79a2ba65b4",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/mctlassex/0.1.1+metax3.9.0.8torch2.10/mctlassEx-0.1.1+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl"
+  },
+  {
+    "file": "mooncake_transfer_engine-0.3.12+geb7daa.d20260903.maca3.8.2.104-cp312-cp312-manylinux_2_35_x86_64.whl",
+    "bytes": 306909916,
+    "sha256": "e8f2453d552c6e78e12a6acba8322ac6a824e2eae0f76d27543c092edf3d423e",
+    "repository_sha256": "e8f2453d552c6e78e12a6acba8322ac6a824e2eae0f76d27543c092edf3d423e",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/mooncake-transfer-engine/0.3.12+geb7daa.d20260903.maca3.8.2.104/mooncake_transfer_engine-0.3.12+geb7daa.d20260903.maca3.8.2.104-cp312-cp312-manylinux_2_35_x86_64.whl"
+  },
+  {
+    "file": "nixl-1.0.0+maca3.8.2.208-cp312-cp312-manylinux_2_28_x86_64.whl",
+    "bytes": 11552712,
+    "sha256": "8fb0b7ac77c6d6817f02d5f0fa01b182a641910f5eb3c01797890c9069c76cfd",
+    "repository_sha256": "8fb0b7ac77c6d6817f02d5f0fa01b182a641910f5eb3c01797890c9069c76cfd",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/nixl/1.0.0+maca3.8.2.208/nixl-1.0.0+maca3.8.2.208-cp312-cp312-manylinux_2_28_x86_64.whl"
+  },
+  {
+    "file": "rotary_emb-0.1+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 6361693,
+    "sha256": "4c8df8d03496227f963e1178e30b84ec2d7019d82aedb7501a1e9d7aa7eacecf",
+    "repository_sha256": "4c8df8d03496227f963e1178e30b84ec2d7019d82aedb7501a1e9d7aa7eacecf",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/rotary-emb/0.1+metax3.9.0.8torch2.10/rotary_emb-0.1+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl"
+  },
+  {
+    "file": "tilelang-0.1.12+maca-cp39-abi3-linux_x86_64.whl",
+    "bytes": 44885092,
+    "sha256": "db7c995d60c8033d1125333a7d15bda9597e3adcb9f17411451b47e9a8809169",
+    "repository_sha256": "db7c995d60c8033d1125333a7d15bda9597e3adcb9f17411451b47e9a8809169",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/tilelang/0.1.12+maca/tilelang-0.1.12+maca-cp39-abi3-linux_x86_64.whl"
+  },
+  {
+    "file": "torch-2.10.0+metax3.9.0.8-cp312-cp312-linux_x86_64.whl",
+    "bytes": 860453282,
+    "sha256": "a33a39b84b41dfb54d28b52ba443efedf99b0a6f07ade91ebf62830099d9decd",
+    "repository_sha256": "a33a39b84b41dfb54d28b52ba443efedf99b0a6f07ade91ebf62830099d9decd",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/torch/2.10.0+metax3.9.0.8/torch-2.10.0+metax3.9.0.8-cp312-cp312-linux_x86_64.whl"
+  },
+  {
+    "file": "torchaudio-2.4.1+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 3132881,
+    "sha256": "29ba10444d52633d4bdf02286292a86051ce0b0fa778af4d3b292eae5d1a8698",
+    "repository_sha256": "29ba10444d52633d4bdf02286292a86051ce0b0fa778af4d3b292eae5d1a8698",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/torchaudio/2.4.1+metax3.9.0.8torch2.10/torchaudio-2.4.1+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl"
+  },
+  {
+    "file": "torchcodec-0.6.0+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 445803,
+    "sha256": "19e889b7ab63244280c57bfe748d3362fd61d4ae893682d21c29f3b0b3ab5998",
+    "repository_sha256": "19e889b7ab63244280c57bfe748d3362fd61d4ae893682d21c29f3b0b3ab5998",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/torchcodec/0.6.0+metax3.9.0.8torch2.10/torchcodec-0.6.0+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl"
+  },
+  {
+    "file": "torchvision-0.25.0+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 2821195,
+    "sha256": "d18743f570a27d5500e2e1032c086000fe94aa09d823c2db31fdb96f557d3a7c",
+    "repository_sha256": "d18743f570a27d5500e2e1032c086000fe94aa09d823c2db31fdb96f557d3a7c",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/torchvision/0.25.0+metax3.9.0.8torch2.10/torchvision-0.25.0+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl"
+  },
+  {
+    "file": "triton-3.6.0+metax3.9.0.8-cp312-cp312-linux_x86_64.whl",
+    "bytes": 959833676,
+    "sha256": "b5d64d9fa09b4be34c49f03cb6faa29cb0c80f1a4a096fe154c151a5dc898e50",
+    "repository_sha256": "b5d64d9fa09b4be34c49f03cb6faa29cb0c80f1a4a096fe154c151a5dc898e50",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/triton/3.6.0+metax3.9.0.8/triton-3.6.0+metax3.9.0.8-cp312-cp312-linux_x86_64.whl"
+  },
+  {
+    "file": "xentropy_cuda_lib-0.1+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 199523,
+    "sha256": "b2f8fb10a276571c54c85b659eefb228a4cea1578fc8adc51607cd07455e3256",
+    "repository_sha256": "b2f8fb10a276571c54c85b659eefb228a4cea1578fc8adc51607cd07455e3256",
+    "repository_hash_matches": true,
+    "kind": "wheelhouse",
+    "url": "https://repos.metax-tech.com/r/maca-pypi/packages/xentropy-cuda-lib/0.1+metax3.9.0.8torch2.10/xentropy_cuda_lib-0.1+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl"
+  }
+]

@@ -1,0 +1,31 @@
+schema_version: 0.2.0
+kind: BenchmarkPlan
+id: glm53-vllm-02-context64k
+version: 1.0.0
+title: 02-context64k
+provenance: []
+issues: []
+extensions: {}
+study_ref:
+  id: glm53-vllm-c500-scan
+  version: 1.0.0
+deployment_refs:
+- id: glm53-vllm-a-context64k
+  version: 1.0.0
+scenario_refs:
+- id: glm53-vllm-p-64k
+  version: 1.0.0
+mode: exploratory
+qualification_required: true
+aiperf:
+  version: 0.12.0
+  server_metrics:
+  - http://127.0.0.1:18082/metrics
+  gpu_telemetry: []
+  required_telemetry: server
+budget:
+  max_runs: 300
+  max_wall_seconds: 259200
+  run_timeout_s: 7200
+order_seed: 20261124
+failure_policy: stop

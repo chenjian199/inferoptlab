@@ -175,6 +175,10 @@
         "warmup_request_count": {
           "type": "integer",
           "minimum": 0
+        },
+        "warmup_request_multiplier": {
+          "type": "integer",
+          "minimum": 1
         }
       },
       "required": [

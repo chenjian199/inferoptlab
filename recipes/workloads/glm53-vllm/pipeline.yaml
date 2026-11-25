@@ -1,0 +1,39 @@
+schema_version: 0.2.0
+kind: WorkloadSpec
+id: glm53-vllm-pipeline-workload
+version: 1.0.0
+title: 'GLM vLLM workflow validation: 128 to 32, C=1/2'
+provenance: []
+issues: []
+extensions: {}
+input:
+  label: '128'
+  tokens: 128
+  k_multiplier: null
+  origin: explicit_tokens
+output:
+  label: '32'
+  tokens: 32
+  k_multiplier: null
+  origin: explicit_tokens
+requests:
+  content: random_independent
+  request_set_sha256: null
+  seed: 20261123
+  count: null
+  count_multiplier: 4
+generation:
+  ignore_eos: true
+  sampling: greedy
+  stop_policy: fixed_output_tokens
+arrival:
+  mode: closed_loop
+  load_unit: concurrency
+  load_points:
+  - 1
+  - 2
+cache:
+  prefix_reuse: disabled
+  target_hit_ratio: 0
+  preparation: disable_prefix_cache
+  reset_between_runs: true

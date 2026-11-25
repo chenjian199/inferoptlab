@@ -1,0 +1,13 @@
+{
+  "Id": "sha256:9d82e3b3cc52430770a02b00d8c763b62e9c8bc64c4be871d9be25148e4fdf8b",
+  "RepoTags": [
+    "inferoptlab/vllm-metax:0.32.0-glm53-c500-20261124"
+  ],
+  "RepoDigests": [
+    "inferoptlab/vllm-metax@sha256:9d82e3b3cc52430770a02b00d8c763b62e9c8bc64c4be871d9be25148e4fdf8b"
+  ],
+  "Architecture": "amd64",
+  "Os": "linux",
+  "Size": 35290100196,
+  "Created": "2026-11-24T13:36:47.484498195+08:00"
+}

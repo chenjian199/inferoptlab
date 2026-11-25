@@ -1,0 +1,1517 @@
+{
+  "format_version": 1,
+  "created_at": "2026-11-24T12:12:29.043691+00:00",
+  "host": "metax-60 / 172.17.0.60",
+  "model": "GLM-5.3-Flash-W8A8",
+  "scope": "Startup/API qualification and small AIPerf workflow only",
+  "formal_scan_executed": false,
+  "accuracy_qualified": false,
+  "performance_baseline": false,
+  "startup_counts": {
+    "passed": 11,
+    "failed": 1
+  },
+  "startup": [
+    {
+      "stage": "00-layout",
+      "id": "glm53-vllm-a-tp8",
+      "status": "passed",
+      "http_ready": true,
+      "error": null,
+      "parallelism": {
+        "tp": 8,
+        "pp": 1,
+        "ep": 1,
+        "dp": 1
+      },
+      "scheduling": {
+        "chunked_prefill_tokens": null,
+        "kv_page_tokens": null,
+        "max_running_requests": 128,
+        "max_num_batched_tokens": 4096,
+        "max_model_len": 32768,
+        "enable_chunked_prefill": true
+      },
+      "probes": [
+        {
+          "input_tokens": 128,
+          "output_tokens": 32,
+          "status": "passed"
+        },
+        {
+          "input_tokens": 16384,
+          "output_tokens": 1,
+          "status": "passed"
+        }
+      ],
+      "actual_block_size": 640,
+      "compilation": {
+        "mode": 0,
+        "debug_dump_path": null,
+        "cache_dir": "",
+        "compile_cache_save_format": "binary",
+        "backend": "inductor",
+        "custom_ops": [
+          "all"
+        ],
+        "ir_enable_torch_wrap": false,
+        "splitting_ops": [],
+        "compile_mm_encoder": false,
+        "cudagraph_mm_encoder": false,
+        "encoder_cudagraph_token_budgets": [],
+        "encoder_cudagraph_max_vision_items_per_batch": 0,
+        "encoder_cudagraph_max_frames_per_batch": null,
+        "cudagraph_decoder_replay": true,
+        "decoder_replay_cudagraph_capture_sizes": [],
+        "decoder_replay_trim_threshold": 768,
+        "compile_sizes": [],
+        "compile_ranges_endpoints": [
+          4096
+        ],
+        "inductor_compile_config": {
+          "enable_auto_functionalized_v2": false,
+          "size_asserts": false,
+          "alignment_asserts": false,
+          "scalar_asserts": false,
+          "combo_kernels": true,
+          "benchmark_combo_kernel": true
+        },
+        "inductor_passes": {},
+        "cudagraph_mode": 0,
+        "cudagraph_num_of_warmups": 0,
+        "cudagraph_capture_sizes": [],
+        "cudagraph_copy_inputs": false,
+        "cudagraph_specialize_lora": true,
+        "use_inductor_graph_partition": false,
+        "pass_config": {
+          "fuse_norm_quant": true,
+          "fuse_act_quant": true,
+          "fuse_attn_quant": false,
+          "eliminate_noops": true,
+          "fuse_allreduce_rms": false,
+          "enable_qk_norm_rope_fusion": false,
+          "fuse_rope_kvcache_cat_mla": false,
+          "fuse_act_padding": false,
+          "fuse_mla_dual_rms_norm": null,
+          "fuse_rope_kvcache": null,
+          "fuse_qk_norm_rope_kvcache": false,
+          "rope_kvcache_fusion_max_token_num": 256,
+          "fi_allreduce_fusion_max_size_mb": null
+        },
+        "max_cudagraph_capture_size": 0,
+        "dynamic_shapes_config": {
+          "type": "backed",
+          "evaluate_guards": false,
+          "assume_32_bit_indexing": false
+        },
+        "local_cache_dir": null,
+        "fast_moe_cold_start": true,
+        "enabled_custom_ops": {},
+        "disabled_custom_ops": {},
+        "traced_files": [],
+        "compilation_time": 0.0,
+        "encoder_compilation_time": 0.0,
+        "static_forward_context": {},
+        "static_all_moe_layers": []
+      },
+      "receipt": "experiments/evidence/metax-60-glm53-scan/20261124/startup-r2/00-layout/qualification.json",
+      "server_info": "experiments/evidence/metax-60-glm53-scan/20261124/startup-r2/00-layout/glm53-vllm-a-tp8/server-info.json"
+    },
+    {
+      "stage": "00-layout",
+      "id": "glm53-vllm-b-tp8-ep8",
+      "status": "passed",
+      "http_ready": true,
+      "error": null,
+      "parallelism": {
+        "tp": 8,
+        "pp": 1,
+        "ep": 8,
+        "dp": 1
+      },
+      "scheduling": {
+        "chunked_prefill_tokens": null,
+        "kv_page_tokens": null,
+        "max_running_requests": 128,
+        "max_num_batched_tokens": 4096,
+        "max_model_len": 32768,
+        "enable_chunked_prefill": true
+      },
+      "probes": [
+        {
+          "input_tokens": 128,
+          "output_tokens": 32,
+          "status": "passed"
+        },
+        {
+          "input_tokens": 16384,
+          "output_tokens": 1,
+          "status": "passed"
+        }
+      ],
+      "actual_block_size": 640,
+      "compilation": {
+        "mode": 0,
+        "debug_dump_path": null,
+        "cache_dir": "",
+        "compile_cache_save_format": "binary",
+        "backend": "inductor",
+        "custom_ops": [
+          "all"
+        ],
+        "ir_enable_torch_wrap": false,
+        "splitting_ops": [],
+        "compile_mm_encoder": false,
+        "cudagraph_mm_encoder": false,
+        "encoder_cudagraph_token_budgets": [],
+        "encoder_cudagraph_max_vision_items_per_batch": 0,
+        "encoder_cudagraph_max_frames_per_batch": null,
+        "cudagraph_decoder_replay": true,
+        "decoder_replay_cudagraph_capture_sizes": [],
+        "decoder_replay_trim_threshold": 768,
+        "compile_sizes": [],
+        "compile_ranges_endpoints": [
+          4096
+        ],
+        "inductor_compile_config": {
+          "enable_auto_functionalized_v2": false,
+          "size_asserts": false,
+          "alignment_asserts": false,
+          "scalar_asserts": false,
+          "combo_kernels": true,
+          "benchmark_combo_kernel": true
+        },
+        "inductor_passes": {},
+        "cudagraph_mode": 0,
+        "cudagraph_num_of_warmups": 0,
+        "cudagraph_capture_sizes": [],
+        "cudagraph_copy_inputs": false,
+        "cudagraph_specialize_lora": true,
+        "use_inductor_graph_partition": false,
+        "pass_config": {
+          "fuse_norm_quant": true,
+          "fuse_act_quant": true,
+          "fuse_attn_quant": false,
+          "eliminate_noops": true,
+          "fuse_allreduce_rms": false,
+          "enable_qk_norm_rope_fusion": false,
+          "fuse_rope_kvcache_cat_mla": false,
+          "fuse_act_padding": false,
+          "fuse_mla_dual_rms_norm": null,
+          "fuse_rope_kvcache": null,
+          "fuse_qk_norm_rope_kvcache": false,
+          "rope_kvcache_fusion_max_token_num": 256,
+          "fi_allreduce_fusion_max_size_mb": null
+        },
+        "max_cudagraph_capture_size": 0,
+        "dynamic_shapes_config": {
+          "type": "backed",
+          "evaluate_guards": false,
+          "assume_32_bit_indexing": false
+        },
+        "local_cache_dir": null,
+        "fast_moe_cold_start": true,
+        "enabled_custom_ops": {},
+        "disabled_custom_ops": {},
+        "traced_files": [],
+        "compilation_time": 0.0,
+        "encoder_compilation_time": 0.0,
+        "static_forward_context": {},
+        "static_all_moe_layers": []
+      },
+      "receipt": "experiments/evidence/metax-60-glm53-scan/20261124/startup-r2/00-layout/qualification.json",
+      "server_info": "experiments/evidence/metax-60-glm53-scan/20261124/startup-r2/00-layout/glm53-vllm-b-tp8-ep8/server-info.json"
+    },
+    {
+      "stage": "00-layout",
+      "id": "glm53-vllm-c-tp4-dp2-ep8",
+      "status": "passed",
+      "http_ready": true,
+      "error": null,
+      "parallelism": {
+        "tp": 4,
+        "pp": 1,
+        "ep": 8,
+        "dp": 2
+      },
+      "scheduling": {
+        "chunked_prefill_tokens": null,
+        "kv_page_tokens": null,
+        "max_running_requests": 64,
+        "max_num_batched_tokens": 4096,
+        "max_model_len": 32768,
+        "enable_chunked_prefill": true
+      },
+      "probes": [
+        {
+          "input_tokens": 128,
+          "output_tokens": 32,
+          "status": "passed"
+        },
+        {
+          "input_tokens": 16384,
+          "output_tokens": 1,
+          "status": "passed"
+        }
+      ],
+      "actual_block_size": 1152,
+      "compilation": {
+        "mode": 0,
+        "debug_dump_path": null,
+        "cache_dir": "",
+        "compile_cache_save_format": "binary",
+        "backend": "inductor",
+        "custom_ops": [
+          "all"
+        ],
+        "ir_enable_torch_wrap": false,
+        "splitting_ops": [],
+        "compile_mm_encoder": false,
+        "cudagraph_mm_encoder": false,
+        "encoder_cudagraph_token_budgets": [],
+        "encoder_cudagraph_max_vision_items_per_batch": 0,
+        "encoder_cudagraph_max_frames_per_batch": null,
+        "cudagraph_decoder_replay": true,
+        "decoder_replay_cudagraph_capture_sizes": [],
+        "decoder_replay_trim_threshold": 768,
+        "compile_sizes": [],
+        "compile_ranges_endpoints": [
+          4096
+        ],
+        "inductor_compile_config": {
+          "enable_auto_functionalized_v2": false,
+          "size_asserts": false,
+          "alignment_asserts": false,
+          "scalar_asserts": false,
+          "combo_kernels": true,
+          "benchmark_combo_kernel": true
+        },
+        "inductor_passes": {},
+        "cudagraph_mode": 0,
+        "cudagraph_num_of_warmups": 0,
+        "cudagraph_capture_sizes": [],
+        "cudagraph_copy_inputs": false,
+        "cudagraph_specialize_lora": true,
+        "use_inductor_graph_partition": false,
+        "pass_config": {
+          "fuse_norm_quant": true,
+          "fuse_act_quant": true,
+          "fuse_attn_quant": false,
+          "eliminate_noops": true,
+          "fuse_allreduce_rms": false,
+          "enable_qk_norm_rope_fusion": false,
+          "fuse_rope_kvcache_cat_mla": false,
+          "fuse_act_padding": false,
+          "fuse_mla_dual_rms_norm": null,
+          "fuse_rope_kvcache": null,
+          "fuse_qk_norm_rope_kvcache": false,
+          "rope_kvcache_fusion_max_token_num": 256,
+          "fi_allreduce_fusion_max_size_mb": null
+        },
+        "max_cudagraph_capture_size": 0,
+        "dynamic_shapes_config": {
+          "type": "backed",
+          "evaluate_guards": false,
+          "assume_32_bit_indexing": false
+        },
+        "local_cache_dir": null,
+        "fast_moe_cold_start": true,
+        "enabled_custom_ops": {},
+        "disabled_custom_ops": {},
+        "traced_files": [],
+        "compilation_time": 0.0,
+        "encoder_compilation_time": 0.0,
+        "static_forward_context": {},
+        "static_all_moe_layers": []
+      },
+      "receipt": "experiments/evidence/metax-60-glm53-scan/20261124/startup-r2/00-layout/qualification.json",
+      "server_info": "experiments/evidence/metax-60-glm53-scan/20261124/startup-r2/00-layout/glm53-vllm-c-tp4-dp2-ep8/server-info.json"
+    },
+    {
+      "stage": "00-layout",
+      "id": "glm53-vllm-d-tp2-dp4-ep8",
+      "status": "passed",
+      "http_ready": true,
+      "error": null,
+      "parallelism": {
+        "tp": 2,
+        "pp": 1,
+        "ep": 8,
+        "dp": 4
+      },
+      "scheduling": {
+        "chunked_prefill_tokens": null,
+        "kv_page_tokens": null,
+        "max_running_requests": 32,
+        "max_num_batched_tokens": 4096,
+        "max_model_len": 32768,
+        "enable_chunked_prefill": true
+      },
+      "probes": [
+        {
+          "input_tokens": 128,
+          "output_tokens": 32,
+          "status": "passed"
+        },
+        {
+          "input_tokens": 16384,
+          "output_tokens": 1,
+          "status": "passed"
+        }
+      ],
+      "actual_block_size": 2176,
+      "compilation": {
+        "mode": 0,
+        "debug_dump_path": null,
+        "cache_dir": "",
+        "compile_cache_save_format": "binary",
+        "backend": "inductor",
+        "custom_ops": [
+          "all"
+        ],
+        "ir_enable_torch_wrap": false,
+        "splitting_ops": [],
+        "compile_mm_encoder": false,
+        "cudagraph_mm_encoder": false,
+        "encoder_cudagraph_token_budgets": [],
+        "encoder_cudagraph_max_vision_items_per_batch": 0,
+        "encoder_cudagraph_max_frames_per_batch": null,
+        "cudagraph_decoder_replay": true,
+        "decoder_replay_cudagraph_capture_sizes": [],
+        "decoder_replay_trim_threshold": 768,
+        "compile_sizes": [],
+        "compile_ranges_endpoints": [
+          4096
+        ],
+        "inductor_compile_config": {
+          "enable_auto_functionalized_v2": false,
+          "size_asserts": false,
+          "alignment_asserts": false,
+          "scalar_asserts": false,
+          "combo_kernels": true,
+          "benchmark_combo_kernel": true
+        },
+        "inductor_passes": {},
+        "cudagraph_mode": 0,
+        "cudagraph_num_of_warmups": 0,
+        "cudagraph_capture_sizes": [],
+        "cudagraph_copy_inputs": false,
+        "cudagraph_specialize_lora": true,
+        "use_inductor_graph_partition": false,
+        "pass_config": {
+          "fuse_norm_quant": true,
+          "fuse_act_quant": true,
+          "fuse_attn_quant": false,
+          "eliminate_noops": true,
+          "fuse_allreduce_rms": false,
+          "enable_qk_norm_rope_fusion": false,
+          "fuse_rope_kvcache_cat_mla": false,
+          "fuse_act_padding": false,
+          "fuse_mla_dual_rms_norm": null,
+          "fuse_rope_kvcache": null,
+          "fuse_qk_norm_rope_kvcache": false,
+          "rope_kvcache_fusion_max_token_num": 256,
+          "fi_allreduce_fusion_max_size_mb": null
+        },
+        "max_cudagraph_capture_size": 0,
+        "dynamic_shapes_config": {
+          "type": "backed",
+          "evaluate_guards": false,
+          "assume_32_bit_indexing": false
+        },
+        "local_cache_dir": null,
+        "fast_moe_cold_start": true,
+        "enabled_custom_ops": {},
+        "disabled_custom_ops": {},
+        "traced_files": [],
+        "compilation_time": 0.0,
+        "encoder_compilation_time": 0.0,
+        "static_forward_context": {},
+        "static_all_moe_layers": []
+      },
+      "receipt": "experiments/evidence/metax-60-glm53-scan/20261124/startup-r2/00-layout/qualification.json",
+      "server_info": "experiments/evidence/metax-60-glm53-scan/20261124/startup-r2/00-layout/glm53-vllm-d-tp2-dp4-ep8/server-info.json"
+    },
+    {
+      "stage": "01-scheduling",
+      "id": "glm53-vllm-a-budget2048",
+      "status": "passed",
+      "http_ready": true,
+      "error": null,
+      "parallelism": {
+        "tp": 8,
+        "pp": 1,
+        "ep": 1,
+        "dp": 1
+      },
+      "scheduling": {
+        "chunked_prefill_tokens": null,
+        "kv_page_tokens": null,
+        "max_running_requests": 128,
+        "max_num_batched_tokens": 2048,
+        "max_model_len": 32768,
+        "enable_chunked_prefill": true
+      },
+      "probes": [
+        {
+          "input_tokens": 128,
+          "output_tokens": 32,
+          "status": "passed"
+        },
+        {
+          "input_tokens": 16384,
+          "output_tokens": 1,
+          "status": "passed"
+        }
+      ],
+      "actual_block_size": 640,
+      "compilation": {
+        "mode": 0,
+        "debug_dump_path": null,
+        "cache_dir": "",
+        "compile_cache_save_format": "binary",
+        "backend": "inductor",
+        "custom_ops": [
+          "all"
+        ],
+        "ir_enable_torch_wrap": false,
+        "splitting_ops": [],
+        "compile_mm_encoder": false,
+        "cudagraph_mm_encoder": false,
+        "encoder_cudagraph_token_budgets": [],
+        "encoder_cudagraph_max_vision_items_per_batch": 0,
+        "encoder_cudagraph_max_frames_per_batch": null,
+        "cudagraph_decoder_replay": true,
+        "decoder_replay_cudagraph_capture_sizes": [],
+        "decoder_replay_trim_threshold": 768,
+        "compile_sizes": [],
+        "compile_ranges_endpoints": [
+          2048
+        ],
+        "inductor_compile_config": {
+          "enable_auto_functionalized_v2": false,
+          "size_asserts": false,
+          "alignment_asserts": false,
+          "scalar_asserts": false,
+          "combo_kernels": true,
+          "benchmark_combo_kernel": true
+        },
+        "inductor_passes": {},
+        "cudagraph_mode": 0,
+        "cudagraph_num_of_warmups": 0,
+        "cudagraph_capture_sizes": [],
+        "cudagraph_copy_inputs": false,
+        "cudagraph_specialize_lora": true,
+        "use_inductor_graph_partition": false,
+        "pass_config": {
+          "fuse_norm_quant": true,
+          "fuse_act_quant": true,
+          "fuse_attn_quant": false,
+          "eliminate_noops": true,
+          "fuse_allreduce_rms": false,
+          "enable_qk_norm_rope_fusion": false,
+          "fuse_rope_kvcache_cat_mla": false,
+          "fuse_act_padding": false,
+          "fuse_mla_dual_rms_norm": null,
+          "fuse_rope_kvcache": null,
+          "fuse_qk_norm_rope_kvcache": false,
+          "rope_kvcache_fusion_max_token_num": 256,
+          "fi_allreduce_fusion_max_size_mb": null
+        },
+        "max_cudagraph_capture_size": 0,
+        "dynamic_shapes_config": {
+          "type": "backed",
+          "evaluate_guards": false,
+          "assume_32_bit_indexing": false
+        },
+        "local_cache_dir": null,
+        "fast_moe_cold_start": true,
+        "enabled_custom_ops": {},
+        "disabled_custom_ops": {},
+        "traced_files": [],
+        "compilation_time": 0.0,
+        "encoder_compilation_time": 0.0,
+        "static_forward_context": {},
+        "static_all_moe_layers": []
+      },
+      "receipt": "experiments/evidence/metax-60-glm53-scan/20261124/startup-r2/01-scheduling/qualification.json",
+      "server_info": "experiments/evidence/metax-60-glm53-scan/20261124/startup-r2/01-scheduling/glm53-vllm-a-budget2048/server-info.json"
+    },
+    {
+      "stage": "01-scheduling",
+      "id": "glm53-vllm-a-budget8192",
+      "status": "passed",
+      "http_ready": true,
+      "error": null,
+      "parallelism": {
+        "tp": 8,
+        "pp": 1,
+        "ep": 1,
+        "dp": 1
+      },
+      "scheduling": {
+        "chunked_prefill_tokens": null,
+        "kv_page_tokens": null,
+        "max_running_requests": 128,
+        "max_num_batched_tokens": 8192,
+        "max_model_len": 32768,
+        "enable_chunked_prefill": true
+      },
+      "probes": [
+        {
+          "input_tokens": 128,
+          "output_tokens": 32,
+          "status": "passed"
+        },
+        {
+          "input_tokens": 16384,
+          "output_tokens": 1,
+          "status": "passed"
+        }
+      ],
+      "actual_block_size": 640,
+      "compilation": {
+        "mode": 0,
+        "debug_dump_path": null,
+        "cache_dir": "",
+        "compile_cache_save_format": "binary",
+        "backend": "inductor",
+        "custom_ops": [
+          "all"
+        ],
+        "ir_enable_torch_wrap": false,
+        "splitting_ops": [],
+        "compile_mm_encoder": false,
+        "cudagraph_mm_encoder": false,
+        "encoder_cudagraph_token_budgets": [],
+        "encoder_cudagraph_max_vision_items_per_batch": 0,
+        "encoder_cudagraph_max_frames_per_batch": null,
+        "cudagraph_decoder_replay": true,
+        "decoder_replay_cudagraph_capture_sizes": [],
+        "decoder_replay_trim_threshold": 768,
+        "compile_sizes": [],
+        "compile_ranges_endpoints": [
+          8192
+        ],
+        "inductor_compile_config": {
+          "enable_auto_functionalized_v2": false,
+          "size_asserts": false,
+          "alignment_asserts": false,
+          "scalar_asserts": false,
+          "combo_kernels": true,
+          "benchmark_combo_kernel": true
+        },
+        "inductor_passes": {},
+        "cudagraph_mode": 0,
+        "cudagraph_num_of_warmups": 0,
+        "cudagraph_capture_sizes": [],
+        "cudagraph_copy_inputs": false,
+        "cudagraph_specialize_lora": true,
+        "use_inductor_graph_partition": false,
+        "pass_config": {
+          "fuse_norm_quant": true,
+          "fuse_act_quant": true,
+          "fuse_attn_quant": false,
+          "eliminate_noops": true,
+          "fuse_allreduce_rms": false,
+          "enable_qk_norm_rope_fusion": false,
+          "fuse_rope_kvcache_cat_mla": false,
+          "fuse_act_padding": false,
+          "fuse_mla_dual_rms_norm": null,
+          "fuse_rope_kvcache": null,
+          "fuse_qk_norm_rope_kvcache": false,
+          "rope_kvcache_fusion_max_token_num": 256,
+          "fi_allreduce_fusion_max_size_mb": null
+        },
+        "max_cudagraph_capture_size": 0,
+        "dynamic_shapes_config": {
+          "type": "backed",
+          "evaluate_guards": false,
+          "assume_32_bit_indexing": false
+        },
+        "local_cache_dir": null,
+        "fast_moe_cold_start": true,
+        "enabled_custom_ops": {},
+        "disabled_custom_ops": {},
+        "traced_files": [],
+        "compilation_time": 0.0,
+        "encoder_compilation_time": 0.0,
+        "static_forward_context": {},
+        "static_all_moe_layers": []
+      },
+      "receipt": "experiments/evidence/metax-60-glm53-scan/20261124/startup-r2/01-scheduling/qualification.json",
+      "server_info": "experiments/evidence/metax-60-glm53-scan/20261124/startup-r2/01-scheduling/glm53-vllm-a-budget8192/server-info.json"
+    },
+    {
+      "stage": "01-scheduling",
+      "id": "glm53-vllm-a-seqs64",
+      "status": "passed",
+      "http_ready": true,
+      "error": null,
+      "parallelism": {
+        "tp": 8,
+        "pp": 1,
+        "ep": 1,
+        "dp": 1
+      },
+      "scheduling": {
+        "chunked_prefill_tokens": null,
+        "kv_page_tokens": null,
+        "max_running_requests": 64,
+        "max_num_batched_tokens": 4096,
+        "max_model_len": 32768,
+        "enable_chunked_prefill": true
+      },
+      "probes": [
+        {
+          "input_tokens": 128,
+          "output_tokens": 32,
+          "status": "passed"
+        },
+        {
+          "input_tokens": 16384,
+          "output_tokens": 1,
+          "status": "passed"
+        }
+      ],
+      "actual_block_size": 640,
+      "compilation": {
+        "mode": 0,
+        "debug_dump_path": null,
+        "cache_dir": "",
+        "compile_cache_save_format": "binary",
+        "backend": "inductor",
+        "custom_ops": [
+          "all"
+        ],
+        "ir_enable_torch_wrap": false,
+        "splitting_ops": [],
+        "compile_mm_encoder": false,
+        "cudagraph_mm_encoder": false,
+        "encoder_cudagraph_token_budgets": [],
+        "encoder_cudagraph_max_vision_items_per_batch": 0,
+        "encoder_cudagraph_max_frames_per_batch": null,
+        "cudagraph_decoder_replay": true,
+        "decoder_replay_cudagraph_capture_sizes": [],
+        "decoder_replay_trim_threshold": 768,
+        "compile_sizes": [],
+        "compile_ranges_endpoints": [
+          4096
+        ],
+        "inductor_compile_config": {
+          "enable_auto_functionalized_v2": false,
+          "size_asserts": false,
+          "alignment_asserts": false,
+          "scalar_asserts": false,
+          "combo_kernels": true,
+          "benchmark_combo_kernel": true
+        },
+        "inductor_passes": {},
+        "cudagraph_mode": 0,
+        "cudagraph_num_of_warmups": 0,
+        "cudagraph_capture_sizes": [],
+        "cudagraph_copy_inputs": false,
+        "cudagraph_specialize_lora": true,
+        "use_inductor_graph_partition": false,
+        "pass_config": {
+          "fuse_norm_quant": true,
+          "fuse_act_quant": true,
+          "fuse_attn_quant": false,
+          "eliminate_noops": true,
+          "fuse_allreduce_rms": false,
+          "enable_qk_norm_rope_fusion": false,
+          "fuse_rope_kvcache_cat_mla": false,
+          "fuse_act_padding": false,
+          "fuse_mla_dual_rms_norm": null,
+          "fuse_rope_kvcache": null,
+          "fuse_qk_norm_rope_kvcache": false,
+          "rope_kvcache_fusion_max_token_num": 256,
+          "fi_allreduce_fusion_max_size_mb": null
+        },
+        "max_cudagraph_capture_size": 0,
+        "dynamic_shapes_config": {
+          "type": "backed",
+          "evaluate_guards": false,
+          "assume_32_bit_indexing": false
+        },
+        "local_cache_dir": null,
+        "fast_moe_cold_start": true,
+        "enabled_custom_ops": {},
+        "disabled_custom_ops": {},
+        "traced_files": [],
+        "compilation_time": 0.0,
+        "encoder_compilation_time": 0.0,
+        "static_forward_context": {},
+        "static_all_moe_layers": []
+      },
+      "receipt": "experiments/evidence/metax-60-glm53-scan/20261124/startup-r2/01-scheduling/qualification.json",
+      "server_info": "experiments/evidence/metax-60-glm53-scan/20261124/startup-r2/01-scheduling/glm53-vllm-a-seqs64/server-info.json"
+    },
+    {
+      "stage": "01-scheduling",
+      "id": "glm53-vllm-a-seqs256",
+      "status": "passed",
+      "http_ready": true,
+      "error": null,
+      "parallelism": {
+        "tp": 8,
+        "pp": 1,
+        "ep": 1,
+        "dp": 1
+      },
+      "scheduling": {
+        "chunked_prefill_tokens": null,
+        "kv_page_tokens": null,
+        "max_running_requests": 256,
+        "max_num_batched_tokens": 4096,
+        "max_model_len": 32768,
+        "enable_chunked_prefill": true
+      },
+      "probes": [
+        {
+          "input_tokens": 128,
+          "output_tokens": 32,
+          "status": "passed"
+        },
+        {
+          "input_tokens": 16384,
+          "output_tokens": 1,
+          "status": "passed"
+        }
+      ],
+      "actual_block_size": 640,
+      "compilation": {
+        "mode": 0,
+        "debug_dump_path": null,
+        "cache_dir": "",
+        "compile_cache_save_format": "binary",
+        "backend": "inductor",
+        "custom_ops": [
+          "all"
+        ],
+        "ir_enable_torch_wrap": false,
+        "splitting_ops": [],
+        "compile_mm_encoder": false,
+        "cudagraph_mm_encoder": false,
+        "encoder_cudagraph_token_budgets": [],
+        "encoder_cudagraph_max_vision_items_per_batch": 0,
+        "encoder_cudagraph_max_frames_per_batch": null,
+        "cudagraph_decoder_replay": true,
+        "decoder_replay_cudagraph_capture_sizes": [],
+        "decoder_replay_trim_threshold": 768,
+        "compile_sizes": [],
+        "compile_ranges_endpoints": [
+          4096
+        ],
+        "inductor_compile_config": {
+          "enable_auto_functionalized_v2": false,
+          "size_asserts": false,
+          "alignment_asserts": false,
+          "scalar_asserts": false,
+          "combo_kernels": true,
+          "benchmark_combo_kernel": true
+        },
+        "inductor_passes": {},
+        "cudagraph_mode": 0,
+        "cudagraph_num_of_warmups": 0,
+        "cudagraph_capture_sizes": [],
+        "cudagraph_copy_inputs": false,
+        "cudagraph_specialize_lora": true,
+        "use_inductor_graph_partition": false,
+        "pass_config": {
+          "fuse_norm_quant": true,
+          "fuse_act_quant": true,
+          "fuse_attn_quant": false,
+          "eliminate_noops": true,
+          "fuse_allreduce_rms": false,
+          "enable_qk_norm_rope_fusion": false,
+          "fuse_rope_kvcache_cat_mla": false,
+          "fuse_act_padding": false,
+          "fuse_mla_dual_rms_norm": null,
+          "fuse_rope_kvcache": null,
+          "fuse_qk_norm_rope_kvcache": false,
+          "rope_kvcache_fusion_max_token_num": 256,
+          "fi_allreduce_fusion_max_size_mb": null
+        },
+        "max_cudagraph_capture_size": 0,
+        "dynamic_shapes_config": {
+          "type": "backed",
+          "evaluate_guards": false,
+          "assume_32_bit_indexing": false
+        },
+        "local_cache_dir": null,
+        "fast_moe_cold_start": true,
+        "enabled_custom_ops": {},
+        "disabled_custom_ops": {},
+        "traced_files": [],
+        "compilation_time": 0.0,
+        "encoder_compilation_time": 0.0,
+        "static_forward_context": {},
+        "static_all_moe_layers": []
+      },
+      "receipt": "experiments/evidence/metax-60-glm53-scan/20261124/startup-r2/01-scheduling/qualification.json",
+      "server_info": "experiments/evidence/metax-60-glm53-scan/20261124/startup-r2/01-scheduling/glm53-vllm-a-seqs256/server-info.json"
+    },
+    {
+      "stage": "01-scheduling",
+      "id": "glm53-vllm-a-graph",
+      "status": "passed",
+      "http_ready": true,
+      "error": null,
+      "parallelism": {
+        "tp": 8,
+        "pp": 1,
+        "ep": 1,
+        "dp": 1
+      },
+      "scheduling": {
+        "chunked_prefill_tokens": null,
+        "kv_page_tokens": null,
+        "max_running_requests": 128,
+        "max_num_batched_tokens": 4096,
+        "max_model_len": 32768,
+        "enable_chunked_prefill": true
+      },
+      "probes": [
+        {
+          "input_tokens": 128,
+          "output_tokens": 32,
+          "status": "passed"
+        },
+        {
+          "input_tokens": 16384,
+          "output_tokens": 1,
+          "status": "passed"
+        }
+      ],
+      "actual_block_size": 640,
+      "compilation": {
+        "mode": 0,
+        "debug_dump_path": null,
+        "cache_dir": "",
+        "compile_cache_save_format": "binary",
+        "backend": "inductor",
+        "custom_ops": [
+          "all"
+        ],
+        "ir_enable_torch_wrap": false,
+        "splitting_ops": [],
+        "compile_mm_encoder": false,
+        "cudagraph_mm_encoder": false,
+        "encoder_cudagraph_token_budgets": [],
+        "encoder_cudagraph_max_vision_items_per_batch": 0,
+        "encoder_cudagraph_max_frames_per_batch": null,
+        "cudagraph_decoder_replay": true,
+        "decoder_replay_cudagraph_capture_sizes": [],
+        "decoder_replay_trim_threshold": 768,
+        "compile_sizes": [],
+        "compile_ranges_endpoints": [
+          4096
+        ],
+        "inductor_compile_config": {
+          "enable_auto_functionalized_v2": false,
+          "size_asserts": false,
+          "alignment_asserts": false,
+          "scalar_asserts": false,
+          "combo_kernels": true,
+          "benchmark_combo_kernel": true
+        },
+        "inductor_passes": {},
+        "cudagraph_mode": [
+          2,
+          1
+        ],
+        "cudagraph_num_of_warmups": 1,
+        "cudagraph_capture_sizes": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          24,
+          32,
+          40,
+          48,
+          56,
+          64,
+          72,
+          80,
+          88,
+          96,
+          104,
+          112,
+          120,
+          128,
+          136,
+          144,
+          152,
+          160,
+          168,
+          176,
+          184,
+          192,
+          200,
+          208,
+          216,
+          224,
+          232,
+          240,
+          248,
+          256
+        ],
+        "cudagraph_copy_inputs": false,
+        "cudagraph_specialize_lora": true,
+        "use_inductor_graph_partition": false,
+        "pass_config": {
+          "fuse_norm_quant": true,
+          "fuse_act_quant": true,
+          "fuse_attn_quant": false,
+          "eliminate_noops": true,
+          "fuse_allreduce_rms": false,
+          "enable_qk_norm_rope_fusion": false,
+          "fuse_rope_kvcache_cat_mla": false,
+          "fuse_act_padding": false,
+          "fuse_mla_dual_rms_norm": null,
+          "fuse_rope_kvcache": null,
+          "fuse_qk_norm_rope_kvcache": false,
+          "rope_kvcache_fusion_max_token_num": 256,
+          "fi_allreduce_fusion_max_size_mb": null
+        },
+        "max_cudagraph_capture_size": 256,
+        "dynamic_shapes_config": {
+          "type": "backed",
+          "evaluate_guards": false,
+          "assume_32_bit_indexing": false
+        },
+        "local_cache_dir": null,
+        "fast_moe_cold_start": true,
+        "enabled_custom_ops": {},
+        "disabled_custom_ops": {},
+        "traced_files": [],
+        "compilation_time": 0.0,
+        "encoder_compilation_time": 0.0,
+        "static_forward_context": {},
+        "static_all_moe_layers": []
+      },
+      "receipt": "experiments/evidence/metax-60-glm53-scan/20261124/startup-r2/01-scheduling/qualification.json",
+      "server_info": "experiments/evidence/metax-60-glm53-scan/20261124/startup-r2/01-scheduling/glm53-vllm-a-graph/server-info.json"
+    },
+    {
+      "stage": "02-context64k",
+      "id": "glm53-vllm-a-context64k",
+      "status": "passed",
+      "http_ready": true,
+      "error": null,
+      "parallelism": {
+        "tp": 8,
+        "pp": 1,
+        "ep": 1,
+        "dp": 1
+      },
+      "scheduling": {
+        "chunked_prefill_tokens": null,
+        "kv_page_tokens": null,
+        "max_running_requests": 128,
+        "max_num_batched_tokens": 4096,
+        "max_model_len": 73728,
+        "enable_chunked_prefill": true
+      },
+      "probes": [
+        {
+          "input_tokens": 128,
+          "output_tokens": 32,
+          "status": "passed"
+        },
+        {
+          "input_tokens": 65536,
+          "output_tokens": 1,
+          "status": "passed"
+        }
+      ],
+      "actual_block_size": 640,
+      "compilation": {
+        "mode": 0,
+        "debug_dump_path": null,
+        "cache_dir": "",
+        "compile_cache_save_format": "binary",
+        "backend": "inductor",
+        "custom_ops": [
+          "all"
+        ],
+        "ir_enable_torch_wrap": false,
+        "splitting_ops": [],
+        "compile_mm_encoder": false,
+        "cudagraph_mm_encoder": false,
+        "encoder_cudagraph_token_budgets": [],
+        "encoder_cudagraph_max_vision_items_per_batch": 0,
+        "encoder_cudagraph_max_frames_per_batch": null,
+        "cudagraph_decoder_replay": true,
+        "decoder_replay_cudagraph_capture_sizes": [],
+        "decoder_replay_trim_threshold": 768,
+        "compile_sizes": [],
+        "compile_ranges_endpoints": [
+          4096
+        ],
+        "inductor_compile_config": {
+          "enable_auto_functionalized_v2": false,
+          "size_asserts": false,
+          "alignment_asserts": false,
+          "scalar_asserts": false,
+          "combo_kernels": true,
+          "benchmark_combo_kernel": true
+        },
+        "inductor_passes": {},
+        "cudagraph_mode": 0,
+        "cudagraph_num_of_warmups": 0,
+        "cudagraph_capture_sizes": [],
+        "cudagraph_copy_inputs": false,
+        "cudagraph_specialize_lora": true,
+        "use_inductor_graph_partition": false,
+        "pass_config": {
+          "fuse_norm_quant": true,
+          "fuse_act_quant": true,
+          "fuse_attn_quant": false,
+          "eliminate_noops": true,
+          "fuse_allreduce_rms": false,
+          "enable_qk_norm_rope_fusion": false,
+          "fuse_rope_kvcache_cat_mla": false,
+          "fuse_act_padding": false,
+          "fuse_mla_dual_rms_norm": null,
+          "fuse_rope_kvcache": null,
+          "fuse_qk_norm_rope_kvcache": false,
+          "rope_kvcache_fusion_max_token_num": 256,
+          "fi_allreduce_fusion_max_size_mb": null
+        },
+        "max_cudagraph_capture_size": 0,
+        "dynamic_shapes_config": {
+          "type": "backed",
+          "evaluate_guards": false,
+          "assume_32_bit_indexing": false
+        },
+        "local_cache_dir": null,
+        "fast_moe_cold_start": true,
+        "enabled_custom_ops": {},
+        "disabled_custom_ops": {},
+        "traced_files": [],
+        "compilation_time": 0.0,
+        "encoder_compilation_time": 0.0,
+        "static_forward_context": {},
+        "static_all_moe_layers": []
+      },
+      "receipt": "experiments/evidence/metax-60-glm53-scan/20261124/startup-r2/02-context64k/qualification.json",
+      "server_info": "experiments/evidence/metax-60-glm53-scan/20261124/startup-r2/02-context64k/glm53-vllm-a-context64k/server-info.json"
+    },
+    {
+      "stage": "03-context128k",
+      "id": "glm53-vllm-a-context128k",
+      "status": "passed",
+      "http_ready": true,
+      "error": null,
+      "parallelism": {
+        "tp": 8,
+        "pp": 1,
+        "ep": 1,
+        "dp": 1
+      },
+      "scheduling": {
+        "chunked_prefill_tokens": null,
+        "kv_page_tokens": null,
+        "max_running_requests": 128,
+        "max_num_batched_tokens": 4096,
+        "max_model_len": 147456,
+        "enable_chunked_prefill": true
+      },
+      "probes": [
+        {
+          "input_tokens": 128,
+          "output_tokens": 32,
+          "status": "passed"
+        },
+        {
+          "input_tokens": 131072,
+          "output_tokens": 1,
+          "status": "passed"
+        }
+      ],
+      "actual_block_size": 640,
+      "compilation": {
+        "mode": 0,
+        "debug_dump_path": null,
+        "cache_dir": "",
+        "compile_cache_save_format": "binary",
+        "backend": "inductor",
+        "custom_ops": [
+          "all"
+        ],
+        "ir_enable_torch_wrap": false,
+        "splitting_ops": [],
+        "compile_mm_encoder": false,
+        "cudagraph_mm_encoder": false,
+        "encoder_cudagraph_token_budgets": [],
+        "encoder_cudagraph_max_vision_items_per_batch": 0,
+        "encoder_cudagraph_max_frames_per_batch": null,
+        "cudagraph_decoder_replay": true,
+        "decoder_replay_cudagraph_capture_sizes": [],
+        "decoder_replay_trim_threshold": 768,
+        "compile_sizes": [],
+        "compile_ranges_endpoints": [
+          4096
+        ],
+        "inductor_compile_config": {
+          "enable_auto_functionalized_v2": false,
+          "size_asserts": false,
+          "alignment_asserts": false,
+          "scalar_asserts": false,
+          "combo_kernels": true,
+          "benchmark_combo_kernel": true
+        },
+        "inductor_passes": {},
+        "cudagraph_mode": 0,
+        "cudagraph_num_of_warmups": 0,
+        "cudagraph_capture_sizes": [],
+        "cudagraph_copy_inputs": false,
+        "cudagraph_specialize_lora": true,
+        "use_inductor_graph_partition": false,
+        "pass_config": {
+          "fuse_norm_quant": true,
+          "fuse_act_quant": true,
+          "fuse_attn_quant": false,
+          "eliminate_noops": true,
+          "fuse_allreduce_rms": false,
+          "enable_qk_norm_rope_fusion": false,
+          "fuse_rope_kvcache_cat_mla": false,
+          "fuse_act_padding": false,
+          "fuse_mla_dual_rms_norm": null,
+          "fuse_rope_kvcache": null,
+          "fuse_qk_norm_rope_kvcache": false,
+          "rope_kvcache_fusion_max_token_num": 256,
+          "fi_allreduce_fusion_max_size_mb": null
+        },
+        "max_cudagraph_capture_size": 0,
+        "dynamic_shapes_config": {
+          "type": "backed",
+          "evaluate_guards": false,
+          "assume_32_bit_indexing": false
+        },
+        "local_cache_dir": null,
+        "fast_moe_cold_start": true,
+        "enabled_custom_ops": {},
+        "disabled_custom_ops": {},
+        "traced_files": [],
+        "compilation_time": 0.0,
+        "encoder_compilation_time": 0.0,
+        "static_forward_context": {},
+        "static_all_moe_layers": []
+      },
+      "receipt": "experiments/evidence/metax-60-glm53-scan/20261124/startup-r2/03-context128k/qualification.json",
+      "server_info": "experiments/evidence/metax-60-glm53-scan/20261124/startup-r2/03-context128k/glm53-vllm-a-context128k/server-info.json"
+    },
+    {
+      "stage": "04-cache",
+      "id": "glm53-vllm-a-cache",
+      "status": "failed",
+      "http_ready": true,
+      "error": "cache replay does not satisfy declared per-request cache requirement",
+      "parallelism": {
+        "tp": 8,
+        "pp": 1,
+        "ep": 1,
+        "dp": 1
+      },
+      "scheduling": {
+        "chunked_prefill_tokens": null,
+        "kv_page_tokens": null,
+        "max_running_requests": 128,
+        "max_num_batched_tokens": 4096,
+        "max_model_len": 32768,
+        "enable_chunked_prefill": true
+      },
+      "probes": [
+        {
+          "input_tokens": 128,
+          "output_tokens": 32,
+          "status": "passed"
+        },
+        {
+          "input_tokens": 4096,
+          "output_tokens": 1,
+          "status": "passed"
+        }
+      ],
+      "actual_block_size": 640,
+      "compilation": {
+        "mode": 0,
+        "debug_dump_path": null,
+        "cache_dir": "",
+        "compile_cache_save_format": "binary",
+        "backend": "inductor",
+        "custom_ops": [
+          "all"
+        ],
+        "ir_enable_torch_wrap": false,
+        "splitting_ops": [],
+        "compile_mm_encoder": false,
+        "cudagraph_mm_encoder": false,
+        "encoder_cudagraph_token_budgets": [],
+        "encoder_cudagraph_max_vision_items_per_batch": 0,
+        "encoder_cudagraph_max_frames_per_batch": null,
+        "cudagraph_decoder_replay": true,
+        "decoder_replay_cudagraph_capture_sizes": [],
+        "decoder_replay_trim_threshold": 768,
+        "compile_sizes": [],
+        "compile_ranges_endpoints": [
+          4096
+        ],
+        "inductor_compile_config": {
+          "enable_auto_functionalized_v2": false,
+          "size_asserts": false,
+          "alignment_asserts": false,
+          "scalar_asserts": false,
+          "combo_kernels": true,
+          "benchmark_combo_kernel": true
+        },
+        "inductor_passes": {},
+        "cudagraph_mode": 0,
+        "cudagraph_num_of_warmups": 0,
+        "cudagraph_capture_sizes": [],
+        "cudagraph_copy_inputs": false,
+        "cudagraph_specialize_lora": true,
+        "use_inductor_graph_partition": false,
+        "pass_config": {
+          "fuse_norm_quant": true,
+          "fuse_act_quant": true,
+          "fuse_attn_quant": false,
+          "eliminate_noops": true,
+          "fuse_allreduce_rms": false,
+          "enable_qk_norm_rope_fusion": false,
+          "fuse_rope_kvcache_cat_mla": false,
+          "fuse_act_padding": false,
+          "fuse_mla_dual_rms_norm": null,
+          "fuse_rope_kvcache": null,
+          "fuse_qk_norm_rope_kvcache": false,
+          "rope_kvcache_fusion_max_token_num": 256,
+          "fi_allreduce_fusion_max_size_mb": null
+        },
+        "max_cudagraph_capture_size": 0,
+        "dynamic_shapes_config": {
+          "type": "backed",
+          "evaluate_guards": false,
+          "assume_32_bit_indexing": false
+        },
+        "local_cache_dir": null,
+        "fast_moe_cold_start": true,
+        "enabled_custom_ops": {},
+        "disabled_custom_ops": {},
+        "traced_files": [],
+        "compilation_time": 0.0,
+        "encoder_compilation_time": 0.0,
+        "static_forward_context": {},
+        "static_all_moe_layers": []
+      },
+      "receipt": "experiments/evidence/metax-60-glm53-scan/20261124/startup-r2/04-cache/qualification.json",
+      "server_info": "experiments/evidence/metax-60-glm53-scan/20261124/startup-r2/04-cache/glm53-vllm-a-cache/server-info.json"
+    }
+  ],
+  "cache": {
+    "input_tokens": 4096,
+    "cached_tokens": 3840,
+    "hit_ratio": 0.9375,
+    "uncached_tokens": 256,
+    "required_hit_ratio": 1.0,
+    "required_max_uncached_tokens": 0
+  },
+  "batches": [
+    {
+      "id": "batch-20261124T120300Z-b51b3daf",
+      "status": "completed",
+      "path": "experiments/runs/benchmark/batch-20261124T120300Z-b51b3daf"
+    }
+  ],
+  "pipeline_runs": [
+    {
+      "id": "run-d1822b2123064f45",
+      "status": "completed",
+      "concurrency": 1,
+      "counts": {
+        "planned": 4,
+        "observed": 4,
+        "succeeded": 4,
+        "failed": 0,
+        "missing": 0
+      },
+      "validity": "valid",
+      "environment_issues": [],
+      "issues": [],
+      "statistics": {
+        "ttft": {
+          "count": 4,
+          "mean": 224.39818699999998,
+          "min": 207.673217,
+          "max": 271.700634,
+          "p50": 209.10944849999998,
+          "p90": 252.9476136,
+          "p95": 262.32412379999994,
+          "p99": 269.82533195999997
+        },
+        "tpot": {
+          "count": 4,
+          "mean": 148.7094255,
+          "min": 148.43060658064516,
+          "max": 149.13458796774194,
+          "p50": 148.63625372580645,
+          "p90": 149.04130162258065,
+          "p95": 149.0879447951613,
+          "p99": 149.1252593332258
+        },
+        "e2e_latency": {
+          "count": 4,
+          "mean": 4834.3903775,
+          "min": 4809.022021,
+          "max": 4894.872861,
+          "p50": 4816.8333139999995,
+          "p90": 4873.1792934,
+          "p95": 4884.0260772,
+          "p99": 4892.70350424
+        },
+        "input_tokens": {
+          "count": 4,
+          "mean": 128.0,
+          "min": 128,
+          "max": 128,
+          "p50": 128.0,
+          "p90": 128.0,
+          "p95": 128.0,
+          "p99": 128.0
+        },
+        "output_tokens": {
+          "count": 4,
+          "mean": 32.0,
+          "min": 32,
+          "max": 32,
+          "p50": 32.0,
+          "p90": 32.0,
+          "p95": 32.0,
+          "p99": 32.0
+        }
+      },
+      "rates": {
+        "success_rate": 1.0,
+        "request_throughput": 0.20680219338494785,
+        "input_token_throughput": 26.470680753273324,
+        "output_token_throughput": 6.617670188318331
+      },
+      "path": "experiments/runs/benchmark/batch-20261124T120300Z-b51b3daf/run-d1822b2123064f45",
+      "record": "experiments/records/run-d1822b2123064f45.yaml"
+    },
+    {
+      "id": "run-45fb66a83a5e4efe",
+      "status": "completed",
+      "concurrency": 2,
+      "counts": {
+        "planned": 8,
+        "observed": 8,
+        "succeeded": 8,
+        "failed": 0,
+        "missing": 0
+      },
+      "validity": "valid",
+      "environment_issues": [],
+      "issues": [],
+      "statistics": {
+        "ttft": {
+          "count": 8,
+          "mean": 375.85095049999995,
+          "min": 269.890013,
+          "max": 486.937661,
+          "p50": 374.88694649999996,
+          "p90": 428.10397489999997,
+          "p95": 457.5208179499999,
+          "p99": 481.05429239
+        },
+        "tpot": {
+          "count": 8,
+          "mean": 151.92355502016127,
+          "min": 150.35492283870968,
+          "max": 153.93270654838707,
+          "p50": 151.9430532580645,
+          "p90": 153.1696628548387,
+          "p95": 153.55118470161287,
+          "p99": 153.85640217903224
+        },
+        "e2e_latency": {
+          "count": 8,
+          "mean": 5085.481156125,
+          "min": 5041.803916,
+          "max": 5190.5097749999995,
+          "p50": 5074.8943954999995,
+          "p90": 5117.7674459,
+          "p95": 5154.13861045,
+          "p99": 5183.235542089999
+        },
+        "input_tokens": {
+          "count": 8,
+          "mean": 128.0,
+          "min": 128,
+          "max": 128,
+          "p50": 128.0,
+          "p90": 128.0,
+          "p95": 128.0,
+          "p99": 128.0
+        },
+        "output_tokens": {
+          "count": 8,
+          "mean": 32.0,
+          "min": 32,
+          "max": 32,
+          "p50": 32.0,
+          "p90": 32.0,
+          "p95": 32.0,
+          "p99": 32.0
+        }
+      },
+      "rates": {
+        "success_rate": 1.0,
+        "request_throughput": 0.3917730288814195,
+        "input_token_throughput": 50.1469476968217,
+        "output_token_throughput": 12.536736924205425
+      },
+      "path": "experiments/runs/benchmark/batch-20261124T120300Z-b51b3daf/run-45fb66a83a5e4efe",
+      "record": "experiments/records/run-45fb66a83a5e4efe.yaml"
+    }
+  ],
+  "registration_recovery": {
+    "reason": "Staged remote checkout lacked diagnosis module required by existing experiment registration; full project modules copied, original GPU data retained.",
+    "command": [
+      "python3",
+      "-m",
+      "tools.experiments",
+      "register",
+      "experiments/runs/benchmark/batch-20261124T120300Z-b51b3daf"
+    ],
+    "exit": 0,
+    "stdout": "[\n  \"/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/experiments/records/run-d1822b2123064f45.yaml\",\n  \"/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/experiments/records/run-45fb66a83a5e4efe.yaml\"\n]\n",
+    "stderr": "",
+    "new_gpu_execution": false
+  },
+  "restoration": {
+    "container": "/inferoptlab-glm53-vllm-r1",
+    "image": "sha256:9d82e3b3cc52430770a02b00d8c763b62e9c8bc64c4be871d9be25148e4fdf8b",
+    "running": true,
+    "health_http_status": 200,
+    "remaining_owned_test_containers": []
+  },
+  "automated_tests": {
+    "run": 134,
+    "skipped": 1,
+    "result": "OK"
+  },
+  "limitations": [
+    "Industry GLM-5.3 SLA is diagnostic reference for Flash; original statistics/comparators are unresolved.",
+    "Exact input probes do not prove high-concurrency capacity or long-output performance.",
+    "Strict all-cached Decode remains blocked; do not relabel cached HTTP replay as pure device Decode.",
+    "Graph execution is active but torch.compile mode remains 0.",
+    "C500 H=4096 E=288 N=256 INT8 W8A8 tuned MoE config is missing; backend default was used.",
+    "No PP>1, DP8, DP>1 cache routing, MTP, DeepEP or asynchronous-scheduler qualification.",
+    "Full model weight byte hashes and quality acceptance are not established by this test."
+  ]
+}

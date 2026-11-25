@@ -1,0 +1,68 @@
+Flag --time has been deprecated, use --timeout instead
+inferoptlab-glm53-vllm-r1
+STAGE 00-layout
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/benchmark/load/__main__.py", line 1, in <module>
+    from benchmark.load.cli import main
+  File "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/benchmark/load/cli.py", line 9, in <module>
+    from tools.specs import ROOT, Catalog, SpecError, digest, read, write
+  File "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/tools/specs.py", line 19, in <module>
+    from jsonschema import Draft202012Validator
+ImportError: cannot import name 'Draft202012Validator' from 'jsonschema' (/usr/lib/python3/dist-packages/jsonschema/__init__.py)
+STAGE 01-scheduling
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/benchmark/load/__main__.py", line 1, in <module>
+    from benchmark.load.cli import main
+  File "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/benchmark/load/cli.py", line 9, in <module>
+    from tools.specs import ROOT, Catalog, SpecError, digest, read, write
+  File "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/tools/specs.py", line 19, in <module>
+    from jsonschema import Draft202012Validator
+ImportError: cannot import name 'Draft202012Validator' from 'jsonschema' (/usr/lib/python3/dist-packages/jsonschema/__init__.py)
+STAGE 02-context64k
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/benchmark/load/__main__.py", line 1, in <module>
+    from benchmark.load.cli import main
+  File "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/benchmark/load/cli.py", line 9, in <module>
+    from tools.specs import ROOT, Catalog, SpecError, digest, read, write
+  File "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/tools/specs.py", line 19, in <module>
+    from jsonschema import Draft202012Validator
+ImportError: cannot import name 'Draft202012Validator' from 'jsonschema' (/usr/lib/python3/dist-packages/jsonschema/__init__.py)
+STAGE 03-context128k
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/benchmark/load/__main__.py", line 1, in <module>
+    from benchmark.load.cli import main
+  File "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/benchmark/load/cli.py", line 9, in <module>
+    from tools.specs import ROOT, Catalog, SpecError, digest, read, write
+  File "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/tools/specs.py", line 19, in <module>
+    from jsonschema import Draft202012Validator
+ImportError: cannot import name 'Draft202012Validator' from 'jsonschema' (/usr/lib/python3/dist-packages/jsonschema/__init__.py)
+STAGE 04-cache
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/benchmark/load/__main__.py", line 1, in <module>
+    from benchmark.load.cli import main
+  File "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/benchmark/load/cli.py", line 9, in <module>
+    from tools.specs import ROOT, Catalog, SpecError, digest, read, write
+  File "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/tools/specs.py", line 19, in <module>
+    from jsonschema import Draft202012Validator
+ImportError: cannot import name 'Draft202012Validator' from 'jsonschema' (/usr/lib/python3/dist-packages/jsonschema/__init__.py)
+inferoptlab-glm53-vllm-r1

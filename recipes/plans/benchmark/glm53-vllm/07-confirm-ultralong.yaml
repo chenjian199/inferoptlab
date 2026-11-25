@@ -1,0 +1,31 @@
+schema_version: 0.2.0
+kind: BenchmarkPlan
+id: glm53-vllm-07-confirm-ultralong
+version: 1.0.0
+title: 07-confirm-ultralong
+provenance: []
+issues: []
+extensions: {}
+study_ref:
+  id: glm53-vllm-c500-scan
+  version: 1.0.0
+deployment_refs:
+- id: glm53-vllm-a-context128k
+  version: 1.0.0
+scenario_refs:
+- id: glm53-vllm-e2e-128k
+  version: 1.0.0
+mode: exploratory
+qualification_required: true
+aiperf:
+  version: 0.12.0
+  server_metrics:
+  - http://127.0.0.1:18082/metrics
+  gpu_telemetry: []
+  required_telemetry: server
+budget:
+  max_runs: 300
+  max_wall_seconds: 259200
+  run_timeout_s: 43200
+order_seed: 20261124
+failure_policy: stop

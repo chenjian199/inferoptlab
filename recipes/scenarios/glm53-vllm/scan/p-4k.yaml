@@ -1,0 +1,12 @@
+schema_version: 0.2.0
+kind: BenchmarkScenario
+id: glm53-vllm-scan-p-4k
+version: 1.0.0
+title: GLM Flash 完整扫描 p-4k 请求集
+provenance: []
+issues: []
+extensions: {}
+case_ref:
+  id: glm53-vllm-scan-p-4k-case
+  version: 1.0.0
+dataset_dir: experiments/datasets/glm53-vllm/scan/p-4k

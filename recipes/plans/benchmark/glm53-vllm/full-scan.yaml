@@ -1,0 +1,53 @@
+schema_version: 0.2.0
+kind: BenchmarkPlan
+id: glm53-vllm-full-scan-plan
+version: 1.0.0
+title: GLM Flash 八卡六种配置正式完整扫描
+provenance: []
+issues: []
+extensions:
+  scan.policy: All listed deployments × scenarios × workload concurrency points ×
+    protocol repetitions. No screening or winner selection.
+study_ref:
+  id: glm53-vllm-full-scan
+  version: 1.0.0
+deployment_refs:
+- id: glm53-vllm-scan-a-tp8
+  version: 1.0.0
+- id: glm53-vllm-scan-b-tp8-ep8
+  version: 1.0.0
+- id: glm53-vllm-scan-c-tp4-dp2-ep8
+  version: 1.0.0
+- id: glm53-vllm-scan-d-tp2-dp4-ep8
+  version: 1.0.0
+- id: glm53-vllm-scan-e-tp1-dp8-ep8
+  version: 1.0.0
+- id: glm53-vllm-scan-f-tp8-graph
+  version: 1.0.0
+scenario_refs:
+- id: glm53-vllm-scan-p-4k
+  version: 1.0.0
+- id: glm53-vllm-scan-p-64k
+  version: 1.0.0
+- id: glm53-vllm-scan-p-128k
+  version: 1.0.0
+- id: glm53-vllm-scan-e2e-16k
+  version: 1.0.0
+- id: glm53-vllm-scan-e2e-64k
+  version: 1.0.0
+- id: glm53-vllm-scan-e2e-128k
+  version: 1.0.0
+mode: formal
+qualification_required: true
+aiperf:
+  version: 0.12.0
+  server_metrics:
+  - http://127.0.0.1:18082/metrics
+  gpu_telemetry: []
+  required_telemetry: server
+budget:
+  max_runs: 2000
+  max_wall_seconds: 1209600
+  run_timeout_s: 43200
+order_seed: 20261124
+failure_policy: stop

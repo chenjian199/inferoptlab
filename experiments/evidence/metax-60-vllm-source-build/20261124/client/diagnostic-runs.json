@@ -1,0 +1,29 @@
+{
+  "formal_baseline": false,
+  "runs": [
+    {
+      "scenario": "prefill-smoke",
+      "concurrency": 1,
+      "request_count": 4,
+      "request_multiplier": 4,
+      "input_tokens": 128,
+      "output_tokens": 1
+    },
+    {
+      "scenario": "short-smoke",
+      "concurrency": 1,
+      "request_count": 4,
+      "request_multiplier": 4,
+      "input_tokens": 128,
+      "output_tokens": 32
+    },
+    {
+      "scenario": "long-smoke",
+      "concurrency": 1,
+      "request_count": 4,
+      "request_multiplier": 4,
+      "input_tokens": 1024,
+      "output_tokens": 32
+    }
+  ]
+}

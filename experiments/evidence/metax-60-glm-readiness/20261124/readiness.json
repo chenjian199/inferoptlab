@@ -1,0 +1,32 @@
+{
+  "captured_at": "2026-11-24T04:52:26.516517+00:00",
+  "host": "metax-60",
+  "address": "172.17.0.60",
+  "user": "ubuntu",
+  "model": "GLM-5.3-Flash-W8A8",
+  "status": "blocked_at_weight_loading",
+  "http_ready": false,
+  "performance_measured": false,
+  "startup_attempts": [
+    {
+      "path": "startup/result.json",
+      "status": "startup_failed",
+      "cause": "inherited DeepSeek V4.1-specific loader environment"
+    },
+    {
+      "path": "startup-glm/result.json",
+      "status": "startup_failed",
+      "cause": "INT8 target / BF16 checkpoint tensor dtype mismatch"
+    }
+  ],
+  "aiperf_tar_platform": "linux/arm64",
+  "host_platform": "linux/amd64",
+  "aiperf_client_status": "cli_verified",
+  "aiperf_version": "0.12.0",
+  "model_execution_qualified": false,
+  "next_steps": [
+    "prepare compatible GLM runtime (known vLLM-MetaX baseline or qualified SGLang loader)",
+    "validate loading, scales, correctness and HTTP streaming",
+    "bind actual runtime/deployment and smoke-test AIPerf before P/D scans"
+  ]
+}

@@ -1,0 +1,12 @@
+schema_version: 0.2.0
+kind: BenchmarkScenario
+id: glm53-vllm-pipeline
+version: 1.0.0
+title: glm53-vllm-pipeline
+provenance: []
+issues: []
+extensions: {}
+case_ref:
+  id: glm53-vllm-pipeline-case
+  version: 1.0.0
+dataset_dir: experiments/datasets/glm53-vllm/pipeline

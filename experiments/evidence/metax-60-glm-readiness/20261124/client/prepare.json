@@ -1,0 +1,26 @@
+{
+  "image": "sha256:43af58b15b63b6095611b257590466632433d6786d66386839e1c5b8027d30ad",
+  "workdir": "/home/ubuntu/CJ_workspace/inferoptlab-client-20261124",
+  "argv": [
+    "docker",
+    "run",
+    "--pull=never",
+    "--rm",
+    "-i",
+    "--name",
+    "inferoptlab-client-install-20261124",
+    "--user",
+    "1000:1000",
+    "--mount",
+    "type=bind,source=/home/ubuntu/CJ_workspace/inferoptlab-client-20261124,target=/work",
+    "-e",
+    "HOME=/work",
+    "--entrypoint",
+    "python3",
+    "sha256:43af58b15b63b6095611b257590466632433d6786d66386839e1c5b8027d30ad",
+    "-"
+  ],
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"<stdin>\", line 7, in <module>\n  File \"/opt/conda/lib/python3.12/subprocess.py\", line 550, in run\n    stdout, stderr = process.communicate(input, timeout=timeout)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/conda/lib/python3.12/subprocess.py\", line 1209, in communicate\n    stdout, stderr = self._communicate(input, endtime, timeout)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/conda/lib/python3.12/subprocess.py\", line 2141, in _communicate\n    self.wait(timeout=self._remaining_time(endtime))\n  File \"/opt/conda/lib/python3.12/subprocess.py\", line 1264, in wait\n    return self._wait(timeout=timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/conda/lib/python3.12/subprocess.py\", line 2045, in _wait\n    raise TimeoutExpired(self.args, timeout)\nsubprocess.TimeoutExpired: Command '['/work/venv/bin/python', '-m', 'pip', 'install', '--disable-pip-version-check', '--index-url', 'https://pypi.org/simple', 'aiperf==0.12.0', 'PyYAML>=6.0.2,<7', 'jsonschema>=4.23,<5', 'referencing>=0.35,<1']' timed out after 239.99999248608947 seconds\n"
+}

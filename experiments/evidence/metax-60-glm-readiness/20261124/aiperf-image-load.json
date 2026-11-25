@@ -1,0 +1,6 @@
+{
+  "command": "docker load -i /home/ubuntu/CJ_workspace/aiperf.tar",
+  "returncode": 0,
+  "stdout": "Loaded image: pagoda-aiperf-runner-ascend:v0.0.1\n",
+  "stderr": ""
+}

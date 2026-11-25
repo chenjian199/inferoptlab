@@ -22,7 +22,7 @@ from benchmark.load.planner import embedded_catalog, scenario_parts, snapshot_er
 from benchmark.load.metrics.normalize import normalize
 from benchmark.load.metrics.evaluate import evaluate
 from benchmark.load.metrics.report import batch_report, run_report
-from benchmark.load.counts import at_point, fixture_name, fixture_source
+from benchmark.load.counts import at_point, fixture_name, fixture_source, protocol_at_point
 
 
 @contextmanager
@@ -68,7 +68,7 @@ def environment(visibility_env='CUDA_VISIBLE_DEVICES'):
     return result
 
 
-def execute(catalog, snapshot, output_root):
+def execute(catalog, snapshot, output_root, qualification=None):
     output_root=Path(output_root).resolve()
     if not output_root.is_relative_to((catalog.root/'experiments').resolve()):
         raise SpecError('benchmark output must be inside experiments/ so records remain portable')
@@ -81,18 +81,26 @@ def execute(catalog, snapshot, output_root):
         raise SpecError('execution blocked:\n'+'\n'.join(snapshot['execution_issues']))
     if plan['mode']=='formal' and snapshot['state']!='frozen':
         raise SpecError('formal execution requires a frozen ResolvedBenchmark')
+    receipt = None
+    if plan.get('qualification_required'):
+        if qualification is None:
+            raise SpecError('this plan requires --qualification before execution')
+        from benchmark.load.qualification import verify_receipt
+        receipt = verify_receipt(catalog,snapshot,qualification)
     executable=aiperf.check_installation(plan['aiperf']['version'])
     if os.name!='posix':
         raise SpecError('live benchmark execution requires Linux; prepare/plan/analyze/report are portable')
     with lease(catalog.root):
-        return _execute(catalog,snapshot,plan,executable,Path(output_root))
+        return _execute(catalog,snapshot,plan,executable,Path(output_root),receipt)
 
 
-def _execute(catalog,snapshot,plan,executable,output_root):
+def _execute(catalog,snapshot,plan,executable,output_root,qualification=None):
     batch_id='batch-'+time.strftime('%Y%m%dT%H%M%SZ',time.gmtime())+'-'+uuid.uuid4().hex[:8]
     directory=output_root.resolve()/batch_id
     directory.mkdir(parents=True,exist_ok=False)
     write(directory/'resolved.yaml',snapshot)
+    if qualification is not None:
+        json_write(directory/'qualification.json',qualification)
     deadline=time.monotonic()+plan['budget']['max_wall_seconds']
     study=catalog.get(plan['study_ref'])
     allocated=catalog.get(study['hardware_ref'])['resources']['allocated_devices']
@@ -119,7 +127,7 @@ def _execute(catalog,snapshot,plan,executable,output_root):
                 shutil.copytree(inside(catalog.root,fixture_source(scene,workload,concurrency)),target)
                 for deployment_ref in plan['deployment_refs']:
                     deployment=catalog.get(deployment_ref)
-                    manifest=dataset.verify(at_point(workload,concurrency),protocol,deployment['serving']['tokenizer_path'],target)
+                    manifest=dataset.verify(at_point(workload,concurrency),protocol_at_point(protocol,concurrency),deployment['serving']['tokenizer_path'],target)
                     manifests[name]=manifest
         state['status']='running'
         for trial in snapshot['trials']:
@@ -127,6 +135,7 @@ def _execute(catalog,snapshot,plan,executable,output_root):
             scene,case,workload,protocol=scenario_parts(catalog,trial['scenario_ref'])
             fixture_id=fixture_name(scene,workload,trial['concurrency'])
             workload=at_point(workload,trial['concurrency'])
+            protocol=protocol_at_point(protocol,trial['concurrency'])
             entry=dict(trial_id=trial['id'],deployment=deployment['id'],scenario=scene['id'],concurrency=trial['concurrency'],repetition=trial['repetition'],status='pending',directory=None)
             ledger.append(entry)
             if time.monotonic()>=deadline or state['status']=='stopped':
@@ -224,7 +233,7 @@ def _execute(catalog,snapshot,plan,executable,output_root):
                 interrupted=True
                 record.update(status='interrupted',error='interrupted by user')
                 state['status']='stopped'
-            except (SpecError,OSError,ValueError,KeyError) as exc:
+            except (SpecError,OSError,ValueError,KeyError,subprocess.SubprocessError) as exc:
                 record.update(status='failed',error=str(exc))
                 if active:
                     active.close()

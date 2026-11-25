@@ -1,0 +1,8 @@
+{"rank": 0, "gpu": "MetaX C500", "torch": "2.10.0+metax3.9.0.8", "bf16_matmul": "pass", "all_reduce": "pass", "all_gather": "pass"}
+{"rank": 1, "gpu": "MetaX C500", "torch": "2.10.0+metax3.9.0.8", "bf16_matmul": "pass", "all_reduce": "pass", "all_gather": "pass"}
+{"rank": 3, "gpu": "MetaX C500", "torch": "2.10.0+metax3.9.0.8", "bf16_matmul": "pass", "all_reduce": "pass", "all_gather": "pass"}
+{"rank": 5, "gpu": "MetaX C500", "torch": "2.10.0+metax3.9.0.8", "bf16_matmul": "pass", "all_reduce": "pass", "all_gather": "pass"}
+{"rank": 6, "gpu": "MetaX C500", "torch": "2.10.0+metax3.9.0.8", "bf16_matmul": "pass", "all_reduce": "pass", "all_gather": "pass"}
+{"rank": 4, "gpu": "MetaX C500", "torch": "2.10.0+metax3.9.0.8", "bf16_matmul": "pass", "all_reduce": "pass", "all_gather": "pass"}{"rank": 2, "gpu": "MetaX C500", "torch": "2.10.0+metax3.9.0.8", "bf16_matmul": "pass", "all_reduce": "pass", "all_gather": "pass"}
+
+{"rank": 7, "gpu": "MetaX C500", "torch": "2.10.0+metax3.9.0.8", "bf16_matmul": "pass", "all_reduce": "pass", "all_gather": "pass"}

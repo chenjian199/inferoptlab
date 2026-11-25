@@ -1,0 +1,191 @@
+[
+  {
+    "file": "apache_tvm_ffi-0.1.11+maca-cp312-abi3-linux_x86_64.whl",
+    "bytes": 2654104,
+    "sha256": "266a9267ff07678c2f18b920c30c3cd0b0c5b0c52971e822714a7cc256bfe060",
+    "repository_sha256": "266a9267ff07678c2f18b920c30c3cd0b0c5b0c52971e822714a7cc256bfe060",
+    "repository_hash_matches": true
+  },
+  {
+    "file": "apex-0.1+metax3.9.0.8-cp312-cp312-linux_x86_64.whl",
+    "bytes": 188788411,
+    "sha256": "0ca4b12edeca7c36be4c3eaf9144ff46f62cf35f1edf86111346ce9607dbb4db",
+    "repository_sha256": "0ca4b12edeca7c36be4c3eaf9144ff46f62cf35f1edf86111346ce9607dbb4db",
+    "repository_hash_matches": true
+  },
+  {
+    "file": "block_sparse_attn-0.0.2+metax3.9.0.8-cp312-cp312-linux_x86_64.whl",
+    "bytes": 125903300,
+    "sha256": "25c3fcb6e733cce6cb7a8704a97f551e41c3a64d6360856b24602f2f8efc9d1c",
+    "repository_sha256": "25c3fcb6e733cce6cb7a8704a97f551e41c3a64d6360856b24602f2f8efc9d1c",
+    "repository_hash_matches": true
+  },
+  {
+    "file": "causal_conv1d-1.5.4+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 62041037,
+    "sha256": "601ea54b9d99c455f066a762b54ab389de16f7eb3e56d264be5560312fef2bfe",
+    "repository_sha256": "601ea54b9d99c455f066a762b54ab389de16f7eb3e56d264be5560312fef2bfe",
+    "repository_hash_matches": true
+  },
+  {
+    "file": "deep_ep-1.0.0+metax3.9.0.11torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 59282723,
+    "sha256": "0a00ad95a2c60090283bfdca703dc0713162bcef193ee6fa5c8c755b0c903e18",
+    "repository_sha256": "0a00ad95a2c60090283bfdca703dc0713162bcef193ee6fa5c8c755b0c903e18",
+    "repository_hash_matches": true
+  },
+  {
+    "file": "deep_gemm-0.2.0+maca0.4.11.1-py3-none-any.whl",
+    "bytes": 487871,
+    "sha256": "d4a38a35493360f4660333e8a24176e8587f66eb1c1862bf45bdb18d83117a2c",
+    "repository_sha256": "d4a38a35493360f4660333e8a24176e8587f66eb1c1862bf45bdb18d83117a2c",
+    "repository_hash_matches": true
+  },
+  {
+    "file": "dropout_layer_norm-0.1+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 402972998,
+    "sha256": "2333d4b8ff55163a3c0523e40ec5e2ad1a386811a45fcffef06b344120b28f2d",
+    "repository_sha256": "2333d4b8ff55163a3c0523e40ec5e2ad1a386811a45fcffef06b344120b28f2d",
+    "repository_hash_matches": true
+  },
+  {
+    "file": "flash_attn-2.6.3+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 1369748259,
+    "sha256": "006bedf51877c5a1b01a6790d5688c249c520065b980ef2fcd54d33ac84a32ae",
+    "repository_sha256": "006bedf51877c5a1b01a6790d5688c249c520065b980ef2fcd54d33ac84a32ae",
+    "repository_hash_matches": true
+  },
+  {
+    "file": "flash_attn_3-3.0.0+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 70286460,
+    "sha256": "a4a7e1270a4921ea0b993f154aed9920a6fc8c86b5489baa23c66ffdaf1a9071",
+    "repository_sha256": "a4a7e1270a4921ea0b993f154aed9920a6fc8c86b5489baa23c66ffdaf1a9071",
+    "repository_hash_matches": true
+  },
+  {
+    "file": "flash_mla-1.0.1+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 17139474,
+    "sha256": "842eb5a6940ffd1ebbae9656b896284e22f533c04f6885337538f19a93f24a80",
+    "repository_sha256": "842eb5a6940ffd1ebbae9656b896284e22f533c04f6885337538f19a93f24a80",
+    "repository_hash_matches": true
+  },
+  {
+    "file": "flashinfer-0.2.6+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 184478406,
+    "sha256": "1a8025793de99c0ae97efa823845e00b5e89bc4826de3a04392595f3685de5af",
+    "repository_sha256": "1a8025793de99c0ae97efa823845e00b5e89bc4826de3a04392595f3685de5af",
+    "repository_hash_matches": true
+  },
+  {
+    "file": "fused_dense_lib-2.6.3+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 102968,
+    "sha256": "a69be5c70702214c0593fd97937b49d2ea3881703d265ec84b263a75f5e8358c",
+    "repository_sha256": "a69be5c70702214c0593fd97937b49d2ea3881703d265ec84b263a75f5e8358c",
+    "repository_hash_matches": true
+  },
+  {
+    "file": "lmcache-0.5.3+maca3.8.2.201-cp312-cp312-linux_x86_64.whl",
+    "bytes": 4844683,
+    "sha256": "fdcfd14cb00334ee0da8bf7da3c680f530e801b0d4390ea0fc16a65d0ea4aeac",
+    "repository_sha256": "fdcfd14cb00334ee0da8bf7da3c680f530e801b0d4390ea0fc16a65d0ea4aeac",
+    "repository_hash_matches": true
+  },
+  {
+    "file": "maca_python-0.0.1-cp312-cp312-linux_x86_64.whl",
+    "bytes": 3049380,
+    "sha256": "f567d65d893c17f2a2eec97776131e7f8394f59f7ee084136e108a3097d6ebde",
+    "repository_sha256": "f567d65d893c17f2a2eec97776131e7f8394f59f7ee084136e108a3097d6ebde",
+    "repository_hash_matches": true
+  },
+  {
+    "file": "mamba_ssm-2.2.4+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 239531487,
+    "sha256": "8507d995d9d9da3cefb2ca6e029b67c64d06269c316c37da268b90834c0b0bbb",
+    "repository_sha256": "8507d995d9d9da3cefb2ca6e029b67c64d06269c316c37da268b90834c0b0bbb",
+    "repository_hash_matches": true
+  },
+  {
+    "file": "mcoplib-0.4.14+gf3794c4.maca3.9.0.31.torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 250604949,
+    "sha256": "2733e4d1bb338ef3f6b2e152c41ebdeddff03bd5b28ae87f58177bdcca3adc23",
+    "repository_sha256": "2733e4d1bb338ef3f6b2e152c41ebdeddff03bd5b28ae87f58177bdcca3adc23",
+    "repository_hash_matches": true
+  },
+  {
+    "file": "mctlassEx-0.1.1+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 345272,
+    "sha256": "6b2c9a51e3996fcca77a8101b3b0663c134da12ae2eee65d9cd8dc79a2ba65b4",
+    "repository_sha256": "6b2c9a51e3996fcca77a8101b3b0663c134da12ae2eee65d9cd8dc79a2ba65b4",
+    "repository_hash_matches": true
+  },
+  {
+    "file": "mooncake_transfer_engine-0.3.12+geb7daa.d20260903.maca3.8.2.104-cp312-cp312-manylinux_2_35_x86_64.whl",
+    "bytes": 306909916,
+    "sha256": "e8f2453d552c6e78e12a6acba8322ac6a824e2eae0f76d27543c092edf3d423e",
+    "repository_sha256": "e8f2453d552c6e78e12a6acba8322ac6a824e2eae0f76d27543c092edf3d423e",
+    "repository_hash_matches": true
+  },
+  {
+    "file": "nixl-1.0.0+maca3.8.2.208-cp312-cp312-manylinux_2_28_x86_64.whl",
+    "bytes": 11552712,
+    "sha256": "8fb0b7ac77c6d6817f02d5f0fa01b182a641910f5eb3c01797890c9069c76cfd",
+    "repository_sha256": "8fb0b7ac77c6d6817f02d5f0fa01b182a641910f5eb3c01797890c9069c76cfd",
+    "repository_hash_matches": true
+  },
+  {
+    "file": "rotary_emb-0.1+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 6361693,
+    "sha256": "4c8df8d03496227f963e1178e30b84ec2d7019d82aedb7501a1e9d7aa7eacecf",
+    "repository_sha256": "4c8df8d03496227f963e1178e30b84ec2d7019d82aedb7501a1e9d7aa7eacecf",
+    "repository_hash_matches": true
+  },
+  {
+    "file": "tilelang-0.1.12+maca-cp39-abi3-linux_x86_64.whl",
+    "bytes": 44885092,
+    "sha256": "db7c995d60c8033d1125333a7d15bda9597e3adcb9f17411451b47e9a8809169",
+    "repository_sha256": "db7c995d60c8033d1125333a7d15bda9597e3adcb9f17411451b47e9a8809169",
+    "repository_hash_matches": true
+  },
+  {
+    "file": "torch-2.10.0+metax3.9.0.8-cp312-cp312-linux_x86_64.whl",
+    "bytes": 860453282,
+    "sha256": "a33a39b84b41dfb54d28b52ba443efedf99b0a6f07ade91ebf62830099d9decd",
+    "repository_sha256": "a33a39b84b41dfb54d28b52ba443efedf99b0a6f07ade91ebf62830099d9decd",
+    "repository_hash_matches": true
+  },
+  {
+    "file": "torchaudio-2.4.1+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 3132881,
+    "sha256": "29ba10444d52633d4bdf02286292a86051ce0b0fa778af4d3b292eae5d1a8698",
+    "repository_sha256": "29ba10444d52633d4bdf02286292a86051ce0b0fa778af4d3b292eae5d1a8698",
+    "repository_hash_matches": true
+  },
+  {
+    "file": "torchcodec-0.6.0+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 445803,
+    "sha256": "19e889b7ab63244280c57bfe748d3362fd61d4ae893682d21c29f3b0b3ab5998",
+    "repository_sha256": "19e889b7ab63244280c57bfe748d3362fd61d4ae893682d21c29f3b0b3ab5998",
+    "repository_hash_matches": true
+  },
+  {
+    "file": "torchvision-0.25.0+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 2821195,
+    "sha256": "d18743f570a27d5500e2e1032c086000fe94aa09d823c2db31fdb96f557d3a7c",
+    "repository_sha256": "d18743f570a27d5500e2e1032c086000fe94aa09d823c2db31fdb96f557d3a7c",
+    "repository_hash_matches": true
+  },
+  {
+    "file": "triton-3.6.0+metax3.9.0.8-cp312-cp312-linux_x86_64.whl",
+    "bytes": 959833676,
+    "sha256": "b5d64d9fa09b4be34c49f03cb6faa29cb0c80f1a4a096fe154c151a5dc898e50",
+    "repository_sha256": "b5d64d9fa09b4be34c49f03cb6faa29cb0c80f1a4a096fe154c151a5dc898e50",
+    "repository_hash_matches": true
+  },
+  {
+    "file": "xentropy_cuda_lib-0.1+metax3.9.0.8torch2.10-cp312-cp312-linux_x86_64.whl",
+    "bytes": 199523,
+    "sha256": "b2f8fb10a276571c54c85b659eefb228a4cea1578fc8adc51607cd07455e3256",
+    "repository_sha256": "b2f8fb10a276571c54c85b659eefb228a4cea1578fc8adc51607cd07455e3256",
+    "repository_hash_matches": true
+  }
+]

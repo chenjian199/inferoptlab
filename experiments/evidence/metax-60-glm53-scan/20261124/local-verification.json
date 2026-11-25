@@ -1,0 +1,23 @@
+{
+  "unit_tests": {
+    "total": 134,
+    "skipped": 1,
+    "result": "OK"
+  },
+  "validated_recipe_documents": 392,
+  "reanalysis": [
+    {
+      "run": "run-d1822b2123064f45",
+      "validity": "valid",
+      "metrics_match": true
+    },
+    {
+      "run": "run-45fb66a83a5e4efe",
+      "validity": "valid",
+      "metrics_match": true
+    }
+  ],
+  "float_comparison": "existing project tolerance rel_tol=1e-12, abs_tol=1e-12; Python-version summation may differ at final bits",
+  "index_errors": [],
+  "source_integrity": "verified"
+}

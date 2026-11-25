@@ -1,0 +1,97 @@
+schema_version: 0.2.0
+kind: RuntimeSpec
+id: metax60-vllm-glm53-source
+version: 1.0.0
+title: metax-60 GLM-5.3-Flash vLLM 源码构建环境
+provenance:
+- source_ref:
+    id: source-metax60-glm53-source-build
+    version: 1.0.0
+  locator: /runtime; /image; /server_config
+issues: []
+extensions:
+  source_build.upstream_commit: 5df63a7203cdb9328d824a27b682e77c7b9928be
+  source_build.plugin_base_commit: 0962c8735ffe4795800030680311410848512b82
+  source_build.patch_sha256:
+    glm-w8a8.patch: 8aecb4566881142b874036201e0d5efd73c0b42ede3cfd63e9fb87d37f5328e7
+    moe_align_legacy_abi.py: 0a54d539f60406e94c5756dab11840304d7e4f407883006cfc55411f853a071e
+  source_build.recipe: tools/deployment/metax-vllm/Dockerfile
+  validation.scope: TP8/PP1/DP1, EP disabled, eager, synchronous, max_num_seqs=1, prefix cache disabled; 3 response
+    checks and 3 x 4 measured streaming requests, each with one separate warmup.
+  validation.aiperf_version: 0.12.0
+engine: vllm-metax
+version_label: 0.32.0+g0962c873.maca3.9.0.29.torch2.10.0
+source_commit: 0962c8735ffe4795800030680311410848512b82
+container_digest: sha256:9d82e3b3cc52430770a02b00d8c763b62e9c8bc64c4be871d9be25148e4fdf8b
+container_identity_kind: docker_image_id
+driver: 3.9.35
+device_runtime: MACA 3.9.0.29
+compiler: 'mxcc version 1.0.0 (568b911cc9)
+
+  Target: x86_64-unknown-linux-gnu
+
+  Thread model: posix
+
+  InstalledDir: /opt/maca-3.9.0/mxgpu_llvm/bin'
+libraries:
+  torch: 2.10.0+metax3.9.0.8
+  triton: 3.6.0+metax3.9.0.8
+  vllm: 0.32.0+empty
+  vllm-metax: 0.32.0+g0962c873.maca3.9.0.29.torch2.10.0
+  transformers: 5.19.0
+  mcoplib: 0.4.14+gf3794c4.maca3.9.0.31.torch2.10
+launch_parameters:
+  --reasoning-parser: glm47
+  --dtype: bfloat16
+  --quantization: compressed-tensors
+  --load-format: safetensors
+  --limit-mm-per-prompt: '{"image":0,"video":0}'
+  --attention-config: '{"indexer_kv_dtype":"auto"}'
+status: environment_verified
+execution_profile:
+  interface: openai_http
+  model_path: /model
+  parallelism:
+    tp: 8
+    pp: 1
+    ep: 1
+    dp: 1
+    expert_parallel_enabled: false
+  environment:
+    MACA_VISIBLE_DEVICES: 0,1,2,3,4,5,6,7
+    USE_PRECOMPILED_KERNEL: '1'
+    VLLM_USE_V2_MODEL_RUNNER: '1'
+    VLLM_USE_RUST_FRONTEND: '0'
+    OMP_NUM_THREADS: '4'
+  settings:
+    tensor_parallel_size: 8
+    pipeline_parallel_size: 1
+    data_parallel_size: 1
+    enable_expert_parallel: false
+    max_model_len: 4096
+    max_num_seqs: 1
+    max_num_batched_tokens: 4096
+    enable_chunked_prefill: true
+    async_scheduling: false
+    stream_interval: 1
+    block_size: 640
+    mamba_block_size: 4096
+    enable_prefix_caching: false
+    gpu_memory_utilization: 0.9
+    dtype: torch.bfloat16
+    quantization: compressed-tensors
+    load_format: safetensors
+    enforce_eager: true
+    reasoning_parser: glm47
+    disable_custom_all_reduce: true
+    limit_mm_per_prompt:
+      image: 0
+      video: 0
+    speculative_config: null
+  sampling:
+    temperature: 1.0
+    top_p: 0.95
+    seed: 0
+    max_tokens: 1024
+  validation_scope: TP8/PP1/DP1, EP disabled, eager, synchronous, max_num_seqs=1, prefix cache disabled; 3 response
+    checks and 3 x 4 measured streaming requests, each with one separate warmup.

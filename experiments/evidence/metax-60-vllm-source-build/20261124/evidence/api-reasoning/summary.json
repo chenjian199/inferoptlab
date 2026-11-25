@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": "introduction",
+      "passed": true
+    },
+    {
+      "case": "arithmetic",
+      "passed": true
+    },
+    {
+      "case": "needle",
+      "passed": true
+    }
+  ]
+}

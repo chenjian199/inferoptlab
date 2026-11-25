@@ -136,6 +136,9 @@
         "continue",
         "stop"
       ]
+    },
+    "qualification_required": {
+      "type": "boolean"
     }
   },
   "required": [

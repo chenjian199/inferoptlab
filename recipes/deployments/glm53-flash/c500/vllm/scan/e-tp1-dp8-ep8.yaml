@@ -1,0 +1,73 @@
+schema_version: 0.2.0
+kind: DeploymentSpec
+id: glm53-vllm-scan-e-tp1-dp8-ep8
+version: 1.0.0
+title: GLM Flash 完整扫描 TP1 PP1 DP8 EP8
+provenance: []
+issues: []
+extensions:
+  qualification.scope: 'New full-scan deployment: context changed to 147456; exact
+    recipe requires new live qualification. TP1/DP8/EP8 has no previous live qualification.'
+model_ref:
+  id: cluster-glm53-flash-w8a8
+  version: 1.0.0
+hardware_ref:
+  id: metax-four-node-inventory-metax-60-host
+  version: 1.0.0
+runtime_ref:
+  id: metax60-vllm-glm53-source
+  version: 1.0.0
+mode: aggregated
+prefix_cache: false
+parallelism:
+  tp: 1
+  pp: 1
+  ep: 8
+  dp: 8
+scheduling:
+  chunked_prefill_tokens: null
+  kv_page_tokens: null
+  max_running_requests: 16
+  max_num_batched_tokens: 4096
+  max_model_len: 147456
+  enable_chunked_prefill: true
+serving:
+  management: vllm-docker
+  url: http://127.0.0.1:18082
+  served_model: glm53-flash
+  model_path: /mnt/ufs1/models/models/metax-tech/GLM-5.3-Flash-W8A8
+  tokenizer_path: /mnt/ufs1/models/models/metax-tech/GLM-5.3-Flash-W8A8
+  startup_timeout_s: 900
+  device_visibility_env: MACA_VISIBLE_DEVICES
+  cache_dir: /home/ubuntu/CJ_workspace/inferoptlab-scan-cache
+devices:
+- rank: 0
+  visible_index: 0
+  device_id: metax-60-gpu0-AENA2510000410
+- rank: 1
+  visible_index: 1
+  device_id: metax-60-gpu1-AENA2510000103
+- rank: 2
+  visible_index: 2
+  device_id: metax-60-gpu2-AENA2510001585
+- rank: 3
+  visible_index: 3
+  device_id: metax-60-gpu3-AENA2510001584
+- rank: 4
+  visible_index: 4
+  device_id: metax-60-gpu4-AENA2510000186
+- rank: 5
+  visible_index: 5
+  device_id: metax-60-gpu5-AENA2510000055
+- rank: 6
+  visible_index: 6
+  device_id: metax-60-gpu6-AENA2510002038
+- rank: 7
+  visible_index: 7
+  device_id: metax-60-gpu7-AENA2510000303
+backend_options:
+  --gpu-memory-utilization: 0.9
+  --enforce-eager: true
+  --no-async-scheduling: true
+  --disable-custom-all-reduce: true
+  --all2all-backend: allgather_reducescatter

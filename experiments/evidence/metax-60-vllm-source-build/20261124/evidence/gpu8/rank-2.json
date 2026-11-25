@@ -1,0 +1,8 @@
+{
+  "rank": 2,
+  "gpu": "MetaX C500",
+  "torch": "2.10.0+metax3.9.0.8",
+  "bf16_matmul": "pass",
+  "all_reduce": "pass",
+  "all_gather": "pass"
+}

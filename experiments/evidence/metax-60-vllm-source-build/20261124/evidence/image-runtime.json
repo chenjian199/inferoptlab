@@ -1,0 +1,19 @@
+{
+  "packages": {
+    "torch": "2.10.0+metax3.9.0.8",
+    "triton": "3.6.0+metax3.9.0.8",
+    "vllm": "0.32.0+empty",
+    "vllm-metax": "0.32.0+g0962c873.maca3.9.0.29.torch2.10.0",
+    "transformers": "5.19.0",
+    "mcoplib": "0.4.14+gf3794c4.maca3.9.0.31.torch2.10"
+  },
+  "vllm_origin": "/opt/vllm-env/lib/python3.12/site-packages/vllm/__init__.py",
+  "plugin_origin": "/opt/vllm-env/lib/python3.12/site-packages/vllm_metax/__init__.py",
+  "sdk": "Version:3.9.0.29\n",
+  "cuda_available": true,
+  "device_count": 8,
+  "wheels": {
+    "vllm_metax-0.32.0+g0962c873.maca3.9.0.29.torch2.10.0-cp312-cp312-linux_x86_64.whl": "46babb4cf07d87887378bf530cb3bfc28653cc33d057016ab3eb965042ad2182",
+    "vllm-0.32.0+empty-cp312-cp312-linux_x86_64.whl": "6403decd8d9cbd10b7a0691bfba613359b2a0c53cfb985bc329ff255974bee51"
+  }
+}

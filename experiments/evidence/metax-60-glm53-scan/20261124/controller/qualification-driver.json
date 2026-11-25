@@ -1,0 +1,27 @@
+{
+  "original_container": "inferoptlab-glm53-vllm-r1",
+  "restore_required": true,
+  "stages": [
+    {
+      "stage": "00-layout",
+      "exit": 0
+    },
+    {
+      "stage": "01-scheduling",
+      "exit": 0
+    },
+    {
+      "stage": "02-context64k",
+      "exit": 0
+    },
+    {
+      "stage": "03-context128k",
+      "exit": 0
+    },
+    {
+      "stage": "04-cache",
+      "exit": 1
+    }
+  ],
+  "restore_exit": 0
+}

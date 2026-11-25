@@ -1,0 +1,10 @@
+{
+  "status": "not_evaluated",
+  "constraints": [],
+  "joint": null,
+  "quality_status": "not_evaluated",
+  "acceptance_status": "not_evaluated",
+  "reasons": [
+    "no SLA is attached to this diagnostic Case"
+  ]
+}

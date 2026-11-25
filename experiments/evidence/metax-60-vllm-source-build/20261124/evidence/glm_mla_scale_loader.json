@@ -1,0 +1,65 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "source": "q_a_proj",
+      "tensor": "weight",
+      "normal_loader_retains_ownership": true
+    },
+    {
+      "source": "q_a_proj",
+      "tensor": "weight_scale",
+      "normal_loader_retains_ownership": true
+    },
+    {
+      "source": "kv_a_proj_with_mqa",
+      "tensor": "weight",
+      "normal_loader_retains_ownership": true
+    },
+    {
+      "source": "kv_a_proj_with_mqa",
+      "tensor": "weight_scale",
+      "normal_loader_retains_ownership": true
+    },
+    {
+      "source": "q_b_proj",
+      "tensor": "weight",
+      "normal_loader_retains_ownership": true
+    },
+    {
+      "source": "q_b_proj",
+      "tensor": "weight_scale",
+      "normal_loader_retains_ownership": true
+    },
+    {
+      "source": "o_proj",
+      "tensor": "weight",
+      "normal_loader_retains_ownership": true
+    },
+    {
+      "source": "o_proj",
+      "tensor": "weight_scale",
+      "normal_loader_retains_ownership": true
+    },
+    {
+      "fp8_scale": "weight_scale",
+      "scale_first": false,
+      "dequantization_preserved": true
+    },
+    {
+      "fp8_scale": "weight_scale",
+      "scale_first": true,
+      "dequantization_preserved": true
+    },
+    {
+      "fp8_scale": "weight_scale_inv",
+      "scale_first": false,
+      "dequantization_preserved": true
+    },
+    {
+      "fp8_scale": "weight_scale_inv",
+      "scale_first": true,
+      "dequantization_preserved": true
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+FlashInfer kernels are disabled: flashinfer-cubin is not installed and nvcc (CUDA_HOME, CUDA_PATH, PATH or /usr/local/cuda) or ninja (PATH) is missing. Set CUDA_HOME to a CUDA toolkit and put ninja on PATH, or run `vllm download-kernels`.
+Version info:Mcoplib_Version = '0.4.14'
+Build_Maca_Version = '3.9.0.31'
+Build_Torch_Version = '2.10.0+metax3.9.0.8'
+Min_Compatibility_Maca_Version = '3.7.0'
+GIT_BRANCH = 'HEAD'
+GIT_COMMIT = 'f3794c4'
+Vllm Op Version = 0.29.0
+SGlang Op Version  = 0.5.19 
+
+INFO mcoplib version: None
+
+INFO: Torch version compatibility check passed: build=2.10.0+metax3.9.0.8, runtime=2.10.0+metax3.9.0.8.
+
+INFO: Release major.minor matching,  successful:3.9. 
+
+INFO: MACA minimum compatibility check passed: 3.9.0 >= 3.7.0.
+
+{"passed": true, "cases": [{"source": "q_a_proj", "tensor": "weight", "normal_loader_retains_ownership": true}, {"source": "q_a_proj", "tensor": "weight_scale", "normal_loader_retains_ownership": true}, {"source": "kv_a_proj_with_mqa", "tensor": "weight", "normal_loader_retains_ownership": true}, {"source": "kv_a_proj_with_mqa", "tensor": "weight_scale", "normal_loader_retains_ownership": true}, {"source": "q_b_proj", "tensor": "weight", "normal_loader_retains_ownership": true}, {"source": "q_b_proj", "tensor": "weight_scale", "normal_loader_retains_ownership": true}, {"source": "o_proj", "tensor": "weight", "normal_loader_retains_ownership": true}, {"source": "o_proj", "tensor": "weight_scale", "normal_loader_retains_ownership": true}, {"fp8_scale": "weight_scale", "scale_first": false, "dequantization_preserved": true}, {"fp8_scale": "weight_scale", "scale_first": true, "dequantization_preserved": true}, {"fp8_scale": "weight_scale_inv", "scale_first": false, "dequantization_preserved": true}, {"fp8_scale": "weight_scale_inv", "scale_first": true, "dequantization_preserved": true}]}

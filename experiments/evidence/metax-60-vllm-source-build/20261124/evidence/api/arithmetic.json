@@ -1,0 +1,60 @@
+{
+  "case": "arithmetic",
+  "request": {
+    "model": "glm53-flash",
+    "messages": [
+      {
+        "role": "user",
+        "content": "计算 1+1，只回答一个数字，不要解释。"
+      }
+    ],
+    "max_tokens": 512,
+    "temperature": 0,
+    "stream": false,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  },
+  "response": {
+    "id": "chatcmpl-a64324ce5cbeee3e",
+    "object": "chat.completion",
+    "created": 1795499507,
+    "model": "glm53-flash",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "The user is asking me to calculate 1+1 and answer with just a number, no explanation. This is a simple arithmetic question. The answer is 2.</think>2",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": null
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 154827,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.32.0-tp8-189f6e80",
+    "usage": {
+      "prompt_tokens": 26,
+      "total_tokens": 63,
+      "completion_tokens": 37,
+      "prompt_tokens_details": null,
+      "completion_tokens_details": null
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "ec_transfer_params": null,
+    "metrics": null
+  },
+  "elapsed_s": 5.457025833427906,
+  "passed": false
+}

@@ -1,0 +1,6 @@
+{
+  "command": "docker run --rm -i --network none --mount type=bind,source=/mnt/ufs1/models/models/metax-tech/GLM-5.3-Flash-W8A8,target=/model,readonly --entrypoint python3 sha256:e636eb63ab7408be62ce15e3dd25fb2ffb38649074fb2fb5852c42a8c8e1047d -",
+  "returncode": 0,
+  "stdout": "{\"class\": \"Glm5NextConfig\", \"text_class\": \"Glm5NextTextConfig\"}\n",
+  "stderr": "/opt/conda/lib/python3.12/site-packages/torch/cuda/__init__.py:189: UserWarning: CUDA initialization: CUDA driver initialization failed, you might not have a CUDA gpu. (Triggered internally at /workspace/framework/mcPytorch/c10/cuda/CUDAFunctions.cpp:119.)\n  return torch._C._cuda_getDeviceCount() > 0\n"
+}

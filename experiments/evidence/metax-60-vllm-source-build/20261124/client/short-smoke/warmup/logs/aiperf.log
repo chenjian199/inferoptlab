@@ -1,0 +1,71 @@
+2026-11-24 14:07:57.306 - aiperf.cli_runner._single_run - INFO - Starting AIPerf System
+2026-11-24 14:07:57.679 - system_controller - INFO - Registered Worker Manager (id: 'worker_manager')
+2026-11-24 14:07:57.694 - server_metrics_manager - INFO - Server Metrics: Discovered 1 endpoints: ['http://127.0.0.1:18081/metrics']
+2026-11-24 14:07:57.697 - RawRecordWriterProcessor_759546d8 - INFO - RawRecordWriter initialized: /work/experiments/glm53-vllm-source-20261124-r2/short-smoke/warmup/raw_records/raw_records_record_processor_9b742386.jsonl - FULL request/response data will be exported (files may be large)
+2026-11-24 14:07:57.697 - system_controller - INFO - Registered Dataset Manager (id: 'dataset_manager')
+2026-11-24 14:07:57.703 - system_controller - INFO - Registered Record Processor (id: 'record_processor_9b742386')
+2026-11-24 14:07:57.722 - GPUTelemetryJSONLWriter_100c66c3 - INFO - GPU telemetry export enabled: /work/experiments/glm53-vllm-source-20261124-r2/short-smoke/warmup/gpu_telemetry_export.jsonl
+2026-11-24 14:07:57.729 - OTelMetricsResultsProcessor_6248d3f2 - INFO - Telemetry streaming is disabled (set --otel-url and/or --mlflow-tracking-uri to enable)
+2026-11-24 14:07:57.730 - RecordExportJSONLWriter_e26e6cac - INFO - Record metrics export enabled: /work/experiments/glm53-vllm-source-20261124-r2/short-smoke/warmup/profile_export.jsonl
+2026-11-24 14:07:57.783 - system_controller - INFO - Registered Gpu Telemetry Manager (id: 'gpu_telemetry_manager')
+2026-11-24 14:07:57.796 - system_controller - INFO - Registered Server Metrics Manager (id: 'server_metrics_manager')
+2026-11-24 14:07:57.798 - system_controller - INFO - Registered Timing Manager (id: 'timing_manager')
+2026-11-24 14:07:57.855 - system_controller - INFO - Registered Records Manager (id: 'records_manager')
+2026-11-24 14:07:57.940 - system_controller - INFO - Registered Worker (id: 'worker_aa24ed41')
+2026-11-24 14:07:58.173 - system_controller - INFO - AIPerf System is CONFIGURING
+2026-11-24 14:07:58.173 - system_controller - INFO - Configuring all services to start profiling
+2026-11-24 14:07:58.173 - timing_manager - INFO - Waiting for dataset to be configured before configuring timing
+2026-11-24 14:07:58.174 - InferenceResultParser_ff397499 - INFO - Tokenization is disabled for this endpoint, skipping tokenizer configuration
+2026-11-24 14:07:58.174 - dataset_manager - INFO - Configuring tokenizer(s) for dataset manager
+2026-11-24 14:07:58.183 - server_metrics_manager - INFO - Server Metrics: Capturing baseline metrics...
+2026-11-24 14:07:58.197 - http://127.0.0.1:18081/metrics - INFO - Skipping unsupported summary metric: http_request_size_bytes
+2026-11-24 14:07:58.197 - http://127.0.0.1:18081/metrics - INFO - Skipping unsupported summary metric: http_response_size_bytes
+2026-11-24 14:07:58.198 - system_controller - INFO - Server metrics enabled - 1/1 endpoint(s) reachable.
+2026-11-24 14:07:58.198 - system_controller - INFO - Waiting for result domains: profile, server_metrics, telemetry
+2026-11-24 14:07:58.231 - gpu_telemetry_manager - WARNING - GPU Telemetry: http://localhost:9400/metrics is not reachable
+2026-11-24 14:07:58.232 - gpu_telemetry_manager - WARNING - GPU Telemetry: http://localhost:9401/metrics is not reachable
+2026-11-24 14:07:58.233 - system_controller - INFO - DCGM telemetry skipped: no telemetry sources reachable
+2026-11-24 14:07:58.233 - system_controller - INFO - Waiting for result domains: profile, server_metrics
+2026-11-24 14:07:59.844 - dataset_manager - INFO - Tokenizer(s) configured in 1.67 seconds
+2026-11-24 14:07:59.844 - dataset_manager - INFO - Configuring dataset for dataset_manager
+2026-11-24 14:08:00.141 - CustomDatasetComposer - INFO - Using explicit dataset format: single_turn
+2026-11-24 14:08:00.151 - MemoryMapDatasetBackingStore_7f8bc4b6 - INFO - Memory-mapped backing store initialized (streaming to /tmp/aiperf_mmap_4e0325b4b8df/dataset.dat)
+2026-11-24 14:08:00.152 - MemoryMapDatasetBackingStore_7f8bc4b6 - INFO - Data file finalized: 1 conversations, 0.00 MB
+2026-11-24 14:08:00.152 - MemoryMapDatasetBackingStore_7f8bc4b6 - INFO - Index file created: /tmp/aiperf_mmap_4e0325b4b8df/index.dat
+2026-11-24 14:08:00.152 - dataset_manager - INFO - Backing store finalized: client_type=DatasetClientStoreType.MEMORY_MAP format=MemoryMapFormat.CONVERSATION data_file_path=PosixPath('/tmp/aiperf_mmap_4e0325b4b8df/dataset.dat') index_file_path=PosixPath('/tmp/aiperf_mmap_4e0325b4b8df/index.dat') conversation_count=1 total_size_bytes=1539 compressed=False compressed_data_file_path=None compressed_index_file_path=None compressed_size_bytes=0
+2026-11-24 14:08:00.152 - dataset_manager - INFO - sampling strategy: sequential, unique conversations: 1, unique turn count: 1
+2026-11-24 14:08:00.153 - dataset_manager - INFO - Generating inputs.json file at /work/experiments/glm53-vllm-source-20261124-r2/short-smoke/warmup/inputs.json
+2026-11-24 14:08:00.154 - PhaseOrchestrator_5ea0f441 - INFO - Initialized 1 phase(s): ['Profiling']
+2026-11-24 14:08:00.154 - dataset_manager - INFO - inputs.json file generated in 0.00 seconds
+2026-11-24 14:08:00.234 - dataset_manager - INFO - Dataset client initialized and freed 1 conversations from memory
+2026-11-24 14:08:00.234 - dataset_manager - INFO - Dataset configured in 0.39 seconds
+2026-11-24 14:08:00.234 - system_controller - INFO - All services configured in 2.06 seconds
+2026-11-24 14:08:00.235 - system_controller - INFO - AIPerf System is CONFIGURED
+2026-11-24 14:08:00.235 - server_metrics_manager - INFO - Server Metrics: Started 1 collector(s) successfully
+2026-11-24 14:08:00.235 - system_controller - INFO - All services started profiling successfully
+2026-11-24 14:08:00.235 - system_controller - INFO - AIPerf System is PROFILING
+2026-11-24 14:08:00.237 - RateTiming - INFO - Creating interval generator: pattern=concurrency_burst, rate=None, smoothness=None
+2026-11-24 14:08:00.237 - PhaseRunner - NOTICE - Phase profiling (profiling) started | phase_index=0 | profiling_index=0 | target: 1 requests
+2026-11-24 14:08:00.237 - records_manager - INFO - Credit phase start: profiling
+2026-11-24 14:08:00.237 - PhaseRunner - NOTICE - Phase profiling (profiling) sending complete | sent=1, completed=0, in_flight=1 | sessions: sent=1, completed=0
+2026-11-24 14:08:00.238 - records_manager - INFO - Sent 1 requests. Waiting for all to complete...
+2026-11-24 14:08:05.033 - PhaseRunner - NOTICE - Phase profiling (profiling) complete | completed=1, cancelled=0, errors=0 | sessions: completed=1, cancelled=0 | elapsed=4.80s
+2026-11-24 14:08:05.034 - PhaseOrchestrator_5ea0f441 - NOTICE - All credits completed
+2026-11-24 14:08:05.034 - records_manager - INFO - Received CREDIT_PHASE_COMPLETE message, Phase complete: PhaseRecordsStats(phase=CreditPhase.PROFILING, phase_index=0, profiling_index=0, phase_name='profiling', phase_kind='profiling', start_ns=1795500480237350794, sent_end_ns=1795500480237915547, requests_end_ns=1795500485033651369, baseline_start_ns=1795500480237335822, baseline_end_ns=1795500485033657678, total_expected_requests=1, expected_duration_sec=None, expected_num_sessions=None, expected_grace_period_sec=None, final_requests_sent=None, final_requests_completed=1, final_requests_cancelled=0, final_request_errors=0, final_sent_sessions=None, final_completed_sessions=None, final_cancelled_sessions=None, timeout_triggered=False, grace_period_timeout_triggered=False, was_cancelled=False, records_end_ns=None, success_records=0, error_records=0)
+2026-11-24 14:08:05.034 - records_manager - NOTICE - All requests have completed, please wait for the results to be processed (currently 0 of 1 records processed)...
+2026-11-24 14:08:05.034 - system_controller - INFO - Received credits complete from 'timing_manager'
+2026-11-24 14:08:05.034 - records_manager - INFO - All credits complete, please wait for the results to be processed...
+2026-11-24 14:08:05.036 - records_manager - WARNING - Token usage is reported but no prompt-cache read tokens were seen (usage.prompt_tokens_details.cached_tokens absent). If your server uses prefix/KV caching, enable cache reporting so AIPerf can populate the prompt-cache metrics: vLLM --enable-prompt-tokens-details, SGLang --enable-cache-report (TRT-LLM reports it by default).
+2026-11-24 14:08:05.036 - MetricsAccumulator_6c71e98f - WARNING - Token usage is reported but no prompt-cache read tokens were seen (usage.prompt_tokens_details.cached_tokens absent). If your server uses prefix/KV caching, enable cache reporting so AIPerf can populate the prompt-cache metrics: vLLM --enable-prompt-tokens-details, SGLang --enable-cache-report (TRT-LLM reports it by default).
+2026-11-24 14:08:05.037 - records_manager - INFO - Processed 1 valid requests and 0 errors (1 total).
+2026-11-24 14:08:05.037 - records_manager - INFO - Received all records, processing now...
+2026-11-24 14:08:05.038 - records_manager - INFO - Waiting 2.0s for server metrics flush period...
+2026-11-24 14:08:05.047 - server_metrics_manager - INFO - Server Metrics: Profiling complete, capturing final metrics...
+2026-11-24 14:08:07.033 - records_manager - INFO - Processing records results...
+2026-11-24 14:08:07.050 - system_controller - INFO - Waiting for result domains: server_metrics
+2026-11-24 14:08:07.068 - records_manager - INFO - _finalize_and_process_results completed
+2026-11-24 14:08:07.070 - system_controller - INFO - All results received, initiating shutdown
+2026-11-24 14:08:07.673 - ExporterManager - INFO - Exporting all records
+2026-11-24 14:08:07.706 - RawRecordAggregator - INFO - Aggregating 1 raw record files from /work/experiments/glm53-vllm-source-20261124-r2/short-smoke/warmup/raw_records to /work/experiments/glm53-vllm-source-20261124-r2/short-smoke/warmup/profile_export_raw.jsonl
+2026-11-24 14:08:07.717 - RawRecordAggregator - INFO - Aggregated 1 raw records to /work/experiments/glm53-vllm-source-20261124-r2/short-smoke/warmup/profile_export_raw.jsonl
+2026-11-24 14:08:07.717 - ExporterManager - INFO - Exporting console data

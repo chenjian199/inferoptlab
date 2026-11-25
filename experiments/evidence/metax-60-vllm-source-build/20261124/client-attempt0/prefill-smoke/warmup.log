@@ -1,0 +1,100 @@
+14:05:23.297 INFO     Starting AIPerf System (_single_run.py:64)
+14:05:23.761 INFO     Registered Worker Manager (id: 'worker_manager') (system_controller.py:411)
+14:05:23.766 INFO     Registered Gpu Telemetry Manager (id: 'gpu_telemetry_manager') (system_controller.py:411)
+14:05:23.780 INFO     Registered Dataset Manager (id: 'dataset_manager') (system_controller.py:411)
+14:05:23.780 INFO     RawRecordWriter initialized: /work/experiments/glm53-vllm-source-20261124/prefill-smoke/warmup/raw_records/raw_records_record_processor_4e3e7e66.jsonl - FULL request/response data will be exported (files may be large) (raw_record_writer_processor.py:79)
+14:05:23.783 INFO     Server Metrics: Discovered 1 endpoints: ['http://127.0.0.1:18081/metrics'] (manager.py:97)
+14:05:23.785 INFO     Registered Record Processor (id: 'record_processor_4e3e7e66') (system_controller.py:411)
+14:05:23.923 INFO     Registered Server Metrics Manager (id: 'server_metrics_manager') (system_controller.py:411)
+14:05:23.964 INFO     GPU telemetry export enabled: /work/experiments/glm53-vllm-source-20261124/prefill-smoke/warmup/gpu_telemetry_export.jsonl (jsonl_writer.py:56)
+14:05:23.972 INFO     Telemetry streaming is disabled (set --otel-url and/or --mlflow-tracking-uri to enable) (otel_metrics_results_processor.py:127)
+14:05:23.973 INFO     Record metrics export enabled: /work/experiments/glm53-vllm-source-20261124/prefill-smoke/warmup/profile_export.jsonl (record_export_jsonl_writer.py:62)
+14:05:23.977 INFO     Registered Records Manager (id: 'records_manager') (system_controller.py:411)
+14:05:23.981 INFO     Registered Timing Manager (id: 'timing_manager') (system_controller.py:411)
+14:05:24.016 INFO     Registered Worker (id: 'worker_61b96894') (system_controller.py:411)
+14:05:24.254 INFO     AIPerf System is CONFIGURING (system_controller.py:292)
+14:05:24.254 INFO     Configuring all services to start profiling (system_controller.py:305)
+14:05:24.255 INFO     Tokenization is disabled for this endpoint, skipping tokenizer configuration (inference_result_parser.py:80)
+14:05:24.255 INFO     Waiting for dataset to be configured before configuring timing (manager.py:124)
+14:05:24.255 INFO     Configuring tokenizer(s) for dataset manager (dataset_manager.py:240)
+14:05:24.265 INFO     Server Metrics: Capturing baseline metrics... (manager.py:191)
+14:05:24.292 INFO     Skipping unsupported summary metric: http_request_size_bytes (data_collector.py:308)
+14:05:24.292 INFO     Skipping unsupported summary metric: http_response_size_bytes (data_collector.py:308)
+14:05:24.293 INFO     Server metrics enabled - 1/1 endpoint(s) reachable. (system_controller.py:559)
+14:05:24.293 INFO     Waiting for result domains: profile, server_metrics, telemetry (system_controller.py:824)
+14:05:24.299 WARNING  GPU Telemetry: http://localhost:9400/metrics is not reachable (manager.py:253)
+14:05:24.300 WARNING  GPU Telemetry: http://localhost:9401/metrics is not reachable (manager.py:253)
+14:05:24.301 INFO     DCGM telemetry skipped: no telemetry sources reachable (system_controller.py:531)
+14:05:24.301 INFO     Waiting for result domains: profile, server_metrics (system_controller.py:824)
+14:05:25.055 ERROR    Dataset configuration failed: TokenizerError("Failed to load tokenizer '/model': HFValidationError: Repo id must use alphanumeric chars, '-', '_' or '.'. The name cannot start or end with '-' or '.' and the maximum length is 96: '/model'.") (dataset_manager.py:162)
+Traceback (most recent call last):
+  File "/work/venv/lib/python3.12/site-packages/aiperf/common/tokenizer.py", line 502, in from_pretrained
+    return cls._load_from_hub(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/work/venv/lib/python3.12/site-packages/aiperf/common/tokenizer.py", line 534, in _load_from_hub
+    tokenizer_instance = cls._from_pretrained_local(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/venv/lib/python3.12/site-packages/aiperf/common/tokenizer.py", line 629, in _from_pretrained_local
+    local_path = cls._resolve_local_snapshot(name, revision)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/venv/lib/python3.12/site-packages/aiperf/common/tokenizer.py", line 660, in _resolve_local_snapshot
+    return snapshot_download(
+           ^^^^^^^^^^^^^^^^^^
+  File "/work/venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 85, in _inner_fn
+    validate_repo_id(arg_value)
+  File "/work/venv/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 139, in validate_repo_id
+    raise HFValidationError(
+huggingface_hub.errors.HFValidationError: Repo id must use alphanumeric chars, '-', '_' or '.'. The name cannot start or end with '-' or '.' and the maximum length is 96: '/model'.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/work/venv/lib/python3.12/site-packages/aiperf/dataset/dataset_manager.py", line 160, in _profile_configure_command
+    await self._do_profile_configure(message)
+  File "/work/venv/lib/python3.12/site-packages/aiperf/dataset/dataset_manager.py", line 213, in _do_profile_configure
+    await self._configure_dataset_locked()
+  File "/work/venv/lib/python3.12/site-packages/aiperf/dataset/dataset_manager.py", line 242, in _configure_dataset_locked
+    await self._configure_tokenizer()
+  File "/work/venv/lib/python3.12/site-packages/aiperf/dataset/dataset_manager.py", line 339, in _configure_tokenizer
+    self.tokenizer = await asyncio.to_thread(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/conda/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/venv/lib/python3.12/site-packages/aiperf/common/tokenizer.py", line 515, in from_pretrained
+    raise TokenizerError(
+aiperf.common.exceptions.TokenizerError: Failed to load tokenizer '/model': HFValidationError: Repo id must use alphanumeric chars, '-', '_' or '.'. The name cannot start or end with '-' or '.' and the maximum length is 96: '/model'.
+14:05:25.057 ERROR    Failed to handle command profile_configure with hook @on_command 🡒 DatasetManager._profile_configure_command: Failed to load tokenizer '/model': HFValidationError: Repo id must use alphanumeric chars, '-', '_' or '.'. The name cannot start or end with '-' or '.' and the maximum length is 96: '/model'. (command_handler_mixin.py:125)
+14:05:25.057 ERROR    Received dataset configuration failed notification from dataset_manager: TokenizerError: Failed to load tokenizer '/model': HFValidationError: Repo id must use alphanumeric chars, '-', '_' or '.'. The name cannot start or end with '-' or '.' and the maximum length is 96: '/model'. (manager.py:112)
+14:05:25.057 ERROR    Failed to handle command profile_configure with hook @on_command 🡒 TimingManager._profile_configure_command: Dataset configuration failed: TokenizerError: Failed to load tokenizer '/model': HFValidationError: Repo id must use alphanumeric chars, '-', '_' or '.'. The name cannot start or end with '-' or '.' and the maximum length is 96: '/model'. (command_handler_mixin.py:125)
+14:05:25.058 ERROR    Error running Hook(func=<bound method SystemController._start_services of <SystemController system_controller (state=starting)>>, params=None) hook for SystemController: Failed to perform operation 'Configure Profiling' (aiperf_lifecycle_mixin.py:127)
+14:05:25.058 ERROR    Failed for SystemController (id=system_controller): SystemController._start_services: Failed to perform operation 'Configure Profiling' (aiperf_lifecycle_mixin.py:281)
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╭─────────────────────── Tokenizer Configuration Error ────────────────────────╮
+│                                                                              │
+│  Failed to load tokenizer '/model'                                           │
+│                                                                              │
+│  AIPerf needs a tokenizer for accurate client-side token counting and        │
+│  synthetic prompt generation.                                                │
+│                                                                              │
+│  Possible Causes:                                                            │
+│    • Tokenizer failed to load for an unexpected reason                       │
+│                                                                              │
+│  Investigation Steps:                                                        │
+│    1. Review error message                                                   │
+│    2. Test with transformers directly                                        │
+│                                                                              │
+│  Suggested Fixes:                                                            │
+│    • Test: python -c "from transformers import AutoTokenizer;                │
+│  AutoTokenizer.from_pretrained('...')"                                       │
+│    • Skip tokenizer (non-synthetic data only): --use-server-token-count      │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+Log File: 
+/work/experiments/glm53-vllm-source-20261124/prefill-smoke/warmup/logs/aiperf.lo
+g
+

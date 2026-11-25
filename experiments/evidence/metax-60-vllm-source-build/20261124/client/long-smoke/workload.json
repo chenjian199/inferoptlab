@@ -1,0 +1,14 @@
+{
+  "id": "long-smoke",
+  "input": {
+    "tokens": 1024
+  },
+  "output": {
+    "tokens": 32
+  },
+  "requests": {
+    "count": 4,
+    "seed": 20261124,
+    "request_set_sha256": null
+  }
+}

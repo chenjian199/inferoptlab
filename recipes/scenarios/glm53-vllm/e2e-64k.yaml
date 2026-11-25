@@ -1,0 +1,12 @@
+schema_version: 0.2.0
+kind: BenchmarkScenario
+id: glm53-vllm-e2e-64k
+version: 1.0.0
+title: e2e-64k
+provenance: []
+issues: []
+extensions: {}
+case_ref:
+  id: glm53-vllm-e2e-64k-case
+  version: 1.0.0
+dataset_dir: experiments/datasets/glm53-vllm/e2e-64k

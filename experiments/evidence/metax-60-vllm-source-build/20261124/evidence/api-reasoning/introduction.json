@@ -1,0 +1,61 @@
+{
+  "case": "introduction",
+  "request": {
+    "model": "glm53-flash",
+    "messages": [
+      {
+        "role": "user",
+        "content": "请用中文写一句简短的自我介绍。"
+      }
+    ],
+    "max_tokens": 1024,
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "seed": 0,
+    "stream": false
+  },
+  "response": {
+    "id": "chatcmpl-b71305d83c55cc6a",
+    "object": "chat.completion",
+    "created": 1795500025,
+    "model": "glm53-flash",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "你好，我是GLM，一个由Z.ai开发的AI助手，乐于回答问题、提供信息并协助你完成各种任务。",
+          "refusal": null,
+          "annotations": null,
+          "audio": null,
+          "function_call": null,
+          "reasoning": "The user is asking in Chinese: \"请用中文写一句简短的自我介绍。\" which translates to \"Please write a brief self-introduction in one sentence in Chinese.\"\n\nThis is a simple request. The user wants a one-sentence self-introduction in Chinese. This is presumably asking me to introduce myself as an AI assistant.\n\nLet me write a brief, one-sentence self-introduction in Chinese:\n\n\"你好,我是一个由Z.ai开发的AI助手,很高兴为你提供帮助。\"\n\nOr something like:\n\n\"我是GLM,一个由Z.ai开发的大语言模型,乐于回答你的问题并协助完成各种任务。\"\n\nThe request asks for \"一句\" (one sentence) that is \"简短\" (brief). So I should keep it to one sentence.\n\nFormat: This should be very short - just one sentence in Chinese, as requested. No need for headers, lists, or extra content. Maybe I could just give the sentence directly. The response should be minimal since the request is minimal."
+        },
+        "logprobs": null,
+        "finish_reason": "stop",
+        "stop_reason": 154827,
+        "token_ids": null,
+        "routed_experts": null
+      }
+    ],
+    "service_tier": null,
+    "system_fingerprint": "vllm-0.32.0-tp8-189f6e80",
+    "usage": {
+      "prompt_tokens": 22,
+      "total_tokens": 256,
+      "completion_tokens": 234,
+      "prompt_tokens_details": null,
+      "completion_tokens_details": {
+        "reasoning_tokens": 205
+      }
+    },
+    "prompt_logprobs": null,
+    "prompt_token_ids": null,
+    "prompt_text": null,
+    "kv_transfer_params": null,
+    "ec_transfer_params": null,
+    "metrics": null
+  },
+  "elapsed_s": 38.52409367822111,
+  "passed": true
+}

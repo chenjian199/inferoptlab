@@ -1,0 +1,17 @@
+{
+  "pid": 2652516,
+  "log": "/home/ubuntu/CJ_workspace/glm53-vllm-build-20261124/logs/buildkit-052601.log",
+  "command": [
+    "docker",
+    "buildx",
+    "build",
+    "--network=host",
+    "--progress=plain",
+    "--output",
+    "type=image,compression=zstd,compression-level=1",
+    "-t",
+    "inferoptlab/vllm-metax:0.32.0-glm53-c500-20261124",
+    "/home/ubuntu/CJ_workspace/glm53-vllm-build-20261124"
+  ],
+  "started_utc": "052601"
+}

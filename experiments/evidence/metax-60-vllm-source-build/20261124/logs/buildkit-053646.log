@@ -1,0 +1,85 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.98kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/inferoptlab/metax-build-base:20261124
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 132B done
+#3 DONE 0.0s
+
+#4 [builder  1/10] FROM docker.io/inferoptlab/metax-build-base:20261124@sha256:43af58b15b63b6095611b257590466632433d6786d66386839e1c5b8027d30ad
+#4 resolve docker.io/inferoptlab/metax-build-base:20261124@sha256:43af58b15b63b6095611b257590466632433d6786d66386839e1c5b8027d30ad done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 891.11kB 0.2s done
+#5 DONE 0.2s
+
+#6 [builder  8/10] RUN cd /opt/src/vllm-metax && patch -p1 < /opt/patches/glm-w8a8.patch && cp /opt/patches/moe_align_legacy_abi.py vllm_metax/patch/bugfix/
+#6 CACHED
+
+#7 [stage-1  4/10] COPY --from=builder /opt/src /opt/src
+#7 CACHED
+
+#8 [builder  4/10] RUN --mount=type=bind,source=inputs/sdk,target=/inputs/sdk python3 /opt/build-scripts/install_sdk.py
+#8 CACHED
+
+#9 [builder  2/10] COPY scripts/install_sdk.py /opt/build-scripts/install_sdk.py
+#9 CACHED
+
+#10 [builder  7/10] COPY patches/ /opt/patches/
+#10 CACHED
+
+#11 [stage-1  5/10] COPY --from=builder /opt/built-wheels /opt/built-wheels
+#11 CACHED
+
+#12 [builder  9/10] COPY scripts/build_frameworks.py /opt/build-scripts/build_frameworks.py
+#12 CACHED
+
+#13 [stage-1  3/10] COPY --from=builder /opt/vllm-env /opt/vllm-env
+#13 CACHED
+
+#14 [builder  5/10] RUN /opt/conda/bin/python3 -m venv /opt/vllm-env
+#14 CACHED
+
+#15 [builder  6/10] COPY src/ /opt/src/
+#15 CACHED
+
+#16 [builder  3/10] COPY evidence/sources.json /opt/build-evidence/sources.json
+#16 CACHED
+
+#17 [builder 10/10] RUN --mount=type=bind,source=inputs/wheelhouse,target=/inputs/wheelhouse --mount=type=cache,target=/root/.cache/pip python -m pip install --index-url https://pypi.tuna.tsinghua.edu.cn/simple packaging && python /opt/build-scripts/build_frameworks.py
+#17 CACHED
+
+#18 [stage-1  2/10] COPY --from=builder /opt/maca-3.9.0 /opt/maca-3.9.0
+#18 CACHED
+
+#19 [stage-1  6/10] COPY --from=builder /opt/build-evidence /opt/build-evidence
+#19 CACHED
+
+#20 [stage-1  7/10] COPY evidence/dependencies.json /opt/build-evidence/dependencies.json
+#20 DONE 0.0s
+
+#21 [stage-1  8/10] COPY patches/ /opt/build-evidence/patches/
+#21 DONE 0.0s
+
+#22 [stage-1  9/10] RUN ln -sfn /opt/maca-3.9.0 /opt/maca && printf '/opt/maca/lib\n/opt/maca/mxgpu_llvm/lib\n' > /etc/ld.so.conf.d/maca.conf && ldconfig
+#22 DONE 0.1s
+
+#23 [stage-1 10/10] WORKDIR /work
+#23 DONE 0.0s
+
+#24 exporting to image
+#24 exporting layers 0.0s done
+#24 exporting manifest sha256:f56a19624a1c9059166bb8850197fcc7489869d3598ab58de8fb3a1b7f6ca38b done
+#24 exporting config sha256:a4e037fd5aca57e8d04ea35ad5943ab7ebdf69401e7eb3d8e184fb7abb0a6966 done
+#24 exporting attestation manifest sha256:d56d7a09d117a92c6b88ef3ebc8c752ecdf815ec4b94b9faed9ea136c3709c52 done
+#24 exporting manifest list sha256:9d82e3b3cc52430770a02b00d8c763b62e9c8bc64c4be871d9be25148e4fdf8b done
+#24 naming to docker.io/inferoptlab/vllm-metax:0.32.0-glm53-c500-20261124 done
+#24 unpacking to docker.io/inferoptlab/vllm-metax:0.32.0-glm53-c500-20261124
+#24 unpacking to docker.io/inferoptlab/vllm-metax:0.32.0-glm53-c500-20261124 85.2s done
+#24 DONE 85.3s

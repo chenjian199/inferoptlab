@@ -1,0 +1,101 @@
+{
+  "format_version": 1,
+  "created_at": "2026-11-24T10:45:14.195450+00:00",
+  "scope": "startup_and_api_only",
+  "accuracy_qualified": false,
+  "performance_baseline": false,
+  "plan_sha256": "043c40988d20f844fa741e0594d387d687756d772870f951b4769bf21ec626e9",
+  "deployments": [
+    {
+      "id": "glm53-vllm-a-tp8",
+      "binding": {
+        "deployment": "01a09a4c9b70c0e25c713b67c0601edffdca02219615e06c1bc1d81c872ffd04",
+        "runtime": "5e887aa6f27a53d710bae464fca2aeab36f017359f55ccff3248a56be10ceadf",
+        "model": "23edf60d31cbdc3d009afd6e3e83d500b4c8c12fe789061f7c5c5597426963bb",
+        "hardware": "d9f4bfb0be66d7b5a48b96c4454993322030ee3bf588f14603e33d6026eadbdd"
+      },
+      "status": "failed",
+      "maximum_context": 18432,
+      "started_at": "2026-11-24T10:45:14.196170+00:00",
+      "probes": [],
+      "error": "[Errno 98] Address already in use",
+      "finished_at": "2026-11-24T10:45:14.621529+00:00"
+    },
+    {
+      "id": "glm53-vllm-a-budget2048",
+      "binding": {
+        "deployment": "9238a523e1774fbcd6f3ac7772d1a1c7f494aa36391cb134c1ee8431c6ef5dc2",
+        "runtime": "5e887aa6f27a53d710bae464fca2aeab36f017359f55ccff3248a56be10ceadf",
+        "model": "23edf60d31cbdc3d009afd6e3e83d500b4c8c12fe789061f7c5c5597426963bb",
+        "hardware": "d9f4bfb0be66d7b5a48b96c4454993322030ee3bf588f14603e33d6026eadbdd"
+      },
+      "status": "failed",
+      "maximum_context": 18432,
+      "started_at": "2026-11-24T10:45:14.622351+00:00",
+      "probes": [],
+      "error": "[Errno 98] Address already in use",
+      "finished_at": "2026-11-24T10:45:15.048153+00:00"
+    },
+    {
+      "id": "glm53-vllm-a-budget8192",
+      "binding": {
+        "deployment": "fbe199217c5289ad76803694a31712508ca13b1e9a1696c813830fc807bb857a",
+        "runtime": "5e887aa6f27a53d710bae464fca2aeab36f017359f55ccff3248a56be10ceadf",
+        "model": "23edf60d31cbdc3d009afd6e3e83d500b4c8c12fe789061f7c5c5597426963bb",
+        "hardware": "d9f4bfb0be66d7b5a48b96c4454993322030ee3bf588f14603e33d6026eadbdd"
+      },
+      "status": "failed",
+      "maximum_context": 18432,
+      "started_at": "2026-11-24T10:45:15.048989+00:00",
+      "probes": [],
+      "error": "[Errno 98] Address already in use",
+      "finished_at": "2026-11-24T10:45:15.470438+00:00"
+    },
+    {
+      "id": "glm53-vllm-a-seqs64",
+      "binding": {
+        "deployment": "aa7b312d6e24e70b5da7b9f2146bafafedc5b1f9413337fb8cd657d15b013076",
+        "runtime": "5e887aa6f27a53d710bae464fca2aeab36f017359f55ccff3248a56be10ceadf",
+        "model": "23edf60d31cbdc3d009afd6e3e83d500b4c8c12fe789061f7c5c5597426963bb",
+        "hardware": "d9f4bfb0be66d7b5a48b96c4454993322030ee3bf588f14603e33d6026eadbdd"
+      },
+      "status": "failed",
+      "maximum_context": 18432,
+      "started_at": "2026-11-24T10:45:15.471313+00:00",
+      "probes": [],
+      "error": "[Errno 98] Address already in use",
+      "finished_at": "2026-11-24T10:45:15.891192+00:00"
+    },
+    {
+      "id": "glm53-vllm-a-seqs256",
+      "binding": {
+        "deployment": "ff2a1f336afd272283d1b2846580ab38e202731ed64cea4c23791920c81eea4a",
+        "runtime": "5e887aa6f27a53d710bae464fca2aeab36f017359f55ccff3248a56be10ceadf",
+        "model": "23edf60d31cbdc3d009afd6e3e83d500b4c8c12fe789061f7c5c5597426963bb",
+        "hardware": "d9f4bfb0be66d7b5a48b96c4454993322030ee3bf588f14603e33d6026eadbdd"
+      },
+      "status": "failed",
+      "maximum_context": 18432,
+      "started_at": "2026-11-24T10:45:15.892074+00:00",
+      "probes": [],
+      "error": "[Errno 98] Address already in use",
+      "finished_at": "2026-11-24T10:45:16.309534+00:00"
+    },
+    {
+      "id": "glm53-vllm-a-graph",
+      "binding": {
+        "deployment": "0e86fcab1b5bb1a0a802703b14d63d499d17a2195743355aba970baeae883b4c",
+        "runtime": "5e887aa6f27a53d710bae464fca2aeab36f017359f55ccff3248a56be10ceadf",
+        "model": "23edf60d31cbdc3d009afd6e3e83d500b4c8c12fe789061f7c5c5597426963bb",
+        "hardware": "d9f4bfb0be66d7b5a48b96c4454993322030ee3bf588f14603e33d6026eadbdd"
+      },
+      "status": "failed",
+      "maximum_context": 18432,
+      "started_at": "2026-11-24T10:45:16.310412+00:00",
+      "probes": [],
+      "error": "[Errno 98] Address already in use",
+      "finished_at": "2026-11-24T10:45:16.729911+00:00"
+    }
+  ],
+  "content_sha256": "0cdff2b55fe43040098f62076c3fe3df2f7feacc88986b912f093da25167b4eb"
+}

@@ -1,0 +1,29 @@
+schema_version: 0.2.0
+kind: TestCaseSpec
+id: glm53-vllm-e2e-16k-case
+version: 1.0.0
+title: glm53-vllm-e2e-16k-case
+provenance: []
+issues: []
+extensions:
+  reference.scope: Borrowed GLM-5.3 targets for Flash diagnostics; unresolved statistic/comparator retained; not
+    formal acceptance.
+purpose: diagnostic
+model_ref:
+  id: cluster-glm53-flash-w8a8
+  version: 1.0.0
+workload_ref:
+  id: glm53-vllm-e2e-16k-workload
+  version: 1.0.0
+protocol_ref:
+  id: glm53-vllm-e2e-screen
+  version: 1.0.0
+sla_ref:
+  id: sla-industry-16k-2k
+  version: 1.0.0
+required: true
+source_case_label: New 4x-concurrency diagnostic scan
+declared_context:
+  input: '16384'
+  output: '2048'
+priority: null

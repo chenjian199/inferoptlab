@@ -13,7 +13,7 @@ from benchmark.load.planner import embedded_catalog, resolve, scenario_parts, sn
 from benchmark.load.metrics.normalize import normalize
 from benchmark.load.metrics.evaluate import evaluate
 from benchmark.load.metrics.report import run_report, batch_report
-from benchmark.load.counts import at_point, fixture_source
+from benchmark.load.counts import at_point, fixture_source, protocol_at_point
 
 
 def load_snapshot(catalog,path,freeze=False):
@@ -41,6 +41,7 @@ def analyze(catalog,directory,output):
     trial=trials[0]
     scene,case,workload,protocol=scenario_parts(embedded,trial['scenario_ref'])
     workload=at_point(workload,trial['concurrency'])
+    protocol=protocol_at_point(protocol,trial['concurrency'])
     manifest=record['dataset_manifest']
     comparison=digest(dict(contract=trial['comparison_sha256'],dataset=manifest['files'],tokenizer=manifest['tokenizer']['sha256']))
     if comparison!=record['comparison_sha256']:
@@ -85,6 +86,14 @@ def main(argv=None):
     run=commands.add_parser('run',help='execute on the Linux benchmark host')
     run.add_argument('path',type=Path)
     run.add_argument('--out',type=Path)
+    run.add_argument('--qualification',type=Path,help='Matching startup qualification receipt')
+    qualification=commands.add_parser('qualify',help='Start each deployment and verify exact-length API probes; no performance scoring')
+    qualification.add_argument('path',type=Path)
+    qualification.add_argument('--out',type=Path,required=True)
+    selection=commands.add_parser('select',help='Write a reduced plan containing only successfully qualified deployments')
+    selection.add_argument('path',type=Path)
+    selection.add_argument('--qualification',type=Path,required=True)
+    selection.add_argument('--out',type=Path,required=True)
     recalc=commands.add_parser('analyze',help='recompute an archived run without GPU execution')
     recalc.add_argument('directory',type=Path)
     recalc.add_argument('--out',type=Path,required=True)
@@ -115,13 +124,28 @@ def main(argv=None):
                 points=workload['arrival']['load_points'] if workload['requests'].get('count_multiplier') is not None else [workload['arrival']['load_points'][0]]
                 for concurrency in points:
                     target=inside(catalog.root,fixture_source(scene,workload,concurrency))
-                    manifest=dataset.prepare(at_point(workload,concurrency),protocol,args.tokenizer,target,args.input)
+                    manifest=dataset.prepare(at_point(workload,concurrency),protocol_at_point(protocol,concurrency),args.tokenizer,target,args.input)
                     print(json.dumps(dict(scenario=scene['id'],concurrency=concurrency,directory=str(target),request_set_sha256=manifest['files']['requests.jsonl']['sha256']),ensure_ascii=False))
         elif args.command=='run':
             from benchmark.load.runner import execute
-            directory,state=execute(catalog,load_snapshot(catalog,args.path),args.out or catalog.root/'experiments/runs/benchmark')
+            directory,state=execute(catalog,load_snapshot(catalog,args.path),args.out or catalog.root/'experiments/runs/benchmark',args.qualification)
             print(json.dumps(dict(directory=str(directory),status=state['status']),ensure_ascii=False))
             return 0 if state['status']=='completed' else 1
+        elif args.command=='qualify':
+            from benchmark.load.qualification import qualify
+            from benchmark.load.runner import lease
+            with lease(catalog.root):
+                receipt=qualify(catalog,load_snapshot(catalog,args.path),args.out)
+            print(json.dumps(dict(output=str(args.out),statuses={r['id']:r['status'] for r in receipt['deployments']})))
+            return 0 if all(r['status']=='passed' for r in receipt['deployments']) else 1
+        elif args.command=='select':
+            from benchmark.load.qualification import select_qualified
+            if args.out.exists():
+                raise SpecError('selected plan output already exists')
+            selected=select_qualified(catalog,load_snapshot(catalog,args.path),args.qualification)
+            resolve(catalog,selected)
+            write(args.out,selected)
+            print(json.dumps(dict(output=str(args.out),deployments=selected['deployment_refs'])))
         elif args.command=='analyze':
             bundle=analyze(catalog,args.directory,args.out)
             print(json.dumps(dict(output=str(args.out),validity=bundle['validity']),ensure_ascii=False))

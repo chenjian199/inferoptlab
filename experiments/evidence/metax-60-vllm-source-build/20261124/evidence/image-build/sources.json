@@ -1,0 +1,14 @@
+{
+  "vllm": {
+    "repository": "https://github.com/vllm-project/vllm",
+    "commit": "5df63a7203cdb9328d824a27b682e77c7b9928be",
+    "archive_sha256": "b698d4ffe4c3694182964c11dd42ddd943a26a6cd24fe15de8aa5752d1296f47",
+    "bytes": 44400048
+  },
+  "vllm-metax": {
+    "repository": "https://github.com/MetaX-MACA/vLLM-metax",
+    "commit": "0962c8735ffe4795800030680311410848512b82",
+    "archive_sha256": "3a0794e6b54f2edab3eaf4edcaddc2a068018b8c1c2f21a22b4c7280a6351e48",
+    "bytes": 22698619
+  }
+}

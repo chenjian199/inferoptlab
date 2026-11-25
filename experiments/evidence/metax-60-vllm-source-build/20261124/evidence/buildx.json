@@ -1,0 +1,6 @@
+{
+  "version": "v0.39.1",
+  "url": "https://github.com/docker/buildx/releases/download/v0.39.1/buildx-v0.39.1.linux-amd64",
+  "sha256": "903090816da68f8bc1a2ff5346dd163a5adacfce4548d003c75df42cd47a9bf4",
+  "path": "/home/ubuntu/.docker/cli-plugins/docker-buildx"
+}

@@ -1,0 +1,127 @@
+# AIPerf Server Metrics Export (CSV)
+# aiperf_version: 0.12.0
+# schema_version: 1.0
+# benchmark_id: 94d8a5459084
+# Note: Same benchmark_id and version appear in JSON and Parquet exports
+#
+Endpoint,Type,Metric,Unit,avg,min,max,std,p1,p5,p10,p25,p50,p75,p90,p95,p99,engine,model_name,reason,sleep_state,Description
+127.0.0.1:18081,gauge,process_max_fds,,65535.0000,65535.0000,65535.0000,0.0000,65535.0000,65535.0000,65535.0000,65535.0000,65535.0000,65535.0000,65535.0000,65535.0000,65535.0000,,,,,Maximum number of open file descriptors.
+127.0.0.1:18081,gauge,process_open_fds,,42.8333,41.0000,43.0000,0.5145,41.1700,41.8500,42.7000,43.0000,43.0000,43.0000,43.0000,43.0000,43.0000,,,,,Number of open file descriptors.
+127.0.0.1:18081,gauge,process_resident_memory_bytes,bytes,10994502314.6667,10994262016.0000,10994532352.0000,87421.4810,10994262016.0000,10994262016.0000,10994451251.2000,10994532352.0000,10994532352.0000,10994532352.0000,10994532352.0000,10994532352.0000,10994532352.0000,,,,,Resident memory size in bytes.
+127.0.0.1:18081,gauge,process_start_time_seconds,seconds,1795499656.0400,1795499656.0400,1795499656.0400,0.0000,1795499656.0400,1795499656.0400,1795499656.0400,1795499656.0400,1795499656.0400,1795499656.0400,1795499656.0400,1795499656.0400,1795499656.0400,,,,,Start time of the process since unix epoch in seconds.
+127.0.0.1:18081,gauge,process_virtual_memory_bytes,bytes,30441136128.0000,30441136128.0000,30441136128.0000,0.0000,30441136128.0000,30441136128.0000,30441136128.0000,30441136128.0000,30441136128.0000,30441136128.0000,30441136128.0000,30441136128.0000,30441136128.0000,,,,,Virtual memory size in bytes.
+127.0.0.1:18081,gauge,vllm:kv_cache_usage_perc,ratio,0.0023,0.0000,0.0030,0.0013,0.0000,0.0000,0.0000,0.0030,0.0030,0.0030,0.0030,0.0030,0.0030,0,glm53-flash,,,KV-cache usage. 1 means 100 percent usage.
+127.0.0.1:18081,gauge,vllm:num_requests_running,requests,0.7778,0.0000,1.0000,0.4278,0.0000,0.0000,0.0000,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,0,glm53-flash,,,Number of requests in model execution batches.
+127.0.0.1:18081,gauge,vllm:num_requests_waiting,requests,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0,glm53-flash,,,Number of requests waiting to be processed.
+127.0.0.1:18081,gauge,vllm:engine_sleep_state,,1.0000,1.0000,1.0000,0.0000,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,0,glm53-flash,,awake,Engine sleep state; awake = 0 means engine is sleeping; awake = 1 means engine is awake; weights_offloaded = 1 means sleep level 1; discard_all = 1 means sleep level 2.
+127.0.0.1:18081,gauge,vllm:engine_sleep_state,,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0,glm53-flash,,discard_all,Engine sleep state; awake = 0 means engine is sleeping; awake = 1 means engine is awake; weights_offloaded = 1 means sleep level 1; discard_all = 1 means sleep level 2.
+127.0.0.1:18081,gauge,vllm:engine_sleep_state,,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0,glm53-flash,,weights_offloaded,Engine sleep state; awake = 0 means engine is sleeping; awake = 1 means engine is awake; weights_offloaded = 1 means sleep level 1; discard_all = 1 means sleep level 2.
+127.0.0.1:18081,gauge,vllm:num_requests_waiting_by_reason,requests,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0,glm53-flash,capacity,,"Number of waiting requests by reason. Reason labels: 'capacity' = waiting for scheduling capacity; 'deferred' = deferred by transient constraints (LoRA budget, KV transfer, blocked status). Sum of all reasons equals vllm:num_requests_waiting."
+127.0.0.1:18081,gauge,vllm:num_requests_waiting_by_reason,requests,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0,glm53-flash,deferred,,"Number of waiting requests by reason. Reason labels: 'capacity' = waiting for scheduling capacity; 'deferred' = deferred by transient constraints (LoRA budget, KV transfer, blocked status). Sum of all reasons equals vllm:num_requests_waiting."
+
+Endpoint,Type,Metric,Unit,total,rate,rate_avg,rate_min,rate_max,rate_std,engine,finished_reason,model_name,reason,source,generation,handler,method,status,Description
+127.0.0.1:18081,counter,process_cpu_seconds,seconds,0.0900,0.0133,,,,,,,,,,,,,,Total user and system CPU time spent in seconds.
+127.0.0.1:18081,counter,http_requests,requests,1.0000,0.1473,,,,,,,,,,,/v1/chat/completions,POST,2xx,"Total number of requests by method, status and handler."
+127.0.0.1:18081,counter,http_requests,requests,0.0000,0.0000,,,,,,,,,,,/v1/models,GET,2xx,"Total number of requests by method, status and handler."
+127.0.0.1:18081,counter,python_gc_collections,,1.0000,0.1473,,,,,,,,,,0,,,,Number of times this generation was collected
+127.0.0.1:18081,counter,python_gc_collections,,0.0000,0.0000,,,,,,,,,,1,,,,Number of times this generation was collected
+127.0.0.1:18081,counter,python_gc_collections,,0.0000,0.0000,,,,,,,,,,2,,,,Number of times this generation was collected
+127.0.0.1:18081,counter,python_gc_objects_collected,,180.0000,26.5197,,,,,,,,,,0,,,,Objects collected during gc
+127.0.0.1:18081,counter,python_gc_objects_collected,,0.0000,0.0000,,,,,,,,,,1,,,,Objects collected during gc
+127.0.0.1:18081,counter,python_gc_objects_collected,,0.0000,0.0000,,,,,,,,,,2,,,,Objects collected during gc
+127.0.0.1:18081,counter,python_gc_objects_uncollectable,,0.0000,0.0000,,,,,,,,,,0,,,,Uncollectable objects found during GC
+127.0.0.1:18081,counter,python_gc_objects_uncollectable,,0.0000,0.0000,,,,,,,,,,1,,,,Uncollectable objects found during GC
+127.0.0.1:18081,counter,python_gc_objects_uncollectable,,0.0000,0.0000,,,,,,,,,,2,,,,Uncollectable objects found during GC
+127.0.0.1:18081,counter,vllm:admission_rejections,,0.0000,0.0000,,,,,,,glm53-flash,max_num_queued_reqs,,,,,,"Number of admission attempts rejected by a queue limit, by reason."
+127.0.0.1:18081,counter,vllm:admission_rejections,,0.0000,0.0000,,,,,,,glm53-flash,max_num_queued_tokens,,,,,,"Number of admission attempts rejected by a queue limit, by reason."
+127.0.0.1:18081,counter,vllm:estimated_flops_per_gpu,,0.0000,0.0000,,,,,0,,glm53-flash,,,,,,,Estimated number of floating point operations per GPU (for Model Flops Utilization calculations).
+127.0.0.1:18081,counter,vllm:estimated_read_bytes_per_gpu,,0.0000,0.0000,,,,,0,,glm53-flash,,,,,,,Estimated number of bytes read from memory per GPU (for Model Flops Utilization calculations).
+127.0.0.1:18081,counter,vllm:estimated_write_bytes_per_gpu,,0.0000,0.0000,,,,,0,,glm53-flash,,,,,,,Estimated number of bytes written to memory per GPU (for Model Flops Utilization calculations).
+127.0.0.1:18081,counter,vllm:external_prefix_cache_hits,,0.0000,0.0000,,,,,0,,glm53-flash,,,,,,,"External prefix cache hits from KV connector cross-instance cache sharing, in terms of number of cached tokens."
+127.0.0.1:18081,counter,vllm:external_prefix_cache_queries,,0.0000,0.0000,,,,,0,,glm53-flash,,,,,,,"External prefix cache queries from KV connector cross-instance cache sharing, in terms of number of queried tokens."
+127.0.0.1:18081,counter,vllm:generation_tokens,tokens,32.0000,4.7146,,,,,0,,glm53-flash,,,,,,,Number of generation tokens processed.
+127.0.0.1:18081,counter,vllm:mm_cache_hits,,0.0000,0.0000,,,,,0,,glm53-flash,,,,,,,"Multi-modal cache hits, in terms of number of cached items."
+127.0.0.1:18081,counter,vllm:mm_cache_queries,,0.0000,0.0000,,,,,0,,glm53-flash,,,,,,,"Multi-modal cache queries, in terms of number of queried items."
+127.0.0.1:18081,counter,vllm:num_preemptions,,0.0000,0.0000,,,,,0,,glm53-flash,,,,,,,Cumulative number of preemption from the engine.
+127.0.0.1:18081,counter,vllm:prefix_cache_hits,,0.0000,0.0000,,,,,0,,glm53-flash,,,,,,,"Prefix cache hits, in terms of number of cached tokens."
+127.0.0.1:18081,counter,vllm:prefix_cache_queries,,0.0000,0.0000,,,,,0,,glm53-flash,,,,,,,"Prefix cache queries, in terms of number of queried tokens."
+127.0.0.1:18081,counter,vllm:prompt_tokens,tokens,1024.0000,150.8677,,,,,0,,glm53-flash,,,,,,,Number of prefill tokens processed.
+127.0.0.1:18081,counter,vllm:prompt_tokens_cached,,0.0000,0.0000,,,,,0,,glm53-flash,,,,,,,Number of cached prompt tokens (local + external).
+127.0.0.1:18081,counter,vllm:prompt_tokens_by_source,,0.0000,0.0000,,,,,0,,glm53-flash,,external_kv_transfer,,,,,Number of prompt tokens by source.
+127.0.0.1:18081,counter,vllm:prompt_tokens_by_source,,0.0000,0.0000,,,,,0,,glm53-flash,,local_cache_hit,,,,,Number of prompt tokens by source.
+127.0.0.1:18081,counter,vllm:prompt_tokens_by_source,,1024.0000,150.8677,,,,,0,,glm53-flash,,local_compute,,,,,Number of prompt tokens by source.
+127.0.0.1:18081,counter,vllm:prompt_tokens_cached_by_source,,0.0000,0.0000,,,,,0,,glm53-flash,,device,,,,,"Prefix-cache hit tokens by the cache tier that supplied them: device (local HBM), host (offloaded to DRAM), disk, p2p (transferred from another vLLM instance) or external_unspecified. Counted at admission; sums to vllm:prefix_cache_hits + vllm:external_prefix_cache_hits."
+127.0.0.1:18081,counter,vllm:prompt_tokens_cached_by_source,,0.0000,0.0000,,,,,0,,glm53-flash,,disk,,,,,"Prefix-cache hit tokens by the cache tier that supplied them: device (local HBM), host (offloaded to DRAM), disk, p2p (transferred from another vLLM instance) or external_unspecified. Counted at admission; sums to vllm:prefix_cache_hits + vllm:external_prefix_cache_hits."
+127.0.0.1:18081,counter,vllm:prompt_tokens_cached_by_source,,0.0000,0.0000,,,,,0,,glm53-flash,,external_unspecified,,,,,"Prefix-cache hit tokens by the cache tier that supplied them: device (local HBM), host (offloaded to DRAM), disk, p2p (transferred from another vLLM instance) or external_unspecified. Counted at admission; sums to vllm:prefix_cache_hits + vllm:external_prefix_cache_hits."
+127.0.0.1:18081,counter,vllm:prompt_tokens_cached_by_source,,0.0000,0.0000,,,,,0,,glm53-flash,,host,,,,,"Prefix-cache hit tokens by the cache tier that supplied them: device (local HBM), host (offloaded to DRAM), disk, p2p (transferred from another vLLM instance) or external_unspecified. Counted at admission; sums to vllm:prefix_cache_hits + vllm:external_prefix_cache_hits."
+127.0.0.1:18081,counter,vllm:prompt_tokens_cached_by_source,,0.0000,0.0000,,,,,0,,glm53-flash,,p2p,,,,,"Prefix-cache hit tokens by the cache tier that supplied them: device (local HBM), host (offloaded to DRAM), disk, p2p (transferred from another vLLM instance) or external_unspecified. Counted at admission; sums to vllm:prefix_cache_hits + vllm:external_prefix_cache_hits."
+127.0.0.1:18081,counter,vllm:request_success,requests,0.0000,0.0000,,,,,0,abort,glm53-flash,,,,,,,Count of successfully processed requests.
+127.0.0.1:18081,counter,vllm:request_success,requests,0.0000,0.0000,,,,,0,error,glm53-flash,,,,,,,Count of successfully processed requests.
+127.0.0.1:18081,counter,vllm:request_success,requests,1.0000,0.1473,,,,,0,length,glm53-flash,,,,,,,Count of successfully processed requests.
+127.0.0.1:18081,counter,vllm:request_success,requests,0.0000,0.0000,,,,,0,repetition,glm53-flash,,,,,,,Count of successfully processed requests.
+127.0.0.1:18081,counter,vllm:request_success,requests,0.0000,0.0000,,,,,0,stop,glm53-flash,,,,,,,Count of successfully processed requests.
+
+Endpoint,Type,Metric,Unit,count,count_rate,sum,sum_rate,avg,p1_estimate,p5_estimate,p10_estimate,p25_estimate,p50_estimate,p75_estimate,p90_estimate,p95_estimate,p99_estimate,engine,model_name,handler,method,Description,buckets
+127.0.0.1:18081,histogram,http_request_duration_highr_seconds,seconds,1,0.1473,4.7531,0.7003,4.7531,4.7531,4.7531,4.7531,4.7531,4.7531,4.7531,4.7531,4.7531,4.7531,,,,,Latency with many buckets but no API specific labels. Made for more accurate percentile calculations.,0.01=0;0.025=0;0.05=0;0.075=0;0.1=0;0.25=0;0.5=0;0.75=0;1.0=0;1.5=0;2.0=0;2.5=0;3.0=0;3.5=0;4.0=0;4.5=0;5.0=1;7.5=1;10.0=1;30.0=1;60.0=1;+Inf=1
+127.0.0.1:18081,histogram,http_request_duration_seconds,seconds,1,0.1473,4.7531,0.7003,4.7531,4.7531,4.7531,4.7531,4.7531,4.7531,4.7531,4.7531,4.7531,4.7531,,,/v1/chat/completions,POST,Latency with only few buckets by handler. Made to be only used if aggregation by handler is important.,0.1=0;0.5=0;1.0=0;+Inf=1
+127.0.0.1:18081,histogram,http_request_duration_seconds,seconds,0,,,,,,,,,,,,,,,,/v1/models,GET,Latency with only few buckets by handler. Made to be only used if aggregation by handler is important.,0.1=0;0.5=0;1.0=0;+Inf=0
+127.0.0.1:18081,histogram,vllm:e2e_request_latency_seconds,seconds,1,0.1473,4.7516,0.7001,4.7516,4.7516,4.7516,4.7516,4.7516,4.7516,4.7516,4.7516,4.7516,4.7516,0,glm53-flash,,,Histogram of e2e request latency in seconds.,0.3=0;0.5=0;0.8=0;1.0=0;1.5=0;2.0=0;2.5=0;5.0=1;10.0=1;15.0=1;20.0=1;30.0=1;40.0=1;50.0=1;60.0=1;120.0=1;240.0=1;480.0=1;960.0=1;1920.0=1;7680.0=1;+Inf=1
+127.0.0.1:18081,histogram,vllm:inter_token_latency_seconds,seconds,31,4.5673,4.5381,0.6686,0.1464,0.1440,0.1442,0.1445,0.1452,0.1464,0.1476,0.1483,0.1485,0.1487,0,glm53-flash,,,Histogram of inter-token latency in seconds.,0.01=0;0.025=0;0.05=0;0.075=0;0.1=0;0.15=31;0.2=31;0.3=31;0.4=31;0.5=31;0.75=31;1.0=31;2.5=31;5.0=31;7.5=31;10.0=31;20.0=31;40.0=31;80.0=31;+Inf=31
+127.0.0.1:18081,histogram,vllm:iteration_tokens_total,tokens,32,4.7146,1056.0000,155.5823,33.0000,0.0336,0.0736,0.1236,0.2736,0.5236,0.7736,0.9236,0.9736,718.0930,0,glm53-flash,,,Histogram of number of tokens per engine_step.,1.0=31;8.0=31;16.0=31;32.0=31;64.0=31;128.0=31;256.0=31;512.0=31;1024.0=31;2048.0=32;4096.0=32;8192.0=32;16384.0=32;+Inf=32
+127.0.0.1:18081,histogram,vllm:request_decode_time_seconds,seconds,1,0.1473,4.5381,0.6686,4.5381,4.5381,4.5381,4.5381,4.5381,4.5381,4.5381,4.5381,4.5381,4.5381,0,glm53-flash,,,Histogram of time spent in DECODE phase for request.,0.3=0;0.5=0;0.8=0;1.0=0;1.5=0;2.0=0;2.5=0;5.0=1;10.0=1;15.0=1;20.0=1;30.0=1;40.0=1;50.0=1;60.0=1;120.0=1;240.0=1;480.0=1;960.0=1;1920.0=1;7680.0=1;+Inf=1
+127.0.0.1:18081,histogram,vllm:request_generation_tokens,tokens,1,0.1473,32.0000,4.7146,32.0000,32.0000,32.0000,32.0000,32.0000,32.0000,32.0000,32.0000,32.0000,32.0000,0,glm53-flash,,,Number of generation tokens processed.,1.0=0;2.0=0;5.0=0;10.0=0;20.0=0;50.0=1;100.0=1;200.0=1;500.0=1;1000.0=1;2000.0=1;+Inf=1
+127.0.0.1:18081,histogram,vllm:request_inference_time_seconds,seconds,1,0.1473,4.7474,0.6994,4.7474,4.7474,4.7474,4.7474,4.7474,4.7474,4.7474,4.7474,4.7474,4.7474,0,glm53-flash,,,Histogram of time spent in RUNNING phase for request.,0.3=0;0.5=0;0.8=0;1.0=0;1.5=0;2.0=0;2.5=0;5.0=1;10.0=1;15.0=1;20.0=1;30.0=1;40.0=1;50.0=1;60.0=1;120.0=1;240.0=1;480.0=1;960.0=1;1920.0=1;7680.0=1;+Inf=1
+127.0.0.1:18081,histogram,vllm:request_max_num_generation_tokens,tokens,1,0.1473,32.0000,4.7146,32.0000,32.0000,32.0000,32.0000,32.0000,32.0000,32.0000,32.0000,32.0000,32.0000,0,glm53-flash,,,Histogram of maximum number of requested generation tokens.,1.0=0;2.0=0;5.0=0;10.0=0;20.0=0;50.0=1;100.0=1;200.0=1;500.0=1;1000.0=1;2000.0=1;+Inf=1
+127.0.0.1:18081,histogram,vllm:request_num_preemptions,,1,0.1473,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0,glm53-flash,,,Histogram of the number of times a request was preempted.,1.0=1;2.0=1;3.0=1;4.0=1;5.0=1;10.0=1;20.0=1;+Inf=1
+127.0.0.1:18081,histogram,vllm:request_params_max_tokens,tokens,1,0.1473,32.0000,4.7146,32.0000,32.0000,32.0000,32.0000,32.0000,32.0000,32.0000,32.0000,32.0000,32.0000,0,glm53-flash,,,Histogram of the max_tokens request parameter.,1.0=0;2.0=0;5.0=0;10.0=0;20.0=0;50.0=1;100.0=1;200.0=1;500.0=1;1000.0=1;2000.0=1;+Inf=1
+127.0.0.1:18081,histogram,vllm:request_params_n,,1,0.1473,1.0000,0.1473,1.0000,0.9000,0.9000,0.9000,0.9000,0.9000,0.9000,0.9000,0.9000,0.9000,0,glm53-flash,,,Histogram of the n request parameter.,1.0=1;2.0=1;5.0=1;10.0=1;20.0=1;+Inf=1
+127.0.0.1:18081,histogram,vllm:request_prefill_kv_computed_tokens,tokens,1,0.1473,1024.0000,150.8677,1024.0000,1024.0000,1024.0000,1024.0000,1024.0000,1024.0000,1024.0000,1024.0000,1024.0000,1024.0000,0,glm53-flash,,,Histogram of new KV tokens computed during prefill (excluding cached tokens).,1.0=0;2.0=0;5.0=0;10.0=0;20.0=0;50.0=0;100.0=0;200.0=0;500.0=0;1000.0=0;2000.0=1;+Inf=1
+127.0.0.1:18081,histogram,vllm:request_prefill_time_seconds,seconds,1,0.1473,0.2093,0.0308,0.2093,0.2093,0.2093,0.2093,0.2093,0.2093,0.2093,0.2093,0.2093,0.2093,0,glm53-flash,,,Histogram of time spent in PREFILL phase for request.,0.3=1;0.5=1;0.8=1;1.0=1;1.5=1;2.0=1;2.5=1;5.0=1;10.0=1;15.0=1;20.0=1;30.0=1;40.0=1;50.0=1;60.0=1;120.0=1;240.0=1;480.0=1;960.0=1;1920.0=1;7680.0=1;+Inf=1
+127.0.0.1:18081,histogram,vllm:request_prompt_tokens,tokens,1,0.1473,1024.0000,150.8677,1024.0000,1024.0000,1024.0000,1024.0000,1024.0000,1024.0000,1024.0000,1024.0000,1024.0000,1024.0000,0,glm53-flash,,,Number of prefill tokens processed.,1.0=0;2.0=0;5.0=0;10.0=0;20.0=0;50.0=0;100.0=0;200.0=0;500.0=0;1000.0=0;2000.0=1;+Inf=1
+127.0.0.1:18081,histogram,vllm:request_queue_time_seconds,seconds,1,0.1473,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0,glm53-flash,,,Histogram of time spent in WAITING phase for request.,0.3=1;0.5=1;0.8=1;1.0=1;1.5=1;2.0=1;2.5=1;5.0=1;10.0=1;15.0=1;20.0=1;30.0=1;40.0=1;50.0=1;60.0=1;120.0=1;240.0=1;480.0=1;960.0=1;1920.0=1;7680.0=1;+Inf=1
+127.0.0.1:18081,histogram,vllm:request_time_per_output_token_seconds,seconds,1,0.1473,0.1464,0.0216,0.1464,0.1464,0.1464,0.1464,0.1464,0.1464,0.1464,0.1464,0.1464,0.1464,0,glm53-flash,,,Histogram of time_per_output_token_seconds per request.,0.01=0;0.025=0;0.05=0;0.075=0;0.1=0;0.15=1;0.2=1;0.3=1;0.4=1;0.5=1;0.75=1;1.0=1;2.5=1;5.0=1;7.5=1;10.0=1;20.0=1;40.0=1;80.0=1;+Inf=1
+127.0.0.1:18081,histogram,vllm:time_to_first_token_seconds,seconds,1,0.1473,0.2136,0.0315,0.2136,0.2136,0.2136,0.2136,0.2136,0.2136,0.2136,0.2136,0.2136,0.2136,0,glm53-flash,,,Histogram of time to first token in seconds.,0.001=0;0.005=0;0.01=0;0.02=0;0.04=0;0.06=0;0.08=0;0.1=0;0.25=1;0.5=1;0.75=1;1.0=1;2.5=1;5.0=1;7.5=1;10.0=1;20.0=1;40.0=1;80.0=1;160.0=1;640.0=1;2560.0=1;+Inf=1
+
+Endpoint,Metric,Key,Value,Description
+127.0.0.1:18081,python_info,implementation,CPython,Python platform information
+127.0.0.1:18081,python_info,major,3,Python platform information
+127.0.0.1:18081,python_info,minor,12,Python platform information
+127.0.0.1:18081,python_info,patchlevel,11,Python platform information
+127.0.0.1:18081,python_info,version,3.12.11,Python platform information
+127.0.0.1:18081,vllm:cache_config_info,_block_size_resolved,True,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,block_size,640,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,cache_dtype,auto,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,cache_hit_alignment_tokens,None,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,effective_attention_block_size,640,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,enable_mamba_shared_prefix_checkpoint,False,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,enable_prefix_caching,False,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,engine,0,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,gpu_memory_utilization,0.9,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,hash_block_size,None,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,is_attention_free,False,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,kv_cache_dtype_skip_layers,[],Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,kv_cache_layout,None,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,kv_cache_max_concurrency,194.16666666666666,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,kv_cache_memory_bytes,None,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,kv_cache_size_tokens,795306,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,kv_offloading_backend,native,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,kv_offloading_size,None,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,kv_sharing_fast_prefill,False,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,mamba_block_size,4096,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,mamba_cache_dtype,auto,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,mamba_cache_mode,none,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,mamba_page_size_padded,None,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,mamba_ssm_cache_dtype,auto,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,num_cpu_blocks,None,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,num_gpu_blocks,2330,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,num_gpu_blocks_override,None,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,prefix_cache_retention_interval,0,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,prefix_caching_hash_algo,sha256,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,prefix_match_unit,None,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,replayssm_buffer_len,16,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,skip_page_size_padded,None,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,sliding_window,None,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,swa_bounded_replay,True,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,use_kda_recoverssm,False,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,use_replayssm,False,Information of the LLMEngine CacheConfig
+127.0.0.1:18081,vllm:cache_config_info,user_specified_block_size,False,Information of the LLMEngine CacheConfig

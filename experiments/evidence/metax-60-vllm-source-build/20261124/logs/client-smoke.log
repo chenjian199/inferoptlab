@@ -1,0 +1,7 @@
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+AIPERF_EXPORTED prefill-smoke warmup
+AIPERF_EXPORTED prefill-smoke profile
+AIPERF_EXPORTED short-smoke warmup
+AIPERF_EXPORTED short-smoke profile
+AIPERF_EXPORTED long-smoke warmup
+AIPERF_EXPORTED long-smoke profile

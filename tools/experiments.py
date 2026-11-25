@@ -74,9 +74,9 @@ def register_batch(catalog, batch):
             if not close(summary[field],computed[field]):raise SpecError('stored result differs from raw '+field)
         dep=resolved['deployment'];scene=embedded.get(trials[identity]['scenario_ref'])
         case=embedded.get(scene['case_ref'])
-        from benchmark.load.counts import at_point,fixture_name
+        from benchmark.load.counts import at_point,fixture_name,protocol_at_point
         declared=embedded.get(case['workload_ref'])
-        if resolved['trial']!=trials[identity] or dep!=embedded.get(trials[identity]['deployment_ref']) or resolved['case']!=case or workload!=at_point(declared,trials[identity]['concurrency']) or resolved['protocol']!=embedded.get(case['protocol_ref']):
+        if resolved['trial']!=trials[identity] or dep!=embedded.get(trials[identity]['deployment_ref']) or resolved['case']!=case or workload!=at_point(declared,trials[identity]['concurrency']) or resolved['protocol']!=protocol_at_point(embedded.get(case['protocol_ref']),trials[identity]['concurrency']):
             raise SpecError('resolved recipe differs from batch snapshot')
         fixture=batch/'datasets'/fixture_name(scene,declared,trials[identity]['concurrency'])
         if read(fixture/'manifest.json')!=manifest:raise SpecError('dataset manifest differs')

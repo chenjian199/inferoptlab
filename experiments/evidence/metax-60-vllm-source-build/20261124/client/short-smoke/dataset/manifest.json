@@ -1,0 +1,39 @@
+{
+  "format_version": 1,
+  "workload_id": "short-smoke",
+  "workload_sha256": "b75dee5d2c30c16af7bf44670192befcd38fef69b6876fe3504d5df01bf0b7e8",
+  "input_tokens": 128,
+  "output_tokens": 32,
+  "seed": 20261124,
+  "tokenizer": {
+    "path": "/model",
+    "files": {
+      "chat_template.jinja": "58f88a9ff33e084ed5cb935b6bab1eea2d3a783b57cb63e3796351bb33291aa8",
+      "config.json": "671a1dec45411c0d126573646ec7173aa1b4fd02aaaab62be8613b9c08e3018e",
+      "tokenizer.json": "19e773648cb4e65de8660ea6365e10acca112d42a854923df93db4a6f333a82d",
+      "tokenizer_config.json": "77af7d4769cd62c107b90495cac9b0ba81573c86486821bfba2980c04285ec7a"
+    },
+    "sha256": "99cd4127254cc26a897825da637c70d180fd9d2bb0ef73eb6dfce9f331431e6c"
+  },
+  "token_count_boundary": "apply_chat_template(user, add_generation_prompt=True)",
+  "files": {
+    "requests.jsonl": {
+      "sha256": "ff59eea481901ad812ec07175a5099900e3edd26c05fc9af42e0ff4dc023a589",
+      "count": 4,
+      "session_ids": [
+        "short-smoke-profiling-000000",
+        "short-smoke-profiling-000001",
+        "short-smoke-profiling-000002",
+        "short-smoke-profiling-000003"
+      ]
+    },
+    "warmup.jsonl": {
+      "sha256": "3beac61b6fed678843494f00beac1a53f309851e3b44354a6c5de3c56c053f61",
+      "count": 1,
+      "session_ids": [
+        "short-smoke-warmup-000000"
+      ]
+    }
+  },
+  "input_content_sha256": "40cdb0ea74f91d3a97b4fed1421d5605906313a75cef7891b0bf14d6e4335275"
+}

@@ -1,0 +1,39 @@
+Flag --time has been deprecated, use --timeout instead
+inferoptlab-glm53-vllm-r1
+STAGE 00-layout
+QUALIFY_START glm53-vllm-a-tp8
+QUALIFY_RESULT glm53-vllm-a-tp8 passed None
+QUALIFY_START glm53-vllm-b-tp8-ep8
+QUALIFY_RESULT glm53-vllm-b-tp8-ep8 failed [Errno 98] Address already in use
+QUALIFY_START glm53-vllm-c-tp4-dp2-ep8
+QUALIFY_RESULT glm53-vllm-c-tp4-dp2-ep8 failed [Errno 98] Address already in use
+QUALIFY_START glm53-vllm-d-tp2-dp4-ep8
+QUALIFY_RESULT glm53-vllm-d-tp2-dp4-ep8 failed [Errno 98] Address already in use
+{"output": "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/experiments/evidence/startup/00-layout", "statuses": {"glm53-vllm-a-tp8": "passed", "glm53-vllm-b-tp8-ep8": "failed", "glm53-vllm-c-tp4-dp2-ep8": "failed", "glm53-vllm-d-tp2-dp4-ep8": "failed"}}
+STAGE 01-scheduling
+QUALIFY_START glm53-vllm-a-tp8
+QUALIFY_RESULT glm53-vllm-a-tp8 failed [Errno 98] Address already in use
+QUALIFY_START glm53-vllm-a-budget2048
+QUALIFY_RESULT glm53-vllm-a-budget2048 failed [Errno 98] Address already in use
+QUALIFY_START glm53-vllm-a-budget8192
+QUALIFY_RESULT glm53-vllm-a-budget8192 failed [Errno 98] Address already in use
+QUALIFY_START glm53-vllm-a-seqs64
+QUALIFY_RESULT glm53-vllm-a-seqs64 failed [Errno 98] Address already in use
+QUALIFY_START glm53-vllm-a-seqs256
+QUALIFY_RESULT glm53-vllm-a-seqs256 failed [Errno 98] Address already in use
+QUALIFY_START glm53-vllm-a-graph
+QUALIFY_RESULT glm53-vllm-a-graph failed [Errno 98] Address already in use
+{"output": "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/experiments/evidence/startup/01-scheduling", "statuses": {"glm53-vllm-a-tp8": "failed", "glm53-vllm-a-budget2048": "failed", "glm53-vllm-a-budget8192": "failed", "glm53-vllm-a-seqs64": "failed", "glm53-vllm-a-seqs256": "failed", "glm53-vllm-a-graph": "failed"}}
+STAGE 02-context64k
+QUALIFY_START glm53-vllm-a-context64k
+QUALIFY_RESULT glm53-vllm-a-context64k failed [Errno 98] Address already in use
+{"output": "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/experiments/evidence/startup/02-context64k", "statuses": {"glm53-vllm-a-context64k": "failed"}}
+STAGE 03-context128k
+QUALIFY_START glm53-vllm-a-context128k
+QUALIFY_RESULT glm53-vllm-a-context128k failed [Errno 98] Address already in use
+{"output": "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/experiments/evidence/startup/03-context128k", "statuses": {"glm53-vllm-a-context128k": "failed"}}
+STAGE 04-cache
+QUALIFY_START glm53-vllm-a-cache
+QUALIFY_RESULT glm53-vllm-a-cache failed [Errno 98] Address already in use
+{"output": "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/experiments/evidence/startup/04-cache", "statuses": {"glm53-vllm-a-cache": "failed"}}
+inferoptlab-glm53-vllm-r1

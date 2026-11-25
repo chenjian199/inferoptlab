@@ -1,0 +1,37 @@
+Flag --time has been deprecated, use --timeout instead
+inferoptlab-glm53-vllm-r1
+STAGE 00-layout
+QUALIFY_START glm53-vllm-a-tp8
+QUALIFY_RESULT glm53-vllm-a-tp8 passed None
+QUALIFY_START glm53-vllm-b-tp8-ep8
+QUALIFY_RESULT glm53-vllm-b-tp8-ep8 passed None
+QUALIFY_START glm53-vllm-c-tp4-dp2-ep8
+QUALIFY_RESULT glm53-vllm-c-tp4-dp2-ep8 passed None
+QUALIFY_START glm53-vllm-d-tp2-dp4-ep8
+QUALIFY_RESULT glm53-vllm-d-tp2-dp4-ep8 passed None
+{"output": "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/experiments/evidence/startup-r2/00-layout", "statuses": {"glm53-vllm-a-tp8": "passed", "glm53-vllm-b-tp8-ep8": "passed", "glm53-vllm-c-tp4-dp2-ep8": "passed", "glm53-vllm-d-tp2-dp4-ep8": "passed"}}
+STAGE 01-scheduling
+QUALIFY_START glm53-vllm-a-budget2048
+QUALIFY_RESULT glm53-vllm-a-budget2048 passed None
+QUALIFY_START glm53-vllm-a-budget8192
+QUALIFY_RESULT glm53-vllm-a-budget8192 passed None
+QUALIFY_START glm53-vllm-a-seqs64
+QUALIFY_RESULT glm53-vllm-a-seqs64 passed None
+QUALIFY_START glm53-vllm-a-seqs256
+QUALIFY_RESULT glm53-vllm-a-seqs256 passed None
+QUALIFY_START glm53-vllm-a-graph
+QUALIFY_RESULT glm53-vllm-a-graph passed None
+{"output": "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/experiments/evidence/startup-r2/01-scheduling", "statuses": {"glm53-vllm-a-budget2048": "passed", "glm53-vllm-a-budget8192": "passed", "glm53-vllm-a-seqs64": "passed", "glm53-vllm-a-seqs256": "passed", "glm53-vllm-a-graph": "passed"}}
+STAGE 02-context64k
+QUALIFY_START glm53-vllm-a-context64k
+QUALIFY_RESULT glm53-vllm-a-context64k passed None
+{"output": "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/experiments/evidence/startup-r2/02-context64k", "statuses": {"glm53-vllm-a-context64k": "passed"}}
+STAGE 03-context128k
+QUALIFY_START glm53-vllm-a-context128k
+QUALIFY_RESULT glm53-vllm-a-context128k passed None
+{"output": "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/experiments/evidence/startup-r2/03-context128k", "statuses": {"glm53-vllm-a-context128k": "passed"}}
+STAGE 04-cache
+QUALIFY_START glm53-vllm-a-cache
+QUALIFY_RESULT glm53-vllm-a-cache failed cache replay does not satisfy declared per-request cache requirement
+{"output": "/home/ubuntu/CJ_workspace/inferoptlab-scan-20261124/experiments/evidence/startup-r2/04-cache", "statuses": {"glm53-vllm-a-cache": "failed"}}
+inferoptlab-glm53-vllm-r1

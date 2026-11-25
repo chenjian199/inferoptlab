@@ -1,0 +1,16 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-metax60-glm53-scan
+version: 1.0.0
+title: metax-60 GLM Flash 扫描矩阵启动资格与 AIPerf 流程验证
+provenance: []
+issues: []
+extensions: {}
+path: experiments/evidence/metax-60-glm53-scan/20261124/summary.json
+sha256: 4e01dd1bc85849ffa92db054305299d4a655d572bbbb289862f83374c1dade45
+media_type: application/json
+role: project_record
+authority: machine_collected
+coverage:
+  status: complete_visible
+  description: 12 个候选的启动/API 资格、严格缓存失败边界、小规模 AIPerf 流程与服务恢复记录；不是完整性能扫描或精度验收。

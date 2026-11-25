@@ -1,0 +1,128 @@
+LOADER
+971:             )
+972: 
+973:         if not isinstance(quant_choice_str, str):
+974:             raise TypeError(
+975:                 f"Quantization type must be a string (e.g., 'fp8'), "
+976:                 f"got {type(quant_choice_str)}"
+977:             )
+978: 
+979:         return model
+980: 
+981:     def load_model(
+982:         self,
+983:         *,
+984:         model_config: ModelConfig,
+985:         device_config: DeviceConfig,
+986:     ) -> nn.Module:
+987: 
+988:         if hasattr(model_config, "modelopt_quant") and model_config.modelopt_quant:
+989:             # Load base model using shared method
+990:             model = self._load_modelopt_base_model(model_config)
+991:             # Note: DefaultModelLoader doesn't do additional quantization processing
+992:             # For full ModelOpt quantization, use ModelOptModelLoader
+993:             return model.eval()
+994: 
+995:         target_device = torch.device(device_config.device)
+996:         quant_config = _get_quantization_config(model_config, self.load_config)
+997:         with set_default_torch_dtype(model_config.dtype):
+998:             with target_device:
+999:                 model = _initialize_model(
+1000:                     model_config,
+1001:                     self.load_config,
+1002:                     quant_config,
+1003:                 )
+1004: 
+1005:             if os.environ.get("SGLANG_C500_DSV41_MIXED_LOAD") == "1":
+1006:                 from c500_model import load_c500_model
+1007: 
+1008:                 load_c500_model(model, model_config.model_path)
+1009:                 self.postprocess_weights(model, target_device)
+1010:             else:
+1011:                 self.load_weights_and_postprocess(
+1012:                     model, self._get_all_weights(model_config, model), target_device
+1013:                 )
+1014: 
+1015:         self.counter_after_loading_weights = time.perf_counter()
+1016:         return model.eval()
+1017: 
+1018:     @staticmethod
+1019:     def load_weights_and_postprocess(model, weights, target_device):
+1020:         DefaultModelLoader.load_weights_only(model, weights, target_device)
+1021:         DefaultModelLoader.postprocess_weights(model, target_device)
+1022: 
+1023:     @staticmethod
+1024:     def load_weights_only(model, weights, target_device):
+1025:         # Used in tests to verify memory savings when using online quantization.
+C500 MODEL
+"""Opt-in full-model loader for C500: packed checkpoint -> owned runtime shards.
+
+The checkpoint is read-only. Experts become INT8; non-expert FP8 linears become
+BF16; Engram tables retain byte-packed storage and are dequantized on lookup.
+Requires the paired experimental SGLang loader patch and fixed TP/EP placement.
+"""
+import json
+import os
+import time
+import torch
+from c500_mixed import MixedRowLoader,load_expert_shard,copy_expert_shard
+from c500_dense import load_dense_tensor
+
+
+@torch.no_grad()
+def load_c500_model(model, root):
+    from sglang.srt.runtime_context import get_parallel
+    if model.config.model_type != 'deepseek_v41':
+        raise ValueError('C500 mixed loader only supports deepseek_v41')
+    if model.quant_config.get_name() != 'w8a8_int8':
+        raise ValueError('Expected W8A8 routed experts')
+    p=get_parallel()
+    if p.pp_size!=1 or p.attn_tp_size>8:
+        raise ValueError('Require PP1 and Attention TP<=8')
+    torch.backends.cuda.matmul.allow_tf32=False
+    if os.environ.get("SGLANG_C500_DSV41_PRECISION_REFERENCE") == "1":
+        from c500_precision import enable_precision_reference
+        enable_precision_reference()
+    loader=MixedRowLoader(root);preloaded=set();started=time.monotonic()
+    for lid,layer in enumerate(model.model.layers):
+        experts=layer.mlp.experts
+        if experts.num_fused_shared_experts or experts._num_global_routed!=384:
+            raise ValueError('Require 384 routed experts, shared expert fusion off')
+        count=experts._num_local_routed
+        first=experts._expert_storage_rank*count
+        for local in range(count):
+            tensors=load_expert_shard(loader,f'layers.{lid}.ffn.experts.{first+local}',tp_size=experts.moe_tp_size,tp_rank=experts.moe_tp_rank,chunk_rows=4096,device=experts.w13_weight.device)
+            copy_expert_shard(experts,local,tensors)
+            del tensors
+        preloaded.update(f'model.layers.{lid}.mlp.experts.{name}' for name,_ in experts.named_parameters())
+        if getattr(layer,'engram',None) is not None:
+            table=layer.engram.embed
+            if table.host_table is not None:
+                raise ValueError('This loader currently requires GPU Engram shards')
+            key=f'layers.{lid}.engram.embed.weight'
+            lo=table.row_start;hi=lo+table.rows
+            if loader.shape(key)[1]!=table.dim:
+                raise ValueError('Engram dimension mismatch')
+            for begin in range(lo,hi,262144):
+                end=min(begin+262144,hi)
+                packed=loader.load_rows(key,begin,end)
+                table.weight.data[begin-lo:end-lo].copy_(packed.weight)
+                table.scale.data[begin-lo:end-lo].copy_(packed.scale)
+                del packed
+            preloaded.update((f'model.layers.{lid}.engram.embed.weight',f'model.layers.{lid}.engram.embed.scale'))
+        torch.cuda.synchronize()
+        print(json.dumps({'event':'c500_owned_weights_loaded','rank':p.tp_rank,'layer':lid,'experts':[first,first+count],'elapsed_seconds':round(time.monotonic()-started,2),'allocated_gib':round(torch.cuda.memory_allocated()/2**30,3)}),flush=True)
+    def dense_weights():
+        for key in sorted(loader.index):
+            if key.startswith('mtp.') or (key.startswith('layers.') and int(key.split('.')[1])>=model.config.num_hidden_layers):
+                continue
+            if '.ffn.experts.' in key or '.engram.embed.' in key or key.endswith('.scale'):
+                continue
+            yield key,load_dense_tensor(loader,key,device='cuda',chunk_rows=4096)
+    model._c500_preloaded_params=preloaded
+    try:
+        model.load_weights(dense_weights())
+    finally:
+        del model._c500_preloaded_params
+    print(json.dumps({'event':'c500_complete_checkpoint_loaded','rank':p.tp_rank,'layers':len(model.model.layers),'elapsed_seconds':round(time.monotonic()-started,2)}),flush=True)
+C500 ENV {"PYTHONPATH": "/candidate:/src/python:/work", "SGLANG_C500_DSV41_MIXED_LOAD": "1", "SGLANG_C500_DSV41_PRECISION_REFERENCE": "1"}

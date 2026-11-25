@@ -48,13 +48,13 @@ def semantic_errors(catalog, doc, verify_sources=False):
             errors.append('deployment devices must occur in the hardware inventory')
         selected={d['device_id'] for d in devices}
         nodes={n['node_id'] for n in hardware['resources']['nodes'] if any(d['device_id'] in selected for d in n['devices'])}
-        if serving['management']=='sglang' and len(nodes)>1:
+        if serving['management'] in {'sglang', 'vllm-docker'} and len(nodes)>1:
             errors.append('v1 managed adapter requires all selected devices on one node')
         runtime = catalog.get(doc['runtime_ref'])
         if runtime['engine'] not in {'sglang', 'vllm', 'vllm-metax'}:
             errors.append('deployment adapter requires SGLang or vLLM')
-        if runtime['engine'] != 'sglang' and serving['management'] != 'external':
-            errors.append('vLLM requires external service management')
+        if runtime['engine'] != 'sglang' and serving['management'] not in {'external', 'vllm-docker'}:
+            errors.append('vLLM requires external or vllm-docker service management')
     elif doc['kind'] == 'BenchmarkScenario':
         try:
             inside(catalog.root, doc['dataset_dir'])
@@ -105,7 +105,7 @@ def execution_issues(catalog, plan):
         scene, case, workload, protocol = scenario_parts(catalog, reference)
         local = []
         if protocol['method'] not in {'full_request', 'prefill_one_token', 'prefix_reuse_decode'}:
-            local.append('supported methods are full_request, prefill_one_token and owned SGLang prefix_reuse_decode')
+            local.append('supported methods are full_request, prefill_one_token and owned-service prefix_reuse_decode')
         if workload['arrival']['mode'] != 'closed_loop' or workload['arrival']['load_unit'] != 'concurrency':
             local.append('v1 execution requires closed_loop concurrency')
         if not workload['arrival']['load_points']:
@@ -132,10 +132,16 @@ def execution_issues(catalog, plan):
             local.append('uncached protocols require disable_prefix_cache')
         for r in plan['deployment_refs']:
             dep = catalog.get(r)
+            context = dep['scheduling'].get('max_model_len')
+            if context is not None and workload['input']['tokens'] is not None and workload['output']['tokens'] is not None:
+                if context < workload['input']['tokens'] + workload['output']['tokens']:
+                    local.append(f'{dep["id"]}: max_model_len is below input + output tokens')
             if bool(dep.get('prefix_cache', False)) != cached:
                 local.append('deployment prefix_cache must match the protocol; split P and D deployments')
-            if cached and (catalog.get(dep['runtime_ref'])['engine'] != 'sglang' or dep['serving']['management'] != 'sglang'):
-                local.append('cache reset/replay currently requires an owned SGLang deployment')
+            if cached and dep['serving']['management'] not in {'sglang', 'vllm-docker'}:
+                local.append('cache reset/replay requires an owned service')
+            if cached and dep['serving']['management'] == 'vllm-docker' and dep['parallelism']['dp'] != 1:
+                local.append('vLLM cache replay requires DP=1 until sticky routing is verified')
         timing = protocol['timing']
         if (timing['window'], timing['start'], timing['finish']) != ('fixed_request_set', 'first_actual_send', 'last_completion_or_timeout'):
             local.append('unsupported measurement window')
@@ -144,6 +150,8 @@ def execution_issues(catalog, plan):
         if workload['output']['tokens'] != 1 and timing['tpot_boundary'] != 'first_to_last_token_over_n_minus_one':
             local.append('unsupported TPOT boundary')
         execution = protocol['execution']
+        if execution.get('warmup_request_multiplier') and workload['requests'].get('count_multiplier') is None:
+            local.append('warmup_request_multiplier requires per-concurrency fixtures via requests.count_multiplier')
         if execution.get('warmup_request_count') is None or not execution['repetitions'] or not execution['timeout_s']:
             local.append('numeric warmup_request_count, repetitions and timeout_s are required')
         if execution['profiler_during_scoring'] is not False:
