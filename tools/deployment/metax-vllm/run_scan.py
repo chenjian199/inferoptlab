@@ -7,6 +7,7 @@ import argparse
 import os
 import subprocess
 import sys
+import uuid
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -24,6 +25,9 @@ def main():
     parser.add_argument('plan', type=Path)
     parser.add_argument('--qualification', type=Path)
     parser.add_argument('--out', type=Path)
+    parser.add_argument('--resume', type=Path, help='Existing batch to resume using its archived snapshot')
+    parser.add_argument('--skip-failed-configurations', action='store_true')
+    parser.add_argument('--client-name', help='Unique owned client container name for supervision')
     args = parser.parse_args()
     client = args.client_root.resolve(strict=True)
     # The interpreter symlink resolves inside CLIENT_IMAGE, not on the host.
@@ -35,6 +39,8 @@ def main():
     plan = embedded.get(snapshot['plan_ref'])
     deps = [embedded.get(r) for r in plan['deployment_refs']]
     cmd = ['docker', 'run', '--rm', '--pull=never', '--network=host',
+           '--name', args.client_name or ('inferoptlab-client-' + uuid.uuid4().hex[:12]),
+           '--label', 'io.inferoptlab.role=benchmark-client',
            '--user', f'{os.getuid()}:{os.getgid()}',
            '--mount', f'type=bind,source={ROOT},target={ROOT}',
            '--mount', f'type=bind,source={client},target=/work',
@@ -63,6 +69,14 @@ def main():
         cmd += ['--qualification', str(args.qualification.resolve())]
     if args.out:
         cmd += ['--out', str(args.out.resolve())]
+    if args.resume:
+        if args.action != 'run':
+            raise SpecError('--resume is only supported for run')
+        cmd += ['--resume', str(args.resume.resolve())]
+    if args.skip_failed_configurations:
+        if args.action != 'run':
+            raise SpecError('--skip-failed-configurations is only supported for run')
+        cmd += ['--skip-failed-configurations']
     return subprocess.run(cmd, check=False).returncode
 
 

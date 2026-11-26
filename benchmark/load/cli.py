@@ -67,6 +67,9 @@ def analyze(catalog,directory,output):
     json_write(output/'summary.json',bundle)
     json_write(output/'sla.json',verdict)
     json_write(output/'provenance.json',dict(source_run=str(directory),source_raw_sha256=bundle['raw_sha256'],operation='offline_reanalysis',new_gpu_execution=False))
+    if protocol['scope'] == 'decode' and protocol['method'] == 'full_request':
+        from benchmark.load.metrics.decode import report as decode_report
+        decode_report(output, records, bundle, record['environment_issues'])
     run_report(output,record,bundle,verdict)
     return bundle
 
@@ -87,6 +90,8 @@ def main(argv=None):
     run.add_argument('path',type=Path)
     run.add_argument('--out',type=Path)
     run.add_argument('--qualification',type=Path,help='Matching startup qualification receipt')
+    run.add_argument('--resume',type=Path,help='Resume this batch with its exact archived snapshot; preserve all attempts')
+    run.add_argument('--skip-failed-configurations',action='store_true',help='Record user-directed failure skips; never retry a failed configuration')
     qualification=commands.add_parser('qualify',help='Start each deployment and verify exact-length API probes; no performance scoring')
     qualification.add_argument('path',type=Path)
     qualification.add_argument('--out',type=Path,required=True)
@@ -128,9 +133,9 @@ def main(argv=None):
                     print(json.dumps(dict(scenario=scene['id'],concurrency=concurrency,directory=str(target),request_set_sha256=manifest['files']['requests.jsonl']['sha256']),ensure_ascii=False))
         elif args.command=='run':
             from benchmark.load.runner import execute
-            directory,state=execute(catalog,load_snapshot(catalog,args.path),args.out or catalog.root/'experiments/runs/benchmark',args.qualification)
+            directory,state=execute(catalog,load_snapshot(catalog,args.path),args.out or catalog.root/'experiments/runs/benchmark',args.qualification,args.resume,args.skip_failed_configurations)
             print(json.dumps(dict(directory=str(directory),status=state['status']),ensure_ascii=False))
-            return 0 if state['status']=='completed' else 1
+            return 0 if state['status'] in {'completed','completed_with_skips','finished_with_failures'} else 1
         elif args.command=='qualify':
             from benchmark.load.qualification import qualify
             from benchmark.load.runner import lease

@@ -1,0 +1,29 @@
+schema_version: 0.2.0
+kind: TestCaseSpec
+id: glm53-vllm-decode-64k-20-case
+version: 1.0.0
+title: GLM Flash 65536 to 20 post-first-token latency
+provenance: []
+issues: []
+extensions:
+  measurement.scope: Full requests with normal Prefill; report post-first-token TPOT
+    and request_latency minus TTFT. Not isolated device Decode; concurrent Prefill
+    may interfere.
+purpose: diagnostic
+model_ref:
+  id: cluster-glm53-flash-w8a8
+  version: 1.1.0
+workload_ref:
+  id: glm53-vllm-decode-64k-20-workload
+  version: 1.0.0
+protocol_ref:
+  id: glm53-vllm-decode-post-first
+  version: 1.0.0
+sla_ref: null
+required: true
+source_case_label: Full performance matrix; post-first-token client latency; not quality
+  acceptance
+declared_context:
+  input: '65536'
+  output: '20'
+priority: null

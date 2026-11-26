@@ -50,6 +50,7 @@ SCHEMA_FILES = {
     "DeploymentSpec": "deployment.json",
     "BenchmarkScenario": "benchmark-scenario.json",
     "BenchmarkPlan": "benchmark.json",
+    "CachedDecodePlan": "cached-decode.json",
     "ResolvedBenchmark": "benchmark-snapshot.json",
     "MeasurementBundle": "measurement.json",
     "HardwareMeasurement": "hardware-measurement.json",
@@ -68,14 +69,14 @@ REFERENCE_KINDS = {
     "source_ref": "SourceDocument", "model_ref": "ModelSpec",
     "model_refs": "ModelSpec", "hardware_ref": "HardwareSpec",
     "hardware_refs": "HardwareSpec", "device_profile_ref": "HardwareSpec",
-    "runtime_ref": "RuntimeSpec", "workload_ref": "WorkloadSpec",
+    "runtime_ref": "RuntimeSpec", "workload_ref": "WorkloadSpec", "workload_refs": "WorkloadSpec",
     "protocol_ref": "MeasurementProtocol", "sla_ref": "SLAProfile",
     "case_refs": "TestCaseSpec",
     "correctness_policy_ref": "ValidationPolicy", "quality_policy_ref": "ValidationPolicy",
     "evaluation_policy_ref": "ValidationPolicy",
     "case_ref": "TestCaseSpec", "study_ref": "StudySpec",
     "deployment_refs": "DeploymentSpec", "scenario_refs": "BenchmarkScenario",
-    "inventory_source_ref": "SourceDocument",
+    "inventory_source_ref": "SourceDocument", "payload_source_ref": "SourceDocument",
     "method_ref": "AnalysisMethod", "method_refs": "AnalysisMethod",
     "calibration_refs": "HardwareMeasurement", "historical_refs": "ReportedMeasurements",
     "diagnosis_plan_ref": "DiagnosisPlan",
@@ -271,6 +272,10 @@ class Catalog:
                 reference = doc["semantics"][field]
                 if reference and self.get(reference)["purpose"] != purpose:
                     errors.append(f"{field}: requires a {purpose} validation policy")
+            checkpoint = doc.get('checkpoint', {})
+            if checkpoint.get('payload_verified') and verify_sources:
+                from tools.hardware.payload import verify_manifest
+                errors.extend(verify_manifest(self, doc))
         elif kind == "SourceDocument":
             path = (self.root / doc["path"]).resolve()
             if not path.is_relative_to(self.root):

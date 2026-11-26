@@ -1,0 +1,54 @@
+schema_version: 0.2.0
+kind: WorkloadSpec
+id: glm53-vllm-decode-64k-50-workload
+version: 1.0.0
+title: GLM Flash 65536 to 50 post-first-token latency
+provenance: []
+issues: []
+extensions: {}
+input:
+  label: '65536'
+  tokens: 65536
+  k_multiplier: null
+  origin: explicit_tokens
+output:
+  label: '50'
+  tokens: 50
+  k_multiplier: null
+  origin: explicit_tokens
+requests:
+  content: random_independent
+  request_set_sha256: null
+  seed: 20261125
+  count: null
+  count_multiplier: 4
+  request_set_sha256_by_concurrency:
+    '1': 821d74a6cc5bd8d08a473c1685c43ae2f78c61da1220230bdfccc2ed897665ea
+    '2': 1719659191f5d2fb3000273dd617ca29c583a9068d0e6180c6240d90a5be3ac7
+    '4': 240c8f445c2a767f6bcb119d06c4584778778533aa528a76ee1f648380581ef1
+    '8': f6500066b08467e8c96ad03f89f91b92329fc910f32dd08c8b194e6793a85266
+    '16': f7c4f6545a59b066cb9749b40d131c9adaea1eb4b34cc99cea019dbbae712f34
+    '32': e880bf52a31f38fc5453571f5f7d57290582ec335397b6f3b153bdd94d114b0c
+    '64': f2fa7edbd42a413394dc1a2c0e3e6bca7673dafc68a562bd69ad7234b9a4074f
+    '128': d5e96238c1718e967819f33730484ac8c72ce08a2faaefa6f1c817479f4ae4a8
+generation:
+  ignore_eos: true
+  sampling: greedy
+  stop_policy: fixed_output_tokens
+arrival:
+  mode: closed_loop
+  load_unit: concurrency
+  load_points:
+  - 1
+  - 2
+  - 4
+  - 8
+  - 16
+  - 32
+  - 64
+  - 128
+cache:
+  prefix_reuse: disabled
+  target_hit_ratio: 0
+  preparation: disable_prefix_cache
+  reset_between_runs: true

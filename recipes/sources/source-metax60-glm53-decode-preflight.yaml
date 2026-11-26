@@ -1,0 +1,18 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-metax60-glm53-decode-preflight
+version: 1.0.0
+title: GLM Flash decode preflight observation; functional regression in progress
+provenance: []
+issues: []
+extensions: {}
+path: experiments/evidence/glm53-decode-preflight/20261125/observations/functional-started/summary.json
+sha256: 4e7564dfe606772c78cdfaf39510eb593ddba2cc38cf1354aa52ccd4997ccd21
+media_type: application/json
+role: project_record
+authority: machine_collected
+coverage:
+  status: complete_visible
+  description: 'Snapshot: both 64K deployment startups passed; eight-rank hardware
+    sanity passed; scoring canonical 164/164 passed; first real TP8 generation process
+    starting. No completed model-quality or performance acceptance.'

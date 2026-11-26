@@ -1,0 +1,12 @@
+schema_version: 0.2.0
+kind: BenchmarkScenario
+id: glm53-vllm-decode-4k-50
+version: 1.0.0
+title: GLM Flash 4096 to 50 post-first-token latency
+provenance: []
+issues: []
+extensions: {}
+case_ref:
+  id: glm53-vllm-decode-4k-50-case
+  version: 1.0.0
+dataset_dir: experiments/datasets/glm53-vllm/decode-short-output/4k-50

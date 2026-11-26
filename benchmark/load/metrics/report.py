@@ -20,6 +20,8 @@ def run_report(directory, record, bundle, sla):
     lines += ['| '+name+' | '+fmt(value)+' |' for name,value in bundle['rates'].items()]
     if sla['joint']:
         lines+=['', 'Joint request SLO: `'+json.dumps(sla['joint'],ensure_ascii=False)+'`']
+    if (Path(directory)/'decode.json').exists():
+        lines+=['', '[Primary post-first-token latency report](decode.md); full-window throughput above includes Prefill.']
     issues=list(dict.fromkeys(bundle['issues']+record.get('environment_issues',[])+sla['reasons']+([record['error']] if record.get('error') else [])))
     if issues:
         lines+=['','Observations / unresolved conditions:','']+['- '+str(x) for x in issues]

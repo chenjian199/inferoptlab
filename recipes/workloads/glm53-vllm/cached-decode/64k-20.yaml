@@ -1,0 +1,53 @@
+schema_version: 0.2.0
+kind: WorkloadSpec
+id: glm53-vllm-cached-decode-64k-20-workload
+version: 1.0.0
+title: GLM Flash cached context 64k, 20 new Decode tokens
+provenance: []
+issues: []
+extensions:
+  dataset.reuse: Independent contexts across concurrent slots; each slot replays its
+    context for four sequential requests. Frozen token IDs replace old chat fixture
+    hashes.
+  cache.ratio: target_hit_ratio applies to the original L-token context. Wire prompt
+    is L+1 including a P-produced seed.
+  cache.lifecycle: Reset before each length/concurrency group; retain the validated
+    contexts across that group repetitions and output lengths. Validate every scored
+    request.
+input:
+  label: '65536'
+  tokens: 65536
+  k_multiplier: null
+  origin: explicit_tokens
+output:
+  label: '20'
+  tokens: 20
+  k_multiplier: null
+  origin: explicit_tokens
+requests:
+  content: random_independent
+  request_set_sha256: null
+  seed: 20261125
+  count: null
+  count_multiplier: 4
+generation:
+  ignore_eos: true
+  sampling: greedy
+  stop_policy: fixed_output_tokens
+arrival:
+  mode: closed_loop
+  load_unit: concurrency
+  load_points:
+  - 1
+  - 2
+  - 4
+  - 8
+  - 16
+  - 32
+  - 64
+  - 128
+cache:
+  prefix_reuse: enabled
+  target_hit_ratio: 1
+  preparation: seed_then_fill_boundary_per_sticky_slot
+  reset_between_runs: false

@@ -1,0 +1,44 @@
+schema_version: 0.2.0
+kind: MeasurementProtocol
+id: glm53-vllm-decode-post-first
+version: 1.0.0
+title: GLM Flash first-token-excluded Decode latency
+provenance: []
+issues: []
+extensions:
+  measurement.scope: Full requests with normal Prefill; report post-first-token TPOT
+    and request_latency minus TTFT. Not isolated device Decode; concurrent Prefill
+    may interfere.
+  measurement.primary_metrics:
+  - tpot
+  - post_first_token_latency
+scope: decode
+method: full_request
+allowed_deployment_modes:
+- aggregated
+timing:
+  ttft_boundary: client_submit_to_first_content_token
+  tpot_boundary: first_to_last_token_over_n_minus_one
+  token_timestamps: unavailable
+  window: fixed_request_set
+  start: first_actual_send
+  finish: last_completion_or_timeout
+execution:
+  warmup: Separate AIPerf process and disjoint warmup fixture; excluded from scoring.
+  warmup_request_count: 4
+  timeout_s: 3600
+  repetitions: 3
+  profiler_during_scoring: false
+  warmup_request_multiplier: 1
+accounting:
+  primary_population: all_planned_requests
+  failure_policy: retain_in_denominator
+  logical_request_deduplication: true
+steps:
+- Check model and cache configuration.
+- Run excluded warmup fixture.
+- Send fixed request set with closed-loop concurrency.
+- Retain failures and drain until completion or timeout.
+- 保留原始流事件与统计口径；核对 TTFT 是否包含 reasoning token，不混用不同计时边界。
+- Do not rank TTFT or full-window token throughput as Decode performance. Retain them
+  as diagnostic evidence.

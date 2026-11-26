@@ -42,4 +42,17 @@ python -m benchmark accuracy compare recipes/plans/accuracy/glm53-humaneval-full
 
 `inspect` 的 `history_verified` 仅代表保存的数据相互一致；它没有重跑评分器，也未独立证明进程启动事实。比较结果是功能筛查，所有离线报告均固定 `new_gpu_execution: false`、`release_accepted: false`。历史 153/164 不是当前候选的最低总分规则。
 
-首版没有连接生成器、CPU 评分沙箱、logits/张量采集和数值计算执行器。上述 sandbox 字段是将来执行器必须遵守的协议，不是当前 CLI 已执行的隔离措施。输出保存在 `experiments/runs/accuracy/`，不覆盖原始资料和历史分数。
+离线 `plan/inspect/compare` 不连接 GPU 或执行代码。新增的 `python -m benchmark.accuracy.live` 提供本轮 vLLM HTTP 生成和真实 CPU Docker 隔离评分；logits/张量数值验收仍未实现，不能因功能层通过而自动标记发布通过。历史数据和来源不覆盖。
+
+## 同期 TP8 与并行形态功能回归
+
+实际入口见 [Decode 计划](../../recipes/plans/benchmark/glm53-vllm/DECODE.md)。`live.py` 复用 DeploymentSpec、性能 Plan 的两个候选及既有 full164 AccuracyPlan 的数据指纹，不执行性能扫描。各配置三次全新服务进程，记录实际容器 ID/PID/启动时间、输入与输出 token ID；允许变化限定为并行形态和相应的每 DP 序列容量，其余启动参数不一致时拒绝比较。
+
+先执行评分沙箱自检和 164 个 canonical 答案检查，再执行模型生成。评分器只有 CPU、无网络、无模型/仓库/docker socket 挂载、只读根目录、非 root 用户，并限制 CPU/内存/PID/超时。沿用原任务的非对抗功能评分协议；它不是针对主动攻击评分器的安全证明。基础设施错误停止整轮，不计作模型失分。
+
+`state.json` 保留逐轮进度与逐候选功能结果；`release_accepted` 固定为 false，绝对精度与数值验收明确为尚未建立。未建立数值/质量验收政策时不进入正式性能验收，不补写 ValidationPolicy 的通过状态。
+
+```bash
+python -m benchmark.accuracy.live --help
+python tools/deployment/metax-vllm/preflight.py --help
+```

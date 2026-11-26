@@ -29,7 +29,7 @@ def binding(catalog, deployment):
     }.items()}
 
 
-def verify_receipt(catalog, snapshot, path):
+def verify_receipt(catalog, snapshot, path, allow_failed=False):
     receipt = json.loads(Path(path).read_text(encoding='utf-8'))
     if receipt.get('content_sha256') != digest({k: v for k, v in receipt.items() if k != 'content_sha256'}):
         raise SpecError('qualification receipt hash mismatch')
@@ -46,6 +46,9 @@ def verify_receipt(catalog, snapshot, path):
                    and r['status'] == 'passed' and (dep['scheduling'].get('max_model_len') or 0) >= required
                    and any(p['status'] == 'passed' and p['input_tokens'] >= required_input for p in r['probes'])]
         if not matches:
+            if allow_failed and any(r['binding']==binding(catalog,dep) and r['status']=='failed'
+                                    for r in receipt['deployments']):
+                continue  # Runner records an explicit startup failure skip; it may not launch this deployment.
             raise SpecError(f'{dep["id"]}: no matching successful startup qualification; changed recipes need requalification')
     return receipt
 

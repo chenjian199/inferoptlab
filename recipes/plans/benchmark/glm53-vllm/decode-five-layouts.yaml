@@ -1,0 +1,60 @@
+schema_version: 0.2.0
+kind: BenchmarkPlan
+id: glm53-vllm-decode-five-layouts-plan
+version: 1.0.0
+title: 'GLM Flash five layouts: 720 planned post-first-token measurement points'
+provenance: []
+issues: []
+extensions:
+  scan.policy: All listed deployments × scenarios × workload concurrency points ×
+    protocol repetitions. No screening or winner selection.
+  measurement.scope: Full requests with normal Prefill; report post-first-token TPOT
+    and request_latency minus TTFT. Not isolated device Decode; concurrent Prefill
+    may interfere.
+  acceptance.policy: User requested direct performance collection on 2026-11-25. Retain
+    startup qualification and the full matrix. Quality regression and numerical acceptance
+    are incomplete; these results do not establish release acceptance.
+  execution.partition: Existing two-layout archived batch plus the disjoint additional-layouts
+    plan. Do not rerun completed points using this overview plan. Explicit user exclusions
+    remain in the original batch ledger.
+study_ref:
+  id: glm53-vllm-decode-five-layouts
+  version: 1.0.0
+deployment_refs:
+- id: glm53-vllm-decode-tp8
+  version: 1.0.0
+- id: glm53-vllm-decode-tp8-ep8
+  version: 1.0.0
+- id: glm53-vllm-decode-tp4-dp2-ep8
+  version: 1.0.0
+- id: glm53-vllm-decode-tp2-dp4-ep8
+  version: 1.0.0
+- id: glm53-vllm-decode-tp1-dp8-ep8
+  version: 1.0.0
+scenario_refs:
+- id: glm53-vllm-decode-4k-20
+  version: 1.0.0
+- id: glm53-vllm-decode-4k-50
+  version: 1.0.0
+- id: glm53-vllm-decode-16k-20
+  version: 1.0.0
+- id: glm53-vllm-decode-16k-50
+  version: 1.0.0
+- id: glm53-vllm-decode-64k-20
+  version: 1.0.0
+- id: glm53-vllm-decode-64k-50
+  version: 1.0.0
+mode: exploratory
+qualification_required: true
+aiperf:
+  version: 0.12.0
+  server_metrics:
+  - http://127.0.0.1:18082/metrics
+  gpu_telemetry: []
+  required_telemetry: server
+budget:
+  max_runs: 720
+  max_wall_seconds: 1209600
+  run_timeout_s: 43200
+order_seed: 20261125
+failure_policy: stop

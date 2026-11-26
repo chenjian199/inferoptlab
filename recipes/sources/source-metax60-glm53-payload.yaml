@@ -1,0 +1,17 @@
+schema_version: 0.2.0
+kind: SourceDocument
+id: source-metax60-glm53-payload
+version: 1.0.0
+title: GLM Flash complete local weight payload fingerprint
+provenance: []
+issues: []
+extensions: {}
+path: experiments/evidence/glm53-decode-preflight/20261125/checkpoint-payload.json
+sha256: 0fcf8a84633735c06fcb4e9e36135fb8169a72c10101418fed9d76d687716378
+media_type: application/json
+role: project_record
+authority: machine_collected
+coverage:
+  status: complete_visible
+  description: All 47 indexed shard payloads read, hashed, index/header map and stable
+    file metadata checked. Does not certify upstream authenticity or numerical accuracy.

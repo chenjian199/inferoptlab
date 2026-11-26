@@ -152,11 +152,12 @@ def docker(*args, **kwargs):
 
 
 class Deployment:
-    def __init__(self, deployment, runtime, log_path):
+    def __init__(self, deployment, runtime, log_path, observation=None):
         self.deployment, self.runtime, self.log_path = deployment, runtime, Path(log_path)
         self.container_id = None
         self.token = uuid.uuid4().hex
         self.process = None
+        self.observation = observation
 
     def launch(self):
         if self.deployment['serving']['management'] == 'external':
@@ -184,6 +185,14 @@ class Deployment:
         env = dict(self.runtime.get('execution_profile', {}).get('environment', {}))
         env.update({s['device_visibility_env']: visible, 'VLLM_SERVER_DEV_MODE': '1',
                     'HF_HUB_OFFLINE': '1', 'TRANSFORMERS_OFFLINE': '1'})
+        if self.observation:
+            hooks = Path(self.observation['hooks']).resolve(strict=True)
+            records = Path(self.observation['records']).resolve()
+            records.mkdir(parents=True, exist_ok=True)
+            cmd += ['--mount', f'type=bind,source={hooks},target=/inferoptlab-observers,readonly',
+                    '--mount', f'type=bind,source={records},target=/inferoptlab-observations']
+            env.update(PYTHONPATH='/inferoptlab-observers',
+                       INFEROPTLAB_DECODE_OBSERVATIONS='/inferoptlab-observations')
         for name, value in sorted(env.items()):
             cmd += ['-e', f'{name}={value}']
         if s.get('cache_dir'):

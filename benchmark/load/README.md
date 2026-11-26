@@ -2,6 +2,8 @@
 
 这是 [benchmark 三模块](../README.md) 中的压测模块，入口为 `python -m benchmark load ...`。
 
+完整上下文缓存命中的 D 端续接测试见 [Cached Decode 流程](CACHED-DECODE.md)。该入口验证独立上下文、DP 固定路由和单 token 调度，并逐请求拒绝缓存未命中的结果。
+
 本模块实现“版本化规约 → 请求集 → 部署/连接服务 → AIPerf 测量 → 结果归档 → SLA 与报告”。离线规约和编排工具可以在 Windows 使用；真实 AIPerf 执行在 Linux 测试机上进行。支持管理 SGLang 进程、MetaX vLLM Docker 部署，或连接已有 SGLang/vLLM 服务。模型和环境的未确认字段仍阻塞正式冻结；小模型流程验证的范围与结果见 [集群检查记录](../../docs/cluster-intake-20261123.md)。
 
 GLM Flash 八卡 C500 当前使用六种配置的完整正式扫描，负载点和手动增加部署的说明见 [扫描计划表](../../recipes/plans/benchmark/glm53-vllm/README.md)。`qualify` 生成绑定配置哈希的启动记录，`run --qualification` 检查记录并复用原有请求集、AIPerf、指标和归档链路。该完整计划要求所有配置通过资格检查，不使用候选筛选步骤。

@@ -111,7 +111,10 @@
           "const": "sha256_canonical_json_shard_name_size_header_sha256"
         },
         "verification_scope": {
-          "const": "index_and_headers"
+          "enum": [
+            "index_and_headers",
+            "index_headers_and_payload_fingerprint"
+          ]
         },
         "index_matches_headers": {
           "type": [
@@ -127,7 +130,8 @@
           }
         },
         "payload_verified": {
-          "const": false
+          "type": "boolean",
+          "description": "Full local payload fingerprint and structural consistency verified; does not certify upstream authenticity or numerical accuracy."
         },
         "auxiliary_files": {
           "type": "array",
@@ -160,6 +164,9 @@
             "reason"
           ],
           "additionalProperties": false
+        },
+        "payload_source_ref": {
+          "$ref": "https://inferoptlab.local/schemas/0.2.0/common.json#/$defs/reference"
         }
       },
       "required": [
@@ -182,7 +189,38 @@
         "auxiliary_files",
         "compatibility"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "payload_verified": {
+                "const": true
+              }
+            },
+            "required": [
+              "payload_verified"
+            ]
+          },
+          "then": {
+            "required": [
+              "payload_source_ref"
+            ],
+            "properties": {
+              "verification_scope": {
+                "const": "index_headers_and_payload_fingerprint"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "verification_scope": {
+                "const": "index_and_headers"
+              }
+            }
+          }
+        }
+      ]
     },
     "text": {
       "type": "object",

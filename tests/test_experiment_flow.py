@@ -88,8 +88,53 @@ class ExperimentFlowTests(unittest.TestCase):
     def test_cache_miss_cannot_become_valid_baseline(self):
         self.pipeline(True)
 
-    def pipeline(self,miss):
+    def test_resume_keeps_completed_repetition_and_retries_only_unfinished_points(self):
+        self.pipeline(False,resume_test=True)
+
+    def test_resume_excludes_user_selected_failure_and_executes_other_points(self):
+        self.pipeline(False,resume_test=True,skip_failed=True)
+
+    def test_failure_policy_skips_failed_configuration_and_continues_other_points(self):
+        self.pipeline(False,automatic='initial')
+
+    def test_failure_policy_on_resume_never_retries_the_existing_failure(self):
+        self.pipeline(False,automatic='resume')
+
+    def test_startup_failure_skips_only_unavailable_deployment(self):
+        from benchmark.load import checkpoint
+        from benchmark.load.qualification import binding
+        plan,work,proto,dep=self.configure()
+        other=copy.deepcopy(dep);other['id']+='-unavailable'
+        self.c.documents[(other['id'],other['version'])]=other
+        plan['deployment_refs'].append(dict(id=other['id'],version=other['version']))
+        plan['budget']['max_runs']=8
+        snapshot=resolve(self.c,plan)
+        receipt=dict(deployments=[dict(binding=binding(self.c,dep),status='passed'),
+                                 dict(binding=binding(self.c,other),status='failed')])
+        receipt['content_sha256']=digest(receipt)
+        directory=self.root/'startup-batch';directory.mkdir()
+        from tools.specs import write
+        write(directory/'resolved.yaml',snapshot)
+        json_write(directory/'qualification.json',receipt)
+        state=dict(plan_sha256=snapshot['content_sha256'],runs=[dict(
+            trial_id=t['id'],repetition=t['repetition'],deployment=t['deployment_ref']['id'],
+            status='pending',directory=None) for t in snapshot['trials']])
+        checkpoint.enable_failure_skipping(state)
+        checkpoint.apply_startup_failures(directory,state,snapshot,receipt)
+        self.assertEqual(sum(checkpoint.terminal(e,state) for e in state['runs']),4)
+        self.assertTrue(all(e['status']=='pending' for e in state['runs'] if e['deployment']==dep['id']))
+        json_write(directory/'batch.json',state)
+        self.assertEqual(checkpoint.load(directory,snapshot),state)
+        bad=next(e for e in state['runs'] if e['status']=='skipped_startup_failure')
+        bad['startup_failure']['binding']=None
+        json_write(directory/'batch.json',state)
+        with self.assertRaisesRegex(SpecError,'no matching failed qualification'):
+            checkpoint.load(directory,snapshot)
+
+    def pipeline(self,miss,resume_test=False,skip_failed=False,automatic=None):
         plan,work,proto,dep=self.configure();events=[]
+        if resume_test or automatic:
+            plan['failure_policy']='stop'
         snapshot=resolve(self.c,plan)
         self.assertFalse(snapshot['execution_issues'])
         class Response:
@@ -113,18 +158,57 @@ class ExperimentFlowTests(unittest.TestCase):
                 rows.append(row)
             jsonl_write(out/'profile_export.jsonl',rows);json_write(out/'profile_export_aiperf.json',dict(aiperf_version='0.12.0'))
             log_path.write_text('SYNTHETIC; NO GPU EXECUTION',encoding='utf-8')
-            return dict(returncode=0,timed_out=False,elapsed_s=.01)
+            return dict(returncode=7 if (resume_test or automatic) and phase=='score' and events.count('score')==2 else 0,timed_out=False,elapsed_s=.01)
         observed=dict(server_args=dict(tp_size=8,pp_size=1,ep_size=8,dp_size=1,disable_radix_cache=False,enable_cache_report=True,stream_interval=1,context_length=4096))
         env=dict(device_probe=dict(provider='nvidia-smi',status='observed',output='\n'.join(f'{i}, gpu-{i}' for i in range(8))))
         with patch('benchmark.load.dataset.load_tokenizer',return_value=TokenizerFixture()),patch('benchmark.load.adapters.aiperf.run',side_effect=invoke),patch('benchmark.load.adapters.sglang.Deployment.launch',return_value=['synthetic']),patch('benchmark.load.adapters.sglang.wait_ready'),patch('benchmark.load.adapters.sglang.smoke'),patch('benchmark.load.adapters.sglang.inspect_server',return_value=(observed,[])),patch('benchmark.load.runner.environment',return_value=env),patch('benchmark.load.cache.urlopen',return_value=Response()):
-            directory,state=_execute(self.c,snapshot,plan,'fixture-aiperf',self.root/'experiments/runs/benchmark')
+            directory,state=_execute(self.c,snapshot,plan,'fixture-aiperf',self.root/'experiments/runs/benchmark',skip_failed=automatic=='initial')
+            if automatic:
+                if automatic=='resume':
+                    self.assertEqual(events.count('score'),2)
+                    directory,state=_execute(self.c,snapshot,plan,'fixture-aiperf',self.root/'experiments/runs/benchmark',resume=directory,skip_failed=True)
+                self.assertEqual(state['status'],'finished_with_failures')
+                self.assertEqual([e['status'] for e in state['runs']],['completed','failed','completed','skipped_failed_configuration'])
+                self.assertEqual(events.count('score'),3)
+                failed=state['runs'][1]['directory']
+                before=(directory/failed/'run.json').read_bytes()
+                self.assertEqual(state['runs'][3]['failure_evidence']['directory'],failed)
+                directory,state=_execute(self.c,snapshot,plan,'fixture-aiperf',self.root/'experiments/runs/benchmark',resume=directory,skip_failed=True)
+                self.assertEqual(events.count('score'),3)
+                self.assertEqual((directory/failed/'run.json').read_bytes(),before)
+                idx=index(self.c);self.assertFalse(idx['errors']);self.assertEqual(len(idx['runs']),3)
+                return
+            if resume_test:
+                self.assertEqual([e['status'] for e in state['runs']],
+                                 ['completed','failed','skipped_after_failure','skipped_after_failure'])
+                completed=state['runs'][0]['directory']
+                failed=state['runs'][1]['directory']
+                original=(directory/completed/'run.json').read_bytes()
+                if skip_failed:
+                    json_write(directory/'exclusions.json',dict(plan_sha256=snapshot['content_sha256'],
+                        requested_by='user',requested_at='2026-11-25T14:00:00Z',reason='Skip failed point',
+                        trials=[dict(trial_id=state['runs'][1]['trial_id'],repetition=state['runs'][1]['repetition'])]))
+                directory,state=_execute(self.c,snapshot,plan,'fixture-aiperf',self.root/'experiments/runs/benchmark',resume=directory)
+                self.assertEqual(state['status'],'completed_with_skips' if skip_failed else 'completed')
+                self.assertEqual(events.count('score'),4 if skip_failed else 5)
+                self.assertEqual(state['runs'][0]['directory'],completed)
+                self.assertEqual((directory/completed/'run.json').read_bytes(),original)
+                self.assertEqual(read(directory/failed/'run.json')['status'],'failed')
+                if skip_failed:
+                    self.assertEqual(state['runs'][1]['status'],'skipped_by_user')
+                    self.assertEqual(state['runs'][1]['directory'],failed)
+                else:
+                    self.assertEqual(state['runs'][1]['attempts'][0]['directory'],failed)
+                    self.assertEqual(read(directory/state['runs'][1]['directory']/'run.json')['attempt'],2)
         self.assertEqual(4,len(state['runs']))
         run=directory/state['runs'][0]['directory'];summary=read(run/'summary.json')
         self.assertEqual(3,summary['counts']['planned'])
         self.assertEqual('invalid' if miss else 'passed',summary['cache_replay']['status'])
         recomputed=analyze(self.c,run,self.root/'reanalysis')
         self.assertEqual(summary['cache_replay'],recomputed['cache_replay'])
-        idx=index(self.c);self.assertFalse(idx['errors']);self.assertEqual(4,len(idx['runs']))
+        idx=index(self.c);self.assertFalse(idx['errors']);self.assertEqual(5 if resume_test and not skip_failed else 4,len(idx['runs']))
+        if resume_test:
+            return
         identity=idx['runs'][0]['id']
         if miss:
             with self.assertRaises(SpecError):baseline(self.c,'bad',[identity],'workflow','fixture')

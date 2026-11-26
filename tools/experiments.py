@@ -45,10 +45,13 @@ def register_batch(catalog, batch):
     batch=Path(batch).resolve()
     if not batch.is_relative_to(catalog.root):raise SpecError('batch must be inside project')
     state=read(batch/'batch.json')
-    if state['status'] not in {'completed','completed_with_errors','failed','stopped'}:
+    if state['status'] not in {'completed','completed_with_skips','finished_with_failures','completed_with_errors','failed','stopped'}:
         raise SpecError('only terminal batches can be registered')
     snapshot=load_snapshot(catalog,batch/'resolved.yaml')
     if state['plan_sha256']!=snapshot['content_sha256']:raise SpecError('batch snapshot mismatch')
+    if any(e['status']=='skipped_by_user' for e in state['runs']):
+        from benchmark.load.checkpoint import load
+        load(batch,snapshot)
     embedded=embedded_catalog(catalog,snapshot)
     trials={(t['id'],t['repetition']):t for t in snapshot['trials']}
     records=[]
@@ -58,7 +61,8 @@ def register_batch(catalog, batch):
         run=read(directory/'run.json');summary=read(directory/'summary.json');resolved=read(directory/'resolved.yaml')
         if not re.fullmatch(r'[a-zA-Z0-9._-]+',run['id']):raise SpecError('invalid run ID')
         identity=(run['trial_id'],run['repetition'])
-        if identity not in trials or entry['trial_id']!=run['trial_id'] or entry['repetition']!=run['repetition'] or entry['status']!=run['status']:
+        original_status=entry['status_before_exclusion'] if entry['status']=='skipped_by_user' else entry['status']
+        if identity not in trials or entry['trial_id']!=run['trial_id'] or entry['repetition']!=run['repetition'] or original_status!=run['status']:
             raise SpecError('run ledger identity mismatch')
         if run['plan_sha256']!=snapshot['content_sha256'] or summary['run_id']!=run['id']:
             raise SpecError('run/result identity mismatch')

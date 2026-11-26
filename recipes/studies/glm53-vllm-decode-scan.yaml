@@ -1,0 +1,38 @@
+schema_version: 0.2.0
+kind: StudySpec
+id: glm53-vllm-decode-scan
+version: 1.0.0
+title: GLM Flash two-layout post-first-token Decode study
+provenance: []
+issues: []
+extensions: {}
+model_ref:
+  id: cluster-glm53-flash-w8a8
+  version: 1.1.0
+hardware_ref:
+  id: metax-four-node-inventory-metax-60-host
+  version: 1.0.0
+runtime_ref:
+  id: metax60-vllm-glm53-source
+  version: 1.0.0
+case_refs:
+- id: glm53-vllm-decode-4k-20-case
+  version: 1.0.0
+- id: glm53-vllm-decode-4k-50-case
+  version: 1.0.0
+- id: glm53-vllm-decode-16k-20-case
+  version: 1.0.0
+- id: glm53-vllm-decode-16k-50-case
+  version: 1.0.0
+- id: glm53-vllm-decode-64k-20-case
+  version: 1.0.0
+- id: glm53-vllm-decode-64k-50-case
+  version: 1.0.0
+allowed_deployment_modes:
+- aggregated
+objective: null
+budget:
+  max_candidates: 2
+  max_device_hours: 2688
+  max_wall_hours: 336
+capability_policy: probe_before_execution

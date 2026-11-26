@@ -1,5 +1,9 @@
 # GLM-5.3-Flash-W8A8 / C500 八卡正式扫描
 
+当前任务使用 [cached-decode.yaml](cached-decode.yaml)：TP8/EP8 与 TP1/DP8/EP8，4K/16K/64K 上下文、20/50 个新 Decode token，每槽独立上下文、原始上下文全命中，容量不足的点单独记录。执行和计时口径见 [Cached Decode 流程](../../../../benchmark/load/CACHED-DECODE.md)。
+
+此前允许正常 Prefill 的 [两种形态 Decode 扫描](DECODE.md) 和 [decode-scan.yaml](decode-scan.yaml) 已停止；不要用它们继续当前测试。旧性能数据仍保留原口径，不标记为纯 Decode。下面六种形态的完整计划保留 formal 模式。
+
 当前入口是 [full-scan.yaml](full-scan.yaml)。六种配置使用同一套负载点、请求数和重复次数，完整执行矩阵，不设置粗筛、细筛或优胜者晋级。模型、硬件和 Runtime 继续引用已有规约。
 
 `mode: formal` 已设置，执行器要求冻结后的配置快照。配方定义完成不代表已启动扫描或通过 SLA 验收；当前仍有模型、来源、SLA 口径和数据集指纹待补齐。可以先预览完整矩阵、准备数据和验证启动，正式 `run` 保留原有冻结检查。

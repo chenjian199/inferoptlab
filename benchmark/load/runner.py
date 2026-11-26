@@ -8,6 +8,7 @@ import shutil
 import subprocess
 import time
 import uuid
+from datetime import datetime, timezone
 from contextlib import contextmanager
 from importlib.metadata import PackageNotFoundError, version
 from pathlib import Path
@@ -68,10 +69,12 @@ def environment(visibility_env='CUDA_VISIBLE_DEVICES'):
     return result
 
 
-def execute(catalog, snapshot, output_root, qualification=None):
+def execute(catalog, snapshot, output_root, qualification=None, resume=None, skip_failed=False):
     output_root=Path(output_root).resolve()
     if not output_root.is_relative_to((catalog.root/'experiments').resolve()):
         raise SpecError('benchmark output must be inside experiments/ so records remain portable')
+    if resume is not None and Path(resume).resolve().parent != output_root:
+        raise SpecError('resume batch must be a direct child of the selected output root')
     errors=catalog.structural_errors(snapshot) or snapshot_errors(catalog,snapshot,verify_sources=snapshot.get('state')=='frozen')
     if errors:
         raise SpecError('\n'.join(errors))
@@ -86,21 +89,27 @@ def execute(catalog, snapshot, output_root, qualification=None):
         if qualification is None:
             raise SpecError('this plan requires --qualification before execution')
         from benchmark.load.qualification import verify_receipt
-        receipt = verify_receipt(catalog,snapshot,qualification)
+        receipt = verify_receipt(catalog,snapshot,qualification,allow_failed=skip_failed)
     executable=aiperf.check_installation(plan['aiperf']['version'])
     if os.name!='posix':
         raise SpecError('live benchmark execution requires Linux; prepare/plan/analyze/report are portable')
     with lease(catalog.root):
-        return _execute(catalog,snapshot,plan,executable,Path(output_root),receipt)
+        return _execute(catalog,snapshot,plan,executable,Path(output_root),receipt,resume,skip_failed)
 
 
-def _execute(catalog,snapshot,plan,executable,output_root,qualification=None):
+def _execute(catalog,snapshot,plan,executable,output_root,qualification=None,resume=None,skip_failed=False):
+    from benchmark.load import checkpoint
     batch_id='batch-'+time.strftime('%Y%m%dT%H%M%SZ',time.gmtime())+'-'+uuid.uuid4().hex[:8]
-    directory=output_root.resolve()/batch_id
-    directory.mkdir(parents=True,exist_ok=False)
-    write(directory/'resolved.yaml',snapshot)
-    if qualification is not None:
-        json_write(directory/'qualification.json',qualification)
+    directory=Path(resume).resolve() if resume else output_root.resolve()/batch_id
+    if resume:
+        state=checkpoint.reopen(directory,checkpoint.load(directory,snapshot))
+        batch_id=state['id']
+    else:
+        directory.mkdir(parents=True,exist_ok=False)
+        write(directory/'resolved.yaml',snapshot)
+        if qualification is not None:
+            json_write(directory/'qualification.json',qualification)
+        state=dict(id=batch_id,status='preparing',created_at=utc_now(),plan_sha256=snapshot['content_sha256'],runs=[])
     deadline=time.monotonic()+plan['budget']['max_wall_seconds']
     study=catalog.get(plan['study_ref'])
     allocated=catalog.get(study['hardware_ref'])['resources']['allocated_devices']
@@ -109,8 +118,22 @@ def _execute(catalog,snapshot,plan,executable,output_root,qualification=None):
         if not allocated:
             raise SpecError('device-hour budget requires a concrete allocated-device count')
         deadline=min(deadline,time.monotonic()+3600*device_hours/allocated)
-    ledger=[]
-    state=dict(id=batch_id,status='preparing',created_at=utc_now(),plan_sha256=snapshot['content_sha256'],runs=ledger)
+    if resume:
+        elapsed=(datetime.now(timezone.utc)-datetime.fromisoformat(state['created_at'])).total_seconds()
+        deadline-=max(0,elapsed)
+    ledger=state['runs']
+    by_trial={checkpoint.key(e):e for e in ledger}
+    for trial in snapshot['trials']:
+        if checkpoint.key(trial) not in by_trial:
+            entry=dict(trial_id=trial['id'],deployment=trial['deployment_ref']['id'],scenario=trial['scenario_ref']['id'],
+                       concurrency=trial['concurrency'],repetition=trial['repetition'],status='pending',directory=None)
+            ledger.append(entry)
+            by_trial[checkpoint.key(trial)]=entry
+    checkpoint.apply_exclusions(directory,state,snapshot)
+    if skip_failed:
+        checkpoint.enable_failure_skipping(state)
+    checkpoint.apply_startup_failures(directory,state,snapshot,qualification)
+    checkpoint.apply_failure_policy(directory,state)
     json_write(directory/'batch.json',state)
     active=None
     active_id=None
@@ -124,23 +147,36 @@ def _execute(catalog,snapshot,plan,executable,output_root,qualification=None):
             for concurrency in points:
                 name=fixture_name(scene,workload,concurrency)
                 target=directory/'datasets'/name
-                shutil.copytree(inside(catalog.root,fixture_source(scene,workload,concurrency)),target)
+                if not target.exists():
+                    shutil.copytree(inside(catalog.root,fixture_source(scene,workload,concurrency)),target)
+                state['preparing_fixture']=name
+                json_write(directory/'batch.json',state)
+                verified_tokenizers=set()
                 for deployment_ref in plan['deployment_refs']:
                     deployment=catalog.get(deployment_ref)
-                    manifest=dataset.verify(at_point(workload,concurrency),protocol_at_point(protocol,concurrency),deployment['serving']['tokenizer_path'],target)
+                    tokenizer=deployment['serving']['tokenizer_path']
+                    if tokenizer in verified_tokenizers:
+                        continue
+                    manifest=dataset.verify(at_point(workload,concurrency),protocol_at_point(protocol,concurrency),tokenizer,target)
                     manifests[name]=manifest
+                    verified_tokenizers.add(tokenizer)
         state['status']='running'
+        state.pop('preparing_fixture',None)
+        json_write(directory/'batch.json',state)
         for trial in snapshot['trials']:
             deployment=catalog.get(trial['deployment_ref'])
             scene,case,workload,protocol=scenario_parts(catalog,trial['scenario_ref'])
             fixture_id=fixture_name(scene,workload,trial['concurrency'])
             workload=at_point(workload,trial['concurrency'])
             protocol=protocol_at_point(protocol,trial['concurrency'])
-            entry=dict(trial_id=trial['id'],deployment=deployment['id'],scenario=scene['id'],concurrency=trial['concurrency'],repetition=trial['repetition'],status='pending',directory=None)
-            ledger.append(entry)
-            if time.monotonic()>=deadline or state['status']=='stopped':
-                entry['status']='skipped_budget' if state['status']!='stopped' else 'skipped_after_failure'
+            entry=by_trial[checkpoint.key(trial)]
+            if checkpoint.terminal(entry,state):
                 continue
+            if time.monotonic()>=deadline or state['status']=='stopped':
+                if not entry.get('directory'):
+                    entry['status']='skipped_budget' if state['status']!='stopped' else 'skipped_after_failure'
+                continue
+            attempt=checkpoint.begin(entry)
             run_id='run-'+uuid.uuid4().hex[:16]
             run_dir=directory/run_id
             run_dir.mkdir()
@@ -150,7 +186,7 @@ def _execute(catalog,snapshot,plan,executable,output_root,qualification=None):
             manifest=manifests[fixture_id]
             comparison=digest(dict(contract=trial['comparison_sha256'],dataset=manifest['files'],tokenizer=manifest['tokenizer']['sha256']))
             entry['comparison_sha256']=comparison
-            record=dict(id=run_id,trial_id=trial['id'],repetition=trial['repetition'],attempt=1,status='starting',created_at=utc_now(),
+            record=dict(id=run_id,trial_id=trial['id'],repetition=trial['repetition'],attempt=attempt,status='starting',created_at=utc_now(),
                 plan_sha256=snapshot['content_sha256'],comparison_sha256=comparison,dataset_manifest=manifest,environment_issues=[],error=None)
             write(run_dir/'resolved.yaml',dict(snapshot_sha256=snapshot['content_sha256'],trial=trial,deployment=deployment,
                 case=case,workload=workload,protocol=protocol,dataset_manifest=manifest,batch_snapshot='../resolved.yaml'))
@@ -160,6 +196,10 @@ def _execute(catalog,snapshot,plan,executable,output_root,qualification=None):
             raw.mkdir(parents=True)
             process_result=None
             interrupted=False
+            entry['status']='starting'
+            state['current_trial']=dict(trial_id=trial['id'],repetition=trial['repetition'],directory=run_id,phase='starting')
+            json_write(run_dir/'run.json',record)
+            json_write(directory/'batch.json',state)
             try:
                 if active_id!=deployment['id']:
                     if active:
@@ -207,6 +247,8 @@ def _execute(catalog,snapshot,plan,executable,output_root,qualification=None):
                 # Verify archived hashes again immediately before sending any workload.
                 dataset.verify(workload,protocol,serving['tokenizer_path'],fixture,retokenize=False)
                 if protocol['execution']['warmup_request_count']:
+                    state['current_trial']['phase']='warmup'
+                    json_write(directory/'batch.json',state)
                     commands['warmup']=aiperf.command(executable,plan,deployment,workload,protocol,trial['concurrency'],fixture,run_dir/'raw/warmup',warmup=True)
                     json_write(run_dir/'commands.json',commands)
                     warm=aiperf.run(commands['warmup'],run_dir/'logs/warmup.log',max(.01,run_deadline-time.monotonic()))
@@ -214,6 +256,7 @@ def _execute(catalog,snapshot,plan,executable,output_root,qualification=None):
                         raise SpecError('warmup failed or exceeded deadline')
                     _,warm_bundle=normalize(run_dir/'raw/warmup/profile_export.jsonl',manifest['files']['warmup.jsonl']['session_ids'],
                         workload['input']['tokens'],workload['output']['tokens'],run_id+'-warmup',comparison)
+                    json_write(run_dir/'warmup-summary.json',warm_bundle)
                     if warm_bundle['validity']!='valid' or warm_bundle['counts']['failed']:
                         raise SpecError('warmup records failed completeness/length checks')
                 if protocol['method']=='prefix_reuse_decode':
@@ -224,6 +267,9 @@ def _execute(catalog,snapshot,plan,executable,output_root,qualification=None):
                 commands['aiperf']=aiperf.command(executable,plan,deployment,workload,protocol,trial['concurrency'],fixture,raw)
                 json_write(run_dir/'commands.json',commands)
                 record['status']='profiling'
+                state['current_trial']['phase']='profiling'
+                entry['status']='profiling'
+                json_write(directory/'batch.json',state)
                 json_write(run_dir/'run.json',record)
                 process_result=aiperf.run(commands['aiperf'],run_dir/'logs/aiperf.log',run_deadline-time.monotonic())
                 if process_result['timed_out'] or process_result['returncode']!=0:
@@ -268,16 +314,33 @@ def _execute(catalog,snapshot,plan,executable,output_root,qualification=None):
                 json_write(run_dir/'summary.json',bundle)
                 json_write(run_dir/'sla.json',verdict)
                 json_write(run_dir/'run.json',record)
+                if protocol['scope'] == 'decode' and protocol['method'] == 'full_request':
+                    from benchmark.load.metrics.decode import report as decode_report
+                    decode_report(run_dir, records, bundle, record['environment_issues'])
                 run_report(run_dir,record,bundle,verdict)
                 entry['status']=record['status']
-                if record['status']!='completed' and plan['failure_policy']=='stop':
+                if record['status'] in checkpoint.FAILED and checkpoint.skipping_failures(state):
+                    checkpoint.apply_failure_policy(directory,state)
+                    # Invalid exports may be produced without a nonzero client exit;
+                    # discard that owned service before moving to the next point too.
+                    if active:
+                        active.close(); active=None; active_id=None
+                elif record['status']!='completed' and plan['failure_policy']=='stop':
                     state['status']='stopped'
                 json_write(directory/'batch.json',state)
                 batch_report(directory,ledger)
             if interrupted:
                 # Remaining planned trials are recorded as skipped on the next iterations.
                 continue
-        state['status']='completed' if all(e['status']=='completed' for e in ledger) else 'completed_with_errors'
+        if all(e['status']=='completed' for e in ledger):
+            state['status']='completed'
+        elif all(e['status'] in {'completed','skipped_by_user'} for e in ledger):
+            state['status']='completed_with_skips'
+        elif all(checkpoint.terminal(e,state) for e in ledger):
+            state['status']='finished_with_failures'
+        else:
+            state['status']='completed_with_errors'
+        state['current_trial']=None
     except BaseException as exc:
         state.update(status='failed',error=str(exc))
         raise

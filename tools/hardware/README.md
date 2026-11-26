@@ -135,3 +135,38 @@ python -m tools.import_inspected_model experiments/runs/hardware/metax-next-mode
 python -m unittest tests.test_hardware_tools
 python -m unittest discover -s tests
 ```
+
+## 完整模型 payload 指纹
+
+元数据巡检默认不读取全部权重。需要固定正式测试的本地权重身份时，在模型所在机器执行：
+
+```bash
+python tools/hardware/probes/checkpoint_payload.py /absolute/model/path \
+  --out experiments/evidence/checkpoint-payload-new.json
+```
+
+脚本逐字节读取索引列出的全部 safetensors 分片，检查索引/头、payload 区间、重复 tensor 与读取期间文件稳定性；输出每片完整 SHA-256 与排序清单的聚合指纹。输出路径必须是新文件，失败/中断不写 completed。完整读取可能产生较大存储 I/O，应在计分性能测试之前完成。它不导入模型代码、不分配 GPU，也不提供厂商来源认证或数值精度结论。
+
+模型的 `checkpoint.payload_verified=true` 需要 `payload_source_ref` 和 `index_headers_and_payload_fingerprint` 范围。冻结时会重新核对来源文件哈希、分片清单与 ModelSpec 的哈希/计数/大小/头信息；历史仅头部巡检记录保持 false。
+
+`collective_health.py` 是同镜像八 rank 的通信/拷贝/小规模计算正确性检查，使用 `torch.distributed.run` 启动。它不测性能、不重置硬件，不代替完整内存或厂商认证。当前由部署前置入口在已释放的八卡上执行并归档命令及逐 rank 结果。
+
+## 集合通信带宽
+
+`probes/collective_bandwidth.py` 在已释放的设备上测 All-to-All、All-Gather、Reduce-Scatter、All-Reduce，以及 AG＋RS、两次 A2A 两种组合。使用与待测服务相同的 PyTorch/通信库环境，从仓库根目录运行，例如：
+
+```bash
+MACA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 OMP_NUM_THREADS=1 \
+python -m torch.distributed.run --standalone --nproc_per_node=8 \
+  tools/hardware/probes/collective_bandwidth.py \
+  --physical-devices 0,1,2,3,4,5,6,7 \
+  --operation all_gather_reduce_scatter \
+  --sizes 8192 65536 1048576 33554432 268435456 \
+  --out experiments/evidence/collective-new/ep8-agrs.jsonl
+```
+
+运行前确认 GPU 无其他任务；探针本身不停止服务、不接管设备，也不自动重试。`--physical-devices` 是记录用标签，实际可见卡由运行环境的设备选择变量决定；`--nproc_per_node` 应与所选设备数一致。输出文件必须不存在，防止覆盖原始证据。切换 GPU 组时应使用独立 torchrun 进程，避免遗留 communicator。
+
+消息单位为字节，固定 BF16；AG 的 S 是总输出大小、RS 的 S 是总输入大小，A2A/AR 的 S 是每 rank 完整数组大小。默认预热 10 次，每批 20 次、5 批；每批同步计时后取所有 rank 最大值。JSONL 保留所有 rank 样本、均值、中位数、最小/最大值和正确性结果。计时包含 Python 调用开销，不能视为纯设备 kernel 时间。
+
+`algorithm_GBps=S/t`；`bus_GBps` 按通信原语与 rank 数归一化，是分析公式得到的逻辑带宽，**不是链路计数器或显存带宽**。比较两种 MoE 通信实现还需考虑实际路由、dtype、padding、变长消息和多个组的并发，不能直接用同一 S 的测试倍数当作模型加速倍数。首次 C500 实测与分析见 [通信带宽报告](../../outputs/collectives-20261126/README.md)。
