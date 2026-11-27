@@ -1,0 +1,15 @@
+{
+  "sparse-prefill-fix/build.py": "4a142b57fd60dc6792d573aa2d5b0edcf147364f28fdb80a74110a8832f4c25e",
+  "sparse-prefill-fix/install.py": "93eef31be48ea353314c6c7cd14b73e5da4c399f56a72a576cf34fb53685d41d",
+  "sparse-prefill-fix/LICENSE.FlashMLA": "0cb0d7a5bf377d803ed075c64d476de83be8f11b69791ef7fc6cae061fffe57a",
+  "sparse-prefill-fix/prepare_source.py": "0c1137cb43b888dc06eb5eab2eb7d878243e62171b44fb8df7905285fcbd0877",
+  "sparse-prefill-fix/README.md": "d4b980f9a9b0dc120523942c4ef39387f737424f4c49d130c855f316ff4645e9",
+  "sparse-prefill-fix/setup_offset64.py": "2289b2f6091b626703b909446689062c7fe43b778340eb309508490fa763c317",
+  "sparse-prefill-fix/source.json": "9ea29a0852d3bbb061f4e286c7016cc617968df3076a210dcd37770653a28369",
+  "sparse-prefill-fix/startup.py": "21d1e661cb98ac184f15ce6596d75f42595c7165766144e839252f943ac0e9ae",
+  "sparse-prefill-fix/verification.json": "83d4a667f73d4e8b5c44c50650ac96f59b02ea0b64ca471810598d2ed7a49a97",
+  "sparse-prefill-fix/verify.py": "45d545f72fb612f28c70c11a3f1bfa63d7a9249d62cfd8a441d747e501893d47",
+  "sparse-prefill-fix/bin/_inferoptlab_flashmla_offset64.cpython-312-x86_64-linux-gnu.so": "f3e1869d90e1d656d7af32379cc7116257da454023f77511347aa5fc481972c2",
+  "observers/sparse_prefill_repair.py": "2aa8170a9154ffe780fd63b5d33ea0145c8841a961c6b3b64c114b9b87e06f49",
+  "patches/sparse-prefill-offset64.patch": "f61c792109363516ad34bb19a0f7ba08ad3a1c0ae39ceb9bf3ba73aa834edea0"
+}

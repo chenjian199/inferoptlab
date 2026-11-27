@@ -1,0 +1,11 @@
+--- a/csrc/utils/utils.h
++++ b/csrc/utils/utils.h
+@@ -929,7 +929,7 @@
+     for (int m = 0; m < size<1>(S); ++m) {
+         bool row_mask = Is_even_MN || get<0>(identity_MN(0, m, 0)) < max_MN;
+         const int col_offset = tidx % kGmemThreadsPerRow * kElementPerThread;
+-        const int64_t global_kv_sparse_offset = topk_sparse_idx * row_stride + col_offset;
++        const int64_t global_kv_sparse_offset = int64_t(topk_sparse_idx) * int64_t(row_stride) + col_offset;
+         #pragma unroll
+         for (int k = 0; k < size<2>(S); ++k) {
+             auto src_ptr = (VecType *)(S_base.data().get() + global_kv_sparse_offset + get<2>(S.stride()) * k);

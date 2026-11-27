@@ -1,0 +1,145 @@
+{
+  "image": "sha256:9d82e3b3cc52430770a02b00d8c763b62e9c8bc64c4be871d9be25148e4fdf8b",
+  "files": [
+    {
+      "path": "vllm_metax/model_executor/layers/fused_moe/utils.py",
+      "sha256": "9b2c30e3a427f96307a894782396cc10629c2cd4101ce32ee28a0516b712a3a5",
+      "local_path": "outputs/optimization-review-20261126/source/vllm_metax/model_executor/layers/fused_moe/utils.py"
+    },
+    {
+      "path": "vllm_metax/registry/linear_kernels/int8.py",
+      "sha256": "af6e73c3591245a4005d05fb2b0db9757acd59ec81f9a1f2f1cb8380a5d49f5b",
+      "local_path": "outputs/optimization-review-20261126/source/vllm_metax/registry/linear_kernels/int8.py"
+    },
+    {
+      "path": "vllm_metax/models/glm5next/common/kda.py",
+      "sha256": "c525a5d0ecd9435ff1d2a9b931f3aae8f8e654716ac94e7ad4cb1765164244db",
+      "local_path": "outputs/optimization-review-20261126/source/vllm_metax/models/glm5next/common/kda.py"
+    },
+    {
+      "path": "vllm/model_executor/models/bailing_moe_v3.py",
+      "sha256": "fce24c9d9141374086416bf1d4b090952486d7e783e85c28db5e2ec63db83457",
+      "local_path": "outputs/optimization-review-20261126/source/vllm/model_executor/models/bailing_moe_v3.py"
+    },
+    {
+      "path": "vllm/model_executor/layers/mamba/gdn/olmo_gdn_linear_attn.py",
+      "sha256": "4fdbe3f625daa9c2bdde67c59901fa8fdf8bdf865f5977e2d7e93c5ed2f9843d",
+      "local_path": "outputs/optimization-review-20261126/source/vllm/model_executor/layers/mamba/gdn/olmo_gdn_linear_attn.py"
+    },
+    {
+      "path": "vllm/model_executor/layers/mamba/gdn/kimi_gdn_linear_attn.py",
+      "sha256": "3bae1be0d5ed66d4ade10b40bda3230146c4516b95e7409c0293b8900c0dee34",
+      "local_path": "outputs/optimization-review-20261126/source/vllm/model_executor/layers/mamba/gdn/kimi_gdn_linear_attn.py"
+    },
+    {
+      "path": "vllm/model_executor/layers/mamba/ops/layernorm_gated.py",
+      "sha256": "3433f2e3b87c2b2ccf8e9794ce40762c86a6da38a94ecee001f439ea0d0373dd",
+      "local_path": "outputs/optimization-review-20261126/source/vllm/model_executor/layers/mamba/ops/layernorm_gated.py"
+    },
+    {
+      "path": "vllm/third_party/flash_linear_attention/ops/kda.py",
+      "sha256": "10ee5bc177770eeba34da96001957d07c8c23473ecad972e2a46bea57421a677",
+      "local_path": "outputs/optimization-review-20261126/source/vllm/third_party/flash_linear_attention/ops/kda.py"
+    },
+    {
+      "path": "vllm/third_party/flash_linear_attention/ops/fused_norm_gate.py",
+      "sha256": "cb50b1826c93a619aaea568b8601e29bad3745f5a41c14cbebfe2208710eb08d",
+      "local_path": "outputs/optimization-review-20261126/source/vllm/third_party/flash_linear_attention/ops/fused_norm_gate.py"
+    },
+    {
+      "path": "vllm/models/glm5next/common/kda.py",
+      "sha256": "cc89b4a0b08860fad2f0558ad85a9082fda400188583fb55a62db64e61ec2d94",
+      "local_path": "outputs/optimization-review-20261126/source/vllm/models/glm5next/common/kda.py"
+    },
+    {
+      "path": "vllm/models/kimi_k3/nvidia/kda.py",
+      "sha256": "9a57a00df2f99cd4d097e4e92e37c041f417b08643db73996ebe2f333ac19b36",
+      "local_path": "outputs/optimization-review-20261126/source/vllm/models/kimi_k3/nvidia/kda.py"
+    },
+    {
+      "path": "vllm/models/kimi_k3/amd/kda.py",
+      "sha256": "65214c4cc58d4096e034c8ef47541a4eaf6a80c70da8da6f9c8f4e578d780d7c",
+      "local_path": "outputs/optimization-review-20261126/source/vllm/models/kimi_k3/amd/kda.py"
+    },
+    {
+      "path": "vllm/model_executor/custom_op.py",
+      "sha256": "caaa422b914d74a58c3d7a1653af76e2834f41cc2d4fbe65d10d4ad50dbb4d38",
+      "local_path": "outputs/optimization-review-20261126/source/vllm/model_executor/custom_op.py"
+    },
+    {
+      "path": "vllm_metax/platform.py",
+      "sha256": "57320074d58d3a42fdeba00905df45efffc3196d52ed1f46d0547299bd7d715c",
+      "local_path": "outputs/optimization-review-20261126/source/vllm_metax/platform.py"
+    },
+    {
+      "path": "vllm_metax/model_executor/kernels/mhc/tilelang_kernels.py",
+      "sha256": "3c64fb54fa0cf821d8323f816009c295bf1579f19067042f255deeb087c4c425",
+      "local_path": "outputs/optimization-review-20261126/source/vllm_metax/model_executor/kernels/mhc/tilelang_kernels.py"
+    },
+    {
+      "path": "vllm_metax/model_executor/kernels/mhc/warmup.py",
+      "sha256": "b13162a5cc43eda54257e48b88b4386bf5e12598b505a4d8a890507486bb7427",
+      "local_path": "outputs/optimization-review-20261126/source/vllm_metax/model_executor/kernels/mhc/warmup.py"
+    },
+    {
+      "path": "vllm_metax/model_executor/kernels/mhc/__init__.py",
+      "sha256": "eb721675dae1a8b2771dc133540bb769327e12864b6eee029305f7f0dd25609c",
+      "local_path": "outputs/optimization-review-20261126/source/vllm_metax/model_executor/kernels/mhc/__init__.py"
+    },
+    {
+      "path": "vllm_metax/model_executor/kernels/mhc/tilelang.py",
+      "sha256": "5b34f9d8fa5526d1fb74fa11a9398330311e7a6bf1cf09943bbd738a09633e99",
+      "local_path": "outputs/optimization-review-20261126/source/vllm_metax/model_executor/kernels/mhc/tilelang.py"
+    },
+    {
+      "path": "vllm_metax/model_executor/kernels/mhc/torch.py",
+      "sha256": "2f6e684175f8fffea5b1768c6dc81f99b986e1c0d9deaac2f0e573b8c49b3421",
+      "local_path": "outputs/optimization-review-20261126/source/vllm_metax/model_executor/kernels/mhc/torch.py"
+    },
+    {
+      "path": "vllm_metax/model_executor/layers/fused_moe/fused_moe.py",
+      "sha256": "376af3f36d4328ba41b67a63c0756744241ac079d8f7653dd45f7a187bb37809",
+      "local_path": "outputs/optimization-review-20261126/source/vllm_metax/model_executor/layers/fused_moe/fused_moe.py"
+    },
+    {
+      "path": "vllm_metax/model_executor/layers/fused_moe/experts/triton_moe.py",
+      "sha256": "e3af1218b23bf38ac1c5cdd52ea8bd2bbc1f6d30bba78a3043abfae00bfbc3c2",
+      "local_path": "outputs/optimization-review-20261126/source/vllm_metax/model_executor/layers/fused_moe/experts/triton_moe.py"
+    },
+    {
+      "path": "vllm_metax/models/glm5next/common/model.py",
+      "sha256": "77b5576b12fcb3d36d922ecc4f967f47f203514c2401d32bfdc89ad78b5bb5e3",
+      "local_path": "outputs/optimization-review-20261126/source/vllm_metax/models/glm5next/common/model.py"
+    },
+    {
+      "path": "vllm_metax/model_executor/layers/fused_moe/all2all_utils.py",
+      "sha256": "e6b8de80bb349dd8957de7be68e76a139baa388a68c00275cce599d61c7c6649",
+      "local_path": "outputs/optimization-review-20261126/source/vllm_metax/model_executor/layers/fused_moe/all2all_utils.py"
+    },
+    {
+      "path": "vllm_metax/model_executor/layers/fused_moe/experts/fused_batched_moe.py",
+      "sha256": "cdab1db0f92d82b90db61cbf3f6547aabe6eff4523a606beb216eea045157221",
+      "local_path": "outputs/optimization-review-20261126/source/vllm_metax/model_executor/layers/fused_moe/experts/fused_batched_moe.py"
+    },
+    {
+      "path": "vllm/model_executor/layers/mamba/ops/scatter_states.py",
+      "sha256": "f3bb004c73edaba56337747893eb07faf29b270dc8bb9c893ee9b1044e4ead9a",
+      "local_path": "outputs/optimization-review-20261126/source/vllm/model_executor/layers/mamba/ops/scatter_states.py"
+    },
+    {
+      "path": "vllm/v1/utils.py",
+      "sha256": "f9f5b3f1d0c5483dc742cba066cf232dfde053970221a52627716d18420ab638",
+      "local_path": "outputs/optimization-review-20261126/source/vllm/v1/utils.py"
+    },
+    {
+      "path": "vllm/model_executor/layers/fused_moe/moe_align_block_size.py",
+      "sha256": "2addb33632b611b4c0df21f2b874dc1124d2fc867785f19f05d4ce33d4b872c6",
+      "local_path": "outputs/optimization-review-20261126/source/vllm/model_executor/layers/fused_moe/moe_align_block_size.py"
+    }
+  ],
+  "observed_on": "2026-11-26",
+  "source_kind": "read-only installed files from metax-60 frozen image, no GPU access",
+  "vllm_base_commit": "5df63a7203cdb9328d824a27b682e77c7b9928be",
+  "metax_base_commit": "0962c8735ffe4795800030680311410848512b82",
+  "note": "Installed content includes local patches. Hashes identify file contents, not just base commits."
+}

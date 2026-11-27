@@ -1,80 +1,75 @@
-# 完整上下文命中的 Decode 测试
+# 完整上下文命中的 Decode 矩阵测试
 
-入口为 `python -m benchmark.load.cached_decode`，计划使用 `CachedDecodePlan`，
-部署继续复用 `DeploymentSpec`，负载继续复用 `WorkloadSpec`。
-GLM 首版计划在 `recipes/plans/benchmark/glm53-vllm/cached-decode.yaml`。
-实际数据和启动命令写入 `experiments/`，不写入 benchmark 或 recipes。
+性能扫描唯一入口是 `python -m benchmark.load.matrix_run`。所有部署轴、负载轴、请求倍率和测量规则集中在根目录 [benchmark-matrix.yaml](../../benchmark-matrix.yaml)，运行数据写入 `experiments/`。
+
+## 并发与请求数
+
+AIPerf 同时支持 `--concurrency C`（客户端在途请求数）与 `--request-count N`（本次发送的总请求数上限）。矩阵先按实际 KV 驻留容量裁剪 C，再计算 `N = C × requests.count_multiplier`，同时传给 AIPerf。例如 C=48、倍率=4，命令包含 `--concurrency 48 --request-count 192`。这不是 192 并发，也不是每个 DP rank 分别发送 192 个请求。
+
+每个并发槽对应一个独立上下文和一个 AIPerf session，同槽包含倍率指定的多个顺序 turn；每次回放输入相同，不拼接前一轮输出。槽位 s 始终路由到 `s % DP`。AIPerf 负责闭环发送、流式计时和指标导出，预热及资格检查通过单独的 HTTP 请求完成，不计入 N。
+
+只有导出完整 N 条有效请求才接受该测点，不能只看进程退出码。没有固定 200 请求下限，也不另设一个与倍率竞争的固定总数。参数说明见 [NVIDIA AIPerf 0.12 CLI 文档](https://docs.nvidia.com/aiperf/v0.12.0/reference/command-line-options)。
+
+## 每个测点的缓存生命周期
+
+每个部署×输入长度×有效并发×输出长度×重复轮依次执行：
+
+1. 用固定 seed 准备每槽独立上下文，相同长度/并发下的不同输出轮使用相同输入。
+2. 调用 `/reset_prefix_cache` 并要求成功。清理服务端前缀 KV 缓存，保留模型、图捕获和编译缓存。
+3. 逐槽冷 Prefill 生成一个 seed token，再填充边界，以保存混合 KDA 状态。
+4. 逐槽审计驻留情况，执行 2-token 并发资格检查，验证固定路由、完整上下文命中和 Decode 路径。
+5. 独立启动 AIPerf，发送 N=C×倍率 个计分请求；只在当前测点各 turn 间保留缓存。
+6. 验证每条计分请求的缓存长度、DP rank、query 长度、输出数和无抢占；调度、Attention 和客户端证据均有效才写入成绩。
+
+切换输出长度或重复轮时重新执行上述步骤。失败重试先重启服务，再清缓存、预热和验真。每次尝试的观测标签包含完整路径摘要，避免旧记录混入。共同预热失败耗尽重试后，阻塞同输入/并发组的剩余输出；重复非法访存则隔离该部署，不把未测点标成成功。
+
+预热和资格检查均不计入性能窗口，原始证据另存。容量计算见 [CAPACITY.md](CAPACITY.md)：这是当前池规格下的保守驻留预算，不把 max_num_seqs 当作缓存容量上限。
 
 ## 测量口径
 
-- 原始上下文为 L 个 token：4096、16384、65536。
-- P 阶段生成一个 seed token；额外预热续接请求，使混合注意力模型保存 L 边界的 KDA 状态。
-- D 请求发送原始上下文及 seed，共 L+1 个输入 token。必须观测到 cached_tokens=L，
-  首步与后续每步的 query length 都为 1；不允许抢占重算。
-- 输出长度 20、50 指 D 端新生成的 token，P 端 seed 不计入输出。
-- 原始上下文命中率为 100%；完整 HTTP 输入命中率为 L/(L+1)。二者分别保存，不能混称。
-- 模拟的是上下文已经就绪的 D 端续接；没有真实 KV/KDA 网络传输，不能用它替代 PD 部署端到端成绩。
-- TPOT 为首个至末个 D 输出 token 的时间差除以 O-1。首 D token 时延包含客户端发送、排队及调度。
-  不把客户端时延标成纯 GPU kernel 时间。
-
-## 数据与请求流程
-
-每个并发槽有独立随机上下文。槽位 `s` 固定到 `s % DP`，预热和每次重放使用同一个
-`X-data-parallel-rank`。同槽的四个请求顺序执行，不把所有用户改成共享前缀。
-AIPerf 负责闭环并发、四轮发送、流式计时和原始指标导出，总请求数为 `C × request_multiplier`。
-
-每个长度/并发组依次执行：清缓存 → 冷 Prefill 生成 seed → 边界预热 → 并发验证 → 性能测量。
-同组的输出长度和重复测量复用已验证的驻留上下文，`reset_between_runs: false`；切换长度或并发组时清缓存。
-正式测量前，KDA 和 FlashMLA 元数据均须显示没有 Prefill；每条计分请求仍由调度器观测
-缓存长度、DP rank、每步 token 数及抢占次数。缺少证据视为无效。
-缓存不能同时驻留的组标记 `cache_residency_failed`，保留原始响应，不混入有效性能表。
-
-当前镜像需要 `--mamba-block-size 256 --prefix-match-unit 16`；这是已固定源码上的配置，
-新运行时必须重新验证。观察器不修改调度决策，不加入 GPU 同步；仍存在少量 CPU 观测开销。
-TP1/DP8/EP8 使用 1024 的 Prefill 请求分块预算，以降低启动激活内存峰值。
-独立的 MLA 上下文工作区保持原实现；没有跳过内存检查或截断 64K 输入。
-当前 GLM 的缓存维度是 512，而镜像中的原生 MHA 上下文 gather 仅支持 320/576。
-派生 RuntimeSpec `metax60-vllm-glm53-cached-decode` 显式设置 `sparse_mla_force_mqa: true`，
-使用镜像已有的 Sparse MLA MQA 路径完成预热。原始 RuntimeSpec 和镜像均保留。
-计分时每个 DP rank 最多只有 16 个单 token 请求，仍需逐点通过完整缓存和 Decode 路径验证。
-注意力元数据只在预检时记录，计分阶段只记录逐请求调度汇总。
+- 原始上下文为 L，当前输入数组为 4096、16384、65536 token。
+- P 生成一个 seed；D 请求携带 L+1 个输入，要求 cached_tokens=L。
+- 首步与后续每步 query length 均须为 1，无抢占重算；输出 O 只计 D 端新增 token。
+- 原始上下文命中率是 100%；完整 HTTP 输入命中率是 L/(L+1)，分别记录。
+- TPOT=(末 token 到达时间−首 token 到达时间)/(O−1)。TTFT/E2E 包含客户端、排队和传输，不是 GPU kernel 独立耗时。
+- 这是上下文已就绪的 D 端模拟，不包含真实 P→D KV/KDA 传输，不代替 PD 端到端成绩。
+- 资格检查和计时阶段的 KDA、FlashMLA Attention 元数据都要求零 Prefill。观察器无 GPU 同步，但有 CPU 记录开销。
 
 ## 文件关系
 
 | 文件 | 职责 |
 |---|---|
-| `schemas/definitions/cached-decode.json` | 计划字段与约束 |
-| `recipes/plans/benchmark/glm53-vllm/cached-decode.yaml` | 两种部署、六组负载、倍率和重复次数 |
-| `recipes/deployments/glm53-flash/c500/vllm/cached-decode/` | TP8/EP8、TP1/DP8/EP8 与缓存配置 |
-| `recipes/workloads/glm53-vllm/cached-decode/` | 输入长度、输出长度、并发点、请求倍率 |
-| `benchmark/load/cached_decode.py` | 预热、验证、AIPerf 执行、断点恢复和结果表 |
-| `benchmark/load/aiperf_hooks/sitecustomize.py` | token-ID 输入的逐请求 DP 路由和请求 ID |
-| `tools/deployment/metax-vllm/observers/sitecustomize.py` | 服务端调度及注意力路径证据 |
+| `benchmark-matrix.yaml` | 单文件部署、负载、请求和测量配置 |
+| `benchmark/load/matrix_run.py` | 唯一性能扫描入口、容量裁剪、重试恢复、汇总 |
+| `benchmark/load/matrix_config.py` | 矩阵展开、部署参数、配置回读、每 DP 池读取 |
+| `benchmark/load/capacity.py` | KV 容量及并发映射算术 |
+| `benchmark/load/decode_protocol.py` | 公共预热、固定路由、请求集、AIPerf 命令和验真，无扫描入口 |
+| `benchmark/load/aiperf_hooks/sitecustomize.py` | 路由头、请求 ID、本地 tokenizer 支持 |
+| `tools/deployment/metax-vllm/observers/sitecustomize.py` | 容量、调度、Attention 证据 |
 
-AIPerf 0.12 的 payload-bytes 缓存格式不保存每个 turn 的请求头，因此该协议显式使用
-保留请求头的 conversation 格式。这个限制已覆盖在回归测试中；不能删掉后只看 HTTP 200。
-本协议关闭 AIPerf mmap 数据集缓存复用，避免加载旧的、不带路由头的数据格式。
+AIPerf 0.12 的 payload-bytes 格式不保存 turn 请求头，因此使用 conversation 格式，并关闭 mmap 数据集缓存复用，避免读入旧路由格式；这些行为由回归测试覆盖。
 
 ## 执行与调整
 
-在已安装 `benchmark/requirements.txt`、能操作 Docker 的 Linux 客户端环境中，从项目根目录运行：
+在具备模型、镜像、设备和依赖的 Linux 主机项目根目录运行：
 
 ```bash
-python -m benchmark.load.cached_decode \
-  recipes/plans/benchmark/glm53-vllm/cached-decode.yaml \
-  --out experiments/runs/glm53-cached-decode
+python -m benchmark.load.matrix_run benchmark-matrix.yaml \
+  --out experiments/runs/glm53-matrix \
+  --cache-dir "$PWD/experiments/cache"
 ```
 
-模型路径、镜像和设备来自部署与运行时配方。只做预检可加 `--qualify-only`。
-相同命令和输出目录用于恢复；已完成且快照相同的点不会重测。
-恢复前必须确认旧进程已退出；公共 benchmark 租约阻止同时启动两轮测试。
+加 `--preview` 仅检查展开和启动参数，不启动服务。
 
-修改并发：对应 workload 的 `arrival.load_points`。
-修改长度：workload 的 `input.tokens` / `output.tokens` 及标签。
-修改倍率：计划 `request_multiplier` 与 workload 的 `requests.count_multiplier` 保持一致；不一致会拒绝执行。
-修改重复：计划 `repetitions`。首次冻结后修改配方必须使用新的输出目录。
+| 调整内容 | YAML 字段 |
+|---|---|
+| 并行、EP、模型长度、调度参数 | `deployment_matrix` 的数组 |
+| 输入、输出、并发 | `workload_matrix.input_tokens/output_tokens/concurrency` |
+| 请求倍率 | `requests.count_multiplier` |
+| 重复轮数 | `requests.repetitions` |
 
-`state.json` 展示当前部署、分组和计分测点；`README.md` 汇总有效性能点。
-每点保留 `inputs.json`、AIPerf 全部导出、`engine-verification.json` 和
-`profile-verification.json`；每组保留 seed、预热响应、缓存与注意力验证。
-生成的性能数据不自动代表数值精度验收；冷运行和缓存运行的逐 token 一致性另行记录。
+实际命令保存在每点 `measurement/command.json`，观测标签在 `measurement/observation-phase.json`。`state.json` 记录进度与失败，`summary.csv` / `README.md` 汇总有效成绩。
+
+恢复要求矩阵、代码、模型和数据指纹相同，并确认旧控制器已退出。修改配置或代码后使用新输出目录，不能混入冻结结果。公共租约防止重复启动。
+
+Profiler 使用 `benchmark.breakdown.cached_decode_profile` 和 `DecodeProfilePlan`，作为专项诊断复用公共协议，不是另一套性能矩阵执行器。

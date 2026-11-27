@@ -1,6 +1,6 @@
 # 端到端拆分与算子测试准备
 
-本模块从服务请求逐层定位到模块、kernel、通信和算子输入，再为独立测试准备可复现契约。第一版提供离线规划和规范化 trace 汇总；mcTracer/mcProfiler 的原生采集、真实张量捕获与 GPU 重放尚未接入。
+本模块从服务请求逐层定位到模块、kernel、通信和算子输入，再为独立测试准备可复现契约。提供离线规划、规范化 trace 汇总，以及 vLLM 原生 torch.profiler 的缓存 Decode 采集入口；mcTracer/mcProfiler 的原生采集、真实张量捕获与 GPU 重放尚未接入。
 
 ## 四层路径
 
@@ -33,3 +33,32 @@ python -m benchmark breakdown trace examples/traces/overlap.yaml --out experimen
 `TraceCapture.evidence_kind: synthetic` 会保留为合成证据；导入规范化事件并不意味着原生 profiler 已适配。结果提供给 `diagnosis/` 和 `analysis/` 做归因及控制实验规划；算子更快之后仍需无仪器干扰的整模型 A/B 回归。
 
 上面的 `examples/traces/overlap.yaml` 是已有合成 fixture，用于验证不同 rank 和重叠区间的算法；替换成经校验的真实 `TraceCapture` 后才汇总真实捕获。
+
+## 图模式下的缓存 Decode Profiler
+
+配方入口为 [glm53-cached-decode-profiler.yaml](../../recipes/plans/breakdown/glm53-cached-decode-profiler.yaml)。复用 `DecodeProfilePlan`、`DeploymentSpec`、`WorkloadSpec` 与 `benchmark.load.decode_protocol` 的预热、DP 固定路由、请求集生成和验证逻辑，不在 Profiler 内重新定义模型或负载协议。
+
+当前配方为 TP2/DP4/EP8、图执行、总并发 4、输入 4096/16384/65536、输出 200。`max_running_requests: 16` 映射到各 DP 调度实例的 `--max-num-seqs 16`，不代表本轮实际并发为 16 或 64。负载每个 DP rank 分配一个独立上下文，每轮 16 个请求（并发×4）。
+
+在目标机器的项目根目录、具备 AIPerf 和 Docker 权限的执行环境内运行：
+
+```bash
+python -m benchmark.breakdown.cached_decode_profile \
+  recipes/plans/breakdown/glm53-cached-decode-profiler.yaml \
+  --out experiments/runs/glm53-decode-profiler-new \
+  --delay-iterations 8 --profile-iterations 32
+```
+
+流程为：启动并验证实际 graph/并行/attention/profiler 配置 → 逐槽预热与缓存/路由/Decode 验证 → Profiler 未启动的 200-token 对照 → 再次验证缓存 → `/start_profile` → 相同配置的 200-token 请求 → `/stop_profile` → 核对八个 worker trace、逐请求的全上下文命中、query=1、零抢占和输出数。原生迭代计数由固定 vLLM 版本实现，实际采集窗口以 trace 内 execute 标注为准；不把配置值当作已采集迭代数。
+
+Profiler 只采样部分迭代，HTTP 请求仍完整生成 200 tokens。采样的请求时延包含 Profiler 启停、导出干扰，不作为性能评分。每个场景独立保存 `control/`、`profiled/`、验证文件及 `traces.json`；原始 trace 写入该次 server 的 `observations/profiles/`，不放进源码或 recipes。
+
+```bash
+python -m benchmark.breakdown.torch_trace \
+  experiments/runs/glm53-decode-profiler-new/server/observations/profiles \
+  --out experiments/runs/glm53-decode-profiler-new/operator-summary
+```
+
+汇总按 worker/device 保留 kernel 调用数、总时长、均值、P95、最大值、区间并集和图重放事件，生成 Markdown 和完整 JSON。CPU 包含子调用的耗时、GPU kernel 时长和跨卡时间不能直接相加。图重放不会逐次重新进入全部 Python/ATen 调用，GPU kernel 名称与 CPU 算子记录的覆盖不同；不能伪造缺失的模块归属或 shape。kernel 名称分类只作检索提示。
+
+参考 [vLLM Profiler 接口](https://domc.vllm.ai/en/latest/contributing/profiling/)；配方中的具体字段已依据目标镜像内的固定版本源码核对。

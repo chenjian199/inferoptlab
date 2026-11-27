@@ -50,7 +50,7 @@ SCHEMA_FILES = {
     "DeploymentSpec": "deployment.json",
     "BenchmarkScenario": "benchmark-scenario.json",
     "BenchmarkPlan": "benchmark.json",
-    "CachedDecodePlan": "cached-decode.json",
+    "DecodeProfilePlan": "decode-profile.json",
     "ResolvedBenchmark": "benchmark-snapshot.json",
     "MeasurementBundle": "measurement.json",
     "HardwareMeasurement": "hardware-measurement.json",

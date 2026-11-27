@@ -1,0 +1,5 @@
+import subprocess
+PROBE="import hashlib,json\nfrom pathlib import Path\nroot=Path('/tmp/lyq-cached061-formal')\nnames={'state.json','snapshot.json','launch.json','server-info.json','server.log','profile_export_aiperf.json',\n       'profile_export.jsonl','engine-verification.json','profile-verification.json','command.json','qualification.json'}\nrows=[]\nif root.exists():\n for p in root.rglob('*'):\n  if not p.is_file():continue\n  if p.name not in names and p.name not in {'cached_decode.py','sitecustomize.py'}:continue\n  if any(part in {'.git','.venv','venv','__pycache__'} for part in p.relative_to(root).parts):continue\n  b=p.read_bytes();text=b.decode('utf-8',errors='replace')\n  if len(b)>2000000:text=text[:150000]+'\\n[TRUNCATED]\\n'+text[-100000:]\n  rows.append(dict(path=str(p),bytes=len(b),sha256=hashlib.sha256(b).hexdigest(),text=text,truncated=len(b)>2000000))\nprint(json.dumps(dict(exists=root.exists(),files=rows)))\n"
+p=subprocess.run(["docker","exec","-i","glm53-vllm032","python3","-"],input=PROBE,text=True,capture_output=True,timeout=100)
+print(p.stdout)
+if p.returncode:raise RuntimeError(p.stderr)

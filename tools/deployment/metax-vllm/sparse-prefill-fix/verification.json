@@ -1,0 +1,40 @@
+{
+  "state": {
+    "diagnostic_only": true,
+    "status": "passed",
+    "started_at": "2026-11-27T08:44:43.491520+00:00",
+    "container_id": null,
+    "output_tokens": 512,
+    "finished_at": "2026-11-27T08:51:34.517967+00:00"
+  },
+  "native_log": "{\"queries\": 1, \"heads\": 64, \"topk\": 16, \"max_abs_error\": 0.0, \"passed\": true}\n{\"queries\": 3, \"heads\": 64, \"topk\": 2048, \"max_abs_error\": 0.007603168487548828, \"passed\": true}\n{\"queries\": 17, \"heads\": 128, \"topk\": 2048, \"max_abs_error\": 0.007909059524536133, \"passed\": true}\n{\"queries\": 65, \"heads\": 64, \"topk\": 2048, \"max_abs_error\": 0.007875204086303711, \"passed\": true}\n{\"stage\": \"numerical_complete\", \"cases\": 4, \"passed\": true}\n{\"stage\": \"before_candidate\", \"index\": 4194816, \"element_offset\": 2147745792}\n{\"stage\": \"after_candidate\", \"index\": 4194816, \"max_abs_error\": 0.0, \"passed\": true}\n",
+  "cases": [
+    {
+      "path": "/home/ubuntu/CJ_workspace/inferoptlab-prefill-fix-20261127/diagnostic/c32/qualification.json",
+      "sha256": "648a84ad9542f93e6750b90f1cdb53ce3f579eab6734933d58a7659f99720b9b",
+      "valid": true,
+      "requests": 32,
+      "cache_all_valid": true,
+      "engine_valid": true,
+      "attention_valid": true
+    },
+    {
+      "path": "/home/ubuntu/CJ_workspace/inferoptlab-prefill-fix-20261127/diagnostic/output-128/qualification.json",
+      "sha256": "2f0812e2f36a6ca1fd943e8145719bed1a54cd813217de8f8b36f4bd79b5e5e3",
+      "valid": true,
+      "requests": 32,
+      "cache_all_valid": true,
+      "engine_valid": true,
+      "attention_valid": true
+    },
+    {
+      "path": "/home/ubuntu/CJ_workspace/inferoptlab-prefill-fix-20261127/diagnostic/output-512/qualification.json",
+      "sha256": "383daa740b5fb6849acda7e4c8fecf4125f4ce546e8060cbeb847c6d15527898",
+      "valid": true,
+      "requests": 32,
+      "cache_all_valid": true,
+      "engine_valid": true,
+      "attention_valid": true
+    }
+  ]
+}

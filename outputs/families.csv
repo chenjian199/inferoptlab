@@ -1,0 +1,61 @@
+case,family,sum_rank_ms,share_pct
+off-4096-c1,other,683.994,26.87
+off-4096-c1,other GEMM,570.271,22.4
+off-4096-c1,mHC,401.274,15.76
+off-4096-c1,MoE,377.471,14.83
+off-4096-c1,collective,350.042,13.75
+off-4096-c1,attention/linear attention,162.574,6.39
+off-4096-c8,other,883.544,25.66
+off-4096-c8,MoE,685.53,19.91
+off-4096-c8,other GEMM,670.627,19.48
+off-4096-c8,mHC,474.822,13.79
+off-4096-c8,collective,433.003,12.58
+off-4096-c8,attention/linear attention,295.611,8.59
+off-16384-c1,other,697.365,27.2
+off-16384-c1,other GEMM,570.307,22.24
+off-16384-c1,mHC,401.26,15.65
+off-16384-c1,MoE,377.187,14.71
+off-16384-c1,collective,355.55,13.87
+off-16384-c1,attention/linear attention,162.561,6.34
+off-16384-c4,other,848.014,26.42
+off-16384-c4,other GEMM,658.139,20.5
+off-16384-c4,MoE,639.707,19.93
+off-16384-c4,mHC,432.3,13.47
+off-16384-c4,collective,417.202,13.0
+off-16384-c4,attention/linear attention,214.42,6.68
+off-65536-c1,other,724.859,28.2
+off-65536-c1,other GEMM,570.42,22.19
+off-65536-c1,mHC,401.294,15.61
+off-65536-c1,MoE,377.576,14.69
+off-65536-c1,collective,333.335,12.97
+off-65536-c1,attention/linear attention,162.58,6.33
+on-4096-c1,other,762.06,27.03
+on-4096-c1,other GEMM,566.804,20.11
+on-4096-c1,collective,508.356,18.03
+on-4096-c1,mHC,417.751,14.82
+on-4096-c1,MoE,401.26,14.23
+on-4096-c1,attention/linear attention,162.691,5.77
+on-4096-c8,other,974.124,25.17
+on-4096-c8,collective,737.379,19.05
+on-4096-c8,MoE,715.092,18.47
+on-4096-c8,other GEMM,667.758,17.25
+on-4096-c8,mHC,482.605,12.47
+on-4096-c8,attention/linear attention,293.981,7.59
+on-16384-c1,other,774.896,27.05
+on-16384-c1,other GEMM,566.813,19.78
+on-16384-c1,collective,541.698,18.91
+on-16384-c1,mHC,417.814,14.58
+on-16384-c1,MoE,400.968,14.0
+on-16384-c1,attention/linear attention,162.726,5.68
+on-16384-c4,other,938.203,25.92
+on-16384-c4,collective,705.418,19.49
+on-16384-c4,MoE,659.106,18.21
+on-16384-c4,other GEMM,656.39,18.14
+on-16384-c4,mHC,446.446,12.34
+on-16384-c4,attention/linear attention,213.616,5.9
+on-65536-c1,other,803.209,27.95
+on-65536-c1,other GEMM,566.858,19.72
+on-65536-c1,collective,520.994,18.13
+on-65536-c1,mHC,417.835,14.54
+on-65536-c1,MoE,402.379,14.0
+on-65536-c1,attention/linear attention,162.739,5.66

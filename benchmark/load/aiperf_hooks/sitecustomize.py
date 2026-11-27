@@ -1,11 +1,27 @@
 """Carry an explicit DP rank from an Inputs JSON fixture to AIPerf Turn headers.
 
-Only enabled by cached_decode's AIPerf subprocess. The private field is removed
+Only enabled by cached Decode AIPerf subprocesses. The private field is removed
 before payload serialization; all request scheduling and measurements are AIPerf's.
 """
 import importlib.abc
 import importlib.machinery
 import sys
+from pathlib import Path
+
+
+def local_tokenizer(module):
+    """AIPerf's offline snapshot resolver must accept an existing local path.
+
+    Hub IDs still use AIPerf's original resolver. Do not substitute a tokenizer
+    or change token counting; this only avoids sending a path to snapshot_download.
+    """
+    original = module.Tokenizer._resolve_local_snapshot
+    def resolve(cls, name, revision):
+        path = Path(name)
+        if path.is_dir():
+            return str(path.resolve())
+        return original(name, revision)
+    module.Tokenizer._resolve_local_snapshot = classmethod(resolve)
 
 
 def attach_ranks(module):
@@ -39,7 +55,8 @@ def preserve_headers(module):
 
 
 TARGETS = {'aiperf.dataset.loader.inputs_json': attach_ranks,
-           'aiperf.dataset.dataset_manager': preserve_headers}
+           'aiperf.dataset.dataset_manager': preserve_headers,
+           'aiperf.common.tokenizer': local_tokenizer}
 
 
 class Loader(importlib.abc.Loader):

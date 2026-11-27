@@ -1,0 +1,222 @@
+# 单文件性能扫描入口：python -m benchmark.load.matrix_run。
+# 不直接传给原有 BenchmarkPlan / CachedDecodePlan 执行器。
+# 不引用其他 YAML；启动参数、负载、测量口径都在此文件内定义。
+# 所有相对本地路径以 inferoptlab 仓库根目录为基准。
+format_version: "0.1-draft"
+name: glm53-c500-cached-decode
+status: draft
+
+target:
+  ssh_host: metax-60
+  gpu_indices: [0, 1, 2, 3, 4, 5, 6, 7]
+  # 本机 Docker image ID，不是可以直接从镜像仓库拉取的 digest。
+  docker_image_id: "sha256:9d82e3b3cc52430770a02b00d8c763b62e9c8bc64c4be871d9be25148e4fdf8b"
+  model_path: /mnt/ufs1/models/models/metax-tech/GLM-5.3-Flash-W8A8
+  tokenizer_path: /mnt/ufs1/models/models/metax-tech/GLM-5.3-Flash-W8A8
+  served_model_name: glm53-flash
+  port: 18082
+
+# 部署矩阵：parallelism 的每一行是一个整体，与下方每个数组交叉组合。
+# 每个并行形态都组合EP、max_num_seqs、token预算等数组，当前共48种部署。
+deployment_matrix:
+  parallelism:
+    - {tp: 8, pp: 1, dp: 1}
+    - {tp: 4, pp: 1, dp: 2}
+    - {tp: 2, pp: 1, dp: 4}
+    - {tp: 1, pp: 1, dp: 8}
+    # 新增形态示例：{tp: 4, pp: 2, dp: 1}
+    # 当前已验证的缓存 Decode 流程仅支持 pp=1；新增 PP 必须先补齐支持验证。
+
+  enable_expert_parallel: [false, true]  # --enable-expert-parallel
+  # EP 不是额外卡数轴；pp=1 时开启 EP 的组大小为 TP×DP，此处都是 8。
+  # DP>1、EP=false 也可能有 MoE 集合通信，不能解释为“完全无通信”。
+  max_model_len: [auto]                # --max-model-len auto；启动后回读实际整数长度
+  max_num_seqs: [16, 32]               # 每个DP引擎同时调度上限；不等于可驻留预热条数
+  max_num_batched_tokens: [2048, 4096, 8192]  # 每引擎每步token预算；不是固定chunk或驻留容量
+  enable_chunked_prefill: [true]        # --enable-chunked-prefill
+  graph_enabled: [true]                # false → --enforce-eager；true → 不传该开关
+  gpu_memory_utilization: [0.90]        # --gpu-memory-utilization
+  # 可改为两个值 [false, true] 来比较图执行；必须回读实际图模式及捕获尺寸。
+
+# 所有部署共有的固定参数。上面的扫描轴不能再在这里重复定义。
+# 基于此前成功轮次；这些是复现起点，不表示已经是最优参数。
+server:
+  environment:
+    USE_PRECOMPILED_KERNEL: "1"
+    VLLM_USE_V2_MODEL_RUNNER: "1"
+    VLLM_USE_RUST_FRONTEND: "0"
+    OMP_NUM_THREADS: "4"
+    INFEROPTLAB_SPARSE_PREFILL_OFFSET64: "1"  # C500 BF16 512/512稀疏Prefill地址乘法64位修复
+  parameters:
+    dtype: bfloat16
+    quantization: compressed-tensors
+    load_format: safetensors
+    reasoning_parser: glm47
+    limit_mm_per_prompt: {image: 0, video: 0}
+    attention_config: {indexer_kv_dtype: auto, sparse_mla_force_mqa: true}
+    enable_prefix_caching: true
+    async_scheduling: false             # 对应 --no-async-scheduling
+    disable_custom_all_reduce: true
+    all2all_backend: allgather_reducescatter
+    mamba_block_size: 256
+    prefix_match_unit: 16
+    # 不硬编码 attention block_size；记录后端最终解析的值。
+  profiler_enabled: false              # 性能扫描不混入 profiler 开销
+  startup_timeout_s: 900
+
+# 负载矩阵：先按KV驻留容量裁剪并发，再运行输入×输出×有效并发的所有组合。
+# 当前输出 128/512；同一输入长度按最长输出预留缓存，使用相同并发点。
+workload_matrix:
+  input_tokens: [4096, 16384, 65536]     # 精确 token 数，不使用字符数或近似 K
+  output_tokens: [128, 512]             # D端新增token；不包含P端seed
+  concurrency: [1, 2, 4, 8, 16, 32, 48, 64, 80, 96, 112, 128]  # 全服务客户端总并发，不是每DP并发
+
+requests:
+  arrival: closed_loop
+  count_multiplier: 4                  # 每测点每重复轮 N = concurrency × 4
+  # 不设置最小 200 请求门槛；预热和资格验证请求额外统计、不进入 N。
+  repetitions: 1
+  seed: 20261125
+  temperature: 0
+  ignore_eos: true
+  stream: true
+  stop_policy: fixed_output_tokens
+  request_timeout_s: 900
+  point_timeout_s: 7200
+
+measurement:
+  method: cached_decode
+  context_policy: independent_per_concurrent_slot
+  dataset_reuse: identical_token_ids_across_deployments
+  routing: sticky_slot_to_dp_rank       # slot_id % dp；同槽预热与计时请求路由一致
+  cache_policy: full_original_context_plus_one_seed
+  original_context_hit_ratio_required: 1.0
+  # L 个原始输入 token 全命中；线上请求为 L+1，额外 seed 是第一个 D 步的输入。
+  # 不是要求 L+1 全部命中；不测 P→D KV 传输，也不是实际 PD 分离部署。
+  verify_cache_for_every_scored_request: true
+  preemptions_allowed: 0
+  reset_cache_between_input_concurrency_groups: true
+  warmup_all_slots_before_measurement: true
+  retain_cache_across_outputs_and_repetitions: false
+  # 每个输出长度/重复轮独立清缓存、用相同输入重新预热；一轮内部4次复用。
+  warmup_in_scored_metrics: false
+  # 复用 seed/fill-boundary/路由验证；完整输出的有效性在正式计时请求中检查。
+  latency_metrics: [ttft_ms, tpot_ms, e2e_ms]
+  latency_statistics: [mean, p50, p90, p95, p99]
+  # AIPerf 0.12的ITL与本项目TPOT都是每请求平均值；原始ITL作核对，汇总只展示TPOT。
+  itl_source: aiperf_inter_token_latency
+  tpot_definition: first_to_last_output_token_seconds_divided_by_output_tokens_minus_one
+  latency_statistics_scope: per_request
+  # 逐流式响应的抖动应额外采集ICL；请求级ITL P95不是逐token间隔P95。
+  throughput_metrics: [output_tokens_per_second, requests_per_second]
+  throughput_window: first_actual_send_to_last_completion_or_timeout
+  # 吞吐量每轮单独计算；跨轮保存逐轮值与均值，不伪造“请求级吞吐 P95”。
+  report_counts: [planned, succeeded, failed, timed_out, cache_invalid]
+  report_server_metrics: true
+  # TTFT/E2E 包含客户端排队和传输；TPOT 也不是 GPU kernel 独立计时。
+  accuracy_acceptance: not_established
+
+# 详细公式与旧数据解释：benchmark/load/CAPACITY.md。
+# 正式扫描启动后计算容量，不额外执行逐并发的容量边界探测。
+capacity_planning:
+  enabled: true
+  mode: calculate_after_startup
+  scope: per_deployment_and_input_length
+  output_reservation: max_of_workload_output_tokens
+  resolve_model_len: read_actual_value_after_startup
+  require_per_dp_rank_capacity: true
+  capacity_source: per_engine_resolved_kv_groups_and_block_pools
+  # server_info.num_gpu_blocks是DP合计；优先采集每个EngineCore的真实池。
+  # 历史数据只有在各DP等容量假设下才用总块数÷DP，并用每引擎容量日志交叉核对。
+  # TP 各 rank 持有同一批请求的分片，容量取限制最紧者，不相加；EP 也不乘卡数。
+  # 同一 block pool 的各 cache group 消耗相加；不同 pool 分别计算，再取最小。
+  reserve_null_blocks_per_pool: 1
+  additional_reserved_blocks_per_pool: 0
+  include_output_growth: true
+  include_boundary_fill_peak: true
+  include_retained_prefix_checkpoints: true
+  include_copy_on_write_and_live_states: true
+  # MLA/KDA 混合缓存不能只用日志里的等效 token 容量除以输入长度。
+  # 每条预热上下文保留原始L，并为最多512个新token及真实状态副本留空间。
+  # 同一块不能重复计数；临时额外开销需有来源，不能把可淘汰旧缓存都算作永久占用。
+  concurrency_limit_basis: kv_residency_only
+  scheduling_policy: allow_queueing
+  report_running_and_waiting_separately: true
+  # max_num_seqs和每步token预算只影响调度，不直接裁剪预热条数/客户端并发。
+  # 例如缓存能保留64条、max_num_seqs=16，仍允许并发64，其余请求排队。
+  # 扫描调度参数会改变启动内存画像，因此KV池仍需每种部署重新采集。
+  routing_policy: slot_mod_dp
+  preset_policy: clamp_each_then_deduplicate
+  # 实际扫描=sorted(unique(min(预设并发,KV驻留总上限)))；上限0则不生成计时点。
+  # 例如上限24：[1,2,4,8,16,32,64,128] → [1,2,4,8,16,24]。
+  request_count_basis: effective_concurrency
+  # 每点请求数=裁剪后的并发×4；多个预设点裁成同一点后只测试一次。
+  route_qualification_output_tokens: 2
+  # 2 token仅验证预热、路由和Decode路径；不用于证明完整输出容量。
+  # 正式请求覆盖完整输出及每槽4次回放，逐请求验证；无效点不进入成绩。
+  on_capacity_unknown: block_point_until_evidence_available
+  on_conservative_budget_zero: record_skipped_budget_zero
+  # 保守额外预留导致预算0时，不能直接宣称物理容量为0。
+  on_cache_miss: diagnose_before_lowering_limit
+  # 缓存miss也可能来自路由、边界状态或后端错误，不一律归类为物理容量不足。
+  on_confirmed_capacity_shortage: record_invalid_and_continue
+  record_requested_to_effective_mapping: true
+  # 容量值是实际池规格计算的保守预算，不声称实测物理最大值。
+
+combination_rules:
+  expansion: cartesian_product
+  # 部署按全部部署轴展开，再与全部负载轴和 repetitions 组合；没有粗筛/晋级。
+  required_gpu_count: "tp * pp * dp == len(target.gpu_indices)"
+  required_context_capacity: "input_tokens + 1 + output_tokens <= resolved_max_model_len"
+  supported_pp: [1]
+  concurrency_above_dp_times_max_num_seqs: allow_queueing
+  # 仅以KV驻留容量裁剪并发；排队计入TTFT/E2E，并单独报告Running/Waiting。
+  # C<DP 允许执行：部分 DP rank 空闲，结果必须记录各 rank 实际并发。
+  on_invalid_combination: record_skipped_with_reason
+  on_insufficient_kv_capacity: record_capacity_insufficient
+  on_cache_validation_failure: record_invalid_not_pure_decode
+  # 此字段按展开后的字段做精确匹配；每条规则的所有条件同时匹配才排除。
+  exclude: []
+  # exclude 示例（取消注释并替换上面的空列表）：
+  #   - match: {tp: 1, pp: 1, dp: 8, enable_expert_parallel: false}
+  #     reason: 暂时不测 DP8 关闭 EP
+
+execution:
+  policy: full_scan
+  preview_before_execution: true
+  concurrent_deployments: 1             # 一套八卡逐个部署运行，避免彼此干扰
+  group_by: deployment                 # 每种部署启动一次，依次跑完其有效负载点
+  workload_order: [input_tokens, concurrency, output_tokens, repetition]
+  on_startup_failure: record_failed_and_continue_next_deployment
+  on_point_failure: record_failed_restart_and_requalify_before_next_point
+  max_point_retries: 1
+  on_group_preparation_failure: block_remaining_outputs_after_retry
+  on_repeated_device_illegal_access: quarantine_deployment
+  resume: true
+  resume_requires: same_resolved_config_image_model_dataset_and_valid_completed_result
+  # 失败重试单独留档；不能把失败请求删除后将剩余样本称作完整成功点。
+
+artifacts:
+  root: experiments/runs/glm53-matrix
+  create_unique_run_directory: true
+  save:
+    - original_matrix_yaml
+    - resolved_point_configs
+    - expanded_matrix_with_skip_reasons
+    - image_and_model_identity
+    - launch_commands_and_resolved_server_settings
+    - hardware_and_software_inventory
+    - dataset_token_ids_and_hashes
+    - cache_and_routing_validation
+    - per_rank_kv_pools_and_slot_peak_accounting
+    - capacity_limits_and_requested_to_effective_concurrency
+    - raw_aiperf_results
+    - server_logs_and_metrics
+    - per_repetition_metrics
+    - summary_csv_and_markdown
+
+# 当前预设规模（尚未按各部署实际KV驻留容量裁剪、去重）：
+# 4个并行形态 × 2个EP开关 × 2个max_num_seqs × 3个token预算 = 48种部署。
+# 每部署3个输入长度 × 2个输出长度 × 12个并发 = 72个测点。
+# 共48×72×1轮 = 3456个计时Run；不含预热、资格检查和失败重试。
+# 最终Run数在实际容量回读、并发裁剪和去重之后确定，不再固定为3456。

@@ -1,0 +1,504 @@
+{
+  "source_counts": {
+    "A 60含Prefill旧扫描": 91,
+    "B 60缓存Decode r3": 26,
+    "C 61同事TP8": 18,
+    "D 同事TP4 DP2 EP关": 6,
+    "E 64同事DP8 EP开": 15,
+    "F 60图模式配对control": 3,
+    "G 60历史512输出扫描": 7
+  },
+  "total_summary_rows": 166,
+  "old_scan_scored_requests": 9936,
+  "tp8_profile": {
+    "cases": 10,
+    "ranks": 80,
+    "kernels": 9936,
+    "families": 60
+  },
+  "ep_deltas": [
+    {
+      "case": "off-16384-c1",
+      "total_off_rank_ms": 2564.229063000005,
+      "total_on_rank_ms": 2864.9145019999974,
+      "delta_rank_ms": 300.68543899999213,
+      "collective_delta_rank_ms": 186.14800800000006,
+      "collective_share_of_delta_pct": 61.90788906143371
+    },
+    {
+      "case": "off-16384-c4",
+      "total_off_rank_ms": 3209.783640999997,
+      "total_on_rank_ms": 3619.1794939999954,
+      "delta_rank_ms": 409.3958529999986,
+      "collective_delta_rank_ms": 288.2163910000001,
+      "collective_share_of_delta_pct": 70.40041780784748
+    },
+    {
+      "case": "off-4096-c1",
+      "total_off_rank_ms": 2545.6270529999983,
+      "total_on_rank_ms": 2818.922624999999,
+      "delta_rank_ms": 273.29557200000045,
+      "collective_delta_rank_ms": 158.313868,
+      "collective_share_of_delta_pct": 57.927710588739345
+    },
+    {
+      "case": "off-4096-c8",
+      "total_off_rank_ms": 3443.137551999996,
+      "total_on_rank_ms": 3870.938398999999,
+      "delta_rank_ms": 427.80084700000316,
+      "collective_delta_rank_ms": 304.3758000000001,
+      "collective_share_of_delta_pct": 71.14894749144754
+    },
+    {
+      "case": "off-65536-c1",
+      "total_off_rank_ms": 2570.0639060000003,
+      "total_on_rank_ms": 2874.014221999995,
+      "delta_rank_ms": 303.9503159999945,
+      "collective_delta_rank_ms": 187.65912500000002,
+      "collective_share_of_delta_pct": 61.74006576785511
+    }
+  ],
+  "profile_families": [
+    {
+      "trace": "l16384-o200-c4_dp0_pp0_tp0_dcp0_ep0_rank0.1795684751027658828.pt.trace-summary.json",
+      "total_ms": 871.1252460000004,
+      "memory_ops": [
+        {
+          "kind": "gpu_memcpy",
+          "lane": "0",
+          "name": "Memcpy HtoA (Device -> Device)",
+          "family_hint": "other",
+          "calls": 2592,
+          "total_ms": 37.56042999999996,
+          "mean_us": 14.490906635802455,
+          "p95_us": 15.67,
+          "max_us": 19.15
+        },
+        {
+          "kind": "gpu_memcpy",
+          "lane": "0",
+          "name": "Memcpy HtoD (Pinned -> Device)",
+          "family_hint": "other",
+          "calls": 96,
+          "total_ms": 1.0293759999999996,
+          "mean_us": 10.722666666666662,
+          "p95_us": 12.544,
+          "max_us": 15.616
+        },
+        {
+          "kind": "gpu_memcpy",
+          "lane": "0",
+          "name": "Memcpy DtoH (Device -> Pageable)",
+          "family_hint": "other",
+          "calls": 64,
+          "total_ms": 0.1351680000000001,
+          "mean_us": 2.1120000000000014,
+          "p95_us": 3.072,
+          "max_us": 3.584
+        },
+        {
+          "kind": "gpu_memset",
+          "lane": "0",
+          "name": "Memset (Device)",
+          "family_hint": "other",
+          "calls": 2688,
+          "total_ms": 95.03870000000012,
+          "mean_us": 35.356659226190516,
+          "p95_us": 46.58015,
+          "max_us": 52.46
+        }
+      ],
+      "all_recorded_gpu_activity_union_ms": 1002.973083984375,
+      "all_recorded_gpu_activity_span_ms": 1276.58316796875,
+      "uncovered_in_recorded_gpu_span_ms": 273.610083984375,
+      "memset_sizes": [
+        {
+          "bytes": 524288,
+          "name": "Memset (Device)",
+          "calls": 2688
+        }
+      ],
+      "families": {
+        "collective": {
+          "calls": 7008,
+          "ms": 208.13892300000018,
+          "share_pct": 23.89311111757173
+        },
+        "gemm": {
+          "calls": 11808,
+          "ms": 238.65054499999977,
+          "share_pct": 27.39566395255174
+        },
+        "moe_gemm": {
+          "calls": 2688,
+          "ms": 102.2247189999999,
+          "share_pct": 11.73479008551198
+        },
+        "mhc": {
+          "calls": 5760,
+          "ms": 85.367875,
+          "share_pct": 9.799724596662644
+        },
+        "indexer_or_topk": {
+          "calls": 3072,
+          "ms": 27.008121000000017,
+          "share_pct": 3.100371746085293
+        },
+        "kda_or_state": {
+          "calls": 2176,
+          "ms": 17.653049999999993,
+          "share_pct": 2.0264652047519682
+        },
+        "attention": {
+          "calls": 704,
+          "ms": 17.069373999999982,
+          "share_pct": 1.959462669504584
+        },
+        "moe_routing_or_compute": {
+          "calls": 4032,
+          "ms": 20.97481600000007,
+          "share_pct": 2.4077841959363973
+        },
+        "quantization": {
+          "calls": 6976,
+          "ms": 23.441910000000135,
+          "share_pct": 2.6909919219583864
+        },
+        "other": {
+          "calls": 35104,
+          "ms": 129.16486300000014,
+          "share_pct": 14.827358476073838
+        },
+        "normalization": {
+          "calls": 384,
+          "ms": 1.431049999999999,
+          "share_pct": 0.1642760333914141
+        }
+      }
+    },
+    {
+      "trace": "l4096-o200-c4_dp0_pp0_tp0_dcp0_ep0_rank0.1795684637283592567.pt.trace-summary.json",
+      "total_ms": 852.7020520000003,
+      "memory_ops": [
+        {
+          "kind": "gpu_memcpy",
+          "lane": "0",
+          "name": "Memcpy HtoA (Device -> Device)",
+          "family_hint": "other",
+          "calls": 2592,
+          "total_ms": 37.962342000000056,
+          "mean_us": 14.6459652777778,
+          "p95_us": 15.64,
+          "max_us": 382.976
+        },
+        {
+          "kind": "gpu_memcpy",
+          "lane": "0",
+          "name": "Memcpy HtoD (Pinned -> Device)",
+          "family_hint": "other",
+          "calls": 96,
+          "total_ms": 1.0854399999999995,
+          "mean_us": 11.306666666666663,
+          "p95_us": 13.376,
+          "max_us": 14.08
+        },
+        {
+          "kind": "gpu_memcpy",
+          "lane": "0",
+          "name": "Memcpy DtoH (Device -> Pageable)",
+          "family_hint": "other",
+          "calls": 64,
+          "total_ms": 0.13696000000000008,
+          "mean_us": 2.1400000000000015,
+          "p95_us": 3.2895999999999983,
+          "max_us": 3.328
+        },
+        {
+          "kind": "gpu_memset",
+          "lane": "0",
+          "name": "Memset (Device)",
+          "family_hint": "other",
+          "calls": 2688,
+          "total_ms": 95.50228599999984,
+          "mean_us": 35.529124255952325,
+          "p95_us": 46.47,
+          "max_us": 54.54
+        }
+      ],
+      "all_recorded_gpu_activity_union_ms": 985.5917158203125,
+      "all_recorded_gpu_activity_span_ms": 1239.0814716796874,
+      "uncovered_in_recorded_gpu_span_ms": 253.489755859375,
+      "memset_sizes": [
+        {
+          "bytes": 524288,
+          "name": "Memset (Device)",
+          "calls": 2688
+        }
+      ],
+      "families": {
+        "collective": {
+          "calls": 7008,
+          "ms": 197.06017000000008,
+          "share_pct": 23.110085115638963
+        },
+        "gemm": {
+          "calls": 11808,
+          "ms": 238.5461119999998,
+          "share_pct": 27.97531815954862
+        },
+        "moe_gemm": {
+          "calls": 2688,
+          "ms": 98.11245600000004,
+          "share_pct": 11.506065426942353
+        },
+        "mhc": {
+          "calls": 5760,
+          "ms": 85.26622699999996,
+          "share_pct": 9.999533459548886
+        },
+        "indexer_or_topk": {
+          "calls": 3072,
+          "ms": 24.189596000000016,
+          "share_pct": 2.8368169096419633
+        },
+        "kda_or_state": {
+          "calls": 2176,
+          "ms": 17.643458000000013,
+          "share_pct": 2.069123436330139
+        },
+        "attention": {
+          "calls": 704,
+          "ms": 17.056319999999996,
+          "share_pct": 2.0002672633418257
+        },
+        "moe_routing_or_compute": {
+          "calls": 4032,
+          "ms": 20.958011000000035,
+          "share_pct": 2.457835178283355
+        },
+        "quantization": {
+          "calls": 6976,
+          "ms": 23.45036900000012,
+          "share_pct": 2.7501246121077836
+        },
+        "other": {
+          "calls": 35104,
+          "ms": 128.99120800000017,
+          "share_pct": 15.127348139652433
+        },
+        "normalization": {
+          "calls": 384,
+          "ms": 1.4281249999999983,
+          "share_pct": 0.16748229896367106
+        }
+      }
+    },
+    {
+      "trace": "l65536-o200-c4_dp0_pp0_tp0_dcp0_ep0_rank0.1795684946051006026.pt.trace-summary.json",
+      "total_ms": 871.4394730000004,
+      "memory_ops": [
+        {
+          "kind": "gpu_memcpy",
+          "lane": "0",
+          "name": "Memcpy HtoA (Device -> Device)",
+          "family_hint": "other",
+          "calls": 2592,
+          "total_ms": 37.60589200000003,
+          "mean_us": 14.508445987654335,
+          "p95_us": 15.65,
+          "max_us": 17.28
+        },
+        {
+          "kind": "gpu_memcpy",
+          "lane": "0",
+          "name": "Memcpy HtoD (Pinned -> Device)",
+          "family_hint": "other",
+          "calls": 96,
+          "total_ms": 1.017344,
+          "mean_us": 10.597333333333333,
+          "p95_us": 12.352,
+          "max_us": 14.08
+        },
+        {
+          "kind": "gpu_memcpy",
+          "lane": "0",
+          "name": "Memcpy DtoH (Device -> Pageable)",
+          "family_hint": "other",
+          "calls": 64,
+          "total_ms": 0.1408000000000001,
+          "mean_us": 2.2000000000000015,
+          "p95_us": 3.328,
+          "max_us": 3.584
+        },
+        {
+          "kind": "gpu_memset",
+          "lane": "0",
+          "name": "Memset (Device)",
+          "family_hint": "other",
+          "calls": 2688,
+          "total_ms": 95.34517500000015,
+          "mean_us": 35.47067522321434,
+          "p95_us": 46.73,
+          "max_us": 52.53
+        }
+      ],
+      "all_recorded_gpu_activity_union_ms": 1003.6851064453125,
+      "all_recorded_gpu_activity_span_ms": 1271.730431640625,
+      "uncovered_in_recorded_gpu_span_ms": 268.0453251953125,
+      "memset_sizes": [
+        {
+          "bytes": 524288,
+          "name": "Memset (Device)",
+          "calls": 2688
+        }
+      ],
+      "families": {
+        "collective": {
+          "calls": 7008,
+          "ms": 203.9856659999998,
+          "share_pct": 23.40789834751951
+        },
+        "gemm": {
+          "calls": 11808,
+          "ms": 238.59541500000006,
+          "share_pct": 27.379459204276827
+        },
+        "moe_gemm": {
+          "calls": 2688,
+          "ms": 101.43221499999996,
+          "share_pct": 11.639616765443435
+        },
+        "mhc": {
+          "calls": 5760,
+          "ms": 85.36476800000004,
+          "share_pct": 9.795834437717742
+        },
+        "indexer_or_topk": {
+          "calls": 3072,
+          "ms": 31.805354000000026,
+          "share_pct": 3.6497490629506992
+        },
+        "kda_or_state": {
+          "calls": 2176,
+          "ms": 17.66482900000001,
+          "share_pct": 2.0270861657422308
+        },
+        "attention": {
+          "calls": 704,
+          "ms": 17.06857999999999,
+          "share_pct": 1.9586650052975032
+        },
+        "moe_routing_or_compute": {
+          "calls": 4032,
+          "ms": 20.98254500000005,
+          "share_pct": 2.407802911172471
+        },
+        "quantization": {
+          "calls": 6976,
+          "ms": 23.474023000000127,
+          "share_pct": 2.693706645992167
+        },
+        "other": {
+          "calls": 35104,
+          "ms": 129.63716800000023,
+          "share_pct": 14.87621022647894
+        },
+        "normalization": {
+          "calls": 384,
+          "ms": 1.4289099999999988,
+          "share_pct": 0.1639712274084695
+        }
+      }
+    }
+  ],
+  "workbook_sheets": [
+    "总览",
+    "EP对照",
+    "Kernel聚合",
+    "Rank与分类",
+    "原始Kernel",
+    "优化与边界"
+  ],
+  "sources": {
+    "outputs/TP8_耗时占比与优化方向分析.md": {
+      "bytes": 32931,
+      "sha256": "c12aa31f9b95a214078a5ec6444f0b552f459718f40c9ede12f9797d9d1c6f01"
+    },
+    "outputs/glm53-short-output-20261126/markdown-source.json": {
+      "bytes": 904,
+      "sha256": "1444ca2c02d4169948e9150a76a236edd31cd10f8508ae7393d5f38682db5846"
+    },
+    "experiments/evidence/glm53-short-output-collected-20261125/20261126T025307.067014Z.json.gz": {
+      "bytes": 8768574,
+      "sha256": "26a4f60a6b02a68d98eeaee6e720d34d48b18bfe558eaade4f159cbfb39c14b1"
+    },
+    "outputs/glm53-cached-decode-20261126/quick-read.json": {
+      "bytes": 26968,
+      "sha256": "416b97a51814699d4d6ec71a63d4387f45152082dab3d79f275221084bdae4af"
+    },
+    "outputs/TP8.md": {
+      "bytes": 2540,
+      "sha256": "7ca8d7ebfea32ec03d1216f23a10e60e05995d2c55a27421e614a25ecb353ace"
+    },
+    "outputs/tp4_dp2_ep1_summary.csv": {
+      "bytes": 3764,
+      "sha256": "9bcea4d5d822a99975681479f86d96c83cd19ed09a2d065742fd464cb4169d49"
+    },
+    "outputs/README-ep8.md": {
+      "bytes": 4896,
+      "sha256": "172b9b547cf1abc6368ca9f3732b1832e32792fd3881c8922c1b303952ed7d10"
+    },
+    "outputs/glm53-tp2-dp4-ep8-profiler-20261126/results.json": {
+      "bytes": 177042,
+      "sha256": "528792f725fb44c2c68c57cc8faae73ec09683731cf65b45f0dcf6bcacdb2fc3"
+    },
+    "outputs/glm53-decode-20261125/tables.json": {
+      "bytes": 234890,
+      "sha256": "b672ccca5c240098c5495b32cc6b5f57fa047660974f6deac7ef51e6632c1506"
+    },
+    "outputs/families.csv": {
+      "bytes": 2262,
+      "sha256": "5dadfe74c5358fa5fe643d208d3063f964c47281023979d84e82d34cb38fe1e5"
+    },
+    "outputs/ranks.csv": {
+      "bytes": 17025,
+      "sha256": "0fdc9b4e8ed2b2480f3f252aa07ade3bd48270285b4e8b83667bb07f392095fe"
+    },
+    "outputs/kernels(1).csv": {
+      "bytes": 3752142,
+      "sha256": "bff09da155eab4c7966ccdb3b3c3b1d5375ca1ceddefbf093b7964afb83465af"
+    },
+    "outputs/TP8_耗时与优化分析.xlsx": {
+      "bytes": 1203246,
+      "sha256": "adcbfab894ba0a9c6314ed6add1dabccdaecb40222cec522618e4ec5cad5f2b8"
+    },
+    "outputs/glm53-tp2-dp4-ep8-profiler-20261126/operators/manifest.json": {
+      "bytes": 17547,
+      "sha256": "b52889df9364122744a1a9afdefc65185e0b62a3078bc69b746e9fa28e28893e"
+    },
+    "outputs/glm53-tp2-dp4-ep8-profiler-20261126/operators/l16384-o200-c4_dp0_pp0_tp0_dcp0_ep0_rank0.1795684751027658828.pt.trace-summary.json": {
+      "bytes": 90156,
+      "sha256": "6cfa485809ee69ef7e98e923c21df9c11dad35f7e52092d9faa88da5b0b5a921"
+    },
+    "outputs/glm53-tp2-dp4-ep8-profiler-20261126/run-r2/server/observations/profiles/l16384-o200-c4_dp0_pp0_tp0_dcp0_ep0_rank0.1795684751027658828.pt.trace.json.gz": {
+      "bytes": 5167756,
+      "sha256": "187894fdec60c607e5fe4f91ff8cd0722bb13a23d3b9b8f40423bac6602f9548"
+    },
+    "outputs/glm53-tp2-dp4-ep8-profiler-20261126/operators/l4096-o200-c4_dp0_pp0_tp0_dcp0_ep0_rank0.1795684637283592567.pt.trace-summary.json": {
+      "bytes": 90455,
+      "sha256": "73d6cb1276af252cacc602758fbc814a28104abef7243a43fa9fbe0265249966"
+    },
+    "outputs/glm53-tp2-dp4-ep8-profiler-20261126/run-r2/server/observations/profiles/l4096-o200-c4_dp0_pp0_tp0_dcp0_ep0_rank0.1795684637283592567.pt.trace.json.gz": {
+      "bytes": 5181974,
+      "sha256": "765ed30866833acce13af8b77bf097beb77cc36b245085b0a0f6fdc764cdd387"
+    },
+    "outputs/glm53-tp2-dp4-ep8-profiler-20261126/operators/l65536-o200-c4_dp0_pp0_tp0_dcp0_ep0_rank0.1795684946051006026.pt.trace-summary.json": {
+      "bytes": 90436,
+      "sha256": "d19ff372495e1d0e2612f75f0f9ff13603f2e570a0637d6831d59270b54b4ef1"
+    },
+    "outputs/glm53-tp2-dp4-ep8-profiler-20261126/run-r2/server/observations/profiles/l65536-o200-c4_dp0_pp0_tp0_dcp0_ep0_rank0.1795684946051006026.pt.trace.json.gz": {
+      "bytes": 5162381,
+      "sha256": "0216fe59526a044e13b24ea5c550e14eb609b5fc8615c7a1f5d11caa0d55eca2"
+    }
+  }
+}

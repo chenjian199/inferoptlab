@@ -25,3 +25,26 @@ data/private/
 *.sqlite-wal
 *.ncu-rep
 *.nsys-rep
+
+# Dependencies and local runtime evidence. Already tracked evidence is unchanged.
+node_modules/
+/experiments/cache/
+/experiments/evidence/
+
+# Keep readable reports and analysis scripts, not raw requests, traces or bundles.
+/outputs/**
+!/outputs/**/
+!/outputs/**/*.md
+!/outputs/**/*.csv
+!/outputs/**/*.py
+!/outputs/**/*.yaml
+!/outputs/**/*.yml
+/outputs/**/node_modules/
+/outputs/**/__pycache__/
+/outputs/**/source/
+/outputs/**/files/
+/outputs/**/run-r*/
+/outputs/**/server-metrics.md
+/issue.rar
+# The distributable fix is tracked as individual source/binary files.
+/tools/deployment/metax-vllm/sparse-prefill-fix.zip

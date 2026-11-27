@@ -2,11 +2,17 @@
 
 这是 [benchmark 三模块](../README.md) 中的压测模块，入口为 `python -m benchmark load ...`。
 
+当前GLM单文件完整矩阵使用根目录 [benchmark-matrix.yaml](../../benchmark-matrix.yaml)，入口为`python -m benchmark.load.matrix_run benchmark-matrix.yaml --out experiments/runs/glm53-matrix --cache-dir experiments/cache`（在Linux目标主机运行）。加`--preview`仅检查展开与启动参数，不启动服务。每种部署启动后按实际KV池计算并裁剪并发，直接开始正式请求；不另做逐并发容量边界探测。公式见[CAPACITY.md](CAPACITY.md)，本轮进度见[扫描记录](../../outputs/matrix-scan-20261127/README.md)。下方多文件计划保留各自的独立入口。
+
 完整上下文缓存命中的 D 端续接测试见 [Cached Decode 流程](CACHED-DECODE.md)。该入口验证独立上下文、DP 固定路由和单 token 调度，并逐请求拒绝缓存未命中的结果。
+
+Cached Decode 性能扫描唯一入口为 `matrix_run`：每个输入×并发×输出×重复轮（包括失败重试）独立清缓存、预热和资格检查。`decode_protocol.py` 仅提供公共协议函数，`matrix_config.py` 仅负责矩阵展开、部署参数和容量采集；两者都没有独立扫描入口。清理的是服务端前缀 KV 缓存，不清模型权重、图捕获或编译缓存。资格检查与计时阶段使用独立的尝试路径标签；计时标签保存在 `measurement/observation-phase.json`。
+
+AIPerf 同时接收 `--concurrency C` 与 `--request-count N`。矩阵先裁剪并发，再计算 `N = C × requests.count_multiplier`；例如并发 48、倍率 4，对应 `--concurrency 48 --request-count 192`。预热及资格检查不计入 N，测量结果必须包含完整的 N 条成功且缓存有效的请求。实际命令保存在每点的 `measurement/command.json`。
 
 本模块实现“版本化规约 → 请求集 → 部署/连接服务 → AIPerf 测量 → 结果归档 → SLA 与报告”。离线规约和编排工具可以在 Windows 使用；真实 AIPerf 执行在 Linux 测试机上进行。支持管理 SGLang 进程、MetaX vLLM Docker 部署，或连接已有 SGLang/vLLM 服务。模型和环境的未确认字段仍阻塞正式冻结；小模型流程验证的范围与结果见 [集群检查记录](../../docs/cluster-intake-20261123.md)。
 
-GLM Flash 八卡 C500 当前使用六种配置的完整正式扫描，负载点和手动增加部署的说明见 [扫描计划表](../../recipes/plans/benchmark/glm53-vllm/README.md)。`qualify` 生成绑定配置哈希的启动记录，`run --qualification` 检查记录并复用原有请求集、AIPerf、指标和归档链路。该完整计划要求所有配置通过资格检查，不使用候选筛选步骤。
+GLM Flash 八卡 C500 当前使用单 YAML 中的 48 种部署组合，负载点和手动增加部署的说明见 [扫描计划说明](../../recipes/plans/benchmark/glm53-vllm/README.md)。下文通用 BenchmarkPlan 的 `qualify` / `run --qualification` 用于其他 Prefill/E2E 计划，不作为 Cached Decode 矩阵的入口。
 
 ## 从这里开始
 
